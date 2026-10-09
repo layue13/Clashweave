@@ -1,5 +1,8 @@
 * text eol=lf
 
+# Preserve whitespace in recorded native server warnings.
+docs/probes/round2/evidence/s1b-reentry/server.log -whitespace
+
 *.[jJ][aA][rR]          binary
 
 *.[pP][nN][gG]          binary
