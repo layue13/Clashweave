@@ -1,0 +1,15 @@
+{
+  "modListVersion": 2,
+  "modList": [{
+    "modid": "${modId}",
+    "name": "${modName}",
+    "description": "Clashweave for Minecraft 1.7.10.",
+    "version": "${modVersion}",
+    "mcversion": "${minecraftVersion}",
+    "url": "https://github.com/layue13/Clashweave",
+    "authorList": ["layue13"],
+    "requiredMods": [],
+    "dependencies": [],
+    "useDependencyInformation": false
+  }]
+}
