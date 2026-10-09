@@ -21,6 +21,7 @@ public class FacingHistoryTest {
         FacingHistory h = history();
         h.observe(200_000_000, 180, 0, 0, 64, 0, true, true);
         assertEquals(15, choose(h, 15, 3, 150_000_000, 0).yaw, 0);
+        assertEquals(3, choose(h, 15, 3, 150_000_000, 0).pitch, 0);
         assertFalse(choose(h, 180, 0, 150_000_000, 0).accepted);
         assertEquals(2, choose(h, 180, 0, 150_000_000, 0).yaw, 0);
         assertEquals("HISTORY_TURN_RATE", choose(h, 180, 0, 200_000_000, 0).reason);
@@ -34,6 +35,13 @@ public class FacingHistoryTest {
         assertEquals("OLD_HISTORY", choose(history(), 0, 0, 700_000_001, 0).reason);
         assertEquals("POSITION_HISTORY", choose(history(), 0, 0, 150_000_000, 5).reason);
         assertEquals("NO_HISTORY", choose(new FacingHistory(), 0, 0, 150_000_000, 0).reason);
+    }
+
+    @Test
+    public void batchOfSmallForgedTurnsCannotResetWallClockTurnBudget() {
+        FacingHistory h = history();
+        for (int i = 1; i <= 6; i++) h.observe(100_000_000L + i * 1_000_000L, i * 30, 0, 0, 64, 0, true, true);
+        assertEquals("HISTORY_TURN_RATE", choose(h, 180, 0, 107_000_000, 0).reason);
     }
 
     @Test

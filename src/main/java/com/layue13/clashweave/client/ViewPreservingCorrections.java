@@ -6,8 +6,6 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.network.play.server.S08PacketPlayerPosLook;
 
-import com.layue13.clashweave.forge.CombatServer;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.FMLNetworkEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
@@ -49,7 +47,7 @@ public final class ViewPreservingCorrections {
         @Override
         public void processPacket(INetHandlerPlayClient handler) {
             EntityClientPlayerMP player = Minecraft.getMinecraft().thePlayer;
-            if (player == null || !CombatServer.armed(player)) {
+            if (player == null) {
                 super.processPacket(handler);
                 return;
             }

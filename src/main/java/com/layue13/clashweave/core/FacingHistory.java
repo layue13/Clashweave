@@ -64,12 +64,22 @@ public final class FacingHistory {
         double y, double z, double maxDegreesPerTick, double tolerance, long maxAge, double drift) {
         String reason = "NO_HISTORY";
         Sample s = null;
+        Sample turnBase = null;
+        for (Sample candidate : samples) {
+            if (turnBase == null) turnBase = candidate;
+            if (candidate.time <= arrival - 50_000_000L) turnBase = candidate;
+        }
         for (Sample candidate : samples) if (candidate.time <= arrival) s = candidate;
         if (!Float.isFinite(yaw) || !Float.isFinite(pitch) || Math.abs(pitch) > 90) reason = "INVALID_ANGLE";
         else if (s != null) {
             if (arrival - s.time > maxAge) reason = "OLD_HISTORY";
             else if (Math.sqrt((x - s.x) * (x - s.x) + (y - s.y) * (y - s.y) + (z - s.z) * (z - s.z)) > drift)
                 reason = "POSITION_HISTORY";
+            else if (turnBase != null && (Math.abs(difference(s.yaw, turnBase.yaw))
+                > maxDegreesPerTick * Math.max(1, (arrival - turnBase.time) / 50_000_000.0) + tolerance
+                || Math.abs(s.pitch - turnBase.pitch)
+                    > maxDegreesPerTick * Math.max(1, (arrival - turnBase.time) / 50_000_000.0) + tolerance))
+                reason = "HISTORY_TURN_RATE";
             else if (Math.abs(difference(s.yaw, s.previousYaw))
                 > maxDegreesPerTick * Math.max(1, (s.angularTime - s.previousAngularTime) / 50_000_000.0) + tolerance
                 || Math.abs(s.pitch - s.previousPitch)
