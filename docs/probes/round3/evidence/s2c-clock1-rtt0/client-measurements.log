@@ -1,0 +1,98 @@
+[05:28:03] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=0 localTick=117 nano=98464501626900
+[05:28:03] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=0 localTick=119 nano=98464577549000
+[05:28:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=0 mode=0 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:05] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=0 localTick=154 nano=98466436429500
+[05:28:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=1 mode=1 S08=0 predictedX=4.5 predictedZ=0.5 currentX=4.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:07] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=1 localTick=191 nano=98468332612500
+[05:28:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=2 mode=2 S08=0 predictedX=2.699999988079071 predictedZ=0.5 currentX=2.699999988079071 currentY=65.62000000476837 currentZ=0.5
+[05:28:09] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=2 localTick=228 nano=98470240855300
+[05:28:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=3 mode=3 S08=0 predictedX=1.9142135623730947 predictedZ=1.9142135623730947 currentX=1.9142135623730947 currentY=65.62000000476837 currentZ=1.9142135623730947
+[05:28:11] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=3 localTick=265 nano=98472077980100
+[05:28:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=4 mode=4 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:13] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=4 localTick=303 nano=98473985618200
+[05:28:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=5 mode=5 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=66.62000000476837 currentZ=0.5
+[05:28:15] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=5 localTick=340 nano=98475889760000
+[05:28:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=6 mode=6 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:16] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=6 localTick=377 nano=98477729696100
+[05:28:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=7 mode=0 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:18] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=7 localTick=414 nano=98479586156300
+[05:28:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=8 mode=1 S08=0 predictedX=4.5 predictedZ=0.5 currentX=4.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:20] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=8 localTick=451 nano=98481442721300
+[05:28:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=9 mode=2 S08=0 predictedX=2.699999988079071 predictedZ=0.5 currentX=2.699999988079071 currentY=65.62000000476837 currentZ=0.5
+[05:28:22] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=9 localTick=488 nano=98483281447000
+[05:28:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=10 mode=3 S08=0 predictedX=1.9142135623730947 predictedZ=1.9142135623730947 currentX=1.9142135623730947 currentY=65.62000000476837 currentZ=1.9142135623730947
+[05:28:24] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=10 localTick=525 nano=98485134059800
+[05:28:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=11 mode=4 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:26] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=11 localTick=562 nano=98486983988100
+[05:28:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=12 mode=5 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=66.62000000476837 currentZ=0.5
+[05:28:28] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=12 localTick=599 nano=98488835311300
+[05:28:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=13 mode=6 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:29] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=13 localTick=636 nano=98490688957100
+[05:28:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=14 mode=0 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:31] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=14 localTick=673 nano=98492540904300
+[05:28:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=15 mode=1 S08=0 predictedX=4.5 predictedZ=0.5 currentX=4.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:33] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=15 localTick=710 nano=98494385434600
+[05:28:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=16 mode=2 S08=0 predictedX=2.699999988079071 predictedZ=0.5 currentX=2.699999988079071 currentY=65.62000000476837 currentZ=0.5
+[05:28:35] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=16 localTick=747 nano=98496240803900
+[05:28:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=17 mode=3 S08=0 predictedX=1.9142135623730947 predictedZ=1.9142135623730947 currentX=1.9142135623730947 currentY=65.62000000476837 currentZ=1.9142135623730947
+[05:28:37] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=17 localTick=784 nano=98498092606800
+[05:28:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=18 mode=4 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:39] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=18 localTick=821 nano=98499965066300
+[05:28:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=19 mode=5 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=66.62000000476837 currentZ=0.5
+[05:28:40] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=19 localTick=858 nano=98501790134600
+[05:28:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=20 mode=6 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:42] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=20 localTick=895 nano=98503640883600
+[05:28:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=21 mode=0 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:44] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=21 localTick=932 nano=98505488211000
+[05:28:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=22 mode=1 S08=0 predictedX=4.5 predictedZ=0.5 currentX=4.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:46] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=22 localTick=969 nano=98507334936100
+[05:28:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=23 mode=2 S08=0 predictedX=2.699999988079071 predictedZ=0.5 currentX=2.699999988079071 currentY=65.62000000476837 currentZ=0.5
+[05:28:48] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=23 localTick=1006 nano=98509187583300
+[05:28:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=24 mode=3 S08=0 predictedX=1.9142135623730947 predictedZ=1.9142135623730947 currentX=1.9142135623730947 currentY=65.62000000476837 currentZ=1.9142135623730947
+[05:28:50] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=24 localTick=1043 nano=98511039485600
+[05:28:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=25 mode=4 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:52] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=25 localTick=1080 nano=98512876543200
+[05:28:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=26 mode=5 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=66.62000000476837 currentZ=0.5
+[05:28:53] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=26 localTick=1117 nano=98514730102200
+[05:28:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=27 mode=6 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:55] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=27 localTick=1154 nano=98516586151000
+[05:28:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=28 mode=0 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:57] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=28 localTick=1191 nano=98518433511900
+[05:28:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=29 mode=1 S08=0 predictedX=4.5 predictedZ=0.5 currentX=4.5 currentY=65.62000000476837 currentZ=0.5
+[05:28:59] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=29 localTick=1229 nano=98520331837300
+[05:29:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=30 mode=2 S08=0 predictedX=2.699999988079071 predictedZ=0.5 currentX=2.699999988079071 currentY=65.62000000476837 currentZ=0.5
+[05:29:01] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=30 localTick=1266 nano=98522183044000
+[05:29:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=31 mode=3 S08=0 predictedX=1.9142135623730947 predictedZ=1.9142135623730947 currentX=1.9142135623730947 currentY=65.62000000476837 currentZ=1.9142135623730947
+[05:29:03] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=31 localTick=1303 nano=98524033540900
+[05:29:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=32 mode=4 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:05] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=32 localTick=1340 nano=98525874949500
+[05:29:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=33 mode=5 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=66.62000000476837 currentZ=0.5
+[05:29:06] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=33 localTick=1377 nano=98527740045100
+[05:29:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=34 mode=6 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:08] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=34 localTick=1414 nano=98529579108800
+[05:29:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=35 mode=0 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:10] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=35 localTick=1452 nano=98531479919200
+[05:29:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=36 mode=1 S08=0 predictedX=4.5 predictedZ=0.5 currentX=4.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:12] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=36 localTick=1490 nano=98533382537000
+[05:29:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=37 mode=2 S08=0 predictedX=2.699999988079071 predictedZ=0.5 currentX=2.699999988079071 currentY=65.62000000476837 currentZ=0.5
+[05:29:14] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=37 localTick=1527 nano=98535231765600
+[05:29:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=38 mode=3 S08=0 predictedX=1.9142135623730947 predictedZ=1.9142135623730947 currentX=1.9142135623730947 currentY=65.62000000476837 currentZ=1.9142135623730947
+[05:29:16] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=38 localTick=1564 nano=98537087462500
+[05:29:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=39 mode=4 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:18] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=39 localTick=1601 nano=98538934252900
+[05:29:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_NATIVE_SENT trial=40 x=5.5 nano=98539670556100
+[05:29:18] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=40 localTick=1616 nano=98539688426100
+[05:29:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=40 mode=7 S08=1 predictedX=0.5 predictedZ=0.5 currentX=0.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:19] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=40 localTick=1638 nano=98540784467700
+[05:29:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_NATIVE_SENT trial=41 x=5.5 nano=98541520825300
+[05:29:20] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=41 localTick=1653 nano=98541530721900
+[05:29:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=41 mode=8 S08=1 predictedX=0.5 predictedZ=0.5 currentX=0.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:21] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=41 localTick=1675 nano=98542630399200
+[05:29:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_MULTI_SENT trial=42 count=3 nano=98543370949400
+[05:29:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_NATIVE_SENT trial=42 x=5.5 nano=98543371245400
+[05:29:22] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=42 localTick=1690 nano=98543384310900
+[05:29:22] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=42 localTick=1690 nano=98543384523500
+[05:29:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=42 mode=9 S08=2 predictedX=0.5 predictedZ=0.5 currentX=0.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:23] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_S08 trial=42 localTick=1712 nano=98544478512400
+[05:29:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC S2C_RESULT trial=43 mode=10 S08=0 predictedX=2.5 predictedZ=0.5 currentX=2.5 currentY=65.62000000476837 currentZ=0.5
+[05:29:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.client.Client:log:39]: CWMC CLIENT_COMPLETE

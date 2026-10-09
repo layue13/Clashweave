@@ -57,15 +57,15 @@
 
 ## 阻塞原型的探针（不通过则需改方案）
 
-第二轮探针已完成并审核（[报告](../probes/round2/REPORT.md)，代码在分支 `probe/round2-independent`）：S1c 事件帧方案失败（玩家路径双触发、同优先级顺序泄漏），改走 S1d；S2b 固定额度发生合法纠正，改走 S2c 累计预算；S3b 按不变量口径通过；S4b/S5b 通过。P0 仍未开始。
+第三轮探针已完成并审核（[报告](../probes/round3/REPORT.md)）：S1d 目标级缩短 `maxHurtResistantTime`、S2c 累计位移预算、S3b 不变量均通过所测负载，满足 P0 入口条件；此前 S1c、S2b 的失败见[第二轮报告](../probes/round2/REPORT.md)。P0 的必带条件见[原型说明 1.2](proposals/prototype-spec-v1.md)。
 
 第一轮探针已完成并经用户审核（[报告](../probes/README.md)，代码在分支 `probe/s1-s5`）：S1 单纯清计时影响其它来源；S2 独立消息校验可被原生位置包绕过；S3 回溯时间戳不能改变已提交命中；S5 客户端 AI 目标不是权威状态；S4 限定通过。修订方向已采纳，第二轮探针标准见[原型说明 1.2](proposals/prototype-spec-v1.md)。
 
 | 探针 | 内容 | 位置 |
 | --- | --- | --- |
-| S1 | 受击无敌帧与多段命中：S1d 目标级缩短 `maxHurtResistantTime`（待验证） | [原型说明 1.1](proposals/prototype-spec-v1.md) |
-| S2 | 玩家位移权威：S2c 累计位移预算（待验证） | 同上 |
-| S3 | 精准格挡延迟补偿：延后提交（按不变量口径通过，待补边界） | 同上 |
+| S1 | 受击无敌帧与多段命中：S1d 目标级缩短 `maxHurtResistantTime`（已通过所测负载） | [原型说明 1.1](proposals/prototype-spec-v1.md) |
+| S2 | 玩家位移权威：S2c 累计位移预算（已通过所测负载） | 同上 |
+| S3 | 精准格挡延迟补偿：延后提交（不变量口径通过，360 条违例 0） | 同上 |
 | S4 | 占位刀渲染与挂点（静态握持已通过） | 同上 |
 | S5 | 持刀屏蔽原版潜行与状态切换（服务端同步交锋态，脚本场景已通过） | 同上 |
 

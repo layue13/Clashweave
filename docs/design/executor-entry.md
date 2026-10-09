@@ -1,8 +1,7 @@
 # 执行者入口
 
-设计审核已通过；第一轮探针 S1–S5 已完成并审核（[报告](../probes/README.md)，代码在分支 `probe/s1-s5`）。当前阶段为第二轮探针与 P0 缩小垂直切片，条件见[原型说明 1.2](proposals/prototype-spec-v1.md)。
+设计审核已通过；三轮技术探针已完成并审核，入口条件已满足（[第三轮报告](../probes/round3/REPORT.md)，另见[第二轮](../probes/round2/REPORT.md)、[第一轮](../probes/README.md)）：S1d、S2c、S3b（不变量口径）通过，S4b、S5b 通过。**P0 尚未开始**，范围与必带条件见[原型说明 1.2](proposals/prototype-spec-v1.md)。探针代码、脚本与资源不在 `work`，分别保存在分支 `probe/s1-s5`、`probe/round2-independent`（提交 `ff9d56e`）、`probe/round3-budget-damage`（提交 `a7f28c9`），报告中的 `tools/probes2/...` 路径指这些分支。
 
-第二轮探针已完成并审核（[报告](../probes/round2/REPORT.md)；代码在保存在分支 `probe/round2-independent`（提交 `ff9d56e`），报告中的 `tools/probes2/...` 路径指该分支。）：S4b、S5b 通过，S3b 核心条件成立（按不变量口径通过），S1c、S2b 失败。**P0 尚未开始**：下一阶段是 S1d（目标级缩短 `maxHurtResistantTime`）与 S2c（累计位移预算）两个探针，条件见[原型说明 1.2](proposals/prototype-spec-v1.md)。
 
 ## 必读与顺序
 
