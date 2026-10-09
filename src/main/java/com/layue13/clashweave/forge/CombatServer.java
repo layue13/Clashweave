@@ -66,6 +66,7 @@ public final class CombatServer {
         public boolean engaged;
         public long lastTrigger;
         public int revision;
+        public long networkAfter;
         public int lock = -1;
         public float yaw;
         public long instance;
@@ -79,6 +80,7 @@ public final class CombatServer {
         public int corrections;
         public double externalHorizontal;
         public double externalVertical;
+        public boolean pendingImpulse;
         public final Map<EntityLivingBase, Long> contacts = new HashMap<>();
 
         PlayerState(EntityPlayerMP player, ActionCatalog actions) {
@@ -105,6 +107,7 @@ public final class CombatServer {
     private final String definitionJson;
     public volatile long tick;
     public long lastNanos;
+    private int nextRevision;
 
     private static final class CombatSource extends EntityDamageSource {
 
@@ -155,8 +158,10 @@ public final class CombatServer {
     public void login(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.player instanceof EntityPlayerMP) {
             PlayerState state = new PlayerState((EntityPlayerMP) event.player, config.actions);
+            state.revision = ++nextRevision;
+            state.networkAfter = tick + 1;
             states.put(event.player.getUniqueID(), state);
-            snapshot(state, 0, "SESSION", true);
+            // Login is fired inside Forge's handshake completion handler. Publish on a later tick.
         }
     }
 
@@ -221,6 +226,8 @@ public final class CombatServer {
             Comparator.comparing(
                 state -> state.player.getUniqueID()
                     .toString()));
+        // Check the old envelope before an input can cancel/replace its action and discard that budget.
+        for (PlayerState state : ordered) validateMovement(state);
         // The same lock registers arrivals and cuts off inputs for a commit. No world work on Netty.
         long cutoff;
         List<Inbound> arrived;
@@ -250,7 +257,6 @@ public final class CombatServer {
             }
         }
         for (PlayerState state : ordered) {
-            validateMovement(state);
             snapshot(state, 0, "", false);
         }
         lastNanos = System.nanoTime() - begin;
@@ -262,8 +268,36 @@ public final class CombatServer {
         InputMessage message = input.message;
         String validity = state.gate
             .validate(message.session, message.sequence, message.stamp, input.receivedTick, config.stampAge);
-        if (!validity.equals("OK") || !armed(input.player) || input.player.isDead) {
+        trace(
+            "INPUT player=" + input.player.getCommandSenderName()
+                + " seq="
+                + message.sequence
+                + " kind="
+                + message.kind
+                + " target="
+                + message.target
+                + " origin="
+                + message.origin
+                + " stamp="
+                + message.stamp
+                + " receivedTick="
+                + input.receivedTick
+                + " consumedTick="
+                + tick
+                + " arrival="
+                + input.arrival
+                + " gate="
+                + validity);
+        if (!validity.equals("OK")) {
             snapshot(state, message.sequence, "REJECT:" + validity, false);
+            return;
+        }
+        if (message.kind == -2) {
+            state.sentDefinitions = true;
+            return;
+        }
+        if (!armed(input.player) || input.player.isDead) {
+            snapshot(state, message.sequence, input.player.isDead ? "REJECT:DEAD" : "REJECT:UNARMED", false);
             return;
         }
         if (message.kind == -1) {
@@ -273,7 +307,9 @@ public final class CombatServer {
                     System.nanoTime(),
                     state.scheduler.current().definition.speed,
                     state.scheduler.current().definition.distance,
-                    config.movementMargin);
+                    config.movementMargin,
+                    config.jumpAllowance,
+                    config.movementEpsilon);
                 state.x = input.player.posX;
                 state.y = input.player.posY;
                 state.z = input.player.posZ;
@@ -282,7 +318,10 @@ public final class CombatServer {
             return;
         }
         Intent intent = Intent.values()[message.kind];
-        if (intent == Intent.GUARD_PRESS) {
+        if (intent == Intent.CLEAR_BUFFER) {
+            state.scheduler.clearBuffer();
+            state.guard.release(tick);
+        } else if (intent == Intent.GUARD_PRESS) {
             boolean accepted = state.scheduler.current() == null
                 && state.guard.press(message.stamp, input.arrival, config.guardCooldown);
             snapshot(state, message.sequence, accepted ? "GUARD" : "REJECT:GUARD", false);
@@ -291,28 +330,51 @@ public final class CombatServer {
             snapshot(state, message.sequence, "RELEASE", false);
         } else if (intent == Intent.LOCK) {
             Entity target = input.player.worldObj.getEntityByID(message.target);
-            if (state.lock >= 0) state.lock = -1;
-            else if (target instanceof EntityLivingBase && target != input.player
+            String result = "REJECT:LOCK";
+            if (state.lock >= 0) {
+                state.lock = -1;
+                result = "UNLOCK";
+            } else if (target instanceof EntityLivingBase && target != input.player
                 && !target.isDead
                 && input.player.getDistanceToEntity(target) <= config.radius
                 && input.player.canEntityBeSeen(target)) {
                     state.lock = target.getEntityId();
+                    result = "LOCK";
                 }
-            snapshot(state, message.sequence, "LOCK", false);
-        } else if (state.guard.held()) {
+            trace(
+                "LOCK_TARGET player=" + input.player.getCommandSenderName()
+                    + " target="
+                    + message.target
+                    + " exists="
+                    + (target != null)
+                    + " distance="
+                    + (target == null ? -1 : input.player.getDistanceToEntity(target))
+                    + " visible="
+                    + (target != null && input.player.canEntityBeSeen(target)));
+            snapshot(state, message.sequence, result, false);
+        } else if (intent == Intent.DODGE || intent == Intent.SPECIAL || intent == Intent.MODE) {
+            snapshot(state, message.sequence, "REJECT:UNIMPLEMENTED:" + intent.name(), false);
+        } else if (state.guard.held() && !(intent == Intent.LIGHT && state.scheduler.counter(tick))) {
             snapshot(state, message.sequence, "REJECT:GUARD_HELD", false);
         } else {
-            state.scheduler.request(intent, message.sequence, tick);
+            if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
+            state.scheduler.request(intent, message.sequence, tick, message.origin);
         }
     }
 
     private void advance(PlayerState state) {
         EntityPlayerMP player = state.player;
-        if (!armed(player)) state.guard.release(tick);
+        if (!armed(player)) {
+            state.guard.release(tick);
+            state.scheduler.clearBuffer();
+        }
         state.scheduler.tick(tick);
         Scheduler.Instance action = state.scheduler.current();
         if (action != null && action.id != state.instance) {
             state.instance = action.id;
+            trace(
+                "START player=" + player
+                    .getCommandSenderName() + " id=" + action.id + " action=" + action.definition.id + " tick=" + tick);
             state.yaw = player.rotationYaw;
             state.ready = false;
             state.movement = null;
@@ -336,9 +398,20 @@ public final class CombatServer {
         }
         if (trigger) state.lastTrigger = tick;
         boolean engaged = trigger || state.engaged && tick - state.lastTrigger < config.disengage;
+        if (engaged) player.setSneaking(false);
         if (state.engaged != engaged) {
             state.engaged = engaged;
-            state.revision++;
+            state.revision = ++nextRevision;
+            trace(
+                "ENGAGEMENT player=" + player.getCommandSenderName()
+                    + " engaged="
+                    + engaged
+                    + " revision="
+                    + state.revision
+                    + " tick="
+                    + tick
+                    + " sent="
+                    + System.nanoTime());
             snapshot(state, 0, "ENGAGEMENT", false);
         }
         state.guard.prune(tick - config.stampAge - config.defer - 4);
@@ -414,6 +487,16 @@ public final class CombatServer {
             contact.frozen = System.nanoTime();
             contact.facing = facing(target, state.player, config.guardArc);
             pending.add(contact);
+            trace(
+                "FREEZE player=" + state.player.getCommandSenderName()
+                    + " target="
+                    + target.getEntityId()
+                    + " id="
+                    + action.id
+                    + " hitTick="
+                    + tick
+                    + " frozen="
+                    + contact.frozen);
         }
     }
 
@@ -436,8 +519,40 @@ public final class CombatServer {
             hit = contact.target.attackEntityFrom(new CombatSource(contact.attacker.player), damage);
         }
         contact.instance.confirmedHit |= hit || guard > 0;
-        snapshot(contact.attacker, 0, guard == 2 ? "PARRY" : guard == 1 ? "BLOCK" : hit ? "HIT" : "IMMUNE", false);
-        if (defender != null) snapshot(defender, 0, guard == 2 ? "PARRY" : guard == 1 ? "BLOCK" : "HURT", false);
+        if (guard == 2) defender.scheduler.openCounter(tick, config.counterWindow);
+        if (defender != null && hit) creditImpulse(defender);
+        trace(
+            "COMMIT player=" + contact.attacker.player.getCommandSenderName()
+                + " target="
+                + contact.target.getEntityId()
+                + " id="
+                + contact.instance.id
+                + " hitTick="
+                + contact.tick
+                + " commitTick="
+                + tick
+                + " frozen="
+                + contact.frozen
+                + " cutoff="
+                + cutoff
+                + " guard="
+                + guard
+                + " damage="
+                + damage
+                + " hit="
+                + hit
+                + " hp="
+                + contact.target.getHealth()
+                + " facing="
+                + contact.facing);
+        snapshot(
+            contact.attacker,
+            0,
+            guard == 2 ? "PARRY" : guard == 1 ? "BLOCK" : hit ? "HIT" : "IMMUNE",
+            false,
+            contact.frozen);
+        if (defender != null)
+            snapshot(defender, 0, guard == 2 ? "PARRY" : guard == 1 ? "BLOCK" : "HURT", false, contact.frozen);
     }
 
     private void validateMovement(PlayerState state) {
@@ -445,16 +560,25 @@ public final class CombatServer {
         EntityPlayerMP player = state.player;
         double horizontal = Math.hypot(player.posX - state.x, player.posZ - state.z);
         double vertical = player.posY - state.y;
-        double walk = player.capabilities.isFlying ? 0.6 : player.isSprinting() ? 0.36 : 0.28;
-        if (player.velocityChanged) {
-            state.externalHorizontal += Math.hypot(player.motionX, player.motionZ) * 4;
-            state.externalVertical += Math.max(0, player.motionY) * 4;
+        double walk = player.capabilities.isFlying ? config.flyingAllowance
+            : player.isSprinting() ? config.sprintAllowance : config.walkAllowance;
+        if (state.pendingImpulse) {
+            creditImpulse(state);
+            state.pendingImpulse = false;
         }
         if (!state.movement
             .accept(System.nanoTime(), horizontal, vertical, walk, state.externalHorizontal, state.externalVertical)) {
             player.playerNetServerHandler
                 .setPlayerLocation(state.x, state.y, state.z, player.rotationYaw, player.rotationPitch);
             state.corrections++;
+            trace(
+                "MOVE_CORRECT player=" + player.getCommandSenderName()
+                    + " tick="
+                    + tick
+                    + " nano="
+                    + System.nanoTime()
+                    + " corrections="
+                    + state.corrections);
             snapshot(state, 0, "MOVE_CORRECT", false);
         } else {
             state.x = player.posX;
@@ -464,7 +588,11 @@ public final class CombatServer {
     }
 
     private void snapshot(PlayerState state, int sequence, String result, boolean definitions) {
-        if (state.player.playerNetServerHandler == null) return;
+        snapshot(state, sequence, result, definitions, 0);
+    }
+
+    private void snapshot(PlayerState state, int sequence, String result, boolean definitions, long frozen) {
+        if (state.player.playerNetServerHandler == null || tick <= state.networkAfter) return;
         StateMessage message = new StateMessage();
         message.entity = state.player.getEntityId();
         message.tick = tick;
@@ -479,16 +607,36 @@ public final class CombatServer {
         message.action = action == null ? "" : action.definition.id;
         message.instance = action == null ? 0 : action.id;
         message.start = action == null ? tick : action.start;
+        message.confirmed = action != null && action.confirmedHit;
         message.result = result;
-        message.definitions = definitions ? definitionJson : "";
+        message.feedbackFrozen = Boolean.getBoolean("clashweave.trace") ? frozen : 0;
+        message.definitions = definitions || !state.sentDefinitions ? definitionJson : "";
+        if (sequence > 0)
+            trace("ACK player=" + state.player.getCommandSenderName() + " seq=" + sequence + " result=" + result);
         Clashweave.network.sendTo(message, state.player);
-        message.session = 0;
-        message.definitions = "";
         for (PlayerState watcher : states.values()) {
-            if (watcher != state && watcher.player.dimension == state.player.dimension) {
-                Clashweave.network.sendTo(message, watcher.player);
+            if (watcher != state && tick > watcher.networkAfter && watcher.player.dimension == state.player.dimension) {
+                Clashweave.network.sendTo(new StateMessage(message), watcher.player);
             }
         }
+    }
+
+    private static void trace(String value) {
+        if (Boolean.getBoolean("clashweave.trace")) System.out.println("CW " + value);
+    }
+
+    private void creditImpulse(PlayerState state) {
+        state.externalHorizontal += Math.hypot(state.player.motionX, state.player.motionZ) * config.impulseMultiplier;
+        state.externalVertical += Math.max(0, state.player.motionY) * config.impulseMultiplier;
+    }
+
+    @SubscribeEvent
+    public void jump(net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent event) {
+        if (event.entityLiving.worldObj.isRemote || !(event.entityLiving instanceof EntityPlayer)) return;
+        PlayerState state = state((EntityPlayer) event.entityLiving);
+        if (state != null && state.movement != null
+            && event.entityLiving.worldObj.checkBlockCollision(event.entityLiving.boundingBox.offset(0, -0.05, 0)))
+            state.externalVertical += config.jumpAllowance;
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -519,6 +667,7 @@ public final class CombatServer {
         PlayerState state = state((EntityPlayer) event.entityLiving);
         Entity attacker = event.source.getEntity();
         if (state == null || attacker == null || !armed(state.player)) return;
+        if (event.ammount > 0) state.pendingImpulse = true;
         int guard = state.guard
             .defend(tick, System.nanoTime(), config.perfectWindow, facing(state.player, attacker, config.guardArc));
         if (guard > 0) event.ammount *= guard == 2 ? 0 : config.blockDamage;

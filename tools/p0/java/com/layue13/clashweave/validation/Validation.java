@@ -28,6 +28,19 @@ public final class Validation {
     @Mod.EventHandler
     public void initialize(FMLInitializationEvent event) {
         FMLCommonHandler.instance().bus().register(this);
+        FMLCommonHandler.instance().bus().register(new NetworkScenario());
+        Supplement supplement = new Supplement();
+        FMLCommonHandler.instance().bus().register(supplement);
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(supplement);
+        FMLCommonHandler.instance().bus().register(new MovementScenario());
+        FMLCommonHandler.instance().bus().register(new EngagementScenario());
+        if (FMLCommonHandler.instance().getSide().isClient()) {
+            try {
+                Class.forName("com.layue13.clashweave.validation.ClientReplay").newInstance();
+            } catch (Exception exception) {
+                throw new IllegalStateException(exception);
+            }
+        }
     }
 
     private void require(boolean value, String label) {
@@ -74,7 +87,73 @@ public final class Validation {
         cow.dimension = -1;
         ownership.reconcile(wanted);
         require(cow.maxHurtResistantTime == 20, "dimensionRestore");
+        EntityCow plain = new EntityCow(world);
+        require(firstEqualHit(plain) == 10, "vanillaEqualSourceWindow10");
+        EntityCow shortened = new EntityCow(world);
+        owners.clear();
+        owners.add(UUID.randomUUID());
+        wanted.clear();
+        wanted.put(shortened, owners);
+        ownership.reconcile(wanted);
+        require(firstEqualHit(shortened) == 4, "engagedEqualSourceWindow4");
+        ownership.clear();
+        OverrideCow override = new OverrideCow(world);
+        wanted.clear();
+        wanted.put(override, owners);
+        ownership.reconcile(wanted);
+        require(override.attackEntityFrom(DamageSource.generic, 2) && override.observedMaximum == 8, "entityOverrideSeesPersistent8");
+        override.fail = true;
+        float health = override.getHealth();
+        try { override.attackEntityFrom(DamageSource.generic, 2); } catch (IllegalStateException expected) { }
+        require(override.getHealth() == health && override.maxHurtResistantTime == 8, "overrideExceptionNoExtraDamageOrTransientReset");
+        ownership.clear();
+        require(override.maxHurtResistantTime == 20, "overrideExitRestore");
+        EntityCow foreign = new EntityCow(world);
+        wanted.clear();
+        wanted.put(foreign, owners);
+        ownership.reconcile(wanted);
+        foreign.maxHurtResistantTime = 12;
+        ownership.reconcile(wanted);
+        foreign.maxHurtResistantTime = 8;
+        wanted.clear();
+        ownership.reconcile(wanted);
+        require(foreign.maxHurtResistantTime == 8, "observedForeignOwnershipDoesNotReturnWhenValueMatchesAgain");
+        EntityCow transition = new EntityCow(world);
+        transition.attackEntityFrom(DamageSource.generic, 2);
+        wanted.clear();
+        wanted.put(transition, owners);
+        ownership.reconcile(wanted);
+        require(transition.hurtResistantTime == 20, "entryKeepsOldTimer20");
+        require(!transition.attackEntityFrom(DamageSource.generic, 2), "oldTimerRejectsEqualDamage");
+        require(firstEqualHit(transition) == 16, "oldTimerTransitionFirstEqual16");
+        ownership.clear();
         System.out.println("P0_SERVER_CHECK COMPLETE");
         MinecraftServer.getServer().initiateShutdown();
+    }
+
+    private int firstEqualHit(EntityCow cow) {
+        cow.attackEntityFrom(DamageSource.generic, 2);
+        for (int elapsed = 1; elapsed <= 20; elapsed++) {
+            cow.onEntityUpdate();
+            if (cow.attackEntityFrom(DamageSource.generic, 2)) {
+                System.out.println("P0_TIMER max=" + cow.maxHurtResistantTime + " firstEqualAccepted=" + elapsed);
+                return elapsed;
+            }
+        }
+        return -1;
+    }
+
+    private static final class OverrideCow extends EntityCow {
+        private int observedMaximum;
+        private boolean fail;
+
+        OverrideCow(WorldServer world) { super(world); }
+
+        @Override
+        public boolean attackEntityFrom(DamageSource source, float amount) {
+            observedMaximum = maxHurtResistantTime;
+            if (fail) throw new IllegalStateException("deliberate third-party entity override");
+            return super.attackEntityFrom(source, amount);
+        }
     }
 }

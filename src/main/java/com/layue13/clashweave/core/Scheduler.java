@@ -69,6 +69,15 @@ public final class Scheduler {
     private long nextId;
     private Instance current;
     private boolean sheathed = true;
+    private long counterUntil;
+
+    public void openCounter(long tick, int window) {
+        if (current == null) counterUntil = tick + window;
+    }
+
+    public boolean counter(long tick) {
+        return current == null && tick < counterUntil;
+    }
 
     public Scheduler(ActionCatalog catalog) {
         this.catalog = catalog;
@@ -91,6 +100,7 @@ public final class Scheduler {
             if (input == Intent.LIGHT) request.target = sheathed ? "iai" : "light_1";
             else if (input == Intent.HEAVY && !sheathed) request.target = "heavy";
             else if (input == Intent.SHEATHE && !sheathed) request.target = "sheathe";
+            if (input == Intent.LIGHT && counter(tick)) request.expires = Math.min(request.expires, counterUntil);
         } else {
             for (ActionCatalog.Edge edge : current.definition.edges) {
                 if (edge.input == input && tick - current.start < edge.until) {
@@ -106,6 +116,15 @@ public final class Scheduler {
         }
         Request replaced = buffered.put(input, request);
         if (replaced != null) results.add(new Result(replaced.sequence, "REPLACED", replaced.target));
+    }
+
+    /** Wire requests bind the instance observed at the press, including an explicit idle origin. */
+    public void request(Intent input, int sequence, long tick, long expectedOrigin) {
+        if (expectedOrigin != (current == null ? 0 : current.id)) {
+            results.add(new Result(sequence, "ORIGIN_CHANGED", ""));
+            return;
+        }
+        request(input, sequence, tick);
     }
 
     public void tick(long tick) {
@@ -136,6 +155,7 @@ public final class Scheduler {
                 if (request != selected) results.add(new Result(request.sequence, "CONFLICT", request.target));
             }
             buffered.clear();
+            counterUntil = 0;
             finish();
             current = new Instance(++nextId, tick, selected.sequence, catalog.get(selected.target));
             if (!selected.target.equals("sheathe")) sheathed = false;
@@ -147,11 +167,16 @@ public final class Scheduler {
     }
 
     public void interrupt() {
+        clearBuffer();
+        finish();
+    }
+
+    public void clearBuffer() {
+        counterUntil = 0;
         for (Request request : buffered.values()) {
             results.add(new Result(request.sequence, "INTERRUPTED", request.target));
         }
         buffered.clear();
-        finish();
     }
 
     private void finish() {

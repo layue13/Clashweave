@@ -1,7 +1,7 @@
 {
   "bufferTicks": 4,
   "deferred": ["launcher", "step_slash", "retreat_slash", "air_follow", "special", "mode", "dodge"],
-  "missingOriginalTiming": ["air_follow", "dodge", "mode"],
+  "missingOriginalTiming": ["air_follow", "dodge", "mode", "perfect_counter_window_in_combat_cfg"],
   "actions": [
     {"id":"iai", "startup":5,"active":2,"recovery":10,"damage":5,"reach":3.2,"arc":90,"distance":1.2,"speed":0.2,
      "edges":[{"input":"LIGHT","target":"light_1","from":8,"until":13,"hit":true},{"input":"HEAVY","target":"heavy","from":9,"until":14,"hit":true},{"input":"SHEATHE","target":"sheathe","from":12,"until":17,"hit":true}]},

@@ -9,5 +9,6 @@ public enum Intent {
     LOCK,
     DODGE,
     SPECIAL,
-    MODE
+    MODE,
+    CLEAR_BUFFER
 }

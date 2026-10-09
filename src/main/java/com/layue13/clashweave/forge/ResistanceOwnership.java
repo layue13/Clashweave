@@ -18,6 +18,7 @@ public final class ResistanceOwnership {
         int original;
         int written;
         int dimension;
+        boolean external;
         Set<UUID> owners;
     }
 
@@ -47,6 +48,7 @@ public final class ResistanceOwnership {
                 entity.maxHurtResistantTime = maximum;
                 entries.put(entity.getUniqueID(), entry);
             }
+            if (entity.maxHurtResistantTime != entry.written) entry.external = true;
             entry.owners = new HashSet<>(request.getValue());
         }
         Iterator<Map.Entry<UUID, Entry>> iterator = entries.entrySet()
@@ -84,7 +86,8 @@ public final class ResistanceOwnership {
     }
 
     private void restore(Entry entry) {
-        if (entry.entity.maxHurtResistantTime == entry.written) entry.entity.maxHurtResistantTime = entry.original;
+        if (!entry.external && entry.entity.maxHurtResistantTime == entry.written)
+            entry.entity.maxHurtResistantTime = entry.original;
     }
 
     public int owners(EntityLivingBase entity) {

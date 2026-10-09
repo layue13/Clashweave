@@ -1,0 +1,271 @@
+[14:36:55] [main/INFO] [GradleStart]: username: P0A
+[14:36:55] [main/INFO] [GradleStart]: Extra: [--width, 960, --height, 540, --gameDir, C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\render-35\P0A]
+[14:36:55] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:\Users\layue13\.gradle\caches\retro_futura_gradle\assets, --assetIndex, 1.7.10, --accessToken, {REDACTED}, --version, 1.7.10, --username, P0A, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --width, 960, --height, 540, --gameDir, C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\render-35\P0A, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[14:36:55] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
+[14:36:55] [main/INFO] [FML]: Forge Mod Loader version 7.99.40.1614 for Minecraft 1.7.10 loading
+[14:36:55] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_504, running on Windows 11:amd64:10.0, installed at C:\Program Files\Zulu\zulu-8\jre
+[14:36:55] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[14:36:55] [main/INFO] [GradleStart]: Injecting location in coremod cpw.mods.fml.relauncher.FMLCorePlugin
+[14:36:55] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[14:36:55] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[14:36:55] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[14:36:55] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.TerminalTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.TerminalTweaker
+[14:36:55] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[14:36:55] [main/INFO]: Setting user: P0A
+[14:36:55] [Client thread/INFO]: LWJGL Version: 2.9.4
+[14:36:56] [Client thread/INFO] [FML]: Could not load splash.properties, will create a default one
+[14:36:56] [Client thread/INFO] [STDOUT]: [cpw.mods.fml.client.SplashProgress:start:188]: ---- Minecraft Crash Report ----
+// I let you down. Sorry :(
+
+Time: 10/9/26 2:36 PM
+Description: Loading screen debug info
+
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 1.8.0_504, Azul Systems, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Azul Systems, Inc.
+	Memory: 333360512 bytes (317 MB) / 454033408 bytes (433 MB) up to 954728448 bytes (910 MB)
+	JVM Flags: 2 total; -Xms256M -Xmx1G
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 617.42' Renderer: 'NVIDIA GeForce RTX 5060 Ti/PCIe/SSE2'
+[14:36:56] [Client thread/INFO] [MinecraftForge]: Attempting early MinecraftForge initialization
+[14:36:56] [Client thread/INFO] [FML]: MinecraftForge v10.13.4.1614 Initialized
+[14:36:56] [Client thread/INFO] [FML]: Replaced 183 ore recipies
+[14:36:56] [Client thread/INFO] [MinecraftForge]: Completed early MinecraftForge initialization
+[14:36:56] [Client thread/INFO] [FML]: Found 0 mods from the command line. Injecting into mod discoverer
+[14:36:56] [Client thread/INFO] [FML]: Searching C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\render-35\P0A\mods for mods
+[14:36:58] [Client thread/INFO] [FML]: Forge Mod Loader has identified 5 mods to load
+[14:36:58] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, clashweavevalidation] at CLIENT
+[14:36:58] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, clashweavevalidation] at SERVER
+[14:36:58] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Clashweave, FMLFileResourcePack:P0 isolated validation
+[14:36:58] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[14:36:58] [Client thread/INFO] [FML]: Found 341 ObjectHolder annotations
+[14:36:58] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[14:36:58] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[14:36:58] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[14:36:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:42]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[14:36:59] [Client thread/INFO] [clashweave]: Clashweave 0.1.0-dev initialized
+[14:36:59] [Client thread/INFO] [FML]: Applying holder lookups
+[14:36:59] [Client thread/INFO] [FML]: Holder lookups applied
+[14:36:59] [Client thread/INFO] [FML]: Injecting itemstacks
+[14:36:59] [Client thread/INFO] [FML]: Itemstack injection complete
+[14:36:59] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[14:36:59] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[14:36:59] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[14:36:59] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[14:36:59] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[14:36:59] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[14:36:59] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:815)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:768)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:717)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:689)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at net.minecraftforge.common.ForgeVersion$1.run(ForgeVersion.java:94)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:183)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:803)
+[14:36:59] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	... 4 more
+[14:36:59] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[14:36:59] [Sound Library Loader/INFO]: Sound engine started
+[14:36:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:55]: P0_AUDIO initial loader settled
+[14:36:59] [Client thread/INFO] [FML]: Injecting itemstacks
+[14:36:59] [Client thread/INFO] [FML]: Itemstack injection complete
+[14:36:59] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 5 mods
+[14:36:59] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Clashweave, FMLFileResourcePack:P0 isolated validation
+[14:36:59] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[14:36:59] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[14:36:59] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[14:36:59] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: SoundSystem shutting down...
+[14:37:00] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:importantMessage:90]:     Author: Paul Lamb, www.paulscode.com
+[14:37:00] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[14:37:00] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[14:37:00] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[14:37:00] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[14:37:00] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[14:37:00] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[14:37:00] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[14:37:00] [Sound Library Loader/INFO]: Sound engine started
+[14:37:02] [Client thread/INFO]: Connecting to 127.0.0.1, 25580
+[14:37:04] [Netty Client IO #0/INFO] [FML]: Server protocol version 2
+[14:37:04] [Netty Client IO #0/INFO] [FML]: Attempting connection with missing mods [] at SERVER
+[14:37:04] [Netty Client IO #0/INFO] [FML]: Injecting existing block and item data into this client instance
+[14:37:04] [Netty Client IO #0/INFO] [FML]: Applying holder lookups
+[14:37:04] [Netty Client IO #0/INFO] [FML]: Holder lookups applied
+[14:37:04] [Client thread/INFO] [FML]: [Client thread] Client side modded connection established
+[14:37:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:204]: CW_ENGAGEMENT player=P0A engaged=false revision=1 tick=193 receive=27840067269300
+[14:37:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=40 action= progress=2.150738593229562E-4 feedback=
+[14:37:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE sheathed-0 instance=0 progress=2.0626080077036306 nano=27842341365400
+[14:37:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE sheathed-2 instance=0 progress=1.9633000000000038 nano=27842441135800
+[14:37:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE pose-waist-0 instance=0 progress=3.4968920000000026 nano=27842666762500
+[14:37:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:171]: P0_POSE walk onGround=true feetY=64.0 water=false
+[14:37:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE pose-walk-1 instance=0 progress=1.9361266951808886 nano=27842915690200
+[14:37:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:171]: P0_POSE jump onGround=false feetY=65.24918707874468 water=false
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE pose-jump-1 instance=0 progress=1.6391780000000153 nano=27843632410600
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:171]: P0_POSE sneak onGround=true feetY=64.0 water=false
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE pose-sneak-1 instance=0 progress=1.7440906227816981 nano=27844104924500
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27844272805200
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=80 action= progress=2.479999999991378E-4 feedback=
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=2 predicted=0 authoritative=0 sameAction=true
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:204]: CW_ENGAGEMENT player=P0A engaged=true revision=2 tick=281 receive=27844322885000
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE draw-0 instance=1 progress=2.262764476146913 nano=27844477429400
+[14:37:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE draw-2 instance=1 progress=4.925384000000008 nano=27844575718700
+[14:37:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27844644632700
+[14:37:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=120 action= progress=8.957254772212764E-5 feedback=EXPIRED_OR_CHANGED
+[14:37:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27846593838700
+[14:37:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=5 predicted=0 authoritative=0 sameAction=true
+[14:37:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27846910332800
+[14:37:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27847877017100
+[14:37:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=8 predicted=0 authoritative=0 sameAction=true
+[14:37:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE swing-0 instance=3 progress=7.162884761491 nano=27848285526900
+[14:37:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE swing-2 instance=3 progress=8.52391413748768 nano=27848377864300
+[14:37:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=160 action=heavy progress=9.003456000000028 feedback=MOVE_READY
+[14:37:13] [Client thread/INFO]: [CHAT] P0B joined the game
+[14:37:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27849146000900
+[14:37:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=10 predicted=0 authoritative=0 sameAction=true
+[14:37:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE sheathe-0 instance=4 progress=4.3570100000000025 nano=27849414189500
+[14:37:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:298]: P0_CAPTURE sheathe-2 instance=4 progress=5.39650709830039 nano=27849512076100
+[14:37:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27850396580000
+[14:37:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=200 action= progress=8.800000000519503E-5 feedback=MOVE_READY
+[14:37:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=12 predicted=0 authoritative=0 sameAction=true
+[14:37:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27850763359300
+[14:37:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27851662592100
+[14:37:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=15 predicted=0 authoritative=0 sameAction=true
+[14:37:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=240 action=heavy progress=14.000095999999985 feedback=MOVE_READY
+[14:37:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27852929764000
+[14:37:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=17 predicted=0 authoritative=0 sameAction=true
+[14:37:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27854179537800
+[14:37:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=19 predicted=0 authoritative=0 sameAction=true
+[14:37:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=280 action=iai progress=4.001800000000003 feedback=MOVE_READY
+[14:37:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27854529566200
+[14:37:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27855429639300
+[14:37:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=22 predicted=0 authoritative=0 sameAction=true
+[14:37:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=320 action= progress=7.722221778294625E-5 feedback=MOVE_READY
+[14:37:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27856679595500
+[14:37:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=24 predicted=0 authoritative=0 sameAction=true
+[14:37:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27857947229300
+[14:37:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=26 predicted=0 authoritative=0 sameAction=true
+[14:37:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27858296309800
+[14:37:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=360 action=iai progress=9.00010199999997 feedback=MOVE_READY
+[14:37:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27859196459800
+[14:37:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=29 predicted=0 authoritative=0 sameAction=true
+[14:37:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27860446834300
+[14:37:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=400 action= progress=9.316579348706E-5 feedback=MOVE_READY
+[14:37:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=31 predicted=0 authoritative=0 sameAction=true
+[14:37:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27861696659600
+[14:37:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=33 predicted=0 authoritative=0 sameAction=true
+[14:37:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27862046624700
+[14:37:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=440 action=iai progress=14.00009966333721 feedback=EXPIRED_OR_CHANGED
+[14:37:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27862946753000
+[14:37:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=36 predicted=0 authoritative=0 sameAction=true
+[14:37:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27864197176300
+[14:37:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=38 predicted=0 authoritative=0 sameAction=true
+[14:37:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=480 action=sheathe progress=3.973423384431385 feedback=MOVE_READY
+[14:37:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27865446330200
+[14:37:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=40 predicted=0 authoritative=0 sameAction=true
+[14:37:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27865796439600
+[14:37:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=520 action= progress=7.000000005064066E-5 feedback=EXPIRED_OR_CHANGED
+[14:37:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27866696411700
+[14:37:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=43 predicted=0 authoritative=0 sameAction=true
+[14:37:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27867946289000
+[14:37:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=45 predicted=0 authoritative=0 sameAction=true
+[14:37:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=560 action= progress=1.3599999999769352E-4 feedback=MOVE_READY
+[14:37:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27869196796400
+[14:37:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=47 predicted=0 authoritative=0 sameAction=true
+[14:37:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27869547154200
+[14:37:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27870446481000
+[14:37:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=600 action= progress=8.186999048120924E-5 feedback=EXPIRED_OR_CHANGED
+[14:37:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=50 predicted=0 authoritative=0 sameAction=true
+[14:37:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27871696365600
+[14:37:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=52 predicted=0 authoritative=0 sameAction=true
+[14:37:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=640 action= progress=5.199999998239946E-5 feedback=MOVE_READY
+[14:37:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27872946414100
+[14:37:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=54 predicted=0 authoritative=0 sameAction=true
+[14:37:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27873296899100
+[14:37:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27874196383200
+[14:37:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=57 predicted=0 authoritative=0 sameAction=true
+[14:37:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=680 action=heavy progress=4.000133608526994 feedback=MOVE_READY
+[14:37:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27875446502100
+[14:37:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=59 predicted=0 authoritative=0 sameAction=true
+[14:37:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=720 action= progress=6.918636836417136E-5 feedback=MOVE_READY
+[14:37:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27876696495000
+[14:37:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=61 predicted=0 authoritative=0 sameAction=true
+[14:37:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27877047292700
+[14:37:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27877947776400
+[14:37:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=64 predicted=0 authoritative=0 sameAction=true
+[14:37:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=760 action=heavy progress=9.000122000000033 feedback=MOVE_READY
+[14:37:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27879196981600
+[14:37:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=66 predicted=0 authoritative=0 sameAction=true
+[14:37:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27880446285800
+[14:37:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=800 action= progress=5.599999997230043E-5 feedback=MOVE_READY
+[14:37:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=68 predicted=0 authoritative=0 sameAction=true
+[14:37:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27880796647800
+[14:37:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27881697379400
+[14:37:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=71 predicted=0 authoritative=0 sameAction=true
+[14:37:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=840 action=heavy progress=14.00006600000006 feedback=MOVE_READY
+[14:37:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27882946694700
+[14:37:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=73 predicted=0 authoritative=0 sameAction=true
+[14:37:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27884196476300
+[14:37:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=75 predicted=0 authoritative=0 sameAction=true
+[14:37:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=880 action=iai progress=4.002040000000079 feedback=MOVE_READY
+[14:37:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27884596639300
+[14:37:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27885447077800
+[14:37:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=78 predicted=0 authoritative=0 sameAction=true
+[14:37:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=920 action= progress=2.888771336984064E-5 feedback=MOVE_READY
+[14:37:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27886697134600
+[14:37:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=80 predicted=0 authoritative=0 sameAction=true
+[14:37:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27887946476400
+[14:37:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=82 predicted=0 authoritative=0 sameAction=true
+[14:37:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27888296722700
+[14:37:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=960 action=iai progress=8.000044181630756 feedback=MOVE_READY
+[14:37:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27889196577600
+[14:37:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=85 predicted=0 authoritative=0 sameAction=true
+[14:37:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27890446695800
+[14:37:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=1000 action= progress=9.1999999995096E-5 feedback=MOVE_READY
+[14:37:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=87 predicted=0 authoritative=0 sameAction=true
+[14:37:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27891696677300
+[14:37:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=89 predicted=0 authoritative=0 sameAction=true
+[14:37:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27892096398500
+[14:37:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=1040 action=iai progress=13.000034023782518 feedback=EXPIRED_OR_CHANGED
+[14:37:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27892946347300
+[14:37:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=92 predicted=0 authoritative=0 sameAction=true
+[14:37:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27894196305200
+[14:37:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=94 predicted=0 authoritative=0 sameAction=true
+[14:37:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=1080 action=sheathe progress=4.000026872008675 feedback=MOVE_READY
+[14:37:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27895446244800
+[14:37:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=96 predicted=0 authoritative=0 sameAction=true
+[14:38:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=LIGHT nano=27895846572600
+[14:38:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=1120 action= progress=2.999999992425728E-5 feedback=EXPIRED_OR_CHANGED
+[14:38:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=HEAVY nano=27896696679800
+[14:38:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=99 predicted=0 authoritative=0 sameAction=true
+[14:38:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:214]: P0_REQUEST intent=SHEATHE nano=27897946445200
+[14:38:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:218]: CW_ALIGN player=P0A seq=101 predicted=0 authoritative=0 sameAction=true
+[14:38:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:208]: P0_REPLAY tick=1160 action= progress=6.722061812070024E-5 feedback=MOVE_READY
+[14:38:03] [Client thread/INFO] [FML]: Applying holder lookups
+[14:38:03] [Client thread/INFO] [FML]: Holder lookups applied

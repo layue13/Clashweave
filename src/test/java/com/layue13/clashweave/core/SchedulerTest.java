@@ -31,6 +31,32 @@ public class SchedulerTest {
     }
 
     @Test
+    public void lateWireDerivativeAndStaleIdleCannotBecomeAnotherAttack() {
+        Scheduler scheduler = drawn();
+        scheduler.request(Intent.LIGHT, 2, 18, 0);
+        scheduler.tick(18);
+        long origin = scheduler.current().id;
+        scheduler.tick(31);
+        scheduler.request(Intent.LIGHT, 3, 32, origin);
+        scheduler.tick(32);
+        assertNull(scheduler.current());
+        assertTrue(
+            scheduler.drainResults()
+                .stream()
+                .anyMatch(result -> result.status.equals("ORIGIN_CHANGED")));
+        scheduler.request(Intent.LIGHT, 4, 32, 0);
+        scheduler.tick(32);
+        Scheduler.Instance current = scheduler.current();
+        scheduler.request(Intent.HEAVY, 5, 33, 0);
+        scheduler.tick(33);
+        assertSame(current, scheduler.current());
+        scheduler.interrupt();
+        scheduler.request(Intent.LIGHT, 6, 34, current.id);
+        scheduler.tick(34);
+        assertNull(scheduler.current());
+    }
+
+    @Test
     public void expiredDerivativeNeverBecomesIdleAttack() {
         Scheduler scheduler = drawn();
         scheduler.request(Intent.LIGHT, 2, 18);
@@ -130,5 +156,34 @@ public class SchedulerTest {
             assertEquals(Integer.valueOf(0), health.get("A"));
             assertEquals(Integer.valueOf(0), health.get("B"));
         }
+    }
+
+    @Test
+    public void counterRequestExpiresWithoutFallingBackToIdleAttack() {
+        Scheduler scheduler = drawn();
+        scheduler.openCounter(20, 2);
+        scheduler.request(Intent.LIGHT, 3, 21);
+        scheduler.tick(22);
+        assertNull(scheduler.current());
+        assertEquals(
+            "EXPIRED_OR_CHANGED",
+            scheduler.drainResults()
+                .get(0).status);
+    }
+
+    @Test
+    public void guiClearsBufferedDerivativeButKeepsCurrentRecoveryAndLedger() {
+        Scheduler scheduler = drawn();
+        scheduler.request(Intent.LIGHT, 2, 18);
+        scheduler.tick(18);
+        Scheduler.Instance action = scheduler.current();
+        action.claim("target", 0);
+        scheduler.request(Intent.HEAVY, 3, 19);
+        scheduler.clearBuffer();
+        scheduler.tick(20);
+        assertSame(action, scheduler.current());
+        assertEquals(1, action.ledgerSize());
+        scheduler.tick(31);
+        assertNull(scheduler.current());
     }
 }

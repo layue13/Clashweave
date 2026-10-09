@@ -17,12 +17,19 @@ public final class CombatConfig {
     public int defer;
     public int perfectWindow;
     public int guardCooldown;
+    public int counterWindow;
     public int stampAge;
     public int disengage;
     public double radius;
     public double guardArc;
     public double blockDamage;
     public double movementMargin;
+    public double walkAllowance;
+    public double sprintAllowance;
+    public double flyingAllowance;
+    public double jumpAllowance;
+    public double impulseMultiplier;
+    public double movementEpsilon;
     public boolean friendly;
     public boolean blocks;
     public ActionCatalog actions;
@@ -35,12 +42,27 @@ public final class CombatConfig {
         defer = config.getInt("confirmationDelay", "combat", 3, 1, 8, "Tick and wall-clock minimum");
         perfectWindow = config.getInt("perfectWindow", "combat", 5, 1, 8, "Half-open press window");
         guardCooldown = config.getInt("guardCooldown", "combat", 6, 1, 40, "Repeat press restriction");
+        counterWindow = config.getInt(
+            "counterWindowTicks",
+            "combat",
+            8,
+            1,
+            40,
+            "P0 provisional ordinary counter entry; original timing missing");
         stampAge = config.getInt("stampAgeLimit", "network", 8, 1, 20, "Maximum accepted input age");
         disengage = config.getInt("disengageTicks", "combat", 60, 1, 400, "Exit hysteresis");
         radius = config.getFloat("engageRadius", "combat", 8, 1, 32, "Hostile target radius");
         guardArc = config.getFloat("guardArc", "combat", 140, 1, 180, "Degrees");
         blockDamage = config.getFloat("ordinaryGuardDamage", "combat", 0.25f, 0, 1, "Damage multiplier");
         movementMargin = config.getFloat("movementMarginTicks", "movement", 2, 0, 4, "Batch allowance");
+        walkAllowance = config.getFloat("walkAllowance", "movement", 0.28f, 0, 2, "Blocks per 50ms");
+        sprintAllowance = config.getFloat("sprintAllowance", "movement", 0.36f, 0, 2, "Blocks per 50ms");
+        flyingAllowance = config.getFloat("flyingAllowance", "movement", 0.6f, 0, 4, "Blocks per 50ms");
+        jumpAllowance = config
+            .getFloat("jumpAllowance", "movement", 1.25f, 0, 8, "Cumulative upward allowance per verified jump");
+        impulseMultiplier = config
+            .getFloat("impulseMultiplier", "movement", 4, 1, 20, "Server velocity distance credit");
+        movementEpsilon = config.getFloat("movementEpsilon", "movement", 0.03f, 0, 0.5f, "Position tolerance");
         friendly = config.getBoolean("protectFriendly", "combat", true, "Villagers, tamed pets, team players");
         blocks = config.getBoolean("peacefulBlockInteraction", "input", true, "Block right click outside engagement");
         config.save();

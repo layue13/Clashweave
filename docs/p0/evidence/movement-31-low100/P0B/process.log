@@ -1,0 +1,124 @@
+[11:25:43] [main/INFO] [GradleStart]: username: P0B
+[11:25:43] [main/INFO] [GradleStart]: Extra: [--width, 960, --height, 540, --gameDir, C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\movement-31-low100\P0B]
+[11:25:43] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:\Users\layue13\.gradle\caches\retro_futura_gradle\assets, --assetIndex, 1.7.10, --accessToken, {REDACTED}, --version, 1.7.10, --username, P0B, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --width, 960, --height, 540, --gameDir, C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\movement-31-low100\P0B, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[11:25:43] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
+[11:25:43] [main/INFO] [FML]: Forge Mod Loader version 7.99.40.1614 for Minecraft 1.7.10 loading
+[11:25:43] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_504, running on Windows 11:amd64:10.0, installed at C:\Program Files\Zulu\zulu-8\jre
+[11:25:43] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[11:25:43] [main/INFO] [GradleStart]: Injecting location in coremod cpw.mods.fml.relauncher.FMLCorePlugin
+[11:25:43] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[11:25:43] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[11:25:43] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[11:25:43] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.TerminalTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.TerminalTweaker
+[11:25:43] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[11:25:44] [main/INFO]: Setting user: P0B
+[11:25:44] [Client thread/INFO]: LWJGL Version: 2.9.4
+[11:25:44] [Client thread/INFO] [FML]: Could not load splash.properties, will create a default one
+[11:25:44] [Client thread/INFO] [STDOUT]: [cpw.mods.fml.client.SplashProgress:start:188]: ---- Minecraft Crash Report ----
+// I bet Cylons wouldn't have this problem.
+
+Time: 10/9/26 11:25 AM
+Description: Loading screen debug info
+
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 1.8.0_504, Azul Systems, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Azul Systems, Inc.
+	Memory: 337226392 bytes (321 MB) / 452460544 bytes (431 MB) up to 954728448 bytes (910 MB)
+	JVM Flags: 2 total; -Xms256M -Xmx1G
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 617.42' Renderer: 'NVIDIA GeForce RTX 5060 Ti/PCIe/SSE2'
+[11:25:44] [Client thread/INFO] [MinecraftForge]: Attempting early MinecraftForge initialization
+[11:25:44] [Client thread/INFO] [FML]: MinecraftForge v10.13.4.1614 Initialized
+[11:25:44] [Client thread/INFO] [FML]: Replaced 183 ore recipies
+[11:25:44] [Client thread/INFO] [MinecraftForge]: Completed early MinecraftForge initialization
+[11:25:44] [Client thread/INFO] [FML]: Found 0 mods from the command line. Injecting into mod discoverer
+[11:25:44] [Client thread/INFO] [FML]: Searching C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\movement-31-low100\P0B\mods for mods
+[11:25:47] [Client thread/INFO] [FML]: Forge Mod Loader has identified 5 mods to load
+[11:25:47] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, clashweavevalidation] at CLIENT
+[11:25:47] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, clashweavevalidation] at SERVER
+[11:25:47] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Clashweave, FMLFileResourcePack:P0 isolated validation
+[11:25:47] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[11:25:47] [Client thread/INFO] [FML]: Found 341 ObjectHolder annotations
+[11:25:47] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[11:25:47] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[11:25:47] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[11:25:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:42]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[11:25:47] [Client thread/INFO] [clashweave]: Clashweave 0.1.0-dev initialized
+[11:25:47] [Client thread/INFO] [FML]: Applying holder lookups
+[11:25:47] [Client thread/INFO] [FML]: Holder lookups applied
+[11:25:47] [Client thread/INFO] [FML]: Injecting itemstacks
+[11:25:47] [Client thread/INFO] [FML]: Itemstack injection complete
+[11:25:47] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[11:25:47] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:815)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:768)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:717)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:689)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at net.minecraftforge.common.ForgeVersion$1.run(ForgeVersion.java:94)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:183)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:803)
+[11:25:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	... 4 more
+[11:25:47] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[11:25:47] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[11:25:47] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[11:25:47] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[11:25:47] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[11:25:47] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[11:25:47] [Sound Library Loader/INFO]: Sound engine started
+[11:25:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:53]: P0_AUDIO initial loader settled
+[11:25:47] [Client thread/INFO] [FML]: Injecting itemstacks
+[11:25:47] [Client thread/INFO] [FML]: Itemstack injection complete
+[11:25:47] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 5 mods
+[11:25:47] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Clashweave, FMLFileResourcePack:P0 isolated validation
+[11:25:48] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[11:25:48] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[11:25:48] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[11:25:48] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: SoundSystem shutting down...
+[11:25:48] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:importantMessage:90]:     Author: Paul Lamb, www.paulscode.com
+[11:25:48] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[11:25:48] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[11:25:48] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[11:25:48] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[11:25:48] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[11:25:48] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[11:25:48] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[11:25:48] [Sound Library Loader/INFO]: Sound engine started
+[11:25:50] [Client thread/INFO]: Connecting to 127.0.0.1, 25581
+[11:25:52] [Netty Client IO #0/INFO] [FML]: Server protocol version 2
+[11:25:52] [Netty Client IO #0/INFO] [FML]: Attempting connection with missing mods [] at SERVER
+[11:25:52] [Netty Client IO #0/INFO] [FML]: Injecting existing block and item data into this client instance
+[11:25:52] [Netty Client IO #0/INFO] [FML]: Applying holder lookups
+[11:25:52] [Netty Client IO #0/INFO] [FML]: Holder lookups applied
+[11:25:52] [Client thread/INFO] [FML]: [Client thread] Client side modded connection established
+[11:25:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:199]: CW_ENGAGEMENT player=P0B engaged=false revision=2 tick=134 receive=16368758747000
+[11:27:09] [Client thread/INFO] [FML]: Applying holder lookups
+[11:27:09] [Client thread/INFO] [FML]: Holder lookups applied

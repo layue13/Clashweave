@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.layue13.clashweave.core.SchedulerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-09T21:36:36.427Z" hostname="DESKTOP-NCOAQL3" time="0.041">
+  <properties/>
+  <testcase name="interruptionRejectsBoundEdge" classname="com.layue13.clashweave.core.SchedulerTest" time="0.03"/>
+  <testcase name="counterRequestExpiresWithoutFallingBackToIdleAttack" classname="com.layue13.clashweave.core.SchedulerTest" time="0.001"/>
+  <testcase name="latestValidRequestReplacesButInvalidDoesNotErase" classname="com.layue13.clashweave.core.SchedulerTest" time="0.001"/>
+  <testcase name="hitLedgerIsPerTargetAndSegmentAndClearsAtEnd" classname="com.layue13.clashweave.core.SchedulerTest" time="0.001"/>
+  <testcase name="guiClearsBufferedDerivativeButKeepsCurrentRecoveryAndLedger" classname="com.layue13.clashweave.core.SchedulerTest" time="0.001"/>
+  <testcase name="lateWireDerivativeAndStaleIdleCannotBecomeAnotherAttack" classname="com.layue13.clashweave.core.SchedulerTest" time="0.002"/>
+  <testcase name="frozenTradeSurvivesEveryTraversalPermutation" classname="com.layue13.clashweave.core.SchedulerTest" time="0.002"/>
+  <testcase name="expiredDerivativeNeverBecomesIdleAttack" classname="com.layue13.clashweave.core.SchedulerTest" time="0.001"/>
+  <testcase name="illegalNodesAndUnavailableLauncherReject" classname="com.layue13.clashweave.core.SchedulerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

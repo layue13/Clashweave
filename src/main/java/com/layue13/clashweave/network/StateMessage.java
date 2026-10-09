@@ -18,13 +18,35 @@ public final class StateMessage implements IMessage {
     public long session;
     public long instance;
     public long start;
+    public long feedbackFrozen;
     public boolean engaged;
     public boolean sheathed;
     public boolean blocks;
+    public boolean confirmed;
     public float yaw;
     public String action = "";
     public String result = "";
     public String definitions = "";
+
+    public StateMessage() {}
+
+    public StateMessage(StateMessage source) {
+        entity = source.entity;
+        revision = source.revision;
+        ack = source.ack;
+        tick = source.tick;
+        instance = source.instance;
+        start = source.start;
+        feedbackFrozen = source.feedbackFrozen;
+        engaged = source.engaged;
+        sheathed = source.sheathed;
+        blocks = source.blocks;
+        confirmed = source.confirmed;
+        yaw = source.yaw;
+        action = source.action;
+        result = source.result;
+        // Observers receive neither the owner's authentication token nor its configuration payload.
+    }
 
     @Override
     public void fromBytes(ByteBuf buffer) {
@@ -35,9 +57,11 @@ public final class StateMessage implements IMessage {
         session = buffer.readLong();
         instance = buffer.readLong();
         start = buffer.readLong();
+        feedbackFrozen = buffer.readLong();
         engaged = buffer.readBoolean();
         sheathed = buffer.readBoolean();
         blocks = buffer.readBoolean();
+        confirmed = buffer.readBoolean();
         yaw = buffer.readFloat();
         action = ByteBufUtils.readUTF8String(buffer);
         result = ByteBufUtils.readUTF8String(buffer);
@@ -56,9 +80,11 @@ public final class StateMessage implements IMessage {
             .writeLong(session)
             .writeLong(instance)
             .writeLong(start)
+            .writeLong(feedbackFrozen)
             .writeBoolean(engaged)
             .writeBoolean(sheathed)
             .writeBoolean(blocks)
+            .writeBoolean(confirmed)
             .writeFloat(yaw);
         ByteBufUtils.writeUTF8String(buffer, action);
         ByteBufUtils.writeUTF8String(buffer, result);

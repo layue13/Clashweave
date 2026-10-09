@@ -10,13 +10,21 @@ public final class MovementBudget {
     private double path;
     private double vertical;
     private long sampled;
+    private final double jump;
+    private final double epsilon;
 
     public MovementBudget(long started, double speed, double total, double margin) {
+        this(started, speed, total, margin, 1.25, 0.03);
+    }
+
+    public MovementBudget(long started, double speed, double total, double margin, double jump, double epsilon) {
         this.started = started;
         this.speed = speed;
         this.total = total;
         this.margin = margin;
         sampled = started;
+        this.jump = jump;
+        this.epsilon = epsilon;
     }
 
     public boolean accept(long now, double horizontalDelta, double verticalDelta, double walkingSpeed,
@@ -27,9 +35,9 @@ public final class MovementBudget {
         double nextY = vertical + Math.max(0, verticalDelta);
         double batchTicks = Math.max(0, now - sampled) / 50_000_000.0 + margin;
         // Walking/jumping and server knockback have separate finite allowances.
-        if (horizontalDelta > (speed + walkingSpeed) * batchTicks + externalHorizontal + 0.03
-            || next > root + walkingSpeed * (ticks + margin) + externalHorizontal + 0.03
-            || nextY > 1.25 + 0.42 * ticks + externalVertical) return false;
+        if (horizontalDelta > (speed + walkingSpeed) * batchTicks + externalHorizontal + epsilon
+            || next > root + walkingSpeed * (ticks + margin) + externalHorizontal + epsilon
+            || nextY > jump + externalVertical) return false;
         path = next;
         vertical = nextY;
         sampled = now;

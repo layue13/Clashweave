@@ -1,0 +1,901 @@
+[10:44:36] [main/INFO] [GradleStart]: username: P0A
+[10:44:36] [main/INFO] [GradleStart]: Extra: [--width, 960, --height, 540, --gameDir, C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\engagement-25\P0A]
+[10:44:36] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:\Users\layue13\.gradle\caches\retro_futura_gradle\assets, --assetIndex, 1.7.10, --accessToken, {REDACTED}, --version, 1.7.10, --username, P0A, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --width, 960, --height, 540, --gameDir, C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\engagement-25\P0A, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[10:44:36] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
+[10:44:36] [main/INFO] [FML]: Forge Mod Loader version 7.99.40.1614 for Minecraft 1.7.10 loading
+[10:44:36] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_504, running on Windows 11:amd64:10.0, installed at C:\Program Files\Zulu\zulu-8\jre
+[10:44:36] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[10:44:36] [main/INFO] [GradleStart]: Injecting location in coremod cpw.mods.fml.relauncher.FMLCorePlugin
+[10:44:36] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[10:44:36] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[10:44:36] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[10:44:36] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.TerminalTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.TerminalTweaker
+[10:44:36] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[10:44:37] [main/INFO]: Setting user: P0A
+[10:44:37] [Client thread/INFO]: LWJGL Version: 2.9.4
+[10:44:37] [Client thread/INFO] [FML]: Could not load splash.properties, will create a default one
+[10:44:37] [Client thread/INFO] [STDOUT]: [cpw.mods.fml.client.SplashProgress:start:188]: ---- Minecraft Crash Report ----
+// Who set us up the TNT?
+
+Time: 10/9/26 10:44 AM
+Description: Loading screen debug info
+
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 1.8.0_504, Azul Systems, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Azul Systems, Inc.
+	Memory: 333921080 bytes (318 MB) / 454033408 bytes (433 MB) up to 954728448 bytes (910 MB)
+	JVM Flags: 2 total; -Xms256M -Xmx1G
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 617.42' Renderer: 'NVIDIA GeForce RTX 5060 Ti/PCIe/SSE2'
+[10:44:37] [Client thread/INFO] [MinecraftForge]: Attempting early MinecraftForge initialization
+[10:44:37] [Client thread/INFO] [FML]: MinecraftForge v10.13.4.1614 Initialized
+[10:44:37] [Client thread/INFO] [FML]: Replaced 183 ore recipies
+[10:44:37] [Client thread/INFO] [MinecraftForge]: Completed early MinecraftForge initialization
+[10:44:37] [Client thread/INFO] [FML]: Found 0 mods from the command line. Injecting into mod discoverer
+[10:44:37] [Client thread/INFO] [FML]: Searching C:\Users\layue13\Documents\Projects\Clashweave\build\p0\runs\engagement-25\P0A\mods for mods
+[10:44:40] [Client thread/INFO] [FML]: Forge Mod Loader has identified 5 mods to load
+[10:44:40] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, clashweavevalidation] at CLIENT
+[10:44:40] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, clashweavevalidation] at SERVER
+[10:44:40] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Clashweave, FMLFileResourcePack:P0 isolated validation
+[10:44:40] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[10:44:40] [Client thread/INFO] [FML]: Found 341 ObjectHolder annotations
+[10:44:40] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[10:44:40] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[10:44:40] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[10:44:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:42]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[10:44:40] [Client thread/INFO] [clashweave]: Clashweave 0.1.0-dev initialized
+[10:44:40] [Client thread/INFO] [FML]: Applying holder lookups
+[10:44:40] [Client thread/INFO] [FML]: Holder lookups applied
+[10:44:40] [Client thread/INFO] [FML]: Injecting itemstacks
+[10:44:40] [Client thread/INFO] [FML]: Itemstack injection complete
+[10:44:40] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[10:44:40] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:815)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:768)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:717)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:689)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at net.minecraftforge.common.ForgeVersion$1.run(ForgeVersion.java:94)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:183)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:803)
+[10:44:40] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	... 4 more
+[10:44:40] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[10:44:40] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[10:44:40] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[10:44:40] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[10:44:40] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[10:44:40] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[10:44:40] [Sound Library Loader/INFO]: Sound engine started
+[10:44:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:53]: P0_AUDIO initial loader settled
+[10:44:40] [Client thread/INFO] [FML]: Injecting itemstacks
+[10:44:40] [Client thread/INFO] [FML]: Itemstack injection complete
+[10:44:41] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 5 mods
+[10:44:41] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Clashweave, FMLFileResourcePack:P0 isolated validation
+[10:44:41] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[10:44:41] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[10:44:41] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[10:44:41] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: SoundSystem shutting down...
+[10:44:41] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:importantMessage:90]:     Author: Paul Lamb, www.paulscode.com
+[10:44:41] [Client thread/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[10:44:41] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[10:44:41] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[10:44:41] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[10:44:41] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[10:44:41] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[10:44:41] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[10:44:41] [Sound Library Loader/INFO]: Sound engine started
+[10:44:43] [Client thread/INFO]: Connecting to 127.0.0.1, 25581
+[10:44:45] [Netty Client IO #0/INFO] [FML]: Server protocol version 2
+[10:44:45] [Netty Client IO #0/INFO] [FML]: Attempting connection with missing mods [] at SERVER
+[10:44:46] [Netty Client IO #0/INFO] [FML]: Injecting existing block and item data into this client instance
+[10:44:46] [Netty Client IO #0/INFO] [FML]: Applying holder lookups
+[10:44:46] [Netty Client IO #0/INFO] [FML]: Holder lookups applied
+[10:44:46] [Client thread/INFO] [FML]: [Client thread] Client side modded connection established
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=false revision=1 tick=214 receive=13902062029200
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=1 engaged=false sneak=false forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=2 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=3 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=4 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=5 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=6 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=7 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=8 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=9 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=10 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=11 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=12 engaged=false sneak=true forward=0.0
+[10:44:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=13 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=14 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=15 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=16 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=17 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=18 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=19 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=20 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=21 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=22 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=23 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=24 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=25 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=26 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=27 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=28 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=29 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=30 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=31 engaged=false sneak=true forward=0.0
+[10:44:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=32 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=33 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=34 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=35 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=36 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=37 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=38 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=39 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=40 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=41 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=42 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=43 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=44 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=45 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=46 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=47 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=48 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=49 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=50 engaged=false sneak=true forward=0.0
+[10:44:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=51 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=52 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=53 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=54 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=55 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=56 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=57 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=58 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=59 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=60 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=61 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=62 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=63 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=64 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=65 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=66 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=67 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=68 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=69 engaged=false sneak=true forward=0.0
+[10:44:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=70 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=71 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=72 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=73 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=74 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=75 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=76 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=77 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=78 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=79 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=80 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=81 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=82 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=83 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=84 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=85 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=86 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=87 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=88 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=89 engaged=false sneak=true forward=0.0
+[10:44:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=90 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=91 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=92 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=93 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=94 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=95 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=96 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=97 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=98 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=99 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=100 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=101 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=102 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=103 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=104 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=105 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=106 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=107 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=108 engaged=false sneak=true forward=0.0
+[10:44:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=109 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=110 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=111 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=112 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=113 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=114 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=115 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=116 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=117 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=118 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=119 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=120 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=121 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=122 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=123 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=124 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=125 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=126 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=127 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=128 engaged=false sneak=true forward=0.0
+[10:44:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=129 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=130 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=131 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=132 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=133 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=134 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=135 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=136 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=137 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=138 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=139 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=140 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=141 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=142 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=143 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=144 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=145 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=146 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=147 engaged=false sneak=true forward=0.0
+[10:44:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=148 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=149 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=150 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=151 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=152 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=153 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=154 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=155 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=156 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=157 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=158 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=159 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=160 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=161 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=162 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=163 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=164 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=165 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=166 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=167 engaged=false sneak=true forward=0.0
+[10:44:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=168 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=169 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=170 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=171 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=172 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=173 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=174 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=175 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=176 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=177 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=178 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=179 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=180 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=181 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=182 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=183 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=184 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=185 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=186 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=187 engaged=false sneak=true forward=0.0
+[10:44:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=188 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=189 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=190 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=191 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=192 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=193 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=194 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=195 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO]: [CHAT] P0B joined the game
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=196 engaged=false sneak=true forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=true revision=3 tick=416 receive=13912054246100
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=197 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=198 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=199 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=200 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=201 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=202 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=203 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=204 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=205 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=206 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=207 engaged=true sneak=false forward=0.0
+[10:44:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=208 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=209 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=210 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=211 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=212 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=213 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=214 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=215 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=216 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=217 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=218 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=219 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=220 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=221 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=222 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=223 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=224 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=225 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=226 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=227 engaged=true sneak=false forward=0.0
+[10:44:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=228 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=229 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=230 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=231 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=232 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=233 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=234 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=235 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=236 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=237 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=238 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=239 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=240 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=241 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=242 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=243 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=244 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=245 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=246 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=247 engaged=true sneak=false forward=0.0
+[10:44:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=248 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=249 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=250 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=251 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=252 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=253 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=254 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=255 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=256 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=257 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=258 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=259 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=260 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=261 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=262 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=263 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=264 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=265 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=266 engaged=true sneak=false forward=0.0
+[10:44:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=267 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=268 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=269 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=270 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=271 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=272 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=273 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=274 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=275 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=276 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=277 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=278 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=279 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=280 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=281 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=282 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=283 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=284 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=285 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=286 engaged=true sneak=false forward=0.0
+[10:45:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=287 engaged=true sneak=false forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=288 engaged=true sneak=false forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=289 engaged=true sneak=false forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=290 engaged=true sneak=false forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=291 engaged=true sneak=false forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=292 engaged=true sneak=false forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=293 engaged=true sneak=false forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=false revision=4 tick=514 receive=13916934368400
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=294 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=295 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=296 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=297 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=298 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=299 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=300 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=301 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=302 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=303 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=304 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=305 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=306 engaged=false sneak=true forward=0.0
+[10:45:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=307 engaged=false sneak=true forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=308 engaged=false sneak=true forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=309 engaged=false sneak=true forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=310 engaged=false sneak=true forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=311 engaged=false sneak=true forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=312 engaged=false sneak=true forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=313 engaged=false sneak=true forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=314 engaged=false sneak=true forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=true revision=5 tick=535 receive=13917983576000
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=315 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=316 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=317 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=318 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=319 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=320 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=321 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=322 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=323 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=324 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=325 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=326 engaged=true sneak=false forward=0.0
+[10:45:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=327 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=328 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=329 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=330 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=331 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=332 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=333 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=334 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=335 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=336 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=337 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=338 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=339 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=340 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=341 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=342 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=343 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=344 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=345 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=346 engaged=true sneak=false forward=0.0
+[10:45:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=347 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=348 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=349 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=350 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=351 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=352 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=353 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=354 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=355 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=356 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=357 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=358 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=359 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=360 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=361 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=362 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=363 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=364 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=365 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=366 engaged=true sneak=false forward=0.0
+[10:45:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=367 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=368 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=369 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=370 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=371 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=372 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=373 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=374 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=375 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=376 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=377 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=378 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=379 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=380 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=381 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=382 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=383 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=384 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=385 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=386 engaged=true sneak=false forward=0.0
+[10:45:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=387 engaged=true sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=388 engaged=true sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=389 engaged=true sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=390 engaged=true sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=391 engaged=true sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=392 engaged=true sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=393 engaged=true sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=false revision=6 tick=614 receive=13921950995100
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=394 engaged=false sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=395 engaged=false sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=396 engaged=false sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=397 engaged=false sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=398 engaged=false sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=399 engaged=false sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=400 engaged=false sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=401 engaged=false sneak=false forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=402 engaged=false sneak=true forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=403 engaged=false sneak=true forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=404 engaged=false sneak=true forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=405 engaged=false sneak=true forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=406 engaged=false sneak=true forward=0.0
+[10:45:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=407 engaged=false sneak=true forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=408 engaged=false sneak=true forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=409 engaged=false sneak=true forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=410 engaged=false sneak=true forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=411 engaged=false sneak=true forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=412 engaged=false sneak=true forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=413 engaged=false sneak=true forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=414 engaged=false sneak=true forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=true revision=7 tick=635 receive=13923001235500
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=415 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=416 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=417 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=418 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=419 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=420 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=421 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=422 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=423 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=424 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=425 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=426 engaged=true sneak=false forward=0.0
+[10:45:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=427 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=428 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=429 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=430 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=431 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=432 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=433 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=434 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=435 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=436 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=437 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=438 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=439 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=440 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=441 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=442 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=443 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=444 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=445 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=446 engaged=true sneak=false forward=0.0
+[10:45:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=447 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=448 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=449 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=450 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=451 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=452 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=453 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=454 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=455 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=456 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=457 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=458 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=459 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=460 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=461 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=462 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=463 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=464 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=465 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=466 engaged=true sneak=false forward=0.0
+[10:45:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=467 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=468 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=469 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=470 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=471 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=472 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=473 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=474 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=475 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=476 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=477 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=478 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=479 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=480 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=481 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=482 engaged=true sneak=false forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=false revision=8 tick=703 receive=13926400615000
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=483 engaged=false sneak=true forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=484 engaged=false sneak=true forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=485 engaged=false sneak=true forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=486 engaged=false sneak=true forward=0.0
+[10:45:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=487 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=488 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=489 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=490 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=491 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=492 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=493 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=494 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=495 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=496 engaged=true sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=497 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=498 engaged=false sneak=true forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=true revision=9 tick=719 receive=13927200655100
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=499 engaged=true sneak=false forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=500 engaged=true sneak=false forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=501 engaged=true sneak=false forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=502 engaged=true sneak=false forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=503 engaged=true sneak=false forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=504 engaged=true sneak=false forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=505 engaged=true sneak=false forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=506 engaged=true sneak=false forward=0.0
+[10:45:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=507 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=508 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=509 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=510 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=511 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=512 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=513 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=514 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=515 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=516 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=517 engaged=true sneak=false forward=1.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=518 engaged=true sneak=false forward=1.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=519 engaged=true sneak=false forward=1.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=520 engaged=true sneak=false forward=1.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=521 engaged=true sneak=false forward=1.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=522 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=523 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=524 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=525 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=526 engaged=true sneak=false forward=0.0
+[10:45:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=527 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=528 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=529 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=530 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=531 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=532 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=533 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=534 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=535 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=536 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=537 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=538 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=539 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=540 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=541 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=542 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=543 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=544 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=545 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=546 engaged=true sneak=false forward=0.0
+[10:45:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=547 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=548 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=549 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=550 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=551 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=552 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=553 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=554 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=555 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=556 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=557 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=558 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=559 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=560 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=561 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=562 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=563 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=564 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=565 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=566 engaged=true sneak=false forward=0.0
+[10:45:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=567 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=568 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=569 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=570 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=571 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=572 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=573 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=574 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=575 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=576 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=577 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=578 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=579 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=580 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=581 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=582 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=583 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=584 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=585 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=586 engaged=true sneak=false forward=0.0
+[10:45:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=587 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=588 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=589 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=590 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=591 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=592 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=593 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=594 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=595 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=596 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=597 engaged=true sneak=false forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=false revision=10 tick=818 receive=13932150306600
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=598 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=599 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=600 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=601 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=602 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=603 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=604 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=605 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=606 engaged=false sneak=true forward=0.0
+[10:45:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=607 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=608 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=609 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=610 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=611 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=612 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=613 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=614 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=615 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=616 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=617 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=618 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=619 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=620 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=621 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=622 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=623 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=624 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=625 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=626 engaged=false sneak=true forward=0.0
+[10:45:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=627 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=628 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=629 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=630 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=631 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=632 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=633 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=634 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=635 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=636 engaged=true sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=637 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=638 engaged=false sneak=true forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=true revision=11 tick=859 receive=13934200792200
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=639 engaged=true sneak=false forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=640 engaged=true sneak=false forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=641 engaged=true sneak=false forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=642 engaged=true sneak=false forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=643 engaged=true sneak=false forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=644 engaged=true sneak=false forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=645 engaged=true sneak=false forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=646 engaged=true sneak=false forward=0.0
+[10:45:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=647 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:241]: CW_FEEDBACK player=P0A result=HIT frozen=13934367625500 receive=13934650551400 corrections=0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:280]: P0_AUDIO source=random.successful_hit frozen=13934367625500 nano=13934650723300
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=648 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:308]: CW_FRAME frozen=13934367625500 frame=13934653570100
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=649 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=650 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=651 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=652 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=653 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=654 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=655 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=656 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=657 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=658 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=659 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=660 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=661 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=662 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=663 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=664 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=665 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=666 engaged=true sneak=false forward=0.0
+[10:45:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=667 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=668 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=669 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=670 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=671 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=672 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=673 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=674 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=675 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=676 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=677 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=678 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=679 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=680 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=681 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=682 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=683 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=684 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=685 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=686 engaged=true sneak=false forward=0.0
+[10:45:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=687 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=688 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=689 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=690 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=691 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=692 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=693 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=694 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=695 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=696 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=697 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=698 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=699 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=true
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=700 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=701 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=702 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=703 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=704 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=705 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=706 engaged=true sneak=false forward=0.0
+[10:45:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=707 engaged=true sneak=false forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=708 engaged=true sneak=false forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=709 engaged=true sneak=false forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=710 engaged=true sneak=false forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=711 engaged=true sneak=false forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=712 engaged=true sneak=false forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=713 engaged=true sneak=false forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=714 engaged=true sneak=false forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:195]: CW_ENGAGEMENT player=P0A engaged=false revision=12 tick=935 receive=13938001286300
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=715 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=716 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=717 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=718 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=719 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=720 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=721 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=722 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=723 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=724 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:93]: P0_ENGAGEMENT attemptChest engaged=false
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=725 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=726 engaged=false sneak=true forward=0.0
+[10:45:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=727 engaged=false sneak=true forward=0.0
+[10:45:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=728 engaged=false sneak=true forward=0.0
+[10:45:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=729 engaged=false sneak=true forward=0.0
+[10:45:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=730 engaged=false sneak=true forward=0.0
+[10:45:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=731 engaged=false sneak=true forward=0.0
+[10:45:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=732 engaged=false sneak=true forward=0.0
+[10:45:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=733 engaged=false sneak=true forward=0.0
+[10:45:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:99]: P0_ENGAGEMENT client tick=734 engaged=false sneak=true forward=0.0
+[10:45:23] [Client thread/INFO] [FML]: Applying holder lookups
+[10:45:23] [Client thread/INFO] [FML]: Holder lookups applied

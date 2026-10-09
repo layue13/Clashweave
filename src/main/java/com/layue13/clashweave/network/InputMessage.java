@@ -12,6 +12,7 @@ public final class InputMessage implements IMessage {
 
     public long session;
     public long stamp;
+    public long origin;
     public int sequence;
     public int kind;
     public int target;
@@ -28,19 +29,21 @@ public final class InputMessage implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buffer) {
-        if (buffer.readableBytes() != 28) throw new IllegalArgumentException("Input size");
+        if (buffer.readableBytes() != 36) throw new IllegalArgumentException("Input size");
         session = buffer.readLong();
         stamp = buffer.readLong();
+        origin = buffer.readLong();
         sequence = buffer.readInt();
         kind = buffer.readInt();
         target = buffer.readInt();
-        if (kind < -1 || kind >= Intent.values().length) throw new IllegalArgumentException("Input intent");
+        if (kind < -2 || kind >= Intent.values().length) throw new IllegalArgumentException("Input intent");
     }
 
     @Override
     public void toBytes(ByteBuf buffer) {
         buffer.writeLong(session)
             .writeLong(stamp)
+            .writeLong(origin)
             .writeInt(sequence)
             .writeInt(kind)
             .writeInt(target);

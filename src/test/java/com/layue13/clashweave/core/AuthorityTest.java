@@ -40,4 +40,17 @@ public class AuthorityTest {
         assertFalse(budget.accept(250_000_000, 0, 5, 0, 0, 0));
         assertEquals(1, budget.path(), 0);
     }
+
+    @Test
+    public void shortEnvelopeCannotIdentifyModerateOverspeedWithinItsMargin() {
+        for (double multiplier : new double[] { 1.2, 1.5 }) {
+            MovementBudget budget = new MovementBudget(0, 0.2, 1.2, 2);
+            double remaining = 1.2;
+            for (int tick = 1; remaining > 0; tick++) {
+                double step = Math.min(remaining, 0.2 * multiplier);
+                assertTrue(budget.accept(tick * 50_000_000L, step, 0, 0.28, 0, 0));
+                remaining -= step;
+            }
+        }
+    }
 }
