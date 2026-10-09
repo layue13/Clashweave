@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "units": "blocks",
+  "sourceUp": "Z",
+  "runtimeUp": "Y",
+  "conversion": "(x,y,z)->(x,z,-y)",
+  "bladeOrigin": "grip",
+  "sheathOrigin": "mouth",
+  "swingStartDegrees": 55,
+  "swingEndDegrees": -85,
+  "timeBase": "20 ticks/second",
+  "adapter": "ModelBiped rigid mounts; no segmented torso or IK",
+  "blenderVersion": "5.2.2 LTS",
+  "exporterVersion": 1
+}

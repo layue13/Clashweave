@@ -1,6 +1,8 @@
 * text eol=lf
 
 *.[jJ][aA][rR]          binary
+*.[bB][lL][eE][nN][dD] binary
+*.blend[0-9]           binary
 
 *.[pP][nN][gG]          binary
 *.[jJ][pP][gG]          binary

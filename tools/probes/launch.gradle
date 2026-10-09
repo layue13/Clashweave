@@ -1,0 +1,42 @@
+// Opt-in local experiment wiring, loaded with -I. No user Gradle config changes.
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    p.tasks.withType(JavaExec).configureEach { t ->
+        if (t.name == 'runClient' || t.name == 'runServer') {
+            t.systemProperty('clashweave.probes', 'true')
+            t.systemProperty('clashweave.probe.autoServer', 'true')
+            t.systemProperty('clashweave.probe.role', System.getenv('CW_ROLE') ?: '')
+            t.systemProperty('clashweave.probe.port', System.getenv('CW_PORT') ?: '25565')
+            t.systemProperty('clashweave.probe.rtt', System.getenv('CW_RTT') ?: '0')
+            t.systemProperty('clashweave.probe.moveTrials', System.getenv('CW_MOVE_TRIALS') ?: '12')
+            t.systemProperty('clashweave.probe.exit', 'true')
+            t.jvmArgs('-Xmx1G')
+            if (System.getenv('CW_TRACE_CLASSES') == 'true') t.jvmArgs('-verbose:class')
+            if (t.name == 'runClient' && System.getenv('CW_NAME')) {
+                t.doFirst {
+                    def a = new ArrayList(t.args)
+                    def i = a.indexOf('--username')
+                    if (i >= 0 && i + 1 < a.size()) a[i + 1] = System.getenv('CW_NAME')
+                    else a.addAll(['--username', System.getenv('CW_NAME')])
+                    t.setArgs(a)
+                }
+            }
+        }
+    }
+    p.tasks.register('probeLaunchFiles') {
+        dependsOn('classes')
+        dependsOn { p.tasks.getByName('runClient').taskDependencies.getDependencies(p.tasks.getByName('runClient')) }
+        dependsOn { p.tasks.getByName('runServer').taskDependencies.getDependencies(p.tasks.getByName('runServer')) }
+        doLast {
+            ['runClient', 'runServer'].each { name ->
+                def t = p.tasks.getByName(name)
+                def result = [java: t.javaLauncher.get().executablePath.asFile.absolutePath,
+                              classpath: t.classpath.asPath, main: t.mainClass.get(),
+                              jvmArgs: t.allJvmArgs, args: t.args, cwd: t.workingDir.absolutePath]
+                def out = p.file("build/probes/${name}.json")
+                out.parentFile.mkdirs()
+                out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(result))
+            }
+        }
+    }
+}
