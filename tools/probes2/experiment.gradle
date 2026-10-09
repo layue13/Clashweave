@@ -1,0 +1,32 @@
+// Only -I opts into this source set. No production source, plugin or jar changes.
+gradle.projectsEvaluated {
+    def project = gradle.rootProject
+    def experiment = project.sourceSets.create('s1bExperiment') {
+        java.srcDir('tools/probes2/java')
+        compileClasspath = project.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    project.tasks.register('s1bExperimentJar', Jar) {
+        dependsOn(experiment.classesTaskName)
+        from(experiment.output)
+        archiveFileName.set('s1b-experiment.jar')
+        destinationDirectory.set(project.layout.buildDirectory.dir('probes2'))
+    }
+    project.tasks.register('round2LaunchFile') {
+        dependsOn('s1bExperimentJar')
+        dependsOn {
+            def server = project.tasks.getByName('runServer')
+            server.taskDependencies.getDependencies(server)
+        }
+        doLast {
+            def server = project.tasks.getByName('runServer')
+            def output = project.file('build/probes2/server-launch.json')
+            output.parentFile.mkdirs()
+            output.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+                java: server.javaLauncher.get().executablePath.asFile.absolutePath,
+                classpath: server.classpath.asPath,
+                main: server.mainClass.get(), jvmArgs: server.allJvmArgs, args: server.args
+            ]))
+        }
+    }
+}
