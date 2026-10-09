@@ -1,0 +1,519 @@
+[Opened C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Opened C:\Program Files\Zulu\zulu-8\jre\lib\jfr.jar]
+[05:42:56] [main/INFO] [GradleStart]: Extra: [nogui]
+[05:42:56] [main/INFO] [GradleStart]: Running with arguments: [--tweakClass, cpw.mods.fml.common.launcher.FMLServerTweaker, nogui, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[05:42:56] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLServerTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLServerTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLServerTweaker
+[05:42:56] [main/INFO] [FML]: Forge Mod Loader version 7.99.40.1614 for Minecraft 1.7.10 loading
+[05:42:56] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_504, running on Windows 11:amd64:10.0, installed at C:\Program Files\Zulu\zulu-8\jre
+[05:42:56] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[05:42:56] [main/INFO] [GradleStart]: Injecting location in coremod cpw.mods.fml.relauncher.FMLCorePlugin
+[05:42:56] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[05:42:56] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[05:42:56] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[05:42:56] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.TerminalTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.TerminalTweaker
+[05:42:56] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.server.MinecraftServer}
+[Opened C:\Program Files\Zulu\zulu-8\jre\lib\jsse.jar]
+[05:42:57] [Server thread/INFO]: Starting minecraft server version 1.7.10
+[05:42:57] [Server thread/INFO] [MinecraftForge]: Attempting early MinecraftForge initialization
+[05:42:57] [Server thread/INFO] [FML]: MinecraftForge v10.13.4.1614 Initialized
+[05:42:57] [Server thread/INFO] [FML]: Replaced 183 ore recipies
+[05:42:57] [Server thread/INFO] [MinecraftForge]: Completed early MinecraftForge initialization
+[05:42:57] [Server thread/INFO] [FML]: Found 0 mods from the command line. Injecting into mod discoverer
+[05:42:57] [Server thread/INFO] [FML]: Searching C:\Users\layue13\Documents\Projects\Clashweave\run\probes2\guard-edge200-rtt200\server\mods for mods
+[05:42:59] [Server thread/INFO] [FML]: Forge Mod Loader has identified 5 mods to load
+[05:42:59] [Server thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, cw_s3supp] at CLIENT
+[05:42:59] [Server thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, cw_s3supp] at SERVER
+[05:42:59] [Server thread/INFO] [FML]: Processing ObjectHolder annotations
+[05:42:59] [Server thread/INFO] [FML]: Found 341 ObjectHolder annotations
+[05:42:59] [Server thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[05:42:59] [Server thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[05:42:59] [Server thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[05:42:59] [Server thread/INFO] [clashweave]: Clashweave 0.1.0-dev initialized
+[05:42:59] [Server thread/INFO] [FML]: Applying holder lookups
+[05:42:59] [Server thread/INFO] [FML]: Holder lookups applied
+[05:42:59] [Server thread/INFO] [FML]: Injecting itemstacks
+[05:42:59] [Server thread/INFO] [FML]: Itemstack injection complete
+[05:42:59] [Server thread/INFO]: Loading properties
+[05:42:59] [Server thread/INFO]: Default game type: SURVIVAL
+[05:42:59] [Server thread/INFO]: Generating keypair
+[Opened C:\Program Files\Zulu\zulu-8\jre\lib\jce.jar]
+[05:42:59] [Server thread/INFO]: Starting Minecraft server on 127.0.0.1:25572
+[05:42:59] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[05:42:59] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[05:42:59] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[05:42:59] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[05:42:59] [Server thread/INFO] [FML]: Injecting itemstacks
+[05:42:59] [Server thread/INFO] [FML]: Itemstack injection complete
+[05:42:59] [Server thread/INFO] [FML]: Forge Mod Loader has successfully loaded 5 mods
+[05:42:59] [Server thread/WARN]: Failed to load user banlist: 
+java.io.FileNotFoundException: banned-players.json (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method) ~[?:1.8.0_504]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[?:1.8.0_504]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[?:1.8.0_504]
+	at com.google.common.io.Files.newReader(Files.java:86) ~[guava-17.0.jar:?]
+	at net.minecraft.server.management.UserList.func_152679_g(UserList.java:195) ~[UserList.class:?]
+	at net.minecraft.server.dedicated.DedicatedPlayerList.func_152620_y(DedicatedPlayerList.java:124) [DedicatedPlayerList.class:?]
+	at net.minecraft.server.dedicated.DedicatedPlayerList.<init>(DedicatedPlayerList.java:31) [DedicatedPlayerList.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:214) [DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:449) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:756) [MinecraftServer$2.class:?]
+[05:42:59] [Server thread/WARN]: Failed to load ip banlist: 
+java.io.FileNotFoundException: banned-ips.json (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method) ~[?:1.8.0_504]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[?:1.8.0_504]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[?:1.8.0_504]
+	at com.google.common.io.Files.newReader(Files.java:86) ~[guava-17.0.jar:?]
+	at net.minecraft.server.management.UserList.func_152679_g(UserList.java:195) ~[UserList.class:?]
+	at net.minecraft.server.dedicated.DedicatedPlayerList.func_152619_x(DedicatedPlayerList.java:112) [DedicatedPlayerList.class:?]
+	at net.minecraft.server.dedicated.DedicatedPlayerList.<init>(DedicatedPlayerList.java:33) [DedicatedPlayerList.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:214) [DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:449) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:756) [MinecraftServer$2.class:?]
+[05:42:59] [Server thread/WARN]: Failed to load operators list: 
+java.io.FileNotFoundException: ops.json (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method) ~[?:1.8.0_504]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[?:1.8.0_504]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[?:1.8.0_504]
+	at com.google.common.io.Files.newReader(Files.java:86) ~[guava-17.0.jar:?]
+	at net.minecraft.server.management.UserList.func_152679_g(UserList.java:195) ~[UserList.class:?]
+	at net.minecraft.server.dedicated.DedicatedPlayerList.loadOpsList(DedicatedPlayerList.java:136) [DedicatedPlayerList.class:?]
+	at net.minecraft.server.dedicated.DedicatedPlayerList.<init>(DedicatedPlayerList.java:35) [DedicatedPlayerList.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:214) [DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:449) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:756) [MinecraftServer$2.class:?]
+[05:42:59] [Server thread/WARN]: Failed to load white-list: 
+java.io.FileNotFoundException: whitelist.json (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method) ~[?:1.8.0_504]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[?:1.8.0_504]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[?:1.8.0_504]
+	at com.google.common.io.Files.newReader(Files.java:86) ~[guava-17.0.jar:?]
+	at net.minecraft.server.management.UserList.func_152679_g(UserList.java:195) ~[UserList.class:?]
+	at net.minecraft.server.dedicated.DedicatedPlayerList.readWhiteList(DedicatedPlayerList.java:160) [DedicatedPlayerList.class:?]
+	at net.minecraft.server.dedicated.DedicatedPlayerList.<init>(DedicatedPlayerList.java:36) [DedicatedPlayerList.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:214) [DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:449) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:756) [MinecraftServer$2.class:?]
+[05:42:59] [Server thread/INFO]: Preparing level "world"
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:815)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:768)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:717)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:689)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at net.minecraftforge.common.ForgeVersion$1.run(ForgeVersion.java:94)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:183)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:803)
+[05:43:00] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	... 4 more
+[05:43:04] [Server thread/INFO] [FML]: Loading dimension 0 (world) (net.minecraft.server.dedicated.DedicatedServer@7689d0ff)
+[05:43:04] [Server thread/INFO] [FML]: Loading dimension 1 (world) (net.minecraft.server.dedicated.DedicatedServer@7689d0ff)
+[05:43:04] [Server thread/INFO] [FML]: Loading dimension -1 (world) (net.minecraft.server.dedicated.DedicatedServer@7689d0ff)
+[05:43:04] [Server thread/INFO]: Preparing start region for level 0
+[05:43:04] [Server thread/INFO]: Done (4.434s)! For help, type "help" or "?"
+[05:43:12] [Netty IO #1/INFO] [FML]: Client protocol version 2
+[05:43:12] [Netty IO #1/INFO] [FML]: Client attempting to join with 5 mods : FML@7.10.99.99,Forge@10.13.4.1614,cw_s3supp@1,mcp@9.05,clashweave@0.1.0-dev
+[05:43:12] [Netty IO #1/INFO] [FML]: Attempting connection with missing mods [] at CLIENT
+[05:43:12] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[05:43:12] [Server thread/INFO]: GuardB[/127.0.0.1:61980] logged in with entity id 26 at (1226.5, 4.0, -535.5)
+[05:43:12] [Server thread/INFO]: GuardB joined the game
+[05:43:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 LOGIN name=GuardB
+[05:43:19] [Netty IO #2/INFO] [FML]: Client protocol version 2
+[05:43:19] [Netty IO #2/INFO] [FML]: Client attempting to join with 5 mods : FML@7.10.99.99,Forge@10.13.4.1614,cw_s3supp@1,mcp@9.05,clashweave@0.1.0-dev
+[05:43:19] [Netty IO #2/INFO] [FML]: Attempting connection with missing mods [] at CLIENT
+[05:43:20] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[05:43:20] [Server thread/INFO]: GuardA[/127.0.0.1:62122] logged in with entity id 27 at (1217.5, 4.0, -540.5)
+[05:43:20] [Server thread/INFO]: GuardA joined the game
+[05:43:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 LOGIN name=GuardA
+[05:43:22] [Netty IO #2/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99383581266200 side=SERVER kind=3 id=0 wall=1791549802785 thread=Netty IO #2 observed=367
+[05:43:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=0 kind=3 stamp=0 tickObserved=367 recvWall=1791549802822 sendWall=1791549802684 wireMs=138
+[05:43:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 READY tick=368
+[05:43:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=0 lead=0 defer=2 anchorTick=398 hit=410 stamp=410 anchorWall=99385106312900 legacy=false
+[05:43:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=0 tick=410 target=26 attacker=27 distance=1.0
+[05:43:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=0 lead=0 defer=2 hit=410 commit=412 deadlineNano=99385812225000 commitWall=1791549805020 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=95.0923
+[05:43:25] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99385819200200 side=SERVER kind=2 id=0 wall=1791549805023 thread=Netty IO #1 observed=412
+[05:43:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=0 kind=2 stamp=410 tickObserved=412 recvWall=1791549805063 sendWall=99385717597000 wireMs=-97594167791937
+[05:43:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=0 stamp=410 consumeTick=413 recvObserved=412 age=3 queueMs=0 sendWall=99385717597000 recvWall=1791549805063 consumeWall=1791549805063 accepted=true
+[05:43:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=1 lead=0 defer=2 anchorTick=417 hit=429 stamp=429 anchorWall=99386063575200 legacy=false
+[05:43:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=1 tick=429 target=26 attacker=27 distance=1.0
+[05:43:25] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99386768134900 side=SERVER kind=2 id=1 wall=1791549805972 thread=Netty IO #1 observed=430
+[05:43:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=1 lead=0 defer=2 hit=429 commit=431 deadlineNano=99386768207100 commitWall=1791549805972 stamp=429 arrivalNano=99386768134900 window=true before=true parry=true vanillaAccepted=false loss=0.0 feedbackDelayMs=108.5241
+[05:43:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=1 kind=2 stamp=429 tickObserved=431 recvWall=1791549806018 sendWall=99386667450500 wireMs=-97595117644482
+[05:43:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=1 stamp=429 consumeTick=432 recvObserved=431 age=3 queueMs=0 sendWall=99386667450500 recvWall=1791549806018 consumeWall=1791549806018 accepted=true
+[05:43:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=2 lead=0 defer=2 anchorTick=436 hit=448 stamp=448 anchorWall=99387003190600 legacy=false
+[05:43:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=2 tick=448 target=26 attacker=27 distance=1.0
+[05:43:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=2 lead=0 defer=2 hit=448 commit=450 deadlineNano=99387713584900 commitWall=1791549806917 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=110.1067
+[05:43:26] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99387734011000 side=SERVER kind=2 id=2 wall=1791549806938 thread=Netty IO #1 observed=450
+[05:43:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=2 kind=2 stamp=448 tickObserved=450 recvWall=1791549806964 sendWall=99387633172100 wireMs=-97596083365136
+[05:43:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=2 stamp=448 consumeTick=451 recvObserved=450 age=3 queueMs=0 sendWall=99387633172100 recvWall=1791549806964 consumeWall=1791549806964 accepted=true
+[05:43:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=3 lead=0 defer=2 anchorTick=455 hit=467 stamp=467 anchorWall=99387962946300 legacy=false
+[05:43:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=3 tick=467 target=26 attacker=27 distance=1.0
+[05:43:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=3 lead=0 defer=2 hit=467 commit=469 deadlineNano=99388655097000 commitWall=1791549807859 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.2668
+[05:43:27] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99388683834300 side=SERVER kind=2 id=3 wall=1791549807887 thread=Netty IO #1 observed=469
+[05:43:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=3 kind=2 stamp=467 tickObserved=469 recvWall=1791549807920 sendWall=99388583127800 wireMs=-97597033319880
+[05:43:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=3 stamp=467 consumeTick=470 recvObserved=469 age=3 queueMs=0 sendWall=99388583127800 recvWall=1791549807920 consumeWall=1791549807920 accepted=true
+[05:43:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=4 lead=0 defer=2 anchorTick=474 hit=486 stamp=486 anchorWall=99388903919100 legacy=false
+[05:43:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=4 tick=486 target=26 attacker=27 distance=1.0
+[05:43:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=4 lead=0 defer=2 hit=486 commit=488 deadlineNano=99389612133800 commitWall=1791549808816 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=95.0675
+[05:43:28] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99389634685500 side=SERVER kind=2 id=4 wall=1791549808838 thread=Netty IO #1 observed=488
+[05:43:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=4 kind=2 stamp=486 tickObserved=488 recvWall=1791549808863 sendWall=99389533866900 wireMs=-97597984058037
+[05:43:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=4 stamp=486 consumeTick=489 recvObserved=488 age=3 queueMs=0 sendWall=99389533866900 recvWall=1791549808863 consumeWall=1791549808863 accepted=true
+[05:43:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=5 lead=0 defer=2 anchorTick=493 hit=505 stamp=505 anchorWall=99389863102500 legacy=false
+[05:43:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=5 tick=505 target=26 attacker=27 distance=1.0
+[05:43:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=5 lead=0 defer=2 hit=505 commit=507 deadlineNano=99390555387800 commitWall=1791549809759 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.9027
+[05:43:29] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99390600551200 side=SERVER kind=2 id=5 wall=1791549809804 thread=Netty IO #1 observed=507
+[05:43:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=5 kind=2 stamp=505 tickObserved=507 recvWall=1791549809821 sendWall=99390499998500 wireMs=-97598950188679
+[05:43:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=5 stamp=505 consumeTick=508 recvObserved=507 age=3 queueMs=0 sendWall=99390499998500 recvWall=1791549809821 consumeWall=1791549809821 accepted=true
+[05:43:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=6 lead=0 defer=2 anchorTick=512 hit=524 stamp=524 anchorWall=99390805137200 legacy=false
+[05:43:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=6 tick=524 target=26 attacker=27 distance=1.0
+[05:43:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=6 lead=0 defer=2 hit=524 commit=526 deadlineNano=99391510406300 commitWall=1791549810714 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.4341
+[05:43:30] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99391551069500 side=SERVER kind=2 id=6 wall=1791549810755 thread=Netty IO #1 observed=526
+[05:43:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=6 kind=2 stamp=524 tickObserved=526 recvWall=1791549810761 sendWall=99391450612900 wireMs=-97599900802139
+[05:43:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=6 stamp=524 consumeTick=527 recvObserved=526 age=3 queueMs=0 sendWall=99391450612900 recvWall=1791549810761 consumeWall=1791549810761 accepted=true
+[05:43:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=7 lead=0 defer=2 anchorTick=531 hit=543 stamp=543 anchorWall=99391762993000 legacy=false
+[05:43:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=7 tick=543 target=26 attacker=27 distance=1.0
+[05:43:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=7 lead=0 defer=2 hit=543 commit=545 deadlineNano=99392453016000 commitWall=1791549811657 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.6705
+[05:43:31] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99392500256200 side=SERVER kind=2 id=7 wall=1791549811704 thread=Netty IO #1 observed=545
+[05:43:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=7 kind=2 stamp=543 tickObserved=545 recvWall=1791549811720 sendWall=99392399820600 wireMs=-97600850008880
+[05:43:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=7 stamp=543 consumeTick=546 recvObserved=545 age=3 queueMs=0 sendWall=99392399820600 recvWall=1791549811720 consumeWall=1791549811720 accepted=true
+[05:43:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=8 lead=0 defer=2 anchorTick=550 hit=562 stamp=562 anchorWall=99392705637900 legacy=false
+[05:43:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=8 tick=562 target=26 attacker=27 distance=1.0
+[05:43:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=8 lead=0 defer=2 hit=562 commit=564 deadlineNano=99393408929600 commitWall=1791549812613 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.785
+[05:43:32] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99393450463400 side=SERVER kind=2 id=8 wall=1791549812654 thread=Netty IO #1 observed=564
+[05:43:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=8 kind=2 stamp=562 tickObserved=564 recvWall=1791549812660 sendWall=99393349914700 wireMs=-97601800102040
+[05:43:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=8 stamp=562 consumeTick=565 recvObserved=564 age=3 queueMs=0 sendWall=99393349914700 recvWall=1791549812660 consumeWall=1791549812660 accepted=true
+[05:43:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=9 lead=0 defer=2 anchorTick=569 hit=581 stamp=581 anchorWall=99393662040400 legacy=false
+[05:43:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=9 tick=581 target=26 attacker=27 distance=1.0
+[05:43:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=9 lead=0 defer=2 hit=581 commit=583 deadlineNano=99394353236700 commitWall=1791549813557 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.773
+[05:43:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99394401745700 side=SERVER kind=2 id=9 wall=1791549813605 thread=Netty IO #1 observed=583
+[05:43:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=9 kind=2 stamp=581 tickObserved=583 recvWall=1791549813620 sendWall=99394300860800 wireMs=-97602751047180
+[05:43:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=9 stamp=581 consumeTick=584 recvObserved=583 age=3 queueMs=0 sendWall=99394300860800 recvWall=1791549813620 consumeWall=1791549813620 accepted=true
+[05:43:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=10 lead=0 defer=2 anchorTick=588 hit=600 stamp=600 anchorWall=99394604582700 legacy=false
+[05:43:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=10 tick=600 target=26 attacker=27 distance=1.0
+[05:43:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=10 lead=0 defer=2 hit=600 commit=602 deadlineNano=99395310677400 commitWall=1791549814514 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.1732
+[05:43:34] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99395351434100 side=SERVER kind=2 id=10 wall=1791549814555 thread=Netty IO #1 observed=602
+[05:43:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=10 kind=2 stamp=600 tickObserved=602 recvWall=1791549814561 sendWall=99395250533500 wireMs=-97603700718939
+[05:43:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=10 stamp=600 consumeTick=603 recvObserved=602 age=3 queueMs=0 sendWall=99395250533500 recvWall=1791549814561 consumeWall=1791549814561 accepted=true
+[05:43:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=11 lead=0 defer=2 anchorTick=607 hit=619 stamp=619 anchorWall=99395563453200 legacy=false
+[05:43:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=11 tick=619 target=26 attacker=27 distance=1.0
+[05:43:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=11 lead=0 defer=2 hit=619 commit=621 deadlineNano=99396264733700 commitWall=1791549815468 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=107.7626
+[05:43:35] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99396300810100 side=SERVER kind=2 id=11 wall=1791549815504 thread=Netty IO #1 observed=621
+[05:43:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=11 kind=2 stamp=619 tickObserved=621 recvWall=1791549815516 sendWall=99396200007700 wireMs=-97604650192184
+[05:43:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=11 stamp=619 consumeTick=622 recvObserved=621 age=3 queueMs=0 sendWall=99396200007700 recvWall=1791549815516 consumeWall=1791549815516 accepted=true
+[05:43:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=12 lead=0 defer=2 anchorTick=626 hit=638 stamp=638 anchorWall=99396516227600 legacy=false
+[05:43:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=12 tick=638 target=26 attacker=27 distance=1.0
+[05:43:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=12 lead=0 defer=2 hit=638 commit=640 deadlineNano=99397206226500 commitWall=1791549816410 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.9062
+[05:43:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99397251635000 side=SERVER kind=2 id=12 wall=1791549816455 thread=Netty IO #1 observed=640
+[05:43:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=12 kind=2 stamp=638 tickObserved=640 recvWall=1791549816457 sendWall=99397150720600 wireMs=-97605600904143
+[05:43:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=12 stamp=638 consumeTick=641 recvObserved=640 age=3 queueMs=0 sendWall=99397150720600 recvWall=1791549816457 consumeWall=1791549816457 accepted=true
+[05:43:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=13 lead=0 defer=2 anchorTick=645 hit=657 stamp=657 anchorWall=99397458356000 legacy=false
+[05:43:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=13 tick=657 target=26 attacker=27 distance=1.0
+[05:43:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=13 lead=0 defer=2 hit=657 commit=659 deadlineNano=99398153399900 commitWall=1791549817357 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.8871
+[05:43:37] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99398200748100 side=SERVER kind=2 id=13 wall=1791549817404 thread=Netty IO #1 observed=659
+[05:43:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=13 kind=2 stamp=657 tickObserved=659 recvWall=1791549817420 sendWall=99398099921000 wireMs=-97606550103580
+[05:43:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=13 stamp=657 consumeTick=660 recvObserved=659 age=3 queueMs=0 sendWall=99398099921000 recvWall=1791549817420 consumeWall=1791549817420 accepted=true
+[05:43:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=14 lead=0 defer=2 anchorTick=664 hit=676 stamp=676 anchorWall=99398404386600 legacy=false
+[05:43:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=14 tick=676 target=26 attacker=27 distance=1.0
+[05:43:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=14 lead=0 defer=2 hit=676 commit=678 deadlineNano=99399113300000 commitWall=1791549818317 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=109.7396
+[05:43:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99399151035000 side=SERVER kind=2 id=14 wall=1791549818355 thread=Netty IO #1 observed=678
+[05:43:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=14 kind=2 stamp=676 tickObserved=678 recvWall=1791549818365 sendWall=99399050472200 wireMs=-97607500653835
+[05:43:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=14 stamp=676 consumeTick=679 recvObserved=678 age=3 queueMs=0 sendWall=99399050472200 recvWall=1791549818365 consumeWall=1791549818365 accepted=true
+[05:43:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=15 lead=0 defer=2 anchorTick=683 hit=695 stamp=695 anchorWall=99399366683800 legacy=false
+[05:43:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=15 tick=695 target=26 attacker=27 distance=1.0
+[05:43:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=15 lead=0 defer=2 hit=695 commit=697 deadlineNano=99400062313800 commitWall=1791549819266 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=96.0121
+[05:43:39] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99400100367100 side=SERVER kind=2 id=15 wall=1791549819304 thread=Netty IO #1 observed=697
+[05:43:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=15 kind=2 stamp=695 tickObserved=697 recvWall=1791549819312 sendWall=99399999947200 wireMs=-97608450127888
+[05:43:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=15 stamp=695 consumeTick=698 recvObserved=697 age=3 queueMs=0 sendWall=99399999947200 recvWall=1791549819312 consumeWall=1791549819312 accepted=true
+[05:43:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=16 lead=0 defer=2 anchorTick=702 hit=714 stamp=714 anchorWall=99400313500700 legacy=false
+[05:43:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=16 tick=714 target=26 attacker=27 distance=1.0
+[05:43:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=16 lead=0 defer=2 hit=714 commit=716 deadlineNano=99401009720200 commitWall=1791549820213 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.3026
+[05:43:40] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99401051242200 side=SERVER kind=2 id=16 wall=1791549820255 thread=Netty IO #1 observed=716
+[05:43:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=16 kind=2 stamp=714 tickObserved=716 recvWall=1791549820260 sendWall=99400950518200 wireMs=-97609400697940
+[05:43:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=16 stamp=714 consumeTick=717 recvObserved=716 age=3 queueMs=0 sendWall=99400950518200 recvWall=1791549820260 consumeWall=1791549820260 accepted=true
+[05:43:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=17 lead=0 defer=2 anchorTick=721 hit=733 stamp=733 anchorWall=99401261358600 legacy=false
+[05:43:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=17 tick=733 target=26 attacker=27 distance=1.0
+[05:43:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=17 lead=0 defer=2 hit=733 commit=735 deadlineNano=99401967368000 commitWall=1791549821171 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=109.1416
+[05:43:41] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99402000835900 side=SERVER kind=2 id=17 wall=1791549821204 thread=Netty IO #1 observed=735
+[05:43:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=17 kind=2 stamp=733 tickObserved=735 recvWall=1791549821218 sendWall=99401900283300 wireMs=-97610350462082
+[05:43:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=17 stamp=733 consumeTick=736 recvObserved=735 age=3 queueMs=0 sendWall=99401900283300 recvWall=1791549821218 consumeWall=1791549821218 accepted=true
+[05:43:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=18 lead=0 defer=2 anchorTick=740 hit=752 stamp=752 anchorWall=99402217631600 legacy=false
+[05:43:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=18 tick=752 target=26 attacker=27 distance=1.0
+[05:43:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=18 lead=0 defer=2 hit=752 commit=754 deadlineNano=99402907047900 commitWall=1791549822111 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.8008
+[05:43:42] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99402951294700 side=SERVER kind=2 id=18 wall=1791549822155 thread=Netty IO #1 observed=754
+[05:43:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=18 kind=2 stamp=752 tickObserved=754 recvWall=1791549822157 sendWall=99402850702400 wireMs=-97611300880243
+[05:43:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=18 stamp=752 consumeTick=755 recvObserved=754 age=3 queueMs=0 sendWall=99402850702400 recvWall=1791549822157 consumeWall=1791549822157 accepted=true
+[05:43:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=19 lead=0 defer=2 anchorTick=759 hit=771 stamp=771 anchorWall=99403155299300 legacy=false
+[05:43:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=19 tick=771 target=26 attacker=27 distance=1.0
+[05:43:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=19 lead=0 defer=2 hit=771 commit=773 deadlineNano=99403860683900 commitWall=1791549823064 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.4291
+[05:43:43] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99403901709000 side=SERVER kind=2 id=19 wall=1791549823105 thread=Netty IO #1 observed=773
+[05:43:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=19 kind=2 stamp=771 tickObserved=773 recvWall=1791549823112 sendWall=99403801132700 wireMs=-97612251309588
+[05:43:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=19 stamp=771 consumeTick=774 recvObserved=773 age=3 queueMs=0 sendWall=99403801132700 recvWall=1791549823112 consumeWall=1791549823112 accepted=true
+[05:43:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=20 lead=0 defer=2 anchorTick=778 hit=790 stamp=790 anchorWall=99404113205300 legacy=false
+[05:43:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=20 tick=790 target=26 attacker=27 distance=1.0
+[05:43:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=20 lead=0 defer=2 hit=790 commit=792 deadlineNano=99404804438800 commitWall=1791549824008 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.3795
+[05:43:44] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99404850531900 side=SERVER kind=2 id=20 wall=1791549824054 thread=Netty IO #1 observed=792
+[05:43:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=20 kind=2 stamp=790 tickObserved=792 recvWall=1791549824071 sendWall=99404749850400 wireMs=-97613200026329
+[05:43:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=20 stamp=790 consumeTick=793 recvObserved=792 age=3 queueMs=0 sendWall=99404749850400 recvWall=1791549824071 consumeWall=1791549824071 accepted=true
+[05:43:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=21 lead=0 defer=2 anchorTick=797 hit=809 stamp=809 anchorWall=99405055461000 legacy=false
+[05:43:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=21 tick=809 target=26 attacker=27 distance=1.0
+[05:43:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=21 lead=0 defer=2 hit=809 commit=811 deadlineNano=99405763738900 commitWall=1791549824967 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=110.2985
+[05:43:45] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99405800265100 side=SERVER kind=2 id=21 wall=1791549825004 thread=Netty IO #1 observed=811
+[05:43:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=21 kind=2 stamp=809 tickObserved=811 recvWall=1791549825015 sendWall=99405699820800 wireMs=-97614149995785
+[05:43:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=21 stamp=809 consumeTick=812 recvObserved=811 age=3 queueMs=0 sendWall=99405699820800 recvWall=1791549825015 consumeWall=1791549825015 accepted=true
+[05:43:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=22 lead=0 defer=2 anchorTick=816 hit=828 stamp=828 anchorWall=99406014439100 legacy=false
+[05:43:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=22 tick=828 target=26 attacker=27 distance=1.0
+[05:43:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=22 lead=0 defer=2 hit=828 commit=830 deadlineNano=99406716425800 commitWall=1791549825920 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=107.7272
+[05:43:45] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99406751070900 side=SERVER kind=2 id=22 wall=1791549825955 thread=Netty IO #1 observed=830
+[05:43:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=22 kind=2 stamp=828 tickObserved=830 recvWall=1791549825967 sendWall=99406650706900 wireMs=-97615100880933
+[05:43:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=22 stamp=828 consumeTick=831 recvObserved=830 age=3 queueMs=0 sendWall=99406650706900 recvWall=1791549825967 consumeWall=1791549825967 accepted=true
+[05:43:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=23 lead=0 defer=2 anchorTick=835 hit=847 stamp=847 anchorWall=99406966318500 legacy=false
+[05:43:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=23 tick=847 target=26 attacker=27 distance=1.0
+[05:43:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=23 lead=0 defer=2 hit=847 commit=849 deadlineNano=99407654713600 commitWall=1791549826858 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.2793
+[05:43:46] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99407700781800 side=SERVER kind=2 id=23 wall=1791549826904 thread=Netty IO #1 observed=849
+[05:43:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=23 kind=2 stamp=847 tickObserved=849 recvWall=1791549826921 sendWall=99407600212000 wireMs=-97616050385079
+[05:43:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=23 stamp=847 consumeTick=850 recvObserved=849 age=3 queueMs=0 sendWall=99407600212000 recvWall=1791549826921 consumeWall=1791549826921 accepted=true
+[05:43:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=24 lead=0 defer=2 anchorTick=854 hit=866 stamp=866 anchorWall=99407903368600 legacy=false
+[05:43:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=24 tick=866 target=26 attacker=27 distance=1.0
+[05:43:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=24 lead=0 defer=2 hit=866 commit=868 deadlineNano=99408606605700 commitWall=1791549827810 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.3083
+[05:43:47] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99408651242900 side=SERVER kind=2 id=24 wall=1791549827855 thread=Netty IO #1 observed=868
+[05:43:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=24 kind=2 stamp=866 tickObserved=868 recvWall=1791549827858 sendWall=99408550654100 wireMs=-97617000826242
+[05:43:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=24 stamp=866 consumeTick=869 recvObserved=868 age=3 queueMs=0 sendWall=99408550654100 recvWall=1791549827858 consumeWall=1791549827858 accepted=true
+[05:43:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=25 lead=0 defer=2 anchorTick=873 hit=885 stamp=885 anchorWall=99408858185400 legacy=false
+[05:43:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=25 tick=885 target=26 attacker=27 distance=1.0
+[05:43:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=25 lead=0 defer=2 hit=885 commit=887 deadlineNano=99409563503500 commitWall=1791549828767 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=108.7186
+[05:43:48] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99409602017100 side=SERVER kind=2 id=25 wall=1791549828806 thread=Netty IO #1 observed=887
+[05:43:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=25 kind=2 stamp=885 tickObserved=887 recvWall=1791549828815 sendWall=99409501281400 wireMs=-97617951452585
+[05:43:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=25 stamp=885 consumeTick=888 recvObserved=887 age=3 queueMs=0 sendWall=99409501281400 recvWall=1791549828815 consumeWall=1791549828815 accepted=true
+[05:43:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=26 lead=0 defer=2 anchorTick=892 hit=904 stamp=904 anchorWall=99409818799000 legacy=false
+[05:43:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=26 tick=904 target=26 attacker=27 distance=1.0
+[05:43:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=26 lead=0 defer=2 hit=904 commit=906 deadlineNano=99410512266600 commitWall=1791549829715 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.8479
+[05:43:49] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99410550903500 side=SERVER kind=2 id=26 wall=1791549829754 thread=Netty IO #1 observed=906
+[05:43:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=26 kind=2 stamp=904 tickObserved=906 recvWall=1791549829780 sendWall=99410450291200 wireMs=-97618900461420
+[05:43:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=26 stamp=904 consumeTick=907 recvObserved=906 age=3 queueMs=0 sendWall=99410450291200 recvWall=1791549829780 consumeWall=1791549829780 accepted=true
+[05:43:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=27 lead=0 defer=2 anchorTick=911 hit=923 stamp=923 anchorWall=99410760548100 legacy=false
+[05:43:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=27 tick=923 target=26 attacker=27 distance=1.0
+[05:43:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=27 lead=0 defer=2 hit=923 commit=925 deadlineNano=99411465688900 commitWall=1791549830669 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=110.132
+[05:43:50] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99411506844800 side=SERVER kind=2 id=27 wall=1791549830710 thread=Netty IO #1 observed=925
+[05:43:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=27 kind=2 stamp=923 tickObserved=925 recvWall=1791549830717 sendWall=99411406134000 wireMs=-97619856303283
+[05:43:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=27 stamp=923 consumeTick=926 recvObserved=925 age=3 queueMs=0 sendWall=99411406134000 recvWall=1791549830717 consumeWall=1791549830717 accepted=true
+[05:43:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=28 lead=0 defer=2 anchorTick=930 hit=942 stamp=942 anchorWall=99411703688400 legacy=false
+[05:43:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=28 tick=942 target=26 attacker=27 distance=1.0
+[05:43:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=28 lead=0 defer=2 hit=942 commit=944 deadlineNano=99412406627500 commitWall=1791549831610 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.2939
+[05:43:51] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99412406723700 side=SERVER kind=2 id=28 wall=1791549831610 thread=Netty IO #1 observed=944
+[05:43:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=28 kind=2 stamp=942 tickObserved=944 recvWall=1791549831657 sendWall=99412306181100 wireMs=-97620756349443
+[05:43:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=28 stamp=942 consumeTick=945 recvObserved=944 age=3 queueMs=1 sendWall=99412306181100 recvWall=1791549831657 consumeWall=1791549831658 accepted=true
+[05:43:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=29 lead=0 defer=2 anchorTick=949 hit=961 stamp=961 anchorWall=99412658003300 legacy=false
+[05:43:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=29 tick=961 target=26 attacker=27 distance=1.0
+[05:43:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=29 lead=0 defer=2 hit=961 commit=963 deadlineNano=99413364358200 commitWall=1791549832568 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=108.902
+[05:43:52] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99413407608300 side=SERVER kind=2 id=29 wall=1791549832611 thread=Netty IO #1 observed=963
+[05:43:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=29 kind=2 stamp=961 tickObserved=963 recvWall=1791549832614 sendWall=99413306908300 wireMs=-97621757075686
+[05:43:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=29 stamp=961 consumeTick=964 recvObserved=963 age=3 queueMs=0 sendWall=99413306908300 recvWall=1791549832614 consumeWall=1791549832614 accepted=true
+[05:43:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=30 lead=0 defer=2 anchorTick=968 hit=980 stamp=980 anchorWall=99413612790600 legacy=false
+[05:43:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=30 tick=980 target=26 attacker=27 distance=1.0
+[05:43:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=30 lead=0 defer=2 hit=980 commit=982 deadlineNano=99414312950500 commitWall=1791549833517 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=108.8121
+[05:43:53] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99414357021900 side=SERVER kind=2 id=30 wall=1791549833561 thread=Netty IO #1 observed=982
+[05:43:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=30 kind=2 stamp=980 tickObserved=982 recvWall=1791549833563 sendWall=99414256203500 wireMs=-97622706369937
+[05:43:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=30 stamp=980 consumeTick=983 recvObserved=982 age=3 queueMs=0 sendWall=99414256203500 recvWall=1791549833563 consumeWall=1791549833563 accepted=true
+[05:43:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=31 lead=0 defer=2 anchorTick=987 hit=999 stamp=999 anchorWall=99414559275400 legacy=false
+[05:43:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=31 tick=999 target=26 attacker=27 distance=1.0
+[05:43:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=31 lead=0 defer=2 hit=999 commit=1001 deadlineNano=99415260964000 commitWall=1791549834465 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.262
+[05:43:54] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99415306405500 side=SERVER kind=2 id=31 wall=1791549834510 thread=Netty IO #1 observed=1001
+[05:43:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=31 kind=2 stamp=999 tickObserved=1001 recvWall=1791549834513 sendWall=99415205912600 wireMs=-97623656078087
+[05:43:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=31 stamp=999 consumeTick=1002 recvObserved=1001 age=3 queueMs=0 sendWall=99415205912600 recvWall=1791549834513 consumeWall=1791549834513 accepted=true
+[05:43:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=32 lead=0 defer=2 anchorTick=1006 hit=1018 stamp=1018 anchorWall=99415513769800 legacy=false
+[05:43:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=32 tick=1018 target=26 attacker=27 distance=1.0
+[05:43:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=32 lead=0 defer=2 hit=1018 commit=1020 deadlineNano=99416212468800 commitWall=1791549835416 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=108.6829
+[05:43:55] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99416257394600 side=SERVER kind=2 id=32 wall=1791549835461 thread=Netty IO #1 observed=1020
+[05:43:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=32 kind=2 stamp=1018 tickObserved=1020 recvWall=1791549835463 sendWall=99416156877000 wireMs=-97624607041537
+[05:43:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=32 stamp=1018 consumeTick=1021 recvObserved=1020 age=3 queueMs=0 sendWall=99416156877000 recvWall=1791549835463 consumeWall=1791549835463 accepted=true
+[05:43:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=33 lead=0 defer=2 anchorTick=1025 hit=1037 stamp=1037 anchorWall=99416459875000 legacy=false
+[05:43:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=33 tick=1037 target=26 attacker=27 distance=1.0
+[05:43:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=33 lead=0 defer=2 hit=1037 commit=1039 deadlineNano=99417162059000 commitWall=1791549836366 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.1859
+[05:43:56] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99417206928700 side=SERVER kind=2 id=33 wall=1791549836411 thread=Netty IO #1 observed=1039
+[05:43:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=33 kind=2 stamp=1037 tickObserved=1039 recvWall=1791549836412 sendWall=99417106314100 wireMs=-97625556477688
+[05:43:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=33 stamp=1037 consumeTick=1040 recvObserved=1039 age=3 queueMs=0 sendWall=99417106314100 recvWall=1791549836412 consumeWall=1791549836412 accepted=true
+[05:43:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=34 lead=0 defer=2 anchorTick=1044 hit=1056 stamp=1056 anchorWall=99417409794600 legacy=false
+[05:43:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=34 tick=1056 target=26 attacker=27 distance=1.0
+[05:43:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=34 lead=0 defer=2 hit=1056 commit=1058 deadlineNano=99418113872500 commitWall=1791549837318 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=108.3967
+[05:43:57] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99418157468400 side=SERVER kind=2 id=34 wall=1791549837361 thread=Netty IO #1 observed=1058
+[05:43:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=34 kind=2 stamp=1056 tickObserved=1058 recvWall=1791549837364 sendWall=99418056834000 wireMs=-97626506996636
+[05:43:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=34 stamp=1056 consumeTick=1059 recvObserved=1058 age=3 queueMs=0 sendWall=99418056834000 recvWall=1791549837364 consumeWall=1791549837364 accepted=true
+[05:43:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=35 lead=0 defer=2 anchorTick=1063 hit=1075 stamp=1075 anchorWall=99418364850700 legacy=false
+[05:43:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=35 tick=1075 target=26 attacker=27 distance=1.0
+[05:43:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=35 lead=0 defer=2 hit=1075 commit=1077 deadlineNano=99419055960600 commitWall=1791549838260 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.7524
+[05:43:58] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99419107322800 side=SERVER kind=2 id=35 wall=1791549838311 thread=Netty IO #1 observed=1078
+[05:43:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=35 kind=2 stamp=1075 tickObserved=1078 recvWall=1791549838370 sendWall=99419006773000 wireMs=-97627456934630
+[05:43:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=35 stamp=1075 consumeTick=1079 recvObserved=1078 age=4 queueMs=0 sendWall=99419006773000 recvWall=1791549838370 consumeWall=1791549838370 accepted=true
+[05:43:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=36 lead=0 defer=2 anchorTick=1082 hit=1094 stamp=1094 anchorWall=99419309167400 legacy=false
+[05:43:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=36 tick=1094 target=26 attacker=27 distance=1.0
+[05:43:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=36 lead=0 defer=2 hit=1094 commit=1096 deadlineNano=99420019449900 commitWall=1791549839223 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=113.769
+[05:43:59] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99420054291600 side=SERVER kind=2 id=36 wall=1791549839258 thread=Netty IO #1 observed=1096
+[05:43:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=36 kind=2 stamp=1094 tickObserved=1096 recvWall=1791549839266 sendWall=99419953472200 wireMs=-97628403632934
+[05:43:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=36 stamp=1094 consumeTick=1097 recvObserved=1096 age=3 queueMs=1 sendWall=99419953472200 recvWall=1791549839266 consumeWall=1791549839267 accepted=true
+[05:43:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=37 lead=0 defer=2 anchorTick=1101 hit=1113 stamp=1113 anchorWall=99420264348700 legacy=false
+[05:44:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=37 tick=1113 target=26 attacker=27 distance=1.0
+[05:44:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=37 lead=0 defer=2 hit=1113 commit=1115 deadlineNano=99420956475300 commitWall=1791549840160 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=96.088
+[05:44:00] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99421005045500 side=SERVER kind=2 id=37 wall=1791549840209 thread=Netty IO #1 observed=1116
+[05:44:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=37 kind=2 stamp=1113 tickObserved=1116 recvWall=1791549840270 sendWall=99420904157800 wireMs=-97629354317530
+[05:44:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=37 stamp=1113 consumeTick=1117 recvObserved=1116 age=4 queueMs=0 sendWall=99420904157800 recvWall=1791549840270 consumeWall=1791549840270 accepted=true
+[05:44:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=38 lead=0 defer=2 anchorTick=1120 hit=1132 stamp=1132 anchorWall=99421206786700 legacy=false
+[05:44:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=38 tick=1132 target=26 attacker=27 distance=1.0
+[05:44:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=38 lead=0 defer=2 hit=1132 commit=1134 deadlineNano=99421903399200 commitWall=1791549841107 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=95.3211
+[05:44:01] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99421954256100 side=SERVER kind=2 id=38 wall=1791549841158 thread=Netty IO #1 observed=1134
+[05:44:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=38 kind=2 stamp=1132 tickObserved=1134 recvWall=1791549841168 sendWall=99421853509600 wireMs=-97630303668432
+[05:44:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=38 stamp=1132 consumeTick=1135 recvObserved=1134 age=3 queueMs=0 sendWall=99421853509600 recvWall=1791549841168 consumeWall=1791549841168 accepted=true
+[05:44:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=39 lead=0 defer=2 anchorTick=1139 hit=1151 stamp=1151 anchorWall=99422153122100 legacy=false
+[05:44:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=39 tick=1151 target=26 attacker=27 distance=1.0
+[05:44:02] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99422854608400 side=SERVER kind=2 id=39 wall=1791549842058 thread=Netty IO #1 observed=1153
+[05:44:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=39 lead=0 defer=2 hit=1151 commit=1153 deadlineNano=99422854552900 commitWall=1791549842058 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=92.4228
+[05:44:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=39 kind=2 stamp=1151 tickObserved=1153 recvWall=1791549842121 sendWall=99422753693800 wireMs=-97631203851679
+[05:44:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=39 stamp=1151 consumeTick=1154 recvObserved=1153 age=3 queueMs=0 sendWall=99422753693800 recvWall=1791549842121 consumeWall=1791549842121 accepted=true
+[05:44:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=40 lead=0 defer=2 anchorTick=1158 hit=1170 stamp=1170 anchorWall=99423106322400 legacy=false
+[05:44:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=40 tick=1170 target=26 attacker=27 distance=1.0
+[05:44:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=40 lead=0 defer=2 hit=1170 commit=1172 deadlineNano=99423811653800 commitWall=1791549843015 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=95.4814
+[05:44:03] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99423853717100 side=SERVER kind=2 id=40 wall=1791549843057 thread=Netty IO #1 observed=1172
+[05:44:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=40 kind=2 stamp=1170 tickObserved=1172 recvWall=1791549843063 sendWall=99423753230900 wireMs=-97632203387837
+[05:44:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=40 stamp=1170 consumeTick=1173 recvObserved=1172 age=3 queueMs=0 sendWall=99423753230900 recvWall=1791549843063 consumeWall=1791549843063 accepted=true
+[05:44:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=41 lead=0 defer=2 anchorTick=1177 hit=1189 stamp=1189 anchorWall=99424064106300 legacy=false
+[05:44:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=41 tick=1189 target=26 attacker=27 distance=1.0
+[05:44:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=41 lead=0 defer=2 hit=1189 commit=1191 deadlineNano=99424756358200 commitWall=1791549843960 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=95.0722
+[05:44:04] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99424804087600 side=SERVER kind=2 id=41 wall=1791549844008 thread=Netty IO #1 observed=1192
+[05:44:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=41 kind=2 stamp=1189 tickObserved=1192 recvWall=1791549844069 sendWall=99424703640200 wireMs=-97633153796131
+[05:44:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=41 stamp=1189 consumeTick=1193 recvObserved=1192 age=4 queueMs=0 sendWall=99424703640200 recvWall=1791549844069 consumeWall=1791549844069 accepted=true
+[05:44:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=42 lead=0 defer=2 anchorTick=1196 hit=1208 stamp=1208 anchorWall=99425007945500 legacy=false
+[05:44:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=42 tick=1208 target=26 attacker=27 distance=1.0
+[05:44:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=42 lead=0 defer=2 hit=1208 commit=1210 deadlineNano=99425716100800 commitWall=1791549844920 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=109.615
+[05:44:04] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99425754815600 side=SERVER kind=2 id=42 wall=1791549844958 thread=Netty IO #1 observed=1210
+[05:44:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=42 kind=2 stamp=1208 tickObserved=1210 recvWall=1791549844968 sendWall=99425653903100 wireMs=-97634104058132
+[05:44:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=42 stamp=1208 consumeTick=1211 recvObserved=1210 age=3 queueMs=0 sendWall=99425653903100 recvWall=1791549844968 consumeWall=1791549844968 accepted=true
+[05:44:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=43 lead=0 defer=2 anchorTick=1215 hit=1227 stamp=1227 anchorWall=99425968194500 legacy=false
+[05:44:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=43 tick=1227 target=26 attacker=27 distance=1.0
+[05:44:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=43 lead=0 defer=2 hit=1227 commit=1229 deadlineNano=99426655617300 commitWall=1791549845859 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.3954
+[05:44:05] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99426704185400 side=SERVER kind=2 id=43 wall=1791549845908 thread=Netty IO #1 observed=1230
+[05:44:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=43 kind=2 stamp=1227 tickObserved=1230 recvWall=1791549845969 sendWall=99426603664300 wireMs=-97635053818331
+[05:44:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=43 stamp=1227 consumeTick=1231 recvObserved=1230 age=4 queueMs=0 sendWall=99426603664300 recvWall=1791549845969 consumeWall=1791549845969 accepted=true
+[05:44:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=44 lead=0 defer=2 anchorTick=1234 hit=1246 stamp=1246 anchorWall=99426905967000 legacy=false
+[05:44:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=44 tick=1246 target=26 attacker=27 distance=1.0
+[05:44:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=44 lead=0 defer=2 hit=1246 commit=1248 deadlineNano=99427614208600 commitWall=1791549846818 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=109.3699
+[05:44:06] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99427653787100 side=SERVER kind=2 id=44 wall=1791549846857 thread=Netty IO #1 observed=1248
+[05:44:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=44 kind=2 stamp=1246 tickObserved=1248 recvWall=1791549846865 sendWall=99427553275800 wireMs=-97636003428935
+[05:44:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=44 stamp=1246 consumeTick=1249 recvObserved=1248 age=3 queueMs=0 sendWall=99427553275800 recvWall=1791549846865 consumeWall=1791549846865 accepted=true
+[05:44:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=45 lead=0 defer=2 anchorTick=1253 hit=1265 stamp=1265 anchorWall=99427866234100 legacy=false
+[05:44:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=45 tick=1265 target=26 attacker=27 distance=1.0
+[05:44:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=45 lead=0 defer=2 hit=1265 commit=1267 deadlineNano=99428555684200 commitWall=1791549847759 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.6333
+[05:44:07] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99428603678500 side=SERVER kind=2 id=45 wall=1791549847807 thread=Netty IO #1 observed=1267
+[05:44:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=45 kind=2 stamp=1265 tickObserved=1267 recvWall=1791549847822 sendWall=99428502908800 wireMs=-97636953060978
+[05:44:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=45 stamp=1265 consumeTick=1268 recvObserved=1267 age=3 queueMs=0 sendWall=99428502908800 recvWall=1791549847822 consumeWall=1791549847822 accepted=true
+[05:44:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=46 lead=0 defer=2 anchorTick=1272 hit=1284 stamp=1284 anchorWall=99428807178200 legacy=false
+[05:44:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=46 tick=1284 target=26 attacker=27 distance=1.0
+[05:44:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=46 lead=0 defer=2 hit=1284 commit=1286 deadlineNano=99429512405400 commitWall=1791549848716 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.6155
+[05:44:08] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99429554167900 side=SERVER kind=2 id=46 wall=1791549848758 thread=Netty IO #1 observed=1286
+[05:44:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=46 kind=2 stamp=1284 tickObserved=1286 recvWall=1791549848763 sendWall=99429453628500 wireMs=-97637903779737
+[05:44:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=46 stamp=1284 consumeTick=1287 recvObserved=1286 age=3 queueMs=0 sendWall=99429453628500 recvWall=1791549848763 consumeWall=1791549848763 accepted=true
+[05:44:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=47 lead=0 defer=2 anchorTick=1291 hit=1303 stamp=1303 anchorWall=99429761853600 legacy=false
+[05:44:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=47 tick=1303 target=26 attacker=27 distance=1.0
+[05:44:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=47 lead=0 defer=2 hit=1303 commit=1305 deadlineNano=99430464248100 commitWall=1791549849668 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=107.9748
+[05:44:09] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99430504276700 side=SERVER kind=2 id=47 wall=1791549849708 thread=Netty IO #1 observed=1305
+[05:44:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=47 kind=2 stamp=1303 tickObserved=1305 recvWall=1791549849716 sendWall=99430403467500 wireMs=-97638853617784
+[05:44:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=47 stamp=1303 consumeTick=1306 recvObserved=1305 age=3 queueMs=0 sendWall=99430403467500 recvWall=1791549849716 consumeWall=1791549849716 accepted=true
+[05:44:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=48 lead=0 defer=2 anchorTick=1310 hit=1322 stamp=1322 anchorWall=99430716811000 legacy=false
+[05:44:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=48 tick=1322 target=26 attacker=27 distance=1.0
+[05:44:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=48 lead=0 defer=2 hit=1322 commit=1324 deadlineNano=99431406695100 commitWall=1791549850610 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.0954
+[05:44:10] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99431460764900 side=SERVER kind=2 id=48 wall=1791549850664 thread=Netty IO #1 observed=1325
+[05:44:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=48 kind=2 stamp=1322 tickObserved=1325 recvWall=1791549850719 sendWall=99431359855300 wireMs=-97639810004581
+[05:44:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=48 stamp=1322 consumeTick=1326 recvObserved=1325 age=4 queueMs=0 sendWall=99431359855300 recvWall=1791549850719 consumeWall=1791549850719 accepted=true
+[05:44:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=49 lead=0 defer=2 anchorTick=1329 hit=1341 stamp=1341 anchorWall=99431654905300 legacy=false
+[05:44:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=49 tick=1341 target=26 attacker=27 distance=1.0
+[05:44:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=49 lead=0 defer=2 hit=1341 commit=1343 deadlineNano=99432358257900 commitWall=1791549851562 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.5004
+[05:44:11] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99432404292100 side=SERVER kind=2 id=49 wall=1791549851608 thread=Netty IO #1 observed=1343
+[05:44:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=49 kind=2 stamp=1341 tickObserved=1343 recvWall=1791549851609 sendWall=99432303679600 wireMs=-97640753827991
+[05:44:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=49 stamp=1341 consumeTick=1344 recvObserved=1343 age=3 queueMs=0 sendWall=99432303679600 recvWall=1791549851609 consumeWall=1791549851609 accepted=true
+[05:44:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=50 lead=0 defer=2 anchorTick=1348 hit=1360 stamp=1360 anchorWall=99432611305700 legacy=false
+[05:44:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=50 tick=1360 target=26 attacker=27 distance=1.0
+[05:44:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=50 lead=0 defer=2 hit=1360 commit=1362 deadlineNano=99433305237800 commitWall=1791549852509 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=95.492
+[05:44:12] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99433358257700 side=SERVER kind=2 id=50 wall=1791549852562 thread=Netty IO #1 observed=1362
+[05:44:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=50 kind=2 stamp=1360 tickObserved=1362 recvWall=1791549852571 sendWall=99433257599600 wireMs=-97641707747029
+[05:44:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=50 stamp=1360 consumeTick=1363 recvObserved=1362 age=3 queueMs=0 sendWall=99433257599600 recvWall=1791549852571 consumeWall=1791549852571 accepted=true
+[05:44:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=51 lead=0 defer=2 anchorTick=1367 hit=1379 stamp=1379 anchorWall=99433556406000 legacy=false
+[05:44:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=51 tick=1379 target=26 attacker=27 distance=1.0
+[05:44:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=51 lead=0 defer=2 hit=1379 commit=1381 deadlineNano=99434264022800 commitWall=1791549853468 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=108.6721
+[05:44:13] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99434304608700 side=SERVER kind=2 id=51 wall=1791549853508 thread=Netty IO #1 observed=1381
+[05:44:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=51 kind=2 stamp=1379 tickObserved=1381 recvWall=1791549853515 sendWall=99434203762900 wireMs=-97642653909385
+[05:44:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=51 stamp=1379 consumeTick=1382 recvObserved=1381 age=3 queueMs=0 sendWall=99434203762900 recvWall=1791549853515 consumeWall=1791549853515 accepted=true
+[05:44:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=52 lead=0 defer=2 anchorTick=1386 hit=1398 stamp=1398 anchorWall=99434514857200 legacy=false
+[05:44:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=52 tick=1398 target=26 attacker=27 distance=1.0
+[05:44:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=52 lead=0 defer=2 hit=1398 commit=1400 deadlineNano=99435217648700 commitWall=1791549854421 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=108.5541
+[05:44:14] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99435255233200 side=SERVER kind=2 id=52 wall=1791549854459 thread=Netty IO #1 observed=1400
+[05:44:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=52 kind=2 stamp=1398 tickObserved=1400 recvWall=1791549854468 sendWall=99435154420200 wireMs=-97643604565732
+[05:44:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=52 stamp=1398 consumeTick=1401 recvObserved=1400 age=3 queueMs=0 sendWall=99435154420200 recvWall=1791549854468 consumeWall=1791549854468 accepted=true
+[05:44:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=53 lead=0 defer=2 anchorTick=1405 hit=1417 stamp=1417 anchorWall=99435468115600 legacy=false
+[05:44:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=53 tick=1417 target=26 attacker=27 distance=1.0
+[05:44:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=53 lead=0 defer=2 hit=1417 commit=1419 deadlineNano=99436159345800 commitWall=1791549855363 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=93.3775
+[05:44:15] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99436203950400 side=SERVER kind=2 id=53 wall=1791549855408 thread=Netty IO #1 observed=1419
+[05:44:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=53 kind=2 stamp=1417 tickObserved=1419 recvWall=1791549855411 sendWall=99436103337800 wireMs=-97644553482389
+[05:44:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=53 stamp=1417 consumeTick=1420 recvObserved=1419 age=3 queueMs=0 sendWall=99436103337800 recvWall=1791549855411 consumeWall=1791549855411 accepted=true
+[05:44:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=54 lead=0 defer=2 anchorTick=1424 hit=1436 stamp=1436 anchorWall=99436412011500 legacy=false
+[05:44:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=54 tick=1436 target=26 attacker=27 distance=1.0
+[05:44:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=54 lead=0 defer=2 hit=1436 commit=1438 deadlineNano=99437104404100 commitWall=1791549856308 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.9023
+[05:44:16] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99437157515200 side=SERVER kind=2 id=54 wall=1791549856361 thread=Netty IO #1 observed=1438
+[05:44:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=54 kind=2 stamp=1436 tickObserved=1438 recvWall=1791549856371 sendWall=99437057035300 wireMs=-97645507178929
+[05:44:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=54 stamp=1436 consumeTick=1439 recvObserved=1438 age=3 queueMs=0 sendWall=99437057035300 recvWall=1791549856371 consumeWall=1791549856371 accepted=true
+[05:44:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=55 lead=0 defer=2 anchorTick=1443 hit=1455 stamp=1455 anchorWall=99437355653400 legacy=false
+[05:44:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=55 tick=1455 target=26 attacker=27 distance=1.0
+[05:44:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=55 lead=0 defer=2 hit=1455 commit=1457 deadlineNano=99438062962500 commitWall=1791549857267 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=109.9172
+[05:44:17] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99438103975400 side=SERVER kind=2 id=55 wall=1791549857308 thread=Netty IO #1 observed=1457
+[05:44:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=55 kind=2 stamp=1455 tickObserved=1457 recvWall=1791549857315 sendWall=99438003381700 wireMs=-97646453524385
+[05:44:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=55 stamp=1455 consumeTick=1458 recvObserved=1457 age=3 queueMs=0 sendWall=99438003381700 recvWall=1791549857315 consumeWall=1791549857315 accepted=true
+[05:44:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=56 lead=0 defer=2 anchorTick=1462 hit=1474 stamp=1474 anchorWall=99438315099000 legacy=false
+[05:44:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=56 tick=1474 target=26 attacker=27 distance=1.0
+[05:44:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=56 lead=0 defer=2 hit=1474 commit=1476 deadlineNano=99439005557800 commitWall=1791549858209 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.2694
+[05:44:18] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99439057981500 side=SERVER kind=2 id=56 wall=1791549858262 thread=Netty IO #1 observed=1477
+[05:44:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=56 kind=2 stamp=1474 tickObserved=1477 recvWall=1791549858320 sendWall=99438957457700 wireMs=-97647407599380
+[05:44:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=56 stamp=1474 consumeTick=1478 recvObserved=1477 age=4 queueMs=0 sendWall=99438957457700 recvWall=1791549858320 consumeWall=1791549858320 accepted=true
+[05:44:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=57 lead=0 defer=2 anchorTick=1481 hit=1493 stamp=1493 anchorWall=99439255557900 legacy=false
+[05:44:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=57 tick=1493 target=26 attacker=27 distance=1.0
+[05:44:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=57 lead=0 defer=2 hit=1493 commit=1495 deadlineNano=99439957737900 commitWall=1791549859161 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=94.2169
+[05:44:19] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99440004319600 side=SERVER kind=2 id=57 wall=1791549859208 thread=Netty IO #1 observed=1495
+[05:44:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=57 kind=2 stamp=1493 tickObserved=1495 recvWall=1791549859209 sendWall=99439903403600 wireMs=-97648353544391
+[05:44:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=57 stamp=1493 consumeTick=1496 recvObserved=1495 age=3 queueMs=0 sendWall=99439903403600 recvWall=1791549859209 consumeWall=1791549859209 accepted=true
+[05:44:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=58 lead=0 defer=2 anchorTick=1500 hit=1512 stamp=1512 anchorWall=99440209898600 legacy=false
+[05:44:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=58 tick=1512 target=26 attacker=27 distance=1.0
+[05:44:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=58 lead=0 defer=2 hit=1512 commit=1514 deadlineNano=99440914808300 commitWall=1791549860118 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=109.4462
+[05:44:20] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99440954185800 side=SERVER kind=2 id=58 wall=1791549860158 thread=Netty IO #1 observed=1514
+[05:44:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=58 kind=2 stamp=1512 tickObserved=1514 recvWall=1791549860165 sendWall=99440853357900 wireMs=-97649303497735
+[05:44:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=58 stamp=1512 consumeTick=1515 recvObserved=1514 age=3 queueMs=0 sendWall=99440853357900 recvWall=1791549860165 consumeWall=1791549860165 accepted=true
+[05:44:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 PLAN id=59 lead=0 defer=2 anchorTick=1519 hit=1531 stamp=1531 anchorWall=99441163385500 legacy=false
+[05:44:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 FREEZE id=59 tick=1531 target=26 attacker=27 distance=1.0
+[05:44:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RESULT id=59 lead=0 defer=2 hit=1531 commit=1533 deadlineNano=99441867216500 commitWall=1791549861071 stamp=-9999 arrivalNano=9223372036854775807 window=false before=false parry=false vanillaAccepted=true loss=1.0 feedbackDelayMs=110.1738
+[05:44:21] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99441905488000 side=SERVER kind=2 id=59 wall=1791549861109 thread=Netty IO #1 observed=1533
+[05:44:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 RECEIVE id=59 kind=2 stamp=1531 tickObserved=1533 recvWall=1791549861118 sendWall=99441804514100 wireMs=-97650254652982
+[05:44:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CONSUME id=59 stamp=1531 consumeTick=1534 recvObserved=1533 age=3 queueMs=0 sendWall=99441804514100 recvWall=1791549861118 consumeWall=1791549861118 accepted=true
+[05:44:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 DONE total=60 eligible=1 eligibleSuccess=1 conditionalAll=true window=5 ageCap=8 worldRollback=false
+[05:44:21] [Server thread/INFO]: GuardA lost connection: TextComponent{text='Disconnected', siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null}}
+[05:44:21] [Server thread/INFO]: GuardA left the game
+[05:44:22] [Server thread/INFO]: Stopping the server
+[05:44:22] [Server thread/INFO]: Stopping server
+[05:44:22] [Server thread/INFO]: Saving players
+[05:44:22] [Server thread/INFO]: Saving worlds
+[05:44:22] [Server thread/INFO]: Saving chunks for level 'world'/Overworld
+[05:44:22] [Server thread/INFO]: Saving chunks for level 'world'/Nether
+[05:44:22] [Server thread/INFO]: Saving chunks for level 'world'/The End
+[05:44:22] [Server thread/INFO] [FML]: Unloading dimension 0
+[05:44:22] [Server thread/INFO] [FML]: Unloading dimension -1
+[05:44:22] [Server thread/INFO] [FML]: Unloading dimension 1
+[05:44:22] [Server thread/INFO] [FML]: Applying holder lookups
+[05:44:22] [Server thread/INFO] [FML]: Holder lookups applied

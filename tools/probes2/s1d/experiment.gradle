@@ -1,0 +1,27 @@
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    def experiment = p.sourceSets.create('s1dExperiment') {
+        java.srcDir('tools/probes2/s1d/java')
+        compileClasspath = p.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    p.tasks.register('s1dExperimentJar', Jar) {
+        dependsOn(experiment.classesTaskName)
+        from(experiment.output)
+        archiveFileName.set('s1d-experiment.jar')
+        destinationDirectory.set(p.layout.buildDirectory.dir('probes2/s1d'))
+    }
+    p.tasks.register('s1dLaunchFile') {
+        dependsOn('s1dExperimentJar')
+        dependsOn { def t = p.tasks.getByName('runServer'); t.taskDependencies.getDependencies(t) }
+        doLast {
+            def t = p.tasks.getByName('runServer')
+            def out = p.file('build/probes2/s1d/server-launch.json')
+            out.parentFile.mkdirs()
+            out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+                java: t.javaLauncher.get().executablePath.asFile.absolutePath,
+                classpath: t.classpath.asPath, main: t.mainClass.get(),
+                jvmArgs: t.allJvmArgs, args: t.args]))
+        }
+    }
+}

@@ -1,0 +1,28 @@
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    def s = p.sourceSets.create('s2cExperiment') {
+        java.srcDir('tools/probes2/s2c/java')
+        compileClasspath = p.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    p.tasks.register('s2cJar', Jar) {
+        dependsOn(s.classesTaskName)
+        from(s.output)
+        archiveFileName.set('s2c-experiment.jar')
+        destinationDirectory.set(p.layout.buildDirectory.dir('probes2/s2c'))
+    }
+    p.tasks.register('s2cLaunch') {
+        dependsOn('s2cJar')
+        dependsOn { ['runClient','runServer'].collectMany { n -> p.tasks.getByName(n).taskDependencies.getDependencies(p.tasks.getByName(n)).toList() } }
+        doLast {
+            ['runClient','runServer'].each { n ->
+                def t = p.tasks.getByName(n)
+                def out = p.file("build/probes2/s2c/${n}.json")
+                out.parentFile.mkdirs()
+                out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+                    java:t.javaLauncher.get().executablePath.asFile.absolutePath,
+                    classpath:t.classpath.asPath, main:t.mainClass.get(), jvmArgs:t.allJvmArgs, args:t.args]))
+            }
+        }
+    }
+}

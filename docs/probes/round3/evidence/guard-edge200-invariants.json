@@ -1,0 +1,43 @@
+[
+  {
+    "rtt": 200,
+    "inputs": 60,
+    "violations": 0,
+    "eligible": 1,
+    "late": 59,
+    "same_ms_bins": 3,
+    "by_defer": {
+      "2": {
+        "inputs": 60,
+        "eligible": 1,
+        "late": 59,
+        "feedback_ms_range": [
+          92.4228,
+          113.769
+        ],
+        "oneway_ms_range": [
+          100.364,
+          101.6032
+        ],
+        "last_tick_allowed_oneway_ms_range": [
+          46.8398,
+          100.8591
+        ]
+      },
+      "3": {
+        "inputs": 0,
+        "eligible": 0,
+        "late": 0,
+        "feedback_ms_range": [
+          0,
+          0
+        ],
+        "oneway_ms_range": [
+          0,
+          0
+        ],
+        "last_tick_allowed_oneway_ms_range": null
+      }
+    }
+  }
+]

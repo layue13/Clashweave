@@ -46,3 +46,6 @@ docs/probes/round2/evidence/**/*.log -whitespace
 *.[pP][sS]1             text eol=crlf
 
 *[aA][uU][tT][oO][gG][eE][nN][eE][rR][aA][tT][eE][dD]* binary
+
+# Preserve native probe log whitespace as measured evidence.
+docs/probes/round3/evidence/**/*.log -whitespace

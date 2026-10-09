@@ -1,0 +1,33 @@
+{
+  "inputs": 360,
+  "violations": 0,
+  "before_window": 253,
+  "late_window": 104,
+  "late_all": 105,
+  "same_ms_bins": 4,
+  "by_defer": {
+    "2": {
+      "last_tick_allowed_oneway_ms": [
+        46.8398,
+        108.0681
+      ],
+      "feedback_ms_range": [
+        91.969,
+        113.769
+      ]
+    },
+    "3": {
+      "last_tick_allowed_oneway_ms": [
+        69.1323,
+        148.0077
+      ],
+      "feedback_ms_range": [
+        16.9108,
+        159.1378
+      ]
+    }
+  },
+  "edge_to_final_resolve_instructions_equal": true,
+  "edge_tested_sha256": "43573ba198d5d517b79f683ddb572eab294196bc3355a81ed7bfb8a06db17c59",
+  "final_sha256": "0cd536d53e781edb32a8653a9f082cbac4269380072ebc01da52268b16e03895"
+}

@@ -1,0 +1,28 @@
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    def exp = p.sourceSets.create('s3suppExperiment') {
+        java.srcDir('tools/probes2/s3supp/java')
+        compileClasspath = p.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    p.tasks.register('s3suppJar', Jar) {
+        dependsOn(exp.classesTaskName)
+        from(exp.output)
+        archiveFileName.set('s3supp-experiment.jar')
+        destinationDirectory.set(p.layout.buildDirectory.dir('probes2/s3supp'))
+    }
+    p.tasks.register('s3suppLaunchFiles') {
+        dependsOn('s3suppJar')
+        dependsOn { ['runClient','runServer'].collectMany { n -> p.tasks.getByName(n).taskDependencies.getDependencies(p.tasks.getByName(n)) } }
+        doLast {
+            ['runClient','runServer'].each { n ->
+                def t = p.tasks.getByName(n)
+                def out = p.file("build/probes2/s3supp/${n}.json")
+                out.parentFile.mkdirs()
+                out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+                    java:t.javaLauncher.get().executablePath.asFile.absolutePath,
+                    classpath:t.classpath.asPath, main:t.mainClass.get(), jvmArgs:t.allJvmArgs,args:t.args]))
+            }
+        }
+    }
+}

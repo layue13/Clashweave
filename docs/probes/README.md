@@ -1,6 +1,6 @@
 # P0 前的技术探针
 
-当前独立第二轮结果见 [round2/REPORT.md](round2/REPORT.md)：S1c/S2b 失败，S3b 需补验，S4b/S5b 限定通过，P0 未开始。实验代码在 `tools/probes2`；下文保留首轮复现说明。
+当前第三轮结果见 [round3/REPORT.md](round3/REPORT.md)：S1d/S2c通过所测负载，S3b补充360条违例0，建议审核后进入P0，当前未开始。实验代码在 `probe/round3-budget-damage` 的 `tools/probes2`。第二轮S3b已按不变量口径审核通过；下文保留首轮复现说明。
 
 **探针代码、构建脚本和 Blender 源文件不在 `work` 分支**，保存在分支 `probe/s1-s5`（提交 `5d3e140`）。下面的命令需在该分支检出后运行；`work` 上只保留文档与证据。该分支只包含 S1–S5 的可关闭实验接入，不包含动作图、资源经济、连段、SA 或 P0 运行时。正常启动不注册探针物品、频道、命令或事件处理器；必须显式提供 `-Dclashweave.probes=true`，两端都启用。所有探针结论见各页；审核前不进入 P0。
 
