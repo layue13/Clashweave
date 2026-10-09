@@ -1,0 +1,76 @@
+[05:35:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC LOGIN name=MoveState
+[05:35:32] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=40 tick=182 noticeTrial=-1 noticeDelta=183
+[05:35:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_BEGIN trial=40 mode=7 tick=182 speed=0.4 total=2.0
+[05:35:32] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=183 x=-50.5 z=-401.5 nano=98913763757100
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=184 x=0.5 z=0.5 nano=98913813883000
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=184 x=0.5 z=0.5 nano=98913814581800
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=186 x=0.5 z=0.5 nano=98913863241100
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=40 tick=187 noticeTrial=-1 noticeDelta=188
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=187 x=0.5 z=0.5 nano=98913929380400
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=188 x=0.5 z=0.5 nano=98913981063000
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=189 x=0.5 z=0.5 nano=98914029597100
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=189 x=0.5 z=0.5 nano=98914029997500
+[05:35:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_START trial=40 tick=199 nano=98914505675700
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=202 x=5.5 z=0.5 nano=98914679572100
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=202 x=5.5 z=0.5 nano=98914680003300
+[05:35:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NOTICE_HANDLER trial=40 tick=203
+[05:35:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_MALICIOUS_NOTICE trial=40 tick=203 targetX=5.5
+[05:35:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_OBSERVED trial=40 tick=203 dx=5.0 dy=0.0 dz=0.0 elapsedTicks=4.119486 travelled=0.0 budget=2.0 inWater=false
+[05:35:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_CORRECT trial=40 tick=203 reason=budget noticeDelta=0 illegalX=5.5 rollbackX=0.5
+[05:35:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=40 tick=203 noticeTrial=40 noticeDelta=0
+[05:35:34] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=205 x=0.5 z=0.5 nano=98914847172800
+[05:35:34] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=40 tick=205 x=0.5 z=0.5 nano=98914847494900
+[05:35:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_CLIENT trial=40 mode=7 S08=1 x=0.5 y=65.62000000476837 z=0.5 tick=218
+[05:35:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_END trial=40 mode=7 tick=221 rejects=1 travelled=0.0 serverX=0.5 serverY=64.0 serverZ=0.5
+[05:35:35] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=41 tick=226 noticeTrial=40 noticeDelta=23
+[05:35:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_BEGIN trial=41 mode=8 tick=226 speed=0.4 total=2.0
+[05:35:35] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=41 tick=227 x=0.5 z=0.5 nano=98915963524300
+[05:35:35] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=41 tick=227 x=0.5 z=0.5 nano=98915963842700
+[05:35:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_START trial=41 tick=241 nano=98916609672300
+[05:35:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=41 tick=244 x=5.5 z=0.5 nano=98916796714700
+[05:35:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=41 tick=244 x=5.5 z=0.5 nano=98916797317400
+[05:35:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NOTICE_HANDLER trial=41 tick=245
+[05:35:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_MALICIOUS_NOTICE trial=41 tick=245 targetX=5.5
+[05:35:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=41 tick=245 noticeTrial=41 noticeDelta=0
+[05:35:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=41 tick=246 noticeTrial=41 noticeDelta=1
+[05:35:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=41 tick=248 x=0.5 z=0.5 nano=98916963648600
+[05:35:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=41 tick=248 x=0.5 z=0.5 nano=98916963970600
+[05:35:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=41 tick=248 x=0.5 z=0.5 nano=98916964161300
+[05:35:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_CLIENT trial=41 mode=8 S08=2 x=0.5 y=65.62000000476837 z=0.5 tick=260
+[05:35:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_END trial=41 mode=8 tick=263 rejects=0 travelled=0.0 serverX=0.5 serverY=64.0 serverZ=0.5
+[05:35:37] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=42 tick=268 noticeTrial=41 noticeDelta=23
+[05:35:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_BEGIN trial=42 mode=9 tick=268 speed=0.4 total=2.0
+[05:35:37] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=269 x=0.5 z=0.5 nano=98918048232800
+[05:35:37] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=270 x=0.5 z=0.5 nano=98918096503300
+[05:35:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_START trial=42 tick=284 nano=98918760480000
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=287 x=5.5 z=0.5 nano=98918930519600
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=287 x=6.5 z=0.5 nano=98918930760800
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=287 x=0.5 z=0.5 nano=98918931009300
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=287 x=5.5 z=0.5 nano=98918931225900
+[05:35:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NOTICE_HANDLER trial=42 tick=288
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=42 tick=288 noticeTrial=42 noticeDelta=0
+[05:35:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_MALICIOUS_NOTICE trial=42 tick=288 targetX=5.5
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=42 tick=288 noticeTrial=42 noticeDelta=0
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=290 x=0.5 z=0.5 nano=98919080475200
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=290 x=0.5 z=0.5 nano=98919080706200
+[05:35:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=42 tick=290 x=0.5 z=0.5 nano=98919081015900
+[05:35:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_CLIENT trial=42 mode=9 S08=2 x=0.5 y=65.62000000476837 z=0.5 tick=302
+[05:35:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_END trial=42 mode=9 tick=305 rejects=0 travelled=0.0 serverX=0.5 serverY=64.0 serverZ=0.5
+[05:35:39] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_S08_SENT trial=43 tick=310 noticeTrial=42 noticeDelta=22
+[05:35:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_BEGIN trial=43 mode=10 tick=310 speed=0.4 total=2.0
+[05:35:39] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=43 tick=312 x=0.5 z=0.5 nano=98920163530300
+[05:35:39] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=43 tick=312 x=0.5 z=0.5 nano=98920163878800
+[05:35:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_START trial=43 tick=325 nano=98920806470900
+[05:35:40] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=43 tick=328 x=0.8999999999999999 z=0.5 nano=98920979542000
+[05:35:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_OBSERVED trial=43 tick=329 dx=0.3999999999999999 dy=0.0 dz=0.0 elapsedTicks=4.08633 travelled=0.0 budget=2.0 inWater=false
+[05:35:40] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=43 tick=329 x=1.2999999999999998 z=0.5 nano=98921030112600
+[05:35:40] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=43 tick=330 x=1.7 z=0.5 nano=98921079835800
+[05:35:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_STALL tick=330 elapsedMs=62.6993
+[05:35:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_OBSERVED trial=43 tick=330 dx=0.8 dy=0.0 dz=0.0 elapsedTicks=6.30021 travelled=0.3999999999999999 budget=2.0 inWater=false
+[05:35:40] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=43 tick=330 x=2.0999999999999996 z=0.5 nano=98921129447600
+[05:35:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_OBSERVED trial=43 tick=331 dx=0.3999999999999997 dy=0.0 dz=0.0 elapsedTicks=7.25403 travelled=1.2 budget=2.0 inWater=false
+[05:35:40] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=43 tick=332 x=2.5 z=0.5 nano=98921180128000
+[05:35:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_OBSERVED trial=43 tick=333 dx=0.40000000000000036 dy=0.0 dz=0.0 elapsedTicks=8.195012 travelled=1.5999999999999996 budget=2.0 inWater=false
+[05:35:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_CLIENT trial=43 mode=10 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=343
+[05:35:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_END trial=43 mode=10 tick=346 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[05:35:41] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.s2c.Server:log:39]: CWMC S2C_NATIVE_WIRE trial=44 tick=353 x=2.5 z=0.5 nano=98922246751700

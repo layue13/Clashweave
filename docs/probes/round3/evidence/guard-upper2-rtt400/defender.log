@@ -1,0 +1,288 @@
+[05:40:27] [main/INFO] [GradleStart]: username: GuardB
+[05:40:27] [main/INFO] [GradleStart]: Extra: [--width, 800, --height, 450, --gameDir, C:\Users\layue13\Documents\Projects\Clashweave\run\probes2\guard-upper2-rtt400\defender]
+[05:40:27] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:\Users\layue13\.gradle\caches\retro_futura_gradle\assets, --assetIndex, 1.7.10, --accessToken, {REDACTED}, --version, 1.7.10, --username, GuardB, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --width, 800, --height, 450, --gameDir, C:\Users\layue13\Documents\Projects\Clashweave\run\probes2\guard-upper2-rtt400\defender, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[05:40:27] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[05:40:27] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[05:40:27] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[05:40:27] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
+[05:40:27] [main/INFO] [FML]: Forge Mod Loader version 7.99.40.1614 for Minecraft 1.7.10 loading
+[05:40:27] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_504, running on Windows 11:amd64:10.0, installed at C:\Program Files\Zulu\zulu-8\jre
+[05:40:27] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[05:40:27] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[05:40:27] [main/INFO] [GradleStart]: Injecting location in coremod cpw.mods.fml.relauncher.FMLCorePlugin
+[05:40:27] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[05:40:27] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[05:40:27] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[05:40:27] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[05:40:27] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[05:40:27] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[05:40:27] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[05:40:27] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[05:40:28] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[05:40:28] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[05:40:28] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[05:40:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[05:40:28] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.TerminalTweaker
+[05:40:28] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.TerminalTweaker
+[05:40:28] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[05:40:28] [main/INFO]: Setting user: GuardB
+[05:40:28] [Client thread/INFO]: LWJGL Version: 2.9.4
+[05:40:29] [Client thread/INFO] [FML]: Could not load splash.properties, will create a default one
+[05:40:29] [Client thread/INFO] [STDOUT]: [cpw.mods.fml.client.SplashProgress:start:188]: ---- Minecraft Crash Report ----
+// You're mean.
+
+Time: 10/9/26 5:40 AM
+Description: Loading screen debug info
+
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 1.8.0_504, Azul Systems, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Azul Systems, Inc.
+	Memory: 206239368 bytes (196 MB) / 324534272 bytes (309 MB) up to 954728448 bytes (910 MB)
+	JVM Flags: 2 total; -Xms256M -Xmx1G
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 617.42' Renderer: 'NVIDIA GeForce RTX 5060 Ti/PCIe/SSE2'
+[05:40:29] [Client thread/INFO] [MinecraftForge]: Attempting early MinecraftForge initialization
+[05:40:29] [Client thread/INFO] [FML]: MinecraftForge v10.13.4.1614 Initialized
+[05:40:29] [Client thread/INFO] [FML]: Replaced 183 ore recipies
+[05:40:29] [Client thread/INFO] [MinecraftForge]: Completed early MinecraftForge initialization
+[05:40:29] [Client thread/INFO] [FML]: Found 0 mods from the command line. Injecting into mod discoverer
+[05:40:29] [Client thread/INFO] [FML]: Searching C:\Users\layue13\Documents\Projects\Clashweave\run\probes2\guard-upper2-rtt400\defender\mods for mods
+[05:40:31] [Client thread/INFO] [FML]: Forge Mod Loader has identified 5 mods to load
+[05:40:31] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, cw_s3supp] at CLIENT
+[05:40:31] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, clashweave, cw_s3supp] at SERVER
+[05:40:31] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Clashweave, FMLFileResourcePack:Clashweave S3 supplementary experiment
+[05:40:31] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[05:40:31] [Client thread/INFO] [FML]: Found 341 ObjectHolder annotations
+[05:40:31] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[05:40:31] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[05:40:31] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[05:40:31] [Client thread/INFO] [clashweave]: Clashweave 0.1.0-dev initialized
+[05:40:31] [Client thread/INFO] [FML]: Applying holder lookups
+[05:40:31] [Client thread/INFO] [FML]: Holder lookups applied
+[05:40:31] [Client thread/INFO] [FML]: Injecting itemstacks
+[05:40:31] [Client thread/INFO] [FML]: Itemstack injection complete
+[05:40:31] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[05:40:31] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[05:40:31] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[05:40:31] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[05:40:31] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[05:40:31] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[05:40:31] [Thread-7/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[05:40:31] [Client thread/INFO] [FML]: Injecting itemstacks
+[05:40:31] [Client thread/INFO] [FML]: Itemstack injection complete
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:815)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:768)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:717)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:689)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at net.minecraftforge.common.ForgeVersion$1.run(ForgeVersion.java:94)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:183)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at com.google.gson.Gson.fromJson(Gson.java:803)
+[05:40:31] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	... 4 more
+[05:40:31] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 5 mods
+[05:40:31] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Clashweave, FMLFileResourcePack:Clashweave S3 supplementary experiment
+[05:40:31] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[05:40:31] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[05:40:31] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[05:40:31] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[05:40:32] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[05:40:32] [Sound Library Loader/INFO]: Sound engine started
+[05:40:32] [Client thread/INFO]: Connecting to 127.0.0.1, 25573
+[05:40:32] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[05:40:32] [Thread-9/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+Exception in thread "Thread-9" [05:40:32] [Thread-9/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: java.lang.IllegalStateException: Only one OpenAL context may be instantiated at any one time.
+[05:40:32] [Thread-9/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at org.lwjgl.openal.AL.create(AL.java:113)
+[05:40:32] [Thread-9/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at org.lwjgl.openal.AL.create(AL.java:102)
+[05:40:32] [Thread-9/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at org.lwjgl.openal.AL.create(AL.java:206)
+[05:40:32] [Thread-9/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at paulscode.sound.libraries.LibraryLWJGLOpenAL.init(LibraryLWJGLOpenAL.java:164)
+[05:40:32] [Thread-9/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at paulscode.sound.SoundSystem.CommandNewLibrary(SoundSystem.java:1576)
+[05:40:32] [Thread-9/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at paulscode.sound.SoundSystem.CommandQueue(SoundSystem.java:2572)
+[05:40:32] [Thread-9/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at paulscode.sound.CommandThread.run(CommandThread.java:121)
+[05:40:34] [Netty Client IO #0/INFO] [FML]: Server protocol version 2
+[05:40:35] [Netty Client IO #0/INFO] [FML]: Attempting connection with missing mods [] at SERVER
+[05:40:35] [Netty Client IO #0/INFO] [FML]: Injecting existing block and item data into this client instance
+[05:40:35] [Netty Client IO #0/INFO] [FML]: Applying holder lookups
+[05:40:35] [Netty Client IO #0/INFO] [FML]: Holder lookups applied
+[05:40:36] [Client thread/INFO] [FML]: [Client thread] Client side modded connection established
+[05:40:44] [Client thread/INFO]: [CHAT] GuardA joined the game
+[05:40:48] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99229396467600 side=CLIENT kind=1 id=0 wall=1791549648600 thread=Netty Client IO #0 observed=0
+[05:40:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=0 anchor=428 stamp=440 receiveWall=1791549648638 consumeWall=1791549648687 local=316 dueLocal=324 dueWall=99229795475900 clientWorld=428
+[05:40:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=0 intendedStamp=440 stamp=440 sendNano=99229833634700 dueWall=99229795475900 local=323 clientWorld=435 legacy=false
+[05:40:49] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99230346359000 side=CLIENT kind=1 id=1 wall=1791549649550 thread=Netty Client IO #0 observed=0
+[05:40:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=1 anchor=447 stamp=459 receiveWall=1791549649555 consumeWall=1791549649604 local=334 dueLocal=342 dueWall=99230745592800 clientWorld=446
+[05:40:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=1 intendedStamp=459 stamp=459 sendNano=99230750920100 dueWall=99230745592800 local=341 clientWorld=453 legacy=false
+[05:40:50] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99231285671500 side=CLIENT kind=1 id=2 wall=1791549650489 thread=Netty Client IO #0 observed=0
+[05:40:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=2 anchor=466 stamp=478 receiveWall=1791549650504 consumeWall=1791549650554 local=353 dueLocal=361 dueWall=99231685123400 clientWorld=466
+[05:40:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=2 intendedStamp=478 stamp=478 sendNano=99231700404400 dueWall=99231685123400 local=360 clientWorld=473 legacy=false
+[05:40:51] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99232235275400 side=CLIENT kind=1 id=3 wall=1791549651439 thread=Netty Client IO #0 observed=0
+[05:40:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=3 anchor=485 stamp=497 receiveWall=1791549651455 consumeWall=1791549651505 local=372 dueLocal=380 dueWall=99232634497700 clientWorld=485
+[05:40:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=3 intendedStamp=497 stamp=497 sendNano=99232650001900 dueWall=99232634497700 local=379 clientWorld=492 legacy=false
+[05:40:52] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99233190749900 side=CLIENT kind=1 id=4 wall=1791549652394 thread=Netty Client IO #0 observed=0
+[05:40:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=4 anchor=504 stamp=516 receiveWall=1791549652404 consumeWall=1791549652454 local=391 dueLocal=399 dueWall=99233590113100 clientWorld=504
+[05:40:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=4 intendedStamp=516 stamp=516 sendNano=99233599999600 dueWall=99233590113100 local=398 clientWorld=511 legacy=false
+[05:40:53] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99234138101200 side=CLIENT kind=1 id=5 wall=1791549653342 thread=Netty Client IO #0 observed=0
+[05:40:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=5 anchor=523 stamp=534 receiveWall=1791549653354 consumeWall=1791549653404 local=410 dueLocal=417 dueWall=99234487400500 clientWorld=523
+[05:40:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=5 intendedStamp=534 stamp=534 sendNano=99234500037500 dueWall=99234487400500 local=416 clientWorld=529 legacy=false
+[05:40:54] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99235092968800 side=CLIENT kind=1 id=6 wall=1791549654296 thread=Netty Client IO #0 observed=0
+[05:40:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=6 anchor=542 stamp=553 receiveWall=1791549654304 consumeWall=1791549654354 local=429 dueLocal=436 dueWall=99235442336800 clientWorld=542
+[05:40:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=6 intendedStamp=553 stamp=553 sendNano=99235450810500 dueWall=99235442336800 local=435 clientWorld=548 legacy=false
+[05:40:55] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99236047450700 side=CLIENT kind=1 id=7 wall=1791549655251 thread=Netty Client IO #0 observed=0
+[05:40:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=7 anchor=561 stamp=572 receiveWall=1791549655271 consumeWall=1791549655322 local=448 dueLocal=455 dueWall=99236396601000 clientWorld=561
+[05:40:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=7 intendedStamp=572 stamp=572 sendNano=99236417450000 dueWall=99236396601000 local=454 clientWorld=567 legacy=false
+[05:40:56] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99236986332800 side=CLIENT kind=1 id=8 wall=1791549656190 thread=Netty Client IO #0 observed=0
+[05:40:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=8 anchor=580 stamp=591 receiveWall=1791549656221 consumeWall=1791549656271 local=467 dueLocal=474 dueWall=99237335729900 clientWorld=580
+[05:40:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=8 intendedStamp=591 stamp=591 sendNano=99237366964400 dueWall=99237335729900 local=473 clientWorld=586 legacy=false
+[05:40:57] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99237939141300 side=CLIENT kind=1 id=9 wall=1791549657143 thread=Netty Client IO #0 observed=0
+[05:40:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=9 anchor=599 stamp=610 receiveWall=1791549657172 consumeWall=1791549657222 local=486 dueLocal=493 dueWall=99238288394000 clientWorld=599
+[05:40:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=9 intendedStamp=610 stamp=610 sendNano=99238317437000 dueWall=99238288394000 local=492 clientWorld=605 legacy=false
+[05:40:58] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99238888778600 side=CLIENT kind=1 id=10 wall=1791549658092 thread=Netty Client IO #0 observed=0
+[05:40:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=10 anchor=618 stamp=628 receiveWall=1791549658121 consumeWall=1791549658171 local=505 dueLocal=511 dueWall=99239187870200 clientWorld=618
+[05:40:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=10 intendedStamp=628 stamp=628 sendNano=99239217653900 dueWall=99239187870200 local=510 clientWorld=623 legacy=false
+[05:40:59] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99239838298600 side=CLIENT kind=1 id=11 wall=1791549659042 thread=Netty Client IO #0 observed=0
+[05:40:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=11 anchor=637 stamp=647 receiveWall=1791549659071 consumeWall=1791549659121 local=524 dueLocal=530 dueWall=99240137276400 clientWorld=637
+[05:40:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=11 intendedStamp=647 stamp=647 sendNano=99240167174100 dueWall=99240137276400 local=529 clientWorld=642 legacy=false
+[05:40:59] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99240792986200 side=CLIENT kind=1 id=12 wall=1791549659996 thread=Netty Client IO #0 observed=0
+[05:41:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=12 anchor=656 stamp=666 receiveWall=1791549660022 consumeWall=1791549660071 local=543 dueLocal=549 dueWall=99241092283300 clientWorld=656
+[05:41:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=12 intendedStamp=666 stamp=666 sendNano=99241117104800 dueWall=99241092283300 local=548 clientWorld=661 legacy=false
+[05:41:00] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99241744889700 side=CLIENT kind=1 id=13 wall=1791549660948 thread=Netty Client IO #0 observed=0
+[05:41:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=13 anchor=675 stamp=685 receiveWall=1791549660972 consumeWall=1791549661021 local=562 dueLocal=568 dueWall=99242043885000 clientWorld=675
+[05:41:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=13 intendedStamp=685 stamp=685 sendNano=99242067228000 dueWall=99242043885000 local=567 clientWorld=680 legacy=false
+[05:41:01] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99242697807100 side=CLIENT kind=1 id=14 wall=1791549661901 thread=Netty Client IO #0 observed=0
+[05:41:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=14 anchor=694 stamp=704 receiveWall=1791549661921 consumeWall=1791549661971 local=581 dueLocal=587 dueWall=99242997014800 clientWorld=694
+[05:41:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=14 intendedStamp=704 stamp=704 sendNano=99243017706500 dueWall=99242997014800 local=586 clientWorld=699 legacy=false
+[05:41:02] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99243647066300 side=CLIENT kind=1 id=15 wall=1791549662851 thread=Netty Client IO #0 observed=0
+[05:41:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=15 anchor=713 stamp=722 receiveWall=1791549662871 consumeWall=1791549662921 local=600 dueLocal=605 dueWall=99243896657200 clientWorld=713
+[05:41:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=15 intendedStamp=722 stamp=722 sendNano=99243917326400 dueWall=99243896657200 local=604 clientWorld=717 legacy=false
+[05:41:03] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99244587830000 side=CLIENT kind=1 id=16 wall=1791549663791 thread=Netty Client IO #0 observed=0
+[05:41:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=16 anchor=732 stamp=741 receiveWall=1791549663821 consumeWall=1791549663872 local=619 dueLocal=624 dueWall=99244837079000 clientWorld=732
+[05:41:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=16 intendedStamp=741 stamp=741 sendNano=99244867450100 dueWall=99244837079000 local=623 clientWorld=736 legacy=false
+[05:41:04] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99245548976300 side=CLIENT kind=1 id=17 wall=1791549664753 thread=Netty Client IO #0 observed=0
+[05:41:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=17 anchor=751 stamp=760 receiveWall=1791549664771 consumeWall=1791549664821 local=638 dueLocal=643 dueWall=99245798251100 clientWorld=751
+[05:41:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=17 intendedStamp=760 stamp=760 sendNano=99245817160400 dueWall=99245798251100 local=642 clientWorld=755 legacy=false
+[05:41:05] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99246493163200 side=CLIENT kind=1 id=18 wall=1791549665697 thread=Netty Client IO #0 observed=0
+[05:41:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=18 anchor=770 stamp=779 receiveWall=1791549665721 consumeWall=1791549665771 local=657 dueLocal=662 dueWall=99246742265400 clientWorld=770
+[05:41:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=18 intendedStamp=779 stamp=779 sendNano=99246767792800 dueWall=99246742265400 local=661 clientWorld=774 legacy=false
+[05:41:06] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99247436261600 side=CLIENT kind=1 id=19 wall=1791549666640 thread=Netty Client IO #0 observed=0
+[05:41:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=19 anchor=789 stamp=798 receiveWall=1791549666672 consumeWall=1791549666722 local=676 dueLocal=681 dueWall=99247685844500 clientWorld=789
+[05:41:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=19 intendedStamp=798 stamp=798 sendNano=99247718367000 dueWall=99247685844500 local=680 clientWorld=793 legacy=false
+[05:41:07] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99248396921700 side=CLIENT kind=1 id=20 wall=1791549667601 thread=Netty Client IO #0 observed=0
+[05:41:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=20 anchor=808 stamp=816 receiveWall=1791549667622 consumeWall=1791549667671 local=695 dueLocal=699 dueWall=99248596452900 clientWorld=808
+[05:41:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=20 intendedStamp=816 stamp=816 sendNano=99248618294200 dueWall=99248596452900 local=698 clientWorld=811 legacy=false
+[05:41:08] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99249341084900 side=CLIENT kind=1 id=21 wall=1791549668545 thread=Netty Client IO #0 observed=0
+[05:41:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=21 anchor=827 stamp=835 receiveWall=1791549668571 consumeWall=1791549668622 local=714 dueLocal=718 dueWall=99249540653100 clientWorld=827
+[05:41:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=21 intendedStamp=835 stamp=835 sendNano=99249567062900 dueWall=99249540653100 local=717 clientWorld=830 legacy=false
+[05:41:09] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99250285627200 side=CLIENT kind=1 id=22 wall=1791549669489 thread=Netty Client IO #0 observed=0
+[05:41:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=22 anchor=846 stamp=854 receiveWall=1791549669522 consumeWall=1791549669571 local=733 dueLocal=737 dueWall=99250484675500 clientWorld=846
+[05:41:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=22 intendedStamp=854 stamp=854 sendNano=99250517424800 dueWall=99250484675500 local=736 clientWorld=849 legacy=false
+[05:41:10] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99251241959200 side=CLIENT kind=1 id=23 wall=1791549670446 thread=Netty Client IO #0 observed=0
+[05:41:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=23 anchor=865 stamp=873 receiveWall=1791549670472 consumeWall=1791549670521 local=752 dueLocal=756 dueWall=99251441496100 clientWorld=865
+[05:41:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=23 intendedStamp=873 stamp=873 sendNano=99251468237400 dueWall=99251441496100 local=755 clientWorld=868 legacy=false
+[05:41:11] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99252183924200 side=CLIENT kind=1 id=24 wall=1791549671387 thread=Netty Client IO #0 observed=0
+[05:41:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=24 anchor=884 stamp=892 receiveWall=1791549671421 consumeWall=1791549671472 local=771 dueLocal=775 dueWall=99252383079900 clientWorld=884
+[05:41:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=24 intendedStamp=892 stamp=892 sendNano=99252417912500 dueWall=99252383079900 local=774 clientWorld=887 legacy=false
+[05:41:12] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:importantMessage:90]:     ERROR MESSAGE:
+[05:41:12] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:         SoundSystem did not load after 30 seconds.
+[05:41:12] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[05:41:12] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[05:41:12] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99253167443800 side=CLIENT kind=1 id=25 wall=1791549672371 thread=Netty Client IO #0 observed=0
+[05:41:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=25 anchor=903 stamp=915 receiveWall=1791549672422 consumeWall=1791549672472 local=791 dueLocal=799 dueWall=99253566554000 clientWorld=904
+[05:41:12] [Thread-11/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: Switching to No Sound
+[05:41:12] [Thread-11/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]:     (Silent Mode)
+Exception in thread "Thread-7" [05:41:12] [Thread-7/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: java.lang.UnsatisfiedLinkError: org.lwjgl.openal.AL10.nalListenerfv(IJ)V
+[05:41:12] [Thread-7/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at org.lwjgl.openal.AL10.nalListenerfv(Native Method)
+[05:41:12] [Thread-7/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at org.lwjgl.openal.AL10.alListener(AL10.java:685)
+[05:41:12] [Thread-7/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at paulscode.sound.libraries.LibraryLWJGLOpenAL.setListenerPosition(LibraryLWJGLOpenAL.java:871)
+[05:41:12] [Thread-7/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at paulscode.sound.SoundSystem.CommandSetListenerPosition(SoundSystem.java:2217)
+[05:41:12] [Thread-7/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at paulscode.sound.SoundSystem.CommandQueue(SoundSystem.java:2546)
+[05:41:12] [Thread-7/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: 	at paulscode.sound.CommandThread.run(CommandThread.java:121)
+[05:41:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=25 intendedStamp=915 stamp=915 sendNano=99253615361400 dueWall=99253566554000 local=798 clientWorld=911 legacy=false
+[05:41:12] [Sound Library Loader/INFO] [STDOUT]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[05:41:12] [Sound Library Loader/INFO]: Sound engine started
+[05:41:13] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99254136425200 side=CLIENT kind=1 id=26 wall=1791549673340 thread=Netty Client IO #0 observed=0
+[05:41:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=26 anchor=923 stamp=935 receiveWall=1791549673369 consumeWall=1791549673419 local=810 dueLocal=818 dueWall=99254535617800 clientWorld=923
+[05:41:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=26 intendedStamp=935 stamp=935 sendNano=99254565251000 dueWall=99254535617800 local=817 clientWorld=930 legacy=false
+[05:41:14] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99255144961600 side=CLIENT kind=1 id=27 wall=1791549674348 thread=Netty Client IO #0 observed=0
+[05:41:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=27 anchor=943 stamp=955 receiveWall=1791549674369 consumeWall=1791549674419 local=830 dueLocal=838 dueWall=99255544393700 clientWorld=943
+[05:41:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=27 intendedStamp=955 stamp=955 sendNano=99255566317100 dueWall=99255544393700 local=837 clientWorld=950 legacy=false
+[05:41:15] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99256133848500 side=CLIENT kind=1 id=28 wall=1791549675337 thread=Netty Client IO #0 observed=0
+[05:41:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=28 anchor=963 stamp=975 receiveWall=1791549675370 consumeWall=1791549675419 local=850 dueLocal=858 dueWall=99256533110000 clientWorld=963
+[05:41:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=28 intendedStamp=975 stamp=975 sendNano=99256565674600 dueWall=99256533110000 local=857 clientWorld=970 legacy=false
+[05:41:16] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99257141309000 side=CLIENT kind=1 id=29 wall=1791549676345 thread=Netty Client IO #0 observed=0
+[05:41:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=29 anchor=983 stamp=995 receiveWall=1791549676369 consumeWall=1791549676419 local=870 dueLocal=878 dueWall=99257540650900 clientWorld=983
+[05:41:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=29 intendedStamp=995 stamp=995 sendNano=99257565092700 dueWall=99257540650900 local=877 clientWorld=990 legacy=false
+[05:41:17] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99258146934400 side=CLIENT kind=1 id=30 wall=1791549677350 thread=Netty Client IO #0 observed=0
+[05:41:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=30 anchor=1003 stamp=1014 receiveWall=1791549677369 consumeWall=1791549677419 local=890 dueLocal=897 dueWall=99258496234500 clientWorld=1003
+[05:41:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=30 intendedStamp=1014 stamp=1014 sendNano=99258515307300 dueWall=99258496234500 local=896 clientWorld=1009 legacy=false
+[05:41:18] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99259137834000 side=CLIENT kind=1 id=31 wall=1791549678341 thread=Netty Client IO #0 observed=0
+[05:41:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=31 anchor=1023 stamp=1034 receiveWall=1791549678370 consumeWall=1791549678420 local=910 dueLocal=917 dueWall=99259487021400 clientWorld=1023
+[05:41:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=31 intendedStamp=1034 stamp=1034 sendNano=99259515111500 dueWall=99259487021400 local=916 clientWorld=1029 legacy=false
+[05:41:19] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99260140989500 side=CLIENT kind=1 id=32 wall=1791549679345 thread=Netty Client IO #0 observed=0
+[05:41:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=32 anchor=1043 stamp=1054 receiveWall=1791549679370 consumeWall=1791549679419 local=930 dueLocal=937 dueWall=99260490501900 clientWorld=1043
+[05:41:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=32 intendedStamp=1054 stamp=1054 sendNano=99260515297800 dueWall=99260490501900 local=936 clientWorld=1049 legacy=false
+[05:41:20] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99261147926600 side=CLIENT kind=1 id=33 wall=1791549680351 thread=Netty Client IO #0 observed=0
+[05:41:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=33 anchor=1063 stamp=1074 receiveWall=1791549680369 consumeWall=1791549680420 local=950 dueLocal=957 dueWall=99261497376700 clientWorld=1063
+[05:41:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=33 intendedStamp=1074 stamp=1074 sendNano=99261516374000 dueWall=99261497376700 local=956 clientWorld=1069 legacy=false
+[05:41:21] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99262141103200 side=CLIENT kind=1 id=34 wall=1791549681345 thread=Netty Client IO #0 observed=0
+[05:41:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=34 anchor=1083 stamp=1094 receiveWall=1791549681369 consumeWall=1791549681419 local=970 dueLocal=977 dueWall=99262490657500 clientWorld=1083
+[05:41:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=34 intendedStamp=1094 stamp=1094 sendNano=99262515945600 dueWall=99262490657500 local=976 clientWorld=1089 legacy=false
+[05:41:22] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99263138912100 side=CLIENT kind=1 id=35 wall=1791549682343 thread=Netty Client IO #0 observed=0
+[05:41:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=35 anchor=1103 stamp=1113 receiveWall=1791549682370 consumeWall=1791549682419 local=990 dueLocal=996 dueWall=99263438083100 clientWorld=1103
+[05:41:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=35 intendedStamp=1113 stamp=1113 sendNano=99263465891800 dueWall=99263438083100 local=995 clientWorld=1108 legacy=false
+[05:41:23] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99264148225900 side=CLIENT kind=1 id=36 wall=1791549683352 thread=Netty Client IO #0 observed=0
+[05:41:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=36 anchor=1123 stamp=1133 receiveWall=1791549683369 consumeWall=1791549683419 local=1010 dueLocal=1016 dueWall=99264447442800 clientWorld=1123
+[05:41:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=36 intendedStamp=1133 stamp=1133 sendNano=99264465420400 dueWall=99264447442800 local=1015 clientWorld=1128 legacy=false
+[05:41:24] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99265135863900 side=CLIENT kind=1 id=37 wall=1791549684339 thread=Netty Client IO #0 observed=0
+[05:41:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=37 anchor=1143 stamp=1153 receiveWall=1791549684370 consumeWall=1791549684420 local=1030 dueLocal=1036 dueWall=99265435225400 clientWorld=1143
+[05:41:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=37 intendedStamp=1153 stamp=1153 sendNano=99265464969300 dueWall=99265435225400 local=1035 clientWorld=1148 legacy=false
+[05:41:25] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99266145126100 side=CLIENT kind=1 id=38 wall=1791549685349 thread=Netty Client IO #0 observed=0
+[05:41:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=38 anchor=1163 stamp=1173 receiveWall=1791549685369 consumeWall=1791549685420 local=1050 dueLocal=1056 dueWall=99266444282000 clientWorld=1163
+[05:41:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=38 intendedStamp=1173 stamp=1173 sendNano=99266466191100 dueWall=99266444282000 local=1055 clientWorld=1168 legacy=false
+[05:41:26] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99267142595200 side=CLIENT kind=1 id=39 wall=1791549686346 thread=Netty Client IO #0 observed=0
+[05:41:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=39 anchor=1183 stamp=1193 receiveWall=1791549686369 consumeWall=1791549686419 local=1070 dueLocal=1076 dueWall=99267442259100 clientWorld=1183
+[05:41:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=39 intendedStamp=1193 stamp=1193 sendNano=99267466332700 dueWall=99267442259100 local=1075 clientWorld=1188 legacy=false
+[05:41:27] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99268135220900 side=CLIENT kind=1 id=40 wall=1791549687339 thread=Netty Client IO #0 observed=0
+[05:41:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=40 anchor=1203 stamp=1212 receiveWall=1791549687369 consumeWall=1791549687419 local=1090 dueLocal=1095 dueWall=99268384412500 clientWorld=1203
+[05:41:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=40 intendedStamp=1212 stamp=1212 sendNano=99268415816000 dueWall=99268384412500 local=1094 clientWorld=1207 legacy=false
+[05:41:28] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99269145230100 side=CLIENT kind=1 id=41 wall=1791549688349 thread=Netty Client IO #0 observed=0
+[05:41:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=41 anchor=1223 stamp=1232 receiveWall=1791549688369 consumeWall=1791549688419 local=1110 dueLocal=1115 dueWall=99269394644200 clientWorld=1223
+[05:41:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=41 intendedStamp=1232 stamp=1232 sendNano=99269415863100 dueWall=99269394644200 local=1114 clientWorld=1227 legacy=false
+[05:41:29] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99270138436700 side=CLIENT kind=1 id=42 wall=1791549689342 thread=Netty Client IO #0 observed=0
+[05:41:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=42 anchor=1243 stamp=1252 receiveWall=1791549689370 consumeWall=1791549689420 local=1130 dueLocal=1135 dueWall=99270387713500 clientWorld=1243
+[05:41:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=42 intendedStamp=1252 stamp=1252 sendNano=99270415239500 dueWall=99270387713500 local=1134 clientWorld=1247 legacy=false
+[05:41:30] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99271147688100 side=CLIENT kind=1 id=43 wall=1791549690351 thread=Netty Client IO #0 observed=0
+[05:41:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=43 anchor=1263 stamp=1272 receiveWall=1791549690370 consumeWall=1791549690420 local=1150 dueLocal=1155 dueWall=99271396908900 clientWorld=1263
+[05:41:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=43 intendedStamp=1272 stamp=1272 sendNano=99271415145500 dueWall=99271396908900 local=1154 clientWorld=1267 legacy=false
+[05:41:31] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99272144598300 side=CLIENT kind=1 id=44 wall=1791549691348 thread=Netty Client IO #0 observed=0
+[05:41:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=44 anchor=1283 stamp=1292 receiveWall=1791549691369 consumeWall=1791549691419 local=1170 dueLocal=1175 dueWall=99272393825700 clientWorld=1283
+[05:41:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=44 intendedStamp=1292 stamp=1292 sendNano=99272416280100 dueWall=99272393825700 local=1174 clientWorld=1287 legacy=false
+[05:41:32] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99273133838500 side=CLIENT kind=1 id=45 wall=1791549692337 thread=Netty Client IO #0 observed=0
+[05:41:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=45 anchor=1303 stamp=1311 receiveWall=1791549692369 consumeWall=1791549692419 local=1190 dueLocal=1194 dueWall=99273333428800 clientWorld=1303
+[05:41:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=45 intendedStamp=1311 stamp=1311 sendNano=99273365354700 dueWall=99273333428800 local=1193 clientWorld=1306 legacy=false
+[05:41:33] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99274143022800 side=CLIENT kind=1 id=46 wall=1791549693347 thread=Netty Client IO #0 observed=0
+[05:41:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=46 anchor=1323 stamp=1331 receiveWall=1791549693369 consumeWall=1791549693420 local=1210 dueLocal=1214 dueWall=99274342457100 clientWorld=1323
+[05:41:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=46 intendedStamp=1331 stamp=1331 sendNano=99274366684400 dueWall=99274342457100 local=1213 clientWorld=1326 legacy=false
+[05:41:34] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99275135153100 side=CLIENT kind=1 id=47 wall=1791549694339 thread=Netty Client IO #0 observed=0
+[05:41:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=47 anchor=1343 stamp=1351 receiveWall=1791549694373 consumeWall=1791549694421 local=1230 dueLocal=1234 dueWall=99275334317400 clientWorld=1343
+[05:41:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=47 intendedStamp=1351 stamp=1351 sendNano=99275365552000 dueWall=99275334317400 local=1233 clientWorld=1346 legacy=false
+[05:41:35] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99276144822300 side=CLIENT kind=1 id=48 wall=1791549695348 thread=Netty Client IO #0 observed=0
+[05:41:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=48 anchor=1363 stamp=1371 receiveWall=1791549695369 consumeWall=1791549695420 local=1250 dueLocal=1254 dueWall=99276344307600 clientWorld=1363
+[05:41:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=48 intendedStamp=1371 stamp=1371 sendNano=99276370026900 dueWall=99276344307600 local=1253 clientWorld=1366 legacy=false
+[05:41:36] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 WIRE nano=99277138292400 side=CLIENT kind=1 id=49 wall=1791549696342 thread=Netty Client IO #0 observed=0
+[05:41:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 CLIENT_PLAN id=49 anchor=1383 stamp=1391 receiveWall=1791549696369 consumeWall=1791549696424 local=1270 dueLocal=1274 dueWall=99277337555100 clientWorld=1383
+[05:41:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiment.s3supp.Experiment:log:22]: CW3 SEND id=49 intendedStamp=1391 stamp=1391 sendNano=99277365014900 dueWall=99277337555100 local=1273 clientWorld=1386 legacy=false
+[05:41:38] [Client thread/INFO] [FML]: Applying holder lookups
+[05:41:38] [Client thread/INFO] [FML]: Holder lookups applied

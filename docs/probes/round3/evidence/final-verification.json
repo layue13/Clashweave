@@ -1,0 +1,30 @@
+{
+  "production": [
+    {
+      "path": "build\\libs\\clashweave-0.1.0-dev-dev.jar",
+      "sha256": "85fe26c6f996fc4295fe3fa9fc1c492bcffc70b77bb111de3188ae110af3dc97",
+      "experimental_entries": []
+    },
+    {
+      "path": "build\\libs\\clashweave-0.1.0-dev-sources.jar",
+      "sha256": "c806ecb884aa7b218e298c9d5c859b1cada2588094bf6e41a372e77b4fe30b62",
+      "experimental_entries": []
+    },
+    {
+      "path": "build\\libs\\clashweave-0.1.0-dev.jar",
+      "sha256": "e140b49462a800f063172533d8fd278f204362e60dd2950af88ac139451dcd5b",
+      "experimental_entries": []
+    }
+  ],
+  "main_diff": "",
+  "experiment_base": "ff9d56e7b2170922856ce28d181026effad3e91e",
+  "rules_source": "d1ae4419fe3fc0dcdbb11645ed2dc09a96f91085",
+  "runtime_assertions": {
+    "s1d_recursive_pairs": 28,
+    "s1d_boundary_pairs": 72,
+    "s2c_legal_per_rtt": 40,
+    "s2c_legal_s08": 0,
+    "s3supp_inputs": 360,
+    "s3supp_violations": 0
+  }
+}
