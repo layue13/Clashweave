@@ -1,0 +1,35 @@
+[04:38:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS LOGIN name=MoveState
+[04:38:17] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=42 tick=182 noticeTrial=-1 noticeDelta=183
+[04:38:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_START hysteresis=60 radius=8.0
+[04:38:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=0 tick=182 monsterDistance=4.0 target=true
+[04:38:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=1 tick=182 engaged=true nano=95478630982400
+[04:38:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=1 expected=true got=true elapsedMs=4.1411 serverTick=183 clientLocalTick=83 stale=false
+[04:38:17] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=42 tick=184 noticeTrial=-1 noticeDelta=185
+[04:38:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=0 expected=true server=true
+[04:38:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=0 engaged=true sneak=false forward=1.0 nativeChestOpened=false
+[04:38:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=1 tick=272 monsterDistance=9.091762 target=false
+[04:38:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=2 tick=332 engaged=false nano=95485704339800
+[04:38:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=2 expected=false got=false elapsedMs=13.0506 serverTick=333 clientLocalTick=219 stale=false
+[04:38:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=1 expected=false server=false
+[04:38:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=1 engaged=false sneak=true forward=0.30000001192092896 nativeChestOpened=true
+[04:38:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=2 tick=362 monsterDistance=9.153676 target=true
+[04:38:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=2 expected=false server=false
+[04:38:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=2 engaged=false sneak=true forward=0.30000001192092896 nativeChestOpened=true
+[04:38:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_HIT accepted=true hpBefore=20.0 hpAfter=18.0 hurtTime=10
+[04:38:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=3 tick=452 monsterDistance=9.230981 target=false
+[04:38:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=3 tick=452 engaged=true nano=95491700033900
+[04:38:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=3 expected=true got=true elapsedMs=17.7228 serverTick=453 clientLocalTick=338 stale=false
+[04:38:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=4 tick=522 engaged=false nano=95495195195500
+[04:38:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=4 expected=false got=false elapsedMs=39.2545 serverTick=523 clientLocalTick=408 stale=false
+[04:38:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=3 expected=false server=false
+[04:38:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=3 engaged=false sneak=true forward=0.30000001192092896 nativeChestOpened=true
+[04:38:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=4 tick=542 monsterDistance=9.323293 target=false
+[04:38:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=5 tick=543 engaged=true nano=95496252054300
+[04:38:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=5 expected=true got=true elapsedMs=32.1983 serverTick=544 clientLocalTick=429 stale=false
+[04:38:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=4 expected=true server=true
+[04:38:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=4 engaged=true sneak=false forward=1.0 nativeChestOpened=false
+[04:38:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=5 tick=632 monsterDistance=9.739396 target=false
+[04:38:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=5 expected=true server=true
+[04:38:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=5 engaged=true sneak=false forward=1.0 nativeChestOpened=false
+[04:38:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=6 tick=722 monsterDistance=10.3008795 target=false
+[04:38:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_SUMMARY wrong=0 slow=0 openTicks=0 sneakTicks=0

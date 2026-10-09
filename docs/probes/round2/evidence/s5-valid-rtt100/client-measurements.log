@@ -1,0 +1,14 @@
+[04:39:02] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S2B_S08 trial=0 localTick=75 nano=95523619180800
+[04:39:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_APPLY revision=1 sourceTick=175 clientTick=76 stale=false delayMs=79.0388
+[04:39:03] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S2B_S08 trial=0 localTick=79 nano=95523814805500
+[04:39:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_INPUT case=0 engaged=true sneak=false forward=1.0 opened=false
+[04:39:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_APPLY revision=2 sourceTick=325 clientTick=219 stale=false delayMs=76.5149
+[04:39:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_INPUT case=1 engaged=false sneak=true forward=0.3 opened=true
+[04:39:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_INPUT case=2 engaged=false sneak=true forward=0.3 opened=true
+[04:39:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_APPLY revision=3 sourceTick=445 clientTick=338 stale=false delayMs=61.8245
+[04:39:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_APPLY revision=4 sourceTick=515 clientTick=408 stale=false delayMs=85.1275
+[04:39:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_INPUT case=3 engaged=false sneak=true forward=0.3 opened=true
+[04:39:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_APPLY revision=5 sourceTick=538 clientTick=431 stale=false delayMs=81.8062
+[04:39:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_INPUT case=4 engaged=true sneak=false forward=1.0 opened=false
+[04:39:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS S5B_INPUT case=5 engaged=true sneak=false forward=1.0 opened=false
+[04:39:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.client.Client:log:39]: CWMS CLIENT_COMPLETE
