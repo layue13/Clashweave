@@ -1,0 +1,18 @@
+{
+  "bufferTicks": 4,
+  "deferred": ["launcher", "step_slash", "retreat_slash", "air_follow", "special", "mode", "dodge"],
+  "missingOriginalTiming": ["air_follow", "dodge", "mode"],
+  "actions": [
+    {"id":"iai", "startup":5,"active":2,"recovery":10,"damage":5,"reach":3.2,"arc":90,"distance":1.2,"speed":0.2,
+     "edges":[{"input":"LIGHT","target":"light_1","from":8,"until":13,"hit":true},{"input":"HEAVY","target":"heavy","from":9,"until":14,"hit":true},{"input":"SHEATHE","target":"sheathe","from":12,"until":17,"hit":true}]},
+    {"id":"light_1", "startup":4,"active":2,"recovery":7,"damage":3,"reach":2.5,"arc":120,"distance":0.3,"speed":0.1,
+     "edges":[{"input":"LIGHT","target":"light_2","from":7,"until":11,"hit":true},{"input":"HEAVY","target":"heavy","from":7,"until":11,"hit":true},{"input":"SHEATHE","target":"sheathe","from":9,"until":13,"hit":true}]},
+    {"id":"light_2", "startup":3,"active":2,"recovery":7,"damage":3,"reach":2.5,"arc":120,"distance":0.3,"speed":0.1,
+     "edges":[{"input":"LIGHT","target":"light_3","from":6,"until":10,"hit":true},{"input":"SHEATHE","target":"sheathe","from":8,"until":12,"hit":true}]},
+    {"id":"light_3", "startup":4,"active":2,"recovery":8,"damage":4,"reach":2.5,"arc":110,"distance":0.3,"speed":0.1,
+     "edges":[{"input":"SHEATHE","target":"sheathe","from":10,"until":14,"hit":true}]},
+    {"id":"heavy", "startup":5,"active":3,"recovery":9,"damage":6,"reach":2.8,"arc":90,"distance":0.5,"speed":0.1,
+     "edges":[{"input":"SHEATHE","target":"sheathe","from":13,"until":17,"hit":true}]},
+    {"id":"sheathe", "startup":0,"active":0,"recovery":8,"damage":0,"reach":0,"arc":0,"distance":0,"speed":0,"edges":[]}
+  ]
+}
