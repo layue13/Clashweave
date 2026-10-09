@@ -73,7 +73,9 @@ for line in text.splitlines():
     if ' CW AIM ' in line: aim.append(dict(re.findall(r'(\w+)=([^ ]+)',line)))
 summary['aim']={'samples':len(aim),'accepted':sum(r['accepted']=='true' for r in aim),
     'known_yaw_deviation':limits([abs(float(r['beforeDelta'])) for r in aim]),
-    'selected_yaw_deviation':limits([abs(float(r['afterDelta'])) for r in aim])}
+    'selected_yaw_deviation':limits([abs(float(r['afterDelta'])) for r in aim]),
+    'old_horizontal_pitch_deviation':limits([abs(float(r['beforePitchDelta'])) for r in aim if 'beforePitchDelta' in r]),
+    'selected_pitch_deviation':limits([abs(float(r['afterPitchDelta'])) for r in aim if 'afterPitchDelta' in r])}
 local=[];local_audio=[]
 for name in ['P0A','P0B']:
     local_text=(folder/name/'process.log').read_text(encoding='utf-8',errors='replace')

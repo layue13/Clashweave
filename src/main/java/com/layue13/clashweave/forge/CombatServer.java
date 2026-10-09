@@ -30,11 +30,14 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.layue13.clashweave.Clashweave;
 import com.layue13.clashweave.core.ActionCatalog;
+import com.layue13.clashweave.core.AppearanceState;
+import com.layue13.clashweave.core.FacingHistory;
 import com.layue13.clashweave.core.GuardTimeline;
 import com.layue13.clashweave.core.InputGate;
 import com.layue13.clashweave.core.Intent;
 import com.layue13.clashweave.core.MovementBudget;
 import com.layue13.clashweave.core.Scheduler;
+import com.layue13.clashweave.core.WeaponDefinition;
 import com.layue13.clashweave.network.InputMessage;
 import com.layue13.clashweave.network.StateMessage;
 
@@ -57,6 +60,7 @@ public final class CombatServer {
     public static final class PlayerState {
 
         public final Scheduler scheduler;
+        public final AppearanceState.Pending appearance = new AppearanceState.Pending();
         public final GuardTimeline guard = new GuardTimeline();
         public final long session = ThreadLocalRandom.current()
             .nextLong();
@@ -71,8 +75,8 @@ public final class CombatServer {
         public long budgetTick;
         public float yaw;
         public float pitch;
-        public final com.layue13.clashweave.core.FacingHistory facingHistory = new com.layue13.clashweave.core.FacingHistory();
-        public final Map<Integer, com.layue13.clashweave.core.FacingHistory.Result> requestFacing = new HashMap<>();
+        public final FacingHistory facingHistory = new FacingHistory();
+        public final Map<Integer, FacingHistory.Result> requestFacing = new HashMap<>();
         public long instance;
         public MovementBudget movement;
         public double x;
@@ -87,9 +91,11 @@ public final class CombatServer {
         public boolean pendingImpulse;
         public final Map<EntityLivingBase, Long> contacts = new HashMap<>();
 
-        PlayerState(EntityPlayerMP player, ActionCatalog actions) {
+        PlayerState(EntityPlayerMP player, WeaponDefinition weapon, ActionCatalog actions) {
             this.player = player;
-            this.scheduler = new Scheduler(actions);
+            this.scheduler = new Scheduler(weapon, actions);
+            this.appearance.request(weapon.appearance);
+            this.appearance.apply(true);
         }
     }
 
@@ -104,6 +110,8 @@ public final class CombatServer {
     }
 
     private final CombatConfig config;
+    private final CombatWeapons weapons;
+    private final CombatPresentation presentation = new CombatPresentation();
     private final ResistanceOwnership resistance;
     private final Map<UUID, PlayerState> states = new LinkedHashMap<>();
     private final List<Inbound> inbox = new ArrayList<>();
@@ -122,6 +130,7 @@ public final class CombatServer {
 
     public CombatServer(CombatConfig config) {
         this.config = config;
+        weapons = new CombatWeapons(config);
         resistance = new ResistanceOwnership(config.maxResistance);
         JsonObject data = new JsonObject();
         data.addProperty("bufferTicks", config.actions.bufferTicks);
@@ -142,8 +151,7 @@ public final class CombatServer {
     }
 
     public static boolean armed(EntityPlayer player) {
-        return player.getHeldItem() != null && player.getHeldItem()
-            .getItem() == Clashweave.katana;
+        return CombatWeapons.RESOLVER.resolve(player.getHeldItem()) != null;
     }
 
     public void enqueue(EntityPlayerMP player, InputMessage message) {
@@ -161,7 +169,11 @@ public final class CombatServer {
     @SubscribeEvent
     public void login(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.player instanceof EntityPlayerMP) {
-            PlayerState state = new PlayerState((EntityPlayerMP) event.player, config.actions);
+            PlayerState state = new PlayerState(
+                (EntityPlayerMP) event.player,
+                CombatWeapons.DEFAULT,
+                weapons.catalog(CombatWeapons.DEFAULT));
+            presentation.rememberHealth(event.player);
             state.revision = ++nextRevision;
             state.networkAfter = tick + 1;
             states.put(event.player.getUniqueID(), state);
@@ -211,6 +223,7 @@ public final class CombatServer {
     }
 
     private void remove(EntityPlayer player) {
+        presentation.remove(player);
         PlayerState state = states.remove(player.getUniqueID());
         if (state != null) state.scheduler.interrupt();
         resistance.remove(player);
@@ -227,6 +240,7 @@ public final class CombatServer {
         synchronized (inbox) {
             inbox.clear();
         }
+        presentation.stop();
         tick = 0;
     }
 
@@ -251,6 +265,7 @@ public final class CombatServer {
             inbox.clear();
         }
         for (Inbound input : arrived) consume(input);
+        presentation.flush();
         for (PlayerState state : ordered) advance(state);
         reconcile(ordered);
         for (PlayerState state : ordered) collect(state);
@@ -367,7 +382,13 @@ public final class CombatServer {
             snapshot(state, message.sequence, "REJECT:GUARD_HELD", false);
         } else {
             if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
-            com.layue13.clashweave.core.FacingHistory.Result facing = state.facingHistory.choose(
+            if (state.scheduler.current() == null) {
+                WeaponDefinition resolved = weapons.resolve(input.player.getHeldItem());
+                state.scheduler.useWeapon(resolved, weapons.catalog(resolved));
+                state.appearance.request(resolved.appearance);
+                state.appearance.apply(true);
+            }
+            FacingHistory.Result facing = state.facingHistory.choose(
                 message.yaw,
                 message.pitch,
                 input.arrival,
@@ -405,14 +426,25 @@ public final class CombatServer {
             state.guard.release(tick);
             state.scheduler.clearBuffer();
         }
+        boolean wasSheathed = state.scheduler.sheathed();
         state.scheduler.tick(tick);
+        if (!wasSheathed && state.scheduler.sheathed()) presentation.sheathed(player, state.instance, tick);
+        if (state.scheduler.current() == null) {
+            WeaponDefinition resolved = weapons.resolve(player.getHeldItem());
+            if (resolved != null) {
+                state.scheduler.useWeapon(resolved, weapons.catalog(resolved));
+                state.appearance.request(resolved.appearance);
+            }
+            state.appearance.apply(true);
+        }
+        presentation.health(player, tick);
         Scheduler.Instance action = state.scheduler.current();
         if (action != null && action.id != state.instance) {
             state.instance = action.id;
             trace(
                 "START player=" + player
                     .getCommandSenderName() + " id=" + action.id + " action=" + action.definition.id + " tick=" + tick);
-            com.layue13.clashweave.core.FacingHistory.Result facing = state.requestFacing.remove(action.sequence);
+            FacingHistory.Result facing = state.requestFacing.remove(action.sequence);
             state.yaw = facing == null ? player.rotationYaw : facing.yaw;
             state.pitch = facing == null ? player.rotationPitch : facing.pitch;
             if (facing != null) trace(
@@ -421,17 +453,25 @@ public final class CombatServer {
                     + action.id
                     + " requested="
                     + facing.requestedYaw
+                    + " requestedPitch="
+                    + facing.requestedPitch
+                    + " selectedPitch="
+                    + state.pitch
+                    + " beforePitchDelta="
+                    + Math.abs(facing.requestedPitch)
+                    + " afterPitchDelta="
+                    + Math.abs(state.pitch - facing.requestedPitch)
                     + " baseline="
                     + player.rotationYaw
                     + " selected="
                     + state.yaw
                     + " beforeDelta="
-                    + Math.abs(
-                        com.layue13.clashweave.core.FacingHistory.difference(player.rotationYaw, facing.requestedYaw))
+                    + Math.abs(FacingHistory.difference(player.rotationYaw, facing.requestedYaw))
                     + " afterDelta="
-                    + Math.abs(com.layue13.clashweave.core.FacingHistory.difference(state.yaw, facing.requestedYaw))
+                    + Math.abs(FacingHistory.difference(state.yaw, facing.requestedYaw))
                     + " accepted="
                     + facing.accepted);
+            presentation.started(player, action, tick, wasSheathed && !state.scheduler.sheathed());
             state.ready = false;
             state.movement = null;
             state.externalHorizontal = 0;
@@ -610,13 +650,15 @@ public final class CombatServer {
         PlayerState defender = contact.target instanceof EntityPlayer ? state((EntityPlayer) contact.target) : null;
         int guard = defender == null ? 0
             : defender.guard.defend(contact.tick, cutoff, config.perfectWindow, contact.facing);
-        float damage = contact.instance.definition.damage
+        float damage = contact.instance.definition.damage * (float) contact.attacker.scheduler.weapon().damageMultiplier
             * (guard == 2 ? 0 : guard == 1 ? (float) config.blockDamage : 1);
         boolean hit = false;
         if (damage > 0) {
             hit = contact.target.attackEntityFrom(new CombatSource(contact.attacker.player), damage);
         }
         contact.instance.confirmedHit |= hit || guard > 0;
+        presentation
+            .contact(contact.attacker.player, contact.target, contact.instance, tick, contact.frozen, hit, guard);
         if (guard == 2) defender.scheduler.openCounter(tick, config.counterWindow);
         if (defender != null && hit) creditImpulse(defender);
         trace(
@@ -703,6 +745,8 @@ public final class CombatServer {
         message.sheathed = state.scheduler.sheathed();
         message.blocks = config.blocks;
         message.yaw = state.yaw;
+        message.appearance = state.appearance.current();
+        message.style = state.scheduler.weapon().style;
         Scheduler.Instance action = state.scheduler.current();
         message.action = action == null ? "" : action.definition.id;
         message.instance = action == null ? 0 : action.id;
@@ -778,5 +822,6 @@ public final class CombatServer {
         int guard = state.guard
             .defend(tick, System.nanoTime(), config.perfectWindow, facing(state.player, attacker, config.guardArc));
         if (guard > 0) event.ammount *= guard == 2 ? 0 : config.blockDamage;
+        presentation.nativeGuard(event, guard, tick);
     }
 }

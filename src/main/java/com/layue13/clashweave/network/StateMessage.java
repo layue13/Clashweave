@@ -11,6 +11,8 @@ import io.netty.buffer.ByteBuf;
 /** Entity snapshot and owner-only session/ack. Definitions travel on session establishment. */
 public final class StateMessage implements IMessage {
 
+    public com.layue13.clashweave.core.AppearanceState appearance = com.layue13.clashweave.core.AppearanceState.DEFAULT;
+    public String style = "katana";
     public int entity;
     public int revision;
     public int ack;
@@ -36,6 +38,8 @@ public final class StateMessage implements IMessage {
     public StateMessage() {}
 
     public StateMessage(StateMessage source) {
+        appearance = source.appearance;
+        style = source.style;
         entity = source.entity;
         revision = source.revision;
         ack = source.ack;
@@ -55,6 +59,11 @@ public final class StateMessage implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buffer) {
+        appearance = new com.layue13.clashweave.core.AppearanceState(
+            ByteBufUtils.readUTF8String(buffer),
+            ByteBufUtils.readUTF8String(buffer),
+            ByteBufUtils.readUTF8String(buffer));
+        style = com.layue13.clashweave.core.AppearanceState.id(ByteBufUtils.readUTF8String(buffer));
         entity = buffer.readInt();
         revision = buffer.readInt();
         ack = buffer.readInt();
@@ -83,6 +92,10 @@ public final class StateMessage implements IMessage {
 
     @Override
     public void toBytes(ByteBuf buffer) {
+        ByteBufUtils.writeUTF8String(buffer, appearance.skin);
+        ByteBufUtils.writeUTF8String(buffer, appearance.effects);
+        ByteBufUtils.writeUTF8String(buffer, appearance.animations);
+        ByteBufUtils.writeUTF8String(buffer, style);
         buffer.writeInt(entity)
             .writeInt(revision)
             .writeInt(ack)

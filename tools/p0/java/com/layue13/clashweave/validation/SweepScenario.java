@@ -19,7 +19,7 @@ public final class SweepScenario {
     private int contacts;
     @SubscribeEvent public void hurt(net.minecraftforge.event.entity.living.LivingHurtEvent event) {
         if(event.entityLiving==target && event.source.getEntity() instanceof EntityPlayerMP && event.source.getEntity().getCommandSenderName().equals("P0A")) {
-            contacts++;System.out.println("P0_SWEEP_DAMAGE case="+scenario+" source="+event.source.getDamageType()+" amount="+event.ammount);
+            contacts++;System.out.println("P0_SWEEP_DAMAGE case="+scenario+" source="+event.source.getDamageType()+" amount="+event.ammount+" attackerFeet="+event.source.getEntity().posY+" attackerGround="+event.source.getEntity().onGround);
         }
     }
     private int wait;
@@ -41,16 +41,16 @@ public final class SweepScenario {
         }
         if(target==null) {
             scenario++;contacts=0;a.worldObj.setWorldTime(18000);a.playerNetServerHandler.setPlayerLocation(0,64,0,0,0);
-            a.worldObj.setBlock(0,64,2,scenario==3?Blocks.stone:Blocks.air);
+            if(scenario==3)a.worldObj.setBlock(0,64,2,Blocks.stone_stairs,2,3);else a.worldObj.setBlock(0,64,2,Blocks.air);
             if(scenario==1) target=new EntitySpider(a.worldObj);
             else if(scenario==2) {EntityCow cow=new EntityCow(a.worldObj);cow.setGrowingAge(-24000);target=cow;}
             else target=new EntityZombie(a.worldObj);
             target.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200);
             target.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);target.setHealth(200);
-            target.setPosition(0,scenario==3?65:64,1.9);target.setCustomNameTag("sweep:"+scenario);a.worldObj.spawnEntityInWorld(target);
+            target.setPosition(0,scenario==3?65:64,scenario==3?2.7:1.9);target.setCustomNameTag("sweep:"+scenario);a.worldObj.spawnEntityInWorld(target);
             System.out.println("P0_SWEEP_SETUP case="+scenario+" target="+target.getEntityId()+" height="+target.height);
         }
-        target.setPosition(0,scenario==3?65:64,1.9);
+        target.setPosition(0,scenario==3?65:64,scenario==3?2.7:1.9);
         target.motionX=target.motionY=target.motionZ=0;target.fallDistance=0;
         if(wait>240) {System.out.println("P0_SWEEP case="+scenario+" success=false health="+target.getHealth());throw new AssertionError("sweep case "+scenario);}
     }

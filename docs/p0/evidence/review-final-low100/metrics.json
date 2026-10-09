@@ -1,0 +1,469 @@
+{
+  "identities": {
+    "P0A": "0",
+    "P0B": "20569"
+  },
+  "contacts": 0,
+  "mob_extra_ticks": {
+    "count": 0
+  },
+  "mob_commit_ms": {
+    "count": 0
+  },
+  "guard_violations": 0,
+  "deadline_violations": 0,
+  "freeze_to_commit": {
+    "count": 0
+  },
+  "feedback": {
+    "receive": {
+      "count": 0
+    },
+    "frame": {
+      "count": 0
+    },
+    "audio_source": {
+      "count": 0
+    }
+  },
+  "input_gate_rejects": [],
+  "acknowledgements": [
+    {
+      "player": "P0A",
+      "seq": "2",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "3",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "4",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "5",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "6",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "7",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "8",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "9",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "10",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "11",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "12",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "13",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "14",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "15",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "16",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "17",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "18",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "19",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "20",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "21",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "22",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "23",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "24",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "25",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "26",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "27",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "28",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "29",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "30",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "31",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "32",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "33",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "34",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "35",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "36",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "37",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "38",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "39",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "40",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "41",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "42",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "43",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "44",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "45",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "46",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "47",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "48",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "49",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "50",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "51",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "52",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "53",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "54",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "55",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "56",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "57",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "58",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "59",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "60",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "61",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "62",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "63",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    }
+  ],
+  "mob_feedback": {
+    "receive": {
+      "count": 0
+    },
+    "frame": {
+      "count": 0
+    },
+    "audio_source": {
+      "count": 0
+    }
+  },
+  "aim": {
+    "samples": 31,
+    "accepted": 30,
+    "known_yaw_deviation": {
+      "count": 31,
+      "minimum": 0.0,
+      "maximum": 3.885000467300415,
+      "mean": 0.12532259571936824
+    },
+    "selected_yaw_deviation": {
+      "count": 31,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    },
+    "old_horizontal_pitch_deviation": {
+      "count": 31,
+      "minimum": 0.0,
+      "maximum": 4.4399967,
+      "mean": 3.3658039645161293
+    },
+    "selected_pitch_deviation": {
+      "count": 31,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    }
+  },
+  "local_swing_dispatch_ms": {
+    "count": 31,
+    "minimum": 0.4034,
+    "maximum": 13.0051,
+    "mean": 1.8397612903225806
+  },
+  "local_audio_source_ms": {
+    "count": 31,
+    "minimum": 0.1135,
+    "maximum": 0.3254,
+    "mean": 0.1570935483870968
+  },
+  "action_execution": {
+    "legal": 31,
+    "executed": 31,
+    "rate": 1.0,
+    "invalid": 0,
+    "invalid_executed": 0
+  },
+  "prediction": {
+    "alignments": 31,
+    "backwards": 0,
+    "forwards": 0,
+    "same": 31,
+    "hard_corrections_max": 2
+  }
+}

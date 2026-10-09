@@ -13,6 +13,9 @@ import com.layue13.clashweave.core.ActionCatalog;
 
 public final class CombatConfig {
 
+    public double presentationRange;
+    public double multiplierMinimum;
+    public double multiplierMaximum;
     public int maxResistance;
     public int defer;
     public int perfectWindow;
@@ -48,6 +51,11 @@ public final class CombatConfig {
         directory.mkdirs();
         Configuration config = new Configuration(new File(directory, "combat.cfg"));
         config.load();
+        presentationRange = config.getFloat("eventRange", "presentation", 64, 8, 256, "Semantic event observer range");
+        multiplierMinimum = config
+            .getFloat("multiplierMinimum", "weapon", .5f, .1f, 1, "Server numerical multiplier lower bound");
+        multiplierMaximum = config
+            .getFloat("multiplierMaximum", "weapon", 2, 1, 8, "Server numerical multiplier upper bound");
         maxResistance = config.getInt("maxHurtResistantTime", "combat", 8, 1, 40, "Persistent engaged-target timer");
         defer = config.getInt("confirmationDelay", "combat", 3, 1, 8, "Tick and wall-clock minimum");
         perfectWindow = config.getInt("perfectWindow", "combat", 5, 1, 8, "Half-open press window");
@@ -88,9 +96,11 @@ public final class CombatConfig {
         friendly = config.getBoolean("protectFriendly", "combat", true, "Villagers, tamed pets, team players");
         blocks = config.getBoolean("peacefulBlockInteraction", "input", true, "Block right click outside engagement");
         config.save();
-        File data = new File(directory, "katana.json");
+        File data = new File(directory, CombatWeapons.DEFAULT.actionData + ".json");
         if (!data.exists()) {
-            try (InputStream input = getClass().getResourceAsStream("/assets/clashweave/combat/katana.json");
+            try (
+                InputStream input = getClass()
+                    .getResourceAsStream("/assets/clashweave/combat/" + CombatWeapons.DEFAULT.actionData + ".json");
                 FileOutputStream output = new FileOutputStream(data)) {
                 byte[] buffer = new byte[4096];
                 int read;

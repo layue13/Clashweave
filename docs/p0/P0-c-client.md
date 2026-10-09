@@ -65,3 +65,16 @@ final-29-zero 曾出现首客户端登录40s超时，未定位原版/联网启�
 | [拔刀后面](evidence/audit-render/P0A/screenshots/p0-drawn-rear.png) | 鞘口和体位于左腰/腿外侧，不随着拔刀消失；向前的刀身被身体遮住，不能从本图判定握柄，握持仍以侧面及第一人称图为准。 |
 
 回归同一运行的draw/sheathe/swing第一人称与挥刀第三人称帧：模型、挂点与尺寸沿用此前P0；刀在手内的整体刚性挂点可见，仍无手指骨骼与连续插入动画，不升级此前降级结论。视角切换没有重启动作；侧后截图的实例为0（空闲），挥刀截图另有实例/进度日志。不把皮肤视线、名字标签或HUD当作资源判定依据。
+
+## 口子补丁后渲染复核
+
+`review-final-render --render-only`每客户端16张实际帧。已重看下列四图，以及draw-0与swing-2：资源ID解析后挂点、尺寸和现有程序姿势保持，没有重启动作。
+
+| 图 | 判读 |
+| --- | --- |
+| [纳刀侧面](evidence/review-final-render/P0A/screenshots/p0-sheathed-side.png) | 左腰鞘口，约45°斜后下，深色鞘体宽厚可辨，尖在腿后。 |
+| [纳刀后面](evidence/review-final-render/P0A/screenshots/p0-sheathed-rear.png) | 鞘在左腰/左腿外侧，投影缩短；结合侧面判断倾角，手内无刀身。 |
+| [拔刀侧面](evidence/review-final-render/P0A/screenshots/p0-drawn-side.png) | 鞘挂点不动、不穿腿；刀朝前，侧向刀身仍细，保留该限制。 |
+| [拔刀后面](evidence/review-final-render/P0A/screenshots/p0-drawn-rear.png) | 鞘仍在左腰外侧，刀被躯干遮挡，不用本图证明握持。 |
+
+第一人称刀柄整体位于刚性掌块内，挥刀第三人称模型与进度可见；手指骨骼、连续纳刀插入仍未实现。本次只增加接口，未重做挂点或放宽旧验收。

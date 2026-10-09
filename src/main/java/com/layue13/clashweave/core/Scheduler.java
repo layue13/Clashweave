@@ -63,7 +63,8 @@ public final class Scheduler {
         ActionCatalog.Edge edge;
     }
 
-    private final ActionCatalog catalog;
+    private ActionCatalog catalog;
+    private WeaponDefinition weapon;
     private final Map<Intent, Request> buffered = new EnumMap<>(Intent.class);
     private final List<Result> results = new ArrayList<>();
     private long nextId;
@@ -80,7 +81,23 @@ public final class Scheduler {
     }
 
     public Scheduler(ActionCatalog catalog) {
+        this(WeaponDefinition.katana(), catalog);
+    }
+
+    public Scheduler(WeaponDefinition weapon, ActionCatalog catalog) {
+        this.weapon = java.util.Objects.requireNonNull(weapon);
         this.catalog = catalog;
+    }
+
+    public WeaponDefinition weapon() {
+        return weapon;
+    }
+
+    public void useWeapon(WeaponDefinition next, ActionCatalog actions) {
+        if (current != null) throw new IllegalStateException("Weapon changes between actions only");
+        if (catalog != actions) clearBuffer();
+        weapon = java.util.Objects.requireNonNull(next);
+        catalog = java.util.Objects.requireNonNull(actions);
     }
 
     public Instance current() {

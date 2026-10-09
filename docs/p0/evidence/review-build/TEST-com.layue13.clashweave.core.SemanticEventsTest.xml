@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.layue13.clashweave.core.SemanticEventsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-09T23:11:47Z" hostname="DESKTOP-NCOAQL3" time="0.003">
+  <properties/>
+  <testcase name="presentationFailureCannotStopOtherSubscribers" classname="com.layue13.clashweave.core.SemanticEventsTest" time="0.001"/>
+  <testcase name="authoritativeEventsHaveStableOrderAndDoNotInventHits" classname="com.layue13.clashweave.core.SemanticEventsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[CW_PRESENTATION_FAILURE IllegalStateException
+CW_PRESENTATION_FAILURE IllegalStateException
+]]></system-err>
+</testsuite>

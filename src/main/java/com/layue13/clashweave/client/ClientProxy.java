@@ -48,6 +48,9 @@ public final class ClientProxy extends CommonProxy {
     public int corrections;
     public long lastFeedbackFrozen;
     private long frameFeedbackFrozen;
+    private final com.layue13.clashweave.core.SemanticEvents presentation = new com.layue13.clashweave.core.SemanticEvents();
+    private final Queue<com.layue13.clashweave.network.SemanticMessage> events = new ConcurrentLinkedQueue<>();
+    private long lastEvent;
     private final Queue<StateMessage> incoming = new ConcurrentLinkedQueue<>();
     private final Minecraft minecraft = Minecraft.getMinecraft();
     private final KeyBinding sheathe = new KeyBinding("key.clashweave.sheathe", Keyboard.KEY_R, "Clashweave");
@@ -71,6 +74,7 @@ public final class ClientProxy extends CommonProxy {
     @Override
     public void initialize() {
         instance = this;
+        presentation.subscribe(new DefaultPresentation(minecraft, this));
         ClientRegistry.registerKeyBinding(sheathe);
         ClientRegistry.registerKeyBinding(dodge);
         ClientRegistry.registerKeyBinding(special);
@@ -91,6 +95,11 @@ public final class ClientProxy extends CommonProxy {
     @Override
     public void receive(StateMessage message) {
         if (incoming.size() < 1024) incoming.add(message);
+    }
+
+    @Override
+    public void receive(com.layue13.clashweave.network.SemanticMessage message) {
+        if (events.size() < 1024) events.add(message);
     }
 
     public long stamp() {
@@ -157,6 +166,8 @@ public final class ClientProxy extends CommonProxy {
         if (event.phase != TickEvent.Phase.END) return;
         if (minecraft.thePlayer == null || minecraft.theWorld == null) {
             incoming.clear();
+            events.clear();
+            lastEvent = 0;
             visuals.clear();
             session = 0;
             predictedEngagement = false;
@@ -165,6 +176,19 @@ public final class ClientProxy extends CommonProxy {
         }
         StateMessage message;
         while ((message = incoming.poll()) != null) apply(message);
+        com.layue13.clashweave.network.SemanticMessage semantic;
+        while ((semantic = events.poll()) != null) if (semantic.id > lastEvent) {
+            lastEvent = semantic.id;
+            presentation.emit(semantic.event);
+            if (Boolean.getBoolean("clashweave.trace")) System.out.println(
+                "CW_PRESENT id=" + semantic.id
+                    + " kind="
+                    + semantic.event.kind
+                    + " actor="
+                    + semantic.event.actor
+                    + " owner="
+                    + minecraft.thePlayer.getEntityId());
+        }
         boolean armed = CombatServer.armed(minecraft.thePlayer);
         boolean openGui = minecraft.currentScreen != null;
         boolean shiftNow = minecraft.gameSettings.keyBindSneak.getIsKeyPressed();
@@ -283,12 +307,7 @@ public final class ClientProxy extends CommonProxy {
                             + corrections);
                 }
                 if (message.result.equals("MOVE_CORRECT")) corrections++;
-                if (message.result.equals("HIT") || message.result.equals("PARRY") || message.result.equals("BLOCK")) {
-                    minecraft.thePlayer.playSound(
-                        message.result.equals("HIT") ? "random.successful_hit" : "random.anvil_land",
-                        0.35f,
-                        1.4f);
-                }
+
             }
         }
         Visual visual = new Visual();
@@ -336,7 +355,8 @@ public final class ClientProxy extends CommonProxy {
         if (minecraft.thePlayer == null || !CombatServer.armed(minecraft.thePlayer)) return;
         Visual own = own();
         event.left.add("Clashweave " + (engaged() ? "ENGAGED" : "PEACE") + " " + feedback);
-        if (lastFeedbackFrozen != 0 && frameFeedbackFrozen != lastFeedbackFrozen) {
+        if (Boolean.getBoolean("clashweave.trace") && lastFeedbackFrozen != 0
+            && frameFeedbackFrozen != lastFeedbackFrozen) {
             frameFeedbackFrozen = lastFeedbackFrozen;
             System.out.println("CW_FRAME frozen=" + lastFeedbackFrozen + " frame=" + System.nanoTime());
         }

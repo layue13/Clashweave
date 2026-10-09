@@ -35,6 +35,34 @@ public class StateMessageTest {
     }
 
     @Test
+    public void semanticResultEncodingPreservesAuthorityOrderIdentity() {
+        com.layue13.clashweave.core.SemanticEvents.Event event = new com.layue13.clashweave.core.SemanticEvents.Event(
+            com.layue13.clashweave.core.SemanticEvents.Kind.PARRY,
+            1,
+            2,
+            3,
+            4,
+            5,
+            "heavy");
+        ByteBuf data = Unpooled.buffer();
+        try {
+            new SemanticMessage(77, event).toBytes(data);
+            SemanticMessage decoded = new SemanticMessage();
+            decoded.fromBytes(data);
+            assertEquals(77, decoded.id);
+            assertEquals(event.kind, decoded.event.kind);
+            assertEquals(event.actor, decoded.event.actor);
+            assertEquals(event.target, decoded.event.target);
+            assertEquals(event.instance, decoded.event.instance);
+            assertEquals(event.tick, decoded.event.tick);
+            assertEquals(event.frozen, decoded.event.frozen);
+            assertEquals(event.action, decoded.event.action);
+        } finally {
+            data.release();
+        }
+    }
+
+    @Test
     public void observerEncodingCannotMutateOrExposeOwnerCredentials() {
         StateMessage owner = new StateMessage();
         owner.session = 123456;

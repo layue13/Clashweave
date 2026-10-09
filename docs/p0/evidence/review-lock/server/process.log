@@ -1,0 +1,47 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 5452
+# Marker counts: {'Exception': 171, 'ERROR': 2, 'P0_NETWORK': 3, ' CW INPUT': 4, 'P0_LOCK_ASSERT': 20, 'P0_LOCK_KEEP': 1, ' CW ENGAGEMENT': 1, 'P0_LOCK': 1}
+[Loaded java.lang.Exception from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.RuntimeException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ReflectiveOperationException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassNotFoundException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassCastException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArrayStoreException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.IllegalMonitorStateException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.Thread$UncaughtExceptionHandler from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.NullPointerException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArithmeticException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.InterruptedException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.security.PrivilegedExceptionAction from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[16:02:41] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[16:02:42] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[16:02:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:login:44]: P0_NETWORK login=P0A
+[16:03:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:776]: CW INPUT player=P0A seq=1 kind=-2 target=-1 origin=0 stamp=203 receivedTick=203 consumedTick=204 arrival=32995888374800 gate=OK
+[16:03:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:login:44]: P0_NETWORK login=P0B
+[16:03:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:776]: CW INPUT player=P0B seq=1 kind=-2 target=-1 origin=0 stamp=413 receivedTick=415 consumedTick=416 arrival=33005114616500 gate=OK
+[16:03:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:776]: CW INPUT player=P0B seq=2 kind=-2 target=-1 origin=0 stamp=414 receivedTick=415 consumedTick=416 arrival=33005114637799 gate=OK
+[16:03:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:776]: CW INPUT player=P0B seq=3 kind=-2 target=-1 origin=0 stamp=415 receivedTick=415 consumedTick=416 arrival=33005114648199 gate=OK
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT independentDefaults=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT acquire4=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT acquire8=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT acquire12=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT acquire16=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT acquire20=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT acquire22=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT cone-30.0=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT cone30.0=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT cone29.99=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT cone30.01=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT cone-30.01=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT occluded=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT protectedVillager=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT protectedPet=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT protectedTeamPlayer=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT deadAndSelfExcluded=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:tick:65]: P0_LOCK_KEEP scheduled=16
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:776]: CW ENGAGEMENT player=P0A engaged=true revision=3 tick=442 sent=33006431113900
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT keep16=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT keep20=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:check:18]: P0_LOCK_ASSERT release22=true
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:tick:74]: P0_LOCK COMPLETE assertions=20
+[16:03:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockScenario:tick:75]: P0_NETWORK COMPLETE

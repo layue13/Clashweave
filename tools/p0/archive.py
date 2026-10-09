@@ -26,7 +26,7 @@ def main():
         source = ROOT / 'build/p0/runs' / label
         target = ROOT / 'docs/p0/evidence' / label
         target.mkdir(parents=True, exist_ok=True)
-        for name in ['command.json', 'commands.json', 'summary.json', 'metrics.json', 'per-contact.json',
+        for name in ['command.json', 'runtime-snapshot.json', 'commands.json', 'summary.json', 'metrics.json', 'events.json', 'semantic-metrics.json', 'per-contact.json',
                      'requests.json', 'view-metrics.json', 'feedback.json', 'alignments.json', 'engagement-metrics.json', 'server.log', 'latency.log']:
             path = source / name
             if path.exists():

@@ -3,6 +3,7 @@ import argparse
 import json
 import pathlib
 import shutil
+import hashlib
 import subprocess
 import time
 import sys
@@ -29,6 +30,16 @@ folder.mkdir(parents=True, exist_ok=False)
 processes = []
 logs = []
 commands = {}
+runtime=folder/'runtime';runtime.mkdir()
+snapshots={}
+def snapshot(source):
+    source=pathlib.Path(source)
+    if source not in snapshots:
+        destination=runtime/source.name
+        shutil.copyfile(source,destination)
+        snapshots[source]=destination
+    return snapshots[source]
+validation=snapshot(ROOT/'build/p0/p0-validation.jar')
 
 
 def spawn(role):
@@ -36,7 +47,7 @@ def spawn(role):
     directory.mkdir()
     (directory/'mods').mkdir()
     (directory/'config').mkdir()
-    shutil.copyfile(ROOT/'build/p0/p0-validation.jar',directory/'mods/p0-validation.jar')
+    shutil.copyfile(validation,directory/'mods/p0-validation.jar')
     server = role == 'server'
     launch = json.loads((ROOT/'build/p0'/('runServer.json' if server else 'runClient.json')).read_text(encoding='utf-8'))
     command = [launch['java'], '-Xms256M', '-Xmx1G', '-Dfile.encoding=UTF-8',
@@ -67,7 +78,11 @@ def spawn(role):
         command += ['-Dcw.p0.port='+('25581' if args.rtt else '25580')]
         command += ['-Djava.library.path='+str(ROOT/'run/natives/lwjgl2')]
         (directory/'options.txt').write_text('pauseOnLostFocus:false\nrenderDistance:3\nmaxFps:60\nmusic:0.0\nsound:1.0\nfancyGraphics:false\n',encoding='utf-8')
-    command += ['-cp',launch['classpath'],launch['main']]
+    entries=[]
+    for entry in launch['classpath'].split(';'):
+        path=pathlib.Path(entry)
+        entries.append(str(snapshot(path)) if path.is_relative_to(ROOT/'build') and path.suffix=='.jar' else entry)
+    command += ['-cp',';'.join(entries),launch['main']]
     command += ['nogui'] if server else ['--username',role,'--width','960','--height','540','--gameDir',str(directory)]
     commands[role] = command
     log = (directory/'process.log').open('w',encoding='utf-8')
@@ -94,7 +109,7 @@ try:
         processes.append(proxy)
         time.sleep(.5)
     clients = [spawn('P0A')]
-    deadline = time.perf_counter()+40
+    deadline = time.perf_counter()+60
     while time.perf_counter()<deadline:
         if 'P0_NETWORK login=P0A' in (folder/'server/process.log').read_text(encoding='utf-8',errors='replace'): break
         if clients[0].poll() is not None: raise RuntimeError('First client startup failed')
@@ -124,6 +139,7 @@ finally:
             try: process.wait(timeout=10)
             except subprocess.TimeoutExpired: process.kill()
     for log in logs: log.close()
+    (folder/'runtime-snapshot.json').write_text(json.dumps([{ 'source':str(source.relative_to(ROOT)), 'snapshot':str(destination.relative_to(folder)), 'sha256':hashlib.sha256(destination.read_bytes()).hexdigest()} for source,destination in snapshots.items()],indent=2),encoding='utf-8')
     (folder/'commands.json').write_text(json.dumps(commands,indent=2),encoding='utf-8')
     lines=(folder/'server/process.log').read_text(encoding='utf-8',errors='replace').splitlines()
     leaks=[line for line in lines if line.startswith('[Loaded ') and ('net.minecraft.client.' in line or 'org.lwjgl.opengl.' in line or 'clashweave.client.' in line or 'validation.ClientReplay' in line)]

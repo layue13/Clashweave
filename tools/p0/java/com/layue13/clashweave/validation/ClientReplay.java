@@ -24,6 +24,7 @@ public final class ClientReplay {
     private int connected;
     private long requested;
     private int cycle;
+    private final Set<Integer> observedAppearance=new HashSet<>();
     private final Set<String> captures = new HashSet<>();
     private String capture;
     private long guardInstance;
@@ -91,6 +92,7 @@ public final class ClientReplay {
         ClientProxy.Visual visual = proxy.own();
         if (visual == null || proxy.actions == null) return;
         connected++;
+        for(ClientProxy.Visual other:proxy.visuals.values())if(observedAppearance.add(other.state.entity))System.out.println("P0_APPEARANCE entity="+other.state.entity+" skin="+other.state.appearance.skin+" effects="+other.state.appearance.effects+" animations="+other.state.appearance.animations+" style="+other.state.style);
         if (Boolean.getBoolean("cw.p0.manual") || Boolean.getBoolean("cw.p0.lockTest")) return;
         if (Boolean.getBoolean("cw.p0.sweepTest")) { sweepReplay(proxy, visual); return; }
         if (Boolean.getBoolean("cw.p0.viewTest")) { viewReplay(proxy, visual); return; }
@@ -258,6 +260,7 @@ public final class ClientReplay {
 
     private void viewReplay(ClientProxy proxy, ClientProxy.Visual visual) {
         if (!mc.thePlayer.getCommandSenderName().equals("P0A")) return;
+        if(!viewSample){mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;}
         if (viewSample && visual.state.instance!=0 && visual.state.instance!=viewObserved) {
             System.out.println("P0_VIEW_START sequence="+viewSequences+" instance="+visual.state.instance
                 +" yawDelta="+(mc.thePlayer.rotationYaw-viewYaw)+" pitchDelta="+(mc.thePlayer.rotationPitch-viewPitch)

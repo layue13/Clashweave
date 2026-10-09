@@ -1,0 +1,1156 @@
+{
+  "identities": {
+    "P0A": "0",
+    "P0B": "62762"
+  },
+  "contacts": 35,
+  "mob_extra_ticks": {
+    "count": 3,
+    "minimum": 0,
+    "maximum": 0,
+    "mean": 0.0
+  },
+  "mob_commit_ms": {
+    "count": 3,
+    "minimum": 0.2691,
+    "maximum": 0.903,
+    "mean": 0.4859
+  },
+  "guard_violations": 0,
+  "deadline_violations": 0,
+  "freeze_to_commit": {
+    "count": 35,
+    "minimum": 0.2691,
+    "maximum": 200.6834,
+    "mean": 156.1704257142857
+  },
+  "feedback": {
+    "receive": {
+      "count": 67,
+      "minimum": 2.24,
+      "maximum": 250.799,
+      "mean": 193.59862388059702
+    },
+    "frame": {
+      "count": 67,
+      "minimum": 5.8004,
+      "maximum": 252.0574,
+      "mean": 194.94169402985077
+    },
+    "audio_source": {
+      "count": 67,
+      "minimum": 2.571,
+      "maximum": 251.0757,
+      "mean": 193.92320597014924
+    }
+  },
+  "input_gate_rejects": [],
+  "acknowledgements": [
+    {
+      "player": "P0A",
+      "seq": "2",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "3",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "4",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "5",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "6",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "7",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "8",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "9",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "10",
+      "result": "ORIGIN_CHANGED",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "11",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "12",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "13",
+      "result": "EXPIRED_OR_CHANGED",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "14",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "15",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "16",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "17",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "4",
+      "result": "LOCK",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "18",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "19",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "5",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "20",
+      "result": "EXPIRED_OR_CHANGED",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "6",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "21",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "22",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "7",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "8",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "23",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "24",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "25",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "26",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "9",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "27",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "28",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "10",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "11",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "29",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "30",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "12",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "31",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "32",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "13",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "14",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "33",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "34",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "35",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "36",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "15",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "37",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "38",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "16",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "17",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "39",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "40",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "41",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "42",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "18",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "43",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "44",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "19",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "20",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "45",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "46",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "47",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "48",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "21",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "49",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "50",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "51",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "52",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "22",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "53",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "54",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "23",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "24",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "55",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "56",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "57",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "58",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "25",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "59",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "60",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "61",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "62",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "63",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "64",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "26",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "65",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "66",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "27",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "28",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "67",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "68",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "69",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "70",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "29",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "71",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "72",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "73",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "74",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "30",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "31",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "32",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "75",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "76",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "33",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "34",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "77",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "78",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "79",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "80",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "35",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "81",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "82",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "83",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "84",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "85",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "86",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "36",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "87",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "88",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "37",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "38",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "89",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "90",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "91",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "92",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "39",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "93",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "94",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "40",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "41",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "95",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "96",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "42",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "97",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "98",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "43",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "44",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "99",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "100",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "101",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "102",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "45",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "103",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "104",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "46",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "47",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "105",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "106",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "107",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "108",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "48",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "109",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "110",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "49",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "50",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "111",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "112",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "113",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "114",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "51",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "115",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "116",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "117",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "118",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "52",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "119",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "120",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "53",
+      "result": "GUARD",
+      "type": "ACK"
+    },
+    {
+      "player": "P0B",
+      "seq": "54",
+      "result": "RELEASE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "121",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "122",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "123",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "124",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    }
+  ],
+  "mob_feedback": {
+    "receive": {
+      "count": 3,
+      "minimum": 2.24,
+      "maximum": 36.0234,
+      "mean": 19.246433333333332
+    },
+    "frame": {
+      "count": 3,
+      "minimum": 5.8004,
+      "maximum": 37.4955,
+      "mean": 21.458466666666666
+    },
+    "audio_source": {
+      "count": 3,
+      "minimum": 2.571,
+      "maximum": 36.3343,
+      "mean": 19.595299999999998
+    }
+  },
+  "aim": {
+    "samples": 60,
+    "accepted": 56,
+    "known_yaw_deviation": {
+      "count": 60,
+      "minimum": 0.0,
+      "maximum": 80.0,
+      "mean": 4.0
+    },
+    "selected_yaw_deviation": {
+      "count": 60,
+      "minimum": 0.0,
+      "maximum": 80.0,
+      "mean": 4.0
+    }
+  },
+  "local_swing_dispatch_ms": {
+    "count": 24,
+    "minimum": 0.3339,
+    "maximum": 3.0008,
+    "mean": 0.75055
+  },
+  "local_audio_source_ms": {
+    "count": 24,
+    "minimum": 0.1034,
+    "maximum": 0.2614,
+    "mean": 0.13614583333333333
+  },
+  "action_execution": {
+    "legal": 60,
+    "executed": 60,
+    "rate": 1.0,
+    "invalid": 3,
+    "invalid_executed": 0
+  },
+  "prediction": {
+    "alignments": 35,
+    "backwards": 0,
+    "forwards": 0,
+    "same": 35,
+    "hard_corrections_max": 0
+  }
+}

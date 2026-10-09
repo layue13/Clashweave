@@ -2,11 +2,8 @@ package com.layue13.clashweave.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
 
 import org.lwjgl.opengl.GL11;
 
@@ -18,9 +15,6 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 /** Rigid placeholder adapter: block units, grip origin, blade +Y; Biped coordinates have downward Y. */
 public final class KatanaRendering {
 
-    private static IModelCustom blade;
-    private static IModelCustom sheath;
-    private static final ResourceLocation TEXTURE = new ResourceLocation("clashweave", "textures/models/katana.png");
     private final Minecraft minecraft = Minecraft.getMinecraft();
     private final ModelBiped arm = new ModelBiped();
     public static double sheathAngle = 45;
@@ -37,14 +31,15 @@ public final class KatanaRendering {
         sheathY = config.getFloat("sheathY", "mount", 0.55f, 0.4f, 0.8f, "Height in Biped downward axis");
         sheathZ = config.getFloat("sheathZ", "mount", 0.18f, 0.1f, 0.4f, "Rear offset in block units");
         config.save();
-        blade = AdvancedModelLoader.loadModel(new ResourceLocation("clashweave", "models/katana.obj"));
-        sheath = AdvancedModelLoader.loadModel(new ResourceLocation("clashweave", "models/sheath.obj"));
+        PresentationAssets.load();
         System.out.println("CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=" + sheathAngle);
     }
 
     private double swing(ClientProxy.Visual visual, float partial) {
         String action = ClientProxy.instance.action(visual);
         if (action.isEmpty() || ClientProxy.instance.actions == null) return 0;
+        String preset = PresentationAssets.animation(visual, action);
+        if (!preset.equals("rigid_arc")) throw new IllegalArgumentException("Unknown animation preset");
         ActionCatalog.Definition definition = ClientProxy.instance.actions.get(action);
         double elapsed = ClientProxy.instance.elapsed(visual, partial);
         double angle;
@@ -76,7 +71,7 @@ public final class KatanaRendering {
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1, 1, 1, 1);
         minecraft.getTextureManager()
-            .bindTexture(TEXTURE);
+            .bindTexture(PresentationAssets.models(visual).texture);
         GL11.glPushMatrix();
         // The pelvis follows Biped's crouch translation, but not torso lean or walking leg rotation.
         ModelBiped biped = event.renderer.modelBipedMain;
@@ -86,7 +81,7 @@ public final class KatanaRendering {
             sheathZ + biped.bipedLeftLeg.rotationPointZ / 16.0);
         GL11.glRotated(sheathAngle, 1, 0, 0);
         GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
-        sheath.renderAll();
+        PresentationAssets.models(visual).sheath.renderAll();
         GL11.glPopMatrix();
         if (visible(visual, event.partialRenderTick)) {
             GL11.glPushMatrix();
@@ -96,7 +91,7 @@ public final class KatanaRendering {
             GL11.glRotated(swing(visual, event.partialRenderTick), 0, 0, 1);
             GL11.glRotated(90, 0, 1, 0);
             GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
-            blade.renderAll();
+            PresentationAssets.models(visual).blade.renderAll();
             GL11.glPopMatrix();
         }
         GL11.glPopAttrib();
@@ -134,8 +129,8 @@ public final class KatanaRendering {
         GL11.glRotated(-55, 1, 0, 0);
         GL11.glRotated(swing(visual, event.partialTicks), 0, 0, 1);
         minecraft.getTextureManager()
-            .bindTexture(TEXTURE);
-        blade.renderAll();
+            .bindTexture(PresentationAssets.models(visual).texture);
+        PresentationAssets.models(visual).blade.renderAll();
         GL11.glPopMatrix();
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPopMatrix();
@@ -174,8 +169,8 @@ public final class KatanaRendering {
         GL11.glRotated(sheathAngle, 1, 0, 0);
         GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
         minecraft.getTextureManager()
-            .bindTexture(TEXTURE);
-        sheath.renderAll();
+            .bindTexture(PresentationAssets.models(visual).texture);
+        PresentationAssets.models(visual).sheath.renderAll();
         GL11.glPopMatrix();
         GL11.glPopAttrib();
     }

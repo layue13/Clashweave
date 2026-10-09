@@ -49,6 +49,11 @@ public class Clashweave {
         server = new CombatServer(config);
         network.registerMessage(InputMessage.Handler.class, InputMessage.class, 0, Side.SERVER);
         network.registerMessage(StateMessage.Handler.class, StateMessage.class, 1, Side.CLIENT);
+        network.registerMessage(
+            com.layue13.clashweave.network.SemanticMessage.Handler.class,
+            com.layue13.clashweave.network.SemanticMessage.class,
+            2,
+            Side.CLIENT);
         MinecraftForge.EVENT_BUS.register(server);
         FMLCommonHandler.instance()
             .bus()

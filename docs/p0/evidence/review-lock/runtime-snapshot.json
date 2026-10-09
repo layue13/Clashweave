@@ -1,0 +1,22 @@
+[
+  {
+    "source": "build\\p0\\p0-validation.jar",
+    "snapshot": "runtime\\p0-validation.jar",
+    "sha256": "92f96014c3f08099b7184bd461216723ced69a3446d7da631c0f4fa8b9b8350a"
+  },
+  {
+    "source": "build\\rfg\\mclauncher-1.7.10.jar",
+    "snapshot": "runtime\\mclauncher-1.7.10.jar",
+    "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+  },
+  {
+    "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+    "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+    "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+  },
+  {
+    "source": "build\\libs\\clashweave-0.1.0-dev-dev.jar",
+    "snapshot": "runtime\\clashweave-0.1.0-dev-dev.jar",
+    "sha256": "ceba61e63afcbfca70735336838fd1b70cdacd69e2e75e64d849655257ad07f6"
+  }
+]
