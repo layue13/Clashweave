@@ -1,0 +1,28 @@
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    def exp = p.sourceSets.create('s3bExperiment') {
+        java.srcDir('tools/probes2/s3b/java')
+        compileClasspath = p.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    p.tasks.register('s3bJar', Jar) {
+        dependsOn(exp.classesTaskName)
+        from(exp.output)
+        archiveFileName.set('s3b-experiment.jar')
+        destinationDirectory.set(p.layout.buildDirectory.dir('probes2/s3b'))
+    }
+    p.tasks.register('s3bLaunchFiles') {
+        dependsOn('s3bJar')
+        dependsOn { ['runClient','runServer'].collectMany { n -> p.tasks.getByName(n).taskDependencies.getDependencies(p.tasks.getByName(n)) } }
+        doLast {
+            ['runClient','runServer'].each { n ->
+                def t = p.tasks.getByName(n)
+                def out = p.file("build/probes2/s3b/${n}.json")
+                out.parentFile.mkdirs()
+                out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+                    java:t.javaLauncher.get().executablePath.asFile.absolutePath,
+                    classpath:t.classpath.asPath, main:t.mainClass.get(), jvmArgs:t.allJvmArgs,args:t.args]))
+            }
+        }
+    }
+}

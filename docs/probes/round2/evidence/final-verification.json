@@ -1,0 +1,35 @@
+{
+  "s3_import_cleanup_instruction_equal": {
+    "com.layue13.clashweave.experiment.s3b.Client$Arr": true,
+    "com.layue13.clashweave.experiment.s3b.Client": true,
+    "com.layue13.clashweave.experiment.s3b.Experiment": true,
+    "com.layue13.clashweave.experiment.s3b.Packet": true,
+    "com.layue13.clashweave.experiment.s3b.Proxy$Inbound": true,
+    "com.layue13.clashweave.experiment.s3b.Proxy": true,
+    "com.layue13.clashweave.experiment.s3b.Server$Arrival": true,
+    "com.layue13.clashweave.experiment.s3b.Server$Inbound": true,
+    "com.layue13.clashweave.experiment.s3b.Server": true,
+    "com.layue13.clashweave.experiment.s3b.WireTrace$1": true,
+    "com.layue13.clashweave.experiment.s3b.WireTrace": true
+  },
+  "s3_tested_sha256": "6bdedc558fa62b1d73874499ed14d6a246686c6cd28514850ffb16a502407a41",
+  "s3_final_sha256": "39cc99c2b67c63ce3e1c9ee72c18744417d8c2805c3bd6f2b95eeeb3d3ae6b08",
+  "production": [
+    {
+      "jar": "build\\libs\\clashweave-0.1.0-dev-dev.jar",
+      "sha256": "85fe26c6f996fc4295fe3fa9fc1c492bcffc70b77bb111de3188ae110af3dc97",
+      "experiment_entries": []
+    },
+    {
+      "jar": "build\\libs\\clashweave-0.1.0-dev-sources.jar",
+      "sha256": "c806ecb884aa7b218e298c9d5c859b1cada2588094bf6e41a372e77b4fe30b62",
+      "experiment_entries": []
+    },
+    {
+      "jar": "build\\libs\\clashweave-0.1.0-dev.jar",
+      "sha256": "e140b49462a800f063172533d8fd278f204362e60dd2950af88ac139451dcd5b",
+      "experiment_entries": []
+    }
+  ],
+  "main_diff": ""
+}

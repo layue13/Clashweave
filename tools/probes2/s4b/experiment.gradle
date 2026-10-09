@@ -1,0 +1,28 @@
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    def s = p.sourceSets.create('s4bExperiment') {
+        java.srcDir('tools/probes2/s4b/java')
+        resources.srcDir('tools/probes2/s4b/resources')
+        compileClasspath = p.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    p.tasks.register('s4bJar', Jar) {
+        dependsOn(s.classesTaskName)
+        from(s.output)
+        archiveFileName.set('s4b-experiment.jar')
+        destinationDirectory.set(p.layout.buildDirectory.dir('probes2/s4b'))
+    }
+    p.tasks.register('s4bLaunchFiles') {
+        dependsOn('s4bJar')
+        dependsOn { ['runClient','runServer'].collectMany { n -> def t=p.tasks.getByName(n); t.taskDependencies.getDependencies(t).toList() } }
+        doLast {
+            ['runClient','runServer'].each { n ->
+                def t=p.tasks.getByName(n)
+                def out=p.file("build/probes2/s4b/${n}.json")
+                out.text=groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+                    java:t.javaLauncher.get().executablePath.asFile.absolutePath,
+                    classpath:t.classpath.asPath,main:t.mainClass.get(),jvmArgs:t.allJvmArgs,args:t.args]))
+            }
+        }
+    }
+}

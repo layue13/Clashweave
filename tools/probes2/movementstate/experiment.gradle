@@ -1,0 +1,28 @@
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    def s = p.sourceSets.create('movementStateExperiment') {
+        java.srcDir('tools/probes2/movementstate/java')
+        compileClasspath = p.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    p.tasks.register('movementStateJar', Jar) {
+        dependsOn(s.classesTaskName)
+        from(s.output)
+        archiveFileName.set('movement-state-experiment.jar')
+        destinationDirectory.set(p.layout.buildDirectory.dir('probes2/movementstate'))
+    }
+    p.tasks.register('movementStateLaunch') {
+        dependsOn('movementStateJar')
+        dependsOn { ['runClient','runServer'].collectMany { n -> p.tasks.getByName(n).taskDependencies.getDependencies(p.tasks.getByName(n)).toList() } }
+        doLast {
+            ['runClient','runServer'].each { n ->
+                def t = p.tasks.getByName(n)
+                def out = p.file("build/probes2/movementstate/${n}.json")
+                out.parentFile.mkdirs()
+                out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+                    java:t.javaLauncher.get().executablePath.asFile.absolutePath,
+                    classpath:t.classpath.asPath, main:t.mainClass.get(), jvmArgs:t.allJvmArgs, args:t.args]))
+            }
+        }
+    }
+}

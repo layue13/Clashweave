@@ -1,0 +1,398 @@
+[04:28:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS LOGIN name=MoveState
+[04:28:35] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=0 tick=178 noticeTrial=-1 noticeDelta=179
+[04:28:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=0 mode=0 tick=178 speed=0.4 total=2.0
+[04:28:35] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=0 tick=183 noticeTrial=-1 noticeDelta=184
+[04:28:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=0 tick=195 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=0 tick=197 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=0 tick=198 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=0 tick=199 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=0 mode=0 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=210
+[04:28:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=0 mode=0 tick=213 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:28:37] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=1 tick=218 noticeTrial=-1 noticeDelta=219
+[04:28:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=1 mode=1 tick=218 speed=0.8 total=4.0
+[04:28:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=1 tick=234 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=1 tick=235 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=1 tick=236 dx=0.8000000000000003 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=1 tick=237 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=1 tick=238 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=1 mode=1 S08=0 x=4.5 y=65.62000000476837 z=0.5 tick=249
+[04:28:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=1 mode=1 tick=252 rejects=0 travelled=4.0 serverX=4.5 serverY=64.0 serverZ=0.5
+[04:28:39] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=2 tick=257 noticeTrial=-1 noticeDelta=258
+[04:28:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=2 mode=2 tick=257 speed=0.8 total=4.0
+[04:28:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=2 tick=273 dx=1.6 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=2 tick=274 dx=0.599999988079071 dy=0.0 dz=0.0 credit=1.6000000000000003 sweptWall=false
+[04:28:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=2 mode=2 S08=0 x=2.699999988079071 y=65.62000000476837 z=0.5 tick=287
+[04:28:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=2 mode=2 tick=290 rejects=0 travelled=2.199999988079071 serverX=2.699999988079071 serverY=64.0 serverZ=0.5
+[04:28:41] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=3 tick=295 noticeTrial=-1 noticeDelta=296
+[04:28:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=3 mode=3 tick=295 speed=0.4 total=2.0
+[04:28:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=3 tick=310 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:28:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=3 tick=311 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:28:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=3 tick=313 dx=0.2828427124746191 dy=0.0 dz=0.2828427124746191 credit=1.2000000000000002 sweptWall=false
+[04:28:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=3 tick=314 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:28:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=3 tick=315 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:28:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=3 mode=3 S08=0 x=1.9142135623730947 y=65.62000000476837 z=1.9142135623730947 tick=325
+[04:28:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=3 mode=3 tick=328 rejects=0 travelled=1.9999999999999996 serverX=1.9142135623730947 serverY=64.0 serverZ=1.9142135623730947
+[04:28:43] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=4 tick=333 noticeTrial=-1 noticeDelta=334
+[04:28:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=4 mode=4 tick=333 speed=0.4 total=2.0
+[04:28:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=4 tick=348 dx=0.3999999999999999 dy=0.41999998688697815 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=4 tick=349 dx=0.3999999999999999 dy=0.33319999363422426 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=4 tick=350 dx=0.40000000000000013 dy=0.24813599859093927 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=4 tick=351 dx=0.3999999999999997 dy=0.1647732818260721 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=4 tick=352 dx=0.40000000000000036 dy=0.08307781780646906 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=4 mode=4 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=362
+[04:28:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=4 mode=4 tick=365 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:28:45] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=5 tick=370 noticeTrial=-1 noticeDelta=371
+[04:28:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=5 mode=5 tick=370 speed=0.4 total=2.0
+[04:28:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=5 tick=386 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=5 tick=387 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=5 tick=388 dx=0.7999999999999998 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=5 tick=389 dx=0.40000000000000036 dy=0.5 dz=0.0 credit=0.8000000000000004 sweptWall=false
+[04:28:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=5 mode=5 S08=0 x=2.5 y=66.62000000476837 z=0.5 tick=399
+[04:28:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=5 mode=5 tick=402 rejects=0 travelled=2.0 serverX=2.5 serverY=65.0 serverZ=0.5
+[04:28:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=6 mode=6 tick=407 speed=0.4 total=2.0
+[04:28:46] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=6 tick=407 noticeTrial=-1 noticeDelta=408
+[04:28:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=6 tick=422 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=6 tick=423 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=0.8000000000000004 sweptWall=false
+[04:28:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=6 tick=424 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=0.8000000000000003 sweptWall=false
+[04:28:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=6 tick=426 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=6 mode=6 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=436
+[04:28:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=6 mode=6 tick=439 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:28:48] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=7 tick=444 noticeTrial=-1 noticeDelta=445
+[04:28:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=7 mode=0 tick=444 speed=0.4 total=2.0
+[04:28:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=7 tick=459 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=7 tick=460 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=7 tick=461 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=7 tick=462 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=7 tick=463 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=7 mode=0 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=473
+[04:28:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=7 mode=0 tick=476 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:28:50] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=8 tick=481 noticeTrial=-1 noticeDelta=482
+[04:28:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=8 mode=1 tick=481 speed=0.8 total=4.0
+[04:28:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=8 tick=496 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=8 tick=497 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=8 tick=498 dx=0.8000000000000003 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=8 tick=499 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=8 tick=500 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=8 mode=1 S08=0 x=4.5 y=65.62000000476837 z=0.5 tick=510
+[04:28:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=8 mode=1 tick=513 rejects=0 travelled=4.0 serverX=4.5 serverY=64.0 serverZ=0.5
+[04:28:52] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=9 tick=518 noticeTrial=-1 noticeDelta=519
+[04:28:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=9 mode=2 tick=518 speed=0.8 total=4.0
+[04:28:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=9 tick=533 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=9 tick=534 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=9 tick=535 dx=0.599999988079071 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:28:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=9 mode=2 S08=0 x=2.699999988079071 y=65.62000000476837 z=0.5 tick=547
+[04:28:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=9 mode=2 tick=550 rejects=0 travelled=2.199999988079071 serverX=2.699999988079071 serverY=64.0 serverZ=0.5
+[04:28:54] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=10 tick=555 noticeTrial=-1 noticeDelta=556
+[04:28:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=10 mode=3 tick=555 speed=0.4 total=2.0
+[04:28:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=10 tick=570 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:28:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=10 tick=571 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:28:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=10 tick=572 dx=0.2828427124746191 dy=0.0 dz=0.2828427124746191 credit=1.2000000000000002 sweptWall=false
+[04:28:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=10 tick=573 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:28:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=10 tick=574 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:28:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=10 mode=3 S08=0 x=1.9142135623730947 y=65.62000000476837 z=1.9142135623730947 tick=584
+[04:28:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=10 mode=3 tick=587 rejects=0 travelled=1.9999999999999996 serverX=1.9142135623730947 serverY=64.0 serverZ=1.9142135623730947
+[04:28:56] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=11 tick=592 noticeTrial=-1 noticeDelta=593
+[04:28:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=11 mode=4 tick=592 speed=0.4 total=2.0
+[04:28:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=11 tick=607 dx=0.3999999999999999 dy=0.41999998688697815 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=11 tick=608 dx=0.3999999999999999 dy=0.33319999363422426 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=11 tick=609 dx=0.40000000000000013 dy=0.24813599859093927 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=11 tick=610 dx=0.3999999999999997 dy=0.1647732818260721 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=11 tick=611 dx=0.40000000000000036 dy=0.08307781780646906 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=11 mode=4 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=621
+[04:28:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=11 mode=4 tick=624 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:28:58] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=12 tick=629 noticeTrial=-1 noticeDelta=630
+[04:28:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=12 mode=5 tick=629 speed=0.4 total=2.0
+[04:28:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=12 tick=644 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=12 tick=645 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=12 tick=646 dx=0.40000000000000013 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=12 tick=647 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=12 tick=648 dx=0.40000000000000036 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:28:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=12 mode=5 S08=0 x=2.5 y=66.62000000476837 z=0.5 tick=658
+[04:28:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=12 mode=5 tick=661 rejects=0 travelled=2.0 serverX=2.5 serverY=65.0 serverZ=0.5
+[04:28:59] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=13 tick=666 noticeTrial=-1 noticeDelta=667
+[04:28:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=13 mode=6 tick=666 speed=0.4 total=2.0
+[04:29:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=13 tick=681 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=13 tick=682 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=13 tick=683 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=13 tick=684 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=13 tick=685 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=13 mode=6 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=695
+[04:29:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=13 mode=6 tick=698 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:01] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=14 tick=703 noticeTrial=-1 noticeDelta=704
+[04:29:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=14 mode=0 tick=703 speed=0.4 total=2.0
+[04:29:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=14 tick=718 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=14 tick=719 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=14 tick=720 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=14 tick=721 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=14 tick=722 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=14 mode=0 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=732
+[04:29:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=14 mode=0 tick=735 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:03] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=15 tick=740 noticeTrial=-1 noticeDelta=741
+[04:29:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=15 mode=1 tick=740 speed=0.8 total=4.0
+[04:29:03] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=15 tick=741 noticeTrial=-1 noticeDelta=742
+[04:29:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=15 tick=755 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=15 tick=756 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=15 tick=757 dx=0.8000000000000003 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=15 tick=758 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=15 tick=759 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=15 mode=1 S08=0 x=4.5 y=65.62000000476837 z=0.5 tick=769
+[04:29:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=15 mode=1 tick=772 rejects=0 travelled=4.0 serverX=4.5 serverY=64.0 serverZ=0.5
+[04:29:05] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=16 tick=777 noticeTrial=-1 noticeDelta=778
+[04:29:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=16 mode=2 tick=777 speed=0.8 total=4.0
+[04:29:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=16 tick=792 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=16 tick=793 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=16 tick=794 dx=0.599999988079071 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=16 mode=2 S08=0 x=2.699999988079071 y=65.62000000476837 z=0.5 tick=806
+[04:29:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=16 mode=2 tick=809 rejects=0 travelled=2.199999988079071 serverX=2.699999988079071 serverY=64.0 serverZ=0.5
+[04:29:07] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=17 tick=814 noticeTrial=-1 noticeDelta=815
+[04:29:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=17 mode=3 tick=814 speed=0.4 total=2.0
+[04:29:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=17 tick=829 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=17 tick=830 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=17 tick=831 dx=0.2828427124746191 dy=0.0 dz=0.2828427124746191 credit=1.2000000000000002 sweptWall=false
+[04:29:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=17 tick=832 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=17 tick=833 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=17 mode=3 S08=0 x=1.9142135623730947 y=65.62000000476837 z=1.9142135623730947 tick=843
+[04:29:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=17 mode=3 tick=846 rejects=0 travelled=1.9999999999999996 serverX=1.9142135623730947 serverY=64.0 serverZ=1.9142135623730947
+[04:29:09] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=18 tick=851 noticeTrial=-1 noticeDelta=852
+[04:29:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=18 mode=4 tick=851 speed=0.4 total=2.0
+[04:29:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=18 tick=866 dx=0.3999999999999999 dy=0.41999998688697815 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=18 tick=867 dx=0.3999999999999999 dy=0.33319999363422426 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=18 tick=868 dx=0.40000000000000013 dy=0.24813599859093927 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=18 tick=869 dx=0.3999999999999997 dy=0.1647732818260721 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=18 tick=870 dx=0.40000000000000036 dy=0.08307781780646906 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=18 mode=4 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=880
+[04:29:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=18 mode=4 tick=883 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:10] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=19 tick=888 noticeTrial=-1 noticeDelta=889
+[04:29:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=19 mode=5 tick=888 speed=0.4 total=2.0
+[04:29:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=19 tick=901 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=19 tick=903 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=19 tick=904 dx=0.40000000000000013 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=19 tick=906 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=19 tick=907 dx=0.40000000000000036 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=19 mode=5 S08=0 x=2.5 y=66.62000000476837 z=0.5 tick=917
+[04:29:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=19 mode=5 tick=920 rejects=0 travelled=2.0 serverX=2.5 serverY=65.0 serverZ=0.5
+[04:29:12] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=20 tick=925 noticeTrial=-1 noticeDelta=926
+[04:29:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=20 mode=6 tick=925 speed=0.4 total=2.0
+[04:29:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=20 tick=940 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=20 tick=941 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=20 tick=942 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=20 tick=943 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=20 tick=944 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=20 mode=6 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=954
+[04:29:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=20 mode=6 tick=957 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:14] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=21 tick=962 noticeTrial=-1 noticeDelta=963
+[04:29:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=21 mode=0 tick=962 speed=0.4 total=2.0
+[04:29:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=21 tick=977 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=21 tick=978 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=21 tick=979 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=21 tick=980 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=21 tick=981 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=21 mode=0 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=991
+[04:29:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=21 mode=0 tick=994 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=22 mode=1 tick=999 speed=0.8 total=4.0
+[04:29:16] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=22 tick=999 noticeTrial=-1 noticeDelta=1000
+[04:29:16] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=22 tick=1001 noticeTrial=-1 noticeDelta=1002
+[04:29:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=22 tick=1014 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=22 tick=1015 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=22 tick=1016 dx=0.8000000000000003 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=22 tick=1017 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=22 tick=1018 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=22 mode=1 S08=0 x=4.5 y=65.62000000476837 z=0.5 tick=1028
+[04:29:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=22 mode=1 tick=1031 rejects=0 travelled=4.0 serverX=4.5 serverY=64.0 serverZ=0.5
+[04:29:18] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=23 tick=1036 noticeTrial=-1 noticeDelta=1037
+[04:29:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=23 mode=2 tick=1036 speed=0.8 total=4.0
+[04:29:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=23 tick=1051 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=23 tick=1052 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=23 tick=1053 dx=0.599999988079071 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=23 mode=2 S08=0 x=2.699999988079071 y=65.62000000476837 z=0.5 tick=1065
+[04:29:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=23 mode=2 tick=1068 rejects=0 travelled=2.199999988079071 serverX=2.699999988079071 serverY=64.0 serverZ=0.5
+[04:29:20] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=24 tick=1073 noticeTrial=-1 noticeDelta=1074
+[04:29:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=24 mode=3 tick=1073 speed=0.4 total=2.0
+[04:29:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=24 tick=1088 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=24 tick=1089 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=24 tick=1090 dx=0.2828427124746191 dy=0.0 dz=0.2828427124746191 credit=1.2000000000000002 sweptWall=false
+[04:29:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=24 tick=1091 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=24 tick=1092 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=24 mode=3 S08=0 x=1.9142135623730947 y=65.62000000476837 z=1.9142135623730947 tick=1102
+[04:29:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=24 mode=3 tick=1105 rejects=0 travelled=1.9999999999999996 serverX=1.9142135623730947 serverY=64.0 serverZ=1.9142135623730947
+[04:29:22] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=25 tick=1110 noticeTrial=-1 noticeDelta=1111
+[04:29:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=25 mode=4 tick=1110 speed=0.4 total=2.0
+[04:29:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=25 tick=1125 dx=0.3999999999999999 dy=0.41999998688697815 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=25 tick=1126 dx=0.3999999999999999 dy=0.33319999363422426 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=25 tick=1127 dx=0.40000000000000013 dy=0.24813599859093927 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=25 tick=1128 dx=0.3999999999999997 dy=0.1647732818260721 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=25 tick=1129 dx=0.40000000000000036 dy=0.08307781780646906 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=25 mode=4 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=1139
+[04:29:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=25 mode=4 tick=1142 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:23] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=26 tick=1147 noticeTrial=-1 noticeDelta=1148
+[04:29:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=26 mode=5 tick=1147 speed=0.4 total=2.0
+[04:29:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=26 tick=1162 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=26 tick=1163 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=26 tick=1164 dx=0.40000000000000013 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=26 tick=1165 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=26 tick=1166 dx=0.40000000000000036 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=26 mode=5 S08=0 x=2.5 y=66.62000000476837 z=0.5 tick=1176
+[04:29:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=26 mode=5 tick=1179 rejects=0 travelled=2.0 serverX=2.5 serverY=65.0 serverZ=0.5
+[04:29:25] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=27 tick=1184 noticeTrial=-1 noticeDelta=1185
+[04:29:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=27 mode=6 tick=1184 speed=0.4 total=2.0
+[04:29:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=27 tick=1199 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=27 tick=1200 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=27 tick=1201 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=27 tick=1202 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=27 tick=1203 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=27 mode=6 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=1213
+[04:29:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=27 mode=6 tick=1216 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:27] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=28 tick=1221 noticeTrial=-1 noticeDelta=1222
+[04:29:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=28 mode=0 tick=1221 speed=0.4 total=2.0
+[04:29:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=28 tick=1236 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=28 tick=1237 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=28 tick=1238 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=28 tick=1239 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=28 tick=1240 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=28 mode=0 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=1250
+[04:29:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=28 mode=0 tick=1253 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:29] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=29 tick=1258 noticeTrial=-1 noticeDelta=1259
+[04:29:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=29 mode=1 tick=1258 speed=0.8 total=4.0
+[04:29:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=29 tick=1273 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=29 tick=1274 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=29 tick=1275 dx=0.8000000000000003 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=29 tick=1276 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=29 tick=1277 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=29 mode=1 S08=0 x=4.5 y=65.62000000476837 z=0.5 tick=1287
+[04:29:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=29 mode=1 tick=1290 rejects=0 travelled=4.0 serverX=4.5 serverY=64.0 serverZ=0.5
+[04:29:31] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=30 tick=1295 noticeTrial=-1 noticeDelta=1296
+[04:29:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=30 mode=2 tick=1295 speed=0.8 total=4.0
+[04:29:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=30 tick=1310 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=30 tick=1311 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=30 tick=1312 dx=0.599999988079071 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=30 mode=2 S08=0 x=2.699999988079071 y=65.62000000476837 z=0.5 tick=1324
+[04:29:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=30 mode=2 tick=1327 rejects=0 travelled=2.199999988079071 serverX=2.699999988079071 serverY=64.0 serverZ=0.5
+[04:29:33] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=31 tick=1332 noticeTrial=-1 noticeDelta=1333
+[04:29:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=31 mode=3 tick=1332 speed=0.4 total=2.0
+[04:29:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=31 tick=1347 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=31 tick=1348 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=31 tick=1349 dx=0.2828427124746191 dy=0.0 dz=0.2828427124746191 credit=1.2000000000000002 sweptWall=false
+[04:29:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=31 tick=1350 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=31 tick=1351 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=31 mode=3 S08=0 x=1.9142135623730947 y=65.62000000476837 z=1.9142135623730947 tick=1361
+[04:29:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=31 mode=3 tick=1364 rejects=0 travelled=1.9999999999999996 serverX=1.9142135623730947 serverY=64.0 serverZ=1.9142135623730947
+[04:29:35] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=32 tick=1369 noticeTrial=-1 noticeDelta=1370
+[04:29:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=32 mode=4 tick=1369 speed=0.4 total=2.0
+[04:29:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=32 tick=1384 dx=0.3999999999999999 dy=0.41999998688697815 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=32 tick=1385 dx=0.3999999999999999 dy=0.33319999363422426 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=32 tick=1386 dx=0.40000000000000013 dy=0.24813599859093927 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=32 tick=1387 dx=0.3999999999999997 dy=0.1647732818260721 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=32 tick=1388 dx=0.40000000000000036 dy=0.08307781780646906 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=32 mode=4 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=1398
+[04:29:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=32 mode=4 tick=1401 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:36] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=33 tick=1406 noticeTrial=-1 noticeDelta=1407
+[04:29:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=33 mode=5 tick=1406 speed=0.4 total=2.0
+[04:29:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=33 tick=1421 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=33 tick=1422 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=33 tick=1423 dx=0.40000000000000013 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=33 tick=1424 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=33 tick=1425 dx=0.40000000000000036 dy=0.5 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=33 mode=5 S08=0 x=2.5 y=66.62000000476837 z=0.5 tick=1435
+[04:29:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=33 mode=5 tick=1438 rejects=0 travelled=2.0 serverX=2.5 serverY=65.0 serverZ=0.5
+[04:29:38] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=34 tick=1443 noticeTrial=-1 noticeDelta=1444
+[04:29:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=34 mode=6 tick=1443 speed=0.4 total=2.0
+[04:29:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=34 tick=1458 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=34 tick=1459 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=34 tick=1460 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=34 tick=1461 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=34 tick=1462 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=34 mode=6 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=1472
+[04:29:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=34 mode=6 tick=1475 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=35 mode=0 tick=1480 speed=0.4 total=2.0
+[04:29:40] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=35 tick=1480 noticeTrial=-1 noticeDelta=1481
+[04:29:40] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=35 tick=1481 noticeTrial=-1 noticeDelta=1482
+[04:29:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=35 tick=1495 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=35 tick=1496 dx=0.3999999999999999 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=35 tick=1497 dx=0.40000000000000013 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=35 tick=1498 dx=0.3999999999999997 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=35 tick=1499 dx=0.40000000000000036 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=35 mode=0 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=1509
+[04:29:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=35 mode=0 tick=1512 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:42] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=36 tick=1517 noticeTrial=-1 noticeDelta=1518
+[04:29:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=36 mode=1 tick=1517 speed=0.8 total=4.0
+[04:29:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=36 tick=1532 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=36 tick=1533 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=36 tick=1534 dx=0.8000000000000003 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=36 tick=1535 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=36 tick=1536 dx=0.7999999999999998 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=36 mode=1 S08=0 x=4.5 y=65.62000000476837 z=0.5 tick=1546
+[04:29:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=36 mode=1 tick=1549 rejects=0 travelled=4.0 serverX=4.5 serverY=64.0 serverZ=0.5
+[04:29:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=37 mode=2 tick=1554 speed=0.8 total=4.0
+[04:29:44] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=37 tick=1554 noticeTrial=-1 noticeDelta=1555
+[04:29:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=37 tick=1569 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=37 tick=1570 dx=0.8 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=37 tick=1571 dx=0.599999988079071 dy=0.0 dz=0.0 credit=2.4000000000000004 sweptWall=false
+[04:29:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=37 mode=2 S08=0 x=2.699999988079071 y=65.62000000476837 z=0.5 tick=1583
+[04:29:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=37 mode=2 tick=1586 rejects=0 travelled=2.199999988079071 serverX=2.699999988079071 serverY=64.0 serverZ=0.5
+[04:29:46] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=38 tick=1591 noticeTrial=-1 noticeDelta=1592
+[04:29:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=38 mode=3 tick=1591 speed=0.4 total=2.0
+[04:29:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=38 tick=1606 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=38 tick=1607 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=38 tick=1608 dx=0.2828427124746191 dy=0.0 dz=0.2828427124746191 credit=1.2000000000000002 sweptWall=false
+[04:29:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=38 tick=1609 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=38 tick=1610 dx=0.2828427124746189 dy=0.0 dz=0.2828427124746189 credit=1.2000000000000002 sweptWall=false
+[04:29:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=38 mode=3 S08=0 x=1.9142135623730947 y=65.62000000476837 z=1.9142135623730947 tick=1620
+[04:29:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=38 mode=3 tick=1623 rejects=0 travelled=1.9999999999999996 serverX=1.9142135623730947 serverY=64.0 serverZ=1.9142135623730947
+[04:29:47] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=39 tick=1628 noticeTrial=-1 noticeDelta=1629
+[04:29:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=39 mode=4 tick=1628 speed=0.4 total=2.0
+[04:29:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=39 tick=1643 dx=0.3999999999999999 dy=0.41999998688697815 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=39 tick=1644 dx=0.3999999999999999 dy=0.33319999363422426 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=39 tick=1645 dx=0.40000000000000013 dy=0.24813599859093927 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=39 tick=1646 dx=0.3999999999999997 dy=0.1647732818260721 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=39 tick=1647 dx=0.40000000000000036 dy=0.08307781780646906 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=39 mode=4 S08=0 x=2.5 y=65.62000000476837 z=0.5 tick=1657
+[04:29:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=39 mode=4 tick=1660 rejects=0 travelled=2.0 serverX=2.5 serverY=64.0 serverZ=0.5
+[04:29:49] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=40 tick=1665 noticeTrial=-1 noticeDelta=1666
+[04:29:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=40 mode=7 tick=1665 speed=0.4 total=2.0
+[04:29:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_NOTICE_HANDLER trial=40 tick=1680
+[04:29:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_MALICIOUS_NOTICE trial=40 tick=1680 targetX=5.5
+[04:29:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_OBSERVED trial=40 tick=1680 dx=5.0 dy=0.0 dz=0.0 credit=1.2000000000000002 sweptWall=false
+[04:29:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CORRECT trial=40 tick=1680 reason=envelope noticeDelta=0 illegalX=5.5 rollbackX=0.5
+[04:29:50] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=40 tick=1680 noticeTrial=40 noticeDelta=0
+[04:29:50] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=40 tick=1681 noticeTrial=40 noticeDelta=1
+[04:29:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=40 mode=7 S08=2 x=0.5 y=65.62000000476837 z=0.5 tick=1694
+[04:29:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=40 mode=7 tick=1697 rejects=1 travelled=0.0 serverX=0.5 serverY=64.0 serverZ=0.5
+[04:29:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_BEGIN trial=41 mode=8 tick=1702 speed=0.4 total=2.0
+[04:29:51] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=41 tick=1702 noticeTrial=40 noticeDelta=22
+[04:29:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_NOTICE_HANDLER trial=41 tick=1717
+[04:29:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_MALICIOUS_NOTICE trial=41 tick=1717 targetX=5.5
+[04:29:52] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=41 tick=1717 noticeTrial=41 noticeDelta=0
+[04:29:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_CLIENT trial=41 mode=8 S08=1 x=0.5 y=65.62000000476837 z=0.5 tick=1731
+[04:29:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_END trial=41 mode=8 tick=1734 rejects=0 travelled=0.0 serverX=0.5 serverY=64.0 serverZ=0.5
+[04:29:53] [Netty IO #1/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S2B_S08_SENT trial=42 tick=1739 noticeTrial=41 noticeDelta=22
+[04:29:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_START hysteresis=60 radius=8.0
+[04:29:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=0 tick=1739 monsterDistance=4.0 target=true
+[04:29:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=1 tick=1739 engaged=true nano=94974319797300
+[04:29:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=1 expected=true got=true elapsedMs=88.7511 serverTick=1742 clientLocalTick=1632 stale=false
+[04:29:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=0 expected=true server=true
+[04:29:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=0 engaged=true sneak=false forward=1.0 nativeChestOpened=false
+[04:29:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=1 tick=1829 monsterDistance=9.091762 target=false
+[04:30:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=2 tick=1889 engaged=false nano=94981811516200
+[04:30:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=2 expected=false got=false elapsedMs=81.4261 serverTick=1892 clientLocalTick=1782 stale=false
+[04:30:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=1 expected=false server=false
+[04:30:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=1 engaged=false sneak=true forward=0.30000001192092896 nativeChestOpened=true
+[04:30:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=2 tick=1919 monsterDistance=9.153676 target=true
+[04:30:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=2 expected=false server=false
+[04:30:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=2 engaged=false sneak=true forward=0.30000001192092896 nativeChestOpened=true
+[04:30:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=3 tick=2009 monsterDistance=9.230981 target=false
+[04:30:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=3 tick=2009 engaged=true nano=94987810705400
+[04:30:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=3 expected=true got=true elapsedMs=81.7837 serverTick=2012 clientLocalTick=1902 stale=false
+[04:30:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=4 tick=2079 engaged=false nano=94991312443500
+[04:30:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=4 expected=false got=false elapsedMs=80.9921 serverTick=2082 clientLocalTick=1972 stale=false
+[04:30:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=3 expected=false server=false
+[04:30:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=3 engaged=false sneak=true forward=0.30000001192092896 nativeChestOpened=true
+[04:30:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=4 tick=2099 monsterDistance=9.323293 target=false
+[04:30:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CHANGE revision=5 tick=2102 engaged=true nano=94992460138500
+[04:30:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_APPLIED revision=5 expected=true got=true elapsedMs=82.9268 serverTick=2105 clientLocalTick=1995 stale=false
+[04:30:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=4 expected=true server=true
+[04:30:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=4 engaged=true sneak=false forward=1.0 nativeChestOpened=false
+[04:30:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=5 tick=2189 monsterDistance=9.739396 target=false
+[04:30:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_ORACLE case=5 expected=true server=true
+[04:30:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CLIENT_CHECK case=5 engaged=true sneak=false forward=1.0 nativeChestOpened=false
+[04:30:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_CASE id=6 tick=2279 monsterDistance=10.3008795 target=false
+[04:30:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.experiments.ms.Server:log:39]: CWMS S5B_SUMMARY wrong=0 slow=0 openTicks=0 sneakTicks=0

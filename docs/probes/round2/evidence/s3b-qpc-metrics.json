@@ -1,0 +1,1427 @@
+[
+  {
+    "rtt_ms": 0,
+    "one_way_ms": 0.0,
+    "input_age_range": [
+      0,
+      1
+    ],
+    "actual_lead_histogram": {
+      "-1": {
+        "count": 19,
+        "eligible": 0,
+        "eligiblePass": 0
+      },
+      "0": {
+        "count": 17,
+        "eligible": 17,
+        "eligiblePass": 17
+      },
+      "1": {
+        "count": 19,
+        "eligible": 19,
+        "eligiblePass": 19
+      },
+      "2": {
+        "count": 22,
+        "eligible": 22,
+        "eligiblePass": 22
+      },
+      "3": {
+        "count": 20,
+        "eligible": 20,
+        "eligiblePass": 20
+      },
+      "4": {
+        "count": 3,
+        "eligible": 3,
+        "eligiblePass": 3
+      }
+    },
+    "actual_lead_by_defer": {
+      "2": {
+        "-1": 10,
+        "0": 8,
+        "1": 10,
+        "2": 12,
+        "3": 9,
+        "4": 1
+      },
+      "3": {
+        "-1": 9,
+        "0": 9,
+        "1": 9,
+        "2": 10,
+        "3": 11,
+        "4": 2
+      }
+    },
+    "guard_wire_timing_stats_ms": {
+      "c2sMs": {
+        "min": 0,
+        "median": 0.0,
+        "max": 1
+      },
+      "s2cNetworkMs": {
+        "min": 0,
+        "median": 0.0,
+        "max": 1
+      },
+      "serverNativeQueueMs": {
+        "min": 1,
+        "median": 13.0,
+        "max": 63
+      },
+      "clientNativeQueueMs": {
+        "min": 1,
+        "median": 46.0,
+        "max": 103
+      }
+    },
+    "groups": [
+      {
+        "defer": 2,
+        "lead": 0,
+        "count": 10,
+        "parries": 0,
+        "eligible": 0,
+        "eligiblePass": 0,
+        "windowMiss": 10,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 1,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 2,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 3,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 4,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 0,
+        "count": 10,
+        "parries": 1,
+        "eligible": 1,
+        "eligiblePass": 1,
+        "windowMiss": 9,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 1,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 2,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 3,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 4,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      }
+    ],
+    "minimum_lead_for_all_repetitions": {
+      "2": 1,
+      "3": 1
+    },
+    "window_and_network_on_time": 81,
+    "window_and_network_on_time_pass": 81,
+    "strict_before_deadline": 81,
+    "strict_before_deadline_pass": 81,
+    "conditional_all": true,
+    "eligible_min_deadline_margin_ms": 99,
+    "deadline_same_ms_count": 0,
+    "legacy_consume_age_counts": {
+      "1": 1,
+      "2": 17,
+      "3": 2
+    },
+    "legacy_timing_stats_ms": {
+      "s2cNetworkMs": {
+        "min": 0,
+        "median": 0.0,
+        "max": 1
+      },
+      "clientNativeQueueMs": {
+        "min": 8,
+        "median": 36.0,
+        "max": 49
+      },
+      "clientExperimentQueueMs": {
+        "min": 49,
+        "median": 50.0,
+        "max": 51
+      },
+      "sendAfterDeclaredMs": {
+        "min": 59,
+        "median": 86.5,
+        "max": 116
+      },
+      "c2sMs": {
+        "min": 0,
+        "median": 0.0,
+        "max": 1
+      },
+      "serverNativeQueueMs": {
+        "min": 2,
+        "median": 12.5,
+        "max": 56
+      },
+      "serverExperimentQueueMs": {
+        "min": 0,
+        "median": 0.0,
+        "max": 16
+      }
+    },
+    "legacy_trace": [
+      {
+        "id": 0,
+        "legacy": true,
+        "anchorTick": 373,
+        "stamp": 383,
+        "intendedStamp": 383,
+        "actualLead": 2,
+        "hit": 385,
+        "commit": 385,
+        "anchorWall": 1791545041143,
+        "clientNetReceiveWall": 1791545041144,
+        "clientHandlerWall": 1791545041182,
+        "clientConsumeWall": 1791545041232,
+        "sendWall": 1791545041749,
+        "serverNetReceiveWall": 1791545041749,
+        "serverHandlerWall": 1791545041805,
+        "serverConsumeWall": 1791545041805,
+        "s2cNetworkMs": 1,
+        "clientNativeQueueMs": 38,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545041643,
+        "sendAfterDeclaredMs": 106,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 56,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 3,
+        "wireDeadlineMarginMs": -2,
+        "eligible": false,
+        "passed": false
+      },
+      {
+        "id": 1,
+        "legacy": true,
+        "anchorTick": 390,
+        "stamp": 400,
+        "intendedStamp": 400,
+        "actualLead": 2,
+        "hit": 402,
+        "commit": 402,
+        "anchorWall": 1791545041990,
+        "clientNetReceiveWall": 1791545041991,
+        "clientHandlerWall": 1791545041999,
+        "clientConsumeWall": 1791545042049,
+        "sendWall": 1791545042549,
+        "serverNetReceiveWall": 1791545042549,
+        "serverHandlerWall": 1791545042551,
+        "serverConsumeWall": 1791545042551,
+        "s2cNetworkMs": 1,
+        "clientNativeQueueMs": 8,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545042490,
+        "sendAfterDeclaredMs": 59,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 2,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 1,
+        "wireDeadlineMarginMs": 51,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 2,
+        "legacy": true,
+        "anchorTick": 407,
+        "stamp": 417,
+        "intendedStamp": 417,
+        "actualLead": 2,
+        "hit": 419,
+        "commit": 419,
+        "anchorWall": 1791545042850,
+        "clientNetReceiveWall": 1791545042850,
+        "clientHandlerWall": 1791545042899,
+        "clientConsumeWall": 1791545042949,
+        "sendWall": 1791545043466,
+        "serverNetReceiveWall": 1791545043466,
+        "serverHandlerWall": 1791545043495,
+        "serverConsumeWall": 1791545043497,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 49,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545043350,
+        "sendAfterDeclaredMs": 116,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 29,
+        "serverExperimentQueueMs": 2,
+        "consumeAge": 3,
+        "wireDeadlineMarginMs": -17,
+        "eligible": false,
+        "passed": false
+      },
+      {
+        "id": 3,
+        "legacy": true,
+        "anchorTick": 424,
+        "stamp": 434,
+        "intendedStamp": 434,
+        "actualLead": 2,
+        "hit": 436,
+        "commit": 436,
+        "anchorWall": 1791545043700,
+        "clientNetReceiveWall": 1791545043700,
+        "clientHandlerWall": 1791545043716,
+        "clientConsumeWall": 1791545043765,
+        "sendWall": 1791545044266,
+        "serverNetReceiveWall": 1791545044266,
+        "serverHandlerWall": 1791545044299,
+        "serverConsumeWall": 1791545044299,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 16,
+        "clientExperimentQueueMs": 49,
+        "declaredPressWall": 1791545044200,
+        "sendAfterDeclaredMs": 66,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 33,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 33,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 4,
+        "legacy": true,
+        "anchorTick": 441,
+        "stamp": 451,
+        "intendedStamp": 451,
+        "actualLead": 2,
+        "hit": 453,
+        "commit": 453,
+        "anchorWall": 1791545044550,
+        "clientNetReceiveWall": 1791545044551,
+        "clientHandlerWall": 1791545044566,
+        "clientConsumeWall": 1791545044616,
+        "sendWall": 1791545045117,
+        "serverNetReceiveWall": 1791545045117,
+        "serverHandlerWall": 1791545045147,
+        "serverConsumeWall": 1791545045147,
+        "s2cNetworkMs": 1,
+        "clientNativeQueueMs": 15,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545045050,
+        "sendAfterDeclaredMs": 67,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 30,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 30,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 5,
+        "legacy": true,
+        "anchorTick": 458,
+        "stamp": 468,
+        "intendedStamp": 468,
+        "actualLead": 2,
+        "hit": 470,
+        "commit": 470,
+        "anchorWall": 1791545045399,
+        "clientNetReceiveWall": 1791545045399,
+        "clientHandlerWall": 1791545045416,
+        "clientConsumeWall": 1791545045465,
+        "sendWall": 1791545045966,
+        "serverNetReceiveWall": 1791545045966,
+        "serverHandlerWall": 1791545045998,
+        "serverConsumeWall": 1791545045998,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 17,
+        "clientExperimentQueueMs": 49,
+        "declaredPressWall": 1791545045899,
+        "sendAfterDeclaredMs": 67,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 32,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 32,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 6,
+        "legacy": true,
+        "anchorTick": 475,
+        "stamp": 485,
+        "intendedStamp": 485,
+        "actualLead": 2,
+        "hit": 487,
+        "commit": 487,
+        "anchorWall": 1791545046248,
+        "clientNetReceiveWall": 1791545046248,
+        "clientHandlerWall": 1791545046266,
+        "clientConsumeWall": 1791545046315,
+        "sendWall": 1791545046816,
+        "serverNetReceiveWall": 1791545046816,
+        "serverHandlerWall": 1791545046845,
+        "serverConsumeWall": 1791545046845,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 18,
+        "clientExperimentQueueMs": 49,
+        "declaredPressWall": 1791545046748,
+        "sendAfterDeclaredMs": 68,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 29,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 30,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 7,
+        "legacy": true,
+        "anchorTick": 492,
+        "stamp": 502,
+        "intendedStamp": 502,
+        "actualLead": 2,
+        "hit": 504,
+        "commit": 504,
+        "anchorWall": 1791545047099,
+        "clientNetReceiveWall": 1791545047099,
+        "clientHandlerWall": 1791545047133,
+        "clientConsumeWall": 1791545047183,
+        "sendWall": 1791545047683,
+        "serverNetReceiveWall": 1791545047683,
+        "serverHandlerWall": 1791545047694,
+        "serverConsumeWall": 1791545047694,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 34,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545047599,
+        "sendAfterDeclaredMs": 84,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 11,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 11,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 8,
+        "legacy": true,
+        "anchorTick": 509,
+        "stamp": 519,
+        "intendedStamp": 519,
+        "actualLead": 2,
+        "hit": 521,
+        "commit": 521,
+        "anchorWall": 1791545047945,
+        "clientNetReceiveWall": 1791545047945,
+        "clientHandlerWall": 1791545047982,
+        "clientConsumeWall": 1791545048033,
+        "sendWall": 1791545048533,
+        "serverNetReceiveWall": 1791545048533,
+        "serverHandlerWall": 1791545048552,
+        "serverConsumeWall": 1791545048552,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 37,
+        "clientExperimentQueueMs": 51,
+        "declaredPressWall": 1791545048445,
+        "sendAfterDeclaredMs": 88,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 19,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 19,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 9,
+        "legacy": true,
+        "anchorTick": 526,
+        "stamp": 536,
+        "intendedStamp": 536,
+        "actualLead": 2,
+        "hit": 538,
+        "commit": 538,
+        "anchorWall": 1791545048801,
+        "clientNetReceiveWall": 1791545048801,
+        "clientHandlerWall": 1791545048833,
+        "clientConsumeWall": 1791545048883,
+        "sendWall": 1791545049383,
+        "serverNetReceiveWall": 1791545049383,
+        "serverHandlerWall": 1791545049396,
+        "serverConsumeWall": 1791545049396,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 32,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545049301,
+        "sendAfterDeclaredMs": 82,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 13,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 13,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 10,
+        "legacy": true,
+        "anchorTick": 543,
+        "stamp": 553,
+        "intendedStamp": 553,
+        "actualLead": 2,
+        "hit": 555,
+        "commit": 555,
+        "anchorWall": 1791545049648,
+        "clientNetReceiveWall": 1791545049648,
+        "clientHandlerWall": 1791545049683,
+        "clientConsumeWall": 1791545049732,
+        "sendWall": 1791545050233,
+        "serverNetReceiveWall": 1791545050233,
+        "serverHandlerWall": 1791545050243,
+        "serverConsumeWall": 1791545050243,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 35,
+        "clientExperimentQueueMs": 49,
+        "declaredPressWall": 1791545050148,
+        "sendAfterDeclaredMs": 85,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 10,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 10,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 11,
+        "legacy": true,
+        "anchorTick": 560,
+        "stamp": 570,
+        "intendedStamp": 570,
+        "actualLead": 2,
+        "hit": 572,
+        "commit": 572,
+        "anchorWall": 1791545050495,
+        "clientNetReceiveWall": 1791545050495,
+        "clientHandlerWall": 1791545050533,
+        "clientConsumeWall": 1791545050583,
+        "sendWall": 1791545051083,
+        "serverNetReceiveWall": 1791545051083,
+        "serverHandlerWall": 1791545051095,
+        "serverConsumeWall": 1791545051095,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 38,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545050995,
+        "sendAfterDeclaredMs": 88,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 12,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 12,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 12,
+        "legacy": true,
+        "anchorTick": 577,
+        "stamp": 587,
+        "intendedStamp": 587,
+        "actualLead": 2,
+        "hit": 589,
+        "commit": 589,
+        "anchorWall": 1791545051347,
+        "clientNetReceiveWall": 1791545051348,
+        "clientHandlerWall": 1791545051383,
+        "clientConsumeWall": 1791545051433,
+        "sendWall": 1791545051933,
+        "serverNetReceiveWall": 1791545051933,
+        "serverHandlerWall": 1791545051945,
+        "serverConsumeWall": 1791545051945,
+        "s2cNetworkMs": 1,
+        "clientNativeQueueMs": 35,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545051847,
+        "sendAfterDeclaredMs": 86,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 12,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 13,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 13,
+        "legacy": true,
+        "anchorTick": 594,
+        "stamp": 604,
+        "intendedStamp": 604,
+        "actualLead": 2,
+        "hit": 606,
+        "commit": 606,
+        "anchorWall": 1791545052196,
+        "clientNetReceiveWall": 1791545052196,
+        "clientHandlerWall": 1791545052233,
+        "clientConsumeWall": 1791545052283,
+        "sendWall": 1791545052782,
+        "serverNetReceiveWall": 1791545052782,
+        "serverHandlerWall": 1791545052795,
+        "serverConsumeWall": 1791545052811,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 37,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545052696,
+        "sendAfterDeclaredMs": 86,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 13,
+        "serverExperimentQueueMs": 16,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 29,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 14,
+        "legacy": true,
+        "anchorTick": 611,
+        "stamp": 621,
+        "intendedStamp": 621,
+        "actualLead": 2,
+        "hit": 623,
+        "commit": 623,
+        "anchorWall": 1791545053046,
+        "clientNetReceiveWall": 1791545053046,
+        "clientHandlerWall": 1791545053082,
+        "clientConsumeWall": 1791545053133,
+        "sendWall": 1791545053633,
+        "serverNetReceiveWall": 1791545053634,
+        "serverHandlerWall": 1791545053641,
+        "serverConsumeWall": 1791545053641,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 36,
+        "clientExperimentQueueMs": 51,
+        "declaredPressWall": 1791545053546,
+        "sendAfterDeclaredMs": 87,
+        "c2sMs": 1,
+        "serverNativeQueueMs": 7,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 8,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 15,
+        "legacy": true,
+        "anchorTick": 628,
+        "stamp": 638,
+        "intendedStamp": 638,
+        "actualLead": 2,
+        "hit": 640,
+        "commit": 640,
+        "anchorWall": 1791545053894,
+        "clientNetReceiveWall": 1791545053894,
+        "clientHandlerWall": 1791545053933,
+        "clientConsumeWall": 1791545053983,
+        "sendWall": 1791545054483,
+        "serverNetReceiveWall": 1791545054483,
+        "serverHandlerWall": 1791545054493,
+        "serverConsumeWall": 1791545054493,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 39,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545054394,
+        "sendAfterDeclaredMs": 89,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 10,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 11,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 16,
+        "legacy": true,
+        "anchorTick": 645,
+        "stamp": 655,
+        "intendedStamp": 655,
+        "actualLead": 2,
+        "hit": 657,
+        "commit": 657,
+        "anchorWall": 1791545054744,
+        "clientNetReceiveWall": 1791545054744,
+        "clientHandlerWall": 1791545054783,
+        "clientConsumeWall": 1791545054833,
+        "sendWall": 1791545055333,
+        "serverNetReceiveWall": 1791545055333,
+        "serverHandlerWall": 1791545055344,
+        "serverConsumeWall": 1791545055344,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 39,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545055244,
+        "sendAfterDeclaredMs": 89,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 11,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 11,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 17,
+        "legacy": true,
+        "anchorTick": 662,
+        "stamp": 672,
+        "intendedStamp": 672,
+        "actualLead": 2,
+        "hit": 674,
+        "commit": 674,
+        "anchorWall": 1791545055596,
+        "clientNetReceiveWall": 1791545055596,
+        "clientHandlerWall": 1791545055632,
+        "clientConsumeWall": 1791545055683,
+        "sendWall": 1791545056183,
+        "serverNetReceiveWall": 1791545056183,
+        "serverHandlerWall": 1791545056190,
+        "serverConsumeWall": 1791545056190,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 36,
+        "clientExperimentQueueMs": 51,
+        "declaredPressWall": 1791545056096,
+        "sendAfterDeclaredMs": 87,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 7,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 7,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 18,
+        "legacy": true,
+        "anchorTick": 679,
+        "stamp": 689,
+        "intendedStamp": 689,
+        "actualLead": 2,
+        "hit": 691,
+        "commit": 691,
+        "anchorWall": 1791545056443,
+        "clientNetReceiveWall": 1791545056443,
+        "clientHandlerWall": 1791545056483,
+        "clientConsumeWall": 1791545056532,
+        "sendWall": 1791545057032,
+        "serverNetReceiveWall": 1791545057032,
+        "serverHandlerWall": 1791545057040,
+        "serverConsumeWall": 1791545057040,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 40,
+        "clientExperimentQueueMs": 49,
+        "declaredPressWall": 1791545056943,
+        "sendAfterDeclaredMs": 89,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 8,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 8,
+        "eligible": true,
+        "passed": true
+      },
+      {
+        "id": 19,
+        "legacy": true,
+        "anchorTick": 696,
+        "stamp": 706,
+        "intendedStamp": 706,
+        "actualLead": 2,
+        "hit": 708,
+        "commit": 708,
+        "anchorWall": 1791545057290,
+        "clientNetReceiveWall": 1791545057290,
+        "clientHandlerWall": 1791545057333,
+        "clientConsumeWall": 1791545057383,
+        "sendWall": 1791545057883,
+        "serverNetReceiveWall": 1791545057883,
+        "serverHandlerWall": 1791545057900,
+        "serverConsumeWall": 1791545057900,
+        "s2cNetworkMs": 0,
+        "clientNativeQueueMs": 43,
+        "clientExperimentQueueMs": 50,
+        "declaredPressWall": 1791545057790,
+        "sendAfterDeclaredMs": 93,
+        "c2sMs": 0,
+        "serverNativeQueueMs": 17,
+        "serverExperimentQueueMs": 0,
+        "consumeAge": 2,
+        "wireDeadlineMarginMs": 17,
+        "eligible": true,
+        "passed": true
+      }
+    ]
+  },
+  {
+    "rtt_ms": 100,
+    "one_way_ms": 50.0,
+    "input_age_range": [
+      1,
+      2
+    ],
+    "actual_lead_histogram": {
+      "-1": {
+        "count": 13,
+        "eligible": 0,
+        "eligiblePass": 0
+      },
+      "0": {
+        "count": 27,
+        "eligible": 27,
+        "eligiblePass": 27
+      },
+      "1": {
+        "count": 17,
+        "eligible": 17,
+        "eligiblePass": 17
+      },
+      "2": {
+        "count": 17,
+        "eligible": 17,
+        "eligiblePass": 17
+      },
+      "3": {
+        "count": 25,
+        "eligible": 25,
+        "eligiblePass": 25
+      },
+      "4": {
+        "count": 1,
+        "eligible": 1,
+        "eligiblePass": 1
+      }
+    },
+    "actual_lead_by_defer": {
+      "2": {
+        "-1": 5,
+        "0": 15,
+        "1": 10,
+        "2": 8,
+        "3": 11,
+        "4": 1
+      },
+      "3": {
+        "-1": 8,
+        "0": 12,
+        "1": 7,
+        "2": 9,
+        "3": 14,
+        "4": 0
+      }
+    },
+    "guard_wire_timing_stats_ms": {
+      "c2sMs": {
+        "min": 50,
+        "median": 51.0,
+        "max": 51
+      },
+      "s2cNetworkMs": {
+        "min": 50,
+        "median": 51.0,
+        "max": 53
+      },
+      "serverNativeQueueMs": {
+        "min": 3,
+        "median": 20.0,
+        "max": 55
+      },
+      "clientNativeQueueMs": {
+        "min": 4,
+        "median": 29.0,
+        "max": 44
+      }
+    },
+    "groups": [
+      {
+        "defer": 2,
+        "lead": 0,
+        "count": 10,
+        "parries": 5,
+        "eligible": 5,
+        "eligiblePass": 5,
+        "windowMiss": 5,
+        "late": 1
+      },
+      {
+        "defer": 2,
+        "lead": 1,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 2,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 3,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 4,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 0,
+        "count": 10,
+        "parries": 2,
+        "eligible": 2,
+        "eligiblePass": 2,
+        "windowMiss": 8,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 1,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 2,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 3,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 4,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      }
+    ],
+    "minimum_lead_for_all_repetitions": {
+      "2": 1,
+      "3": 1
+    },
+    "window_and_network_on_time": 87,
+    "window_and_network_on_time_pass": 87,
+    "strict_before_deadline": 87,
+    "strict_before_deadline_pass": 87,
+    "conditional_all": true,
+    "eligible_min_deadline_margin_ms": 27,
+    "deadline_same_ms_count": 0,
+    "legacy_consume_age_counts": {},
+    "legacy_timing_stats_ms": {},
+    "legacy_trace": []
+  },
+  {
+    "rtt_ms": 200,
+    "one_way_ms": 100.0,
+    "input_age_range": [
+      2,
+      3
+    ],
+    "actual_lead_histogram": {
+      "-1": {
+        "count": 11,
+        "eligible": 0,
+        "eligiblePass": 0
+      },
+      "0": {
+        "count": 18,
+        "eligible": 14,
+        "eligiblePass": 13
+      },
+      "1": {
+        "count": 12,
+        "eligible": 12,
+        "eligiblePass": 12
+      },
+      "2": {
+        "count": 20,
+        "eligible": 20,
+        "eligiblePass": 20
+      },
+      "3": {
+        "count": 25,
+        "eligible": 25,
+        "eligiblePass": 25
+      },
+      "4": {
+        "count": 14,
+        "eligible": 14,
+        "eligiblePass": 14
+      }
+    },
+    "actual_lead_by_defer": {
+      "2": {
+        "-1": 8,
+        "0": 7,
+        "1": 5,
+        "2": 10,
+        "3": 11,
+        "4": 9
+      },
+      "3": {
+        "-1": 3,
+        "0": 11,
+        "1": 7,
+        "2": 10,
+        "3": 14,
+        "4": 5
+      }
+    },
+    "guard_wire_timing_stats_ms": {
+      "c2sMs": {
+        "min": 100,
+        "median": 101.0,
+        "max": 101
+      },
+      "s2cNetworkMs": {
+        "min": 100,
+        "median": 101.0,
+        "max": 103
+      },
+      "serverNativeQueueMs": {
+        "min": 2,
+        "median": 36.0,
+        "max": 61
+      },
+      "clientNativeQueueMs": {
+        "min": 1,
+        "median": 15.5,
+        "max": 61
+      }
+    },
+    "groups": [
+      {
+        "defer": 2,
+        "lead": 0,
+        "count": 10,
+        "parries": 1,
+        "eligible": 1,
+        "eligiblePass": 1,
+        "windowMiss": 8,
+        "late": 9
+      },
+      {
+        "defer": 2,
+        "lead": 1,
+        "count": 10,
+        "parries": 6,
+        "eligible": 7,
+        "eligiblePass": 6,
+        "windowMiss": 0,
+        "late": 3
+      },
+      {
+        "defer": 2,
+        "lead": 2,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 3,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 4,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 0,
+        "count": 10,
+        "parries": 7,
+        "eligible": 7,
+        "eligiblePass": 7,
+        "windowMiss": 3,
+        "late": 1
+      },
+      {
+        "defer": 3,
+        "lead": 1,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 2,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 3,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 4,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      }
+    ],
+    "minimum_lead_for_all_repetitions": {
+      "2": 2,
+      "3": 1
+    },
+    "window_and_network_on_time": 85,
+    "window_and_network_on_time_pass": 84,
+    "strict_before_deadline": 84,
+    "strict_before_deadline_pass": 84,
+    "conditional_all": false,
+    "eligible_min_deadline_margin_ms": 0,
+    "deadline_same_ms_count": 1,
+    "legacy_consume_age_counts": {},
+    "legacy_timing_stats_ms": {},
+    "legacy_trace": []
+  },
+  {
+    "rtt_ms": 50,
+    "one_way_ms": 25.0,
+    "input_age_range": [
+      0,
+      2
+    ],
+    "actual_lead_histogram": {
+      "-1": {
+        "count": 4,
+        "eligible": 0,
+        "eligiblePass": 0
+      },
+      "0": {
+        "count": 21,
+        "eligible": 21,
+        "eligiblePass": 21
+      },
+      "1": {
+        "count": 19,
+        "eligible": 19,
+        "eligiblePass": 19
+      },
+      "2": {
+        "count": 17,
+        "eligible": 17,
+        "eligiblePass": 17
+      },
+      "3": {
+        "count": 22,
+        "eligible": 22,
+        "eligiblePass": 22
+      },
+      "4": {
+        "count": 17,
+        "eligible": 17,
+        "eligiblePass": 17
+      }
+    },
+    "actual_lead_by_defer": {
+      "2": {
+        "-1": 3,
+        "0": 12,
+        "1": 9,
+        "2": 6,
+        "3": 11,
+        "4": 9
+      },
+      "3": {
+        "-1": 1,
+        "0": 9,
+        "1": 10,
+        "2": 11,
+        "3": 11,
+        "4": 8
+      }
+    },
+    "guard_wire_timing_stats_ms": {
+      "c2sMs": {
+        "min": 25,
+        "median": 26.0,
+        "max": 30
+      },
+      "s2cNetworkMs": {
+        "min": 25,
+        "median": 26.0,
+        "max": 27
+      },
+      "serverNativeQueueMs": {
+        "min": 1,
+        "median": 6.0,
+        "max": 63
+      },
+      "clientNativeQueueMs": {
+        "min": 0,
+        "median": 40.0,
+        "max": 54
+      }
+    },
+    "groups": [
+      {
+        "defer": 2,
+        "lead": 0,
+        "count": 10,
+        "parries": 7,
+        "eligible": 7,
+        "eligiblePass": 7,
+        "windowMiss": 3,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 1,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 2,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 3,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 2,
+        "lead": 4,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 0,
+        "count": 10,
+        "parries": 9,
+        "eligible": 9,
+        "eligiblePass": 9,
+        "windowMiss": 1,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 1,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 2,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 3,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      },
+      {
+        "defer": 3,
+        "lead": 4,
+        "count": 10,
+        "parries": 10,
+        "eligible": 10,
+        "eligiblePass": 10,
+        "windowMiss": 0,
+        "late": 0
+      }
+    ],
+    "minimum_lead_for_all_repetitions": {
+      "2": 1,
+      "3": 1
+    },
+    "window_and_network_on_time": 96,
+    "window_and_network_on_time_pass": 96,
+    "strict_before_deadline": 96,
+    "strict_before_deadline_pass": 96,
+    "conditional_all": true,
+    "eligible_min_deadline_margin_ms": 60,
+    "deadline_same_ms_count": 0,
+    "legacy_consume_age_counts": {},
+    "legacy_timing_stats_ms": {},
+    "legacy_trace": []
+  }
+]
