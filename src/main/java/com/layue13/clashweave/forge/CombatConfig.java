@@ -21,6 +21,16 @@ public final class CombatConfig {
     public int stampAge;
     public int disengage;
     public double radius;
+    public double lockAcquireRange;
+    public double lockKeepRange;
+    public double lockConeHalfAngle;
+    public double facingMaxTurn;
+    public double facingTolerance;
+    public int facingHistoryAge;
+    public double facingHistoryDrift;
+    public int sweepLayers;
+    public double sweepBottom;
+    public double sweepTop;
     public double guardArc;
     public double blockDamage;
     public double movementMargin;
@@ -52,6 +62,18 @@ public final class CombatConfig {
         stampAge = config.getInt("stampAgeLimit", "network", 8, 1, 20, "Maximum accepted input age");
         disengage = config.getInt("disengageTicks", "combat", 60, 1, 400, "Exit hysteresis");
         radius = config.getFloat("engageRadius", "combat", 8, 1, 32, "Hostile target radius");
+        lockAcquireRange = config.getFloat("lockAcquireRange", "lock", 16, 1, 64, "Visible target acquisition range");
+        lockKeepRange = config.getFloat("lockKeepRange", "lock", 20, 1, 96, "Keep range; clamped above acquire range");
+        lockKeepRange = Math.max(lockAcquireRange + 1, lockKeepRange);
+        lockConeHalfAngle = config.getFloat("lockConeHalfAngle", "lock", 30, 1, 90, "Acquisition cone half angle");
+        facingMaxTurn = config.getFloat("maxDegreesPerTick", "facing", 30, 1, 180, "Snapshot turn-rate limit");
+        facingTolerance = config.getFloat("angleTolerance", "facing", 5, 0, 30, "Packet-phase tolerance degrees");
+        facingHistoryAge = config.getInt("historyAgeMillis", "facing", 500, 50, 2000, "Maximum packet history age");
+        facingHistoryDrift = config
+            .getFloat("historyPositionDrift", "facing", 4, 0.1f, 16, "Maximum distance from recent position packet");
+        sweepLayers = config.getInt("layers", "sweep", 4, 2, 8, "Body-height samples");
+        sweepBottom = config.getFloat("bottomFraction", "sweep", 0.1f, 0, 1, "Lowest body-height fraction");
+        sweepTop = config.getFloat("topFraction", "sweep", 0.95f, 0, 1.5f, "Highest body-height fraction");
         guardArc = config.getFloat("guardArc", "combat", 140, 1, 180, "Degrees");
         blockDamage = config.getFloat("ordinaryGuardDamage", "combat", 0.25f, 0, 1, "Damage multiplier");
         movementMargin = config.getFloat("movementMarginTicks", "movement", 2, 0, 4, "Batch allowance");

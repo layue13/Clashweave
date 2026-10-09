@@ -34,6 +34,18 @@ public final class ClientReplay {
     private int movementSteps;
     private long endedOrigin;
     private boolean lateInjected;
+    private int sweepRequested;
+    private int sweepWait;
+    private boolean orbitCamera;
+    private int viewSequences;
+    private int viewReadyTicks;
+    private float viewYaw;
+    private float viewPitch;
+    private boolean viewSample;
+    private long viewObserved;
+    private long viewRequested = -1;
+    private boolean viewActive;
+    private boolean viewLastNode;
     private long engagementBase = -1;
     private int engagementStage;
     private final java.util.Map<Integer,Boolean> virtualKeys = new java.util.HashMap<>();
@@ -79,7 +91,9 @@ public final class ClientReplay {
         ClientProxy.Visual visual = proxy.own();
         if (visual == null || proxy.actions == null) return;
         connected++;
-        if (Boolean.getBoolean("cw.p0.manual")) return;
+        if (Boolean.getBoolean("cw.p0.manual") || Boolean.getBoolean("cw.p0.lockTest")) return;
+        if (Boolean.getBoolean("cw.p0.sweepTest")) { sweepReplay(proxy, visual); return; }
+        if (Boolean.getBoolean("cw.p0.viewTest")) { viewReplay(proxy, visual); return; }
         if (Boolean.getBoolean("cw.p0.engagement")) {
             if (mc.thePlayer.getCommandSenderName().equals("P0A")) {
                 if (engagementBase < 0 && proxy.visuals.size() >= 2) engagementBase = proxy.stamp();
@@ -173,6 +187,20 @@ public final class ClientReplay {
                 capture="pose-"+pose+"-1";
             }
         }
+        if (Boolean.getBoolean("cw.p0.renderOnly") && action.isEmpty() && capture==null && connected>80) {
+            String stance=visual.state.sheathed ? "sheathed" : "drawn";
+            for(String direction:new String[]{"side","rear"}) {
+                String key=stance+"-"+direction;
+                if(!captures.contains(key)) {
+                    net.minecraft.client.entity.EntityOtherPlayerMP camera=new net.minecraft.client.entity.EntityOtherPlayerMP(mc.theWorld,
+                        new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Camera"));
+                    camera.setPosition(mc.thePlayer.posX,mc.thePlayer.boundingBox.minY,mc.thePlayer.posZ);
+                    camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
+                    camera.rotationYaw=camera.prevRotationYaw=visual.state.yaw+(direction.equals("side")?90:0);
+                    mc.renderViewEntity=camera;mc.gameSettings.thirdPersonView=1;orbitCamera=true;capture=key;break;
+                }
+            }
+        }
         if (connected == 80) request(Intent.LIGHT);
         if (connected > 100 && action.isEmpty() && connected % 25 == 0) {
             cycle++;
@@ -208,10 +236,66 @@ public final class ClientReplay {
         if (connected % 40 == 0) System.out.println("P0_REPLAY tick=" + connected + " action=" + action + " progress=" + elapsed + " feedback=" + proxy.feedback);
     }
 
+    private void sweepReplay(ClientProxy proxy, ClientProxy.Visual visual) {
+        if (!mc.thePlayer.getCommandSenderName().equals("P0A")) return;
+        net.minecraft.entity.EntityLiving target=null;
+        for(Object o:mc.theWorld.loadedEntityList) if(o instanceof net.minecraft.entity.EntityLiving) {
+            net.minecraft.entity.EntityLiving e=(net.minecraft.entity.EntityLiving)o;
+            if(e.getCustomNameTag().startsWith("sweep:")) target=e;
+        }
+        if(target==null) return;
+        int scenario=Integer.parseInt(target.getCustomNameTag().substring(6));
+        if(scenario==sweepRequested || !visual.state.action.isEmpty()) { virtualKey(mc.gameSettings.keyBindJump,false); return; }
+        mc.thePlayer.rotationYaw=0;mc.thePlayer.rotationPitch=0;
+        if(++sweepWait<12) return;
+        if(scenario==4) {
+            virtualKey(mc.gameSettings.keyBindJump,true);
+            if(mc.thePlayer.boundingBox.minY<65.1) return;
+        }
+        System.out.println("P0_SWEEP_INPUT case="+scenario+" feet="+mc.thePlayer.boundingBox.minY+" targetHeight="+target.height+" nano="+System.nanoTime());
+        proxy.send(Intent.LIGHT,-1);sweepRequested=scenario;sweepWait=0;
+    }
+
+    private void viewReplay(ClientProxy proxy, ClientProxy.Visual visual) {
+        if (!mc.thePlayer.getCommandSenderName().equals("P0A")) return;
+        if (viewSample && visual.state.instance!=0 && visual.state.instance!=viewObserved) {
+            System.out.println("P0_VIEW_START sequence="+viewSequences+" instance="+visual.state.instance
+                +" yawDelta="+(mc.thePlayer.rotationYaw-viewYaw)+" pitchDelta="+(mc.thePlayer.rotationPitch-viewPitch)
+                +" yaw="+mc.thePlayer.rotationYaw+" pitch="+mc.thePlayer.rotationPitch+" nano="+System.nanoTime());
+            viewObserved=visual.state.instance;
+        }
+        // Simulated continuous mouse deltas use the same Entity.setAngles as vanilla mouse look.
+        mc.thePlayer.setAngles((float)(1.5 * Math.cos(connected * .025)), (float)(.4 * Math.sin(connected * .025)));
+        viewYaw=mc.thePlayer.rotationYaw; viewPitch=mc.thePlayer.rotationPitch; viewSample=true;
+        if (proxy.visuals.size()<2) return;
+        if (++viewReadyTicks < 100) return;
+        String action = visual.state.action;
+        double elapsed = proxy.elapsed(visual, 0);
+        if (viewActive && action.isEmpty() && viewLastNode) {
+            System.out.println("P0_VIEW_SEQUENCE completed=" + viewSequences + " nano=" + System.nanoTime());
+            viewActive = false;
+            viewLastNode = false;
+        }
+        if (!viewActive && action.isEmpty() && viewSequences < 20 && connected % 10 == 0) {
+            viewSequences++;
+            viewActive = true;
+            viewRequested = -1;
+            System.out.println("P0_VIEW_SEQUENCE begin=" + viewSequences + " nano=" + System.nanoTime());
+            request(Intent.LIGHT);
+        }
+        if (action.equals("light_3")) viewLastNode = true;
+        if (viewActive && visual.state.instance != viewRequested && (action.equals("iai") && elapsed >= 6 && elapsed < 8
+            || action.equals("light_1") && elapsed >= 5 && elapsed < 7 || action.equals("light_2") && elapsed >= 4 && elapsed < 6)) {
+            viewRequested = visual.state.instance;
+            request(Intent.LIGHT);
+        }
+        if (viewSequences == 20 && !viewActive) System.out.println("P0_VIEW COMPLETE nano=" + System.nanoTime());
+    }
+
     private void request(Intent intent) {
-        mc.thePlayer.rotationYaw=0;
+        if (!Boolean.getBoolean("cw.p0.viewTest")) mc.thePlayer.rotationYaw=0;
         ClientProxy.instance.send(intent, -1);
-        System.out.println("P0_REQUEST intent=" + intent + " nano=" + System.nanoTime());
+        System.out.println("P0_REQUEST intent=" + intent + " yaw="+mc.thePlayer.rotationYaw+" pitch="+mc.thePlayer.rotationPitch+" nano=" + System.nanoTime());
     }
 
     private void supplement(ClientProxy proxy, ClientProxy.Visual visual) {
@@ -272,6 +356,7 @@ public final class ClientReplay {
                     visual.moved += extra;
                 }
             }
+            if (movementCase == 7 || movementCase == 8) mc.thePlayer.setAngles(.7f, .4f);
             if (movementSteps == 1 && movementCase == 7) {
                 mc.thePlayer.setPosition(mc.thePlayer.posX+5, mc.thePlayer.posY, mc.thePlayer.posZ);
                 mc.getNetHandler().addToSendQueue(new net.minecraft.network.play.client.C03PacketPlayer.C04PacketPlayerPosition(mc.thePlayer.posX,mc.thePlayer.boundingBox.minY,mc.thePlayer.posY,mc.thePlayer.posZ,true));
@@ -298,6 +383,7 @@ public final class ClientReplay {
         System.out.println("P0_CAPTURE " + capture + " instance=" + visual.state.instance + " progress=" + ClientProxy.instance.elapsed(visual,0) + " nano=" + System.nanoTime());
         String previousCapture = capture;
         captures.add(capture);
+        if(orbitCamera) { mc.renderViewEntity=mc.thePlayer;orbitCamera=false; }
         capture = null;
         if (!previousCapture.startsWith("pose-") && previousCapture.endsWith("-0")) {
             String paired=previousCapture.substring(0,previousCapture.length()-1)+"2";
@@ -307,6 +393,7 @@ public final class ClientReplay {
 
     @SubscribeEvent
     public void audio(PlaySoundSourceEvent event) {
+        if(event.name.equals("random.bow")) System.out.println("P0_LOCAL_AUDIO nano="+System.nanoTime());
         if (event.name.equals("random.successful_hit") || event.name.equals("random.anvil_land")) System.out.println("P0_AUDIO source=" + event.name + " frozen=" + ClientProxy.instance.lastFeedbackFrozen + " nano=" + System.nanoTime());
     }
 

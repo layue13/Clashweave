@@ -19,6 +19,11 @@ public final class StateMessage implements IMessage {
     public long instance;
     public long start;
     public long feedbackFrozen;
+    public long budgetNano;
+    public long budgetTick;
+    public double budgetX;
+    public double budgetY;
+    public double budgetZ;
     public boolean engaged;
     public boolean sheathed;
     public boolean blocks;
@@ -58,6 +63,11 @@ public final class StateMessage implements IMessage {
         instance = buffer.readLong();
         start = buffer.readLong();
         feedbackFrozen = buffer.readLong();
+        budgetNano = buffer.readLong();
+        budgetTick = buffer.readLong();
+        budgetX = buffer.readDouble();
+        budgetY = buffer.readDouble();
+        budgetZ = buffer.readDouble();
         engaged = buffer.readBoolean();
         sheathed = buffer.readBoolean();
         blocks = buffer.readBoolean();
@@ -81,6 +91,11 @@ public final class StateMessage implements IMessage {
             .writeLong(instance)
             .writeLong(start)
             .writeLong(feedbackFrozen)
+            .writeLong(budgetNano)
+            .writeLong(budgetTick)
+            .writeDouble(budgetX)
+            .writeDouble(budgetY)
+            .writeDouble(budgetZ)
             .writeBoolean(engaged)
             .writeBoolean(sheathed)
             .writeBoolean(blocks)

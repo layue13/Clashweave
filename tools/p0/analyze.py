@@ -43,7 +43,8 @@ for event in events:
     actual=int(event['guard'])
     rows.append(dict(event,defender=defender,guard_stamp=span['stamp'] if span else None,
                      guard_arrival=span['arrival'] if span else None,expected_guard=expected,
-                     deadline_violation=int(event['commitTick'])<hit+3 or cutoff-frozen<150_000_000,
+                     deadline_violation=(event.get('targetPlayer',str(defender is not None)).lower()=='true') and (int(event['commitTick'])<hit+3 or cutoff-frozen<150_000_000),
+                     extra_ticks=int(event['commitTick'])-hit,
                      guard_violation=defender is not None and expected!=actual,
                      freeze_to_commit_ms=(cutoff-frozen)/1e6))
 feedback=[]
@@ -57,12 +58,33 @@ for name in ['P0A','P0B']:
                                  frozen=int(fields['frozen']),endpoint=int(endpoint),delay_ms=(int(endpoint)-int(fields['frozen']))/1e6))
 def limits(values):
     return dict(count=len(values),minimum=min(values),maximum=max(values),mean=sum(values)/len(values)) if values else dict(count=0)
-summary=dict(identities=identities,contacts=len(rows),guard_violations=sum(r['guard_violation'] for r in rows),
+summary=dict(identities=identities,contacts=len(rows),
+             mob_extra_ticks=limits([r['extra_ticks'] for r in rows if r['defender'] is None]),
+             mob_commit_ms=limits([r['freeze_to_commit_ms'] for r in rows if r['defender'] is None]),guard_violations=sum(r['guard_violation'] for r in rows),
              deadline_violations=sum(r['deadline_violation'] for r in rows),
              freeze_to_commit=limits([r['freeze_to_commit_ms'] for r in rows]),
              feedback={kind:limits([r['delay_ms'] for r in feedback if r['kind']==kind]) for kind in ['receive','frame','audio_source']},
              input_gate_rejects=[e for e in events if e['type']=='INPUT' and e['gate']!='OK'],
              acknowledgements=[e for e in events if e['type']=='ACK'])
+mob_frozen={int(r['frozen']) for r in rows if r['defender'] is None}
+summary['mob_feedback']={kind:limits([r['delay_ms'] for r in feedback if r['kind']==kind and r['frozen'] in mob_frozen]) for kind in ['receive','frame','audio_source']}
+aim=[]
+for line in text.splitlines():
+    if ' CW AIM ' in line: aim.append(dict(re.findall(r'(\w+)=([^ ]+)',line)))
+summary['aim']={'samples':len(aim),'accepted':sum(r['accepted']=='true' for r in aim),
+    'known_yaw_deviation':limits([abs(float(r['beforeDelta'])) for r in aim]),
+    'selected_yaw_deviation':limits([abs(float(r['afterDelta'])) for r in aim])}
+local=[];local_audio=[]
+for name in ['P0A','P0B']:
+    local_text=(folder/name/'process.log').read_text(encoding='utf-8',errors='replace')
+    source_times=[int(t) for t in re.findall(r'P0_LOCAL_AUDIO nano=(\d+)',local_text)]
+    for line in local_text.splitlines():
+        if 'CW_LOCAL_SWING ' in line:
+            r=dict(re.findall(r'(\w+)=([^ ]+)',line));local.append((int(r['feedback'])-int(r['press']))/1e6)
+            matched=[t for t in source_times if int(r['press'])<=t<=int(r['feedback'])+50_000_000]
+            if matched:local_audio.append((min(matched)-int(r['press']))/1e6)
+summary['local_swing_dispatch_ms']=limits(local)
+summary['local_audio_source_ms']=limits(local_audio)
 catalog=json.loads((folder/'server/config/clashweave/katana.json').read_text(encoding='utf-8'))
 definitions={a['id']:a for a in catalog['actions']}
 confirmed={}

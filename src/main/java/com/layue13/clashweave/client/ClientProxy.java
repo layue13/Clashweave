@@ -83,6 +83,9 @@ public final class ClientProxy extends CommonProxy {
             .bus()
             .register(this);
         KatanaRendering.load();
+        FMLCommonHandler.instance()
+            .bus()
+            .register(new ViewPreservingCorrections());
     }
 
     @Override
@@ -122,10 +125,13 @@ public final class ClientProxy extends CommonProxy {
 
     public void send(Intent intent, int target) {
         if (session == 0 || minecraft.thePlayer == null) return;
+        long pressed = System.nanoTime();
         int next = ++sequence;
         Visual observed = own();
         InputMessage request = new InputMessage(session, stamp(), next, intent, target);
         request.origin = observed == null ? 0 : observed.state.instance;
+        request.yaw = minecraft.thePlayer.rotationYaw;
+        request.pitch = minecraft.thePlayer.rotationPitch;
         Clashweave.network.sendToServer(request);
         if (intent == Intent.LIGHT || intent == Intent.HEAVY || intent == Intent.SHEATHE) {
             Visual own = own();
@@ -134,6 +140,11 @@ public final class ClientProxy extends CommonProxy {
                 if (intent == Intent.LIGHT) prediction = own.state.sheathed ? "iai" : "light_1";
                 else if (intent == Intent.HEAVY && !own.state.sheathed) prediction = "heavy";
                 else if (intent == Intent.SHEATHE && !own.state.sheathed) prediction = "sheathe";
+            }
+            if (!prediction.isEmpty() && intent != Intent.SHEATHE) {
+                minecraft.thePlayer.playSound("random.bow", .35F, .75F);
+                if (Boolean.getBoolean("clashweave.trace")) System.out
+                    .println("CW_LOCAL_SWING seq=" + next + " press=" + pressed + " feedback=" + System.nanoTime());
             }
             predictedAction = prediction;
             predictedSequence = next;

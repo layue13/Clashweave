@@ -13,6 +13,8 @@ public final class InputMessage implements IMessage {
     public long session;
     public long stamp;
     public long origin;
+    public float yaw;
+    public float pitch;
     public int sequence;
     public int kind;
     public int target;
@@ -29,10 +31,12 @@ public final class InputMessage implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buffer) {
-        if (buffer.readableBytes() != 36) throw new IllegalArgumentException("Input size");
+        if (buffer.readableBytes() != 44) throw new IllegalArgumentException("Input size");
         session = buffer.readLong();
         stamp = buffer.readLong();
         origin = buffer.readLong();
+        yaw = buffer.readFloat();
+        pitch = buffer.readFloat();
         sequence = buffer.readInt();
         kind = buffer.readInt();
         target = buffer.readInt();
@@ -44,6 +48,8 @@ public final class InputMessage implements IMessage {
         buffer.writeLong(session)
             .writeLong(stamp)
             .writeLong(origin)
+            .writeFloat(yaw)
+            .writeFloat(pitch)
             .writeInt(sequence)
             .writeInt(kind)
             .writeInt(target);

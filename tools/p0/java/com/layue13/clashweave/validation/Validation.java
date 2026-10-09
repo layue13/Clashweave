@@ -34,6 +34,10 @@ public final class Validation {
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(supplement);
         FMLCommonHandler.instance().bus().register(new MovementScenario());
         FMLCommonHandler.instance().bus().register(new EngagementScenario());
+        FMLCommonHandler.instance().bus().register(new LockScenario());
+        SweepScenario sweep=new SweepScenario();
+        FMLCommonHandler.instance().bus().register(sweep);
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(sweep);
         if (FMLCommonHandler.instance().getSide().isClient()) {
             try {
                 Class.forName("com.layue13.clashweave.validation.ClientReplay").newInstance();

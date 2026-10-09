@@ -17,6 +17,9 @@ parser.add_argument('--manual', action='store_true')
 parser.add_argument('--movement', action='store_true')
 parser.add_argument('--low-tps', action='store_true')
 parser.add_argument('--engagement', action='store_true')
+parser.add_argument('--view-test', action='store_true')
+parser.add_argument('--lock-test', action='store_true')
+parser.add_argument('--sweep-test', action='store_true')
 parser.add_argument('--rtt', type=int, default=0)
 args = parser.parse_args()
 if not args.accept_eula:
@@ -38,6 +41,12 @@ def spawn(role):
     launch = json.loads((ROOT/'build/p0'/('runServer.json' if server else 'runClient.json')).read_text(encoding='utf-8'))
     command = [launch['java'], '-Xms256M', '-Xmx1G', '-Dfile.encoding=UTF-8',
                '-Dfml.ignoreInvalidMinecraftCertificates=true', '-Dclashweave.trace=true', '-Dcw.p0.network=true']
+    if args.view_test:
+        command += ['-Dcw.p0.viewTest=true']
+    if args.sweep_test:
+        command += ['-Dcw.p0.sweepTest=true']
+    if args.lock_test:
+        command += ['-Dcw.p0.lockTest=true']
     if args.render_only:
         command += ['-Dcw.p0.renderOnly=true']
     if args.supplement:
@@ -119,7 +128,7 @@ finally:
     lines=(folder/'server/process.log').read_text(encoding='utf-8',errors='replace').splitlines()
     leaks=[line for line in lines if line.startswith('[Loaded ') and ('net.minecraft.client.' in line or 'org.lwjgl.opengl.' in line or 'clashweave.client.' in line or 'validation.ClientReplay' in line)]
     summary=dict(server_exit=processes[0].returncode,client_class_loads=len(leaks),
-                 complete=any('P0_NETWORK COMPLETE' in line or 'P0_SUPPLEMENT COMPLETE' in line or 'P0_MOVEMENT COMPLETE' in line or 'P0_ENGAGEMENT COMPLETE' in line for line in lines),
+                 complete=any('P0_NETWORK COMPLETE' in line or 'P0_SUPPLEMENT COMPLETE' in line or 'P0_MOVEMENT COMPLETE' in line or 'P0_ENGAGEMENT COMPLETE' in line or 'P0_SWEEP COMPLETE' in line for line in lines),
                  captures=[str(p.relative_to(folder)) for p in folder.rglob('p0-*.png')],
                  performance=[line for line in lines if 'P0_PERF' in line])
     (folder/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')

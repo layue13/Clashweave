@@ -20,7 +20,6 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.EntityDamageSource;
-import net.minecraft.util.Vec3;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -68,7 +67,12 @@ public final class CombatServer {
         public int revision;
         public long networkAfter;
         public int lock = -1;
+        public long budgetNano;
+        public long budgetTick;
         public float yaw;
+        public float pitch;
+        public final com.layue13.clashweave.core.FacingHistory facingHistory = new com.layue13.clashweave.core.FacingHistory();
+        public final Map<Integer, com.layue13.clashweave.core.FacingHistory.Result> requestFacing = new HashMap<>();
         public long instance;
         public MovementBudget movement;
         public double x;
@@ -161,6 +165,16 @@ public final class CombatServer {
             state.revision = ++nextRevision;
             state.networkAfter = tick + 1;
             states.put(event.player.getUniqueID(), state);
+            state.facingHistory.observe(
+                System.nanoTime(),
+                event.player.rotationYaw,
+                event.player.rotationPitch,
+                event.player.posX,
+                event.player.posY,
+                event.player.posZ,
+                true,
+                true);
+            FacingPackets.install(state.player.playerNetServerHandler.netManager, state.facingHistory);
             // Login is fired inside Forge's handshake completion handler. Publish on a later tick.
         }
     }
@@ -251,8 +265,9 @@ public final class CombatServer {
         Iterator<Contact> iterator = pending.iterator();
         while (iterator.hasNext()) {
             Contact contact = iterator.next();
-            if (GuardTimeline.ready(tick, cutoff, contact.tick, contact.frozen, config.defer)) {
-                commit(contact, cutoff);
+            if (!(contact.target instanceof EntityPlayer)
+                || GuardTimeline.ready(tick, cutoff, contact.tick, contact.frozen, config.defer)) {
+                commit(contact, contact.target instanceof EntityPlayer ? cutoff : System.nanoTime());
                 iterator.remove();
             }
         }
@@ -303,8 +318,10 @@ public final class CombatServer {
         if (message.kind == -1) {
             if (state.scheduler.current() != null && message.target == (int) state.scheduler.current().id) {
                 state.ready = true;
+                state.budgetNano = System.nanoTime();
+                state.budgetTick = tick;
                 state.movement = new MovementBudget(
-                    System.nanoTime(),
+                    state.budgetNano,
                     state.scheduler.current().definition.speed,
                     state.scheduler.current().definition.distance,
                     config.movementMargin,
@@ -329,28 +346,20 @@ public final class CombatServer {
             state.guard.release(message.stamp);
             snapshot(state, message.sequence, "RELEASE", false);
         } else if (intent == Intent.LOCK) {
-            Entity target = input.player.worldObj.getEntityByID(message.target);
             String result = "REJECT:LOCK";
             if (state.lock >= 0) {
                 state.lock = -1;
                 result = "UNLOCK";
-            } else if (target instanceof EntityLivingBase && target != input.player
-                && !target.isDead
-                && input.player.getDistanceToEntity(target) <= config.radius
-                && input.player.canEntityBeSeen(target)) {
+            } else {
+                EntityLivingBase target = acquireLock(input.player);
+                if (target != null) {
                     state.lock = target.getEntityId();
                     result = "LOCK";
                 }
+            }
             trace(
-                "LOCK_TARGET player=" + input.player.getCommandSenderName()
-                    + " target="
-                    + message.target
-                    + " exists="
-                    + (target != null)
-                    + " distance="
-                    + (target == null ? -1 : input.player.getDistanceToEntity(target))
-                    + " visible="
-                    + (target != null && input.player.canEntityBeSeen(target)));
+                "LOCK_TARGET player=" + input.player
+                    .getCommandSenderName() + " target=" + state.lock + " hint=" + message.target);
             snapshot(state, message.sequence, result, false);
         } else if (intent == Intent.DODGE || intent == Intent.SPECIAL || intent == Intent.MODE) {
             snapshot(state, message.sequence, "REJECT:UNIMPLEMENTED:" + intent.name(), false);
@@ -358,6 +367,34 @@ public final class CombatServer {
             snapshot(state, message.sequence, "REJECT:GUARD_HELD", false);
         } else {
             if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
+            com.layue13.clashweave.core.FacingHistory.Result facing = state.facingHistory.choose(
+                message.yaw,
+                message.pitch,
+                input.arrival,
+                input.player.rotationYaw,
+                input.player.rotationPitch,
+                input.player.posX,
+                input.player.posY,
+                input.player.posZ,
+                config.facingMaxTurn,
+                config.facingTolerance,
+                config.facingHistoryAge * 1_000_000L,
+                config.facingHistoryDrift);
+            state.requestFacing.put(message.sequence, facing);
+            trace(
+                "FACING player=" + input.player.getCommandSenderName()
+                    + " seq="
+                    + message.sequence
+                    + " requested="
+                    + message.yaw
+                    + " known="
+                    + input.player.rotationYaw
+                    + " chosen="
+                    + facing.yaw
+                    + " accepted="
+                    + facing.accepted
+                    + " reason="
+                    + facing.reason);
             state.scheduler.request(intent, message.sequence, tick, message.origin);
         }
     }
@@ -375,20 +412,42 @@ public final class CombatServer {
             trace(
                 "START player=" + player
                     .getCommandSenderName() + " id=" + action.id + " action=" + action.definition.id + " tick=" + tick);
-            state.yaw = player.rotationYaw;
+            com.layue13.clashweave.core.FacingHistory.Result facing = state.requestFacing.remove(action.sequence);
+            state.yaw = facing == null ? player.rotationYaw : facing.yaw;
+            state.pitch = facing == null ? player.rotationPitch : facing.pitch;
+            if (facing != null) trace(
+                "AIM player=" + player.getCommandSenderName()
+                    + " id="
+                    + action.id
+                    + " requested="
+                    + facing.requestedYaw
+                    + " baseline="
+                    + player.rotationYaw
+                    + " selected="
+                    + state.yaw
+                    + " beforeDelta="
+                    + Math.abs(
+                        com.layue13.clashweave.core.FacingHistory.difference(player.rotationYaw, facing.requestedYaw))
+                    + " afterDelta="
+                    + Math.abs(com.layue13.clashweave.core.FacingHistory.difference(state.yaw, facing.requestedYaw))
+                    + " accepted="
+                    + facing.accepted);
             state.ready = false;
             state.movement = null;
             state.externalHorizontal = 0;
             state.externalVertical = 0;
             state.handshakeUntil = tick + 8;
-            player.playerNetServerHandler
-                .setPlayerLocation(player.posX, player.posY, player.posZ, player.rotationYaw, player.rotationPitch);
         }
         for (Scheduler.Result result : state.scheduler.drainResults()) {
+            state.requestFacing.remove(result.sequence);
             snapshot(state, result.sequence, result.status, false);
         }
         Entity lock = player.worldObj.getEntityByID(state.lock);
-        if (lock == null || lock.isDead || player.getDistanceToEntity(lock) > config.radius) state.lock = -1;
+        if (lock == null || !com.layue13.clashweave.core.LockSelection.keep(
+            player.getDistanceToEntity(lock),
+            config.lockKeepRange,
+            !lock.isDead && (!(lock instanceof EntityLivingBase) || ((EntityLivingBase) lock).getHealth() > 0)))
+            state.lock = -1;
         boolean trigger = action != null || state.guard.held() || state.lock >= 0 || player.hurtTime > 0;
         for (Object object : player.worldObj.getEntitiesWithinAABB(
             EntityLiving.class,
@@ -446,6 +505,41 @@ public final class CombatServer {
             .add(owner);
     }
 
+    /** Hint-free authoritative selection; visibility and friendly policy are checked before scoring. */
+    public EntityLivingBase acquireLock(EntityPlayer player) {
+        EntityLivingBase selected = null;
+        double best = Double.POSITIVE_INFINITY;
+        net.minecraft.util.Vec3 eye = net.minecraft.util.Vec3
+            .createVectorHelper(player.posX, player.posY + player.getEyeHeight(), player.posZ);
+        net.minecraft.util.Vec3 look = player.getLookVec();
+        for (Object object : player.worldObj.getEntitiesWithinAABB(
+            EntityLivingBase.class,
+            player.boundingBox.expand(config.lockAcquireRange, config.lockAcquireRange, config.lockAcquireRange))) {
+            EntityLivingBase target = (EntityLivingBase) object;
+            if (target == player || target.isDead
+                || target.getHealth() <= 0
+                || protectedTarget(player, target)
+                || !player.canEntityBeSeen(target)) continue;
+            double dx = target.posX - eye.xCoord;
+            double dy = target.posY + target.getEyeHeight() - eye.yCoord;
+            double dz = target.posZ - eye.zCoord;
+            double length = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            double cosine = length == 0 ? 1 : (dx * look.xCoord + dy * look.yCoord + dz * look.zCoord) / length;
+            double angle = Math.toDegrees(Math.acos(Math.max(-1, Math.min(1, cosine))));
+            double score = com.layue13.clashweave.core.LockSelection
+                .score(player.getDistanceToEntity(target), angle, config.lockAcquireRange, config.lockConeHalfAngle);
+            if (com.layue13.clashweave.core.LockSelection.better(
+                score,
+                target.getEntityId(),
+                best,
+                selected == null ? Integer.MAX_VALUE : selected.getEntityId())) {
+                selected = target;
+                best = score;
+            }
+        }
+        return selected;
+    }
+
     public boolean protectedTarget(EntityPlayer attacker, EntityLivingBase target) {
         return config.friendly && (target instanceof EntityVillager
             || target instanceof EntityTameable && ((EntityTameable) target).isTamed()
@@ -460,20 +554,22 @@ public final class CombatServer {
         if (elapsed < definition.startup || elapsed >= definition.startup + definition.active) return;
         double previous = -definition.arc / 2 + definition.arc * (elapsed - definition.startup) / definition.active;
         double next = -definition.arc / 2 + definition.arc * (elapsed - definition.startup + 1) / definition.active;
-        Vec3 origin = Vec3.createVectorHelper(state.player.posX, state.player.posY + 1.05, state.player.posZ);
         for (Object object : state.player.worldObj.getEntitiesWithinAABB(
             EntityLivingBase.class,
             state.player.boundingBox.expand(definition.reach, 1, definition.reach))) {
             EntityLivingBase target = (EntityLivingBase) object;
             if (target == state.player || target.isDead || protectedTarget(state.player, target)) continue;
-            boolean intersected = false;
-            for (int sample = 0; sample <= 8 && !intersected; sample++) {
-                double angle = Math.toRadians(state.yaw + previous + (next - previous) * sample / 8);
-                Vec3 tip = origin.addVector(-Math.sin(angle) * definition.reach, 0, Math.cos(angle) * definition.reach);
-                intersected = target.boundingBox.expand(0.12, 0.15, 0.12)
-                    .calculateIntercept(origin, tip) != null
-                    && state.player.worldObj.rayTraceBlocks(origin, tip) == null;
-            }
+            boolean intersected = SweepGeometry.intersects(
+                state.player,
+                target,
+                definition.reach,
+                previous,
+                next,
+                state.yaw,
+                state.pitch,
+                config.sweepLayers,
+                config.sweepBottom,
+                config.sweepTop);
             if (!intersected || !action.claim(
                 target.getUniqueID()
                     .toString(),
@@ -489,6 +585,8 @@ public final class CombatServer {
             pending.add(contact);
             trace(
                 "FREEZE player=" + state.player.getCommandSenderName()
+                    + " targetPlayer="
+                    + (target instanceof EntityPlayer)
                     + " target="
                     + target.getEntityId()
                     + " id="
@@ -523,6 +621,8 @@ public final class CombatServer {
         if (defender != null && hit) creditImpulse(defender);
         trace(
             "COMMIT player=" + contact.attacker.player.getCommandSenderName()
+                + " targetPlayer="
+                + (contact.target instanceof EntityPlayer)
                 + " target="
                 + contact.target.getEntityId()
                 + " id="
@@ -609,6 +709,13 @@ public final class CombatServer {
         message.start = action == null ? tick : action.start;
         message.confirmed = action != null && action.confirmedHit;
         message.result = result;
+        if (result.equals("MOVE_READY")) {
+            message.budgetNano = state.budgetNano;
+            message.budgetTick = state.budgetTick;
+            message.budgetX = state.x;
+            message.budgetY = state.y;
+            message.budgetZ = state.z;
+        }
         message.feedbackFrozen = Boolean.getBoolean("clashweave.trace") ? frozen : 0;
         message.definitions = definitions || !state.sentDefinitions ? definitionJson : "";
         if (sequence > 0)
