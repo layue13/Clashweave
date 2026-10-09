@@ -1,0 +1,23 @@
+[
+  {
+    "scenario": "boundary2-0-rtt100-j0",
+    "rtt_ms": 100,
+    "jitter_ms": 0,
+    "oneway_mean_ms": 48.78939301031761,
+    "legal_moves": 3,
+    "legal_move_rejects": 0,
+    "legal_S08_packets": 0,
+    "max_endpoint_error_blocks": 0.0,
+    "parry_success": 8,
+    "parry_trials": 20,
+    "parry_by_lead": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 4,
+      "4": 4
+    },
+    "server_client_classes": 0,
+    "negative_cases": true
+  }
+]

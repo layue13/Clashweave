@@ -1,0 +1,229 @@
+[19:31:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S1_START interval=7 unspawnedEntities=true actualVanillaMethods=true
+[19:31:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S1_SEGMENT tick=0 vanilla=true naive=true isolated=true duplicate=false hp=98.0,98.0,98.0
+[19:31:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S1_SEGMENT tick=7 vanilla=false naive=true isolated=true duplicate=false hp=98.0,96.0,96.0
+[19:31:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S1_OTHER tick=8 equalVanillaControl=false naive=true isolated=false hp=96.0,92.0,94.0
+[19:31:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S1_STRONGER control=true isolated=true hp=94.0,92.0
+[19:31:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S1_CANCEL accepted=false hp=100.0 timer=13
+[19:31:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S1_SEGMENT tick=14 vanilla=true naive=true isolated=true duplicate=false hp=96.0,94.0,94.0
+[19:31:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S1_SUMMARY vanillaHp=96.0 naiveHp=94.0 isolatedHp=94.0
+[19:32:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE LOGIN name=ProbeB side=DEDICATED_OR_INTEGRATED
+[19:32:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE LOGIN name=ProbeA side=DEDICATED_OR_INTEGRATED
+[19:32:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=open speed=0.4000000059604645 id=414
+[19:32:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=true x=0.9000000059604645 z=0.5
+[19:32:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=true x=1.300000011920929 z=0.5
+[19:32:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=true x=1.7000000178813934 z=0.5
+[19:32:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=true x=2.100000023841858 z=0.5
+[19:32:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=true x=2.5000000298023224 z=0.5
+[19:32:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=open speed=0.4000000059604645 valid=5 rejects=0 dx=2.0000000298023224 x=2.5000000298023224 expectedX=2.5000000298023224
+[19:32:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_WORLD_FIXTURES peacefulDoor=true engagedDoor=false noToggle=true peacefulChest=true engagedChest=false configClosed=true villagerInteract=false protectedLoss=0.0 unprotectedLoss=2.0 leftBlocked=true passed=true
+[19:32:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=wall speed=0.800000011920929 id=468
+[19:32:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=true x=1.300000011920929 z=4.5
+[19:32:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=true x=2.100000023841858 z=4.5
+[19:32:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=true x=2.699999988079071 z=4.5
+[19:32:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=true x=2.699999988079071 z=4.5
+[19:32:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=true x=2.699999988079071 z=4.5
+[19:32:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=wall speed=0.800000011920929 valid=5 rejects=0 dx=2.199999988079071 x=2.699999988079071 expectedX=2.699999988079071
+[19:32:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=invalid speed=0.4000000059604645 id=521
+[19:32:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=false x=5.5 z=0.5
+[19:32:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=false x=5.9000000059604645 z=0.5
+[19:32:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=false x=6.300000011920929 z=0.5
+[19:32:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=false x=0.9000000059604645 z=0.5
+[19:32:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=false x=0.9000000059604645 z=0.5
+[19:32:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=invalid speed=0.4000000059604645 valid=0 rejects=5 dx=0.0 x=0.5 expectedX=0.5
+[19:32:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=open speed=0.800000011920929 id=574
+[19:32:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=true x=1.300000011920929 z=0.5
+[19:32:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=true x=2.100000023841858 z=0.5
+[19:32:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=true x=2.900000035762787 z=0.5
+[19:32:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=true x=3.700000047683716 z=0.5
+[19:32:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=true x=4.500000059604645 z=0.5
+[19:32:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=open speed=0.800000011920929 valid=5 rejects=0 dx=4.000000059604645 x=4.500000059604645 expectedX=4.500000059604645
+[19:32:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=wall speed=0.4000000059604645 id=627
+[19:32:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=true x=0.9000000059604645 z=4.5
+[19:32:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=true x=1.300000011920929 z=4.5
+[19:32:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=true x=1.7000000178813934 z=4.5
+[19:32:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=true x=2.100000023841858 z=4.5
+[19:32:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=true x=2.5000000298023224 z=4.5
+[19:32:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=wall speed=0.4000000059604645 valid=5 rejects=0 dx=2.0000000298023224 x=2.5000000298023224 expectedX=2.5000000298023224
+[19:32:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=invalid speed=0.800000011920929 id=681
+[19:32:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=false x=5.5 z=0.5
+[19:32:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=false x=6.300000011920929 z=0.5
+[19:32:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=false x=7.100000023841858 z=0.5
+[19:32:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=false x=1.300000011920929 z=0.5
+[19:32:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=false x=1.300000011920929 z=0.5
+[19:32:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=invalid speed=0.800000011920929 valid=0 rejects=5 dx=0.0 x=0.5 expectedX=0.5
+[19:32:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=open speed=0.4000000059604645 id=734
+[19:32:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=true x=0.9000000059604645 z=0.5
+[19:32:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=true x=1.300000011920929 z=0.5
+[19:32:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=true x=1.7000000178813934 z=0.5
+[19:32:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=true x=2.100000023841858 z=0.5
+[19:32:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=true x=2.5000000298023224 z=0.5
+[19:32:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=open speed=0.4000000059604645 valid=5 rejects=0 dx=2.0000000298023224 x=2.5000000298023224 expectedX=2.5000000298023224
+[19:32:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=wall speed=0.800000011920929 id=787
+[19:32:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=true x=1.300000011920929 z=4.5
+[19:32:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=true x=2.100000023841858 z=4.5
+[19:32:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=true x=2.699999988079071 z=4.5
+[19:32:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=true x=2.699999988079071 z=4.5
+[19:32:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=true x=2.699999988079071 z=4.5
+[19:32:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=wall speed=0.800000011920929 valid=5 rejects=0 dx=2.199999988079071 x=2.699999988079071 expectedX=2.699999988079071
+[19:32:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=invalid speed=0.4000000059604645 id=840
+[19:32:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=false x=5.5 z=0.5
+[19:32:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=false x=5.9000000059604645 z=0.5
+[19:32:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=false x=6.300000011920929 z=0.5
+[19:32:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=false x=0.9000000059604645 z=0.5
+[19:32:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=false x=0.9000000059604645 z=0.5
+[19:32:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=invalid speed=0.4000000059604645 valid=0 rejects=5 dx=0.0 x=0.5 expectedX=0.5
+[19:32:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=open speed=0.800000011920929 id=894
+[19:32:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=true x=1.300000011920929 z=0.5
+[19:32:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=true x=2.100000023841858 z=0.5
+[19:32:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=true x=2.900000035762787 z=0.5
+[19:32:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=true x=3.700000047683716 z=0.5
+[19:32:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=true x=4.500000059604645 z=0.5
+[19:32:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=open speed=0.800000011920929 valid=5 rejects=0 dx=4.000000059604645 x=4.500000059604645 expectedX=4.500000059604645
+[19:32:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=wall speed=0.4000000059604645 id=948
+[19:32:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=true x=0.9000000059604645 z=4.5
+[19:32:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=true x=1.300000011920929 z=4.5
+[19:32:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=true x=1.7000000178813934 z=4.5
+[19:32:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=true x=2.100000023841858 z=4.5
+[19:32:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=true x=2.5000000298023224 z=4.5
+[19:32:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=wall speed=0.4000000059604645 valid=5 rejects=0 dx=2.0000000298023224 x=2.5000000298023224 expectedX=2.5000000298023224
+[19:32:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_START name=ProbeA lane=invalid speed=0.800000011920929 id=1001
+[19:32:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=1 valid=false x=5.5 z=0.5
+[19:32:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=2 valid=false x=6.300000011920929 z=0.5
+[19:32:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=3 valid=false x=7.100000023841858 z=0.5
+[19:32:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=4 valid=false x=1.300000011920929 z=0.5
+[19:32:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_SAMPLE name=ProbeA sample=5 valid=false x=1.300000011920929 z=0.5
+[19:32:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_END name=ProbeA lane=invalid speed=0.800000011920929 valid=0 rejects=5 dx=0.0 x=0.5 expectedX=0.5
+[19:32:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_VELOCITY_SENT x=0.4 y=0.25 origin=SERVER
+[19:32:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=0 lead=0 tick=1105 press=null parry=false damage=1.0
+[19:32:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=1 stamp=1105 arrival=1108 age=3 accepted=true
+[19:32:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=1 lead=1 tick=1135 press=null parry=false damage=1.0
+[19:32:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=2 stamp=1134 arrival=1137 age=3 accepted=true
+[19:32:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=2 lead=2 tick=1165 press=null parry=false damage=1.0
+[19:32:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=3 stamp=1163 arrival=1166 age=3 accepted=true
+[19:32:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=4 stamp=1192 arrival=1195 age=3 accepted=true
+[19:32:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=3 lead=3 tick=1195 press=1192 parry=true damage=0.0
+[19:32:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=5 stamp=1221 arrival=1224 age=3 accepted=true
+[19:32:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=4 lead=4 tick=1225 press=1221 parry=true damage=0.0
+[19:32:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=5 lead=0 tick=1255 press=null parry=false damage=1.0
+[19:32:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=6 stamp=1255 arrival=1258 age=3 accepted=true
+[19:32:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=6 lead=1 tick=1285 press=null parry=false damage=1.0
+[19:32:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=7 stamp=1284 arrival=1287 age=3 accepted=true
+[19:32:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=7 lead=2 tick=1315 press=null parry=false damage=1.0
+[19:32:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=8 stamp=1313 arrival=1316 age=3 accepted=true
+[19:33:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=9 stamp=1342 arrival=1345 age=3 accepted=true
+[19:33:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=8 lead=3 tick=1345 press=1342 parry=true damage=0.0
+[19:33:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=10 stamp=1371 arrival=1374 age=3 accepted=true
+[19:33:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=9 lead=4 tick=1375 press=1371 parry=true damage=0.0
+[19:33:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=10 lead=0 tick=1405 press=null parry=false damage=1.0
+[19:33:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=11 stamp=1405 arrival=1408 age=3 accepted=true
+[19:33:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=11 lead=1 tick=1435 press=null parry=false damage=1.0
+[19:33:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=12 stamp=1434 arrival=1437 age=3 accepted=true
+[19:33:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=12 lead=2 tick=1465 press=null parry=false damage=1.0
+[19:33:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=13 stamp=1463 arrival=1466 age=3 accepted=true
+[19:33:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=14 stamp=1492 arrival=1495 age=3 accepted=true
+[19:33:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=13 lead=3 tick=1495 press=1492 parry=true damage=0.0
+[19:33:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=15 stamp=1521 arrival=1524 age=3 accepted=true
+[19:33:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=14 lead=4 tick=1525 press=1521 parry=true damage=0.0
+[19:33:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=15 lead=0 tick=1555 press=null parry=false damage=1.0
+[19:33:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=16 stamp=1555 arrival=1558 age=3 accepted=true
+[19:33:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=16 lead=1 tick=1585 press=null parry=false damage=1.0
+[19:33:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=17 stamp=1584 arrival=1587 age=3 accepted=true
+[19:33:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=17 lead=2 tick=1615 press=null parry=false damage=1.0
+[19:33:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=18 stamp=1613 arrival=1616 age=3 accepted=true
+[19:33:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=19 stamp=1642 arrival=1645 age=3 accepted=true
+[19:33:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=18 lead=3 tick=1645 press=1642 parry=true damage=0.0
+[19:33:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_INPUT name=ProbeB seq=20 stamp=1671 arrival=1674 age=3 accepted=true
+[19:33:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_IMPACT trial=19 lead=4 tick=1675 press=1671 parry=true damage=0.0
+[19:33:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_SUMMARY success=8 total=20 window=5 cap=4 worldRollback=false lateUndo=false
+[19:32:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S4_IMPORT loader=AdvancedModelLoader format=OBJ texture=PNG units=blocks up=Y origin=grip
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK peace sneaks at 0.3 passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK engage restores movement and jump passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK held Shift on engagement creates no press passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK real rising edge creates press passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK hold creates no repeat passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK GUI close while held creates no press passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK equip while held creates no press passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK release then press survives transitions passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK peace mapping restored passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_CHECK exactly two genuine presses passed=true
+[19:32:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S5_REPLAY assertions=10 presses=2 releases=4 passed=true provider=MovementInputFromOptions
+[19:32:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=0.9000000059604645
+[19:32:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=1.300000011920929
+[19:32:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=1.7000000178813934
+[19:32:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=2.100000023841858
+[19:32:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=2.5000000298023224
+[19:32:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=0 predicted=2.5000000298023224 server=2.5000000298023224 validated=2.5000000298023224 delta=0.0 rejects=0 S08=0 postMotionS08=0
+[19:32:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=1.300000011920929
+[19:32:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=2.100000023841858
+[19:32:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=2.699999988079071
+[19:32:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=2.699999988079071
+[19:32:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=2.699999988079071
+[19:32:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=1 predicted=2.699999988079071 server=2.699999988079071 validated=2.699999988079071 delta=0.0 rejects=0 S08=0 postMotionS08=0
+[19:32:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=5.5
+[19:32:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=5.9000000059604645
+[19:32:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=6.300000011920929
+[19:32:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=0.9000000059604645
+[19:32:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=0.9000000059604645
+[19:32:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=2 predicted=0.9000000059604645 server=0.5 validated=0.5 delta=0.4000000059604645 rejects=5 S08=5 postMotionS08=2
+[19:32:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=1.300000011920929
+[19:32:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=2.100000023841858
+[19:32:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=2.900000035762787
+[19:32:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=3.700000047683716
+[19:32:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=4.500000059604645
+[19:32:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=3 predicted=4.500000059604645 server=4.500000059604645 validated=4.500000059604645 delta=0.0 rejects=0 S08=0 postMotionS08=0
+[19:32:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=0.9000000059604645
+[19:32:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=1.300000011920929
+[19:32:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=1.7000000178813934
+[19:32:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=2.100000023841858
+[19:32:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=2.5000000298023224
+[19:32:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=4 predicted=2.5000000298023224 server=2.5000000298023224 validated=2.5000000298023224 delta=0.0 rejects=0 S08=0 postMotionS08=0
+[19:32:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=5.5
+[19:32:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=6.300000011920929
+[19:32:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=7.100000023841858
+[19:32:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=1.300000011920929
+[19:32:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=1.300000011920929
+[19:32:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=5 predicted=1.300000011920929 server=0.5 validated=0.5 delta=0.800000011920929 rejects=5 S08=5 postMotionS08=2
+[19:32:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=0.9000000059604645
+[19:32:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=1.300000011920929
+[19:32:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=1.7000000178813934
+[19:32:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=2.100000023841858
+[19:32:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=2.5000000298023224
+[19:32:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=6 predicted=2.5000000298023224 server=2.5000000298023224 validated=2.5000000298023224 delta=0.0 rejects=0 S08=0 postMotionS08=0
+[19:32:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=1.300000011920929
+[19:32:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=2.100000023841858
+[19:32:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=2.699999988079071
+[19:32:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=2.699999988079071
+[19:32:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=2.699999988079071
+[19:32:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=7 predicted=2.699999988079071 server=2.699999988079071 validated=2.699999988079071 delta=0.0 rejects=0 S08=0 postMotionS08=0
+[19:32:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=5.5
+[19:32:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=5.9000000059604645
+[19:32:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=6.300000011920929
+[19:32:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=0.9000000059604645
+[19:32:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=0.9000000059604645
+[19:32:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=8 predicted=0.9000000059604645 server=0.5 validated=0.5 delta=0.4000000059604645 rejects=5 S08=5 postMotionS08=2
+[19:32:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=1.300000011920929
+[19:32:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=2.100000023841858
+[19:32:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=2.900000035762787
+[19:32:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=3.700000047683716
+[19:32:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=4.500000059604645
+[19:32:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=9 predicted=4.500000059604645 server=4.500000059604645 validated=4.500000059604645 delta=0.0 rejects=0 S08=0 postMotionS08=0
+[19:32:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=0.9000000059604645
+[19:32:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=1.300000011920929
+[19:32:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=1.7000000178813934
+[19:32:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=2.100000023841858
+[19:32:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=2.5000000298023224
+[19:32:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=10 predicted=2.5000000298023224 server=2.5000000298023224 validated=2.5000000298023224 delta=0.0 rejects=0 S08=0 postMotionS08=0
+[19:32:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=1 x=5.5
+[19:32:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=2 x=6.300000011920929
+[19:32:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=3 x=7.100000023841858
+[19:32:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=4 x=1.300000011920929
+[19:32:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_PREDICT sample=5 x=1.300000011920929
+[19:32:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_RESULT trial=11 predicted=1.300000011920929 server=0.5 validated=0.5 delta=0.800000011920929 rejects=5 S08=5 postMotionS08=2
+[19:32:45] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_VELOCITY_RECEIVED x=0.4 y=0.25
+[19:32:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S2_VELOCITY_RESULT packets=1 finalX=2.314665588728958 finalY=66.62000000476837
+[19:33:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S3_CLIENT_SUMMARY success=8 total=20.0
+[19:33:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S4_START entity=33 instance=1688 localStart=1411
+[19:33:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S4_VIEW view=0 instance=1688 elapsed=2 progress=0.15384616
+[19:33:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S4_VIEW view=1 instance=1688 elapsed=6 progress=0.46153846
+[19:33:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE S4_VIEW view=2 instance=1688 elapsed=9 progress=0.6923077
+[19:33:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:53]: CWPROBE CLIENT_COMPLETE moves=12 screenshots=3

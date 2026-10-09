@@ -1,0 +1,55 @@
+[19:37:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S4_IMPORT loader=AdvancedModelLoader format=OBJ texture=PNG units=blocks up=Y origin=grip
+[19:38:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=0 lead=0.0 localDue=683 calibratedOneWayTicks=1.0
+[19:38:33] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.4 y=0.36075
+[19:38:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=0 stamp=794 local=683
+[19:38:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=1 lead=1.0 localDue=712 calibratedOneWayTicks=1.0
+[19:38:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=1 stamp=823 local=712
+[19:38:35] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.4 y=0.36075
+[19:38:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=2 lead=2.0 localDue=741 calibratedOneWayTicks=1.0
+[19:38:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=2 stamp=852 local=741
+[19:38:36] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.399875 y=0.36075
+[19:38:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=3 lead=3.0 localDue=769 calibratedOneWayTicks=1.0
+[19:38:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=3 stamp=881 local=769
+[19:38:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=4 lead=4.0 localDue=799 calibratedOneWayTicks=1.0
+[19:38:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=4 stamp=910 local=799
+[19:38:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=5 lead=0.0 localDue=833 calibratedOneWayTicks=1.0
+[19:38:41] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.4 y=0.36075
+[19:38:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=5 stamp=944 local=833
+[19:38:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=6 lead=1.0 localDue=862 calibratedOneWayTicks=1.0
+[19:38:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=6 stamp=973 local=862
+[19:38:42] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.4 y=0.36075
+[19:38:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=7 lead=2.0 localDue=891 calibratedOneWayTicks=1.0
+[19:38:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=7 stamp=1002 local=891
+[19:38:44] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.399875 y=0.36075
+[19:38:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=8 lead=3.0 localDue=920 calibratedOneWayTicks=1.0
+[19:38:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=8 stamp=1031 local=920
+[19:38:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=9 lead=4.0 localDue=949 calibratedOneWayTicks=1.0
+[19:38:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=9 stamp=1060 local=949
+[19:38:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=10 lead=0.0 localDue=983 calibratedOneWayTicks=1.0
+[19:38:48] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.4 y=0.36075
+[19:38:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=10 stamp=1094 local=983
+[19:38:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=11 lead=1.0 localDue=1012 calibratedOneWayTicks=1.0
+[19:38:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=11 stamp=1123 local=1012
+[19:38:50] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.4025 y=-0.392375
+[19:38:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=12 lead=2.0 localDue=1041 calibratedOneWayTicks=1.0
+[19:38:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=12 stamp=1152 local=1041
+[19:38:51] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.411875 y=-0.597875
+[19:38:51] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.21275 y=-0.078375
+[19:38:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=13 lead=3.0 localDue=1070 calibratedOneWayTicks=1.0
+[19:38:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=13 stamp=1181 local=1070
+[19:38:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=14 lead=4.0 localDue=1099 calibratedOneWayTicks=1.0
+[19:38:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=14 stamp=1210 local=1099
+[19:38:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=15 lead=0.0 localDue=1133 calibratedOneWayTicks=1.0
+[19:38:56] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.399875 y=0.36075
+[19:38:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=15 stamp=1244 local=1133
+[19:38:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=16 lead=1.0 localDue=1162 calibratedOneWayTicks=1.0
+[19:38:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=16 stamp=1273 local=1162
+[19:38:57] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.399875 y=0.36075
+[19:38:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=17 lead=2.0 localDue=1191 calibratedOneWayTicks=1.0
+[19:38:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=17 stamp=1302 local=1191
+[19:38:59] [Netty Client IO #0/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_VELOCITY_RECEIVED x=0.4 y=0.36075
+[19:38:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=18 lead=3.0 localDue=1220 calibratedOneWayTicks=1.0
+[19:39:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=18 stamp=1331 local=1220
+[19:39:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SCHEDULE trial=19 lead=4.0 localDue=1249 calibratedOneWayTicks=1.0
+[19:39:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SEND trial=19 stamp=1360 local=1249
+[19:39:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S4_START entity=8 instance=1378 localStart=1268

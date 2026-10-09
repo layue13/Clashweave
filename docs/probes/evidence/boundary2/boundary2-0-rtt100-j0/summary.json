@@ -1,0 +1,30 @@
+{
+  "rtt_ms": 100,
+  "jitter_ms": 0,
+  "seed": 1710,
+  "elapsed_s": 78.734,
+  "server_exit": 0,
+  "client_class_loads_on_server": 0,
+  "client_class_lines": [],
+  "proxy_chunks": 3262,
+  "oneway_mean_ms": 48.78939301031761,
+  "oneway_min_ms": 46.000000002095476,
+  "oneway_max_ms": 78.00000000133878,
+  "server_summaries": [
+    "[19:37:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S1_SUMMARY vanillaHp=96.0 naiveHp=94.0 isolatedHp=94.0",
+    "[19:39:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S3_SUMMARY success=8 total=20 window=5 cap=4 worldRollback=false lateUndo=false"
+  ],
+  "client_results": [
+    "[19:38:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S5_REPLAY assertions=10 presses=2 releases=4 passed=true provider=MovementInputFromOptions",
+    "[19:38:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_RESULT trial=0 predicted=5.5 server=5.5 validated=0.5 delta=0.0 rejects=0 S08=0 postMotionS08=0",
+    "[19:38:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_RESULT trial=1 predicted=2.699999988079071 server=2.699999988079071 validated=2.699999988079071 delta=0.0 rejects=0 S08=0 postMotionS08=0",
+    "[19:38:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_RESULT trial=2 predicted=0.9000000059604645 server=0.5 validated=0.5 delta=0.4000000059604645 rejects=5 S08=5 postMotionS08=3",
+    "[19:38:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_RESULT trial=3 predicted=4.500000059604645 server=4.500000059604645 validated=4.500000059604645 delta=0.0 rejects=0 S08=0 postMotionS08=0",
+    "[19:38:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_RESULT trial=4 predicted=2.5000000298023224 server=2.5000000298023224 validated=2.5000000298023224 delta=0.0 rejects=0 S08=0 postMotionS08=0",
+    "[19:38:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S2_RESULT trial=5 predicted=1.300000011920929 server=0.5 validated=0.5 delta=0.800000011920929 rejects=5 S08=6 postMotionS08=3",
+    "[19:39:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S4_VIEW view=0 instance=1378 elapsed=2 progress=0.15384616",
+    "[19:39:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S4_VIEW view=1 instance=1378 elapsed=6 progress=0.46153846",
+    "[19:39:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE S4_VIEW view=2 instance=1378 elapsed=9 progress=0.6923077",
+    "[19:39:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.probe.ProbeServer:log:56]: CWPROBE CLIENT_COMPLETE moves=6 screenshots=3"
+  ]
+}
