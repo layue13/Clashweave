@@ -1,0 +1,27 @@
+{
+  "server_exit": 0,
+  "client_class_loads": 0,
+  "complete": true,
+  "captures": [
+    "P0A\\screenshots\\p0-draw-0.png",
+    "P0A\\screenshots\\p0-draw-2.png",
+    "P0A\\screenshots\\p0-sheathe-0.png",
+    "P0A\\screenshots\\p0-sheathe-2.png",
+    "P0A\\screenshots\\p0-sheathed-0.png",
+    "P0A\\screenshots\\p0-sheathed-2.png",
+    "P0A\\screenshots\\p0-swing-0.png",
+    "P0A\\screenshots\\p0-swing-2.png"
+  ],
+  "performance": [
+    "[17:51:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=690244 maxNanos=31693300",
+    "[17:51:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=724271 maxNanos=31693300",
+    "[17:52:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=300 meanNanos=607300 maxNanos=31693300",
+    "[17:52:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=400 meanNanos=688551 maxNanos=68447500",
+    "[17:52:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=500 meanNanos=605592 maxNanos=68447500",
+    "[17:52:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=600 meanNanos=569506 maxNanos=68447500",
+    "[17:52:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=700 meanNanos=519560 maxNanos=68447500",
+    "[17:52:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=800 meanNanos=485471 maxNanos=68447500",
+    "[17:52:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=900 meanNanos=458783 maxNanos=68447500",
+    "[17:52:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1000 meanNanos=436960 maxNanos=68447500"
+  ]
+}

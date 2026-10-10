@@ -1,0 +1,16 @@
+{
+  "exit": 0,
+  "class_load_leaks": [],
+  "assertions": [
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT twoOwners=true",
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT firstHit=true",
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT gap4Hit1=true",
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT gap4Hit2=true",
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT threeHitsLoss6=true",
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT oneOwnerRemains=true",
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT restore20=true",
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT externalWritePreserved=true",
+    "[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT dimensionRestore=true"
+  ],
+  "complete": true
+}

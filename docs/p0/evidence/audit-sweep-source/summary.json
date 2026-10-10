@@ -1,0 +1,10 @@
+{
+  "server_exit": 0,
+  "client_class_loads": 0,
+  "complete": true,
+  "captures": [],
+  "performance": [
+    "[15:25:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PERF samples=100 meanNanos=109328 maxNanos=1387000",
+    "[15:25:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PERF samples=200 meanNanos=180546 maxNanos=3321000"
+  ]
+}

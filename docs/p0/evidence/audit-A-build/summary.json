@@ -1,0 +1,56 @@
+{
+  "command": "gradlew.bat spotlessApply spotlessCheck checkstyleMain checkstyleTest build -I tools/p0/validation.gradle p0LaunchFiles --no-configuration-cache",
+  "result": "BUILD SUCCESSFUL in 5s",
+  "junit": [
+    {
+      "name": "com.layue13.clashweave.core.AuthorityTest",
+      "tests": "4",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-09T22:28:14.101Z",
+      "hostname": "DESKTOP-NCOAQL3",
+      "time": "0.006"
+    },
+    {
+      "name": "com.layue13.clashweave.core.FacingHistoryTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-09T22:28:14.109Z",
+      "hostname": "DESKTOP-NCOAQL3",
+      "time": "0.0"
+    },
+    {
+      "name": "com.layue13.clashweave.core.LockSelectionTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-09T22:28:14.110Z",
+      "hostname": "DESKTOP-NCOAQL3",
+      "time": "0.001"
+    },
+    {
+      "name": "com.layue13.clashweave.core.SchedulerTest",
+      "tests": "9",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-09T22:28:14.114Z",
+      "hostname": "DESKTOP-NCOAQL3",
+      "time": "0.048"
+    },
+    {
+      "name": "com.layue13.clashweave.network.StateMessageTest",
+      "tests": "2",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-09T22:28:14.165Z",
+      "hostname": "DESKTOP-NCOAQL3",
+      "time": "0.021"
+    }
+  ]
+}

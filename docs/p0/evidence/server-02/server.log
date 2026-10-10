@@ -1,0 +1,27 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 5014
+# Marker counts: {'Exception': 162, 'ERROR': 2, 'P0_ASSERT': 9, 'P0_SERVER_CHECK': 1}
+[Loaded java.lang.Exception from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.RuntimeException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ReflectiveOperationException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassNotFoundException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassCastException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArrayStoreException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.IllegalMonitorStateException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.Thread$UncaughtExceptionHandler from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.NullPointerException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArithmeticException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.InterruptedException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.security.PrivilegedExceptionAction from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[09:22:31] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[09:22:31] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT twoOwners=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT firstHit=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT gap4Hit1=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT gap4Hit2=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT threeHitsLoss6=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT oneOwnerRemains=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT restore20=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT externalWritePreserved=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:34]: P0_ASSERT dimensionRestore=true
+[09:22:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:tick:77]: P0_SERVER_CHECK COMPLETE

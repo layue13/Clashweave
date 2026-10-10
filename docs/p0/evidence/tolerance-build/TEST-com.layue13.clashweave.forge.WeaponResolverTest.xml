@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.layue13.clashweave.forge.WeaponResolverTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-10T00:46:57.175Z" hostname="DESKTOP-NCOAQL3" time="0.763">
+  <properties/>
+  <testcase name="registeredStaticItemIgnoresForgedDefinitionsInNbt" classname="com.layue13.clashweave.forge.WeaponResolverTest" time="0.759"/>
+  <testcase name="serverCatalogRejectsUnknownStyleAndActionReference" classname="com.layue13.clashweave.forge.WeaponResolverTest" time="0.003"/>
+  <testcase name="serverBoundsRejectNonfiniteOrOutOfRangeNumbers" classname="com.layue13.clashweave.forge.WeaponResolverTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

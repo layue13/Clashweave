@@ -1,6 +1,6 @@
 # Clashweave
 
-Forge 模组开发骨架，参考 [GTNH 官方 starter](https://github.com/GTNewHorizons/ExampleMod1.7.10)。
+Minecraft 1.7.10 Forge 战斗模组，当前 P0 缩小垂直切片为待审核草稿。构建骨架参考 [GTNH 官方 starter](https://github.com/GTNewHorizons/ExampleMod1.7.10)。
 
 设计资料见 [docs/design](docs/design/README.md)，包含完整 V1.0 方案、设计状态、交接说明及后续讨论议题。
 本轮审核从 [设计审核入口](docs/design/review.md) 开始，原型任务与验收见 [原型说明](docs/design/proposals/prototype-spec-v1.md)。
@@ -49,14 +49,16 @@ Gradle 缓存位于 `/workspace/.gradle`，JDK 位于 `/workspace/.toolchains`�
 
 ## 当前验证状态
 
-以下前四项是骨架初始化阶段记录。当前 S1–S5 技术探针的结论、专用服务器/双客户端实测、命令与限制见 [探针交付报告](docs/probes/REPORT.md)和[复现入口](docs/probes/README.md)。探针代码保存在分支 `probe/s1-s5`（提交 `5d3e140`），不在 `work`；S1/S2/S3/S5 需改方案，S4 在占位范围内通过，尚未进入 P0。
+本分支 P0-a/b/c 已接通；15项JUnit及专用服＋双客户端验证见 [P0报告](docs/p0/REPORT.md)，限制和未通过项逐项列出，真人体验见 [运行步骤](docs/p0/PLAYTEST.md)。尚未宣称全部验收通过。
+
+以下是历史骨架/首轮探针记录。当前 S1–S5 技术探针的结论、专用服务器/双客户端实测、命令与限制见 [探针交付报告](docs/probes/REPORT.md)和[复现入口](docs/probes/README.md)。探针代码保存在分支 `probe/s1-s5`（提交 `5d3e140`），不在 `work`；S1/S2/S3/S5 需改方案，S4 在占位范围内通过，当时尚未进入 P0。
 
 - 已验证：Gradle 9.7.1 使用 Java 25 启动。
 - 已验证：实际项目的 `compileJava` 和生成 Tags 的任务均使用 JDK 8 编译器。
 - 已通过：`setupDecompWorkspace build`，包括 Spotless 与 Checkstyle 检查。
 - 已验证：`build/libs/clashweave-0.1.0-dev.jar` 中两个类的 major version 均为 52，模组元数据正确。
 - 已通过：安装脚本重复执行，复用了已下载依赖和准备好的 Forge 工作区。
-- Gradle 的 `test` 任务仍为 `NO-SOURCE`，未执行单元测试；探针通过实际 Forge 运行夹具验证，不将 build 视为玩法验收。
+- 骨架阶段 Gradle 的 `test` 任务为 `NO-SOURCE`，未执行单元测试；探针通过实际 Forge 运行夹具验证，不将 build 视为玩法验收。
 - 已运行六个专用服务器＋双客户端探针场景及默认关闭探针的服务端；实际 class-load trace 的客户端/OpenGL 类均为 0。完整原型战斗与集成服务器未验证。
 
 `LICENSE-GTNH-template` 保留了上游构建模板的 MIT 许可与版权声明；项目自身的许可尚未指定。

@@ -1,0 +1,25 @@
+{
+  "exit": 0,
+  "class_load_leaks": [],
+  "assertions": [
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT twoOwners=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT firstHit=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT gap4Hit1=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT gap4Hit2=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT threeHitsLoss6=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT oneOwnerRemains=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT restore20=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT externalWritePreserved=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT dimensionRestore=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT vanillaEqualSourceWindow10=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT engagedEqualSourceWindow4=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT entityOverrideSeesPersistent8=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT overrideExceptionNoExtraDamageOrTransientReset=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT overrideExitRestore=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT observedForeignOwnershipDoesNotReturnWhenValueMatchesAgain=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT entryKeepsOldTimer20=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT oldTimerRejectsEqualDamage=true",
+    "[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT oldTimerTransitionFirstEqual16=true"
+  ],
+  "complete": true
+}

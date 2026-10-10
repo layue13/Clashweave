@@ -1,0 +1,80 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 736
+# Marker counts: {'ERROR': 3, 'CW_RENDER': 1, 'Exception': 2, 'P0_AUDIO': 4, 'CW_VIEW': 2, 'CW_ENGAGEMENT': 2, 'P0_LOCK_PHASE': 8, 'P0_LOCK_CAMERA': 294, 'CW_LOCK_MARKER': 1, 'CW_LOCK_FOLLOW': 272, 'P0_LOCAL_AUDIO': 3, 'CW_LOCAL_SWING': 3, 'P0_LOCK_ATTACK': 1, 'CW_ALIGN': 3, 'CW_PRESENT': 10, 'CW_FEEDBACK': 3, 'CW_FRAME': 3, 'P0_LOCK_MOUSE': 2, 'P0_LOCK_F': 2}
+[07:55:46] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[07:55:46] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+[07:55:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:35]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[07:55:50] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[07:55:50] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[07:55:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:69]: P0_AUDIO initial loader settled
+[07:55:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=90173215622900
+[07:55:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=90173581819700
+[07:55:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:251]: CW_ENGAGEMENT player=P0A engaged=false revision=1 tick=213 receive=90173621063200
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:phase:49]: P0_LOCK_PHASE name=WAIT serial=0 angle=0.0 assist=true target=85250 tick=473 receivedNano=90184764978200
+[07:56:09] [Client thread/INFO]: [CHAT] P0_LOCK_PHASE name=WAIT serial=0 angle=0.0 assist=true target=85250 tick=473
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=1 nano=90184766216200 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:251]: CW_ENGAGEMENT player=P0A engaged=true revision=3 tick=475 receive=90184815079700
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=2 nano=90184815439400 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=3 nano=90184865294800 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=4 nano=90184914894600 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=5 nano=90184965314000 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=6 nano=90185015130900 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=7 nano=90185065600200 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=8 nano=90185119003500 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=9 nano=90185165264600 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=10 nano=90185215244900 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=11 nano=90185265568700 yaw=0.0 view=0
+[07:56:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:85]: P0_LOCK_CAMERA phase=WAIT elapsed=12 nano=90185315121800 yaw=0.0 view=0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:136]: CW_LOCK_MARKER target=85250 nano=90185865023900
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=85250 nano=90185865023900 dt=0.0499477 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=85250 nano=90185915393700 dt=0.0503698 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=85250 nano=90185967538200 dt=0.0521445 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=85250 nano=90186015172500 dt=0.0476343 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=85250 nano=90186065273800 dt=0.0501013 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=85250 nano=90186115118200 dt=0.0498444 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=85250 nano=90186165058500 dt=0.0499403 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:phase:49]: P0_LOCK_PHASE name=AIM serial=39 angle=30.0 assist=true target=85250 tick=502 receivedNano=90186214979400
+[07:56:10] [Client thread/INFO]: [CHAT] P0_LOCK_PHASE name=AIM serial=39 angle=30.0 assist=true target=85250 tick=502
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=OFF reason=OFF target=85250 nano=90186215885900 dt=0.0508274 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=OFF reason=OFF target=85250 nano=90186265875900 dt=0.04999 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=OFF reason=OFF target=85250 nano=90186315027600 dt=0.0491517 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=OFF reason=OFF target=85250 nano=90186365303100 dt=0.0502755 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:174]: CW_LOCK_FOLLOW mode=OFF reason=OFF target=85250 nano=90186415731700 dt=0.0504286 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 offset=0.0 instance=0 committed=0.0
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=90186565744700
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:166]: CW_LOCAL_SWING seq=97 press=90186565558800 feedback=90186568037800
+[07:56:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:68]: P0_LOCK_ATTACK phase=AIM serial=39 seq=97 yaw=0.0 nano=90186568359800
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:265]: CW_ALIGN player=P0A seq=97 predicted=0 authoritative=0 sameAction=true
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=1 kind=DRAW actor=0 owner=0
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=2 kind=SWING actor=0 owner=0
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:310]: CW_FEEDBACK player=P0A result=HIT frozen=90186883712100 receive=90186970627800 corrections=0
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=90186883712100 nano=90186971018000
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=3 kind=HIT actor=0 owner=0
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=4 kind=HURT actor=85250 owner=0
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:381]: CW_FRAME frozen=90186883712100 frame=90186974569000
+[07:56:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:phase:49]: P0_LOCK_PHASE name=WEAK serial=0 angle=0.0 assist=true target=85250 tick=526 receivedNano=90187381673100
+[07:56:11] [Client thread/INFO]: [CHAT] P0_LOCK_PHASE name=WEAK serial=0 angle=0.0 assist=true target=85250 tick=526
+[07:56:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:76]: P0_LOCK_MOUSE phase=WEAK rawDx=33 gateDx=33 delta=4.95 nano=90188833290400
+[07:56:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:phase:49]: P0_LOCK_PHASE name=STRONG serial=0 angle=0.0 assist=true target=85250 tick=646 receivedNano=90193382330100
+[07:56:17] [Client thread/INFO]: [CHAT] P0_LOCK_PHASE name=STRONG serial=0 angle=0.0 assist=true target=85250 tick=646
+[07:56:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=90194582388100
+[07:56:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:166]: CW_LOCAL_SWING seq=99 press=90194582218100 feedback=90194582571400
+[07:56:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:265]: CW_ALIGN player=P0A seq=99 predicted=0 authoritative=0 sameAction=true
+[07:56:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=5 kind=SWING actor=0 owner=0
+[07:56:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:76]: P0_LOCK_MOUSE phase=STRONG rawDx=33 gateDx=0 delta=4.95 nano=90194832262700
+[07:56:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:310]: CW_FEEDBACK player=P0A result=HIT frozen=90194925324300 receive=90194982740200 corrections=0
+[07:56:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=90194925324300 nano=90194983009800
+[07:56:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=6 kind=HIT actor=0 owner=0
+[07:56:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=7 kind=HURT actor=85250 owner=0
+[07:56:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:381]: CW_FRAME frozen=90194925324300 frame=90194984344400
+[07:56:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=90196582473700
+[07:56:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:166]: CW_LOCAL_SWING seq=101 press=90196582369200 feedback=90196582667100
+[07:56:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:265]: CW_ALIGN player=P0A seq=101 predicted=0 authoritative=0 sameAction=true
+[07:56:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=8 kind=SWING actor=0 owner=0
+[07:56:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:310]: CW_FEEDBACK player=P0A result=HIT frozen=90196835407600 receive=90196932035400 corrections=0
+[07:56:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=90196835407600 nano=90196932307800
+[07:56:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=9 kind=HIT actor=0 owner=0
+[07:56:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:194]: CW_PRESENT id=10 kind=HURT actor=85250 owner=0
+[07:56:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:381]: CW_FRAME frozen=90196835407600 frame=90196935434700
+[07:56:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:83]: P0_LOCK_F5 nano=90198082818100
+[07:56:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.LockSupportReplay:tick:84]: P0_LOCK_F5 nano=90198582361100

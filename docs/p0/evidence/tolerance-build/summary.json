@@ -1,0 +1,7 @@
+{
+  "tests": 39,
+  "failures": 0,
+  "errors": 0,
+  "command": "gradlew.bat spotlessApply spotlessCheck checkstyleMain checkstyleTest build -I tools/p0/validation.gradle p0LaunchFiles --no-configuration-cache",
+  "result": "BUILD SUCCESSFUL in 5s"
+}

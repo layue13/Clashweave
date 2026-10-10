@@ -1,0 +1,534 @@
+{
+  "GOLDEN_STATIC_THIRD": {
+    "samples": 171,
+    "active": 171,
+    "view": "1",
+    "projection": {
+      "playerX": {
+        "minimum": 0.38200002908706665,
+        "maximum": 0.38200002908706665,
+        "mean": 0.38200002908706665,
+        "maximum_line_error": 2.9087066644173376e-08,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.6179999709129333,
+        "maximum": 0.6179999709129333,
+        "mean": 0.6179999709129333,
+        "maximum_line_error": 2.9087066644173376e-08,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.3819993734359741,
+        "maximum": 0.3819993734359741,
+        "mean": 0.3819993734359741,
+        "maximum_line_error": 6.265640258851235e-07,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 0.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": null,
+    "configuration": {
+      "lateral": "-1.2095414928813164",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-33.04751219280842",
+      "pitchAdjust": "-0.6376812127741643"
+    }
+  },
+  "GOLDEN_STATIC_FIRST": {
+    "samples": 178,
+    "active": 0,
+    "view": "0",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.118,
+        "violations": 178
+      },
+      "targetX": {
+        "minimum": 0.4999999701976776,
+        "maximum": 0.4999999701976776,
+        "mean": 0.4999999701976776,
+        "maximum_line_error": 0.11800002980232238,
+        "violations": 178
+      },
+      "horizon": {
+        "minimum": 0.3914395570755005,
+        "maximum": 0.3914395570755005,
+        "mean": 0.3914395570755005,
+        "maximum_line_error": 0.009439557075500482,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": 0.0,
+    "configuration": {
+      "lateral": "-1.2095414928813164",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-33.04751219280842",
+      "pitchAdjust": "-0.6376812127741643"
+    }
+  },
+  "GOLDEN_ORBIT_THIRD": {
+    "samples": 173,
+    "active": 173,
+    "view": "1",
+    "projection": {
+      "playerX": {
+        "minimum": 0.3819999694824219,
+        "maximum": 0.38200002908706665,
+        "mean": 0.3819999984234055,
+        "maximum_line_error": 3.051757813121725e-08,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.6179990768432617,
+        "maximum": 0.6180009245872498,
+        "mean": 0.6180001180296,
+        "maximum_line_error": 9.245872497620766e-07,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.3819994330406189,
+        "maximum": 0.3820006847381592,
+        "mean": 0.38200001289389723,
+        "maximum_line_error": 6.847381591734703e-07,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 0.0,
+    "max_abs_roll": 2.360190176309264e-06,
+    "inactive_native_matrix_max_error": null,
+    "configuration": {
+      "lateral": "-1.2095417770754233",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-31.645792162709768",
+      "pitchAdjust": "-0.6367557549357833"
+    }
+  },
+  "GOLDEN_ORBIT_FIRST": {
+    "samples": 174,
+    "active": 0,
+    "view": "0",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.118,
+        "violations": 174
+      },
+      "targetX": {
+        "minimum": 0.508280336856842,
+        "maximum": 0.5593679547309875,
+        "mean": 0.5434434602315399,
+        "maximum_line_error": 0.10971966314315795,
+        "violations": 174
+      },
+      "horizon": {
+        "minimum": 0.3914707899093628,
+        "maximum": 0.3914710283279419,
+        "mean": 0.39147080052858113,
+        "maximum_line_error": 0.009471028327941888,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 2.364149093305376e-06,
+    "inactive_native_matrix_max_error": 0.0,
+    "configuration": {
+      "lateral": "-1.2095417770754233",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-31.645792162709768",
+      "pitchAdjust": "-0.6367557549357833"
+    }
+  },
+  "THIRDS_STATIC_THIRD": {
+    "samples": 172,
+    "active": 172,
+    "view": "1",
+    "projection": {
+      "playerX": {
+        "minimum": 0.3333333134651184,
+        "maximum": 0.3333333134651184,
+        "mean": 0.3333333134651184,
+        "maximum_line_error": 1.986821490662649e-08,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.6666669845581055,
+        "maximum": 0.6666669845581055,
+        "mean": 0.6666669845581055,
+        "maximum_line_error": 3.1789143872806847e-07,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.3333333730697632,
+        "maximum": 0.3333333730697632,
+        "mean": 0.3333333730697632,
+        "maximum_line_error": 3.9736429868764134e-08,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 0.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": null,
+    "configuration": {
+      "lateral": "-1.7275962113075156",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-45.60788484331155",
+      "pitchAdjust": "-0.6363087395247371"
+    }
+  },
+  "THIRDS_STATIC_FIRST": {
+    "samples": 168,
+    "active": 0,
+    "view": "0",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.16666666666666669,
+        "violations": 168
+      },
+      "targetX": {
+        "minimum": 0.4999999701976776,
+        "maximum": 0.4999999701976776,
+        "mean": 0.4999999701976776,
+        "maximum_line_error": 0.16666669646898913,
+        "violations": 168
+      },
+      "horizon": {
+        "minimum": 0.3914395570755005,
+        "maximum": 0.3914395570755005,
+        "mean": 0.3914395570755005,
+        "maximum_line_error": 0.05810622374216717,
+        "violations": 168
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": 0.0,
+    "configuration": {
+      "lateral": "-1.7275962113075156",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-45.60788484331155",
+      "pitchAdjust": "-0.6363087395247371"
+    }
+  },
+  "THIRDS_ORBIT_THIRD": {
+    "samples": 170,
+    "active": 170,
+    "view": "1",
+    "projection": {
+      "playerX": {
+        "minimum": 0.333333283662796,
+        "maximum": 0.3333333730697632,
+        "mean": 0.3333333323983585,
+        "maximum_line_error": 4.9670537294321804e-08,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.6666660308837891,
+        "maximum": 0.6666675806045532,
+        "mean": 0.6666668032898623,
+        "maximum_line_error": 9.139378864819747e-07,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.33333271741867065,
+        "maximum": 0.33333396911621094,
+        "mean": 0.333333338358823,
+        "maximum_line_error": 6.357828776226704e-07,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 0.0,
+    "max_abs_roll": 2.3295652506739956e-06,
+    "inactive_native_matrix_max_error": null,
+    "configuration": {
+      "lateral": "-1.7275965318656648",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-44.4479078478963",
+      "pitchAdjust": "-0.6347597527104426"
+    }
+  },
+  "THIRDS_ORBIT_FIRST": {
+    "samples": 174,
+    "active": 0,
+    "view": "0",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.16666666666666669,
+        "violations": 174
+      },
+      "targetX": {
+        "minimum": 0.5088124871253967,
+        "maximum": 0.5612200498580933,
+        "mean": 0.544142601818874,
+        "maximum_line_error": 0.15785417954127,
+        "violations": 174
+      },
+      "horizon": {
+        "minimum": 0.3914715051651001,
+        "maximum": 0.3914715647697449,
+        "mean": 0.3914715198949836,
+        "maximum_line_error": 0.05813823143641156,
+        "violations": 174
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 2.364149613571938e-06,
+    "inactive_native_matrix_max_error": 0.0,
+    "configuration": {
+      "lateral": "-1.7275965318656648",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-44.4479078478963",
+      "pitchAdjust": "-0.6347597527104426"
+    }
+  },
+  "CENTER_STATIC_THIRD": {
+    "samples": 178,
+    "active": 178,
+    "view": "1",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.0,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.5000005960464478,
+        "maximum": 0.5000005960464478,
+        "mean": 0.5000005960464478,
+        "maximum_line_error": 5.960464477539062e-07,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.0,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": null,
+    "configuration": {
+      "lateral": "-4.095455446376516E-8",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-1.3708746356377177E-4",
+      "pitchAdjust": "-0.6414279856815589"
+    }
+  },
+  "CENTER_STATIC_FIRST": {
+    "samples": 177,
+    "active": 0,
+    "view": "0",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.0,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.4999999701976776,
+        "maximum": 0.4999999701976776,
+        "mean": 0.4999999701976776,
+        "maximum_line_error": 2.9802322387695312e-08,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.49196672439575195,
+        "maximum": 0.49196672439575195,
+        "mean": 0.49196672439575195,
+        "maximum_line_error": 0.008033275604248047,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": 0.0,
+    "configuration": {
+      "lateral": "-4.095455446376516E-8",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "-1.3708746356377177E-4",
+      "pitchAdjust": "-0.6414279856815589"
+    }
+  },
+  "CENTER_ORBIT_THIRD": {
+    "samples": 175,
+    "active": 175,
+    "view": "1",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.0,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.4999990463256836,
+        "maximum": 0.5000008940696716,
+        "mean": 0.5000000514302935,
+        "maximum_line_error": 9.5367431640625e-07,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.4999999403953552,
+        "maximum": 0.5000000596046448,
+        "mean": 0.5000000064713614,
+        "maximum_line_error": 5.960464477539063e-08,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 2.392231321628369e-06,
+    "inactive_native_matrix_max_error": null,
+    "configuration": {
+      "lateral": "-4.095455446376516E-8",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "0.812222956602883",
+      "pitchAdjust": "-0.6401892885195869"
+    }
+  },
+  "CENTER_ORBIT_FIRST": {
+    "samples": 175,
+    "active": 0,
+    "view": "0",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.0,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.5083371996879578,
+        "maximum": 0.5599743127822876,
+        "mean": 0.5448779467173985,
+        "maximum_line_error": 0.0599743127822876,
+        "violations": 133
+      },
+      "horizon": {
+        "minimum": 0.4919823408126831,
+        "maximum": 0.4919823408126831,
+        "mean": 0.4919823408126831,
+        "maximum_line_error": 0.008017659187316895,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": 0.0,
+    "configuration": {
+      "lateral": "-4.095455446376516E-8",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "0.812222956602883",
+      "pitchAdjust": "-0.6401892885195869"
+    }
+  },
+  "PROBE_DISABLED": {
+    "samples": 178,
+    "active": 0,
+    "view": "1",
+    "projection": {
+      "playerX": {
+        "minimum": 0.5,
+        "maximum": 0.5,
+        "mean": 0.5,
+        "maximum_line_error": 0.0,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.49999991059303284,
+        "maximum": 0.4999999701976776,
+        "mean": 0.49999996919310497,
+        "maximum_line_error": 8.940696716308594e-08,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.49196988344192505,
+        "maximum": 0.49196988344192505,
+        "mean": 0.49196988344192505,
+        "maximum_line_error": 0.008030116558074951,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": 0.0,
+    "configuration": {
+      "lateral": "-4.095455446376516E-8",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "0.812222956602883",
+      "pitchAdjust": "-0.6401892885195869"
+    }
+  },
+  "PROBE_F5_FRONT": {
+    "samples": 181,
+    "active": 0,
+    "view": "2",
+    "projection": {
+      "playerX": {
+        "minimum": 0.4999999701976776,
+        "maximum": 0.4999999701976776,
+        "mean": 0.4999999701976776,
+        "maximum_line_error": 2.9802322387695312e-08,
+        "violations": 0
+      },
+      "targetX": {
+        "minimum": 0.49999988079071045,
+        "maximum": 0.49999988079071045,
+        "mean": 0.49999988079071045,
+        "maximum_line_error": 1.1920928955078125e-07,
+        "violations": 0
+      },
+      "horizon": {
+        "minimum": 0.5080301761627197,
+        "maximum": 0.5080301761627197,
+        "mean": 0.5080301761627197,
+        "maximum_line_error": 0.008030176162719727,
+        "violations": 0
+      }
+    },
+    "projected_boxes_overlap_fraction": 1.0,
+    "max_abs_roll": 0.0,
+    "inactive_native_matrix_max_error": 0.0,
+    "configuration": {
+      "lateral": "-4.095455446376516E-8",
+      "height": "0.5",
+      "distance": "4.0",
+      "yawAdjust": "0.812222956602883",
+      "pitchAdjust": "-0.6401892885195869"
+    }
+  }
+}

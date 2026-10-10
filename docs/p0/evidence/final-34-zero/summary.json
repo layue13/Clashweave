@@ -1,0 +1,27 @@
+{
+  "server_exit": 0,
+  "client_class_loads": 0,
+  "complete": true,
+  "captures": [
+    "P0A\\screenshots\\p0-draw-0.png",
+    "P0A\\screenshots\\p0-draw-2.png",
+    "P0A\\screenshots\\p0-sheathe-0.png",
+    "P0A\\screenshots\\p0-sheathe-2.png",
+    "P0A\\screenshots\\p0-sheathed-0.png",
+    "P0A\\screenshots\\p0-sheathed-2.png",
+    "P0A\\screenshots\\p0-swing-0.png",
+    "P0A\\screenshots\\p0-swing-2.png"
+  ],
+  "performance": [
+    "[14:32:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=100 meanNanos=242592 maxNanos=1340700",
+    "[14:32:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=200 meanNanos=293915 maxNanos=13702400",
+    "[14:32:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=300 meanNanos=271323 maxNanos=13702400",
+    "[14:32:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=400 meanNanos=252939 maxNanos=13702400",
+    "[14:33:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=500 meanNanos=239156 maxNanos=13702400",
+    "[14:33:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=600 meanNanos=226550 maxNanos=13702400",
+    "[14:33:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=700 meanNanos=217983 maxNanos=13702400",
+    "[14:33:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=800 meanNanos=224663 maxNanos=13873400",
+    "[14:33:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=900 meanNanos=275123 maxNanos=14379700",
+    "[14:33:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:74]: P0_PERF samples=1000 meanNanos=261130 maxNanos=14379700"
+  ]
+}

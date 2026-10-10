@@ -1,0 +1,16 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 129
+# Marker counts: {'ERROR': 3, 'CW_RENDER': 1, 'Exception': 2, 'P0_AUDIO': 1, 'CW_ENGAGEMENT': 3, 'CW_VIEW': 1, 'CW_FEEDBACK': 1, 'CW_FRAME': 1}
+[15:18:37] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[15:18:37] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+[15:18:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:42]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[15:18:41] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[15:18:41] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[15:18:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:67]: P0_AUDIO initial loader settled
+[15:18:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:215]: CW_ENGAGEMENT player=P0B engaged=false revision=2 tick=388 receive=30341330818300
+[15:18:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:75]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=30341404521500
+[15:18:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:274]: CW_FEEDBACK player=P0B result=HURT frozen=30347527781000 receive=30347775062800 corrections=0
+[15:18:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:341]: CW_FRAME frozen=30347527781000 frame=30347776023500
+[15:18:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:215]: CW_ENGAGEMENT player=P0B engaged=true revision=4 tick=519 receive=30347823002400
+[15:18:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:215]: CW_ENGAGEMENT player=P0B engaged=false revision=5 tick=588 receive=30351238910000

@@ -1,6 +1,6 @@
 # 执行者入口
 
-设计审核已通过；三轮技术探针已完成并审核，入口条件已满足（[第三轮报告](../probes/round3/REPORT.md)，另见[第二轮](../probes/round2/REPORT.md)、[第一轮](../probes/README.md)）：S1d、S2c、S3b（不变量口径）通过，S4b、S5b 通过。**P0 尚未开始**，范围与必带条件见[原型说明 1.2](proposals/prototype-spec-v1.md)。探针代码、脚本与资源不在 `work`，分别保存在分支 `probe/s1-s5`、`probe/round2-independent`（提交 `ff9d56e`）、`probe/round3-budget-damage`（提交 `a7f28c9`），报告中的 `tools/probes2/...` 路径指这些分支。
+设计审核已通过；三轮技术探针已完成并审核，入口条件已满足（[第三轮报告](../probes/round3/REPORT.md)，另见[第二轮](../probes/round2/REPORT.md)、[第一轮](../probes/README.md)）：S1d、S2c、S3b（不变量口径）通过，S4b、S5b 通过。**本分支已接通 P0-a/b/c，待审核与真人体验，尚不宣称全部验收通过**（[P0 报告](../p0/REPORT.md)），范围与必带条件见[原型说明 1.2](proposals/prototype-spec-v1.md)。探针代码、脚本与资源不在 `work`，分别保存在分支 `probe/s1-s5`、`probe/round2-independent`（提交 `ff9d56e`）、`probe/round3-budget-damage`（提交 `a7f28c9`），报告中的 `tools/probes2/...` 路径指这些分支。
 
 
 ## 必读与顺序

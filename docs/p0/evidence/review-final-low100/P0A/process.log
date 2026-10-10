@@ -1,0 +1,101 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 402
+# Marker counts: {'ERROR': 3, 'CW_RENDER': 1, 'Exception': 2, 'P0_AUDIO': 1, 'CW_VIEW': 42, 'CW_ENGAGEMENT': 2, 'P0_APPEARANCE': 2, 'P0_LOCAL_AUDIO': 31, 'CW_LOCAL_SWING': 31, 'P0_REQUEST': 31, 'P0_MOVEMENT': 75, 'CW_ALIGN': 31, 'CW_PRESENT': 33}
+[15:55:16] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[15:55:16] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+[15:55:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:35]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[15:55:20] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[15:55:20] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[15:55:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:68]: P0_AUDIO initial loader settled
+[15:55:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=180.0 requestedPitchDelta=0.0 nano=32542440684500
+[15:55:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=180.0 requestedPitchDelta=0.0 nano=32542464673200
+[15:55:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=32542878916100
+[15:55:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:239]: CW_ENGAGEMENT player=P0A engaged=false revision=1 tick=71 receive=32542880524700
+[15:55:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:95]: P0_APPEARANCE entity=0 skin=clashweave:katana effects=clashweave:default animations=clashweave:katana style=katana
+[15:55:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=32543198828700
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=180.0 requestedPitchDelta=0.0 nano=32552915403600
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:95]: P0_APPEARANCE entity=20569 skin=clashweave:katana effects=clashweave:default animations=clashweave:katana style=katana
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32553114262300
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=2 press=32553113936900 feedback=32553118418800
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=32553118680600
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=0 x=0.0 y=65.62000000476837 z=0.0 corrections=0
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=2 predicted=0 authoritative=0 sameAction=true
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:239]: CW_ENGAGEMENT player=P0A engaged=true revision=3 tick=139 receive=32553365069100
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=1 kind=DRAW actor=0 owner=0
+[15:55:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=2 kind=SWING actor=0 owner=0
+[15:55:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=1 x=0.0 y=65.62000000476837 z=1.1999999999999997 corrections=0
+[15:55:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=1 x=0.0 y=65.62000000476837 z=1.1999999999999997 corrections=0
+[15:55:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=32556030753800
+[15:55:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32556881135100
+[15:55:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=4 press=32556880979400 feedback=32556882061300
+[15:55:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=32556882306700
+[15:55:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=1 x=0.0 y=65.62000000476837 z=0.0 corrections=0
+[15:55:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=4 predicted=0 authoritative=0 sameAction=true
+[15:55:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=3 kind=SWING actor=0 owner=0
+[15:55:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=2 x=-4.060754263263969 y=65.62000000476837 z=0.29999999999999993 corrections=0
+[15:55:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=32559096790000
+[15:55:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32559398127100
+[15:55:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=6 press=32559397981600 feedback=32559399134800
+[15:55:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=32559399339100
+[15:55:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=2 x=-0.24922792423074103 y=65.62000000476837 z=0.0 corrections=0
+[15:55:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=6 predicted=0 authoritative=0 sameAction=true
+[15:55:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=4 kind=SWING actor=0 owner=0
+[15:55:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=3 x=-0.24922792423074103 y=65.62000000476837 z=4.576613911919003 corrections=0
+[15:55:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=32561547769000
+[15:55:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32561897476600
+[15:55:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=8 press=32561897303000 feedback=32561910308100
+[15:55:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=32561910489300
+[15:55:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=3 x=0.0 y=65.62000000476837 z=0.24922792423074103 corrections=0
+[15:55:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=8 predicted=0 authoritative=0 sameAction=true
+[15:55:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=5 kind=SWING actor=0 owner=0
+[15:55:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=6 kind=HURT actor=0 owner=0
+[15:55:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=4 x=-1.912170183502547 y=65.62000000476837 z=0.0272248578657808 corrections=0
+[15:55:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=32564148681100
+[15:55:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32564397774900
+[15:55:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=10 press=32564397639900 feedback=32564398051300
+[15:55:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=32564398199900
+[15:55:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=4 x=0.0 y=65.62000000476837 z=0.0 corrections=0
+[15:55:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=10 predicted=0 authoritative=0 sameAction=true
+[15:55:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=7 kind=SWING actor=0 owner=0
+[15:55:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=5 x=0.0 y=65.62000000476837 z=0.29999999999999993 corrections=0
+[15:55:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=32566596708800
+[15:55:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32566897311700
+[15:55:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=12 press=32566897180600 feedback=32566898333300
+[15:55:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=32566898490300
+[15:55:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:377]: P0_MOVEMENT clientCase=5 x=0.0 y=65.62000000476837 z=0.0 corrections=0
+[15:55:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=12 predicted=0 authoritative=0 sameAction=true
+[15:55:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=8 kind=SWING actor=0 owner=0
+[15:55:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=32569047939000
+[15:55:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32569397974200
+[15:55:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=14 press=32569397733100 feedback=32569398997100
+[15:55:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=32569399172100
+[15:55:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=14 predicted=0 authoritative=0 sameAction=true
+[15:55:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=9 kind=SWING actor=0 owner=0
+[15:55:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:365]: P0_MOVEMENT inject=horizontal5 nano=32569797091800
+[15:55:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:73]: CW_VIEW packet=1 yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=-0.315 requestedPitchDelta=0.18 nano=32569947528700
+[15:55:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32571896995200
+[15:55:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=16 press=32571896841600 feedback=32571897989000
+[15:55:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=-2.2199988 nano=32571898161700
+[15:55:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=16 predicted=0 authoritative=0 sameAction=true
+[15:55:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=10 kind=SWING actor=0 owner=0
+[15:55:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:370]: P0_MOVEMENT inject=vertical5 nano=32572247415200
+[15:55:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32574397637200
+[15:55:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=18 press=32574397451400 feedback=32574409161100
+[15:55:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=-4.4399967 nano=32574409411300
+[15:55:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=18 predicted=0 authoritative=0 sameAction=true
+[15:55:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=11 kind=SWING actor=0 owner=0
+[15:55:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:movement:374]: P0_MOVEMENT inject=wall3 nano=32574699087200
+[15:56:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32576896973600
+[15:56:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=20 press=32576896805600 feedback=32576897298900
+[15:56:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=-4.4399967 nano=32576897495500
+[15:56:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=20 predicted=0 authoritative=0 sameAction=true
+[15:56:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:183]: CW_PRESENT id=12 kind=SWING actor=0 owner=0
+[15:56:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32579397534500
+[15:56:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=22 press=32579397357200 feedback=32579397896300
+[15:56:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=-4.4399967 nano=32579398068700
+[15:56:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=22 predicted=0 authoritative=0 sameAction=true
+[15:56:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:398]: P0_LOCAL_AUDIO nano=32581897412400
+[15:56:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:156]: CW_LOCAL_SWING seq=24 press=32581897266600 feedback=32581898388900
+[15:56:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:300]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=-4.4399967 nano=32581898588300
+[15:56:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:253]: CW_ALIGN player=P0A seq=24 predicted=0 authoritative=0 sameAction=true

@@ -1,0 +1,1042 @@
+[
+  {
+    "id": "1",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "1",
+    "tick": "317"
+  },
+  {
+    "id": "2",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "1",
+    "tick": "317"
+  },
+  {
+    "id": "3",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "1",
+    "instance": "1",
+    "tick": "322"
+  },
+  {
+    "id": "4",
+    "kind": "HURT",
+    "actor": "1",
+    "target": "0",
+    "instance": "1",
+    "tick": "322"
+  },
+  {
+    "id": "5",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "2",
+    "tick": "326"
+  },
+  {
+    "id": "6",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "1",
+    "instance": "2",
+    "tick": "330"
+  },
+  {
+    "id": "7",
+    "kind": "HURT",
+    "actor": "1",
+    "target": "0",
+    "instance": "2",
+    "tick": "330"
+  },
+  {
+    "id": "8",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "3",
+    "tick": "334"
+  },
+  {
+    "id": "9",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "4",
+    "tick": "363"
+  },
+  {
+    "id": "10",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "1",
+    "instance": "4",
+    "tick": "368"
+  },
+  {
+    "id": "11",
+    "kind": "HURT",
+    "actor": "1",
+    "target": "0",
+    "instance": "4",
+    "tick": "368"
+  },
+  {
+    "id": "12",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "5",
+    "tick": "372"
+  },
+  {
+    "id": "13",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "6",
+    "tick": "414"
+  },
+  {
+    "id": "14",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "7",
+    "tick": "447"
+  },
+  {
+    "id": "15",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "8",
+    "tick": "464"
+  },
+  {
+    "id": "16",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "8",
+    "tick": "464"
+  },
+  {
+    "id": "17",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "9",
+    "tick": "489"
+  },
+  {
+    "id": "18",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "9",
+    "tick": "497"
+  },
+  {
+    "id": "19",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "10",
+    "tick": "522"
+  },
+  {
+    "id": "20",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "11",
+    "tick": "540"
+  },
+  {
+    "id": "21",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "11",
+    "tick": "540"
+  },
+  {
+    "id": "22",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "11",
+    "tick": "549"
+  },
+  {
+    "id": "23",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "12",
+    "tick": "550"
+  },
+  {
+    "id": "24",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "12",
+    "tick": "558"
+  },
+  {
+    "id": "25",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "13",
+    "tick": "559"
+  },
+  {
+    "id": "26",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "13",
+    "tick": "568"
+  },
+  {
+    "id": "27",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "13",
+    "tick": "568"
+  },
+  {
+    "id": "28",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "13",
+    "tick": "568"
+  },
+  {
+    "id": "29",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "14",
+    "tick": "590"
+  },
+  {
+    "id": "30",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "14",
+    "tick": "599"
+  },
+  {
+    "id": "31",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "15",
+    "tick": "623"
+  },
+  {
+    "id": "32",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "16",
+    "tick": "640"
+  },
+  {
+    "id": "33",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "16",
+    "tick": "640"
+  },
+  {
+    "id": "34",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "16",
+    "tick": "649"
+  },
+  {
+    "id": "35",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "17",
+    "tick": "650"
+  },
+  {
+    "id": "36",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "17",
+    "tick": "658"
+  },
+  {
+    "id": "37",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "18",
+    "tick": "659"
+  },
+  {
+    "id": "38",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "18",
+    "tick": "665"
+  },
+  {
+    "id": "39",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "18",
+    "tick": "665"
+  },
+  {
+    "id": "40",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "18",
+    "tick": "665"
+  },
+  {
+    "id": "41",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "19",
+    "tick": "666"
+  },
+  {
+    "id": "42",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "20",
+    "tick": "690"
+  },
+  {
+    "id": "43",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "20",
+    "tick": "698"
+  },
+  {
+    "id": "44",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "21",
+    "tick": "723"
+  },
+  {
+    "id": "45",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "22",
+    "tick": "740"
+  },
+  {
+    "id": "46",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "22",
+    "tick": "740"
+  },
+  {
+    "id": "47",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "22",
+    "tick": "749"
+  },
+  {
+    "id": "48",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "23",
+    "tick": "750"
+  },
+  {
+    "id": "49",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "23",
+    "tick": "758"
+  },
+  {
+    "id": "50",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "24",
+    "tick": "759"
+  },
+  {
+    "id": "51",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "24",
+    "tick": "767"
+  },
+  {
+    "id": "52",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "24",
+    "tick": "767"
+  },
+  {
+    "id": "53",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "24",
+    "tick": "767"
+  },
+  {
+    "id": "54",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "25",
+    "tick": "790"
+  },
+  {
+    "id": "55",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "25",
+    "tick": "799"
+  },
+  {
+    "id": "56",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "26",
+    "tick": "823"
+  },
+  {
+    "id": "57",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "27",
+    "tick": "840"
+  },
+  {
+    "id": "58",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "27",
+    "tick": "840"
+  },
+  {
+    "id": "59",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "27",
+    "tick": "849"
+  },
+  {
+    "id": "60",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "28",
+    "tick": "850"
+  },
+  {
+    "id": "61",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "28",
+    "tick": "858"
+  },
+  {
+    "id": "62",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "29",
+    "tick": "859"
+  },
+  {
+    "id": "63",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "29",
+    "tick": "866"
+  },
+  {
+    "id": "64",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "29",
+    "tick": "866"
+  },
+  {
+    "id": "65",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "29",
+    "tick": "866"
+  },
+  {
+    "id": "66",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "30",
+    "tick": "867"
+  },
+  {
+    "id": "67",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "31",
+    "tick": "890"
+  },
+  {
+    "id": "68",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "31",
+    "tick": "899"
+  },
+  {
+    "id": "69",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "32",
+    "tick": "922"
+  },
+  {
+    "id": "70",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "33",
+    "tick": "940"
+  },
+  {
+    "id": "71",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "33",
+    "tick": "940"
+  },
+  {
+    "id": "72",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "33",
+    "tick": "949"
+  },
+  {
+    "id": "73",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "34",
+    "tick": "950"
+  },
+  {
+    "id": "74",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "34",
+    "tick": "958"
+  },
+  {
+    "id": "75",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "35",
+    "tick": "959"
+  },
+  {
+    "id": "76",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "35",
+    "tick": "967"
+  },
+  {
+    "id": "77",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "35",
+    "tick": "967"
+  },
+  {
+    "id": "78",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "35",
+    "tick": "967"
+  },
+  {
+    "id": "79",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "36",
+    "tick": "990"
+  },
+  {
+    "id": "80",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "36",
+    "tick": "999"
+  },
+  {
+    "id": "81",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "37",
+    "tick": "1023"
+  },
+  {
+    "id": "82",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "38",
+    "tick": "1040"
+  },
+  {
+    "id": "83",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "38",
+    "tick": "1040"
+  },
+  {
+    "id": "84",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "38",
+    "tick": "1049"
+  },
+  {
+    "id": "85",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "39",
+    "tick": "1050"
+  },
+  {
+    "id": "86",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "39",
+    "tick": "1058"
+  },
+  {
+    "id": "87",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "40",
+    "tick": "1059"
+  },
+  {
+    "id": "88",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "40",
+    "tick": "1066"
+  },
+  {
+    "id": "89",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "40",
+    "tick": "1066"
+  },
+  {
+    "id": "90",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "40",
+    "tick": "1066"
+  },
+  {
+    "id": "91",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "41",
+    "tick": "1067"
+  },
+  {
+    "id": "92",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "42",
+    "tick": "1090"
+  },
+  {
+    "id": "93",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "42",
+    "tick": "1098"
+  },
+  {
+    "id": "94",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "43",
+    "tick": "1123"
+  },
+  {
+    "id": "95",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "44",
+    "tick": "1140"
+  },
+  {
+    "id": "96",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "44",
+    "tick": "1140"
+  },
+  {
+    "id": "97",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "44",
+    "tick": "1149"
+  },
+  {
+    "id": "98",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "45",
+    "tick": "1150"
+  },
+  {
+    "id": "99",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "45",
+    "tick": "1158"
+  },
+  {
+    "id": "100",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "46",
+    "tick": "1159"
+  },
+  {
+    "id": "101",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "46",
+    "tick": "1168"
+  },
+  {
+    "id": "102",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "46",
+    "tick": "1168"
+  },
+  {
+    "id": "103",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "46",
+    "tick": "1168"
+  },
+  {
+    "id": "104",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "47",
+    "tick": "1190"
+  },
+  {
+    "id": "105",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "47",
+    "tick": "1199"
+  },
+  {
+    "id": "106",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "48",
+    "tick": "1223"
+  },
+  {
+    "id": "107",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "49",
+    "tick": "1240"
+  },
+  {
+    "id": "108",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "49",
+    "tick": "1240"
+  },
+  {
+    "id": "109",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "49",
+    "tick": "1249"
+  },
+  {
+    "id": "110",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "50",
+    "tick": "1250"
+  },
+  {
+    "id": "111",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "50",
+    "tick": "1258"
+  },
+  {
+    "id": "112",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "51",
+    "tick": "1259"
+  },
+  {
+    "id": "113",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "51",
+    "tick": "1266"
+  },
+  {
+    "id": "114",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "51",
+    "tick": "1266"
+  },
+  {
+    "id": "115",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "51",
+    "tick": "1266"
+  },
+  {
+    "id": "116",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "52",
+    "tick": "1267"
+  },
+  {
+    "id": "117",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "53",
+    "tick": "1290"
+  },
+  {
+    "id": "118",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "53",
+    "tick": "1299"
+  },
+  {
+    "id": "119",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "54",
+    "tick": "1323"
+  },
+  {
+    "id": "120",
+    "kind": "DRAW",
+    "actor": "0",
+    "target": "-1",
+    "instance": "55",
+    "tick": "1340"
+  },
+  {
+    "id": "121",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "55",
+    "tick": "1340"
+  },
+  {
+    "id": "122",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "55",
+    "tick": "1348"
+  },
+  {
+    "id": "123",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "56",
+    "tick": "1349"
+  },
+  {
+    "id": "124",
+    "kind": "BLOCK",
+    "actor": "70058",
+    "target": "0",
+    "instance": "56",
+    "tick": "1356"
+  },
+  {
+    "id": "125",
+    "kind": "HIT",
+    "actor": "0",
+    "target": "70058",
+    "instance": "56",
+    "tick": "1356"
+  },
+  {
+    "id": "126",
+    "kind": "HURT",
+    "actor": "70058",
+    "target": "0",
+    "instance": "56",
+    "tick": "1356"
+  },
+  {
+    "id": "127",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "57",
+    "tick": "1357"
+  },
+  {
+    "id": "128",
+    "kind": "SWING",
+    "actor": "0",
+    "target": "-1",
+    "instance": "58",
+    "tick": "1390"
+  },
+  {
+    "id": "129",
+    "kind": "PARRY",
+    "actor": "70058",
+    "target": "0",
+    "instance": "58",
+    "tick": "1398"
+  },
+  {
+    "id": "130",
+    "kind": "SHEATHE",
+    "actor": "0",
+    "target": "-1",
+    "instance": "59",
+    "tick": "1423"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "player": "P0A",
+    "seq": "97",
+    "intent": "LIGHT",
+    "origin": null,
+    "target": "iai",
+    "consumedTick": 513,
+    "earliest": 513,
+    "deadline": 517,
+    "legal": true,
+    "executed": true
+  },
+  {
+    "player": "P0A",
+    "seq": "99",
+    "intent": "LIGHT",
+    "origin": null,
+    "target": "light_1",
+    "consumedTick": 674,
+    "earliest": 674,
+    "deadline": 678,
+    "legal": true,
+    "executed": true
+  },
+  {
+    "player": "P0A",
+    "seq": "101",
+    "intent": "LIGHT",
+    "origin": null,
+    "target": "light_1",
+    "consumedTick": 713,
+    "earliest": 713,
+    "deadline": 717,
+    "legal": true,
+    "executed": true
+  }
+]
