@@ -23,9 +23,9 @@ for event in events:
     source=inputs.get((event['player'],event['seq']))
     if not source: continue
     if event['result']=='GUARD':
-        guards.setdefault(event['player'],[]).append(dict(stamp=int(source['stamp']),arrival=int(source['arrival']),release=10**18))
+        guards.setdefault(event['player'],[]).append(dict(stamp=int(source.get('effectiveStamp',source['stamp'])),arrival=int(source['arrival']),release=10**18))
     elif event['result']=='RELEASE' and guards.get(event['player']):
-        guards[event['player']][-1]['release']=int(source['stamp'])
+        guards[event['player']][-1]['release']=int(source.get('effectiveStamp',source['stamp']))
 text=(folder/'server/process.log').read_text(encoding='utf-8',errors='replace')
 identities={name:entity for name,entity in re.findall(r'(P0[AB])\[/[^\n]+?entity id (\d+)',text)}
 if not identities:

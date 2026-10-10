@@ -22,6 +22,7 @@ public final class CombatConfig {
     public int guardCooldown;
     public int counterWindow;
     public int stampAge;
+    public int futureTolerance;
     public int disengage;
     public double radius;
     public double lockAcquireRange;
@@ -67,6 +68,8 @@ public final class CombatConfig {
             40,
             "P0 provisional ordinary counter entry; original timing missing");
         stampAge = config.getInt("stampAgeLimit", "network", 8, 1, 20, "Maximum accepted input age");
+        futureTolerance = config
+            .getInt("futureTolerance", "network", 2, 0, 4, "Future stamp allowance; clamp to receipt tick");
         disengage = config.getInt("disengageTicks", "combat", 60, 1, 400, "Exit hysteresis");
         radius = config.getFloat("engageRadius", "combat", 8, 1, 32, "Hostile target radius");
         lockAcquireRange = config.getFloat("lockAcquireRange", "lock", 16, 1, 64, "Visible target acquisition range");

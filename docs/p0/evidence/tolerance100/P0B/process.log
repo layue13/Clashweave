@@ -1,0 +1,105 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 444
+# Marker counts: {'ERROR': 3, 'CW_RENDER': 1, 'Exception': 2, 'P0_AUDIO': 38, 'CW_ENGAGEMENT': 2, 'P0_APPEARANCE': 2, 'CW_PRESENT': 123, 'CW_VIEW': 32, 'CW_FEEDBACK': 38, 'CW_FRAME': 38, 'P0_REMOTE': 49}
+[17:51:34] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[17:51:34] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+[17:51:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:35]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[17:51:41] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[17:51:41] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[17:51:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:69]: P0_AUDIO initial loader settled
+[17:51:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:246]: CW_ENGAGEMENT player=P0B engaged=false revision=3 tick=493 receive=39522176932900
+[17:51:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:96]: P0_APPEARANCE entity=0 skin=clashweave:katana effects=clashweave:default animations=clashweave:katana style=katana
+[17:51:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:96]: P0_APPEARANCE entity=89090 skin=clashweave:katana effects=clashweave:default animations=clashweave:katana style=katana
+[17:51:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=17 kind=SWING actor=0 owner=89090
+[17:51:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=39522387755100
+[17:51:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=HURT frozen=39522462073000 receive=39522745517200 corrections=0
+[17:51:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39522462073000 frame=39522757362500
+[17:51:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39523129103700
+[17:51:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:246]: CW_ENGAGEMENT player=P0B engaged=true revision=4 tick=517 receive=39523130127300
+[17:51:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39523944701300
+[17:51:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=18 kind=SHEATHE actor=0 owner=89090
+[17:51:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=19 kind=DRAW actor=0 owner=89090
+[17:51:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=20 kind=SWING actor=0 owner=89090
+[17:51:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=PARRY frozen=39524957738600 receive=39525166194800 corrections=0
+[17:51:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39524957738600 nano=39525166643500
+[17:51:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=21 kind=PARRY actor=89090 owner=89090
+[17:51:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39524957738600 frame=39525171536300
+[17:51:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=22 kind=SWING actor=0 owner=89090
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=BLOCK frozen=39525365053600 receive=39525643536200 corrections=0
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39525365053600 nano=39525643833400
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=23 kind=BLOCK actor=89090 owner=89090
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=24 kind=HIT actor=0 owner=89090
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=25 kind=HURT actor=89090 owner=89090
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39525365053600 frame=39525645395400
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=26 kind=SWING actor=0 owner=89090
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=68.06456 pitchDelta=0.0 requestedYawDelta=68.06456 requestedPitchDelta=0.0 nano=39526524465700
+[17:51:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=84.104485 pitchDelta=0.0 requestedYawDelta=84.104485 requestedPitchDelta=0.0 nano=39526591216400
+[17:51:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39528948832300
+[17:51:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=27 kind=SHEATHE actor=0 owner=89090
+[17:51:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:190]: CW_PRESENT id=28 kind=DRAW actor=0 owner=89090
+[17:51:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=PARRY frozen=39529961072000 receive=39530233188400 corrections=0
+[17:51:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39529961072000 nano=39530233576100
+[17:51:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39529961072000 frame=39530234327900
+[17:51:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=PARRY frozen=39530410777400 receive=39530683019300 corrections=0
+[17:51:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39530410777400 nano=39530683334600
+[17:51:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39530410777400 frame=39530697287000
+[17:51:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=BLOCK frozen=39530810552000 receive=39531101145100 corrections=0
+[17:51:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39530810552000 nano=39531101451900
+[17:51:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39530810552000 frame=39531102517500
+[17:51:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=82.65884 pitchDelta=0.0 requestedYawDelta=82.65884 requestedPitchDelta=0.0 nano=39531849161100
+[17:51:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=PARRY frozen=39532461475400 receive=39532716233600 corrections=0
+[17:51:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39532461475400 nano=39532716699600
+[17:51:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39532461475400 frame=39532717363500
+[17:51:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39533115777100
+[17:51:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39533933070600
+[17:51:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:174]: P0_REMOTE action= sneak=false
+[17:51:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=PARRY frozen=39534959726100 receive=39535233050200 corrections=0
+[17:51:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39534959726100 nano=39535233491500
+[17:51:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39534959726100 frame=39535234189300
+[17:52:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=PARRY frozen=39535411597900 receive=39535682965000 corrections=0
+[17:52:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39535411597900 nano=39535683279000
+[17:52:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39535411597900 frame=39535683921000
+[17:52:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=BLOCK frozen=39535909290300 receive=39536133545700 corrections=0
+[17:52:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39535909290300 nano=39536133963500
+[17:52:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39535909290300 frame=39536135099400
+[17:52:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=84.43318 pitchDelta=0.0 requestedYawDelta=84.43318 requestedPitchDelta=0.0 nano=39536582795500
+[17:52:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=PARRY frozen=39537461834800 receive=39537749187400 corrections=0
+[17:52:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39537461834800 nano=39537749499100
+[17:52:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39537461834800 frame=39537750198400
+[17:52:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39538149021600
+[17:52:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39538948841000
+[17:52:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:305]: CW_FEEDBACK player=P0B result=PARRY frozen=39539959797400 receive=39540249038400 corrections=0
+[17:52:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_AUDIO source=random.anvil_land frozen=39539959797400 nano=39540249363800
+[17:52:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:368]: CW_FRAME frozen=39539959797400 frame=39540250026900
+[17:52:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=84.39087 pitchDelta=0.0 requestedYawDelta=84.39087 requestedPitchDelta=0.0 nano=39541899438400
+[17:52:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39543149336200
+[17:52:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39543948916000
+[17:52:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=84.43318 pitchDelta=0.0 requestedYawDelta=84.43318 requestedPitchDelta=0.0 nano=39546565685900
+[17:52:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39548117090500
+[17:52:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39548916026100
+[17:52:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=81.51023 pitchDelta=0.0 requestedYawDelta=81.51023 requestedPitchDelta=0.0 nano=39551765900500
+[17:52:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39553115696800
+[17:52:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39553915581300
+[17:52:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=89.43877 pitchDelta=0.0 requestedYawDelta=89.43877 requestedPitchDelta=0.0 nano=39556515852700
+[17:52:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=94.96974 pitchDelta=0.0 requestedYawDelta=94.96974 requestedPitchDelta=0.0 nano=39556565769300
+[17:52:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39558115563600
+[17:52:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39558915998300
+[17:52:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=82.65884 pitchDelta=0.0 requestedYawDelta=82.65884 requestedPitchDelta=0.0 nano=39561816488600
+[17:52:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39563115590400
+[17:52:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39563917055500
+[17:52:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=84.43318 pitchDelta=0.0 requestedYawDelta=84.43318 requestedPitchDelta=0.0 nano=39566565698700
+[17:52:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=39.400665 pitchDelta=0.0 requestedYawDelta=39.400665 requestedPitchDelta=0.0 nano=39568155205600
+[17:52:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=31.184967 pitchDelta=0.0 requestedYawDelta=31.184967 requestedPitchDelta=0.0 nano=39568955048600
+[17:52:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=75.28397 pitchDelta=0.0 requestedYawDelta=75.28397 requestedPitchDelta=0.0 nano=39571804814800

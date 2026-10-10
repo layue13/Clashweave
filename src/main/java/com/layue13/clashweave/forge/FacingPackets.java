@@ -4,6 +4,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.client.C03PacketPlayer;
 
 import com.layue13.clashweave.core.FacingHistory;
+import com.layue13.clashweave.network.InputMessage;
 
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import io.netty.channel.Channel;
@@ -42,19 +43,22 @@ final class FacingPackets {
                         net.minecraft.network.play.client.C17PacketCustomPayload p = (net.minecraft.network.play.client.C17PacketCustomPayload) message;
                         byte[] bytes = p.func_149558_e();
                         if (com.layue13.clashweave.Clashweave.MODID.equals(p.func_149559_c()) && bytes != null
-                            && bytes.length == 45
-                            && bytes[0] == 0)
+                            && bytes.length == InputMessage.WIRE_BYTES
+                            && bytes[0] == InputMessage.DISCRIMINATOR)
                             history.requestReceived(
                                 java.nio.ByteBuffer.wrap(bytes)
-                                    .getInt(33),
+                                    .getInt(InputMessage.SEQUENCE_WIRE_OFFSET),
                                 System.nanoTime());
                     }
                     if (message instanceof cpw.mods.fml.common.network.internal.FMLProxyPacket) {
                         cpw.mods.fml.common.network.internal.FMLProxyPacket p = (cpw.mods.fml.common.network.internal.FMLProxyPacket) message;
                         io.netty.buffer.ByteBuf b = p.payload();
                         int at = b.readerIndex();
-                        if (com.layue13.clashweave.Clashweave.MODID.equals(p.channel()) && b.readableBytes() == 45
-                            && b.getByte(at) == 0) history.requestReceived(b.getInt(at + 33), System.nanoTime());
+                        if (com.layue13.clashweave.Clashweave.MODID.equals(p.channel())
+                            && b.readableBytes() == InputMessage.WIRE_BYTES
+                            && b.getByte(at) == InputMessage.DISCRIMINATOR)
+                            history
+                                .requestReceived(b.getInt(at + InputMessage.SEQUENCE_WIRE_OFFSET), System.nanoTime());
                     }
                     context.fireChannelRead(message);
                 }

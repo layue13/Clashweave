@@ -47,7 +47,8 @@ public class Clashweave {
         GameRegistry.registerItem(katana, "katana");
         network = NetworkRegistry.INSTANCE.newSimpleChannel("clashweave");
         server = new CombatServer(config);
-        network.registerMessage(InputMessage.Handler.class, InputMessage.class, 0, Side.SERVER);
+        network
+            .registerMessage(InputMessage.Handler.class, InputMessage.class, InputMessage.DISCRIMINATOR, Side.SERVER);
         network.registerMessage(StateMessage.Handler.class, StateMessage.class, 1, Side.CLIENT);
         network.registerMessage(
             com.layue13.clashweave.network.SemanticMessage.Handler.class,

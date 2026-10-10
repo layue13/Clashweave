@@ -97,3 +97,7 @@ python tools/p0/engagement_metrics.py --label engagement-25
 ## 朝向校验与视角保护修正
 
 8945344审核后追加：转速校验改为实际C03历史匹配；S08仅对连接内、未超时且坐标匹配的战斗标记保护旋转，普通传送按原版转向。原因、源码依据、测试、最终实测与旧结论的取代关系见[FACING-VIEW](FACING-VIEW.md)。
+
+## 输入时间戳容差
+
+ce921b9 审核后追加：未来 stamp 容差默认 2 tick（0–4），接受后夹到服务端收包 tick；收包布局集中由 InputMessage 定义。原因、测试、单次各档快速回放与常规/视角指标见[输入时间戳容差](INPUT-TOLERANCE.md)。

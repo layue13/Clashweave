@@ -10,6 +10,12 @@ import io.netty.buffer.ByteBuf;
 
 public final class InputMessage implements IMessage {
 
+    public static final int DISCRIMINATOR = 0;
+    public static final int BODY_BYTES = 44;
+    public static final int WIRE_BYTES = BODY_BYTES + 1;
+    public static final int SEQUENCE_BODY_OFFSET = 32;
+    public static final int SEQUENCE_WIRE_OFFSET = SEQUENCE_BODY_OFFSET + 1;
+
     public long session;
     public long stamp;
     public long origin;
@@ -31,7 +37,7 @@ public final class InputMessage implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buffer) {
-        if (buffer.readableBytes() != 44) throw new IllegalArgumentException("Input size");
+        if (buffer.readableBytes() != BODY_BYTES) throw new IllegalArgumentException("Input size");
         session = buffer.readLong();
         stamp = buffer.readLong();
         origin = buffer.readLong();

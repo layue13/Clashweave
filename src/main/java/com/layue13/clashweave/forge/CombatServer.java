@@ -300,8 +300,14 @@ public final class CombatServer {
         PlayerState state = state(input.player);
         if (state == null) return;
         InputMessage message = input.message;
-        String validity = state.gate
-            .validate(message.session, message.sequence, message.stamp, input.receivedTick, config.stampAge);
+        String validity = state.gate.validate(
+            message.session,
+            message.sequence,
+            message.stamp,
+            input.receivedTick,
+            config.stampAge,
+            config.futureTolerance);
+        long effectiveStamp = InputGate.effectiveStamp(message.stamp, input.receivedTick);
         trace(
             "INPUT player=" + input.player.getCommandSenderName()
                 + " seq="
@@ -314,6 +320,8 @@ public final class CombatServer {
                 + message.origin
                 + " stamp="
                 + message.stamp
+                + " effectiveStamp="
+                + effectiveStamp
                 + " receivedTick="
                 + input.receivedTick
                 + " consumedTick="
@@ -359,10 +367,10 @@ public final class CombatServer {
             state.guard.release(tick);
         } else if (intent == Intent.GUARD_PRESS) {
             boolean accepted = state.scheduler.current() == null
-                && state.guard.press(message.stamp, input.arrival, config.guardCooldown);
+                && state.guard.press(effectiveStamp, input.arrival, config.guardCooldown);
             snapshot(state, message.sequence, accepted ? "GUARD" : "REJECT:GUARD", false);
         } else if (intent == Intent.GUARD_RELEASE) {
-            state.guard.release(message.stamp);
+            state.guard.release(effectiveStamp);
             snapshot(state, message.sequence, "RELEASE", false);
         } else if (intent == Intent.LOCK) {
             String result = "REJECT:LOCK";
