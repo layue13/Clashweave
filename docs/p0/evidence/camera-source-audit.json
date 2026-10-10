@@ -1,0 +1,19 @@
+{
+  "source_jar": "build/rfg/mcp_patched_minecraft-sources.jar",
+  "sha256": "c3e6edaf8bef71c608305575d8b6ad928a6d19c5fa75db53044dae0385ecda29",
+  "event_classes": [
+    "EntityViewRenderEvent",
+    "FogDensity",
+    "RenderFogEvent",
+    "FogColors"
+  ],
+  "CameraSetup_present": false,
+  "EntityRenderer_methods": {
+    "orientCamera": "private (F)V",
+    "setupCameraTransform": "private (FI)V",
+    "updateCameraAndRender": "public (FJ)V"
+  },
+  "usesMixins": false,
+  "native_collision": "eight rays for rear camera, lateral offset not covered",
+  "probe_location": "one orientCamera RETURN hook, count mismatch throws, no production jar hook"
+}

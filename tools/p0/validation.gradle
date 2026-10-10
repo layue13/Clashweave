@@ -12,6 +12,18 @@ gradle.projectsEvaluated {
         archiveFileName.set('p0-validation.jar')
         destinationDirectory.set(p.layout.buildDirectory.dir('p0'))
     }
+    def camera = p.sourceSets.create('cameraProbe') {
+        java.srcDir('tools/camera-probe/java')
+        compileClasspath = p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    p.tasks.register('cameraProbeJar', Jar) {
+        dependsOn(camera.classesTaskName)
+        from(camera.output)
+        archiveFileName.set('camera-probe.jar')
+        destinationDirectory.set(p.layout.buildDirectory.dir('p0'))
+        manifest.attributes('FMLCorePlugin': 'com.layue13.clashweave.cameraprobe.CameraPlugin')
+    }
     p.tasks.register('p0LaunchFiles') {
         dependsOn('p0ValidationJar', 'jar')
         dependsOn { ['runClient', 'runServer'].collectMany { n -> p.tasks.getByName(n).taskDependencies.getDependencies(p.tasks.getByName(n)).toList() } }
