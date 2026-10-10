@@ -1,0 +1,40 @@
+{
+  "server_exit": 0,
+  "client_class_loads": 0,
+  "complete": true,
+  "run_capture_count": 10,
+  "archived_captures": [
+    "P0A/p0-souls-sprint_r2_h0.9.png",
+    "P0A/p0-souls-sprint_r2_h1.8.png",
+    "P0A/p0-souls-sprint_r2_h2.9.png",
+    "P0A/p0-souls-sprint_r4_h0.9.png",
+    "P0A/p0-souls-sprint_r4_h1.8.png",
+    "P0A/p0-souls-sprint_r4_h2.9.png",
+    "P0A/p0-souls-sprint_r8_h0.9.png",
+    "P0A/p0-souls-sprint_r8_h1.8.png",
+    "P0A/p0-souls-sprint_r8_h2.9.png"
+  ],
+  "runtime": [
+    {
+      "source": "build\\p0\\p0-validation.jar",
+      "snapshot": "runtime\\p0-validation.jar",
+      "sha256": "ba1535ece2c7eac5e96d9c06e8ebd7e844bdc18e2c3b3463291795294193c47f"
+    },
+    {
+      "source": "build\\rfg\\mclauncher-1.7.10.jar",
+      "snapshot": "runtime\\mclauncher-1.7.10.jar",
+      "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+    },
+    {
+      "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+      "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+      "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+    },
+    {
+      "source": "build\\libs\\clashweave-0.1.0-dev-dev.jar",
+      "snapshot": "runtime\\clashweave-0.1.0-dev-dev.jar",
+      "sha256": "964ab11cee563d6f44475de9a43a44cbc7b2a871e6108bcdd1e67b03828d546b"
+    }
+  ],
+  "snapshots_note": "Frozen per run; original logs remain in ignored build/p0/runs"
+}

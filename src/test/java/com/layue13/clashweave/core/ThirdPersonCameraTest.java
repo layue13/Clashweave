@@ -61,9 +61,10 @@ public class ThirdPersonCameraTest {
     @Test
     public void compositionBoundsAndFovAreExplicit() {
         for (double fov : new double[] { 60, 70, 90 }) for (double range : new double[] { 2, 4, 8 }) {
-            SoulsComposition.Pose p = SoulsComposition.solve(range, .9, .9, 2.22, fov, 4.2, 1.2, 10, 12, .38, .65);
-            assertTrue(p.distance >= 3 && p.distance <= 5.4);
-            assertTrue(p.pitch >= -2 && p.pitch <= 22);
+            SoulsComposition.Pose p = SoulsComposition
+                .solve(range, .9, .9, 2.22, fov, 3.5, 5, 8, 35, .45, .68, 1.8, .15);
+            assertTrue(p.distance >= 3.5 && p.distance <= 5);
+            assertTrue(p.pitch >= 8 && p.pitch <= 35);
             assertTrue(Double.isFinite(SoulsComposition.screenY(range, .9, 2.22, p.distance, p.pitch, fov)));
         }
         assertTrue(

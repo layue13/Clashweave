@@ -18,6 +18,7 @@ public final class CompositionReplay {
             int h=phase.indexOf("_H");soulsHeight=h<0?1.8:Double.parseDouble(phase.substring(h+2));
         }
         if(phase.equals("FIRST")){mc.thePlayer.rotationYaw=35;mc.thePlayer.rotationPitch=12;}
+        mc.thePlayer.setSprinting(phase.startsWith("SPRINT"));
         mc.gameSettings.viewBobbing=false;mc.gameSettings.fovSetting=70;
         if(phase.startsWith("GOLDEN"))System.setProperty("cw.p0.legacyComposition","GOLDEN");
         if(phase.startsWith("THIRDS"))System.setProperty("cw.p0.legacyComposition","THIRDS");
@@ -27,8 +28,11 @@ public final class CompositionReplay {
         System.out.println("P0_COMPOSITION_PHASE name="+phase+" receivedNano="+System.nanoTime());
     }
     @SubscribeEvent public void tick(TickEvent.ClientTickEvent e){if(e.phase!=TickEvent.Phase.END || mc.thePlayer==null)return; if(!mc.thePlayer.getCommandSenderName().equals("P0A")){if(Boolean.getBoolean("cw.p0.souls")){elapsed++;mc.gameSettings.thirdPersonView=0;if(elapsed==100 && (phase.equals("SOULS_WALL") || phase.equals("SOULS_CEILING")))capture="souls-overview-"+phase.toLowerCase();}return;}elapsed++;ClientProxy p=ClientProxy.instance;
+        if(phase.startsWith("SPRINT"))mc.thePlayer.setSprinting(true);
+        if(phase.equals("MOTION_STRAFE"))net.minecraft.client.settings.KeyBinding.setKeyBindState(mc.gameSettings.keyBindRight.getKeyCode(),elapsed>=30 && elapsed<190);
         if(phase.equals("WAIT") && elapsed%20==0 && mc.theWorld.getEntityByID(targetId)!=null && p.own()!=null && p.own().state.lockTarget<0)p.send(Intent.LOCK,-1);
         if(phase.equals("FIRST") && elapsed==20){mc.thePlayer.setAngles(5/.15F,0);p.lockCamera.mouse(System.nanoTime(),5);}
+        if(phase.startsWith("AUDIT") && elapsed==20){mc.thePlayer.rotationYaw=mc.thePlayer.rotationPitch=0;p.send(Intent.LIGHT,-1);System.out.println("P0_CAMERA_SWEEP_INPUT phase="+phase+" nano="+System.nanoTime());}
         if(phase.equals("FIRST") && elapsed==50)p.send(Intent.LIGHT,-1);
         if(phase.equals("MOUSE")){
             if(elapsed<=80 && elapsed%4==0){p.lockCamera.mouse(System.nanoTime(),0);System.out.println("P0_FLICK_CASE kind=stationary serial="+(elapsed/4)+" delta=0");}
@@ -36,8 +40,8 @@ public final class CompositionReplay {
             if(elapsed==170 || elapsed==172 || elapsed==190){p.lockCamera.mouse(System.nanoTime(),elapsed==172?-30:30);System.out.println("P0_FLICK_CASE kind=large elapsed="+elapsed);}
             if(elapsed==174 || elapsed==175)p.send(Intent.LOCK_SWITCH,1);
         }
-        if(Boolean.getBoolean("cw.p0.souls")){net.minecraft.entity.Entity t=mc.theWorld.getEntityByID(targetId);if(t!=null)CompositionScenario.setSize(t,soulsHeight);}
-        if(elapsed==100 && Boolean.getBoolean("cw.p0.souls"))capture="souls-"+phase.toLowerCase();
+
+        if(elapsed==100 && Boolean.getBoolean("cw.p0.souls") && !phase.startsWith("MOTION"))capture="souls-"+phase.toLowerCase();
         if(elapsed==80 && Boolean.getBoolean("cw.p0.cameraProbe"))capture="composition-"+phase.toLowerCase();
     }
     @SubscribeEvent public void world(RenderWorldLastEvent e){if(mc.thePlayer==null || !mc.thePlayer.getCommandSenderName().equals("P0A") || phase.equals("WAIT"))return;

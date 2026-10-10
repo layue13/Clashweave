@@ -37,6 +37,7 @@ public final class LockCamera {
     private final ThirdPersonCamera.Filter filter = new ThirdPersonCamera.Filter();
     private final ThirdPersonCamera.Flick flick = new ThirdPersonCamera.Flick();
     private long frameNano, hiddenSince = -1;
+    private final com.layue13.clashweave.core.CameraBearing bearing = new com.layue13.clashweave.core.CameraBearing();
     private double thirdOffset;
     private boolean thirdMouse, thirdBlocked;
 
@@ -57,6 +58,7 @@ public final class LockCamera {
     private void resetThird() {
         yawSpring.clear();
         pitchSpring.clear();
+        bearing.clear();
         filter.clear();
         flick.clear();
         frameNano = 0;
@@ -183,7 +185,14 @@ public final class LockCamera {
         int id = target == null ? -1 : target.getEntityId();
         if (id != previousTarget) {
             follow.clear();
-            resetThird();
+            if (id >= 0 && previousTarget >= 0
+                && thirdStrong()
+                && Clashweave.config.lockCompositionPreset == ThirdPersonCamera.Preset.SOULS) {
+                // A new target updates the existing filter/spring goals, not the camera pose.
+                bearing.clear();
+                hiddenSince = -1;
+                thirdBlocked = false;
+            } else resetThird();
             previousTarget = id;
             if (Boolean.getBoolean("clashweave.trace"))
                 System.out.println("CW_LOCK_MARKER target=" + id + " nano=" + now);
@@ -265,7 +274,8 @@ public final class LockCamera {
             return;
         }
         long now = System.nanoTime();
-        double dt = frameNano == 0 ? 0 : ThirdPersonCamera.dt((now - frameNano) / 1_000_000_000.0);
+        double frameSeconds = frameNano == 0 ? 0 : (now - frameNano) / 1_000_000_000.0;
+        double dt = ThirdPersonCamera.dt(frameSeconds);
         frameNano = now;
         EntityLivingBase target = target();
         if (target == null || mc.currentScreen != null) {
@@ -300,8 +310,17 @@ public final class LockCamera {
             thirdOffset -= ThirdPersonCamera.clamp(thirdOffset, Clashweave.config.lockStrongThirdOffsetDecay * dt);
         thirdMouse = false;
         float beforeYaw = mc.thePlayer.rotationYaw, beforePitch = mc.thePlayer.rotationPitch;
+        double lead = Clashweave.config.lockCompositionPreset == ThirdPersonCamera.Preset.SOULS ? bearing.lead(
+            goalYaw,
+            target.posX,
+            target.posZ,
+            frameSeconds,
+            Clashweave.config.lockStrongSmoothTime,
+            Clashweave.config.lockTargetFilterTau,
+            Clashweave.config.cameraFeedForwardMaxSpeed,
+            Clashweave.config.cameraFeedForwardTeleportDistance) : 0;
         double unwrapped = beforeYaw
-            + com.layue13.clashweave.core.FacingHistory.difference((float) (goalYaw + thirdOffset), beforeYaw);
+            + com.layue13.clashweave.core.FacingHistory.difference((float) (goalYaw + thirdOffset + lead), beforeYaw);
         mc.thePlayer.rotationYaw = (float) yawSpring.step(
             beforeYaw,
             unwrapped,
@@ -315,7 +334,9 @@ public final class LockCamera {
             Clashweave.config.lockStrongSmoothTime,
             Clashweave.config.lockFollow.strongSpeed);
         if (Boolean.getBoolean("clashweave.trace")) System.out.println(
-            "CW_THIRD_FRAME nano=" + now
+            "CW_THIRD_FRAME lead=" + lead
+                + " nano="
+                + now
                 + " dt="
                 + dt
                 + " target="
@@ -356,8 +377,13 @@ public final class LockCamera {
         return target() != null && !thirdBlocked;
     }
 
-    public double[] cameraPoint(EntityLivingBase target) {
-        return new double[] { filter.x, filter.y - target.getEyeHeight() + target.height / 2, filter.z };
+    public double[] cameraPoint(EntityLivingBase target, double aimFraction) {
+        return new double[] { filter.x,
+            filter.y - target.getEyeHeight()
+                + target.boundingBox.minY
+                - target.posY
+                + (target.boundingBox.maxY - target.boundingBox.minY) * aimFraction,
+            filter.z };
     }
 
     @SubscribeEvent

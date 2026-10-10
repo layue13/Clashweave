@@ -32,7 +32,10 @@ public final class CombatConfig {
     public double lockStrongSmoothTime, lockStrongThirdPitchInfluence, lockTargetFilterTau;
     public double lockCompositionHorizonTolerance;
     public double cameraDistance, cameraHeightOffset, baselinePitchDown, lateralOffset, targetScreenY, playerScreenY;
-    public double cameraDistanceAdjustment, cameraPitchAdjustment, cameraCollisionRadius, cameraCollisionPadding;
+    public double cameraDistanceMin, cameraDistanceMax, cameraPitchMin, cameraPitchMax, cameraHeadClearance;
+    public double smallTargetHeight, largeTargetHeight, smallTargetPitchMax, smallTargetAimFraction;
+    public double cameraFeedForwardMaxSpeed, cameraFeedForwardTeleportDistance;
+    public double cameraCollisionRadius, cameraCollisionPadding, cameraCollisionMaxSpeed;
     public double cameraCollisionLookAhead, cameraHidePlayerDistance, cameraHidePlayerHysteresis;
     public double lockStrongThirdMaxOffset, lockStrongThirdOffsetDecay, lockFlickThresholdDegrees;
     public long lockFlickWindowMillis, lockFlickCooldownMillis;
@@ -141,14 +144,14 @@ public final class CombatConfig {
         cameraDistance = config.getFloat(
             "cameraDistance",
             "camera",
-            4.2f,
+            4.3f,
             1,
             10,
-            "Rear orbit distance in blocks; empirical starting value, pending playtest");
+            "Initial rear orbit distance; hard bounds and soft anchors determine the settled pose");
         cameraHeightOffset = config
             .getFloat("cameraHeightOffset", "camera", .6f, 0, 3, "Camera pivot height above player eye in blocks");
         baselinePitchDown = config
-            .getFloat("baselinePitchDown", "camera", 18, -30, 60, "Baseline downward camera pitch in degrees");
+            .getFloat("baselinePitchDown", "camera", 15, 0, 45, "Baseline downward camera pitch in degrees");
         lateralOffset = config.getFloat(
             "lateralOffset",
             "camera",
@@ -159,31 +162,107 @@ public final class CombatConfig {
         targetScreenY = config.getFloat(
             "targetScreenY",
             "camera",
-            .38f,
+            .45f,
             .1f,
             .9f,
             "Desired target body center screen fraction measured from top");
         playerScreenY = config.getFloat(
             "playerScreenY",
             "camera",
-            .65f,
+            .68f,
             .1f,
             .9f,
             "Desired player body center screen fraction measured from top");
-        cameraDistanceAdjustment = config.getFloat(
-            "cameraDistanceAdjustment",
-            "camera",
-            2f,
-            0,
-            3,
-            "Maximum adaptive distance change in blocks about cameraDistance");
-        cameraPitchAdjustment = config.getFloat(
-            "cameraPitchAdjustment",
-            "camera",
-            42,
-            0,
-            60,
-            "Maximum adaptive pitch change in degrees about baselinePitchDown");
+        cameraDistanceMin = finite(
+            config.getFloat(
+                "cameraDistanceMin",
+                "camera",
+                3.5f,
+                1f,
+                10f,
+                "Hard orbit distance floor; collision alone may shorten it"),
+            3.5);
+        cameraDistanceMax = finite(
+            config.getFloat("cameraDistanceMax", "camera", 5f, 1f, 10f, "Hard orbit distance ceiling"),
+            5);
+        cameraPitchMin = finite(
+            config.getFloat("cameraPitchMin", "camera", 8f, 0f, 45f, "Minimum downward pitch in degrees"),
+            8);
+        cameraPitchMax = finite(
+            config.getFloat("cameraPitchMax", "camera", 35f, 0f, 45f, "Maximum downward pitch for large targets"),
+            35);
+        cameraHeadClearance = finite(
+            config.getFloat(
+                "cameraHeadClearance",
+                "camera",
+                0.15f,
+                0f,
+                1f,
+                "Aim ray clearance above player head in blocks"),
+            0.15);
+        smallTargetHeight = finite(
+            config.getFloat(
+                "smallTargetHeight",
+                "camera",
+                0.8f,
+                0.1f,
+                2f,
+                "Target bbox height at or below which small-target limits apply"),
+            0.8);
+        largeTargetHeight = finite(
+            config.getFloat(
+                "largeTargetHeight",
+                "camera",
+                1.5f,
+                0.2f,
+                4f,
+                "Target bbox height at or above which large-target limits apply"),
+            1.5);
+        smallTargetPitchMax = finite(
+            config.getFloat(
+                "smallTargetPitchMax",
+                "camera",
+                45f,
+                0f,
+                45f,
+                "Hard small-target pitch ceiling; interpolated by bbox height"),
+            45);
+        smallTargetAimFraction = finite(
+            config.getFloat(
+                "smallTargetAimFraction",
+                "camera",
+                0.85f,
+                0.5f,
+                1f,
+                "Small-target aim height fraction; large targets use torso center"),
+            0.85);
+        cameraFeedForwardMaxSpeed = finite(
+            config.getFloat(
+                "cameraFeedForwardMaxSpeed",
+                "camera",
+                180f,
+                0f,
+                720f,
+                "Bound on filtered target bearing velocity prediction in degrees per second"),
+            180);
+        cameraFeedForwardTeleportDistance = finite(
+            config.getFloat(
+                "cameraFeedForwardTeleportDistance",
+                "camera",
+                3f,
+                0.1f,
+                10f,
+                "Target displacement in blocks that discards velocity prediction"),
+            3);
+        cameraCollisionMaxSpeed = finite(
+            config.getFloat(
+                "cameraCollisionMaxSpeed",
+                "camera",
+                1.2f,
+                .1f,
+                4,
+                "Maximum collision fraction change per second; safety clamping retains priority"),
+            1.2);
         cameraCollisionRadius = config.getFloat(
             "cameraCollisionRadius",
             "camera",
@@ -212,7 +291,7 @@ public final class CombatConfig {
             1,
             0,
             2,
-            "Hide only the local model when collision brings the SOULS camera this close to the eye; 0 disables");
+            "Hide only the local model when collision-shortened orbit distance falls below this threshold; 0 disables");
         cameraHidePlayerHysteresis = config.getFloat(
             "cameraHidePlayerHysteresis",
             "camera",
@@ -222,14 +301,16 @@ public final class CombatConfig {
             "Additional distance before showing the local model again; prevents flicker");
         cameraHidePlayerDistance = finite(cameraHidePlayerDistance, 1);
         cameraHidePlayerHysteresis = finite(cameraHidePlayerHysteresis, .2);
-        cameraDistance = finite(cameraDistance, 4.2);
+        cameraDistance = finite(cameraDistance, 4.3);
         cameraHeightOffset = finite(cameraHeightOffset, .6);
-        baselinePitchDown = finite(baselinePitchDown, 18);
+        baselinePitchDown = finite(baselinePitchDown, 15);
         lateralOffset = finite(lateralOffset, 0);
-        targetScreenY = finite(targetScreenY, .38);
-        playerScreenY = finite(playerScreenY, .65);
-        cameraDistanceAdjustment = finite(cameraDistanceAdjustment, 2);
-        cameraPitchAdjustment = finite(cameraPitchAdjustment, 42);
+        targetScreenY = finite(targetScreenY, .45);
+        playerScreenY = finite(playerScreenY, .68);
+        cameraDistanceMax = Math.max(cameraDistanceMin, cameraDistanceMax);
+        cameraPitchMax = Math.max(cameraPitchMin, cameraPitchMax);
+        smallTargetPitchMax = Math.max(cameraPitchMax, smallTargetPitchMax);
+        largeTargetHeight = Math.max(smallTargetHeight + .01, largeTargetHeight);
         cameraCollisionRadius = finite(cameraCollisionRadius, .12);
         cameraCollisionPadding = finite(cameraCollisionPadding, .3);
         lockCompositionHorizonTolerance = config.getFloat(
@@ -253,7 +334,7 @@ public final class CombatConfig {
         lockStrongThirdMaxOffset = config.getFloat(
             "lockStrongThirdMaxOffset",
             "camera",
-            8,
+            12,
             0,
             90,
             "Third-person mouse offset; first-person legacy config unchanged");

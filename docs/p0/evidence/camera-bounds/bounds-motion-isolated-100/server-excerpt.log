@@ -1,0 +1,13 @@
+# Bounded key excerpts; source line count: 5579
+[13:34:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=99659 maxNanos=730600
+[13:34:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=97632 maxNanos=2342300
+[13:34:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:49]: P0_COMPOSITION_PHASE name=MOTION_45 target=111434 tick=588
+[13:34:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:50]: P0_CAMERA_ENTITY phase=MOTION_45 class=EntityZombie height=1.8 width=0.6
+[13:34:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:59]: P0_CAMERA_POSITION phase=MOTION_45 actualRange=8.0 feetDelta=0.0
+[13:34:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:49]: P0_COMPOSITION_PHASE name=MOTION_90 target=111434 tick=828
+[13:34:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:50]: P0_CAMERA_ENTITY phase=MOTION_90 class=EntityZombie height=1.8 width=0.6
+[13:34:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:59]: P0_CAMERA_POSITION phase=MOTION_90 actualRange=7.999999999999999 feetDelta=0.0
+[13:34:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:49]: P0_COMPOSITION_PHASE name=MOTION_STRAFE target=111434 tick=1068
+[13:34:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:50]: P0_CAMERA_ENTITY phase=MOTION_STRAFE class=EntityZombie height=1.8 width=0.6
+[13:34:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:59]: P0_CAMERA_POSITION phase=MOTION_STRAFE actualRange=7.760247106281024 feetDelta=0.0
+[13:34:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:31]: P0_NETWORK COMPLETE

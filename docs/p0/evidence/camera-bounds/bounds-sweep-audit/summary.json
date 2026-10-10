@@ -1,0 +1,272 @@
+{
+  "server_exit": 0,
+  "client_class_loads": 0,
+  "complete": true,
+  "run_capture_count": 1,
+  "archived_captures": [],
+  "runtime": [
+    {
+      "source": "build\\p0\\p0-validation.jar",
+      "snapshot": "runtime\\p0-validation.jar",
+      "sha256": "6718d98e7376c573ec51756c1402de380ce995e86d4077660d2b9c579405580f"
+    },
+    {
+      "source": "build\\rfg\\mclauncher-1.7.10.jar",
+      "snapshot": "runtime\\mclauncher-1.7.10.jar",
+      "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+    },
+    {
+      "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+      "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+      "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+    },
+    {
+      "source": "build\\libs\\clashweave-0.1.0-dev-dev.jar",
+      "snapshot": "runtime\\clashweave-0.1.0-dev-dev.jar",
+      "sha256": "98b1475261fb45b7c903540fbbe7f0931dddfaba8fe0a37f4e3eb35516b7eebf"
+    }
+  ],
+  "snapshots_note": "Frozen per run; original logs remain in ignored build/p0/runs",
+  "sweep_contacts": {
+    "AUDIT_CHICKEN_0": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_1": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_2": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_3": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_4": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_5": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_6": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_7": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_8": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_9": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_10": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_11": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_12": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_13": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_14": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_15": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_16": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_17": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_18": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_CHICKEN_19": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_20": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_21": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_22": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_23": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_24": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_25": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_26": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_27": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_28": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_29": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_30": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_31": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_32": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_33": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_34": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_35": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_36": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_37": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_38": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_SPIDER_39": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_40": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_41": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_42": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_43": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_44": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_45": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_46": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_47": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_48": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_49": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_50": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_51": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_52": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_53": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_54": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_55": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_56": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_57": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_58": {
+      "contacts": 1,
+      "successful_contacts": 1
+    },
+    "AUDIT_ZOMBIE_59": {
+      "contacts": 1,
+      "successful_contacts": 1
+    }
+  }
+}

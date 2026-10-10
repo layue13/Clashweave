@@ -1,0 +1,4 @@
+# Startup failure retained; full source remains ignored build/p0/process/bounds-motion-100-runner.log
+  "server_exit": 1,
+    else: raise RuntimeError('First client login timeout')
+RuntimeError: First client login timeout

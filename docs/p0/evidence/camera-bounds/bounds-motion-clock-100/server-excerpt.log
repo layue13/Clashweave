@@ -1,0 +1,13 @@
+# Bounded key excerpts; source line count: 5545
+[13:24:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=149774 maxNanos=3828700
+[13:24:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=125516 maxNanos=3828700
+[13:24:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=MOTION_45 target=104174 tick=571
+[13:24:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=MOTION_45 class=EntityZombie height=1.8 width=0.6
+[13:24:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=MOTION_45 actualRange=8.0 feetDelta=0.0
+[13:24:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=MOTION_90 target=149344 tick=811
+[13:24:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=MOTION_90 class=EntityZombie height=1.8 width=0.6
+[13:24:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=MOTION_90 actualRange=8.0 feetDelta=0.0
+[13:25:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=MOTION_STRAFE target=193543 tick=1051
+[13:25:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=MOTION_STRAFE class=EntityZombie height=1.8 width=0.6
+[13:25:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=MOTION_STRAFE actualRange=7.783632732645666 feetDelta=0.0
+[13:25:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:31]: P0_NETWORK COMPLETE

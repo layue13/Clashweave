@@ -1,0 +1,9 @@
+# Bounded key excerpts; source line count: 1651
+[13:04:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108681421936100
+[13:04:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108681689200700
+[13:04:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=WAIT receivedNano=108692690891800
+[13:04:37] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=WAIT target=77510 tick=442
+[13:04:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=FIRST receivedNano=108693807064900
+[13:04:38] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=FIRST target=77510 tick=464
+[13:04:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:236]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=77510 nano=108693807737700 dt=0.050631 before=35.0 after=26.0 pitchBefore=12.0 pitchAfter=8.64455 offset=0.0 instance=0 committed=0.0
+[13:04:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:236]: CW_LOCK_FOLLOW mode=WEAK reason=WEAK target=77510 nano=108703824049200 dt=0.0500526 before=8.0 after=8.0 pitchBefore=8.6430435 pitchAfter=8.6430435 offset=5.0 instance=0 committed=0.0

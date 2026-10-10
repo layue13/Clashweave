@@ -15,20 +15,26 @@ public final class SoulsComposition {
         }
     }
 
-    /** Bounded least-squares search keeps composition subordinate to configured camera limits. */
+    /** Clearance has lexicographic priority; screen anchors are preferences, never permissions. */
     public static Pose solve(double targetRange, double targetHeight, double playerHeight, double pivotHeight,
-        double fov, double distance, double distanceAdjustment, double baselinePitch, double pitchAdjustment,
-        double targetY, double playerY) {
-        double best = Double.POSITIVE_INFINITY, bd = distance, bp = baselinePitch;
+        double fov, double distanceMin, double distanceMax, double pitchMin, double pitchMax, double targetY,
+        double playerY, double playerTop, double margin) {
+        double best = Double.POSITIVE_INFINITY, deficit = Double.POSITIVE_INFINITY;
+        double bd = distanceMin, bp = pitchMin;
         for (int i = 0; i <= 40; i++) {
-            double d = Math.max(.2, distance - distanceAdjustment + 2 * distanceAdjustment * i / 40);
+            double d = distanceMin + (distanceMax - distanceMin) * i / 40;
             for (int j = 0; j <= 60; j++) {
-                double pitch = Math
-                    .max(-60, Math.min(75, baselinePitch - pitchAdjustment + 2 * pitchAdjustment * j / 60));
+                double pitch = pitchMin + (pitchMax - pitchMin) * j / 60;
                 double ty = screenY(targetRange, targetHeight, pivotHeight, d, pitch, fov);
                 double py = screenY(0, playerHeight, pivotHeight, d, pitch, fov);
+                double radians = Math.toRadians(pitch);
+                double back = d * Math.cos(radians), cameraY = pivotHeight + d * Math.sin(radians);
+                // Check the front edge of the player's .6-wide body, not only its center plane.
+                double t = Math.min(1, (back + .3) / Math.max(1e-6, back + targetRange));
+                double missing = Math.max(0, playerTop + margin - (cameraY + t * (targetHeight - cameraY)));
                 double score = (ty - targetY) * (ty - targetY) + (py - playerY) * (py - playerY);
-                if (score < best) {
+                if (missing < deficit - 1e-9 || Math.abs(missing - deficit) < 1e-9 && score < best) {
+                    deficit = missing;
                     best = score;
                     bd = d;
                     bp = pitch;
@@ -36,6 +42,16 @@ public final class SoulsComposition {
             }
         }
         return new Pose(bd, bp);
+    }
+
+    public static double sizeBlend(double height, double small, double large) {
+        return Math.max(0, Math.min(1, (height - small) / Math.max(1e-6, large - small)));
+    }
+
+    public static double verticalFov(double projectionYScale) {
+        return Double.isFinite(projectionYScale) && projectionYScale > 0
+            ? Math.toDegrees(2 * Math.atan(1 / projectionYScale))
+            : 70;
     }
 
     /** Camera orbits the raised pivot. Screen y grows downward. */

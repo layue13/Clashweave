@@ -1,0 +1,1574 @@
+{
+  "label": "bounds-sprint-final",
+  "measurement": "GLU projection of rendered bounding boxes; conservative rectangle coverage",
+  "settling_seconds": 2,
+  "motion_acceptance_uses": "all frames, not only settled frames",
+  "phases": {
+    "SPRINT_R2_H0.9": {
+      "all": {
+        "frames": 354,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6338404836290974,
+          "min": 0.6327158212661743,
+          "max": 0.6764123439788818
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.5018246721076427,
+          "min": 0.4987328052520752,
+          "max": 0.6144336462020874
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.46788251231619193,
+          "min": 0.46491551399230957,
+          "max": 0.5739951133728027
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 0.9,
+          "min": 0.9,
+          "max": 0.9
+        },
+        "distance": {
+          "mean": 3.5218481457561666,
+          "min": 3.5000000000000004,
+          "max": 4.300000190734863
+        },
+        "pitch": {
+          "mean": 41.06929487967463,
+          "min": 15.0,
+          "max": 41.79285760509725
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.43553657876261,
+          "min": 75.80519546239061,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.01694915254237288,
+        "torsoCovered_fraction": 0.03954802259887006,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 237,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6327158212661743,
+          "min": 0.6327158212661743,
+          "max": 0.6327158212661743
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.49873286485671997,
+          "min": 0.49873286485671997,
+          "max": 0.49873286485671997
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.46491551399230957,
+          "min": 0.46491551399230957,
+          "max": 0.46491551399230957
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 0.9,
+          "min": 0.9,
+          "max": 0.9
+        },
+        "distance": {
+          "mean": 3.500000000002498,
+          "min": 3.5000000000000004,
+          "max": 3.5000000001131526
+        },
+        "pitch": {
+          "mean": 41.79285760501699,
+          "min": 41.7928576014612,
+          "max": 41.79285760509725
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 354,
+        "cube_intersections": 0
+      }
+    },
+    "SPRINT_R2_H1.8": {
+      "all": {
+        "frames": 356,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6499082683847192,
+          "min": 0.6327158212661743,
+          "max": 0.6511620283126831
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.49351187468914504,
+          "min": 0.4934006929397583,
+          "max": 0.49873286485671997
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.4123285831360335,
+          "min": 0.41182059049606323,
+          "max": 0.46491551399230957
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 1.7924157303370787,
+          "min": 0.9,
+          "max": 1.8
+        },
+        "distance": {
+          "mean": 3.5000000000000004,
+          "min": 3.5000000000000004,
+          "max": 3.5000000000000004
+        },
+        "pitch": {
+          "mean": 35.04143296738503,
+          "min": 34.54008948775773,
+          "max": 41.79285760509725
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 235,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6500145792961121,
+          "min": 0.6500145792961121,
+          "max": 0.6500145792961121
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.4934006929397583,
+          "min": 0.4934006929397583,
+          "max": 0.4934006929397583
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.41182059049606323,
+          "min": 0.41182059049606323,
+          "max": 0.41182059049606323
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "distance": {
+          "mean": 3.5000000000000004,
+          "min": 3.5000000000000004,
+          "max": 3.5000000000000004
+        },
+        "pitch": {
+          "mean": 34.999999999997,
+          "min": 34.999999999865395,
+          "max": 34.99999999999999
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 356,
+        "cube_intersections": 0
+      }
+    },
+    "SPRINT_R2_H2.9": {
+      "all": {
+        "frames": 357,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6593351985226158,
+          "min": 0.6500145792961121,
+          "max": 0.6600000262260437
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.4605853871471074,
+          "min": 0.44533979892730713,
+          "max": 0.4934006929397583
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.30429997180356366,
+          "min": 0.2880224585533142,
+          "max": 0.41182059049606323
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 2.8907563025210083,
+          "min": 1.8,
+          "max": 2.9
+        },
+        "distance": {
+          "mean": 3.5000000000000004,
+          "min": 3.5000000000000004,
+          "max": 3.5000000000000004
+        },
+        "pitch": {
+          "mean": 31.220294359457487,
+          "min": 30.950000000000003,
+          "max": 34.99999999999999
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 237,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6600000262260437,
+          "min": 0.6600000262260437,
+          "max": 0.6600000262260437
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.46124267578125,
+          "min": 0.46124267578125,
+          "max": 0.46124267578125
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.3043489456176758,
+          "min": 0.3043489456176758,
+          "max": 0.3043489456176758
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 2.9,
+          "min": 2.9,
+          "max": 2.9
+        },
+        "distance": {
+          "mean": 3.5000000000000004,
+          "min": 3.5000000000000004,
+          "max": 3.5000000000000004
+        },
+        "pitch": {
+          "mean": 30.950000000217962,
+          "min": 30.950000000000003,
+          "max": 30.950000009920778
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 357,
+        "cube_intersections": 0
+      }
+    },
+    "SPRINT_R4_H0.9": {
+      "all": {
+        "frames": 357,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6667899945202995,
+          "min": 0.6600000262260437,
+          "max": 0.6705097556114197
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.47582325748368803,
+          "min": 0.46124267578125,
+          "max": 0.4890950918197632
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.4434557590497976,
+          "min": 0.3043489456176758,
+          "max": 0.4578450322151184
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 3.9831932773109244,
+          "min": 2.0,
+          "max": 4.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 0.9168067226890757,
+          "min": 0.9,
+          "max": 2.9
+        },
+        "distance": {
+          "mean": 3.5019389856916674,
+          "min": 3.5000000000000004,
+          "max": 3.5554670730107856
+        },
+        "pitch": {
+          "mean": 28.09220604016809,
+          "min": 25.785714528998554,
+          "max": 30.950000000000003
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 237,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6667178273200989,
+          "min": 0.6667178273200989,
+          "max": 0.6667178273200989
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.4754316210746765,
+          "min": 0.4754316210746765,
+          "max": 0.4754316210746765
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.44411665201187134,
+          "min": 0.44411665201187134,
+          "max": 0.44411665201187134
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 0.9,
+          "min": 0.9,
+          "max": 0.9
+        },
+        "distance": {
+          "mean": 3.500000000000464,
+          "min": 3.5000000000000004,
+          "max": 3.5000000000211453
+        },
+        "pitch": {
+          "mean": 28.157143132771292,
+          "min": 28.15714312860018,
+          "max": 28.157143132865023
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 357,
+        "cube_intersections": 0
+      }
+    },
+    "SPRINT_R4_H1.8": {
+      "all": {
+        "frames": 355,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6703324416993369,
+          "min": 0.6634198427200317,
+          "max": 0.6707494854927063
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.45306912391958104,
+          "min": 0.4362691640853882,
+          "max": 0.4754316210746765
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.38534087882915014,
+          "min": 0.36798709630966187,
+          "max": 0.44411665201187134
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 1.792394366197183,
+          "min": 0.9,
+          "max": 1.8
+        },
+        "distance": {
+          "mean": 3.5000000000000004,
+          "min": 3.5000000000000004,
+          "max": 3.5000000000000004
+        },
+        "pitch": {
+          "mean": 26.626236892560154,
+          "min": 26.450000000000003,
+          "max": 29.53582356051854
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 235,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6707494854927063,
+          "min": 0.6707494854927063,
+          "max": 0.6707494854927063
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.453805148601532,
+          "min": 0.453805148601532,
+          "max": 0.453805148601532
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.3857792019844055,
+          "min": 0.3857792019844055,
+          "max": 0.3857792019844055
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "distance": {
+          "mean": 3.5000000000000004,
+          "min": 3.5000000000000004,
+          "max": 3.5000000000000004
+        },
+        "pitch": {
+          "mean": 26.450000000156866,
+          "min": 26.450000000000003,
+          "max": 26.450000007049976
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 355,
+        "cube_intersections": 0
+      }
+    },
+    "SPRINT_R4_H2.9": {
+      "all": {
+        "frames": 357,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6795072293415123,
+          "min": 0.6701163053512573,
+          "max": 0.6799527406692505
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.44757063332058133,
+          "min": 0.4115758538246155,
+          "max": 0.453805148601532
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.3314463511234572,
+          "min": 0.29001694917678833,
+          "max": 0.3857792019844055
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 2.8907563025210083,
+          "min": 1.8,
+          "max": 2.9
+        },
+        "distance": {
+          "mean": 3.60436147565936,
+          "min": 3.5000000000000004,
+          "max": 3.6124999999999994
+        },
+        "pitch": {
+          "mean": 20.511895883225687,
+          "min": 20.150000000000002,
+          "max": 26.71978009243025
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 237,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6799527406692505,
+          "min": 0.6799527406692505,
+          "max": 0.6799527406692505
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.4493136405944824,
+          "min": 0.4493136405944824,
+          "max": 0.4493136405944824
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.3330575227737427,
+          "min": 0.3330575227737427,
+          "max": 0.3330575227737427
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 2.9,
+          "min": 2.9,
+          "max": 2.9
+        },
+        "distance": {
+          "mean": 3.612499999991872,
+          "min": 3.6124999996274916,
+          "max": 3.6124999999999994
+        },
+        "pitch": {
+          "mean": 20.150000000171655,
+          "min": 20.150000000000002,
+          "max": 20.15000000787579
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 357,
+        "cube_intersections": 0
+      }
+    },
+    "SPRINT_R8_H0.9": {
+      "all": {
+        "frames": 357,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6803813424764895,
+          "min": 0.6796921491622925,
+          "max": 0.6804143190383911
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.4645237042790368,
+          "min": 0.44678598642349243,
+          "max": 0.47300857305526733
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.44175549615331056,
+          "min": 0.3330575227737427,
+          "max": 0.45115989446640015
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 7.966386554621849,
+          "min": 4.0,
+          "max": 8.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 0.9168067226890757,
+          "min": 0.9,
+          "max": 2.9
+        },
+        "distance": {
+          "mean": 3.725934196057665,
+          "min": 3.6124999999999994,
+          "max": 3.788837003039443
+        },
+        "pitch": {
+          "mean": 17.480038353103314,
+          "min": 16.300000113532658,
+          "max": 20.150000000000002
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 237,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6804142594337463,
+          "min": 0.6804142594337463,
+          "max": 0.6804142594337463
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.46444815397262573,
+          "min": 0.46444815397262573,
+          "max": 0.46444815397262573
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.4424682855606079,
+          "min": 0.4424682855606079,
+          "max": 0.4424682855606079
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 8.0,
+          "min": 8.0,
+          "max": 8.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 0.9,
+          "min": 0.9,
+          "max": 0.9
+        },
+        "distance": {
+          "mean": 3.725000000002771,
+          "min": 3.7250000000000005,
+          "max": 3.7250000001264754
+        },
+        "pitch": {
+          "mean": 17.485714415424724,
+          "min": 17.485714413586216,
+          "max": 17.485714415465893
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 357,
+        "cube_intersections": 0
+      }
+    },
+    "SPRINT_R8_H1.8": {
+      "all": {
+        "frames": 358,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6805464319010687,
+          "min": 0.6800227761268616,
+          "max": 0.6805785298347473
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.4487507649640131,
+          "min": 0.4355391263961792,
+          "max": 0.46444815397262573
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.4036807975622529,
+          "min": 0.38973569869995117,
+          "max": 0.4424682855606079
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 8.0,
+          "min": 8.0,
+          "max": 8.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 1.7924581005586593,
+          "min": 0.9,
+          "max": 1.8
+        },
+        "distance": {
+          "mean": 3.7587717693030385,
+          "min": 3.6876708060625805,
+          "max": 3.7624999999999997
+        },
+        "pitch": {
+          "mean": 16.650684843330158,
+          "min": 16.550000000000004,
+          "max": 18.426711679121397
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 238,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6805785298347473,
+          "min": 0.6805785298347473,
+          "max": 0.6805785298347473
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.4493017792701721,
+          "min": 0.4493017792701721,
+          "max": 0.4493017792701721
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.40406328439712524,
+          "min": 0.40406328439712524,
+          "max": 0.40406328439712524
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 8.0,
+          "min": 8.0,
+          "max": 8.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "distance": {
+          "mean": 3.7624999999986124,
+          "min": 3.762499999936692,
+          "max": 3.7624999999999997
+        },
+        "pitch": {
+          "mean": 16.550000000058212,
+          "min": 16.550000000000004,
+          "max": 16.550000002653494
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 358,
+        "cube_intersections": 0
+      }
+    },
+    "SPRINT_R8_H2.9": {
+      "all": {
+        "frames": 360,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.679784378906091,
+          "min": 0.6796971559524536,
+          "max": 0.6805785298347473
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.44988609304030736,
+          "min": 0.42069733142852783,
+          "max": 0.45148205757141113
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.37667293349901837,
+          "min": 0.34467488527297974,
+          "max": 0.40406328439712524
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 8.0,
+          "min": 8.0,
+          "max": 8.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 2.890833333333333,
+          "min": 1.8,
+          "max": 2.9
+        },
+        "distance": {
+          "mean": 3.9377651802988662,
+          "min": 3.7577472615462146,
+          "max": 3.9499999999999997
+        },
+        "pitch": {
+          "mean": 12.750641331515569,
+          "min": 12.500000000000002,
+          "max": 16.712378609746178
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "after_2s": {
+        "frames": 240,
+        "playerX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "playerY": {
+          "mean": 0.6796971559524536,
+          "min": 0.6796971559524536,
+          "max": 0.6796971559524536
+        },
+        "targetX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "targetY": {
+          "mean": 0.45148205757141113,
+          "min": 0.45148205757141113,
+          "max": 0.45148205757141113
+        },
+        "headX": {
+          "mean": 0.4999999701976776,
+          "min": 0.4999999701976776,
+          "max": 0.4999999701976776
+        },
+        "headY": {
+          "mean": 0.3781747817993164,
+          "min": 0.3781747817993164,
+          "max": 0.3781747817993164
+        },
+        "bearingError": null,
+        "actualRange": {
+          "mean": 8.0,
+          "min": 8.0,
+          "max": 8.0
+        },
+        "feetDelta": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "targetHeight": {
+          "mean": 2.9,
+          "min": 2.9,
+          "max": 2.9
+        },
+        "distance": {
+          "mean": 3.9499999999155038,
+          "min": 3.94999999614601,
+          "max": 3.9499999999999997
+        },
+        "pitch": {
+          "mean": 12.500000001055358,
+          "min": 12.500000000000002,
+          "max": 12.50000004815043
+        },
+        "fraction": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "fov": {
+          "mean": 80.50000102299198,
+          "min": 80.50000102299198,
+          "max": 80.50000102299198
+        },
+        "headCovered_fraction": 0.0,
+        "torsoCovered_fraction": 0.0,
+        "hidden_fraction": 0.0,
+        "insideBlock_fraction": 0.0,
+        "active_fraction": 1.0,
+        "target_x_abs_deviation": {
+          "median": 2.9802322387695312e-08,
+          "p95": 2.9802322387695312e-08
+        },
+        "bearing_abs_error_degrees": {
+          "median": null,
+          "p95": null
+        },
+        "max_fraction_change": 0.0,
+        "max_fraction_shrink": 0
+      },
+      "collision": {
+        "cube_samples": 360,
+        "cube_intersections": 0
+      }
+    }
+  }
+}

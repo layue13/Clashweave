@@ -1,0 +1,6 @@
+# Bounded key excerpts; source line count: 6348
+[13:19:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=158556 maxNanos=2324500
+[13:19:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=331318 maxNanos=5776100
+[13:19:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW COMMIT player=P0A targetPlayer=false target=64226 id=1 hitTick=502 commitTick=502 frozen=109570967901100 cutoff=109570968384400 guard=0 damage=5.0 hit=true hp=989.32 facing=false
+[13:19:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW COMMIT player=P0A targetPlayer=true target=63961 id=1 hitTick=502 commitTick=506 frozen=109570968186300 cutoff=109571153659400 guard=0 damage=5.0 hit=true hp=195.0 facing=true
+[13:20:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:107]: P0_NETWORK COMPLETE

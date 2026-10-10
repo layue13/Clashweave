@@ -21,6 +21,8 @@ parser.add_argument('--composition', action='store_true')
 parser.add_argument('--first-only', action='store_true')
 parser.add_argument('--mod-snapshot')
 parser.add_argument('--camera-probe', action='store_true')
+parser.add_argument('--camera-suite', choices=['real','motion','sprint','compare','audit'])
+parser.add_argument('--snapshot-coremod', action='store_true')
 parser.add_argument('--souls', action='store_true')
 parser.add_argument('--souls-view', action='store_true')
 parser.add_argument('--movement', action='store_true')
@@ -35,6 +37,7 @@ parser.add_argument('--rtt', type=int, default=0)
 args = parser.parse_args()
 if args.follow_only: args.lock_support=True
 if args.first_only: args.composition=True
+if args.camera_suite: args.souls=True
 if args.souls: args.composition=True
 if args.souls_view: args.view_test=True
 if not args.accept_eula:
@@ -66,7 +69,7 @@ def spawn(role):
     launch = json.loads((ROOT/'build/p0'/('runServer.json' if server else 'runClient.json')).read_text(encoding='utf-8'))
     command = [launch['java'], '-Xms256M', '-Xmx1G', '-Dfile.encoding=UTF-8',
                '-Dfml.ignoreInvalidMinecraftCertificates=true', '-Dclashweave.trace=true', '-Dcw.p0.network=true']
-    if not args.mod_snapshot: command += ['-Dfml.coreMods.load=com.layue13.clashweave.coremod.CameraLoadingPlugin']
+    if not args.mod_snapshot or args.snapshot_coremod: command += ['-Dfml.coreMods.load=com.layue13.clashweave.coremod.CameraLoadingPlugin']
     if args.view_test:
         command += ['-Dcw.p0.viewTest=true']
     if args.sweep_test:
@@ -87,6 +90,7 @@ def spawn(role):
         command += ['-Dcw.p0.lockSupport=true']
     if args.souls_view: command += ['-Dcw.p0.soulsView=true']
     if args.souls: command += ['-Dcw.p0.souls=true']
+    if args.camera_suite: command += ['-Dcw.p0.cameraSuite='+args.camera_suite]
     if args.first_only: command += ['-Dcw.p0.firstOnly=true']
     if args.composition or args.camera_probe:
         command += ['-Dcw.p0.composition=true']

@@ -38,14 +38,44 @@ public class SoulsCompositionTest {
         CombatConfig c = new CombatConfig();
         c.load(temporary.newFolder());
         assertEquals(ThirdPersonCamera.Preset.SOULS, c.lockCompositionPreset);
-        assertEquals(4.2, c.cameraDistance, .00001);
+        assertEquals(4.3, c.cameraDistance, .00001);
         assertEquals(.6, c.cameraHeightOffset, .00001);
-        assertEquals(18, c.baselinePitchDown, 0);
-        assertEquals(42, c.cameraPitchAdjustment, 0);
-        assertEquals(2, c.cameraDistanceAdjustment, 0);
+        assertEquals(15, c.baselinePitchDown, 0);
+        assertEquals(35, c.cameraPitchMax, 0);
+        assertEquals(3.5, c.cameraDistanceMin, 0);
         assertEquals(0, c.lateralOffset, 0);
-        assertEquals(.38, c.targetScreenY, .00001);
-        assertEquals(.65, c.playerScreenY, .00001);
+        assertEquals(.45, c.targetScreenY, .00001);
+        assertEquals(.68, c.playerScreenY, .00001);
+        assertEquals(5, c.cameraDistanceMax, 0);
+        assertEquals(8, c.cameraPitchMin, 0);
+        assertEquals(.15, c.cameraHeadClearance, .00001);
+        assertEquals(.8, c.smallTargetHeight, .00001);
+        assertEquals(1.5, c.largeTargetHeight, 0);
+        assertEquals(45, c.smallTargetPitchMax, 0);
+        assertEquals(.85, c.smallTargetAimFraction, .00001);
+        assertEquals(12, c.lockStrongThirdMaxOffset, 0);
+    }
+
+    @Test
+    public void newBoundsAndSizeConfigurationAreReadAndOrdered() throws Exception {
+        File d = temporary.newFolder();
+        Configuration f = new Configuration(new File(d, "combat.cfg"));
+        String[] keys = { "cameraDistanceMin", "cameraDistanceMax", "cameraPitchMin", "cameraPitchMax",
+            "smallTargetHeight", "largeTargetHeight", "smallTargetPitchMax", "smallTargetAimFraction" };
+        double[] values = { 4, 3, 20, 30, 1, .5, 40, .9 };
+        for (int i = 0; i < keys.length; i++) f.get("camera", keys[i], values[i])
+            .set(values[i]);
+        f.save();
+        CombatConfig c = new CombatConfig();
+        c.load(d);
+        assertEquals(4, c.cameraDistanceMin, 0);
+        assertEquals(4, c.cameraDistanceMax, 0);
+        assertEquals(20, c.cameraPitchMin, 0);
+        assertEquals(30, c.cameraPitchMax, 0);
+        assertEquals(1, c.smallTargetHeight, 0);
+        assertEquals(1.01, c.largeTargetHeight, 1e-6);
+        assertEquals(40, c.smallTargetPitchMax, 0);
+        assertEquals(.9, c.smallTargetAimFraction, 1e-6);
     }
 
     @Test
@@ -107,7 +137,7 @@ public class SoulsCompositionTest {
         CombatConfig c = new CombatConfig();
         c.load(d);
         assertEquals(10, c.cameraDistance, 0);
-        assertEquals(.38, c.targetScreenY, .00001);
+        assertEquals(.45, c.targetScreenY, .00001);
     }
 
     @Test

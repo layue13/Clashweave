@@ -19,6 +19,7 @@ import com.layue13.clashweave.forge.CombatConfig;
 public final class SoulsCamera {
 
     private static final FloatBuffer before = BufferUtils.createFloatBuffer(16);
+    private static final FloatBuffer projection = BufferUtils.createFloatBuffer(16);
     private static final ThirdPersonCamera.Spring distanceSpring = new ThirdPersonCamera.Spring();
     private static final ThirdPersonCamera.Spring pitchSpring = new ThirdPersonCamera.Spring();
     private static final ThirdPersonCamera.Spring collisionSpring = new ThirdPersonCamera.Spring();
@@ -27,7 +28,8 @@ public final class SoulsCamera {
     private static Object world;
     private static int targetId = -1;
     public static boolean active, hidden;
-    public static double distance, pitch, fraction = 1, safe = 1, cameraX, cameraY, cameraZ, delta;
+    public static double distance, pitch, fraction = 1, safe = 1, cameraX, cameraY, cameraZ, delta, verticalFov,
+        pitchLimit;
 
     private SoulsCamera() {}
 
@@ -76,23 +78,32 @@ public final class SoulsCamera {
         // 1.7.10 local-player posY is the eye anchor; getEyeHeight() is only .12 here.
         // Match vanilla orientCamera: its final translation is yOffset - 1.62.
         double eye = 1.62 - mc.thePlayer.yOffset;
-        double[] filtered = ClientProxy.instance.lockCamera.cameraPoint(target);
+        double height = target.boundingBox.maxY - target.boundingBox.minY;
+        double blend = SoulsComposition.sizeBlend(height, c.smallTargetHeight, c.largeTargetHeight);
+        pitchLimit = c.smallTargetPitchMax + blend * (c.cameraPitchMax - c.smallTargetPitchMax);
+        double aim = c.smallTargetAimFraction + blend * (.5 - c.smallTargetAimFraction);
+        double[] filtered = ClientProxy.instance.lockCamera.cameraPoint(target, aim);
+        projection.clear();
+        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, projection);
+        verticalFov = SoulsComposition.verticalFov(projection.get(5));
         double range = Math.hypot(filtered[0] - px, filtered[2] - pz);
         SoulsComposition.Pose goal = SoulsComposition.solve(
             range,
             filtered[1] - py,
             footOffset + mc.thePlayer.height / 2,
             eye + c.cameraHeightOffset,
-            mc.gameSettings.fovSetting,
-            c.cameraDistance,
-            c.cameraDistanceAdjustment,
-            c.baselinePitchDown,
-            c.cameraPitchAdjustment,
+            verticalFov,
+            c.cameraDistanceMin,
+            c.cameraDistanceMax,
+            c.cameraPitchMin,
+            pitchLimit,
             c.targetScreenY,
-            c.playerScreenY);
+            c.playerScreenY,
+            footOffset + mc.thePlayer.height,
+            c.cameraHeadClearance);
         if (!initialized || world != mc.theWorld) {
-            distance = c.cameraDistance;
-            pitch = c.baselinePitchDown;
+            distance = Math.max(c.cameraDistanceMin, Math.min(c.cameraDistanceMax, c.cameraDistance));
+            pitch = Math.max(c.cameraPitchMin, Math.min(pitchLimit, c.baselinePitchDown));
             fraction = 1;
             distanceSpring.clear();
             pitchSpring.clear();
@@ -103,12 +114,12 @@ public final class SoulsCamera {
         }
         if (targetId != target.getEntityId()) {
             // A switch changes only the goal. Keep the existing camera pose continuous.
-            distanceSpring.clear();
-            pitchSpring.clear();
             targetId = target.getEntityId();
         }
         distance = distanceSpring.step(distance, goal.distance, dt, c.lockStrongSmoothTime, 8);
         pitch = pitchSpring.step(pitch, goal.pitch, dt, c.lockStrongSmoothTime, c.lockFollow.strongSpeed);
+        distance = Math.max(c.cameraDistanceMin, Math.min(c.cameraDistanceMax, distance));
+        pitch = Math.max(c.cameraPitchMin, Math.min(pitchLimit, pitch));
         double yaw = Math.toRadians(mc.thePlayer.rotationYaw), angle = Math.toRadians(pitch);
         double dx = Math.sin(yaw) * distance * Math.cos(angle) + Math.cos(yaw) * c.lateralOffset;
         double dz = -Math.cos(yaw) * distance * Math.cos(angle) + Math.sin(yaw) * c.lateralOffset;
@@ -129,7 +140,7 @@ public final class SoulsCamera {
         double desired = Math
             .max(0, anticipated - (anticipated < 1 ? c.cameraCollisionPadding / Math.max(1e-6, length) : 0));
         double old = fraction;
-        fraction = collisionSpring.step(fraction, desired, dt, c.lockStrongSmoothTime, 4);
+        fraction = collisionSpring.step(fraction, desired, dt, c.lockStrongSmoothTime, c.cameraCollisionMaxSpeed);
         // Immediate hard clamp only when required for nonpenetration, e.g. a block appears on the camera.
         fraction = Math.max(0, Math.min(safe, fraction));
         delta = fraction - old;
@@ -142,8 +153,12 @@ public final class SoulsCamera {
         GL11.glRotated(mc.thePlayer.rotationYaw + 180, 0, 1, 0);
         GL11.glTranslated(px - cameraX, py - cameraY, pz - cameraZ);
         active = true;
-        hidden = SoulsComposition
-            .hideModel(true, hidden, length * fraction, c.cameraHidePlayerDistance, c.cameraHidePlayerHysteresis);
+        hidden = SoulsComposition.hideModel(
+            fraction < 1,
+            hidden,
+            distance * fraction,
+            c.cameraHidePlayerDistance,
+            c.cameraHidePlayerHysteresis);
         if (Boolean.getBoolean("clashweave.trace")) System.out.println(
             "CW_SOULS_FRAME nano=" + now
                 + " dt="
@@ -152,6 +167,10 @@ public final class SoulsCamera {
                 + targetId
                 + " distance="
                 + distance
+                + " fov="
+                + verticalFov
+                + " pitchLimit="
+                + pitchLimit
                 + " pitch="
                 + pitch
                 + " fraction="

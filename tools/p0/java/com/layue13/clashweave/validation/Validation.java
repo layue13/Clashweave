@@ -37,6 +37,7 @@ public final class Validation {
         FMLCommonHandler.instance().bus().register(new LockScenario());
         FMLCommonHandler.instance().bus().register(new LockSupportScenario());
         FMLCommonHandler.instance().bus().register(new CompositionScenario());
+        FMLCommonHandler.instance().bus().register(new CameraMatrixScenario());
         SweepScenario sweep=new SweepScenario();
         FMLCommonHandler.instance().bus().register(sweep);
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(sweep);
