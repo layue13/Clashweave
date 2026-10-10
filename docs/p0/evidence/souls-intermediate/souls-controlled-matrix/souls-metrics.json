@@ -1,0 +1,758 @@
+{
+  "SOULS_R2_H1.0": {
+    "samples_after_2s": 238,
+    "all_samples": 358,
+    "playerX": {
+      "mean": 0.5,
+      "min": 0.5,
+      "max": 0.5
+    },
+    "playerY": {
+      "mean": 0.647622045599112,
+      "min": 0.6476219892501831,
+      "max": 0.6476220488548279
+    },
+    "targetX": {
+      "mean": 0.5,
+      "min": 0.5,
+      "max": 0.5
+    },
+    "targetY": {
+      "mean": 0.3779999017715454,
+      "min": 0.3779999017715454,
+      "max": 0.3779999017715454
+    },
+    "headY": {
+      "mean": 0.33435893058776855,
+      "min": 0.33435893058776855,
+      "max": 0.33435893058776855
+    },
+    "targetHeight": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "distance": {
+      "mean": 2.199999810417991,
+      "min": 2.199999809265137,
+      "max": 2.199999861196133
+    },
+    "pitch": {
+      "mean": 58.59999998106835,
+      "min": 58.599999148619496,
+      "max": 58.59999999999999
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 358,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.0023779544008880604,
+    "target_screen_y_error": 0.0020000982284545943
+  },
+  "SOULS_R2_H1.8": {
+    "samples_after_2s": 235,
+    "all_samples": 355,
+    "playerX": {
+      "mean": 0.49999999961954483,
+      "min": 0.4999999701976776,
+      "max": 0.5000000596046448
+    },
+    "playerY": {
+      "mean": 0.6510994335438343,
+      "min": 0.6510993838310242,
+      "max": 0.651099443435669
+    },
+    "targetX": {
+      "mean": 0.49983140724770564,
+      "min": 0.4975886940956116,
+      "max": 0.5
+    },
+    "targetY": {
+      "mean": 0.38210671708938926,
+      "min": 0.382024884223938,
+      "max": 0.3851867914199829
+    },
+    "headY": {
+      "mean": 0.29630626668321325,
+      "min": 0.2962232828140259,
+      "max": 0.2994304895401001
+    },
+    "targetHeight": {
+      "mean": 1.8,
+      "min": 1.8,
+      "max": 1.8
+    },
+    "distance": {
+      "mean": 2.699999809184306,
+      "min": 2.6999998056463026,
+      "max": 2.6999998092651363
+    },
+    "pitch": {
+      "mean": 53.000000003149495,
+      "min": 53.00000000000001,
+      "max": 53.000000140668675
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 355,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.0010994335438342384,
+    "target_screen_y_error": 0.002106717089389254
+  },
+  "SOULS_R2_H3.0": {
+    "samples_after_2s": 222,
+    "all_samples": 342,
+    "playerX": {
+      "mean": 0.4946959088514517,
+      "min": 0.4760890305042267,
+      "max": 0.5000240802764893
+    },
+    "playerY": {
+      "mean": 0.6584853427904146,
+      "min": 0.6435478329658508,
+      "max": 0.6901395916938782
+    },
+    "targetX": {
+      "mean": 0.5031284020022229,
+      "min": 0.4999687969684601,
+      "max": 0.5157169103622437
+    },
+    "targetY": {
+      "mean": 0.40362232225435274,
+      "min": 0.34683042764663696,
+      "max": 0.4422679543495178
+    },
+    "headY": {
+      "mean": 0.27719988049687566,
+      "min": 0.20985960960388184,
+      "max": 0.33015626668930054
+    },
+    "targetHeight": {
+      "mean": 3.0,
+      "min": 3.0,
+      "max": 3.0
+    },
+    "distance": {
+      "mean": 3.7733143464145575,
+      "min": 3.399999809265137,
+      "max": 4.368851397053457
+    },
+    "pitch": {
+      "mean": 42.133424013070105,
+      "min": 35.312802961184374,
+      "max": 46.0
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 342,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.008485342790414574,
+    "target_screen_y_error": 0.023622322254352734
+  },
+  "SOULS_R4_H1.0": {
+    "samples_after_2s": 235,
+    "all_samples": 355,
+    "playerX": {
+      "mean": 0.5000000446400744,
+      "min": 0.4999999403953552,
+      "max": 0.5000000596046448
+    },
+    "playerY": {
+      "mean": 0.6475512093686043,
+      "min": 0.6470072269439697,
+      "max": 0.650942325592041
+    },
+    "targetX": {
+      "mean": 0.5000004641553188,
+      "min": 0.5,
+      "max": 0.5000059604644775
+    },
+    "targetY": {
+      "mean": 0.3771153759449086,
+      "min": 0.37587714195251465,
+      "max": 0.38537168502807617
+    },
+    "headY": {
+      "mean": 0.3454877259883475,
+      "min": 0.34424591064453125,
+      "max": 0.3537484407424927
+    },
+    "targetHeight": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "distance": {
+      "mean": 3.899999809255467,
+      "min": 3.8999998088280905,
+      "max": 3.8999998092651365
+    },
+    "pitch": {
+      "mean": 41.606582294949334,
+      "min": 40.40000000004416,
+      "max": 41.79999999999998
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 355,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.002448790631395692,
+    "target_screen_y_error": 0.002884624055091378
+  },
+  "SOULS_R4_H1.8": {
+    "samples_after_2s": 235,
+    "all_samples": 355,
+    "playerX": {
+      "mean": 0.49999998592315836,
+      "min": 0.4999999403953552,
+      "max": 0.5000000596046448
+    },
+    "playerY": {
+      "mean": 0.649198114618342,
+      "min": 0.649198055267334,
+      "max": 0.6491981744766235
+    },
+    "targetX": {
+      "mean": 0.49989880310728196,
+      "min": 0.49854663014411926,
+      "max": 0.5000000596046448
+    },
+    "targetY": {
+      "mean": 0.3785284765223239,
+      "min": 0.3772686719894409,
+      "max": 0.37856584787368774
+    },
+    "headY": {
+      "mean": 0.31891557054316744,
+      "min": 0.31776952743530273,
+      "max": 0.3189495801925659
+    },
+    "targetHeight": {
+      "mean": 1.8,
+      "min": 1.8,
+      "max": 1.8
+    },
+    "distance": {
+      "mean": 4.199999809261149,
+      "min": 4.1999998090854165,
+      "max": 4.199999809265136
+    },
+    "pitch": {
+      "mean": 37.600000000024544,
+      "min": 37.60000000000001,
+      "max": 37.60000000110733
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 355,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.0008018853816580407,
+    "target_screen_y_error": 0.0014715234776760955
+  },
+  "SOULS_R4_H3.0": {
+    "samples_after_2s": 235,
+    "all_samples": 355,
+    "playerX": {
+      "mean": 0.5000000377918812,
+      "min": 0.4999999403953552,
+      "max": 0.5000000596046448
+    },
+    "playerY": {
+      "mean": 0.6510287404060364,
+      "min": 0.6510286331176758,
+      "max": 0.6510287523269653
+    },
+    "targetX": {
+      "mean": 0.5000968423295529,
+      "min": 0.4999999403953552,
+      "max": 0.5010774731636047
+    },
+    "targetY": {
+      "mean": 0.38050957410893543,
+      "min": 0.3804782032966614,
+      "max": 0.38143444061279297
+    },
+    "headY": {
+      "mean": 0.2781200221244325,
+      "min": 0.27809762954711914,
+      "max": 0.2787795662879944
+    },
+    "targetHeight": {
+      "mean": 3.0,
+      "min": 3.0,
+      "max": 3.0
+    },
+    "distance": {
+      "mean": 4.699999809261626,
+      "min": 4.699999809108054,
+      "max": 4.699999809265136
+    },
+    "pitch": {
+      "mean": 30.600000000064806,
+      "min": 30.600000000000005,
+      "max": 30.6000000028982
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 355,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.0010287404060363992,
+    "target_screen_y_error": 0.0005095741089354289
+  },
+  "SOULS_R8_H1.0": {
+    "samples_after_2s": 236,
+    "all_samples": 356,
+    "playerX": {
+      "mean": 0.5,
+      "min": 0.5,
+      "max": 0.5
+    },
+    "playerY": {
+      "mean": 0.6484760046005249,
+      "min": 0.6484760046005249,
+      "max": 0.6484760046005249
+    },
+    "targetX": {
+      "mean": 0.5,
+      "min": 0.5,
+      "max": 0.5
+    },
+    "targetY": {
+      "mean": 0.37711042165756226,
+      "min": 0.37711042165756226,
+      "max": 0.37711042165756226
+    },
+    "headY": {
+      "mean": 0.355430006980896,
+      "min": 0.355430006980896,
+      "max": 0.355430006980896
+    },
+    "targetHeight": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "distance": {
+      "mean": 4.999999809185774,
+      "min": 4.9999998056914885,
+      "max": 4.999999809265136
+    },
+    "pitch": {
+      "mean": 27.800000000348195,
+      "min": 27.8,
+      "max": 27.800000015720972
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 356,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.0015239953994751199,
+    "target_screen_y_error": 0.0028895783424377486
+  },
+  "SOULS_R8_H1.8": {
+    "samples_after_2s": 235,
+    "all_samples": 355,
+    "playerX": {
+      "mean": 0.4999999998731816,
+      "min": 0.4999999403953552,
+      "max": 0.5000000596046448
+    },
+    "playerY": {
+      "mean": 0.6509874980500404,
+      "min": 0.650987446308136,
+      "max": 0.6509875059127808
+    },
+    "targetX": {
+      "mean": 0.4999337433500493,
+      "min": 0.499067097902298,
+      "max": 0.5
+    },
+    "targetY": {
+      "mean": 0.37928274362645253,
+      "min": 0.37882792949676514,
+      "max": 0.37929338216781616
+    },
+    "headY": {
+      "mean": 0.33937332579430113,
+      "min": 0.33899515867233276,
+      "max": 0.33938223123550415
+    },
+    "targetHeight": {
+      "mean": 1.8,
+      "min": 1.8,
+      "max": 1.8
+    },
+    "distance": {
+      "mean": 5.099999809264601,
+      "min": 5.09999980924073,
+      "max": 5.099999809265136
+    },
+    "pitch": {
+      "mean": 25.000000000019586,
+      "min": 25.000000000000004,
+      "max": 25.000000000892268
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 355,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.0009874980500403918,
+    "target_screen_y_error": 0.0007172563735474702
+  },
+  "SOULS_R8_H3.0": {
+    "samples_after_2s": 226,
+    "all_samples": 346,
+    "playerX": {
+      "mean": 0.5000000026373737,
+      "min": 0.4999999403953552,
+      "max": 0.5000000596046448
+    },
+    "playerY": {
+      "mean": 0.6501421954779498,
+      "min": 0.6501421928405762,
+      "max": 0.650142252445221
+    },
+    "targetX": {
+      "mean": 0.5000657441869246,
+      "min": 0.5,
+      "max": 0.5009090304374695
+    },
+    "targetY": {
+      "mean": 0.381917419950519,
+      "min": 0.3819082975387573,
+      "max": 0.3822488784790039
+    },
+    "headY": {
+      "mean": 0.3150263877041572,
+      "min": 0.3150210976600647,
+      "max": 0.3152194023132324
+    },
+    "targetHeight": {
+      "mean": 3.0,
+      "min": 3.0,
+      "max": 3.0
+    },
+    "distance": {
+      "mean": 5.399999809262309,
+      "min": 5.399999809143161,
+      "max": 5.399999809265136
+    },
+    "pitch": {
+      "mean": 20.800000000051423,
+      "min": 20.8,
+      "max": 20.800000002218475
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 346,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.00014219547794980247,
+    "target_screen_y_error": 0.0019174199505189726
+  },
+  "OFF_R8_H1.8": {
+    "samples_after_2s": 238,
+    "all_samples": 358,
+    "playerX": {
+      "mean": 0.5,
+      "min": 0.5,
+      "max": 0.5
+    },
+    "playerY": {
+      "mean": 0.6282652368565568,
+      "min": 0.6282651424407959,
+      "max": 0.6282662153244019
+    },
+    "targetX": {
+      "mean": 0.4999290292753893,
+      "min": 0.49899327754974365,
+      "max": 0.5
+    },
+    "targetY": {
+      "mean": 0.5374917883832916,
+      "min": 0.5373955965042114,
+      "max": 0.5375131964683533
+    },
+    "headY": {
+      "mean": 0.4946420513281301,
+      "min": 0.4946402907371521,
+      "max": 0.4946603775024414
+    },
+    "targetHeight": {
+      "mean": 1.8,
+      "min": 1.8,
+      "max": 1.8
+    },
+    "distance": {
+      "mean": 5.399999809265136,
+      "min": 5.399999809265136,
+      "max": 5.399999809265136
+    },
+    "pitch": {
+      "mean": 20.8,
+      "min": 20.8,
+      "max": 20.8
+    },
+    "fraction": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "headCovered_fraction": 1.0,
+    "torsoCovered_fraction": 1.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 1.0,
+    "torsoCovered_rendered_fraction": 1.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 0,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.0,
+    "max_collision_fraction_step_all_frames": 0.0,
+    "player_screen_y_error": 0.021734763143443248,
+    "target_screen_y_error": 0.1574917883832916
+  },
+  "SOULS_WALL": {
+    "samples_after_2s": 237,
+    "all_samples": 357,
+    "playerX": {
+      "mean": 0.4999999701976776,
+      "min": 0.4999999701976776,
+      "max": 0.4999999701976776
+    },
+    "playerY": {
+      "mean": 0.7630332637939775,
+      "min": 0.6719467043876648,
+      "max": 0.8720288276672363
+    },
+    "targetX": {
+      "mean": 0.4999999701976776,
+      "min": 0.4999999701976776,
+      "max": 0.4999999701976776
+    },
+    "targetY": {
+      "mean": 0.3165999897421664,
+      "min": 0.28660857677459717,
+      "max": 0.35651516914367676
+    },
+    "headY": {
+      "mean": 0.2621934496903721,
+      "min": 0.22361302375793457,
+      "max": 0.3119945526123047
+    },
+    "targetHeight": {
+      "mean": 1.8,
+      "min": 1.8,
+      "max": 1.8
+    },
+    "distance": {
+      "mean": 5.184583763665519,
+      "min": 5.1000497109633995,
+      "max": 5.199999809265136
+    },
+    "pitch": {
+      "mean": 25.000000004365827,
+      "min": 25.000000000000004,
+      "max": 25.000000196840883
+    },
+    "fraction": {
+      "mean": 0.43283274931419385,
+      "min": 0.21850100825759342,
+      "max": 0.7528691222658002
+    },
+    "headCovered_fraction": 0.0,
+    "torsoCovered_fraction": 0.0,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.0,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 357,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.009518016248685729,
+    "max_collision_fraction_step_all_frames": 0.009518016248685729,
+    "player_screen_y_error": 0.11303326379397749,
+    "target_screen_y_error": 0.0634000102578336
+  },
+  "SOULS_CEILING": {
+    "samples_after_2s": 241,
+    "all_samples": 361,
+    "playerX": {
+      "mean": 0.49999997860663165,
+      "min": 0.4999999701976776,
+      "max": 0.5
+    },
+    "playerY": {
+      "mean": 1.010930356643012,
+      "min": 0.6483651995658875,
+      "max": 1.4418959617614746
+    },
+    "targetX": {
+      "mean": 0.4999999701976776,
+      "min": 0.4999999701976776,
+      "max": 0.4999999701976776
+    },
+    "targetY": {
+      "mean": 0.2880611019015807,
+      "min": 0.2508620023727417,
+      "max": 0.37860411405563354
+    },
+    "headY": {
+      "mean": 0.226201350016218,
+      "min": 0.17823505401611328,
+      "max": 0.3392985463142395
+    },
+    "targetHeight": {
+      "mean": 1.8,
+      "min": 1.8,
+      "max": 1.8
+    },
+    "distance": {
+      "mean": 5.183610908470465,
+      "min": 5.100026961521967,
+      "max": 5.199999809265136
+    },
+    "pitch": {
+      "mean": 25.000000000418197,
+      "min": 25.000000000000004,
+      "max": 25.000000019396378
+    },
+    "fraction": {
+      "mean": 0.2657580316501416,
+      "min": 0.038355630064073366,
+      "max": 0.9999999999956801
+    },
+    "headCovered_fraction": 0.3070539419087137,
+    "torsoCovered_fraction": 0.34024896265560167,
+    "insideBlock_fraction": 0.0,
+    "hidden_fraction": 0.4730290456431535,
+    "headCovered_rendered_fraction": 0.0,
+    "torsoCovered_rendered_fraction": 0.0,
+    "collision_fraction_speed_cap_violations": 0,
+    "camera_cube_samples": 361,
+    "camera_cube_block_intersections": 0,
+    "insideBlock_all_frames": 0,
+    "max_collision_fraction_step_after_2s": 0.04276317537329777,
+    "max_collision_fraction_step_all_frames": 0.08634516665079983,
+    "player_screen_y_error": 0.3609303566430119,
+    "target_screen_y_error": 0.09193889809841932
+  }
+}

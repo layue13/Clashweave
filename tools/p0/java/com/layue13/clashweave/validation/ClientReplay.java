@@ -286,11 +286,17 @@ public final class ClientReplay {
                 +" yaw="+mc.thePlayer.rotationYaw+" pitch="+mc.thePlayer.rotationPitch+" nano="+System.nanoTime());
             viewObserved=visual.state.instance;
         }
-        // Simulated continuous mouse deltas use the same Entity.setAngles as vanilla mouse look.
-        mc.thePlayer.setAngles((float)(1.5 * Math.cos(connected * .025)), (float)(.4 * Math.sin(connected * .025)));
+        // Separate active-SOULS regression uses the STRONG consumed-mouse path.
+        if(Boolean.getBoolean("cw.p0.soulsView")) {
+            mc.gameSettings.thirdPersonView=1;
+            if(viewReadyTicks==10 && visual.state.lockTarget<0)proxy.send(Intent.LOCK,-1);
+            proxy.lockCamera.mouse(System.nanoTime(),.225*Math.cos(connected*.025));
+        } else mc.thePlayer.setAngles((float)(1.5 * Math.cos(connected * .025)), (float)(.4 * Math.sin(connected * .025)));
         viewYaw=mc.thePlayer.rotationYaw; viewPitch=mc.thePlayer.rotationPitch; viewSample=true;
         if (proxy.visuals.size()<2) return;
+        if(Boolean.getBoolean("cw.p0.soulsView") && connected%100==0){net.minecraft.entity.Entity e=mc.theWorld.getEntityByID(visual.state.lockTarget);System.out.println("P0_SOULS_VIEW_READY connected="+connected+" id="+visual.state.lockTarget+" entity="+(e==null?"null":e.getClass().getSimpleName())+" y="+(e==null?0:e.posY)+" playerY="+mc.thePlayer.posY+" keep="+visual.state.lockKeepRange+" armed="+com.layue13.clashweave.forge.CombatServer.armed(mc.thePlayer)+" targetValid="+(proxy.lockCamera.target()!=null)+" active="+com.layue13.clashweave.client.SoulsCamera.active+" screen="+(mc.currentScreen==null?"null":mc.currentScreen.getClass().getSimpleName()));}
         if (++viewReadyTicks < 100) return;
+        if(Boolean.getBoolean("cw.p0.soulsView") && !com.layue13.clashweave.client.SoulsCamera.active)return;
         String action = visual.state.action;
         double elapsed = proxy.elapsed(visual, 0);
         if (viewActive && action.isEmpty() && viewLastNode) {

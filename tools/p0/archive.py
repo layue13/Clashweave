@@ -9,15 +9,18 @@ from collections import Counter
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 def excerpt(path):
     lines=path.read_text(encoding='utf-8',errors='replace').splitlines()
-    counts=Counter();kept=[]
+    counts=Counter();kept=[];special=Counter()
     for line in lines:
         match=re.search(r'(P0_[A-Z_]+|LATENCY_[A-Z_]+|CW_[A-Z_]+|CAMERA_[A-Z_]+| CW [A-Z]+|ERROR|Exception|BUILD SUCCESSFUL)',line)
         if not match: continue
         key=match[0];counts[key]+=1
         view_change = 'CW_VIEW ' in line and any(float(value) != 0 for value in re.findall(r'(?:yawDelta|pitchDelta)=([-0-9.eE]+)',line))
-        if view_change or 'protected=true' in line or counts[key]<=12 or 'ASSERT' in line or re.search(r'corrected=[1-9][0-9]*',line) or 'inject=' in line or 'COMPLETE' in line or 'success=false' in line or '=false' in line and 'ASSERT' in line:
+        if view_change: special['view_changes']+=1
+        if 'protected=true' in line:special['protected_packets']+=1
+        if 'COMPLETE' in line:special['complete:'+key]+=1
+        if (view_change and special['view_changes']<=12) or ('protected=true' in line and special['protected_packets']<=12) or counts[key]<=12 or 'ASSERT' in line or re.search(r'corrected=[1-9][0-9]*',line) or 'inject=' in line or ('COMPLETE' in line and special['complete:'+key]==1) or 'success=false' in line or '=false' in line and 'ASSERT' in line:
             kept.append(line)
-    return '# Log excerpt; complete raw log retained locally under build/p0/runs.\n# Original lines: '+str(len(lines))+'\n# Marker counts: '+str(dict(counts))+'\n'+ '\n'.join(kept)+'\n'
+    return '# Log excerpt; complete raw log retained locally under build/p0/runs.\n# Original lines: '+str(len(lines))+'\n# Marker counts: '+str(dict(counts))+'\n# Special counts: '+str(dict(special))+'\n'+ '\n'.join(kept)+'\n'
 
 def main():
     parser = argparse.ArgumentParser()
@@ -28,7 +31,7 @@ def main():
         target = ROOT / 'docs/p0/evidence' / label
         target.mkdir(parents=True, exist_ok=True)
         for name in ['command.json', 'runtime-snapshot.json', 'commands.json', 'summary.json', 'metrics.json', 'events.json', 'semantic-metrics.json', 'per-contact.json',
-                     'requests.json', 'view-metrics.json', 'facing-view-metrics.json', 'lock-support-metrics.json', 'composition-metrics.json', 'camera-probe-metrics.json', 'feedback.json', 'alignments.json', 'engagement-metrics.json', 'server.log', 'latency.log']:
+                     'requests.json', 'view-metrics.json', 'facing-view-metrics.json', 'lock-support-metrics.json', 'composition-metrics.json', 'souls-metrics.json', 'camera-config.json', 'camera-probe-metrics.json', 'feedback.json', 'alignments.json', 'engagement-metrics.json', 'server.log', 'latency.log']:
             path = source / name
             if path.exists():
                 (target/name).write_text(excerpt(path),encoding='utf-8') if path.suffix=='.log' else shutil.copyfile(path,target/name)
@@ -42,7 +45,7 @@ def main():
             if screenshots.exists():
                 (target / role / 'screenshots').mkdir(exist_ok=True)
                 for image in screenshots.glob('p0-*.png'):
-                    if image.name == 'p0-composition-.png': continue
+                    if image.name in ['p0-composition-.png', 'p0-souls-.png']: continue
                     shutil.copyfile(image, target / role / 'screenshots' / image.name)
         entries = []
         for path in sorted(target.rglob('*')):

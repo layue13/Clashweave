@@ -17,13 +17,12 @@ public final class ProbeCamera {
   active=false;matrix.clear();GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX,matrix);for(int i=0;i<16;i++)nativeMatrix[i]=matrix.get(i);
   if(mc.thePlayer==null || mc.currentScreen!=null || mc.gameSettings.thirdPersonView!=1 || !Boolean.parseBoolean(System.getProperty("cw.p0.probeEnabled","true")) || ClientProxy.instance==null)return;
   EntityLivingBase t=ClientProxy.instance.lockCamera.target();if(t==null)return;
-  if(Clashweave.config.lockCompositionPreset==ThirdPersonCamera.Preset.OFF)return;
   distance=Double.parseDouble(System.getProperty("cw.p0.probeDistance","4"));height=Double.parseDouble(System.getProperty("cw.p0.probeHeight",".5"));
   double x=mc.thePlayer.prevPosX+(mc.thePlayer.posX-mc.thePlayer.prevPosX)*partial,y=mc.thePlayer.prevPosY+(mc.thePlayer.posY-mc.thePlayer.prevPosY)*partial,z=mc.thePlayer.prevPosZ+(mc.thePlayer.posZ-mc.thePlayer.prevPosZ)*partial;
   player=new double[]{mc.thePlayer.posX-x,(mc.thePlayer.boundingBox.minY+mc.thePlayer.boundingBox.maxY)/2-y,mc.thePlayer.posZ-z};
   target=new double[]{t.posX-x,(t.boundingBox.minY+t.boundingBox.maxY)/2-y,t.posZ-z};
   base.clear();projection.clear();viewport.clear();GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX,base);GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX,projection);GL11.glGetInteger(GL11.GL_VIEWPORT,viewport);
-  double f=ThirdPersonCamera.fraction(Clashweave.config.lockCompositionPreset);
+  double f=legacyFraction();
   for(int iteration=0;iteration<8;iteration++){
    double[] err=errors(f);if(Math.abs(err[0])+Math.abs(err[1])+Math.abs(err[2])<.000001)break;
    double[][] a=new double[3][4];double[] steps={.01,.01,.001};
@@ -34,6 +33,7 @@ public final class ProbeCamera {
   }
   transform();active=true;
  }
+ private static double legacyFraction(){String p=System.getProperty("cw.p0.legacyComposition","GOLDEN");return p.equals("THIRDS")?1.0/3:p.equals("CENTER")?.5:.382;}
  private static void transform(){GL11.glLoadIdentity();GL11.glTranslated(shift,-height,4-distance);GL11.glRotated(pitch,1,0,0);base.rewind();GL11.glMultMatrix(base);GL11.glRotated(yaw,0,1,0);matrix.clear();GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX,matrix);}
  private static double[] project(double[] xyz){out.clear();matrix.rewind();projection.rewind();viewport.rewind();boolean ok=GLU.gluProject((float)xyz[0],(float)xyz[1],(float)xyz[2],matrix,projection,viewport,out);return new double[]{ok?out.get(0)/mc.displayWidth:Double.NaN,ok?1-out.get(1)/mc.displayHeight:Double.NaN,out.get(2)};}
  private static double horizon(){double x=-matrix.get(2),z=-matrix.get(10),r=Math.hypot(x,z);return project(new double[]{10000*x/r,0,10000*z/r})[1];}

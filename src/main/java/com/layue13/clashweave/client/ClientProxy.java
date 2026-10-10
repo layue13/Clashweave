@@ -75,6 +75,7 @@ public final class ClientProxy extends CommonProxy {
     @Override
     public void initialize() {
         instance = this;
+        MinecraftForge.EVENT_BUS.register(new SoulsCamera.LocalVisibility());
         minecraft.mouseHelper = lockCamera.wrap(minecraft.mouseHelper);
         presentation.subscribe(new DefaultPresentation(minecraft, this));
         ClientRegistry.registerKeyBinding(sheathe);

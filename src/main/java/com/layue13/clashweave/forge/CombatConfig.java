@@ -31,6 +31,9 @@ public final class CombatConfig {
     public com.layue13.clashweave.core.ThirdPersonCamera.Preset lockCompositionPreset;
     public double lockStrongSmoothTime, lockStrongThirdPitchInfluence, lockTargetFilterTau;
     public double lockCompositionHorizonTolerance;
+    public double cameraDistance, cameraHeightOffset, baselinePitchDown, lateralOffset, targetScreenY, playerScreenY;
+    public double cameraDistanceAdjustment, cameraPitchAdjustment, cameraCollisionRadius, cameraCollisionPadding;
+    public double cameraCollisionLookAhead, cameraHidePlayerDistance, cameraHidePlayerHysteresis;
     public double lockStrongThirdMaxOffset, lockStrongThirdOffsetDecay, lockFlickThresholdDegrees;
     public long lockFlickWindowMillis, lockFlickCooldownMillis;
     public boolean lockAssistEnabled;
@@ -126,13 +129,109 @@ public final class CombatConfig {
         lockFollow.pitchMax = Math.max(
             lockFollow.pitchMin,
             config.getFloat("lockStrongPitchMax", "camera", 60, -90, 90, "Strong upper pitch bound"));
-        lockCompositionPreset = com.layue13.clashweave.core.ThirdPersonCamera.Preset.valueOf(
+        lockCompositionPreset = com.layue13.clashweave.core.ThirdPersonCamera.parse(
             config.getString(
                 "lockCompositionPreset",
                 "camera",
-                "GOLDEN",
-                "Composition starting point, not a comfort guarantee",
-                new String[] { "GOLDEN", "THIRDS", "CENTER", "OFF" }));
+                "SOULS",
+                "SOULS experimental centered raised lock camera; OFF leaves vanilla camera geometry",
+                new String[] { "OFF", "SOULS" }));
+        config.get("camera", "lockCompositionPreset", "SOULS")
+            .set(lockCompositionPreset.name());
+        cameraDistance = config.getFloat(
+            "cameraDistance",
+            "camera",
+            4.2f,
+            1,
+            10,
+            "Rear orbit distance in blocks; empirical starting value, pending playtest");
+        cameraHeightOffset = config
+            .getFloat("cameraHeightOffset", "camera", .6f, 0, 3, "Camera pivot height above player eye in blocks");
+        baselinePitchDown = config
+            .getFloat("baselinePitchDown", "camera", 18, -30, 60, "Baseline downward camera pitch in degrees");
+        lateralOffset = config.getFloat(
+            "lateralOffset",
+            "camera",
+            0,
+            -2,
+            2,
+            "Local horizontal offset in blocks; default centered, no shoulder mode");
+        targetScreenY = config.getFloat(
+            "targetScreenY",
+            "camera",
+            .38f,
+            .1f,
+            .9f,
+            "Desired target body center screen fraction measured from top");
+        playerScreenY = config.getFloat(
+            "playerScreenY",
+            "camera",
+            .65f,
+            .1f,
+            .9f,
+            "Desired player body center screen fraction measured from top");
+        cameraDistanceAdjustment = config.getFloat(
+            "cameraDistanceAdjustment",
+            "camera",
+            2f,
+            0,
+            3,
+            "Maximum adaptive distance change in blocks about cameraDistance");
+        cameraPitchAdjustment = config.getFloat(
+            "cameraPitchAdjustment",
+            "camera",
+            42,
+            0,
+            60,
+            "Maximum adaptive pitch change in degrees about baselinePitchDown");
+        cameraCollisionRadius = config.getFloat(
+            "cameraCollisionRadius",
+            "camera",
+            .12f,
+            .05f,
+            .4f,
+            "Camera swept cube radius in blocks including overhead rays");
+        cameraCollisionPadding = config.getFloat(
+            "cameraCollisionPadding",
+            "camera",
+            .3f,
+            0,
+            1,
+            "Early obstruction margin in blocks; allows gradual approach before contact");
+        cameraCollisionLookAhead = config.getFloat(
+            "cameraCollisionLookAhead",
+            "camera",
+            .6f,
+            0,
+            2,
+            "Horizontal anticipation radius for early smooth wall/ceiling retraction in blocks");
+        cameraCollisionLookAhead = finite(cameraCollisionLookAhead, .6);
+        cameraHidePlayerDistance = config.getFloat(
+            "cameraHidePlayerDistance",
+            "camera",
+            1,
+            0,
+            2,
+            "Hide only the local model when collision brings the SOULS camera this close to the eye; 0 disables");
+        cameraHidePlayerHysteresis = config.getFloat(
+            "cameraHidePlayerHysteresis",
+            "camera",
+            .2f,
+            0,
+            1,
+            "Additional distance before showing the local model again; prevents flicker");
+        cameraHidePlayerDistance = finite(cameraHidePlayerDistance, 1);
+        cameraHidePlayerHysteresis = finite(cameraHidePlayerHysteresis, .2);
+        cameraDistance = finite(cameraDistance, 4.2);
+        cameraHeightOffset = finite(cameraHeightOffset, .6);
+        baselinePitchDown = finite(baselinePitchDown, 18);
+        lateralOffset = finite(lateralOffset, 0);
+        targetScreenY = finite(targetScreenY, .38);
+        playerScreenY = finite(playerScreenY, .65);
+        cameraDistanceAdjustment = finite(cameraDistanceAdjustment, 2);
+        cameraPitchAdjustment = finite(cameraPitchAdjustment, 42);
+        cameraCollisionRadius = finite(cameraCollisionRadius, .12);
+        cameraCollisionPadding = finite(cameraCollisionPadding, .3);
         lockCompositionHorizonTolerance = config.getFloat(
             "lockCompositionHorizonTolerance",
             "camera",
@@ -212,5 +311,9 @@ public final class CombatConfig {
         try (InputStreamReader reader = new InputStreamReader(new FileInputStream(data), StandardCharsets.UTF_8)) {
             actions = new ActionCatalog(reader);
         }
+    }
+
+    private static double finite(double value, double fallback) {
+        return Double.isFinite(value) ? value : fallback;
     }
 }

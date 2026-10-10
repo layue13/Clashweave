@@ -51,39 +51,32 @@ public class ThirdPersonCameraTest {
     }
 
     @Test
-    public void compositionRecomputesWithFovAndAspect() {
-        assertEquals(9.38, ThirdPersonCamera.pitch(ThirdPersonCamera.Preset.GOLDEN, 70), .04);
-        assertEquals(16.37, ThirdPersonCamera.bias(ThirdPersonCamera.Preset.GOLDEN, 70, 16.0 / 9), .04);
-        assertTrue(
-            ThirdPersonCamera.pitch(ThirdPersonCamera.Preset.GOLDEN, 90)
-                > ThirdPersonCamera.pitch(ThirdPersonCamera.Preset.GOLDEN, 70));
-        assertTrue(
-            ThirdPersonCamera.bias(ThirdPersonCamera.Preset.GOLDEN, 70, 2)
-                > ThirdPersonCamera.bias(ThirdPersonCamera.Preset.GOLDEN, 70, 1));
-        assertEquals(1.0 / 3, ThirdPersonCamera.fraction(ThirdPersonCamera.Preset.THIRDS), 0);
-        assertEquals(0, ThirdPersonCamera.pitch(ThirdPersonCamera.Preset.CENTER, 110), 0);
-        assertEquals(0, ThirdPersonCamera.bias(ThirdPersonCamera.Preset.CENTER, 60, 2), 0);
+    public void compositionHasOnlyOffAndSoulsWithLegacyMigration() {
+        assertEquals(2, ThirdPersonCamera.Preset.values().length);
+        assertEquals(ThirdPersonCamera.Preset.OFF, ThirdPersonCamera.parse("off"));
+        for (String old : new String[] { "GOLDEN", "THIRDS", "CENTER", "unknown", "SOULS" })
+            assertEquals(ThirdPersonCamera.Preset.SOULS, ThirdPersonCamera.parse(old));
     }
 
     @Test
-    public void targetHeightIsBoundedAroundComposition() {
-        double base = ThirdPersonCamera.pitch(ThirdPersonCamera.Preset.GOLDEN, 70);
-        assertEquals(base + 8, ThirdPersonCamera.composedPitch(ThirdPersonCamera.Preset.GOLDEN, 70, 80, 8), 0);
-        assertEquals(base - 8, ThirdPersonCamera.composedPitch(ThirdPersonCamera.Preset.GOLDEN, 70, -80, 8), 0);
-        assertEquals(-20, ThirdPersonCamera.composedPitch(ThirdPersonCamera.Preset.OFF, 70, -20, 8), 0);
-    }
-
-    @Test
-    public void horizonEnvelopeLimitsHeightWithinScreenTolerance() {
-        for (ThirdPersonCamera.Preset p : new ThirdPersonCamera.Preset[] { ThirdPersonCamera.Preset.GOLDEN,
-            ThirdPersonCamera.Preset.THIRDS, ThirdPersonCamera.Preset.CENTER }) {
-            for (double fov : new double[] { 60, 70, 90 }) for (double height : new double[] { -80, 0, 80 }) {
-                double pitch = ThirdPersonCamera.horizonBoundedPitch(p, fov, height, 8, .025);
-                double horizon = .5 * (1 - Math.tan(Math.toRadians(pitch)) / Math.tan(Math.toRadians(fov) / 2));
-                assertTrue(Math.abs(horizon - ThirdPersonCamera.fraction(p)) <= .0250001);
-                assertTrue(Math.abs(pitch - ThirdPersonCamera.pitch(p, fov)) <= 8);
-            }
+    public void compositionBoundsAndFovAreExplicit() {
+        for (double fov : new double[] { 60, 70, 90 }) for (double range : new double[] { 2, 4, 8 }) {
+            SoulsComposition.Pose p = SoulsComposition.solve(range, .9, .9, 2.22, fov, 4.2, 1.2, 10, 12, .38, .65);
+            assertTrue(p.distance >= 3 && p.distance <= 5.4);
+            assertTrue(p.pitch >= -2 && p.pitch <= 22);
+            assertTrue(Double.isFinite(SoulsComposition.screenY(range, .9, 2.22, p.distance, p.pitch, fov)));
         }
+        assertTrue(
+            SoulsComposition.screenY(0, .9, 2.22, 4.2, 10, 60) > SoulsComposition.screenY(0, .9, 2.22, 4.2, 10, 90));
+    }
+
+    @Test
+    public void projectedBodyOnlyCoversFiniteVisiblePoints() {
+        assertTrue(SoulsComposition.covered(.4, .5, .6, .8, .5, .65, .99));
+        assertFalse(SoulsComposition.covered(.4, .5, .6, .8, .5, .38, .99));
+        assertFalse(SoulsComposition.covered(.4, .5, .6, .8, .5, .65, 1.1));
+        assertFalse(SoulsComposition.covered(.4, .5, .6, .8, Double.NaN, .65, .99));
+        assertTrue(SoulsComposition.covered(.4, .5, .6, .8, .4, .5, 0));
     }
 
     @Test

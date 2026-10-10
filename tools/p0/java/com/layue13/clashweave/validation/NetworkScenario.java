@@ -58,7 +58,7 @@ public final class NetworkScenario {
                     viewDummy=new EntityZombie(a.worldObj);
                     viewDummy.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000);
                     viewDummy.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
-                    viewDummy.setHealth(1000);a.worldObj.spawnEntityInWorld(viewDummy);
+                    viewDummy.setHealth(1000);viewDummy.setPosition(a.posX,a.posY,a.posZ+1.9);a.worldObj.spawnEntityInWorld(viewDummy);
                     System.out.println("P0_VIEW_TARGET stationaryZombie="+viewDummy.getEntityId());
                 }
                 viewDummy.setPosition(a.posX, a.posY, a.posZ+1.9);

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.layue13.clashweave.core.ThirdPersonCameraTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-10T18:39:20.040Z" hostname="DESKTOP-NCOAQL3" time="0.007">
+  <properties/>
+  <testcase name="springConvergesWithoutOvershootAndRespectsSpeed" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="compositionBoundsAndFovAreExplicit" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.006"/>
+  <testcase name="springFrameRateAndCreditCap" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.001"/>
+  <testcase name="flickWindowCooldownAndTwentySmallMotions" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="switchUsesSideRelativeToLockedTarget" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="compositionHasOnlyOffAndSoulsWithLegacyMigration" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="exponentialFilterFrameRateAndAttenuation" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="thirdPersonHandoffPreservesFirstPersonMouseGraceAndCurrentView" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="projectedBodyOnlyCoversFiniteVisiblePoints" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

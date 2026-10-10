@@ -43,6 +43,7 @@ public final class Validation {
         if (FMLCommonHandler.instance().getSide().isClient()) {
             try {
                 Class.forName("com.layue13.clashweave.validation.ClientReplay").newInstance();
+                if(Boolean.getBoolean("cw.p0.souls"))Class.forName("com.layue13.clashweave.validation.SoulsReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.composition"))Class.forName("com.layue13.clashweave.validation.CompositionReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.lockSupport"))Class.forName("com.layue13.clashweave.validation.LockSupportReplay").newInstance();
             } catch (Exception exception) {

@@ -8,19 +8,25 @@ import com.layue13.clashweave.Clashweave;import com.layue13.clashweave.client.Cl
 import cpw.mods.fml.common.FMLCommonHandler;import cpw.mods.fml.common.eventhandler.SubscribeEvent;import cpw.mods.fml.common.gameevent.TickEvent;
 public final class CompositionReplay {
     private final Minecraft mc=Minecraft.getMinecraft();public static String phase="";private int elapsed,targetId;private String capture;
+    public static double soulsHeight=1.8;
     public CompositionReplay(){FMLCommonHandler.instance().bus().register(this);MinecraftForge.EVENT_BUS.register(this);}
     @SubscribeEvent public void chat(ClientChatReceivedEvent e){String s=e.message.getUnformattedText();if(!s.startsWith("P0_COMPOSITION_PHASE "))return;
         for(String v:s.split(" ")){if(v.startsWith("name="))phase=v.substring(5);if(v.startsWith("target="))targetId=Integer.parseInt(v.substring(7));}elapsed=0;
         mc.gameSettings.thirdPersonView=phase.contains("FIRST") || phase.equals("FIRST")?0:phase.equals("PROBE_F5_FRONT")?2:1;
+        if(Boolean.getBoolean("cw.p0.souls")){
+            Clashweave.config.lockCompositionPreset=phase.startsWith("OFF")?ThirdPersonCamera.Preset.OFF:ThirdPersonCamera.Preset.SOULS;
+            int h=phase.indexOf("_H");soulsHeight=h<0?1.8:Double.parseDouble(phase.substring(h+2));
+        }
         if(phase.equals("FIRST")){mc.thePlayer.rotationYaw=35;mc.thePlayer.rotationPitch=12;}
         mc.gameSettings.viewBobbing=false;mc.gameSettings.fovSetting=70;
-        if(phase.startsWith("GOLDEN"))Clashweave.config.lockCompositionPreset=ThirdPersonCamera.Preset.GOLDEN;
-        if(phase.startsWith("THIRDS"))Clashweave.config.lockCompositionPreset=ThirdPersonCamera.Preset.THIRDS;
-        if(phase.startsWith("CENTER"))Clashweave.config.lockCompositionPreset=ThirdPersonCamera.Preset.CENTER;
+        if(phase.startsWith("GOLDEN"))System.setProperty("cw.p0.legacyComposition","GOLDEN");
+        if(phase.startsWith("THIRDS"))System.setProperty("cw.p0.legacyComposition","THIRDS");
+        if(phase.startsWith("CENTER"))System.setProperty("cw.p0.legacyComposition","CENTER");
+        if(Boolean.getBoolean("cw.p0.cameraProbe"))Clashweave.config.lockCompositionPreset=ThirdPersonCamera.Preset.OFF;
         System.setProperty("cw.p0.probeEnabled",Boolean.toString(!phase.equals("PROBE_DISABLED")));
         System.out.println("P0_COMPOSITION_PHASE name="+phase+" receivedNano="+System.nanoTime());
     }
-    @SubscribeEvent public void tick(TickEvent.ClientTickEvent e){if(e.phase!=TickEvent.Phase.END || mc.thePlayer==null || !mc.thePlayer.getCommandSenderName().equals("P0A"))return;elapsed++;ClientProxy p=ClientProxy.instance;
+    @SubscribeEvent public void tick(TickEvent.ClientTickEvent e){if(e.phase!=TickEvent.Phase.END || mc.thePlayer==null)return; if(!mc.thePlayer.getCommandSenderName().equals("P0A")){if(Boolean.getBoolean("cw.p0.souls")){elapsed++;mc.gameSettings.thirdPersonView=0;if(elapsed==100 && (phase.equals("SOULS_WALL") || phase.equals("SOULS_CEILING")))capture="souls-overview-"+phase.toLowerCase();}return;}elapsed++;ClientProxy p=ClientProxy.instance;
         if(phase.equals("WAIT") && elapsed%20==0 && mc.theWorld.getEntityByID(targetId)!=null && p.own()!=null && p.own().state.lockTarget<0)p.send(Intent.LOCK,-1);
         if(phase.equals("FIRST") && elapsed==20){mc.thePlayer.setAngles(5/.15F,0);p.lockCamera.mouse(System.nanoTime(),5);}
         if(phase.equals("FIRST") && elapsed==50)p.send(Intent.LIGHT,-1);
@@ -30,6 +36,8 @@ public final class CompositionReplay {
             if(elapsed==170 || elapsed==172 || elapsed==190){p.lockCamera.mouse(System.nanoTime(),elapsed==172?-30:30);System.out.println("P0_FLICK_CASE kind=large elapsed="+elapsed);}
             if(elapsed==174 || elapsed==175)p.send(Intent.LOCK_SWITCH,1);
         }
+        if(Boolean.getBoolean("cw.p0.souls")){net.minecraft.entity.Entity t=mc.theWorld.getEntityByID(targetId);if(t!=null)CompositionScenario.setSize(t,soulsHeight);}
+        if(elapsed==100 && Boolean.getBoolean("cw.p0.souls"))capture="souls-"+phase.toLowerCase();
         if(elapsed==80 && Boolean.getBoolean("cw.p0.cameraProbe"))capture="composition-"+phase.toLowerCase();
     }
     @SubscribeEvent public void world(RenderWorldLastEvent e){if(mc.thePlayer==null || !mc.thePlayer.getCommandSenderName().equals("P0A") || phase.equals("WAIT"))return;

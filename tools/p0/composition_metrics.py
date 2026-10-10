@@ -4,12 +4,13 @@ p=argparse.ArgumentParser();p.add_argument('--label',required=True);a=p.parse_ar
 f=pathlib.Path(__file__).resolve().parents[2]/'build/p0/runs'/a.label
 values=lambda l:dict(re.findall(r'(\w+)=([^ ]+)',l))
 difference=lambda a,b:(float(a)-float(b)+180)%360-180
-phase='';elapsed=0;frames={};world={};mouse=[];cases=[];weak={}
+phase='';elapsed=0;frames={};camera={};world={};mouse=[];cases=[];weak={}
 for l in (f/'P0A/process.log').read_text(errors='replace',encoding='utf-8').splitlines():
  d=values(l)
  if 'P0_COMPOSITION_PHASE ' in l and 'receivedNano=' in l:phase=d['name'];elapsed=0
  if 'P0_COMPOSITION_FRAME ' in l:elapsed=int(d['elapsed']);world.setdefault(phase,[]).append(d)
  if 'CW_THIRD_FRAME ' in l:frames.setdefault(phase,[]).append(dict(d,elapsed=elapsed))
+ if 'CW_SOULS_FRAME ' in l:camera.setdefault(phase,[]).append(dict(d,elapsed=elapsed))
  if 'CW_THIRD_MOUSE ' in l:mouse.append(dict(d,phase=phase))
  if 'P0_FLICK_CASE ' in l:cases.append(d)
  if 'CW_LOCK_FOLLOW ' in l and phase=='FIRST':weak.setdefault(d['reason'],[]).append(d)
@@ -29,6 +30,14 @@ def summary(rows,phase):
  filtered=[float(d['goalYaw']) for d in rows];output=[float(d['after']) for d in rows];pitch=[float(d['pitchAfter']) for d in rows]
  return dict(samples=len(rows),yaw_peak_speed=peak(vy),pitch_peak_speed=peak(vp),yaw_peak_acceleration=peak(ay),pitch_peak_acceleration=peak(ap),yaw_pp=pp(output),raw_target_yaw_pp=pp(raw),filtered_target_yaw_pp=pp(filtered),pitch_pp=pp(pitch),jitter_attenuation=(pp(output)/pp(raw) if phase=='JITTER' and rows and pp(raw)>0 else None),speed_violations=sum(v>720.01 for v in vy+vp))
 result={'phases':{k:summary(v,k) for k,v in frames.items()},'horizon':{},'mouse':mouse,'flick_cases':cases,'first_person':{k:{'count':len(v),'max_written_delta':max(abs(difference(d['after'],d['before'])) for d in v),'yaw_first':v[0]['before'],'yaw_last':v[-1]['after']} for k,v in weak.items()}}
+result['camera_pitch']={}
+for name,rows in camera.items():
+ rows=[row for row in rows if int(row['elapsed'])>40]
+ speeds=[]
+ for previous,current in zip(rows,rows[1:]):
+  dt=float(current['dt'])
+  if dt>0:speeds.append(abs(float(current['pitch'])-float(previous['pitch']))/dt)
+ if rows:result['camera_pitch'][name]={'samples':len(rows),'peak_speed':peak(speeds),'peak_to_peak':pp([float(row['pitch']) for row in rows])}
 for name,rows in world.items():
  rows=[r for r in rows if int(r['elapsed'])>40 and int(r['view'])==1]
  if rows:

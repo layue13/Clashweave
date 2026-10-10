@@ -1,0 +1,187 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 7208
+# Marker counts: {'ERROR': 3, 'CW_RENDER': 1, 'CW_SOULS_HOOK': 1, 'Exception': 2, 'P0_AUDIO': 64, 'CW_VIEW': 3, 'CW_ENGAGEMENT': 2, 'P0_APPEARANCE': 2, 'P0_VIEW_SEQUENCE': 40, 'P0_LOCAL_AUDIO': 20, 'CW_LOCAL_SWING': 20, 'P0_REQUEST': 61, 'CW_ALIGN': 20, 'CW_PRESENT': 188, 'P0_VIEW_START': 61, 'CW_FEEDBACK': 63, 'CW_FRAME': 63, 'P0_VIEW': 890, 'CW_LOCK_MARKER': 1, 'CW_THIRD_MOUSE': 800, 'CW_THIRD_FRAME': 2391, 'CW_SOULS_FRAME': 2391}
+# Special counts: {'view_changes': 1, 'complete:P0_VIEW': 890}
+[11:13:43] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[11:13:43] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+[11:13:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:35]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[11:13:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.coremod.CameraTransform:transform:46]: CW_SOULS_HOOK orientation=1 exits=1
+[11:13:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[11:13:47] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[11:13:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:69]: P0_AUDIO initial loader settled
+[11:13:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=180.0 pitchDelta=0.0 requestedYawDelta=180.0 requestedPitchDelta=0.0 nano=102051671384000
+[11:13:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=102052611576300
+[11:13:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=102052879058400
+[11:13:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:255]: CW_ENGAGEMENT player=P0A engaged=false revision=1 tick=264 receive=102052902583300
+[11:13:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:97]: P0_APPEARANCE entity=0 skin=clashweave:katana effects=clashweave:default animations=clashweave:katana style=katana
+[11:14:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:255]: CW_ENGAGEMENT player=P0A engaged=true revision=3 tick=544 receive=102065636244500
+[11:14:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:97]: P0_APPEARANCE entity=87361 skin=clashweave:katana effects=clashweave:default animations=clashweave:katana style=katana
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:309]: P0_VIEW_SEQUENCE begin=1 nano=102070994821700
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102070995947000
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=51 press=102070995769500 feedback=102070998935600
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102070999164000
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=51 predicted=0 authoritative=0 sameAction=true
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=1 kind=DRAW actor=0 owner=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=2 kind=SWING actor=0 owner=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=1 instance=1 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102071138530800
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102071301313500 receive=102071386274400 corrections=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102071301313500 nano=102071386630200
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=3 kind=HIT actor=0 owner=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=4 kind=HURT actor=90158 owner=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102071301313500 frame=102071390421700
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102071436605900
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102071301023700 receive=102071538160100 corrections=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102071301023700 nano=102071538420000
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=5 kind=HIT actor=0 owner=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=6 kind=HURT actor=87361 owner=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102071301023700 frame=102071539244200
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=7 kind=SWING actor=0 owner=0
+[11:14:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=1 instance=2 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102071586869000
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102071698532100 receive=102071786714800 corrections=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102071698532100 nano=102071787059800
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=8 kind=HIT actor=0 owner=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=9 kind=HURT actor=90158 owner=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102071698532100 frame=102071788063700
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102071836265500
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102071698285500 receive=102071936522400 corrections=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102071698285500 nano=102071936766900
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=10 kind=HIT actor=0 owner=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=11 kind=HURT actor=87361 owner=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102071698285500 frame=102071937535800
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:198]: CW_PRESENT id=12 kind=SWING actor=0 owner=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=1 instance=3 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102071986242200
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102072050559200 receive=102072136887400 corrections=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102072050559200 nano=102072137256800
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102072050559200 frame=102072138259700
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102072186782700
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=1 instance=4 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102072336544100
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102072447503400 receive=102072539329300 corrections=0
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102072447503400 nano=102072539642700
+[11:14:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102072447503400 frame=102072540382800
+[11:14:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:301]: P0_VIEW_SEQUENCE completed=1 nano=102073036409700
+[11:14:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:309]: P0_VIEW_SEQUENCE begin=2 nano=102073485807200
+[11:14:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102073486250700
+[11:14:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=59 press=102073486106000 feedback=102073486493900
+[11:14:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102073486654700
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=59 predicted=0 authoritative=0 sameAction=true
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=2 instance=5 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102073636429800
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102073759128700 receive=102073836161700 corrections=0
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102073759128700 nano=102073836499200
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102073759128700 frame=102073837326800
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102073886284000
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=2 instance=6 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102074036237500
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102074111307000 receive=102074186513900 corrections=0
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102074111307000 nano=102074186799300
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102074111307000 frame=102074187601100
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102074236367800
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=2 instance=7 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102074386512400
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102074511266400 receive=102074586437800 corrections=0
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102074511266400 nano=102074586764900
+[11:14:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102074511266400 frame=102074587667100
+[11:14:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:301]: P0_VIEW_SEQUENCE completed=2 nano=102075085948500
+[11:14:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:309]: P0_VIEW_SEQUENCE begin=3 nano=102075486209000
+[11:14:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102075486596000
+[11:14:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=65 press=102075486455600 feedback=102075486773800
+[11:14:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102075486909700
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=65 predicted=0 authoritative=0 sameAction=true
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=3 instance=8 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102075636782500
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102075751496800 receive=102075836814500 corrections=0
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102075751496800 nano=102075837135700
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102075751496800 frame=102075837981600
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102075886053800
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=3 instance=9 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102076036500300
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102076103424800 receive=102076185899600 corrections=0
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:423]: P0_AUDIO source=random.successful_hit frozen=102076103424800 nano=102076186286100
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102076103424800 frame=102076189537800
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102076236364300
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=3 instance=10 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102076386524900
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:314]: CW_FEEDBACK player=P0A result=HIT frozen=102076501112800 receive=102076586083600 corrections=0
+[11:14:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:385]: CW_FRAME frozen=102076501112800 frame=102076587115600
+[11:14:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:301]: P0_VIEW_SEQUENCE completed=3 nano=102077085960100
+[11:14:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:309]: P0_VIEW_SEQUENCE begin=4 nano=102077485817700
+[11:14:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102077486924600
+[11:14:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=71 press=102077486784200 feedback=102077487158200
+[11:14:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102077487328300
+[11:14:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=71 predicted=0 authoritative=0 sameAction=true
+[11:14:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=4 instance=11 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102077636968800
+[11:14:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:324]: P0_REQUEST intent=LIGHT yaw=0.0 pitch=0.0 nano=102077887059900
+[11:14:22] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=4 instance=12 yawDelta=0.0 pitchDelta=0.0 yaw=0.0 pitch=0.0 nano=102078036773000
+[11:14:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:301]: P0_VIEW_SEQUENCE completed=4 nano=102079085916300
+[11:14:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:309]: P0_VIEW_SEQUENCE begin=5 nano=102079485955400
+[11:14:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102079487074800
+[11:14:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=77 press=102079486919500 feedback=102079487338300
+[11:14:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=77 predicted=0 authoritative=0 sameAction=true
+[11:14:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:301]: P0_VIEW_SEQUENCE completed=5 nano=102081085948200
+[11:14:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:309]: P0_VIEW_SEQUENCE begin=6 nano=102081485951500
+[11:14:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102081487039200
+[11:14:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=83 press=102081486910600 feedback=102081487271600
+[11:14:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=83 predicted=0 authoritative=0 sameAction=true
+[11:14:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:301]: P0_VIEW_SEQUENCE completed=6 nano=102083085964300
+[11:14:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102083486750200
+[11:14:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=89 press=102083486591700 feedback=102083486975000
+[11:14:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=89 predicted=0 authoritative=0 sameAction=true
+[11:14:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102085486330600
+[11:14:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=95 press=102085486198300 feedback=102085486552800
+[11:14:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=95 predicted=0 authoritative=0 sameAction=true
+[11:14:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102087487528100
+[11:14:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=101 press=102087487391800 feedback=102087487740300
+[11:14:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=101 predicted=0 authoritative=0 sameAction=true
+[11:14:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102089487619500
+[11:14:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=107 press=102089487464300 feedback=102089487822300
+[11:14:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=107 predicted=0 authoritative=0 sameAction=true
+[11:14:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102091487540700
+[11:14:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=113 press=102091487391400 feedback=102091487720800
+[11:14:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=113 predicted=0 authoritative=0 sameAction=true
+[11:14:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:422]: P0_LOCAL_AUDIO nano=102093487503900
+[11:14:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:170]: CW_LOCAL_SWING seq=119 press=102093487367900 feedback=102093487693300
+[11:14:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:269]: CW_ALIGN player=P0A seq=119 predicted=0 authoritative=0 sameAction=true
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111087747300
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111136837700
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111187150400
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111236812600
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111287102900
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111337410200
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111386836300
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111436758200
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111486737200
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111537079800
+[11:14:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111587147800
+[11:14:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:318]: P0_VIEW COMPLETE nano=102111637714700
+[11:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:tick:189]: CW_LOCK_MARKER target=90158 nano=102115587048000
+[11:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115587521500 delta=0.22348980922596595 switch=0 offset=0.22348980922596595
+[11:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115587987000 dt=0.0 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=35.94524909419011 filteredZ=20.471188680579267 goalYaw=-0.0 goalPitch=60.0 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=0.0 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115589360900 dt=0.0 target=90158 distance=4.199999809265137 pitch=18.0 fraction=1.0 safe=1.0 change=0.0 cameraX=0.0 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=67.51787134127633 cameraZ=15.205562812959993
+[11:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115603925200 dt=0.0159382 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=37.45790862130092 filteredZ=20.50302005597064 goalYaw=-0.0 goalPitch=60.0 before=0.0 after=0.0 pitchBefore=0.0 pitchAfter=1.1773331 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115604216100 dt=0.0148552 target=90158 distance=4.23441616582659 pitch=18.722743487790524 fraction=1.0 safe=1.0 change=0.0 cameraX=0.0 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=67.579200861933 cameraZ=15.189656704576793
+[11:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115619598900 dt=0.0156737 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=40.12979568265725 filteredZ=20.559245424950955 goalYaw=-0.0 goalPitch=60.0 before=0.0 after=0.0 pitchBefore=1.1773331 pitchAfter=4.04434 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115619885100 dt=0.015669 target=90158 distance=4.326871269472372 pitch=20.664300664351927 fraction=1.0 safe=1.0 change=0.0 cameraX=0.0 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=67.74691796489604 cameraZ=15.151501934806898
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115637208300 delta=0.2240705317105114 switch=0 offset=0.2240705317105114
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115637539100 dt=0.0179402 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=44.30127492593869 filteredZ=20.64702718902303 goalYaw=-0.0 goalPitch=60.0 before=0.0 after=0.005474292 pitchBefore=4.04434 pitchAfter=8.535828 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115637812400 dt=0.0179273 target=90158 distance=4.470289669472372 pitch=23.765566035323545 fraction=1.0 safe=1.0 change=0.0 cameraX=3.9089307978606476E-4 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=68.02150595369507 cameraZ=15.108781848776854
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115654044800 dt=0.0165057 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=47.53132356906168 filteredZ=20.714998129640467 goalYaw=-0.0 goalPitch=60.0 before=0.005474292 after=0.012811459 pitchBefore=8.535828 pitchAfter=13.229366 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115654279900 dt=0.0164675 target=90158 distance=4.602029669472372 pitch=27.028005891050732 fraction=1.0 safe=1.0 change=0.0 cameraX=9.166383312019127E-4 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=68.31128179748944 cameraZ=15.10058336080759
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115670104000 dt=0.0160592 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=50.20161671826975 filteredZ=20.771189957420646 goalYaw=-0.0 goalPitch=60.0 before=0.012811459 after=0.01695409 pitchBefore=13.229366 pitchAfter=17.946026 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115670386900 dt=0.016107 target=90158 distance=4.7308856694723715 pitch=30.3382742214594 fraction=1.0 safe=1.0 change=0.0 cameraX=0.0012081878309594192 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=68.60959057204748 cameraZ=15.116969903389451
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115686869200 delta=0.22451121740654836 switch=0 offset=0.22451121740654836
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115687274200 dt=0.0171702 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=52.61997386629139 filteredZ=20.822080215822762 goalYaw=-0.0 goalPitch=60.0 before=0.01695409 after=0.024165997 pitchBefore=17.946026 pitchAfter=22.895744 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115687578700 dt=0.0171918 target=90158 distance=4.868420069472371 pitch=33.81568336549516 fraction=1.0 safe=1.0 change=0.0 cameraX=0.0017060172685172082 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=68.92938804374093 cameraZ=15.155160371538344
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115703725400 dt=0.0164512 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=54.578326977836824 filteredZ=20.86329046302329 goalYaw=-0.0 goalPitch=60.0 before=0.024165997 after=0.031824745 pitchBefore=22.895744 pitchAfter=27.391249 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115703990500 dt=0.0164118 target=90158 distance=4.999714469472371 pitch=36.968575395226836 fraction=1.0 safe=1.0 change=0.0 cameraX=0.002218786374428402 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=69.22671286624545 cameraZ=15.2054014298601
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115719727000 dt=0.0160016 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=56.19774914609997 filteredZ=20.897368478618482 goalYaw=-0.0 goalPitch=60.0 before=0.031824745 after=0.035468556 pitchBefore=27.391249 pitchAfter=31.446339 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115719985200 dt=0.0159947 target=90158 distance=5.126804876261263 pitch=39.82236258227747 fraction=1.0 safe=1.0 change=0.0 cameraX=0.002437518233477406 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=69.50325463436339 cameraZ=15.262442195948076
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115737444300 delta=0.22481159089986186 switch=0 offset=0.22481159089986186
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115737850700 dt=0.0181237 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=57.7446852237788 filteredZ=20.929921146361966 goalYaw=-0.0 goalPitch=60.0 before=0.035468556 after=0.042130783 pitchBefore=31.446339 pitchAfter=35.61012 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115738118600 dt=0.0181334 target=90158 distance=5.26521744263994 pitch=42.75867140200736 fraction=1.0 safe=1.0 change=0.0 cameraX=0.002842622869984215 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=69.79461866190995 cameraZ=15.334174314567289
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115754275500 dt=0.0164248 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=58.92391468767383 filteredZ=20.954736046916295 goalYaw=-0.0 goalPitch=60.0 before=0.042130783 after=0.04865393 pitchBefore=35.61012 pitchAfter=38.97589 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115754662800 dt=0.0165442 target=90158 distance=5.38288313468131 pitch=45.149221603409735 fraction=1.0 safe=1.0 change=0.0 cameraX=0.003223748606428038 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=70.03617336005155 cameraZ=15.403654188949114
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:frame:317]: CW_THIRD_FRAME nano=102115770256800 dt=0.0159813 target=90158 rawX=0.0 rawY=64.0 rawZ=21.09375 filteredX=0.0 filteredY=59.89961263009 filteredZ=20.975267968949645 goalYaw=-0.0 goalPitch=60.0 before=0.04865393 after=0.05096073 pitchBefore=38.97589 pitchAfter=41.885406 preset=SOULS fov=70.0 aspect=1.7777777777777777
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.SoulsCamera:finish:141]: CW_SOULS_FRAME nano=102115770602000 dt=0.0159392 target=90158 distance=5.486840733936852 pitch=47.19606723745945 fraction=1.0 safe=1.0 change=0.0 cameraX=0.0033160375955732665 playerY=65.62000000476837 footY=64.0 eyeRelative=-4.76837147544984E-9 cameraY=70.24560303493027 cameraZ=15.471738925370271
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115787086100 delta=0.22497146446679614 switch=0 offset=0.22497146446679614
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115836911900 delta=0.22499073819157595 switch=0 offset=0.22499073819157595
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115886891400 delta=0.22486940002875072 switch=0 offset=0.22486940002875072
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115936978500 delta=0.22460752581072246 switch=0 offset=0.22460752581072246
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102115987457800 delta=0.2242052792003531 switch=0 offset=0.2242052792003531
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102116037778600 delta=0.22366291158868035 switch=0 offset=0.22366291158868035
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102116087174500 delta=0.2229807619378068 switch=0 offset=0.2229807619378068
+[11:15:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.LockCamera:mouse:94]: CW_THIRD_MOUSE nano=102116136761700 delta=0.22215925656905916 switch=0 offset=0.22215925656905916

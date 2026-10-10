@@ -4,40 +4,15 @@ package com.layue13.clashweave.core;
 public final class ThirdPersonCamera {
 
     public enum Preset {
-        GOLDEN,
-        THIRDS,
-        CENTER,
-        OFF
+        OFF,
+        SOULS
     }
 
     private ThirdPersonCamera() {}
 
-    public static double fraction(Preset preset) {
-        return preset == Preset.GOLDEN ? .382 : preset == Preset.THIRDS ? 1.0 / 3 : .5;
-    }
-
-    public static double pitch(Preset preset, double verticalFov) {
-        return Math.toDegrees(Math.atan((1 - 2 * fraction(preset)) * Math.tan(Math.toRadians(verticalFov) / 2)));
-    }
-
-    public static double bias(Preset preset, double verticalFov, double aspect) {
-        return Math
-            .toDegrees(Math.atan((1 - 2 * fraction(preset)) * aspect * Math.tan(Math.toRadians(verticalFov) / 2)));
-    }
-
-    public static double composedPitch(Preset preset, double verticalFov, double heightAngle, double influence) {
-        return preset == Preset.OFF ? heightAngle : pitch(preset, verticalFov) + clamp(heightAngle, influence);
-    }
-
-    public static double horizonBoundedPitch(Preset preset, double fov, double heightAngle, double influence,
-        double tolerance) {
-        if (preset == Preset.OFF) return heightAngle;
-        double fraction = fraction(preset), base = pitch(preset, fov);
-        double tangent = Math.tan(Math.toRadians(fov) / 2);
-        double above = Math.toDegrees(Math.atan((1 - 2 * (fraction - tolerance)) * tangent));
-        double below = Math.toDegrees(Math.atan((1 - 2 * (fraction + tolerance)) * tangent));
-        double permitted = Math.max(0, Math.min(influence, Math.min(above - base, base - below)));
-        return base + clamp(heightAngle, permitted);
+    /** Old composition names migrate to SOULS; no legacy preset remains selectable. */
+    public static Preset parse(String text) {
+        return "OFF".equalsIgnoreCase(text) ? Preset.OFF : Preset.SOULS;
     }
 
     public static double clamp(double value, double maximum) {

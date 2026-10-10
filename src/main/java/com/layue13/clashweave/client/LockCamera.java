@@ -292,12 +292,8 @@ public final class LockCamera {
         double dy = filter.y - mc.thePlayer.getPosition(1).yCoord;
         double goalYaw = Math.toDegrees(Math.atan2(-dx, dz));
         double heightPitch = -Math.toDegrees(Math.atan2(dy, Math.hypot(dx, dz)));
-        double goalPitch = ThirdPersonCamera.horizonBoundedPitch(
-            Clashweave.config.lockCompositionPreset,
-            mc.gameSettings.fovSetting,
-            heightPitch,
-            Clashweave.config.lockStrongThirdPitchInfluence,
-            Clashweave.config.lockCompositionHorizonTolerance);
+        // SOULS geometry is handled by the rendering camera, without altering the first-person path.
+        double goalPitch = heightPitch;
         goalPitch = Math
             .max(Clashweave.config.lockFollow.pitchMin, Math.min(Clashweave.config.lockFollow.pitchMax, goalPitch));
         if (!thirdMouse)
@@ -354,6 +350,14 @@ public final class LockCamera {
                 + mc.gameSettings.fovSetting
                 + " aspect="
                 + (double) mc.displayWidth / mc.displayHeight);
+    }
+
+    public boolean cameraReady() {
+        return target() != null && !thirdBlocked;
+    }
+
+    public double[] cameraPoint(EntityLivingBase target) {
+        return new double[] { filter.x, filter.y - target.getEyeHeight() + target.height / 2, filter.z };
     }
 
     @SubscribeEvent
