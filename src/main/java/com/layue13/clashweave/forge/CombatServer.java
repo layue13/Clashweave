@@ -72,6 +72,7 @@ public final class CombatServer {
         public int revision;
         public long networkAfter;
         public int lock = -1;
+        public long lastLockSwitch = Long.MIN_VALUE / 2;
         public long budgetNano;
         public long budgetTick;
         public float yaw;
@@ -372,6 +373,21 @@ public final class CombatServer {
         } else if (intent == Intent.GUARD_RELEASE) {
             state.guard.release(effectiveStamp);
             snapshot(state, message.sequence, "RELEASE", false);
+        } else if (intent == Intent.LOCK_SWITCH) {
+            EntityLivingBase selected = null;
+            if (state.lock >= 0 && input.arrival - state.lastLockSwitch >= config.lockFlickCooldownMillis * 1_000_000L
+                && (message.target == -1 || message.target == 1)) {
+                state.lastLockSwitch = input.arrival;
+                selected = switchLock(input.player, state.lock, message.target);
+                if (selected != null) state.lock = selected.getEntityId();
+            }
+            trace(
+                "LOCK_SWITCH player=" + input.player.getCommandSenderName()
+                    + " direction="
+                    + message.target
+                    + " selected="
+                    + (selected == null ? -1 : selected.getEntityId()));
+            snapshot(state, message.sequence, selected == null ? "REJECT:LOCK_SWITCH" : "LOCK_SWITCH", false);
         } else if (intent == Intent.LOCK) {
             String result = "REJECT:LOCK";
             if (state.lock >= 0) {
@@ -621,6 +637,34 @@ public final class CombatServer {
             }
         }
         return selected;
+    }
+
+    private EntityLivingBase switchLock(EntityPlayerMP player, int locked, int direction) {
+        Entity current = player.worldObj.getEntityByID(locked);
+        if (!(current instanceof EntityLivingBase) || current.isDead
+            || ((EntityLivingBase) current).getHealth() <= 0
+            || player.getDistanceToEntity(current) > config.lockKeepRange) return null;
+        float yaw = (float) Math.toDegrees(Math.atan2(player.posX - current.posX, current.posZ - player.posZ));
+        EntityLivingBase chosen = null;
+        double best = Double.POSITIVE_INFINITY;
+        for (Object object : player.worldObj.loadedEntityList) {
+            if (!(object instanceof EntityLivingBase)) continue;
+            EntityLivingBase candidate = (EntityLivingBase) object;
+            double distance = player.getDistanceToEntity(candidate);
+            if (candidate == player || candidate == current
+                || candidate.isDead
+                || candidate.getHealth() <= 0
+                || distance > config.lockKeepRange
+                || protectedTarget(player, candidate)
+                || !player.canEntityBeSeen(candidate)) continue;
+            double score = com.layue13.clashweave.core.ThirdPersonCamera
+                .switchScore(yaw, candidate.posX - player.posX, candidate.posZ - player.posZ, direction, distance);
+            if (score < best || score == best && chosen != null && candidate.getEntityId() < chosen.getEntityId()) {
+                best = score;
+                chosen = candidate;
+            }
+        }
+        return chosen;
     }
 
     public boolean protectedTarget(EntityPlayer attacker, EntityLivingBase target) {

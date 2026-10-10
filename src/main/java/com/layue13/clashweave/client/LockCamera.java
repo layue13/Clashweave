@@ -15,9 +15,11 @@ import com.layue13.clashweave.core.ActionCatalog;
 import com.layue13.clashweave.core.LockAssist;
 import com.layue13.clashweave.core.LockFollow;
 import com.layue13.clashweave.core.LockView;
+import com.layue13.clashweave.core.ThirdPersonCamera;
 import com.layue13.clashweave.forge.CombatServer;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 
 /** Owner-only lock display and local camera; never writes a committed action yaw. */
 public final class LockCamera {
@@ -30,6 +32,13 @@ public final class LockCamera {
     private int previousTarget = -1;
     private long previousNano;
     public LockFollow.Result last;
+    private final ThirdPersonCamera.Spring yawSpring = new ThirdPersonCamera.Spring();
+    private final ThirdPersonCamera.Spring pitchSpring = new ThirdPersonCamera.Spring();
+    private final ThirdPersonCamera.Filter filter = new ThirdPersonCamera.Filter();
+    private final ThirdPersonCamera.Flick flick = new ThirdPersonCamera.Flick();
+    private long frameNano, hiddenSince = -1;
+    private double thirdOffset;
+    private boolean thirdMouse, thirdBlocked;
 
     LockCamera(ClientProxy proxy) {
         this.proxy = proxy;
@@ -42,6 +51,24 @@ public final class LockCamera {
         previousNano = 0;
         world = null;
         last = null;
+        resetThird();
+    }
+
+    private void resetThird() {
+        yawSpring.clear();
+        pitchSpring.clear();
+        filter.clear();
+        flick.clear();
+        frameNano = 0;
+        hiddenSince = -1;
+        thirdOffset = 0;
+        thirdMouse = false;
+        thirdBlocked = false;
+    }
+
+    public boolean thirdStrong() {
+        return mc.gameSettings.thirdPersonView != 0
+            && Clashweave.config.lockFollowThirdPerson == LockFollow.Mode.STRONG;
     }
 
     public void manualViewChange() {
@@ -49,7 +76,31 @@ public final class LockCamera {
     }
 
     public void mouse(long now, double yawDelta) {
-        follow.mouse(now, yawDelta, Clashweave.config.lockFollow);
+        if (thirdStrong()) {
+            follow.noteMouse(now);
+            if (target() == null || mc.currentScreen != null || thirdBlocked) return;
+            thirdMouse = true;
+            thirdOffset = ThirdPersonCamera.clamp(thirdOffset + yawDelta, Clashweave.config.lockStrongThirdMaxOffset);
+            int direction = flick.add(
+                now,
+                yawDelta,
+                Clashweave.config.lockFlickWindowMillis * 1_000_000L,
+                Clashweave.config.lockFlickThresholdDegrees,
+                Clashweave.config.lockFlickCooldownMillis * 1_000_000L);
+            if (direction != 0) {
+                proxy.send(com.layue13.clashweave.core.Intent.LOCK_SWITCH, direction);
+                thirdOffset = 0;
+            }
+            if (Boolean.getBoolean("clashweave.trace") && yawDelta != 0) System.out.println(
+                "CW_THIRD_MOUSE nano=" + now
+                    + " delta="
+                    + yawDelta
+                    + " switch="
+                    + direction
+                    + " offset="
+                    + thirdOffset);
+        } else follow.mouse(now, yawDelta, Clashweave.config.lockFollow);
+
     }
 
     public net.minecraft.util.MouseHelper wrap(final net.minecraft.util.MouseHelper original) {
@@ -82,7 +133,8 @@ public final class LockCamera {
                     : Clashweave.config.lockFollowThirdPerson == LockFollow.Mode.STRONG;
                 if (strong && target != null
                     && mc.currentScreen == null
-                    && (last == null || !last.reason.equals("OCCLUDED") || visible(target))) {
+                    && (thirdStrong() ? !thirdBlocked || visible(target)
+                        : last == null || !last.reason.equals("OCCLUDED") || visible(target))) {
                     // Strong mode consumes mouse as bounded offset; vanilla must not add a second camera turn.
                     deltaX = 0;
                     deltaY = 0;
@@ -131,6 +183,7 @@ public final class LockCamera {
         int id = target == null ? -1 : target.getEntityId();
         if (id != previousTarget) {
             follow.clear();
+            resetThird();
             previousTarget = id;
             if (Boolean.getBoolean("clashweave.trace"))
                 System.out.println("CW_LOCK_MARKER target=" + id + " nano=" + now);
@@ -141,6 +194,13 @@ public final class LockCamera {
             Clashweave.config.lockAutoThirdPerson,
             Clashweave.config.lockRestoreView);
         if (target == null) {
+            last = null;
+            return;
+        }
+        if (thirdStrong()) {
+            // Keep legacy first-person control anchored to the actual view at handoff.
+            // clear retains lastMouse, so recent mouse input still gets its original grace.
+            follow.clear();
             last = null;
             return;
         }
@@ -195,6 +255,105 @@ public final class LockCamera {
                 + own.state.instance
                 + " committed="
                 + own.state.yaw);
+    }
+
+    @SubscribeEvent
+    public void frame(TickEvent.RenderTickEvent event) {
+        if (event.phase != TickEvent.Phase.START) return;
+        if (!thirdStrong() || mc.theWorld == null || mc.thePlayer == null) {
+            resetThird();
+            return;
+        }
+        long now = System.nanoTime();
+        double dt = frameNano == 0 ? 0 : ThirdPersonCamera.dt((now - frameNano) / 1_000_000_000.0);
+        frameNano = now;
+        EntityLivingBase target = target();
+        if (target == null || mc.currentScreen != null) {
+            yawSpring.clear();
+            pitchSpring.clear();
+            return;
+        }
+        if (visible(target)) hiddenSince = -1;
+        else if (hiddenSince < 0) hiddenSince = now;
+        thirdBlocked = hiddenSince >= 0 && now - hiddenSince >= Clashweave.config.lockFollow.lostNanos;
+        if (thirdBlocked) {
+            yawSpring.clear();
+            pitchSpring.clear();
+            return;
+        }
+        float partial = event.renderTickTime;
+        filter.step(
+            target.lastTickPosX + (target.posX - target.lastTickPosX) * partial,
+            target.lastTickPosY + (target.posY - target.lastTickPosY) * partial + target.getEyeHeight(),
+            target.lastTickPosZ + (target.posZ - target.lastTickPosZ) * partial,
+            dt,
+            Clashweave.config.lockTargetFilterTau);
+        double dx = filter.x - mc.thePlayer.posX, dz = filter.z - mc.thePlayer.posZ;
+        double dy = filter.y - mc.thePlayer.getPosition(1).yCoord;
+        double goalYaw = Math.toDegrees(Math.atan2(-dx, dz));
+        double heightPitch = -Math.toDegrees(Math.atan2(dy, Math.hypot(dx, dz)));
+        double goalPitch = ThirdPersonCamera.horizonBoundedPitch(
+            Clashweave.config.lockCompositionPreset,
+            mc.gameSettings.fovSetting,
+            heightPitch,
+            Clashweave.config.lockStrongThirdPitchInfluence,
+            Clashweave.config.lockCompositionHorizonTolerance);
+        goalPitch = Math
+            .max(Clashweave.config.lockFollow.pitchMin, Math.min(Clashweave.config.lockFollow.pitchMax, goalPitch));
+        if (!thirdMouse)
+            thirdOffset -= ThirdPersonCamera.clamp(thirdOffset, Clashweave.config.lockStrongThirdOffsetDecay * dt);
+        thirdMouse = false;
+        float beforeYaw = mc.thePlayer.rotationYaw, beforePitch = mc.thePlayer.rotationPitch;
+        double unwrapped = beforeYaw
+            + com.layue13.clashweave.core.FacingHistory.difference((float) (goalYaw + thirdOffset), beforeYaw);
+        mc.thePlayer.rotationYaw = (float) yawSpring.step(
+            beforeYaw,
+            unwrapped,
+            dt,
+            Clashweave.config.lockStrongSmoothTime,
+            Clashweave.config.lockFollow.strongSpeed);
+        mc.thePlayer.rotationPitch = (float) pitchSpring.step(
+            beforePitch,
+            goalPitch,
+            dt,
+            Clashweave.config.lockStrongSmoothTime,
+            Clashweave.config.lockFollow.strongSpeed);
+        if (Boolean.getBoolean("clashweave.trace")) System.out.println(
+            "CW_THIRD_FRAME nano=" + now
+                + " dt="
+                + dt
+                + " target="
+                + target.getEntityId()
+                + " rawX="
+                + target.posX
+                + " rawY="
+                + target.posY
+                + " rawZ="
+                + target.posZ
+                + " filteredX="
+                + filter.x
+                + " filteredY="
+                + filter.y
+                + " filteredZ="
+                + filter.z
+                + " goalYaw="
+                + goalYaw
+                + " goalPitch="
+                + goalPitch
+                + " before="
+                + beforeYaw
+                + " after="
+                + mc.thePlayer.rotationYaw
+                + " pitchBefore="
+                + beforePitch
+                + " pitchAfter="
+                + mc.thePlayer.rotationPitch
+                + " preset="
+                + Clashweave.config.lockCompositionPreset
+                + " fov="
+                + mc.gameSettings.fovSetting
+                + " aspect="
+                + (double) mc.displayWidth / mc.displayHeight);
     }
 
     @SubscribeEvent

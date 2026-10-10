@@ -10,5 +10,6 @@ public enum Intent {
     DODGE,
     SPECIAL,
     MODE,
-    CLEAR_BUFFER
+    CLEAR_BUFFER,
+    LOCK_SWITCH
 }

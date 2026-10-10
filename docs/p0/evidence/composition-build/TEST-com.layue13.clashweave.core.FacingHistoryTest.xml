@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.layue13.clashweave.core.FacingHistoryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-10T16:00:56.507Z" hostname="DESKTOP-NCOAQL3" time="0.0">
+  <properties/>
+  <testcase name="receiveTimestampExcludesLaterPacketsEvenIfDispatchIsDelayed" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <testcase name="forgedAnglesAndOldOrDistantHistoryFallBack" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <testcase name="snapshotUsesHistoryNotFutureSamples" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <testcase name="fastTurnsAndOlderMatchingSampleAreAccepted" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <testcase name="wrappedAnglesAndPositionOnlyPacketsRetainLook" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

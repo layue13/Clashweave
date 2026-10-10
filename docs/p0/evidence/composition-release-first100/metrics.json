@@ -1,0 +1,156 @@
+{
+  "identities": {
+    "P0A": "0",
+    "P0B": "70789"
+  },
+  "contacts": 0,
+  "mob_extra_ticks": {
+    "count": 0
+  },
+  "mob_commit_ms": {
+    "count": 0
+  },
+  "guard_violations": 0,
+  "deadline_violations": 0,
+  "freeze_to_commit": {
+    "count": 0
+  },
+  "feedback": {
+    "receive": {
+      "count": 0
+    },
+    "frame": {
+      "count": 0
+    },
+    "audio_source": {
+      "count": 0
+    }
+  },
+  "input_gate_rejects": [
+    {
+      "player": "P0A",
+      "seq": "1",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "248",
+      "effectiveStamp": "248",
+      "receivedTick": "257",
+      "consumedTick": "258",
+      "arrival": "94228046267000",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "2",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "249",
+      "effectiveStamp": "249",
+      "receivedTick": "258",
+      "consumedTick": "259",
+      "arrival": "94228098465800",
+      "gate": "STALE",
+      "type": "INPUT"
+    }
+  ],
+  "acknowledgements": [
+    {
+      "player": "P0A",
+      "seq": "1",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "2",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "14",
+      "result": "LOCK",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "15",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "16",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    }
+  ],
+  "mob_feedback": {
+    "receive": {
+      "count": 0
+    },
+    "frame": {
+      "count": 0
+    },
+    "audio_source": {
+      "count": 0
+    }
+  },
+  "aim": {
+    "samples": 1,
+    "accepted": 1,
+    "known_yaw_deviation": {
+      "count": 1,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    },
+    "selected_yaw_deviation": {
+      "count": 1,
+      "minimum": 8.0,
+      "maximum": 8.0,
+      "mean": 8.0
+    },
+    "old_horizontal_pitch_deviation": {
+      "count": 1,
+      "minimum": 8.64455,
+      "maximum": 8.64455,
+      "mean": 8.64455
+    },
+    "selected_pitch_deviation": {
+      "count": 1,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    }
+  },
+  "local_swing_dispatch_ms": {
+    "count": 1,
+    "minimum": 2.1639,
+    "maximum": 2.1639,
+    "mean": 2.1639
+  },
+  "local_audio_source_ms": {
+    "count": 1,
+    "minimum": 0.2261,
+    "maximum": 0.2261,
+    "mean": 0.2261
+  },
+  "action_execution": {
+    "legal": 1,
+    "executed": 1,
+    "rate": 1.0,
+    "invalid": 0,
+    "invalid_executed": 0
+  },
+  "prediction": {
+    "alignments": 1,
+    "backwards": 0,
+    "forwards": 0,
+    "same": 1,
+    "hard_corrections_max": 0
+  }
+}

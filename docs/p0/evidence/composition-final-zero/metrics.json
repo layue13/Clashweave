@@ -1,0 +1,139 @@
+{
+  "identities": {
+    "P0A": "0",
+    "P0B": "82225"
+  },
+  "contacts": 0,
+  "mob_extra_ticks": {
+    "count": 0
+  },
+  "mob_commit_ms": {
+    "count": 0
+  },
+  "guard_violations": 0,
+  "deadline_violations": 0,
+  "freeze_to_commit": {
+    "count": 0
+  },
+  "feedback": {
+    "receive": {
+      "count": 0
+    },
+    "frame": {
+      "count": 0
+    },
+    "audio_source": {
+      "count": 0
+    }
+  },
+  "input_gate_rejects": [],
+  "acknowledgements": [
+    {
+      "player": "P0A",
+      "seq": "2",
+      "result": "LOCK",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "3",
+      "result": "LOCK_SWITCH",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "4",
+      "result": "REJECT:LOCK_SWITCH",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "5",
+      "result": "REJECT:LOCK_SWITCH",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "6",
+      "result": "REJECT:LOCK_SWITCH",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "7",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "8",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    }
+  ],
+  "mob_feedback": {
+    "receive": {
+      "count": 0
+    },
+    "frame": {
+      "count": 0
+    },
+    "audio_source": {
+      "count": 0
+    }
+  },
+  "aim": {
+    "samples": 1,
+    "accepted": 1,
+    "known_yaw_deviation": {
+      "count": 1,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    },
+    "selected_yaw_deviation": {
+      "count": 1,
+      "minimum": 7.966743469238281,
+      "maximum": 7.966743469238281,
+      "mean": 7.966743469238281
+    },
+    "old_horizontal_pitch_deviation": {
+      "count": 1,
+      "minimum": 8.643903,
+      "maximum": 8.643903,
+      "mean": 8.643903
+    },
+    "selected_pitch_deviation": {
+      "count": 1,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    }
+  },
+  "local_swing_dispatch_ms": {
+    "count": 1,
+    "minimum": 2.467,
+    "maximum": 2.467,
+    "mean": 2.467
+  },
+  "local_audio_source_ms": {
+    "count": 1,
+    "minimum": 0.1742,
+    "maximum": 0.1742,
+    "mean": 0.1742
+  },
+  "action_execution": {
+    "legal": 1,
+    "executed": 1,
+    "rate": 1.0,
+    "invalid": 0,
+    "invalid_executed": 0
+  },
+  "prediction": {
+    "alignments": 1,
+    "backwards": 0,
+    "forwards": 0,
+    "same": 1,
+    "hard_corrections_max": 0
+  }
+}

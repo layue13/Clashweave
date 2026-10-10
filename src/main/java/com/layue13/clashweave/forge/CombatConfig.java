@@ -28,6 +28,11 @@ public final class CombatConfig {
     public double lockAcquireRange;
     public double lockKeepRange;
     public double lockConeHalfAngle;
+    public com.layue13.clashweave.core.ThirdPersonCamera.Preset lockCompositionPreset;
+    public double lockStrongSmoothTime, lockStrongThirdPitchInfluence, lockTargetFilterTau;
+    public double lockCompositionHorizonTolerance;
+    public double lockStrongThirdMaxOffset, lockStrongThirdOffsetDecay, lockFlickThresholdDegrees;
+    public long lockFlickWindowMillis, lockFlickCooldownMillis;
     public boolean lockAssistEnabled;
     public double lockAssistCone;
     public double lockAssistMaxDegrees;
@@ -121,6 +126,51 @@ public final class CombatConfig {
         lockFollow.pitchMax = Math.max(
             lockFollow.pitchMin,
             config.getFloat("lockStrongPitchMax", "camera", 60, -90, 90, "Strong upper pitch bound"));
+        lockCompositionPreset = com.layue13.clashweave.core.ThirdPersonCamera.Preset.valueOf(
+            config.getString(
+                "lockCompositionPreset",
+                "camera",
+                "GOLDEN",
+                "Composition starting point, not a comfort guarantee",
+                new String[] { "GOLDEN", "THIRDS", "CENTER", "OFF" }));
+        lockCompositionHorizonTolerance = config.getFloat(
+            "lockCompositionHorizonTolerance",
+            "camera",
+            .025f,
+            0,
+            .1f,
+            "Additional horizon envelope in screen-height fractions");
+        lockStrongSmoothTime = config
+            .getFloat("lockStrongSmoothTime", "camera", .15f, .03f, .5f, "Critical damping smooth time seconds");
+        lockStrongThirdPitchInfluence = config.getFloat(
+            "lockStrongThirdPitchInfluence",
+            "camera",
+            8,
+            0,
+            30,
+            "Third-person target height influence degrees");
+        lockTargetFilterTau = config
+            .getFloat("lockTargetFilterTau", "camera", .1f, 0, 1, "Third-person target position filter seconds");
+        lockStrongThirdMaxOffset = config.getFloat(
+            "lockStrongThirdMaxOffset",
+            "camera",
+            8,
+            0,
+            90,
+            "Third-person mouse offset; first-person legacy config unchanged");
+        lockStrongThirdOffsetDecay = config.getFloat(
+            "lockStrongThirdOffsetDecay",
+            "camera",
+            240,
+            0,
+            720,
+            "Third-person offset decay degrees per second");
+        lockFlickWindowMillis = config
+            .getInt("lockFlickWindowMillis", "camera", 150, 20, 500, "Flick accumulation window");
+        lockFlickCooldownMillis = config
+            .getInt("lockFlickCooldownMillis", "lock", 400, 100, 2000, "Server enforced target switch cooldown");
+        lockFlickThresholdDegrees = config
+            .getFloat("lockFlickThresholdDegrees", "camera", 25, 5, 90, "Flick threshold degrees");
         lockAutoThirdPerson = config
             .getBoolean("lockAutoThirdPerson", "camera", false, "Local lock enters rear view once");
         lockRestoreView = config.getBoolean("lockRestoreView", "camera", true, "Restore unless player used F5");

@@ -85,6 +85,9 @@ public final class ClientProxy extends CommonProxy {
             .registerEntityRenderingHandler(net.minecraft.entity.player.EntityPlayer.class, new KatanaPlayerRenderer());
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(lockCamera);
+        FMLCommonHandler.instance()
+            .bus()
+            .register(lockCamera);
         MinecraftForge.EVENT_BUS.register(new KatanaRendering());
         FMLCommonHandler.instance()
             .bus()

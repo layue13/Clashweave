@@ -36,12 +36,14 @@ public final class Validation {
         FMLCommonHandler.instance().bus().register(new EngagementScenario());
         FMLCommonHandler.instance().bus().register(new LockScenario());
         FMLCommonHandler.instance().bus().register(new LockSupportScenario());
+        FMLCommonHandler.instance().bus().register(new CompositionScenario());
         SweepScenario sweep=new SweepScenario();
         FMLCommonHandler.instance().bus().register(sweep);
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(sweep);
         if (FMLCommonHandler.instance().getSide().isClient()) {
             try {
                 Class.forName("com.layue13.clashweave.validation.ClientReplay").newInstance();
+                if(Boolean.getBoolean("cw.p0.composition"))Class.forName("com.layue13.clashweave.validation.CompositionReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.lockSupport"))Class.forName("com.layue13.clashweave.validation.LockSupportReplay").newInstance();
             } catch (Exception exception) {
                 throw new IllegalStateException(exception);

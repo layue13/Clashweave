@@ -17,6 +17,10 @@ parser.add_argument('--supplement', action='store_true')
 parser.add_argument('--manual', action='store_true')
 parser.add_argument('--lock-support', action='store_true')
 parser.add_argument('--follow-only', action='store_true')
+parser.add_argument('--composition', action='store_true')
+parser.add_argument('--first-only', action='store_true')
+parser.add_argument('--mod-snapshot')
+parser.add_argument('--camera-probe', action='store_true')
 parser.add_argument('--movement', action='store_true')
 parser.add_argument('--low-tps', action='store_true')
 parser.add_argument('--engagement', action='store_true')
@@ -28,6 +32,7 @@ parser.add_argument('--correction-test', action='store_true')
 parser.add_argument('--rtt', type=int, default=0)
 args = parser.parse_args()
 if args.follow_only: args.lock_support=True
+if args.first_only: args.composition=True
 if not args.accept_eula:
     raise SystemExit('Explicit EULA acceptance required')
 folder = ROOT / 'build/p0/runs' / args.label
@@ -75,6 +80,12 @@ def spawn(role):
         command += ['-Dcw.p0.followOnly=true']
     if args.lock_support:
         command += ['-Dcw.p0.lockSupport=true']
+    if args.first_only: command += ['-Dcw.p0.firstOnly=true']
+    if args.composition or args.camera_probe:
+        command += ['-Dcw.p0.composition=true']
+    if args.camera_probe:
+        command += ['-Dcw.p0.cameraProbe=true']
+        if not server: shutil.copyfile(snapshot(ROOT/'build/p0/camera-probe.jar'),directory/'mods/camera-probe.jar')
     if args.manual:
         command += ['-Dcw.p0.manual=true']
     if args.movement:
@@ -94,6 +105,7 @@ def spawn(role):
     entries=[]
     for entry in launch['classpath'].split(';'):
         path=pathlib.Path(entry)
+        if args.mod_snapshot and path.name == 'clashweave-0.1.0-dev-dev.jar': path=ROOT/args.mod_snapshot
         entries.append(str(snapshot(path)) if path.is_relative_to(ROOT/'build') and path.suffix=='.jar' else entry)
     command += ['-cp',';'.join(entries),launch['main']]
     command += ['nogui'] if server else ['--username',role,'--width','960','--height','540','--gameDir',str(directory)]
@@ -129,7 +141,7 @@ try:
         time.sleep(.2)
     else: raise RuntimeError('First client login timeout')
     clients.append(spawn('P0B'))
-    deadline = time.perf_counter()+(600 if args.manual else 300 if args.lock_support else 160)
+    deadline = time.perf_counter()+(600 if args.manual else 300 if args.lock_support or args.composition or args.camera_probe else 160)
     while server.poll() is None and time.perf_counter()<deadline:
         if any(client.poll() is not None for client in clients):
             server.stdin.write(b'stop\n')

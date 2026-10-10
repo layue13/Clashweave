@@ -32,7 +32,7 @@ public final class NetworkScenario {
         player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200);
         player.setHealth(200);
         player.playerNetServerHandler.setPlayerLocation(a ? 0 : Boolean.getBoolean("cw.p0.renderOnly") ? 6 : 1.15, 64, a ? 0 : 1.9, a ? 0 : 180, 0);
-        if (a && !Boolean.getBoolean("cw.p0.lockSupport") && !Boolean.getBoolean("cw.p0.renderOnly") && !Boolean.getBoolean("cw.p0.fastTurn") && !Boolean.getBoolean("cw.p0.correctionTest") && !Boolean.getBoolean("cw.p0.viewTest") && !Boolean.getBoolean("cw.p0.lockTest") && !Boolean.getBoolean("cw.p0.sweepTest")) {
+        if (a && !Boolean.getBoolean("cw.p0.lockSupport") && !Boolean.getBoolean("cw.p0.composition") && !Boolean.getBoolean("cw.p0.renderOnly") && !Boolean.getBoolean("cw.p0.fastTurn") && !Boolean.getBoolean("cw.p0.correctionTest") && !Boolean.getBoolean("cw.p0.viewTest") && !Boolean.getBoolean("cw.p0.lockTest") && !Boolean.getBoolean("cw.p0.sweepTest")) {
             EntityZombie zombie = new EntityZombie(world);
             zombie.setPosition(Boolean.getBoolean("cw.p0.renderOnly") ? -6 : -1.15, 64, Boolean.getBoolean("cw.p0.engagement") ? 9 : 2);
             zombie.setAttackTarget(player);
@@ -92,7 +92,7 @@ public final class NetworkScenario {
         for (Object object : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
             EntityPlayerMP player = (EntityPlayerMP) object;
             com.layue13.clashweave.forge.CombatServer.PlayerState state = Clashweave.server.state(player);
-            if (!Boolean.getBoolean("cw.p0.lockSupport") && !Boolean.getBoolean("cw.p0.fastTurn") && !Boolean.getBoolean("cw.p0.correctionTest") && !Boolean.getBoolean("cw.p0.viewTest") && !Boolean.getBoolean("cw.p0.lockTest") && !Boolean.getBoolean("cw.p0.sweepTest") && !Boolean.getBoolean("cw.p0.supplement") && !Boolean.getBoolean("cw.p0.manual") && !Boolean.getBoolean("cw.p0.engagement") && state != null && state.scheduler.current() == null && prepare) {
+            if (!Boolean.getBoolean("cw.p0.lockSupport") && !Boolean.getBoolean("cw.p0.composition") && !Boolean.getBoolean("cw.p0.fastTurn") && !Boolean.getBoolean("cw.p0.correctionTest") && !Boolean.getBoolean("cw.p0.viewTest") && !Boolean.getBoolean("cw.p0.lockTest") && !Boolean.getBoolean("cw.p0.sweepTest") && !Boolean.getBoolean("cw.p0.supplement") && !Boolean.getBoolean("cw.p0.manual") && !Boolean.getBoolean("cw.p0.engagement") && state != null && state.scheduler.current() == null && prepare) {
                 boolean a = player.getCommandSenderName().equals("P0A");
                 player.playerNetServerHandler.setPlayerLocation(a ? 0 : Boolean.getBoolean("cw.p0.renderOnly") ? 6 : 1.15, 64, a ? 0 : 1.9, a ? 0 : 180, 0);
                 System.out.println("P0_PREP player=" + player.getCommandSenderName() + " afterInstance=" + prepared);
@@ -103,7 +103,7 @@ public final class NetworkScenario {
         maximum = Math.max(maximum, cost);
         samples++;
         if (bothTicks % 100 == 0) System.out.println("P0_PERF samples=" + samples + " meanNanos=" + sum / samples + " maxNanos=" + maximum);
-        if (!Boolean.getBoolean("cw.p0.lockSupport") && bothTicks == (Boolean.getBoolean("cw.p0.correctionTest") ? 260 : Boolean.getBoolean("cw.p0.viewTest") ? 1800 : 1000) && !Boolean.getBoolean("cw.p0.manual")) {
+        if (!Boolean.getBoolean("cw.p0.lockSupport") && !Boolean.getBoolean("cw.p0.composition") && bothTicks == (Boolean.getBoolean("cw.p0.correctionTest") ? 260 : Boolean.getBoolean("cw.p0.viewTest") ? 1800 : 1000) && !Boolean.getBoolean("cw.p0.manual")) {
             System.out.println("P0_NETWORK COMPLETE");
             MinecraftServer.getServer().initiateShutdown();
         }

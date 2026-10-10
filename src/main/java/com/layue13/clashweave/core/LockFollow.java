@@ -52,6 +52,11 @@ public final class LockFollow {
         if (Double.isFinite(yawDelta)) offset = clamp(offset + yawDelta, settings.maxOffset);
     }
 
+    /** Preserve mouse grace when handing observation back from third-person control. */
+    public void noteMouse(long now) {
+        lastMouse = now;
+    }
+
     public void clear() {
         strongControlled = false;
         offset = 0;
