@@ -27,6 +27,8 @@ result={'sequences':sequences,'complete_sequences':sum(r['complete'] for r in se
  'max_start_yaw_delta':max([abs(float(r['yawDelta'])) for r in starts],default=None),
  'max_start_pitch_delta':max([abs(float(r['pitchDelta'])) for r in starts],default=None),
  'all_position_packets':packets,
- 'position_packet_view_violations':sum(abs(float(r['yawDelta']))>1e-6 or abs(float(r['pitchDelta']))>1e-6 for r in packets)}
+ 'position_packet_view_violations':sum((r.get('protected','true')=='true') and (abs(float(r['yawDelta']))>1e-6 or abs(float(r['pitchDelta']))>1e-6) for r in packets),
+ 'all_position_packet_rotation_changes':sum(abs(float(r['yawDelta']))>1e-6 or abs(float(r['pitchDelta']))>1e-6 for r in packets),
+ 'unmarked_rotating_packets':sum(r.get('protected')=='false' and (abs(float(r['yawDelta']))>1e-6 or abs(float(r['pitchDelta']))>1e-6) for r in packets)}
 (f/'view-metrics.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:v for k,v in result.items() if k not in ['sequences','all_position_packets']},indent=2))

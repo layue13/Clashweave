@@ -9,8 +9,7 @@ public final class FacingHistory {
     private static final class Sample {
 
         long time;
-        long angularTime, previousAngularTime;
-        float previousYaw, previousPitch;
+        long angularTime;
         float yaw, pitch;
         double x, y, z;
     }
@@ -31,6 +30,21 @@ public final class FacingHistory {
         }
     }
 
+    private final java.util.LinkedHashMap<Integer, Long> requests = new java.util.LinkedHashMap<>();
+
+    public synchronized void requestReceived(int sequence, long time) {
+        if (!requests.containsKey(sequence)) requests.put(sequence, time);
+        while (requests.size() > 512) requests.remove(
+            requests.keySet()
+                .iterator()
+                .next());
+    }
+
+    public synchronized long requestArrival(int sequence) {
+        Long time = requests.remove(sequence);
+        return time == null ? 0 : time;
+    }
+
     private final Deque<Sample> samples = new ArrayDeque<>();
 
     public synchronized void observe(long time, float yaw, float pitch, double x, double y, double z, boolean rotating,
@@ -40,9 +54,6 @@ public final class FacingHistory {
         Sample s = new Sample();
         s.time = time;
         s.angularTime = rotating ? time : old.angularTime;
-        s.previousAngularTime = rotating ? old == null ? time : old.angularTime : old.previousAngularTime;
-        s.previousYaw = rotating ? old == null ? yaw : old.yaw : old.previousYaw;
-        s.previousPitch = rotating ? old == null ? pitch : old.pitch : old.previousPitch;
         s.yaw = rotating ? yaw : old.yaw;
         s.pitch = rotating ? pitch : old.pitch;
         s.x = moving ? x : old == null ? 0 : old.x;
@@ -61,38 +72,22 @@ public final class FacingHistory {
     }
 
     public synchronized Result choose(float yaw, float pitch, long arrival, float knownYaw, float knownPitch, double x,
-        double y, double z, double maxDegreesPerTick, double tolerance, long maxAge, double drift) {
+        double y, double z, double tolerance, long maxAge, double drift) {
         String reason = "NO_HISTORY";
-        Sample s = null;
-        Sample turnBase = null;
-        for (Sample candidate : samples) {
-            if (turnBase == null) turnBase = candidate;
-            if (candidate.time <= arrival - 50_000_000L) turnBase = candidate;
+        if (!Float.isFinite(yaw) || !Float.isFinite(pitch) || Math.abs(pitch) > 90)
+            return new Result(false, knownYaw, knownPitch, "INVALID_ANGLE", yaw, pitch);
+        boolean past = false, recent = false, nearby = false;
+        for (Sample s : samples) {
+            if (s.time > arrival) continue;
+            past = true;
+            if (arrival - s.angularTime > maxAge) continue;
+            recent = true;
+            if (Math.sqrt((x - s.x) * (x - s.x) + (y - s.y) * (y - s.y) + (z - s.z) * (z - s.z)) > drift) continue;
+            nearby = true;
+            if (Math.abs(s.pitch) <= 90 && Math.abs(difference(yaw, s.yaw)) <= tolerance
+                && Math.abs(pitch - s.pitch) <= tolerance) return new Result(true, yaw, pitch, "OK", yaw, pitch);
         }
-        for (Sample candidate : samples) if (candidate.time <= arrival) s = candidate;
-        if (!Float.isFinite(yaw) || !Float.isFinite(pitch) || Math.abs(pitch) > 90) reason = "INVALID_ANGLE";
-        else if (s != null) {
-            if (arrival - s.time > maxAge) reason = "OLD_HISTORY";
-            else if (Math.sqrt((x - s.x) * (x - s.x) + (y - s.y) * (y - s.y) + (z - s.z) * (z - s.z)) > drift)
-                reason = "POSITION_HISTORY";
-            else if (turnBase != null && (Math.abs(difference(s.yaw, turnBase.yaw))
-                > maxDegreesPerTick * Math.max(1, (arrival - turnBase.time) / 50_000_000.0) + tolerance
-                || Math.abs(s.pitch - turnBase.pitch)
-                    > maxDegreesPerTick * Math.max(1, (arrival - turnBase.time) / 50_000_000.0) + tolerance))
-                reason = "HISTORY_TURN_RATE";
-            else if (Math.abs(difference(s.yaw, s.previousYaw))
-                > maxDegreesPerTick * Math.max(1, (s.angularTime - s.previousAngularTime) / 50_000_000.0) + tolerance
-                || Math.abs(s.pitch - s.previousPitch)
-                    > maxDegreesPerTick * Math.max(1, (s.angularTime - s.previousAngularTime) / 50_000_000.0)
-                        + tolerance)
-                reason = "HISTORY_TURN_RATE";
-            else {
-                double allowance = maxDegreesPerTick * Math.max(1, (arrival - s.time) / 50_000_000.0) + tolerance;
-                if (Math.abs(difference(yaw, s.yaw)) <= allowance && Math.abs(pitch - s.pitch) <= allowance)
-                    return new Result(true, yaw, pitch, "OK", yaw, pitch);
-                reason = "TURN_RATE";
-            }
-        }
+        if (past) reason = !recent ? "OLD_HISTORY" : !nearby ? "POSITION_HISTORY" : "HISTORY_MISMATCH";
         return new Result(false, knownYaw, knownPitch, reason, yaw, pitch);
     }
 }

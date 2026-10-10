@@ -32,7 +32,7 @@ public final class NetworkScenario {
         player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200);
         player.setHealth(200);
         player.playerNetServerHandler.setPlayerLocation(a ? 0 : Boolean.getBoolean("cw.p0.renderOnly") ? 6 : 1.15, 64, a ? 0 : 1.9, a ? 0 : 180, 0);
-        if (a && !Boolean.getBoolean("cw.p0.renderOnly") && !Boolean.getBoolean("cw.p0.viewTest") && !Boolean.getBoolean("cw.p0.lockTest") && !Boolean.getBoolean("cw.p0.sweepTest")) {
+        if (a && !Boolean.getBoolean("cw.p0.renderOnly") && !Boolean.getBoolean("cw.p0.fastTurn") && !Boolean.getBoolean("cw.p0.correctionTest") && !Boolean.getBoolean("cw.p0.viewTest") && !Boolean.getBoolean("cw.p0.lockTest") && !Boolean.getBoolean("cw.p0.sweepTest")) {
             EntityZombie zombie = new EntityZombie(world);
             zombie.setPosition(Boolean.getBoolean("cw.p0.renderOnly") ? -6 : -1.15, 64, Boolean.getBoolean("cw.p0.engagement") ? 9 : 2);
             zombie.setAttackTarget(player);
@@ -47,7 +47,7 @@ public final class NetworkScenario {
 
     @SubscribeEvent(priority=cpw.mods.fml.common.eventhandler.EventPriority.HIGHEST)
     public void viewTarget(TickEvent.ServerTickEvent event) {
-        if (!Boolean.getBoolean("cw.p0.viewTest") || event.phase!=TickEvent.Phase.END) return;
+        if (!Boolean.getBoolean("cw.p0.fastTurn") && !Boolean.getBoolean("cw.p0.correctionTest") && !Boolean.getBoolean("cw.p0.viewTest") || event.phase!=TickEvent.Phase.END) return;
 
             java.util.List list = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
             EntityPlayerMP a = null, b = null;
@@ -73,6 +73,13 @@ public final class NetworkScenario {
         if (!Boolean.getBoolean("cw.p0.network") || event.phase != TickEvent.Phase.END) return;
         if (MinecraftServer.getServer().getCurrentPlayerCount() < 2) return;
         bothTicks++;
+        if(Boolean.getBoolean("cw.p0.correctionTest")) for(Object o:MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p=(EntityPlayerMP)o;if(!p.getCommandSenderName().equals("P0A"))continue;
+            if(bothTicks==100) {p.inventory.currentItem=1;p.playerNetServerHandler.setPlayerLocation(p.posX,p.posY,p.posZ,45,20);System.out.println("P0_CORRECTION unmarked yaw=45 pitch=20");}
+            if(bothTicks==140) {Clashweave.network.sendTo(new com.layue13.clashweave.network.CorrectionMessage(1,p.posX,p.posY+1.6200000047683716D,p.posZ),p);p.playerNetServerHandler.setPlayerLocation(p.posX,p.posY,p.posZ,-90,-30);System.out.println("P0_CORRECTION marked emptyHand=true yaw=-90 pitch=-30");}
+            if(bothTicks==180) Clashweave.network.sendTo(new com.layue13.clashweave.network.CorrectionMessage(2,p.posX,p.posY+1.6200000047683716D,p.posZ),p);
+            if(bothTicks==200) {p.playerNetServerHandler.setPlayerLocation(p.posX,p.posY,p.posZ,120,-10);System.out.println("P0_CORRECTION expired yaw=120 pitch=-10");}
+        }
         boolean prepare = false;
         for (Object object : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
             EntityPlayerMP player = (EntityPlayerMP)object;
@@ -85,7 +92,7 @@ public final class NetworkScenario {
         for (Object object : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
             EntityPlayerMP player = (EntityPlayerMP) object;
             com.layue13.clashweave.forge.CombatServer.PlayerState state = Clashweave.server.state(player);
-            if (!Boolean.getBoolean("cw.p0.viewTest") && !Boolean.getBoolean("cw.p0.lockTest") && !Boolean.getBoolean("cw.p0.sweepTest") && !Boolean.getBoolean("cw.p0.supplement") && !Boolean.getBoolean("cw.p0.manual") && !Boolean.getBoolean("cw.p0.engagement") && state != null && state.scheduler.current() == null && prepare) {
+            if (!Boolean.getBoolean("cw.p0.fastTurn") && !Boolean.getBoolean("cw.p0.correctionTest") && !Boolean.getBoolean("cw.p0.viewTest") && !Boolean.getBoolean("cw.p0.lockTest") && !Boolean.getBoolean("cw.p0.sweepTest") && !Boolean.getBoolean("cw.p0.supplement") && !Boolean.getBoolean("cw.p0.manual") && !Boolean.getBoolean("cw.p0.engagement") && state != null && state.scheduler.current() == null && prepare) {
                 boolean a = player.getCommandSenderName().equals("P0A");
                 player.playerNetServerHandler.setPlayerLocation(a ? 0 : Boolean.getBoolean("cw.p0.renderOnly") ? 6 : 1.15, 64, a ? 0 : 1.9, a ? 0 : 180, 0);
                 System.out.println("P0_PREP player=" + player.getCommandSenderName() + " afterInstance=" + prepared);
@@ -96,7 +103,7 @@ public final class NetworkScenario {
         maximum = Math.max(maximum, cost);
         samples++;
         if (bothTicks % 100 == 0) System.out.println("P0_PERF samples=" + samples + " meanNanos=" + sum / samples + " maxNanos=" + maximum);
-        if (bothTicks == (Boolean.getBoolean("cw.p0.viewTest") ? 1800 : 1000) && !Boolean.getBoolean("cw.p0.manual")) {
+        if (bothTicks == (Boolean.getBoolean("cw.p0.correctionTest") ? 260 : Boolean.getBoolean("cw.p0.viewTest") ? 1800 : 1000) && !Boolean.getBoolean("cw.p0.manual")) {
             System.out.println("P0_NETWORK COMPLETE");
             MinecraftServer.getServer().initiateShutdown();
         }

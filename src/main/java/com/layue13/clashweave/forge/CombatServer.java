@@ -54,6 +54,7 @@ public final class CombatServer {
         EntityPlayerMP player;
         InputMessage message;
         long arrival;
+        long facingArrival;
         long receivedTick;
     }
 
@@ -109,6 +110,7 @@ public final class CombatServer {
         boolean facing;
     }
 
+    private long correctionSequence;
     private final CombatConfig config;
     private final CombatWeapons weapons;
     private final CombatPresentation presentation = new CombatPresentation();
@@ -161,6 +163,8 @@ public final class CombatServer {
             input.player = player;
             input.message = message;
             input.arrival = System.nanoTime();
+            PlayerState observed = state(player);
+            input.facingArrival = observed == null ? 0 : observed.facingHistory.requestArrival(message.sequence);
             input.receivedTick = tick;
             inbox.add(input);
         }
@@ -391,13 +395,12 @@ public final class CombatServer {
             FacingHistory.Result facing = state.facingHistory.choose(
                 message.yaw,
                 message.pitch,
-                input.arrival,
+                input.facingArrival,
                 input.player.rotationYaw,
                 input.player.rotationPitch,
                 input.player.posX,
                 input.player.posY,
                 input.player.posZ,
-                config.facingMaxTurn,
                 config.facingTolerance,
                 config.facingHistoryAge * 1_000_000L,
                 config.facingHistoryDrift);
@@ -710,6 +713,13 @@ public final class CombatServer {
         }
         if (!state.movement
             .accept(System.nanoTime(), horizontal, vertical, walk, state.externalHorizontal, state.externalVertical)) {
+            Clashweave.network.sendTo(
+                new com.layue13.clashweave.network.CorrectionMessage(
+                    ++correctionSequence,
+                    state.x,
+                    state.y + 1.6200000047683716D,
+                    state.z),
+                player);
             player.playerNetServerHandler
                 .setPlayerLocation(state.x, state.y, state.z, player.rotationYaw, player.rotationPitch);
             state.corrections++;

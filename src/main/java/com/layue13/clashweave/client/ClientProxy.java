@@ -141,6 +141,13 @@ public final class ClientProxy extends CommonProxy {
         request.origin = observed == null ? 0 : observed.state.instance;
         request.yaw = minecraft.thePlayer.rotationYaw;
         request.pitch = minecraft.thePlayer.rotationPitch;
+        // Publish the press-time look before the intent on the same connection. C03 imposes no turn rate.
+        if (intent == Intent.LIGHT || intent == Intent.HEAVY || intent == Intent.SHEATHE)
+            minecraft.thePlayer.sendQueue.addToSendQueue(
+                new net.minecraft.network.play.client.C03PacketPlayer.C05PacketPlayerLook(
+                    request.yaw,
+                    request.pitch,
+                    minecraft.thePlayer.onGround));
         Clashweave.network.sendToServer(request);
         if (intent == Intent.LIGHT || intent == Intent.HEAVY || intent == Intent.SHEATHE) {
             Visual own = own();

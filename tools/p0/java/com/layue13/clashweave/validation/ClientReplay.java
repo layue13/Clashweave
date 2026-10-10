@@ -20,6 +20,7 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 /** Isolated script drives production intents and captures actual framebuffer, never supplies hits. */
 public final class ClientReplay {
     private final Minecraft mc = Minecraft.getMinecraft();
+    private int fastTurns;
     private int ticks;
     private int connected;
     private long requested;
@@ -94,6 +95,23 @@ public final class ClientReplay {
         connected++;
         for(ClientProxy.Visual other:proxy.visuals.values())if(observedAppearance.add(other.state.entity))System.out.println("P0_APPEARANCE entity="+other.state.entity+" skin="+other.state.appearance.skin+" effects="+other.state.appearance.effects+" animations="+other.state.appearance.animations+" style="+other.state.style);
         if (Boolean.getBoolean("cw.p0.manual") || Boolean.getBoolean("cw.p0.lockTest")) return;
+        if (Boolean.getBoolean("cw.p0.correctionTest")) {
+            if(mc.thePlayer.getCommandSenderName().equals("P0A") && connected>=80) {
+                mc.thePlayer.inventory.currentItem=1;
+                if(captures.add("correction-empty-hand")) System.out.println("P0_CORRECTION_CLIENT emptyHand="+(mc.thePlayer.getHeldItem()==null));
+            }
+            return;
+        }
+        if (Boolean.getBoolean("cw.p0.fastTurn")) {
+            if (!mc.thePlayer.getCommandSenderName().equals("P0A") || proxy.visuals.size()<2 || connected<100) return;
+            if (fastTurns<24 && visual.state.action.isEmpty() && connected%30==0) {
+                int turn=new int[]{45,90,180}[fastTurns%3];
+                mc.thePlayer.setAngles(turn/.15F,0); fastTurns++;
+                System.out.println("P0_FAST_TURN case="+fastTurns+" turn="+turn+" yaw="+mc.thePlayer.rotationYaw+" nano="+System.nanoTime());
+                proxy.send(Intent.LIGHT,-1);
+            }
+            return;
+        }
         if (Boolean.getBoolean("cw.p0.sweepTest")) { sweepReplay(proxy, visual); return; }
         if (Boolean.getBoolean("cw.p0.viewTest")) { viewReplay(proxy, visual); return; }
         if (Boolean.getBoolean("cw.p0.engagement")) {

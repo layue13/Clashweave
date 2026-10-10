@@ -27,7 +27,6 @@ public final class CombatConfig {
     public double lockAcquireRange;
     public double lockKeepRange;
     public double lockConeHalfAngle;
-    public double facingMaxTurn;
     public double facingTolerance;
     public int facingHistoryAge;
     public double facingHistoryDrift;
@@ -74,8 +73,10 @@ public final class CombatConfig {
         lockKeepRange = config.getFloat("lockKeepRange", "lock", 20, 1, 96, "Keep range; clamped above acquire range");
         lockKeepRange = Math.max(lockAcquireRange + 1, lockKeepRange);
         lockConeHalfAngle = config.getFloat("lockConeHalfAngle", "lock", 30, 1, 90, "Acquisition cone half angle");
-        facingMaxTurn = config.getFloat("maxDegreesPerTick", "facing", 30, 1, 180, "Snapshot turn-rate limit");
-        facingTolerance = config.getFloat("angleTolerance", "facing", 5, 0, 30, "Packet-phase tolerance degrees");
+        config.getCategory("facing")
+            .remove("maxDegreesPerTick");
+        facingTolerance = config
+            .getFloat("angleTolerance", "facing", 5, 0, 30, "C03 history matching tolerance degrees");
         facingHistoryAge = config.getInt("historyAgeMillis", "facing", 500, 50, 2000, "Maximum packet history age");
         facingHistoryDrift = config
             .getFloat("historyPositionDrift", "facing", 4, 0.1f, 16, "Maximum distance from recent position packet");

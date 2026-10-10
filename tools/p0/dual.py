@@ -21,6 +21,8 @@ parser.add_argument('--engagement', action='store_true')
 parser.add_argument('--view-test', action='store_true')
 parser.add_argument('--lock-test', action='store_true')
 parser.add_argument('--sweep-test', action='store_true')
+parser.add_argument('--fast-turn', action='store_true')
+parser.add_argument('--correction-test', action='store_true')
 parser.add_argument('--rtt', type=int, default=0)
 args = parser.parse_args()
 if not args.accept_eula:
@@ -56,6 +58,10 @@ def spawn(role):
         command += ['-Dcw.p0.viewTest=true']
     if args.sweep_test:
         command += ['-Dcw.p0.sweepTest=true']
+    if args.fast_turn:
+        command += ['-Dcw.p0.fastTurn=true']
+    if args.correction_test:
+        command += ['-Dcw.p0.correctionTest=true']
     if args.lock_test:
         command += ['-Dcw.p0.lockTest=true']
     if args.render_only:
