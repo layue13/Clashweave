@@ -44,6 +44,7 @@ public final class ClientProxy extends CommonProxy {
     public static ClientProxy instance;
     public final Map<Integer, Visual> visuals = new HashMap<>();
     public ActionCatalog actions;
+    public final LockCamera lockCamera = new LockCamera(this);
     public String feedback = "";
     public int corrections;
     public long lastFeedbackFrozen;
@@ -74,6 +75,7 @@ public final class ClientProxy extends CommonProxy {
     @Override
     public void initialize() {
         instance = this;
+        minecraft.mouseHelper = lockCamera.wrap(minecraft.mouseHelper);
         presentation.subscribe(new DefaultPresentation(minecraft, this));
         ClientRegistry.registerKeyBinding(sheathe);
         ClientRegistry.registerKeyBinding(dodge);
@@ -82,6 +84,7 @@ public final class ClientProxy extends CommonProxy {
         cpw.mods.fml.client.registry.RenderingRegistry
             .registerEntityRenderingHandler(net.minecraft.entity.player.EntityPlayer.class, new KatanaPlayerRenderer());
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(lockCamera);
         MinecraftForge.EVENT_BUS.register(new KatanaRendering());
         FMLCommonHandler.instance()
             .bus()
@@ -172,6 +175,7 @@ public final class ClientProxy extends CommonProxy {
     public void tick(TickEvent.ClientTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
         if (minecraft.thePlayer == null || minecraft.theWorld == null) {
+            lockCamera.clear();
             incoming.clear();
             events.clear();
             lastEvent = 0;
@@ -196,6 +200,7 @@ public final class ClientProxy extends CommonProxy {
                     + " owner="
                     + minecraft.thePlayer.getEntityId());
         }
+        lockCamera.tick();
         boolean armed = CombatServer.armed(minecraft.thePlayer);
         boolean openGui = minecraft.currentScreen != null;
         boolean shiftNow = minecraft.gameSettings.keyBindSneak.getIsKeyPressed();
@@ -343,6 +348,7 @@ public final class ClientProxy extends CommonProxy {
 
     @SubscribeEvent
     public void mouse(MouseEvent event) {
+        if (event.dx != 0 || event.dy != 0) lockCamera.mouse(System.nanoTime(), 0);
         if (minecraft.thePlayer == null || minecraft.currentScreen != null || !CombatServer.armed(minecraft.thePlayer))
             return;
         if (event.button == 0 || event.button == 1 && !blockInteraction() || event.button == 2) {
@@ -355,6 +361,13 @@ public final class ClientProxy extends CommonProxy {
                         : -1);
             }
         }
+    }
+
+    @SubscribeEvent
+    public void cameraKey(cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent event) {
+        if (Keyboard.getEventKeyState()
+            && Keyboard.getEventKey() == minecraft.gameSettings.keyBindTogglePerspective.getKeyCode())
+            lockCamera.manualViewChange();
     }
 
     @SubscribeEvent

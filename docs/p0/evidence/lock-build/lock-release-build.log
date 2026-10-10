@@ -1,0 +1,74 @@
+> Task :spotlessJava
+> Task :spotlessJavaCheck
+> Task :spotlessKotlin UP-TO-DATE
+> Task :spotlessKotlinCheck UP-TO-DATE
+> Task :spotlessMisc UP-TO-DATE
+> Task :spotlessMiscCheck UP-TO-DATE
+> Task :spotlessScala UP-TO-DATE
+> Task :spotlessScalaCheck UP-TO-DATE
+> Task :spotlessCheck
+> Task :compileInjectedInterfacesJava NO-SOURCE
+> Task :extractDependencyATs SKIPPED
+> Task :generateForgeSrgMappings SKIPPED
+> Task :downloadVanillaJars SKIPPED
+> Task :mergeVanillaSidedJars SKIPPED
+> Task :deobfuscateMergedJarToSrg SKIPPED
+> Task :downloadFernflower SKIPPED
+> Task :decompileSrgJar SKIPPED
+> Task :cleanupDecompSrgJar SKIPPED
+> Task :patchDecompiledJar SKIPPED
+> Task :applyJST SKIPPED
+> Task :remapDecompiledJar SKIPPED
+> Task :decompressDecompiledSources UP-TO-DATE
+> Task :processInjectedInterfacesResources NO-SOURCE
+> Task :injectedInterfacesClasses UP-TO-DATE
+> Task :compilePatchedMcJava UP-TO-DATE
+> Task :processPatchedMcResources UP-TO-DATE
+> Task :patchedMcClasses UP-TO-DATE
+> Task :compileApiJava NO-SOURCE
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses UP-TO-DATE
+> Task :injectTags UP-TO-DATE
+> Task :compileInjectedTagsJava UP-TO-DATE
+> Task :extractNatives2 UP-TO-DATE
+> Task :createMcLauncherFiles UP-TO-DATE
+> Task :compileMcLauncherJava UP-TO-DATE
+> Task :processInjectedTagsResources NO-SOURCE
+> Task :injectedTagsClasses UP-TO-DATE
+> Task :processMcLauncherResources NO-SOURCE
+> Task :mcLauncherClasses UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :checkstyleMain UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :checkstyleTest UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :packageMcLauncher UP-TO-DATE
+> Task :packagePatchedMc UP-TO-DATE
+> Task :reobfJar UP-TO-DATE
+> Task :sourcesJar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :checkstyleApi NO-SOURCE
+> Task :compileIdeVirtualMainJava SKIPPED
+> Task :processIdeVirtualMainResources SKIPPED
+> Task :ideVirtualMainClasses SKIPPED
+> Task :checkstyleIdeVirtualMain SKIPPED
+> Task :checkstyleInjectedInterfaces NO-SOURCE
+> Task :checkstyleInjectedTags SKIPPED
+> Task :checkstyleMcLauncher SKIPPED
+> Task :compileP0ValidationJava
+> Task :processP0ValidationResources NO-SOURCE
+> Task :p0ValidationClasses
+> Task :checkstylePatchedMc SKIPPED
+> Task :p0ValidationJar
+> Task :test UP-TO-DATE
+> Task :downloadAssetManifest SKIPPED
+> Task :downloadVanillaAssets UP-TO-DATE
+> Task :p0LaunchFiles
+> Task :checkstyleP0Validation
+> Task :check
+> Task :build
+BUILD SUCCESSFUL in 4s

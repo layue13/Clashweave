@@ -65,6 +65,8 @@ public class StateMessageTest {
     @Test
     public void observerEncodingCannotMutateOrExposeOwnerCredentials() {
         StateMessage owner = new StateMessage();
+        owner.lockTarget = 42;
+        owner.lockKeepRange = 23;
         owner.session = 123456;
         owner.definitions = "configuration";
         owner.action = "light_2";
@@ -84,6 +86,9 @@ public class StateMessageTest {
             StateMessage local = new StateMessage();
             remote.fromBytes(remoteBuffer);
             local.fromBytes(ownerBuffer);
+            assertEquals(-1, remote.lockTarget);
+            assertEquals(42, local.lockTarget);
+            assertEquals(23, local.lockKeepRange, 0);
             assertEquals(0, remote.session);
             assertEquals("", remote.definitions);
             assertEquals(123456, local.session);

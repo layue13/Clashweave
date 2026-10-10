@@ -13,6 +13,8 @@ public final class StateMessage implements IMessage {
 
     public com.layue13.clashweave.core.AppearanceState appearance = com.layue13.clashweave.core.AppearanceState.DEFAULT;
     public String style = "katana";
+    public int lockTarget = -1;
+    public double lockKeepRange = 20;
     public int entity;
     public int revision;
     public int ack;
@@ -64,6 +66,8 @@ public final class StateMessage implements IMessage {
             ByteBufUtils.readUTF8String(buffer),
             ByteBufUtils.readUTF8String(buffer));
         style = com.layue13.clashweave.core.AppearanceState.id(ByteBufUtils.readUTF8String(buffer));
+        lockTarget = buffer.readInt();
+        lockKeepRange = buffer.readDouble();
         entity = buffer.readInt();
         revision = buffer.readInt();
         ack = buffer.readInt();
@@ -96,7 +100,9 @@ public final class StateMessage implements IMessage {
         ByteBufUtils.writeUTF8String(buffer, appearance.effects);
         ByteBufUtils.writeUTF8String(buffer, appearance.animations);
         ByteBufUtils.writeUTF8String(buffer, style);
-        buffer.writeInt(entity)
+        buffer.writeInt(lockTarget)
+            .writeDouble(lockKeepRange)
+            .writeInt(entity)
             .writeInt(revision)
             .writeInt(ack)
             .writeLong(tick)

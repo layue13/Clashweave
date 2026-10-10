@@ -93,6 +93,7 @@ public final class ClientReplay {
         ClientProxy.Visual visual = proxy.own();
         if (visual == null || proxy.actions == null) return;
         connected++;
+        if(Boolean.getBoolean("cw.p0.lockSupport"))return;
         for(ClientProxy.Visual other:proxy.visuals.values())if(observedAppearance.add(other.state.entity))System.out.println("P0_APPEARANCE entity="+other.state.entity+" skin="+other.state.appearance.skin+" effects="+other.state.appearance.effects+" animations="+other.state.appearance.animations+" style="+other.state.style);
         if (Boolean.getBoolean("cw.p0.manual") || Boolean.getBoolean("cw.p0.lockTest")) return;
         if (Boolean.getBoolean("cw.p0.correctionTest")) {

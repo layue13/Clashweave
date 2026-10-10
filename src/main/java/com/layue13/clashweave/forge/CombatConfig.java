@@ -28,6 +28,14 @@ public final class CombatConfig {
     public double lockAcquireRange;
     public double lockKeepRange;
     public double lockConeHalfAngle;
+    public boolean lockAssistEnabled;
+    public double lockAssistCone;
+    public double lockAssistMaxDegrees;
+    public com.layue13.clashweave.core.LockFollow.Mode lockFollowFirstPerson;
+    public com.layue13.clashweave.core.LockFollow.Mode lockFollowThirdPerson;
+    public final com.layue13.clashweave.core.LockFollow.Settings lockFollow = new com.layue13.clashweave.core.LockFollow.Settings();
+    public boolean lockAutoThirdPerson;
+    public boolean lockRestoreView;
     public double facingTolerance;
     public int facingHistoryAge;
     public double facingHistoryDrift;
@@ -76,6 +84,46 @@ public final class CombatConfig {
         lockKeepRange = config.getFloat("lockKeepRange", "lock", 20, 1, 96, "Keep range; clamped above acquire range");
         lockKeepRange = Math.max(lockAcquireRange + 1, lockKeepRange);
         lockConeHalfAngle = config.getFloat("lockConeHalfAngle", "lock", 30, 1, 90, "Acquisition cone half angle");
+        lockAssistEnabled = config.getBoolean("lockAssistEnabled", "lock", true, "Server commitment assistance");
+        lockAssistCone = config.getFloat("lockAssistCone", "lock", 45, 0, 90, "Horizontal half cone degrees");
+        lockAssistMaxDegrees = config
+            .getFloat("lockAssistMaxDegrees", "lock", 15, 0, 30, "Maximum commitment correction");
+        lockFollowFirstPerson = com.layue13.clashweave.core.LockFollow.Mode.valueOf(
+            config.getString(
+                "lockFollowFirstPerson",
+                "camera",
+                "WEAK",
+                "Local camera mode",
+                new String[] { "OFF", "WEAK", "STRONG" }));
+        lockFollowThirdPerson = com.layue13.clashweave.core.LockFollow.Mode.valueOf(
+            config.getString(
+                "lockFollowThirdPerson",
+                "camera",
+                "STRONG",
+                "Local camera mode",
+                new String[] { "OFF", "WEAK", "STRONG" }));
+        lockFollow.graceNanos = config.getInt("lockFollowGraceMillis", "camera", 250, 0, 2000, "Weak mouse grace")
+            * 1_000_000L;
+        lockFollow.lostNanos = config.getInt("lockLostGraceMillis", "camera", 1000, 0, 5000, "Occlusion grace")
+            * 1_000_000L;
+        lockFollow.weakSpeed = config
+            .getFloat("lockWeakMaxDegreesPerSecond", "camera", 180, 0, 720, "Weak yaw speed cap");
+        lockFollow.weakPitchSpeed = config
+            .getFloat("lockWeakPitchMaxDegreesPerSecond", "camera", 180, 0, 720, "Weak pitch speed cap");
+        lockFollow.deadZone = config.getFloat("lockFollowDeadZone", "camera", 8, 0, 45, "Weak composition tolerance");
+        lockFollow.strongSpeed = config
+            .getFloat("lockStrongMaxDegreesPerSecond", "camera", 720, 0, 1440, "Strong yaw and pitch speed cap");
+        lockFollow.maxOffset = config
+            .getFloat("lockStrongMaxOffset", "camera", 30, 0, 90, "Strong horizontal mouse offset cap");
+        lockFollow.decay = config
+            .getFloat("lockStrongOffsetDecay", "camera", 120, 0, 720, "Strong offset decay degrees per second");
+        lockFollow.pitchMin = config.getFloat("lockStrongPitchMin", "camera", -45, -90, 90, "Strong lower pitch bound");
+        lockFollow.pitchMax = Math.max(
+            lockFollow.pitchMin,
+            config.getFloat("lockStrongPitchMax", "camera", 60, -90, 90, "Strong upper pitch bound"));
+        lockAutoThirdPerson = config
+            .getBoolean("lockAutoThirdPerson", "camera", false, "Local lock enters rear view once");
+        lockRestoreView = config.getBoolean("lockRestoreView", "camera", true, "Restore unless player used F5");
         config.getCategory("facing")
             .remove("maxDegreesPerTick");
         facingTolerance = config

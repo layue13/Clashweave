@@ -15,6 +15,8 @@ parser.add_argument('--accept-eula', action='store_true')
 parser.add_argument('--render-only', action='store_true')
 parser.add_argument('--supplement', action='store_true')
 parser.add_argument('--manual', action='store_true')
+parser.add_argument('--lock-support', action='store_true')
+parser.add_argument('--follow-only', action='store_true')
 parser.add_argument('--movement', action='store_true')
 parser.add_argument('--low-tps', action='store_true')
 parser.add_argument('--engagement', action='store_true')
@@ -25,6 +27,7 @@ parser.add_argument('--fast-turn', action='store_true')
 parser.add_argument('--correction-test', action='store_true')
 parser.add_argument('--rtt', type=int, default=0)
 args = parser.parse_args()
+if args.follow_only: args.lock_support=True
 if not args.accept_eula:
     raise SystemExit('Explicit EULA acceptance required')
 folder = ROOT / 'build/p0/runs' / args.label
@@ -68,6 +71,10 @@ def spawn(role):
         command += ['-Dcw.p0.renderOnly=true']
     if args.supplement:
         command += ['-Dcw.p0.supplement=true']
+    if args.follow_only:
+        command += ['-Dcw.p0.followOnly=true']
+    if args.lock_support:
+        command += ['-Dcw.p0.lockSupport=true']
     if args.manual:
         command += ['-Dcw.p0.manual=true']
     if args.movement:
@@ -122,7 +129,7 @@ try:
         time.sleep(.2)
     else: raise RuntimeError('First client login timeout')
     clients.append(spawn('P0B'))
-    deadline = time.perf_counter()+(600 if args.manual else 160)
+    deadline = time.perf_counter()+(600 if args.manual else 300 if args.lock_support else 160)
     while server.poll() is None and time.perf_counter()<deadline:
         if any(client.poll() is not None for client in clients):
             server.stdin.write(b'stop\n')

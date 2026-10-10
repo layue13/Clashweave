@@ -101,3 +101,7 @@ python tools/p0/engagement_metrics.py --label engagement-25
 ## 输入时间戳容差
 
 ce921b9 审核后追加：未来 stamp 容差默认 2 tick（0–4），接受后夹到服务端收包 tick；收包布局集中由 InputMessage 定义。原因、测试、单次各档快速回放与常规/视角指标见[输入时间戳容差](INPUT-TOLERANCE.md)。
+
+## 锁敌辅助
+
+04dafd0 之后按真人“锁敌对瞄准没有任何作用”反馈补齐 owner 标记、历史匹配之后的有界承诺辅助、分视角 WEAK/STRONG 镜头和可选一次自动第三人称。配置、实际47项JUnit、双客户端0/100ms矩阵、逐图判读、过程失败及限制见[锁敌辅助](LOCK-ASSIST.md)。未更改动作时序、防御、玩家格挡延后、交锋同步、位移预算和朝向历史匹配。完成后停下等待审核与再次试玩。

@@ -1,0 +1,922 @@
+{
+  "identities": {
+    "P0A": "0",
+    "P0B": "72649"
+  },
+  "contacts": 63,
+  "mob_extra_ticks": {
+    "count": 63,
+    "minimum": 0,
+    "maximum": 0,
+    "mean": 0.0
+  },
+  "mob_commit_ms": {
+    "count": 63,
+    "minimum": 0.1828,
+    "maximum": 0.629,
+    "mean": 0.26786190476190475
+  },
+  "guard_violations": 0,
+  "deadline_violations": 0,
+  "freeze_to_commit": {
+    "count": 63,
+    "minimum": 0.1828,
+    "maximum": 0.629,
+    "mean": 0.26786190476190475
+  },
+  "feedback": {
+    "receive": {
+      "count": 63,
+      "minimum": 1.5457,
+      "maximum": 50.3129,
+      "mean": 16.512123809523807
+    },
+    "frame": {
+      "count": 63,
+      "minimum": 3.0293,
+      "maximum": 55.3276,
+      "mean": 18.04656984126984
+    },
+    "audio_source": {
+      "count": 63,
+      "minimum": 1.8261,
+      "maximum": 50.7967,
+      "mean": 16.785596825396826
+    }
+  },
+  "input_gate_rejects": [],
+  "acknowledgements": [
+    {
+      "player": "P0A",
+      "seq": "2",
+      "result": "LOCK",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "3",
+      "result": "UNLOCK",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "4",
+      "result": "LOCK",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "5",
+      "result": "LOCK",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "6",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "7",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "8",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "9",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "10",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "11",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "12",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "13",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "14",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "15",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "16",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "17",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "18",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "19",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "20",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "21",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "22",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "23",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "24",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "25",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "26",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "27",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "28",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "29",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "30",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "31",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "32",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "33",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "34",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "35",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "36",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "37",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "38",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "39",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "40",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "41",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "42",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "43",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "44",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "45",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "46",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "47",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "48",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "49",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "50",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "51",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "52",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "53",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "54",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "55",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "56",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "57",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "58",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "59",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "60",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "61",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "62",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "63",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "64",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "65",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "66",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "67",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "68",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "69",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "70",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "71",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "72",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "73",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "74",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "75",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "76",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "77",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "78",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "79",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "80",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "81",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "82",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "83",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "84",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "85",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "86",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "87",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "88",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "89",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "90",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "91",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "92",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "93",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "94",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "95",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "96",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "97",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "98",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "99",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "100",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "101",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "102",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "103",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "104",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "105",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "106",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "107",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "108",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "109",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "110",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "111",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "112",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "113",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "114",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "115",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "116",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "117",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "118",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "119",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "120",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "121",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "122",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "123",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "124",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "125",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "126",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "127",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "128",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "129",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "130",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "131",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "132",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "133",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "135",
+      "result": "UNLOCK",
+      "type": "ACK"
+    }
+  ],
+  "mob_feedback": {
+    "receive": {
+      "count": 63,
+      "minimum": 1.5457,
+      "maximum": 50.3129,
+      "mean": 16.512123809523807
+    },
+    "frame": {
+      "count": 63,
+      "minimum": 3.0293,
+      "maximum": 55.3276,
+      "mean": 18.04656984126984
+    },
+    "audio_source": {
+      "count": 63,
+      "minimum": 1.8261,
+      "maximum": 50.7967,
+      "mean": 16.785596825396826
+    }
+  },
+  "aim": {
+    "samples": 64,
+    "accepted": 64,
+    "known_yaw_deviation": {
+      "count": 64,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    },
+    "selected_yaw_deviation": {
+      "count": 64,
+      "minimum": 0.0,
+      "maximum": 15.0,
+      "mean": 5.41623255610466
+    },
+    "old_horizontal_pitch_deviation": {
+      "count": 64,
+      "minimum": 0.0,
+      "maximum": 2.9055946,
+      "mean": 0.5123796828125
+    },
+    "selected_pitch_deviation": {
+      "count": 64,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    }
+  },
+  "local_swing_dispatch_ms": {
+    "count": 64,
+    "minimum": 0.2679,
+    "maximum": 2.64,
+    "mean": 0.4349828125
+  },
+  "local_audio_source_ms": {
+    "count": 64,
+    "minimum": 0.0934,
+    "maximum": 0.5031,
+    "mean": 0.1596515625
+  },
+  "action_execution": {
+    "legal": 64,
+    "executed": 64,
+    "rate": 1.0,
+    "invalid": 0,
+    "invalid_executed": 0
+  },
+  "prediction": {
+    "alignments": 64,
+    "backwards": 0,
+    "forwards": 0,
+    "same": 64,
+    "hard_corrections_max": 0
+  }
+}

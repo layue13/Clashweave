@@ -1,0 +1,36 @@
+{
+  "server_exit": 0,
+  "client_class_loads": 0,
+  "complete": true,
+  "captures": [
+    "P0A\\screenshots\\p0-lock-mark_dead.png",
+    "P0A\\screenshots\\p0-lock-mark_lock.png",
+    "P0A\\screenshots\\p0-lock-mark_range.png",
+    "P0A\\screenshots\\p0-lock-mark_relock.png",
+    "P0A\\screenshots\\p0-lock-mark_unlock.png"
+  ],
+  "performance": [
+    "[07:39:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=169811 maxNanos=1998100",
+    "[07:39:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=128297 maxNanos=1998100",
+    "[07:40:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=300 meanNanos=145208 maxNanos=5430300",
+    "[07:40:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=400 meanNanos=167544 maxNanos=5430300",
+    "[07:40:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=500 meanNanos=173664 maxNanos=5430300",
+    "[07:40:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=600 meanNanos=178470 maxNanos=5430300",
+    "[07:40:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=700 meanNanos=184593 maxNanos=5430300",
+    "[07:40:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=800 meanNanos=189494 maxNanos=5430300",
+    "[07:40:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=900 meanNanos=190692 maxNanos=5430300",
+    "[07:40:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1000 meanNanos=190542 maxNanos=5430300",
+    "[07:40:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1100 meanNanos=188021 maxNanos=5430300",
+    "[07:40:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1200 meanNanos=189234 maxNanos=5430300",
+    "[07:40:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1300 meanNanos=184971 maxNanos=5430300",
+    "[07:40:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1400 meanNanos=175533 maxNanos=5430300",
+    "[07:41:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1500 meanNanos=172277 maxNanos=5430300",
+    "[07:41:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1600 meanNanos=172513 maxNanos=5430300",
+    "[07:41:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1700 meanNanos=172496 maxNanos=5430300",
+    "[07:41:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1800 meanNanos=172196 maxNanos=5430300",
+    "[07:41:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1900 meanNanos=170808 maxNanos=5430300",
+    "[07:41:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=2000 meanNanos=170210 maxNanos=5430300",
+    "[07:41:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=2100 meanNanos=169220 maxNanos=5430300",
+    "[07:41:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=2200 meanNanos=167111 maxNanos=5430300"
+  ]
+}

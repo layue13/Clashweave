@@ -458,6 +458,38 @@ public final class CombatServer {
             FacingHistory.Result facing = state.requestFacing.remove(action.sequence);
             state.yaw = facing == null ? player.rotationYaw : facing.yaw;
             state.pitch = facing == null ? player.rotationPitch : facing.pitch;
+            Entity lockedTarget = player.worldObj.getEntityByID(state.lock);
+            float unassisted = state.yaw;
+            if (config.lockAssistEnabled && lockedTarget instanceof EntityLivingBase
+                && !lockedTarget.isDead
+                && ((EntityLivingBase) lockedTarget).getHealth() > 0
+                && player.getDistanceToEntity(lockedTarget) <= config.lockKeepRange
+                && player.canEntityBeSeen(lockedTarget)) {
+                state.yaw = com.layue13.clashweave.core.LockAssist.yaw(
+                    state.yaw,
+                    lockedTarget.posX - player.posX,
+                    lockedTarget.posZ - player.posZ,
+                    config.lockAssistCone,
+                    config.lockAssistMaxDegrees);
+            }
+            if (state.lock >= 0) trace(
+                "LOCK_AIM player=" + player.getCommandSenderName()
+                    + " id="
+                    + action.id
+                    + " target="
+                    + state.lock
+                    + " enabled="
+                    + config.lockAssistEnabled
+                    + " before="
+                    + unassisted
+                    + " after="
+                    + state.yaw
+                    + " correction="
+                    + Math.abs(FacingHistory.difference(state.yaw, unassisted))
+                    + " targetYaw="
+                    + (lockedTarget == null ? "NaN"
+                        : Math.toDegrees(Math.atan2(player.posX - lockedTarget.posX, lockedTarget.posZ - player.posZ)))
+                    + " pitchCorrection=0");
             if (facing != null) trace(
                 "AIM player=" + player.getCommandSenderName()
                     + " id="
@@ -762,6 +794,8 @@ public final class CombatServer {
         message.engaged = state.engaged;
         message.sheathed = state.scheduler.sheathed();
         message.blocks = config.blocks;
+        message.lockTarget = state.lock;
+        message.lockKeepRange = config.lockKeepRange;
         message.yaw = state.yaw;
         message.appearance = state.appearance.current();
         message.style = state.scheduler.weapon().style;

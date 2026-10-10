@@ -15,7 +15,7 @@ def excerpt(path):
         if not match: continue
         key=match[0];counts[key]+=1
         view_change = 'CW_VIEW ' in line and any(float(value) != 0 for value in re.findall(r'(?:yawDelta|pitchDelta)=([-0-9.eE]+)',line))
-        if view_change or 'protected=true' in line or counts[key]<=12 or 'ASSERT' in line or 'corrected=' in line or 'inject=' in line or 'COMPLETE' in line or 'success=false' in line or '=false' in line and 'ASSERT' in line:
+        if view_change or 'protected=true' in line or counts[key]<=12 or 'ASSERT' in line or re.search(r'corrected=[1-9][0-9]*',line) or 'inject=' in line or 'COMPLETE' in line or 'success=false' in line or '=false' in line and 'ASSERT' in line:
             kept.append(line)
     return '# Log excerpt; complete raw log retained locally under build/p0/runs.\n# Original lines: '+str(len(lines))+'\n# Marker counts: '+str(dict(counts))+'\n'+ '\n'.join(kept)+'\n'
 
@@ -28,7 +28,7 @@ def main():
         target = ROOT / 'docs/p0/evidence' / label
         target.mkdir(parents=True, exist_ok=True)
         for name in ['command.json', 'runtime-snapshot.json', 'commands.json', 'summary.json', 'metrics.json', 'events.json', 'semantic-metrics.json', 'per-contact.json',
-                     'requests.json', 'view-metrics.json', 'facing-view-metrics.json', 'feedback.json', 'alignments.json', 'engagement-metrics.json', 'server.log', 'latency.log']:
+                     'requests.json', 'view-metrics.json', 'facing-view-metrics.json', 'lock-support-metrics.json', 'feedback.json', 'alignments.json', 'engagement-metrics.json', 'server.log', 'latency.log']:
             path = source / name
             if path.exists():
                 (target/name).write_text(excerpt(path),encoding='utf-8') if path.suffix=='.log' else shutil.copyfile(path,target/name)
