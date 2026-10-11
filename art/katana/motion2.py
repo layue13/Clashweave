@@ -41,7 +41,8 @@ RISE = ((0, 1, 0), (S2, 0, S2))  # lateral = up and to the right
 FALL = ((0, 1, 0), (-S2, 0, -S2))  # lateral = down and to the left
 
 FEET_R0, FEET_L0 = (0.13, 0.14), (-0.13, -0.14)  # (x, y) in hanmi
-KOIGUCHI = (-0.30, 0.08, 0.98)  # saya mouth at the left hip (mount dependent, provisional)
+KOIGUCHI = (-0.30, 0.08, 0.98)  # saya mouth at the left hip (authoring pose; the game mount sits further out,
+# so the draw is a "instant grasp": the renderer swaps sheathed model for empty saya + blade at the first frame)
 KOIGUCHI_PULLED = (-0.30, -0.06, 0.98)
 KOIGUCHI_GRIP = (-0.22, 0.12, 1.00)  # grip centre when the right hand takes the hilt at the mouth
 SHEATH_DIR = norm((0.0, -S2, -S2))  # mouth -> tip, back and down at 45 degrees
