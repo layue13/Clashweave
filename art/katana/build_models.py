@@ -33,10 +33,28 @@ REGION = {
     "cord": (192, 120, 256, 184),
 }
 
-SORI = 0.04  # blade curvature (toward the mune, -X)
-BLADE_BASE = 0.14
-BLADE_TIP = 1.17
-EDGE_SIGN = 1.0  # +1: cutting edge toward +X. Flip here if it reads backwards in game.
+# ---- proportions: every dimension is derived from the player's visible height with the golden ratio ----
+PHI = (1 + 5 ** 0.5) / 2
+PLAYER_H = 1.875  # visible model height of the biped (2.0 model units * the 0.9375 player scale)
+L = PLAYER_H / PHI  # total sword length, kashira end to kissaki tip: player : sword = phi : 1
+T_THICK = 0.03  # tsuba thickness (aesthetic, not derived)
+HILT = (L - T_THICK) / (1 + PHI ** 2)  # kashira .. tsuba: blade : hilt = phi^2 : 1 (real katana is about 2.8 : 1)
+BLADE = L - T_THICK - HILT  # habaki + blade to the tip
+TSUBA_Y0 = HILT / PHI ** 2  # the grip centre (origin) sits at 0.382 of the hilt, measured from the tsuba
+TSUBA_Y1 = TSUBA_Y0 + T_THICK
+KASHIRA_END = TSUBA_Y0 - HILT
+HABAKI_LEN = BLADE * 0.075
+TIP_Y = TSUBA_Y1 + BLADE
+KISSAKI = BLADE * 0.09  # 1 / phi^5 of the blade
+GRIP_W = 0.088  # tsuka width
+TSUBA_D = GRIP_W * PHI  # guard diameter : grip width = phi
+BLADE_W = HILT / PHI ** 3  # blade width at the habaki
+BLADE_TH = BLADE_W / PHI ** 2  # blade thickness = width / phi^2
+SHEATH_LEN = BLADE - HABAKI_LEN + 0.05  # mouth (y=0) to the end cap
+SORI = 0.049 * BLADE  # exaggerated a little so the curve reads at game scale
+BLADE_BASE = TSUBA_Y1
+BLADE_TIP = TIP_Y
+EDGE_SIGN = 1.0  # +1: cutting edge toward +X. The motion tracks supersede this; kept for static previews.
 
 
 def B(p):
@@ -142,17 +160,19 @@ def blade_center(y):
 
 
 def build_blade(part):
-    ys = [0.14, 0.30, 0.45, 0.60, 0.75, 0.90, 1.00, 1.07, 1.12]
+    yk = BLADE_TIP - KISSAKI  # yokote: the start of the kissaki
+    n = 8
+    ys = [BLADE_BASE + (yk - BLADE_BASE) * i / (n - 1) for i in range(n)] + [yk + KISSAKI * 0.55]
     rings = []
     for y in ys:
-        s = (y - BLADE_BASE) / (1.07 - BLADE_BASE)
-        if y <= 1.07:
-            hw = 0.0375 - 0.0075 * s
-            th = 0.014 - 0.003 * s
+        s = (y - BLADE_BASE) / (yk - BLADE_BASE)
+        if y <= yk + 1e-9:
+            hw = BLADE_W / 2 * (1 - (1 - 1 / PHI) * s)  # tapers to 0.618 at the yokote
+            th = BLADE_TH / 2 * (1 - 0.2 * s)
         else:  # kissaki
-            k = (y - 1.07) / (BLADE_TIP - 1.07)
-            hw = 0.030 * (1 - 0.7 * k)
-            th = 0.011 * (1 - 0.6 * k)
+            k = (y - yk) / KISSAKI
+            hw = BLADE_W / 2 / PHI * (1 - 0.7 * k)
+            th = BLADE_TH / 2 * 0.8 * (1 - 0.6 * k)
         cx = blade_center(y)
         e = EDGE_SIGN
         rings.append(
@@ -169,7 +189,6 @@ def build_blade(part):
     ux = [x0 + 1 + (x1 - x0 - 2) * t for t in ts]
     spans = [(0.5, 31.5), (32.5, 47.5), (48.5, 55.5), (47.5, 32.5), (31.5, 0.5)]
     verts = tube(part, rings, ux, spans)
-    # base cap (hidden inside the habaki) and tip fan
     base = verts[0]
     part.face(list(reversed(base)), [(1, 28)] * 5)
     tip = part.vert((blade_center(BLADE_TIP) - EDGE_SIGN * 0.012, BLADE_TIP, 0))
@@ -184,27 +203,34 @@ def build_blade(part):
 def build_hilt(part, dy=0.0, with_blade_fittings=True):
     """Kashira, tsuka, fuchi, tsuba (and habaki). dy shifts everything along y."""
     y = lambda v: v + dy
-    # tsuka (cloth wrap) -0.14 .. 0.06, slight belly
+    kc = HILT * 0.12  # kashira cap length
+    fc = HILT * 0.13  # fuchi collar length
+    k0, k1 = KASHIRA_END, KASHIRA_END + kc
+    f0, f1 = TSUBA_Y0 - fc, TSUBA_Y0
+    rx, rz = GRIP_W / 2, GRIP_W / 2 * 0.80
+    ts = (f0 - k1)
+    # tsuka (cloth wrap) k1 .. f0, slight belly
     stack(
         part,
-        [(y(-0.14), 0.040, 0.032, 0), (y(-0.08), 0.045, 0.036, 0), (y(-0.02), 0.046, 0.037, 0),
-         (y(0.04), 0.043, 0.034, 0), (y(0.06), 0.041, 0.033, 0)],
-        "tsuka", (y(-0.14), y(0.06)), closed_caps=("brass", None),
+        [(y(k1), rx * 0.91, rz * 0.91, 0), (y(k1 + ts * 0.3), rx * 1.02, rz * 1.02, 0),
+         (y(k1 + ts * 0.62), rx * 1.05, rz * 1.05, 0), (y(f0), rx * 0.95, rz * 0.95, 0)],
+        "tsuka", (y(k1), y(f0)), closed_caps=("brass", None),
     )
-    # kashira (pommel cap) -0.18 .. -0.14
+    # kashira (pommel cap)
     stack(
         part,
-        [(y(-0.18), 0.034, 0.027, 0), (y(-0.165), 0.046, 0.037, 0), (y(-0.14), 0.042, 0.034, 0)],
-        "brass", (y(-0.18), y(-0.14)), closed_caps=("brass", None),
+        [(y(k0), rx * 0.78, rz * 0.78, 0), (y(k0 + kc * 0.4), rx * 1.05, rz * 1.05, 0), (y(k1), rx * 0.95, rz * 0.95, 0)],
+        "brass", (y(k0), y(k1)), closed_caps=("brass", None),
     )
-    # fuchi (collar) 0.06 .. 0.10
+    # fuchi (collar)
     stack(
         part,
-        [(y(0.06), 0.049, 0.039, 0), (y(0.075), 0.052, 0.042, 0), (y(0.10), 0.050, 0.040, 0)],
-        "brass", (y(0.06), y(0.10)), closed_caps=("brass", None),
+        [(y(f0), rx * 1.12, rz * 1.12, 0), (y(f0 + fc * 0.4), rx * 1.18, rz * 1.18, 0), (y(f1), rx * 1.14, rz * 1.14, 0)],
+        "brass", (y(f0), y(f1)), closed_caps=("brass", None),
     )
-    # tsuba (guard) 0.10 .. 0.14: octagon disc, patterned faces
-    rings = [octagon(0, y(0.10), 0.088, 0.080), octagon(0, y(0.14), 0.088, 0.080)]
+    # tsuba (guard): octagon disc, patterned faces
+    td = TSUBA_D / 2
+    rings = [octagon(0, y(TSUBA_Y0), td, td * 0.91), octagon(0, y(TSUBA_Y1), td, td * 0.91)]
     bx0, by0, bx1, _ = REGION["brass"]
     verts = tube(part, rings, [bx0 + 4, bx0 + 20], face_spans("brass"))
     tx0, ty0, tx1, ty1 = REGION["tsuba"]
@@ -212,12 +238,13 @@ def build_hilt(part, dy=0.0, with_blade_fittings=True):
     cap(part, list(reversed(verts[0])), list(reversed(rings[0])), c, 31)
     cap(part, verts[1], rings[1], c, 31, flip_u=True)
     if with_blade_fittings:
-        # habaki (blade collar) 0.14 .. 0.20
+        hb = HABAKI_LEN
+        hw, hh = BLADE_W / 2 * 1.2, BLADE_TH / 2 * 1.5
         stack(
             part,
-            [(y(0.14), 0.045, 0.023, 0), (y(0.155), 0.047, 0.025, 0), (y(0.19), 0.046, 0.024, 0),
-             (y(0.20), 0.041, 0.020, 0)],
-            "brass", (y(0.14), y(0.20)), closed_caps=("brass", None),
+            [(y(TSUBA_Y1), hw, hh, 0), (y(TSUBA_Y1 + hb * 0.2), hw * 1.05, hh * 1.05, 0),
+             (y(TSUBA_Y1 + hb * 0.85), hw * 1.02, hh * 1.02, 0), (y(TSUBA_Y1 + hb), hw * 0.9, hh * 0.9, 0)],
+            "brass", (y(TSUBA_Y1), y(TSUBA_Y1 + hb)), closed_caps=("brass", None),
         )
 
 
@@ -245,41 +272,53 @@ def box(part, c, h, region, scale=1.0):
 
 
 def build_sheath(part):
-    def sc(y):
-        return -0.05 * (y / 1.25) ** 2 * EDGE_SIGN
+    Ls = SHEATH_LEN
 
-    # body 0.05 .. 1.20, ten rings, tapering
-    ys = [0.05 + 0.115 * i for i in range(11)]
+    def sc(y):
+        return -SORI * (y / Ls) ** 2 * EDGE_SIGN
+
+    def prof(t):
+        return 0.052 - 0.014 * t, 0.038 - 0.010 * t  # rx, rz from the mouth to the tip
+
+    # body, ten rings, tapering
+    ys = [0.05 + (Ls - 0.1) * i / 10 for i in range(11)]
     specs = []
     for yy in ys:
-        t = yy / 1.25
-        specs.append((yy, 0.056 - 0.016 * t, 0.040 - 0.010 * t, sc(yy)))
+        rx, rz = prof(yy / Ls)
+        specs.append((yy, rx, rz, sc(yy)))
     stack(part, specs, "saya", (ys[0], ys[-1]), closed_caps=("brass", None))
-    # kuchigane (mouth collar) 0 .. 0.06
+    # kuchigane (mouth collar)
+    rx0, rz0 = prof(0)
     stack(
         part,
-        [(0.0, 0.060, 0.044, sc(0)), (0.02, 0.063, 0.047, sc(0.02)), (0.06, 0.059, 0.043, sc(0.06))],
-        "brass", (0.0, 0.06), closed_caps=("brass", None),
+        [(0.0, rx0 * 1.06, rz0 * 1.06, sc(0)), (0.018, rx0 * 1.10, rz0 * 1.10, sc(0.018)),
+         (0.05, rx0 * 1.04, rz0 * 1.04, sc(0.05))],
+        "brass", (0.0, 0.05), closed_caps=("brass", None),
     )
-    # kojiri (tip cap) 1.17 .. 1.25
+    # kojiri (end cap)
+    rx1, rz1 = prof(1)
     stack(
         part,
-        [(1.17, 0.041, 0.031, sc(1.17)), (1.20, 0.044, 0.034, sc(1.20)), (1.25, 0.030, 0.022, sc(1.25))],
-        "brass", (1.17, 1.25), closed_caps=("brass", None),
+        [(Ls - 0.075, rx1 * 1.04, rz1 * 1.04, sc(Ls - 0.075)), (Ls - 0.045, rx1 * 1.12, rz1 * 1.12, sc(Ls - 0.045)),
+         (Ls, rx1 * 0.74, rz1 * 0.74, sc(Ls))],
+        "brass", (Ls - 0.075, Ls), closed_caps=("brass", None),
     )
-    # sageo (cord): a wrap around the mouth, a knot on the +Z face and two ends that splay apart
+    # sageo (cord): a wrap near the mouth, a knot on the +Z face and two ends that splay apart
+    w0, w1 = 0.09, 0.17
+    rxw, rzw = prof(w0 / Ls)
     stack(
         part,
-        [(0.10, 0.063, 0.047, sc(0.10)), (0.12, 0.066, 0.050, sc(0.12)), (0.17, 0.066, 0.050, sc(0.17)),
-         (0.19, 0.063, 0.047, sc(0.19))],
-        "cord", (0.10, 0.19), closed_caps=("cord", None),
+        [(w0, rxw * 1.10, rzw * 1.12, sc(w0)), (w0 + 0.02, rxw * 1.16, rzw * 1.18, sc(w0 + 0.02)),
+         (w1 - 0.02, rxw * 1.16, rzw * 1.18, sc(w1 - 0.02)), (w1, rxw * 1.10, rzw * 1.12, sc(w1))],
+        "cord", (w0, w1), closed_caps=("cord", None),
     )
-    zc = 0.050 + 0.010
-    box(part, (sc(0.145), 0.145, zc), (0.020, 0.030, 0.012), "cord")
-    strand(part, (sc(0.17) - 0.006, 0.17, zc), (sc(0.45) - 0.026, 0.45, zc - 0.004), 0.009)
-    strand(part, (sc(0.17) + 0.006, 0.17, zc), (sc(0.40) + 0.030, 0.40, zc - 0.004), 0.009)
-    box(part, (sc(0.45) - 0.026, 0.478, zc - 0.004), (0.012, 0.030, 0.012), "brass")
-    box(part, (sc(0.40) + 0.030, 0.428, zc - 0.004), (0.012, 0.030, 0.012), "brass")
+    zc = rzw * 1.18 + 0.010
+    ym = (w0 + w1) / 2
+    box(part, (sc(ym), ym, zc), (0.020, 0.028, 0.012), "cord")
+    strand(part, (sc(w1) - 0.006, w1, zc), (sc(0.42) - 0.024, 0.42, zc - 0.004), 0.009)
+    strand(part, (sc(w1) + 0.006, w1, zc), (sc(0.37) + 0.028, 0.37, zc - 0.004), 0.009)
+    box(part, (sc(0.42) - 0.024, 0.446, zc - 0.004), (0.012, 0.028, 0.012), "brass")
+    box(part, (sc(0.37) + 0.028, 0.396, zc - 0.004), (0.012, 0.028, 0.012), "brass")
 
 
 def strand(part, p0, p1, w):
@@ -350,10 +389,11 @@ if __name__ == "__main__":
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, "katana_drawn.blend"))
     export(objs, os.path.join(OUT, "katana.obj"))
     print("KATANA tris", tris, bounds(os.path.join(OUT, "katana.obj")))
+    print("PROPORTIONS", dict(L=round(L,3), hilt=round(HILT,3), blade=round(BLADE,3), tsuba_d=round(TSUBA_D,3), blade_w=round(BLADE_W,4), sheath=round(SHEATH_LEN,3), tip=round(TIP_Y,3), kashira=round(KASHIRA_END,3)))
 
     objs, tris = new_model(
         "sheath",
-        [(build_sheath, "saya"), (lambda p: build_hilt(p, -0.14, False), "hilt")],
+        [(build_sheath, "saya"), (lambda p: build_hilt(p, -TSUBA_Y1, False), "hilt")],
     )
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, "katana_sheathed.blend"))
     export(objs, os.path.join(OUT, "sheath.obj"))
