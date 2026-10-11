@@ -15,9 +15,8 @@ public final class ContentId {
         namespace(namespace);
         if (value == null) throw new IllegalArgumentException("missing content ID");
         String result = value.indexOf(':') < 0 ? namespace + ":" + value : value;
-        if (!result.matches("[a-z0-9_]+:[a-z0-9_]+(?:/[a-z0-9_]+)*"))
-            throw new IllegalArgumentException(
-                "expected namespace:path with lowercase letters, digits, underscore/slash");
+        if (!result.matches("[a-z0-9_]+:[a-z0-9_]+(?:/[a-z0-9_]+)*")) throw new IllegalArgumentException(
+            "expected namespace:path with lowercase letters, digits, underscore/slash");
         return result;
     }
 

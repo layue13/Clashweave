@@ -23,13 +23,14 @@ import com.layue13.clashweave.core.Scheduler;
 public class ContentEntryTest {
 
     private static final String ROOT = "/assets/clashweave/content/katana/";
-    private static final String[] FILES = {
-        "weapon.json", "style.json", "actions.json", "resources.json", "animations.json" };
+    private static final String[] FILES = { "weapon.json", "style.json", "actions.json", "resources.json",
+        "animations.json" };
 
     private static JsonObject read(String path) throws Exception {
         try (InputStream stream = ContentEntryTest.class.getResourceAsStream(path)) {
             assertNotNull(path, stream);
-            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8))
+                .getAsJsonObject();
         }
     }
 
@@ -43,13 +44,12 @@ public class ContentEntryTest {
     }
 
     private static ContentRegistry spear() throws Exception {
-        return ContentRegistry.load(
-            new ContentRegistry.Source("spear.json", new StringReader(read("/content/spear.json").toString())));
+        return ContentRegistry
+            .load(new ContentRegistry.Source("spear.json", new StringReader(read("/content/spear.json").toString())));
     }
 
     private static ActionCatalog legacy() throws Exception {
-        try (InputStream stream = ContentEntryTest.class
-            .getResourceAsStream("/assets/clashweave/combat/katana.json")) {
+        try (InputStream stream = ContentEntryTest.class.getResourceAsStream("/assets/clashweave/combat/katana.json")) {
             return new ActionCatalog(new InputStreamReader(stream, StandardCharsets.UTF_8));
         }
     }
@@ -98,7 +98,9 @@ public class ContentEntryTest {
             }
         }
         // The random walk must actually reach every posture transition, or the equivalence proves nothing.
-        assertTrue(started.toString(), started.containsAll(Arrays.asList("iai", "light_1", "light_2", "heavy", "sheathe")));
+        assertTrue(
+            started.toString(),
+            started.containsAll(Arrays.asList("iai", "light_1", "light_2", "heavy", "sheathe")));
     }
 
     @Test
@@ -136,7 +138,10 @@ public class ContentEntryTest {
 
     private static JsonObject style(String entryJson) {
         JsonObject style = read1("/assets/clashweave/content/katana/style.json");
-        style.getAsJsonArray("styles").get(0).getAsJsonObject().add("entry", JsonParser.parseString(entryJson));
+        style.getAsJsonArray("styles")
+            .get(0)
+            .getAsJsonObject()
+            .add("entry", JsonParser.parseString(entryJson));
         return style;
     }
 
@@ -169,21 +174,23 @@ public class ContentEntryTest {
 
     @Test
     public void invalidEntryReportsFileFieldAndReason() throws Exception {
-        List<String> unknownAction = errors(style(
-            "{\"sheathed\":{\"LIGHT\":\"katana:ghost\"},\"ready\":{\"LIGHT\":\"light_1\"},"
-                + "\"entersReady\":[\"light_1\"],\"entersSheathed\":[\"sheathe\"]}"));
+        List<String> unknownAction = errors(
+            style(
+                "{\"sheathed\":{\"LIGHT\":\"katana:ghost\"},\"ready\":{\"LIGHT\":\"light_1\"},"
+                    + "\"entersReady\":[\"light_1\"],\"entersSheathed\":[\"sheathe\"]}"));
         assertTrue(unknownAction.toString(), has(unknownAction, "style.json", "styles[0].entry.sheathed.LIGHT"));
 
-        List<String> unknownIntent = errors(style(
-            "{\"ready\":{\"JUMP\":\"light_1\"},\"entersReady\":[],\"entersSheathed\":[]}"));
+        List<String> unknownIntent = errors(
+            style("{\"ready\":{\"JUMP\":\"light_1\"},\"entersReady\":[],\"entersSheathed\":[]}"));
         assertTrue(unknownIntent.toString(), has(unknownIntent, "style.json", "styles[0].entry.ready.JUMP"));
 
         List<String> missingReady = errors(style("{\"entersReady\":[],\"entersSheathed\":[]}"));
         assertTrue(missingReady.toString(), has(missingReady, "style.json", "styles[0].entry.ready", "missing"));
 
-        List<String> noWayBack = errors(style(
-            "{\"sheathed\":{\"LIGHT\":\"iai\"},\"ready\":{\"LIGHT\":\"light_1\"},"
-                + "\"entersReady\":[\"iai\"],\"entersSheathed\":[]}"));
+        List<String> noWayBack = errors(
+            style(
+                "{\"sheathed\":{\"LIGHT\":\"iai\"},\"ready\":{\"LIGHT\":\"light_1\"},"
+                    + "\"entersReady\":[\"iai\"],\"entersSheathed\":[]}"));
         assertTrue(noWayBack.toString(), has(noWayBack, "styles[0].entry.entersSheathed"));
 
         List<String> typo = errors(style("{\"reedy\":{},\"ready\":{\"LIGHT\":\"light_1\"}}"));
@@ -193,7 +200,10 @@ public class ContentEntryTest {
     @Test
     public void styleWithoutEntryIsRejected() throws Exception {
         JsonObject style = read(ROOT + "style.json");
-        style.getAsJsonArray("styles").get(0).getAsJsonObject().remove("entry");
+        style.getAsJsonArray("styles")
+            .get(0)
+            .getAsJsonObject()
+            .remove("entry");
         List<String> errors = errors(style);
         assertTrue(errors.toString(), has(errors, "style.json", "styles[0].entry", "missing"));
     }
@@ -202,11 +212,17 @@ public class ContentEntryTest {
     public void entryRulesAreGameplayAndChangeTheGameplayHash() throws Exception {
         ContentManifest base = katana(null).manifest();
         JsonObject changed = read(ROOT + "style.json");
-        JsonObject entry = changed.getAsJsonArray("styles").get(0).getAsJsonObject().getAsJsonObject("entry");
-        entry.getAsJsonObject("ready").addProperty("HEAVY", "katana:light_1");
+        JsonObject entry = changed.getAsJsonArray("styles")
+            .get(0)
+            .getAsJsonObject()
+            .getAsJsonObject("entry");
+        entry.getAsJsonObject("ready")
+            .addProperty("HEAVY", "katana:light_1");
         ContentManifest other = katana(changed).manifest();
         assertEquals(ContentManifest.Comparison.GAMEPLAY_MISMATCH, base.compare(other));
         assertEquals(ContentManifest.Comparison.MATCH, base.compare(katana(null).manifest()));
-        assertTrue(Arrays.asList(Intent.values()).contains(Intent.HEAVY));
+        assertTrue(
+            Arrays.asList(Intent.values())
+                .contains(Intent.HEAVY));
     }
 }

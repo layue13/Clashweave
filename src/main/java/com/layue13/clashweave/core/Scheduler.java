@@ -107,7 +107,8 @@ public final class Scheduler {
         if (current != null) throw new IllegalStateException("Weapon changes between actions only");
         if (catalog != actions) {
             clearBuffer();
-            sheathed = java.util.Objects.requireNonNull(actions).hasSheathedState();
+            sheathed = java.util.Objects.requireNonNull(actions)
+                .hasSheathedState();
         }
         weapon = java.util.Objects.requireNonNull(next);
         catalog = java.util.Objects.requireNonNull(actions);
@@ -198,7 +199,8 @@ public final class Scheduler {
         if (!ready.isEmpty()) {
             Request selected = ready.get(ready.size() - 1);
             for (Request request : buffered.values()) {
-                if (request != selected) results.add(new Result(request.sequence, "CONFLICT", catalog.get(request.target).id));
+                if (request != selected)
+                    results.add(new Result(request.sequence, "CONFLICT", catalog.get(request.target).id));
             }
             buffered.clear();
             counterUntil = 0;

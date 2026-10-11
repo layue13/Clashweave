@@ -80,21 +80,27 @@ public final class ContentPack {
         Map<String, Map<String, JsonObject>> frozen = new LinkedHashMap<>();
         for (Map.Entry<String, Map<String, JsonObject>> category : source.entrySet()) {
             Map<String, JsonObject> entries = new LinkedHashMap<>();
-            for (Map.Entry<String, JsonObject> entry : category.getValue().entrySet())
-                entries.put(entry.getKey(), entry.getValue().deepCopy());
+            for (Map.Entry<String, JsonObject> entry : category.getValue()
+                .entrySet())
+                entries.put(
+                    entry.getKey(),
+                    entry.getValue()
+                        .deepCopy());
             frozen.put(category.getKey(), Collections.unmodifiableMap(entries));
         }
         data = Collections.unmodifiableMap(frozen);
     }
 
     private <T> T get(String category, String id, Class<T> type) {
-        JsonObject json = data.get(category).get(ContentId.qualify(namespace, id));
+        JsonObject json = data.get(category)
+            .get(ContentId.qualify(namespace, id));
         return json == null ? null : GSON.fromJson(json, type);
     }
 
     private <T> Map<String, T> all(String category, Class<T> type) {
         Map<String, T> result = new LinkedHashMap<>();
-        for (String id : data.get(category).keySet()) result.put(id, get(category, id, type));
+        for (String id : data.get(category)
+            .keySet()) result.put(id, get(category, id, type));
         return Collections.unmodifiableMap(result);
     }
 

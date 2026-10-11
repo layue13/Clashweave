@@ -30,14 +30,15 @@ import com.layue13.clashweave.core.ActionCatalog;
 public class ContentRegistryTest {
 
     private static final String ROOT = "/assets/clashweave/content/katana/";
-    private static final String[] FILES = {
-        "weapon.json", "style.json", "actions.json", "resources.json", "animations.json" };
+    private static final String[] FILES = { "weapon.json", "style.json", "actions.json", "resources.json",
+        "animations.json" };
     private static final Gson GSON = new Gson();
 
     private static JsonObject read(String path) throws Exception {
         try (InputStream stream = ContentRegistryTest.class.getResourceAsStream(path)) {
             assertNotNull(path, stream);
-            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8))
+                .getAsJsonObject();
         }
     }
 
@@ -78,19 +79,34 @@ public class ContentRegistryTest {
             old = new ActionCatalog(reader);
         }
         ContentRegistry registry = katana();
-        Map<String, ActionCatalog.Definition> actions = registry.packs().get("katana").actions();
-        assertEquals(old.all().size(), actions.size());
+        Map<String, ActionCatalog.Definition> actions = registry.packs()
+            .get("katana")
+            .actions();
+        assertEquals(
+            old.all()
+                .size(),
+            actions.size());
         assertEquals(old.bufferTicks, registry.style("katana:default").bufferTicks);
-        for (ActionCatalog.Definition expected : old.all().values()) {
-            JsonObject normalized = GSON.toJsonTree(expected).getAsJsonObject();
+        for (ActionCatalog.Definition expected : old.all()
+            .values()) {
+            JsonObject normalized = GSON.toJsonTree(expected)
+                .getAsJsonObject();
             normalized.addProperty("id", ContentId.legacy(expected.id));
             for (JsonElement edge : normalized.getAsJsonArray("edges")) {
                 JsonObject e = edge.getAsJsonObject();
-                e.addProperty("target", ContentId.legacy(e.get("target").getAsString()));
+                e.addProperty(
+                    "target",
+                    ContentId.legacy(
+                        e.get("target")
+                            .getAsString()));
             }
             assertEquals(expected.id, normalized, GSON.toJsonTree(registry.action(expected.id)));
         }
-        assertEquals(actions.keySet(), registry.catalog("katana:default").all().keySet());
+        assertEquals(
+            actions.keySet(),
+            registry.catalog("katana:default")
+                .all()
+                .keySet());
     }
 
     @Test
@@ -115,27 +131,40 @@ public class ContentRegistryTest {
         assertNotEquals(katana().manifest().gameplayHash, second.manifest().gameplayHash);
         sources.add(source("spear.json", data));
         ContentRegistry both = ContentRegistry.load(sources);
-        assertEquals(2, both.packs().size());
+        assertEquals(
+            2,
+            both.packs()
+                .size());
         assertEquals("test:thrust", both.weapon("test:spear").style);
         assertEquals(4, both.action("test:thrust").reach, 0);
         assertNotEquals(both.resource("katana:default").models.held, both.resource("test:spear").models.held);
-        data.getAsJsonArray("weapons").get(0).getAsJsonObject().addProperty("style", "katana:default");
+        data.getAsJsonArray("weapons")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("style", "katana:default");
         sources = katanaSources();
         sources.add(source("spear.json", data));
-        assertEquals("katana:default", ContentRegistry.load(sources).weapon("test:spear").style);
+        assertEquals(
+            "katana:default",
+            ContentRegistry.load(sources)
+                .weapon("test:spear").style);
     }
 
     @Test
     public void inputStreamSourceSupportsUtf8AndDoesNotCloseCallerStream() throws Exception {
         final boolean[] closed = { false };
-        InputStream input = new java.io.ByteArrayInputStream(read("/content/spear.json").toString()
-            .getBytes(StandardCharsets.UTF_8)) {
+        InputStream input = new java.io.ByteArrayInputStream(
+            read("/content/spear.json").toString()
+                .getBytes(StandardCharsets.UTF_8)) {
+
             @Override
             public void close() {
                 closed[0] = true;
             }
         };
-        assertNotNull(ContentRegistry.load(new ContentRegistry.Source("测试枪.json", input)).weapon("test:spear"));
+        assertNotNull(
+            ContentRegistry.load(new ContentRegistry.Source("测试枪.json", input))
+                .weapon("test:spear"));
         assertFalse(closed[0]);
         input.close();
     }
@@ -143,42 +172,69 @@ public class ContentRegistryTest {
     @Test
     public void aggregatesAllKindsOfReferencesAndDuplicateIds() throws Exception {
         JsonObject data = read("/content/spear.json");
-        JsonObject weapon = data.getAsJsonArray("weapons").get(0).getAsJsonObject();
+        JsonObject weapon = data.getAsJsonArray("weapons")
+            .get(0)
+            .getAsJsonObject();
         weapon.addProperty("style", "test:missing_style");
         weapon.addProperty("resource", "test:missing_resource");
         weapon.addProperty("animation", "test:missing_animation");
-        data.getAsJsonArray("styles").get(0).getAsJsonObject().getAsJsonArray("actions").add("test:missing_action");
+        data.getAsJsonArray("styles")
+            .get(0)
+            .getAsJsonObject()
+            .getAsJsonArray("actions")
+            .add("test:missing_action");
         JsonObject edge = JsonParser.parseString("{\"input\":\"LIGHT\",\"target\":\"test:foo\",\"from\":1,\"until\":2}")
             .getAsJsonObject();
-        data.getAsJsonArray("actions").get(0).getAsJsonObject().getAsJsonArray("edges").add(edge);
-        data.getAsJsonArray("weapons").add(weapon.deepCopy());
+        data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .getAsJsonArray("edges")
+            .add(edge);
+        data.getAsJsonArray("weapons")
+            .add(weapon.deepCopy());
         ContentValidationException error = invalid(source("spear.json", data));
-        assertTrue(error.getMessage(), error.errors().size() >= 6);
-        assertTrue(error.getMessage().contains("spear.json: actions[0].edges[0].target: unknown action \"test:foo\""));
-        assertTrue(error.getMessage().contains("weapons[1].id: duplicate ID"));
-        assertTrue(error.getMessage().contains("styles[0].actions[1]: unknown action"));
+        assertTrue(
+            error.getMessage(),
+            error.errors()
+                .size() >= 6);
+        assertTrue(
+            error.getMessage()
+                .contains("spear.json: actions[0].edges[0].target: unknown action \"test:foo\""));
+        assertTrue(
+            error.getMessage()
+                .contains("weapons[1].id: duplicate ID"));
+        assertTrue(
+            error.getMessage()
+                .contains("styles[0].actions[1]: unknown action"));
     }
 
     @Test
     public void detectsConflictAcrossFilesAndUnsupportedVersion() throws Exception {
         JsonObject data = read("/content/spear.json");
         ContentValidationException error = invalid(source("a.json", data), source("b.json", data));
-        assertEquals(5, error.errors().size());
+        assertEquals(
+            5,
+            error.errors()
+                .size());
         data.addProperty("schemaVersion", 2);
-        assertTrue(invalid(source("v2.json", data)).getMessage().contains("v2.json: schemaVersion:"));
+        assertTrue(
+            invalid(source("v2.json", data)).getMessage()
+                .contains("v2.json: schemaVersion:"));
     }
 
     @Test
     public void validatesEffectsTypesAndShapesWithPrecisePaths() throws Exception {
         JsonObject data = read("/content/spear.json");
-        JsonObject action = data.getAsJsonArray("actions").get(0).getAsJsonObject();
-        action.add("effects", JsonParser.parseString(
-            "[{\"type\":\"BOGUS\",\"vy\":0.2},{\"type\":\"OTHER\",\"vy\":-1}]"));
+        JsonObject action = data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject();
+        action
+            .add("effects", JsonParser.parseString("[{\"type\":\"BOGUS\",\"vy\":0.2},{\"type\":\"OTHER\",\"vy\":-1}]"));
         String message = invalid(source("bad.json", data)).getMessage();
         assertTrue(message.contains("bad.json: actions[0].effects[0].type:"));
         assertTrue(message.contains("bad.json: actions[0].effects[1].type:"));
-        action.add("effects", JsonParser.parseString(
-            "[{\"type\":\"LAUNCH\",\"vy\":2},{\"type\":\"LAUNCH\",\"vy\":-1}]"));
+        action
+            .add("effects", JsonParser.parseString("[{\"type\":\"LAUNCH\",\"vy\":2},{\"type\":\"LAUNCH\",\"vy\":-1}]"));
         action.addProperty("lift", 2);
         message = invalid(source("bad.json", data)).getMessage();
         assertTrue(message.contains("effects[1].type: duplicate LAUNCH"));
@@ -190,7 +246,9 @@ public class ContentRegistryTest {
     @Test
     public void validatesNumbersRequiredFieldsAndUnknownFields() throws Exception {
         JsonObject data = read("/content/spear.json");
-        JsonObject action = data.getAsJsonArray("actions").get(0).getAsJsonObject();
+        JsonObject action = data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject();
         action.addProperty("reach", "NaN");
         action.addProperty("active", 1.5);
         action.addProperty("typo", 0);
@@ -201,16 +259,22 @@ public class ContentRegistryTest {
         action.remove("typo");
         action.remove("reach");
         action.addProperty("active", 1);
-        assertTrue(invalid(source("bad.json", data)).getMessage().contains("actions[0].reach: missing field"));
+        assertTrue(
+            invalid(source("bad.json", data)).getMessage()
+                .contains("actions[0].reach: missing field"));
     }
 
     @Test
     public void validatesEdgeWindowsConditionsAndStyleClosure() throws Exception {
         JsonObject data = read("/content/spear.json");
-        JsonObject action = data.getAsJsonArray("actions").get(0).getAsJsonObject();
-        action.add("edges", JsonParser.parseString("[{\"input\":\"LIGHT\",\"target\":\"test:thrust\",\"from\":1,"
-            + "\"until\":20,\"requires\":\"FLY\"},"
-            + "{\"input\":\"LIGHT\",\"target\":\"test:thrust\",\"from\":2,\"until\":3}]"));
+        JsonObject action = data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject();
+        action.add(
+            "edges",
+            JsonParser.parseString(
+                "[{\"input\":\"LIGHT\",\"target\":\"test:thrust\",\"from\":1," + "\"until\":20,\"requires\":\"FLY\"},"
+                    + "{\"input\":\"LIGHT\",\"target\":\"test:thrust\",\"from\":2,\"until\":3}]"));
         String message = invalid(source("edges.json", data)).getMessage();
         assertTrue(message.contains("edges[0].requires: expected GROUND or AIR"));
         assertTrue(message.contains("edges[0].until: out of range"));
@@ -218,10 +282,14 @@ public class ContentRegistryTest {
         JsonObject extra = action.deepCopy();
         extra.addProperty("id", "test:other");
         extra.add("edges", new JsonArray());
-        action.add("edges", JsonParser.parseString(
-            "[{\"input\":\"LIGHT\",\"target\":\"test:other\",\"from\":1,\"until\":2}]"));
-        data.getAsJsonArray("actions").add(extra);
-        assertTrue(invalid(source("edges.json", data)).getMessage().contains("edge target outside style graph"));
+        action.add(
+            "edges",
+            JsonParser.parseString("[{\"input\":\"LIGHT\",\"target\":\"test:other\",\"from\":1,\"until\":2}]"));
+        data.getAsJsonArray("actions")
+            .add(extra);
+        assertTrue(
+            invalid(source("edges.json", data)).getMessage()
+                .contains("edge target outside style graph"));
     }
 
     @Test
@@ -232,15 +300,20 @@ public class ContentRegistryTest {
         registry.action("launcher").effects.get(0).vy = 9;
         registry.weapon("katana:katana").damageMultiplier = 9;
         registry.resource("katana:default").mounts.clear();
-        registry.packs().get("katana").actions().get("katana:light_1").damage = 9;
-        registry.catalog("katana:default").launchPolicy(false, false);
+        registry.packs()
+            .get("katana")
+            .actions()
+            .get("katana:light_1").damage = 9;
+        registry.catalog("katana:default")
+            .launchPolicy(false, false);
         assertEquals("katana:light_2", registry.action("light_1").edges.get(0).target);
         assertEquals(0.6, registry.action("launcher").effects.get(0).vy, 0);
         assertEquals(1, registry.weapon("katana:katana").damageMultiplier, 0);
         assertEquals(1, registry.resource("katana:default").mounts.size());
         assertEquals(hash, registry.manifest().gameplayHash);
         try {
-            registry.packs().clear();
+            registry.packs()
+                .clear();
             fail();
         } catch (UnsupportedOperationException expected) {}
     }
@@ -250,10 +323,19 @@ public class ContentRegistryTest {
         JsonObject data = read("/content/spear.json");
         ContentManifest original = spear(data).manifest();
         assertEquals(ContentManifest.Comparison.MATCH, original.compare(spear(data).manifest()));
-        data.getAsJsonArray("resources").get(0).getAsJsonObject().addProperty("texture", "test:textures/changed.png");
-        data.getAsJsonArray("animations").get(0).getAsJsonObject().addProperty("preset", "other_visual");
+        data.getAsJsonArray("resources")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("texture", "test:textures/changed.png");
+        data.getAsJsonArray("animations")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("preset", "other_visual");
         assertEquals(ContentManifest.Comparison.PRESENTATION_ONLY_DIFF, original.compare(spear(data).manifest()));
-        data.getAsJsonArray("weapons").get(0).getAsJsonObject().addProperty("damageMultiplier", 2);
+        data.getAsJsonArray("weapons")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("damageMultiplier", 2);
         assertEquals(ContentManifest.Comparison.GAMEPLAY_MISMATCH, original.compare(spear(data).manifest()));
         assertEquals(64, original.gameplayHash.length());
     }
@@ -263,27 +345,45 @@ public class ContentRegistryTest {
         JsonObject original = read("/content/spear.json");
         String hash = spear(original).manifest().gameplayHash;
         for (String field : new String[] { "startup", "active", "recovery", "damage", "reach", "arc", "distance",
-            "speed",
-            "lift", "sweepElevation" }) {
+            "speed", "lift", "sweepElevation" }) {
             JsonObject changed = original.deepCopy();
-            JsonObject action = changed.getAsJsonArray("actions").get(0).getAsJsonObject();
-            action.addProperty(field, action.has(field) ? action.get(field).getAsDouble() + 0.1 : 0.1);
-            if (field.equals("startup") || field.equals("active") || field.equals("recovery"))
-                action.addProperty(field,
-                    original.getAsJsonArray("actions").get(0).getAsJsonObject().get(field).getAsInt() + 1);
+            JsonObject action = changed.getAsJsonArray("actions")
+                .get(0)
+                .getAsJsonObject();
+            action.addProperty(
+                field,
+                action.has(field) ? action.get(field)
+                    .getAsDouble() + 0.1 : 0.1);
+            if (field.equals("startup") || field.equals("active") || field.equals("recovery")) action.addProperty(
+                field,
+                original.getAsJsonArray("actions")
+                    .get(0)
+                    .getAsJsonObject()
+                    .get(field)
+                    .getAsInt() + 1);
             assertNotEquals(field, hash, spear(changed).manifest().gameplayHash);
         }
         JsonObject changed = original.deepCopy();
-        changed.getAsJsonArray("actions").get(0).getAsJsonObject().add("effects",
-            JsonParser.parseString("[{\"type\":\"LAUNCH\",\"vy\":0.5}]"));
+        changed.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .add("effects", JsonParser.parseString("[{\"type\":\"LAUNCH\",\"vy\":0.5}]"));
         String launchHash = spear(changed).manifest().gameplayHash;
         assertNotEquals(hash, launchHash);
-        changed.getAsJsonArray("actions").get(0).getAsJsonObject().getAsJsonArray("effects").get(0)
-            .getAsJsonObject().addProperty("vy", 0.6);
+        changed.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .getAsJsonArray("effects")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("vy", 0.6);
         assertNotEquals(launchHash, spear(changed).manifest().gameplayHash);
         for (String field : new String[] { "bufferTicks", "effectVelocityLimit" }) {
             changed = original.deepCopy();
-            changed.getAsJsonArray("styles").get(0).getAsJsonObject().addProperty(field, 5);
+            changed.getAsJsonArray("styles")
+                .get(0)
+                .getAsJsonObject()
+                .addProperty(field, 5);
             assertNotEquals(field, hash, spear(changed).manifest().gameplayHash);
         }
     }
@@ -291,14 +391,25 @@ public class ContentRegistryTest {
     @Test
     public void hashIgnoresFormattingFileOrderAndEquivalentNumbers() throws Exception {
         List<ContentRegistry.Source> sources = katanaSources();
-        ContentManifest original = ContentRegistry.load(sources).manifest();
+        ContentManifest original = ContentRegistry.load(sources)
+            .manifest();
         sources = katanaSources();
         Collections.reverse(sources);
-        assertEquals(ContentManifest.Comparison.MATCH, original.compare(ContentRegistry.load(sources).manifest()));
+        assertEquals(
+            ContentManifest.Comparison.MATCH,
+            original.compare(
+                ContentRegistry.load(sources)
+                    .manifest()));
         JsonObject data = read("/content/spear.json");
         String hash = spear(data).manifest().gameplayHash;
-        data.getAsJsonArray("actions").get(0).getAsJsonObject().add("damage", JsonParser.parseString("2.000e0"));
-        data.getAsJsonArray("actions").get(0).getAsJsonObject().addProperty("_comment", "ignored editorial comment");
+        data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .add("damage", JsonParser.parseString("2.000e0"));
+        data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("_comment", "ignored editorial comment");
         assertEquals(hash, spear(data).manifest().gameplayHash);
         assertEquals("{\"a\":0,\"b\":2}", ContentManifest.canonical(JsonParser.parseString("{\"b\":2.00,\"a\":-0.0}")));
     }
@@ -319,7 +430,9 @@ public class ContentRegistryTest {
     @Test
     public void aggregatesShapeAndSemanticErrorsWithinOneAction() throws Exception {
         JsonObject data = read("/content/spear.json");
-        JsonObject action = data.getAsJsonArray("actions").get(0).getAsJsonObject();
+        JsonObject action = data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject();
         action.addProperty("reach", -1);
         action.addProperty("recovery", 0);
         action.add("effects", JsonParser.parseString("[{\"type\":\"UNKNOWN\",\"vy\":-1}]"));
@@ -335,13 +448,24 @@ public class ContentRegistryTest {
     @Test
     public void validatesResourceFieldsAndMissingEffectVelocity() throws Exception {
         JsonObject data = read("/content/spear.json");
-        JsonObject resource = data.getAsJsonArray("resources").get(0).getAsJsonObject();
-        resource.getAsJsonObject("models").addProperty("held", "bad asset");
-        resource.getAsJsonObject("models").remove("stowed_empty");
-        resource.getAsJsonObject("handGrips").getAsJsonObject("left").remove("z");
-        resource.getAsJsonArray("mounts").get(0).getAsJsonObject().remove("angle");
-        data.getAsJsonArray("actions").get(0).getAsJsonObject().add("effects",
-            JsonParser.parseString("[{\"type\":\"LAUNCH\"}]"));
+        JsonObject resource = data.getAsJsonArray("resources")
+            .get(0)
+            .getAsJsonObject();
+        resource.getAsJsonObject("models")
+            .addProperty("held", "bad asset");
+        resource.getAsJsonObject("models")
+            .remove("stowed_empty");
+        resource.getAsJsonObject("handGrips")
+            .getAsJsonObject("left")
+            .remove("z");
+        resource.getAsJsonArray("mounts")
+            .get(0)
+            .getAsJsonObject()
+            .remove("angle");
+        data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .add("effects", JsonParser.parseString("[{\"type\":\"LAUNCH\"}]"));
         String message = invalid(source("resource.json", data)).getMessage();
         assertTrue(message.contains("resources[0].models.held: expected namespaced asset location"));
         assertTrue(message.contains("resources[0].models.stowed_empty: missing field"));
@@ -353,8 +477,12 @@ public class ContentRegistryTest {
     @Test
     public void malformedJsonDoesNotPreventOtherSourceValidation() throws Exception {
         JsonObject data = read("/content/spear.json");
-        data.getAsJsonArray("weapons").get(0).getAsJsonObject().addProperty("costMultiplier", -1);
-        String message = invalid(new ContentRegistry.Source("syntax.json", new StringReader("{broken")),
+        data.getAsJsonArray("weapons")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("costMultiplier", -1);
+        String message = invalid(
+            new ContentRegistry.Source("syntax.json", new StringReader("{broken")),
             source("rules.json", data)).getMessage();
         assertTrue(message.contains("syntax.json: $: invalid JSON"));
         assertTrue(message.contains("rules.json: weapons[0].costMultiplier: out of range"));
@@ -363,33 +491,60 @@ public class ContentRegistryTest {
     @Test
     public void hashesEveryEdgeFieldAndAllWeaponRules() throws Exception {
         JsonObject data = read("/content/spear.json");
-        JsonObject edge = JsonParser.parseString("{\"input\":\"LIGHT\",\"target\":\"test:thrust\","
-            + "\"from\":1,\"until\":3}").getAsJsonObject();
-        data.getAsJsonArray("actions").get(0).getAsJsonObject().getAsJsonArray("edges").add(edge);
+        JsonObject edge = JsonParser
+            .parseString("{\"input\":\"LIGHT\",\"target\":\"test:thrust\"," + "\"from\":1,\"until\":3}")
+            .getAsJsonObject();
+        data.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .getAsJsonArray("edges")
+            .add(edge);
         String hash = spear(data).manifest().gameplayHash;
         for (String field : new String[] { "input", "from", "until", "hit", "damageHit", "requires" }) {
             JsonObject changed = data.deepCopy();
-            JsonObject e = changed.getAsJsonArray("actions").get(0).getAsJsonObject().getAsJsonArray("edges")
-                .get(0).getAsJsonObject();
+            JsonObject e = changed.getAsJsonArray("actions")
+                .get(0)
+                .getAsJsonObject()
+                .getAsJsonArray("edges")
+                .get(0)
+                .getAsJsonObject();
             if (field.equals("input")) e.addProperty(field, "HEAVY");
             else if (field.equals("requires")) e.addProperty(field, "GROUND");
             else if (field.equals("hit") || field.equals("damageHit")) e.addProperty(field, true);
-            else e.addProperty(field, e.get(field).getAsInt() + 1);
+            else e.addProperty(
+                field,
+                e.get(field)
+                    .getAsInt() + 1);
             assertNotEquals(field, hash, spear(changed).manifest().gameplayHash);
         }
         JsonObject targetChange = data.deepCopy();
-        JsonObject other = targetChange.getAsJsonArray("actions").get(0).getAsJsonObject().deepCopy();
+        JsonObject other = targetChange.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .deepCopy();
         other.addProperty("id", "test:other");
         other.add("edges", new JsonArray());
-        targetChange.getAsJsonArray("actions").add(other);
-        targetChange.getAsJsonArray("styles").get(0).getAsJsonObject().getAsJsonArray("actions").add("test:other");
+        targetChange.getAsJsonArray("actions")
+            .add(other);
+        targetChange.getAsJsonArray("styles")
+            .get(0)
+            .getAsJsonObject()
+            .getAsJsonArray("actions")
+            .add("test:other");
         String targetHash = spear(targetChange).manifest().gameplayHash;
-        targetChange.getAsJsonArray("actions").get(0).getAsJsonObject().getAsJsonArray("edges").get(0)
-            .getAsJsonObject().addProperty("target", "test:other");
+        targetChange.getAsJsonArray("actions")
+            .get(0)
+            .getAsJsonObject()
+            .getAsJsonArray("edges")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("target", "test:other");
         assertNotEquals(targetHash, spear(targetChange).manifest().gameplayHash);
         for (String field : new String[] { "poiseMultiplier", "costMultiplier", "saSlots", "effectSlots" }) {
             JsonObject changed = data.deepCopy();
-            JsonObject weapon = changed.getAsJsonArray("weapons").get(0).getAsJsonObject();
+            JsonObject weapon = changed.getAsJsonArray("weapons")
+                .get(0)
+                .getAsJsonObject();
             if (field.endsWith("Slots")) weapon.add(field, JsonParser.parseString("[\"test:reserved\"]"));
             else weapon.addProperty(field, 2);
             assertNotEquals(field, hash, spear(changed).manifest().gameplayHash);
@@ -400,13 +555,24 @@ public class ContentRegistryTest {
     public void presentationBindingsAndExplicitDefaultsKeepGameplayIdentity() throws Exception {
         JsonObject data = read("/content/spear.json");
         ContentManifest original = spear(data).manifest();
-        JsonObject weapon = data.getAsJsonArray("weapons").get(0).getAsJsonObject();
+        JsonObject weapon = data.getAsJsonArray("weapons")
+            .get(0)
+            .getAsJsonObject();
         weapon.addProperty("poiseMultiplier", 1);
         weapon.addProperty("costMultiplier", 1);
-        data.getAsJsonArray("styles").get(0).getAsJsonObject().addProperty("bufferTicks", 4);
+        data.getAsJsonArray("styles")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("bufferTicks", 4);
         assertEquals(ContentManifest.Comparison.MATCH, original.compare(spear(data).manifest()));
-        data.getAsJsonArray("resources").get(0).getAsJsonObject().addProperty("id", "test:new_skin");
-        data.getAsJsonArray("animations").get(0).getAsJsonObject().addProperty("id", "test:new_animation");
+        data.getAsJsonArray("resources")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("id", "test:new_skin");
+        data.getAsJsonArray("animations")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("id", "test:new_animation");
         weapon.addProperty("resource", "test:new_skin");
         weapon.addProperty("animation", "test:new_animation");
         assertEquals(ContentManifest.Comparison.PRESENTATION_ONLY_DIFF, original.compare(spear(data).manifest()));
@@ -419,7 +585,14 @@ public class ContentRegistryTest {
         ContentRegistry registry = ContentRegistry.load(sources);
         long elapsed = System.nanoTime() - start;
         assertSame(registry.manifest(), registry.manifest());
-        System.out.printf(java.util.Locale.ROOT, "katana load+validate+SHA-256: %.3f ms; actions=%d; gameplay=%s%n",
-            elapsed / 1000000.0, registry.packs().get("katana").actions().size(), registry.manifest().gameplayHash);
+        System.out.printf(
+            java.util.Locale.ROOT,
+            "katana load+validate+SHA-256: %.3f ms; actions=%d; gameplay=%s%n",
+            elapsed / 1000000.0,
+            registry.packs()
+                .get("katana")
+                .actions()
+                .size(),
+            registry.manifest().gameplayHash);
     }
 }

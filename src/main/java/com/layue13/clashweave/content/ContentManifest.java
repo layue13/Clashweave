@@ -15,7 +15,9 @@ import com.google.gson.JsonPrimitive;
 public final class ContentManifest {
 
     public enum Comparison {
-        MATCH, GAMEPLAY_MISMATCH, PRESENTATION_ONLY_DIFF
+        MATCH,
+        GAMEPLAY_MISMATCH,
+        PRESENTATION_ONLY_DIFF
     }
 
     public final String gameplayHash, presentationHash;
@@ -34,14 +36,17 @@ public final class ContentManifest {
         if (value.isJsonNull()) return "null";
         if (value.isJsonObject()) {
             Map<String, JsonElement> sorted = new TreeMap<>();
-            for (Map.Entry<String, JsonElement> entry : value.getAsJsonObject().entrySet())
-                sorted.put(entry.getKey(), entry.getValue());
+            for (Map.Entry<String, JsonElement> entry : value.getAsJsonObject()
+                .entrySet()) sorted.put(entry.getKey(), entry.getValue());
             StringBuilder result = new StringBuilder("{");
             for (Map.Entry<String, JsonElement> entry : sorted.entrySet()) {
                 if (result.length() > 1) result.append(',');
-                result.append(new Gson().toJson(entry.getKey())).append(':').append(canonical(entry.getValue()));
+                result.append(new Gson().toJson(entry.getKey()))
+                    .append(':')
+                    .append(canonical(entry.getValue()));
             }
-            return result.append('}').toString();
+            return result.append('}')
+                .toString();
         }
         if (value.isJsonArray()) {
             StringBuilder result = new StringBuilder("[");
@@ -49,10 +54,12 @@ public final class ContentManifest {
                 if (result.length() > 1) result.append(',');
                 result.append(canonical(element));
             }
-            return result.append(']').toString();
+            return result.append(']')
+                .toString();
         }
         JsonPrimitive primitive = value.getAsJsonPrimitive();
-        if (primitive.isNumber()) return new BigDecimal(primitive.getAsString()).stripTrailingZeros().toPlainString();
+        if (primitive.isNumber()) return new BigDecimal(primitive.getAsString()).stripTrailingZeros()
+            .toPlainString();
         return primitive.toString();
     }
 

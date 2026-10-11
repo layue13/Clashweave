@@ -28,8 +28,8 @@ import com.layue13.clashweave.core.Intent;
 public final class ContentRegistry {
 
     private static final Gson GSON = new Gson();
-    private static final List<String> CATEGORIES = Arrays.asList(
-        "weapons", "styles", "actions", "animations", "resources");
+    private static final List<String> CATEGORIES = Arrays
+        .asList("weapons", "styles", "actions", "animations", "resources");
     private static final Class<?>[] TYPES = { ContentPack.Weapon.class, ContentPack.Style.class,
         ActionCatalog.Definition.class, ContentPack.Animation.class, ContentPack.Resource.class };
     private final Map<String, Map<String, JsonObject>> entries;
@@ -71,7 +71,8 @@ public final class ContentRegistry {
         for (String category : CATEGORIES) {
             Map<String, JsonObject> index = new LinkedHashMap<>();
             JsonObject game = new JsonObject(), visual = new JsonObject();
-            for (Map.Entry<String, JsonObject> entry : loader.entries.get(category).entrySet()) {
+            for (Map.Entry<String, JsonObject> entry : loader.entries.get(category)
+                .entrySet()) {
                 JsonObject value = entry.getValue();
                 index.put(entry.getKey(), value.deepCopy());
                 if (category.equals("weapons")) {
@@ -94,10 +95,12 @@ public final class ContentRegistry {
         Map<String, ContentPack> packIndex = new LinkedHashMap<>();
         for (String namespace : loader.namespaces) {
             Map<String, Map<String, JsonObject>> contents = emptyIndex();
-            for (String category : CATEGORIES)
-                for (Map.Entry<String, JsonObject> entry : loader.entries.get(category).entrySet())
-                    if (entry.getKey().startsWith(namespace + ":"))
-                        contents.get(category).put(entry.getKey(), entry.getValue());
+            for (String category : CATEGORIES) for (Map.Entry<String, JsonObject> entry : loader.entries.get(category)
+                .entrySet())
+                if (entry.getKey()
+                    .startsWith(namespace + ":"))
+                    contents.get(category)
+                        .put(entry.getKey(), entry.getValue());
             packIndex.put(namespace, new ContentPack(namespace, contents));
         }
         packs = Collections.unmodifiableMap(packIndex);
@@ -133,7 +136,8 @@ public final class ContentRegistry {
     }
 
     private <T> T get(String category, String id, Class<T> type) {
-        JsonObject json = entries.get(category).get(ContentId.legacy(id));
+        JsonObject json = entries.get(category)
+            .get(ContentId.legacy(id));
         return json == null ? null : GSON.fromJson(json, type);
     }
 
@@ -145,9 +149,14 @@ public final class ContentRegistry {
         data.addProperty("bufferTicks", style.bufferTicks);
         data.addProperty("effectVelocityLimit", style.effectVelocityLimit);
         JsonArray actions = new JsonArray();
-        for (String id : style.actions) actions.add(entries.get("actions").get(id).deepCopy());
+        for (String id : style.actions) actions.add(
+            entries.get("actions")
+                .get(id)
+                .deepCopy());
         data.add("actions", actions);
-        JsonObject entry = entries.get("styles").get(styleId).getAsJsonObject("entry");
+        JsonObject entry = entries.get("styles")
+            .get(styleId)
+            .getAsJsonObject("entry");
         data.add("entry", entry.deepCopy());
         return new ActionCatalog(new java.io.StringReader(data.toString()));
     }
@@ -194,17 +203,20 @@ public final class ContentRegistry {
                 return;
             }
             JsonObject root = parsed.getAsJsonObject();
-            for (String field : root.keySet())
-                if (!CATEGORIES.contains(field) && !field.equals("namespace") && !field.equals("schemaVersion")
-                    && !field.startsWith("_")) error(source.name, field, "unknown field");
+            for (String field : root.keySet()) if (!CATEGORIES.contains(field) && !field.equals("namespace")
+                && !field.equals("schemaVersion")
+                && !field.startsWith("_")) error(source.name, field, "unknown field");
             JsonElement version = root.get("schemaVersion");
-            if (version == null || !version.isJsonPrimitive() || !version.getAsJsonPrimitive().isNumber()
-                || !isVersionOne(version))
-                error(source.name, "schemaVersion", "expected supported integer version 1");
+            if (version == null || !version.isJsonPrimitive()
+                || !version.getAsJsonPrimitive()
+                    .isNumber()
+                || !isVersionOne(version)) error(source.name, "schemaVersion", "expected supported integer version 1");
             String namespace;
             try {
                 JsonElement ns = root.get("namespace");
-                if (ns == null || !ns.isJsonPrimitive() || !ns.getAsJsonPrimitive().isString())
+                if (ns == null || !ns.isJsonPrimitive()
+                    || !ns.getAsJsonPrimitive()
+                        .isString())
                     throw new IllegalArgumentException("expected namespace string");
                 namespace = ContentId.namespace(ns.getAsString());
             } catch (RuntimeException e) {
@@ -220,14 +232,17 @@ public final class ContentRegistry {
                     error(source.name, category, "expected array");
                     continue;
                 }
-                for (int i = 0; i < array.getAsJsonArray().size(); i++) {
+                for (int i = 0; i < array.getAsJsonArray()
+                    .size(); i++) {
                     String path = category + "[" + i + "]";
-                    JsonElement raw = array.getAsJsonArray().get(i);
+                    JsonElement raw = array.getAsJsonArray()
+                        .get(i);
                     if (!raw.isJsonObject()) {
                         error(source.name, path, "expected object");
                         continue;
                     }
-                    JsonObject value = raw.getAsJsonObject().deepCopy();
+                    JsonObject value = raw.getAsJsonObject()
+                        .deepCopy();
                     required(source.name, path, value, requiredFields(category));
                     int before = errors.size();
                     shape(source.name, path, value, TYPES[c]);
@@ -236,8 +251,10 @@ public final class ContentRegistry {
                     }
                     nestedRequired(source.name, path, raw.getAsJsonObject(), category);
                     qualify(source.name, path + ".id", value, "id", namespace);
-                    if (!value.has("id") || value.get("id").isJsonNull()) continue;
-                    String id = value.get("id").getAsString();
+                    if (!value.has("id") || value.get("id")
+                        .isJsonNull()) continue;
+                    String id = value.get("id")
+                        .getAsString();
                     if (!id.startsWith(namespace + ":"))
                         error(source.name, path + ".id", "ID must belong to pack namespace");
                     if (category.equals("weapons")) {
@@ -248,23 +265,37 @@ public final class ContentRegistry {
                     } else if (category.equals("styles")) {
                         qualifyArray(source.name, path, value, "actions", namespace);
                         qualifyEntry(source.name, path, value, namespace);
-                    } else if (category.equals("actions") && value.has("edges") && value.get("edges").isJsonArray()) {
-                        int edgeIndex = 0;
-                        for (JsonElement edge : value.getAsJsonArray("edges")) {
-                            required(source.name, path + ".edges[" + edgeIndex + "]", edge.getAsJsonObject(),
-                                "input", "target", "from", "until");
-                            qualify(source.name, path + ".edges[" + edgeIndex++ + "].target",
-                                edge.getAsJsonObject(), "target", namespace);
-                        }
-                    }
+                    } else if (category.equals("actions") && value.has("edges")
+                        && value.get("edges")
+                            .isJsonArray()) {
+                                int edgeIndex = 0;
+                                for (JsonElement edge : value.getAsJsonArray("edges")) {
+                                    required(
+                                        source.name,
+                                        path + ".edges[" + edgeIndex + "]",
+                                        edge.getAsJsonObject(),
+                                        "input",
+                                        "target",
+                                        "from",
+                                        "until");
+                                    qualify(
+                                        source.name,
+                                        path + ".edges[" + edgeIndex++ + "].target",
+                                        edge.getAsJsonObject(),
+                                        "target",
+                                        namespace);
+                                }
+                            }
                     Object dto = GSON.fromJson(value, TYPES[c]);
-                    value = GSON.toJsonTree(dto).getAsJsonObject();
+                    value = GSON.toJsonTree(dto)
+                        .getAsJsonObject();
                     Record record = new Record(source.name, path, category, value);
                     records.add(record);
                     validate(record, dto);
-                    if (entries.get(category).containsKey(id))
-                        error(source.name, path + ".id", "duplicate ID \"" + id + "\"");
-                    else entries.get(category).put(id, value);
+                    if (entries.get(category)
+                        .containsKey(id)) error(source.name, path + ".id", "duplicate ID \"" + id + "\"");
+                    else entries.get(category)
+                        .put(id, value);
                 }
             }
         }
@@ -283,7 +314,8 @@ public final class ContentRegistry {
                 JsonObject result = new JsonObject();
                 if (value != null && value.isJsonObject()) {
                     Type[] args = ((ParameterizedType) type).getActualTypeArguments();
-                    for (Map.Entry<String, JsonElement> item : value.getAsJsonObject().entrySet()) {
+                    for (Map.Entry<String, JsonElement> item : value.getAsJsonObject()
+                        .entrySet()) {
                         if (primitiveReason(new JsonPrimitive(item.getKey()), (Class<?>) args[0]) != null) continue;
                         JsonElement clean = sanitize(item.getValue(), args[1]);
                         if (!clean.isJsonNull()) result.add(item.getKey(), clean);
@@ -310,7 +342,8 @@ public final class ContentRegistry {
             JsonObject result = new JsonObject();
             if (value != null && value.isJsonObject()) {
                 for (Field field : cls.getFields()) {
-                    JsonElement child = value.getAsJsonObject().get(field.getName());
+                    JsonElement child = value.getAsJsonObject()
+                        .get(field.getName());
                     if (child == null) continue;
                     JsonElement clean = sanitize(child, field.getGenericType());
                     if (!clean.isJsonNull()) result.add(field.getName(), clean);
@@ -320,30 +353,54 @@ public final class ContentRegistry {
         }
 
         void nestedRequired(String source, String path, JsonObject raw, String category) {
-            if (category.equals("actions") && raw.has("effects") && raw.get("effects").isJsonArray()) {
+            if (category.equals("actions") && raw.has("effects")
+                && raw.get("effects")
+                    .isJsonArray()) {
                 int i = 0;
                 for (JsonElement effect : raw.getAsJsonArray("effects")) {
-                    if (effect.isJsonObject()) required(source, path + ".effects[" + i + "]",
-                        effect.getAsJsonObject(), "type", "vy");
+                    if (effect.isJsonObject())
+                        required(source, path + ".effects[" + i + "]", effect.getAsJsonObject(), "type", "vy");
                     i++;
                 }
             } else if (category.equals("styles")) {
-                if (raw.has("entry") && raw.get("entry").isJsonObject())
-                    required(source, path + ".entry", raw.getAsJsonObject("entry"), "ready");
+                if (raw.has("entry") && raw.get("entry")
+                    .isJsonObject()) required(source, path + ".entry", raw.getAsJsonObject("entry"), "ready");
             } else if (category.equals("resources")) {
-                if (raw.has("mounts") && raw.get("mounts").isJsonArray()) {
+                if (raw.has("mounts") && raw.get("mounts")
+                    .isJsonArray()) {
                     int i = 0;
                     for (JsonElement mount : raw.getAsJsonArray("mounts")) {
-                        if (mount.isJsonObject()) required(source, path + ".mounts[" + i + "]",
-                            mount.getAsJsonObject(), "slot", "x", "y", "z", "angle");
+                        if (mount.isJsonObject()) required(
+                            source,
+                            path + ".mounts[" + i + "]",
+                            mount.getAsJsonObject(),
+                            "slot",
+                            "x",
+                            "y",
+                            "z",
+                            "angle");
                         i++;
                     }
                 }
-                if (raw.has("grip") && raw.get("grip").isJsonObject())
-                    requiredOffset(source, path + ".grip.offset", raw.getAsJsonObject("grip").get("offset"));
-                if (raw.has("handGrips") && raw.get("handGrips").isJsonObject()) {
-                    requiredOffset(source, path + ".handGrips.right", raw.getAsJsonObject("handGrips").get("right"));
-                    requiredOffset(source, path + ".handGrips.left", raw.getAsJsonObject("handGrips").get("left"));
+                if (raw.has("grip") && raw.get("grip")
+                    .isJsonObject())
+                    requiredOffset(
+                        source,
+                        path + ".grip.offset",
+                        raw.getAsJsonObject("grip")
+                            .get("offset"));
+                if (raw.has("handGrips") && raw.get("handGrips")
+                    .isJsonObject()) {
+                    requiredOffset(
+                        source,
+                        path + ".handGrips.right",
+                        raw.getAsJsonObject("handGrips")
+                            .get("right"));
+                    requiredOffset(
+                        source,
+                        path + ".handGrips.left",
+                        raw.getAsJsonObject("handGrips")
+                            .get("left"));
                 }
             }
         }
@@ -362,14 +419,14 @@ public final class ContentRegistry {
         }
 
         void required(String source, String path, JsonObject value, String... fields) {
-            for (String field : fields)
-                if (!value.has(field) || value.get(field).isJsonNull())
-                    error(source, path + "." + field, "missing field");
+            for (String field : fields) if (!value.has(field) || value.get(field)
+                .isJsonNull()) error(source, path + "." + field, "missing field");
         }
 
         void qualify(String source, String path, JsonObject value, String field, String namespace) {
             try {
-                String id = value.has(field) ? value.get(field).getAsString() : null;
+                String id = value.has(field) ? value.get(field)
+                    .getAsString() : null;
                 value.addProperty(field, ContentId.qualify(namespace, id));
             } catch (RuntimeException e) {
                 error(source, path, e.getMessage());
@@ -377,25 +434,34 @@ public final class ContentRegistry {
         }
 
         void qualifyEntry(String source, String path, JsonObject style, String namespace) {
-            if (!style.has("entry") || !style.get("entry").isJsonObject()) return;
+            if (!style.has("entry") || !style.get("entry")
+                .isJsonObject()) return;
             JsonObject entry = style.getAsJsonObject("entry");
             for (String state : Arrays.asList("sheathed", "ready")) {
-                if (!entry.has(state) || !entry.get(state).isJsonObject()) continue;
+                if (!entry.has(state) || !entry.get(state)
+                    .isJsonObject()) continue;
                 JsonObject map = entry.getAsJsonObject(state);
-                for (String intent : new java.util.ArrayList<>(map.keySet()))
-                    if (map.get(intent).isJsonPrimitive())
-                        qualify(source, path + ".entry." + state + "." + intent, map, intent, namespace);
+                for (String intent : new java.util.ArrayList<>(map.keySet())) if (map.get(intent)
+                    .isJsonPrimitive())
+                    qualify(source, path + ".entry." + state + "." + intent, map, intent, namespace);
             }
             for (String field : Arrays.asList("entersReady", "entersSheathed"))
                 qualifyArray(source, path + ".entry", entry, field, namespace);
         }
 
         void qualifyArray(String source, String path, JsonObject value, String field, String namespace) {
-            if (!value.has(field) || !value.get(field).isJsonArray()) return;
+            if (!value.has(field) || !value.get(field)
+                .isJsonArray()) return;
             JsonArray array = value.getAsJsonArray(field);
             for (int i = 0; i < array.size(); i++) {
                 try {
-                    array.set(i, new JsonPrimitive(ContentId.qualify(namespace, array.get(i).getAsString())));
+                    array.set(
+                        i,
+                        new JsonPrimitive(
+                            ContentId.qualify(
+                                namespace,
+                                array.get(i)
+                                    .getAsString())));
                 } catch (RuntimeException e) {
                     error(source, path + "." + field + "[" + i + "]", e.getMessage());
                 }
@@ -413,7 +479,8 @@ public final class ContentRegistry {
                     return;
                 }
                 Type[] args = ((ParameterizedType) type).getActualTypeArguments();
-                for (Map.Entry<String, JsonElement> item : value.getAsJsonObject().entrySet()) {
+                for (Map.Entry<String, JsonElement> item : value.getAsJsonObject()
+                    .entrySet()) {
                     String reason = primitiveReason(new JsonPrimitive(item.getKey()), (Class<?>) args[0]);
                     if (reason != null) error(source, path + "." + item.getKey(), reason);
                     else shape(source, path + "." + item.getKey(), item.getValue(), args[1]);
@@ -446,10 +513,12 @@ public final class ContentRegistry {
             }
             Map<String, Field> fields = new LinkedHashMap<>();
             for (Field field : cls.getFields()) fields.put(field.getName(), field);
-            for (Map.Entry<String, JsonElement> entry : value.getAsJsonObject().entrySet()) {
+            for (Map.Entry<String, JsonElement> entry : value.getAsJsonObject()
+                .entrySet()) {
                 Field field = fields.get(entry.getKey());
                 if (field != null) shape(source, path + "." + entry.getKey(), entry.getValue(), field.getGenericType());
-                else if (!entry.getKey().startsWith("_")) error(source, path + "." + entry.getKey(), "unknown field");
+                else if (!entry.getKey()
+                    .startsWith("_")) error(source, path + "." + entry.getKey(), "unknown field");
             }
         }
 
@@ -457,8 +526,8 @@ public final class ContentRegistry {
             if (type == String.class) return value.isString() ? null : "expected string";
             if (type == boolean.class) return value.isBoolean() ? null : "expected boolean";
             if (type.isEnum()) {
-                for (Object constant : type.getEnumConstants())
-                    if (value.isString() && constant.toString().equals(value.getAsString())) return null;
+                for (Object constant : type.getEnumConstants()) if (value.isString() && constant.toString()
+                    .equals(value.getAsString())) return null;
                 return "unknown " + type.getSimpleName() + " \"" + value.getAsString() + "\"";
             }
             try {
@@ -539,10 +608,18 @@ public final class ContentRegistry {
         void validateResource(Record r, ContentPack.Resource resource) {
             JsonObject value = r.value;
             if (resource.models != null) {
-                required(r.source, r.path + ".models", value.getAsJsonObject("models"),
-                    "held", "stowed", "stowed_empty");
-                for (String field : Arrays.asList("held", "stowed", "stowed_empty"))
-                    asset(r, "models." + field, value.getAsJsonObject("models").get(field));
+                required(
+                    r.source,
+                    r.path + ".models",
+                    value.getAsJsonObject("models"),
+                    "held",
+                    "stowed",
+                    "stowed_empty");
+                for (String field : Arrays.asList("held", "stowed", "stowed_empty")) asset(
+                    r,
+                    "models." + field,
+                    value.getAsJsonObject("models")
+                        .get(field));
             }
             asset(r, "texture", value.get("texture"));
             if (resource.grip != null) {
@@ -573,14 +650,18 @@ public final class ContentRegistry {
         }
 
         void asset(Record r, String path, JsonElement value) {
-            if (value == null || !value.getAsString().matches("[a-z0-9_]+:[a-z0-9_./-]+"))
+            if (value == null || !value.getAsString()
+                .matches("[a-z0-9_]+:[a-z0-9_./-]+"))
                 error(r.source, r.path + "." + path, "expected namespaced asset location");
         }
 
         void reference(Record r, String path, String category, String id) {
-            if (id == null || !entries.get(category).containsKey(id))
-                error(r.source, r.path + "." + path, "unknown " + category.substring(0, category.length() - 1)
-                    + " \"" + id + "\"");
+            if (id == null || !entries.get(category)
+                .containsKey(id))
+                error(
+                    r.source,
+                    r.path + "." + path,
+                    "unknown " + category.substring(0, category.length() - 1) + " \"" + id + "\"");
         }
 
         void entry(Record r, ContentPack.Style s, java.util.Set<String> members) {
@@ -588,8 +669,10 @@ public final class ContentRegistry {
             if (s.entry.ready == null) return; // already reported as a missing field
             for (String state : Arrays.asList("sheathed", "ready")) {
                 Map<Intent, String> map = state.equals("ready") ? s.entry.ready : s.entry.sheathed;
-                if (map != null) for (Map.Entry<Intent, String> e : map.entrySet())
-                    if (!members.contains(e.getValue())) error(r.source, r.path + ".entry." + state + "." + e.getKey(),
+                if (map != null)
+                    for (Map.Entry<Intent, String> e : map.entrySet()) if (!members.contains(e.getValue())) error(
+                        r.source,
+                        r.path + ".entry." + state + "." + e.getKey(),
                         "action \"" + e.getValue() + "\" is not in the style graph");
             }
             for (String field : Arrays.asList("entersReady", "entersSheathed")) {
@@ -599,8 +682,10 @@ public final class ContentRegistry {
             }
             if (s.entry.sheathed != null && s.entry.entersReady.isEmpty())
                 error(r.source, r.path + ".entry.entersReady", "a sheathed state needs an action that enters ready");
-            if (s.entry.sheathed != null && s.entry.entersSheathed.isEmpty())
-                error(r.source, r.path + ".entry.entersSheathed", "a sheathed state needs an action that returns to it");
+            if (s.entry.sheathed != null && s.entry.entersSheathed.isEmpty()) error(
+                r.source,
+                r.path + ".entry.entersSheathed",
+                "a sheathed state needs an action that returns to it");
             if (s.entry.ready.isEmpty()) error(r.source, r.path + ".entry.ready", "at least one ready-state input");
         }
 
@@ -624,16 +709,20 @@ public final class ContentRegistry {
                         reference(r, "actions[" + i + "]", "actions", id);
                         if (s.actions.indexOf(id) != i)
                             error(r.source, r.path + ".actions[" + i + "]", "duplicate action member");
-                        JsonObject value = entries.get("actions").get(id);
+                        JsonObject value = entries.get("actions")
+                            .get(id);
                         if (value == null) continue;
                         ActionCatalog.Definition a = GSON.fromJson(value, ActionCatalog.Definition.class);
                         if (a.lift > s.effectVelocityLimit)
                             error(r.source, r.path + ".actions[" + i + "]", id + ": lift exceeds effectVelocityLimit");
-                        for (HitEffect effect : a.effects) if (effect.vy > s.effectVelocityLimit)
-                            error(r.source, r.path + ".actions[" + i + "]",
-                                id + ": effects.vy exceeds effectVelocityLimit");
-                        if (a.edges != null) for (ActionCatalog.Edge edge : a.edges)
-                            if (!members.contains(edge.target)) error(r.source, r.path + ".actions[" + i + "]",
+                        for (HitEffect effect : a.effects) if (effect.vy > s.effectVelocityLimit) error(
+                            r.source,
+                            r.path + ".actions[" + i + "]",
+                            id + ": effects.vy exceeds effectVelocityLimit");
+                        if (a.edges != null)
+                            for (ActionCatalog.Edge edge : a.edges) if (!members.contains(edge.target)) error(
+                                r.source,
+                                r.path + ".actions[" + i + "]",
                                 id + ": edge target outside style graph \"" + edge.target + "\"");
                     }
                     entry(r, s, members);
