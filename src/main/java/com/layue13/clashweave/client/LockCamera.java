@@ -318,7 +318,9 @@ public final class LockCamera {
             Clashweave.config.lockStrongSmoothTime,
             Clashweave.config.lockTargetFilterTau,
             Clashweave.config.cameraFeedForwardMaxSpeed,
-            Clashweave.config.cameraFeedForwardTeleportDistance) : 0;
+            Clashweave.config.cameraFeedForwardTeleportDistance,
+            Clashweave.config.cameraFeedForwardStallSeconds,
+            Clashweave.config.cameraFeedForwardStallRecovery) : 0;
         double unwrapped = beforeYaw
             + com.layue13.clashweave.core.FacingHistory.difference((float) (goalYaw + thirdOffset + lead), beforeYaw);
         mc.thePlayer.rotationYaw = (float) yawSpring.step(

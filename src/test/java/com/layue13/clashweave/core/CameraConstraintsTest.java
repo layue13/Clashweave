@@ -90,7 +90,11 @@ public class CameraConstraintsTest {
         CameraBearing b = new CameraBearing();
         for (int i = 0; i < 100; i++) b.lead(i * .9, i * .24, 0, .01, .15, .1, 180, 3);
         // 24 blocks/s continues across a 200ms frame stall: this is not a teleport.
-        assertTrue(b.lead(107.1, 28.56, 0, .2, .15, .1, 180, 3) > 0);
+        assertEquals(0, b.lead(107.1, 28.56, 0, .2, .15, .1, 180, 3), 0);
+        for (int i = 1; i <= 29; i++)
+            assertEquals(0, b.lead(107.1 + i * .9, 28.56 + i * .24, 0, .01, .15, .1, 180, 3), 0);
+        // Ordinary raw displacement was not classified as a teleport (which suppresses for .75s).
+        assertTrue(b.lead(135, 36, 0, .01, .15, .1, 180, 3) > 0);
         assertEquals(.05, ThirdPersonCamera.dt(.2), 0);
         assertEquals(0, b.lead(107.1, 128.56, 0, .01, .15, .1, 180, 3), 0);
     }

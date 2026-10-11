@@ -36,6 +36,7 @@ public final class CombatConfig {
     public double cameraDistanceMin, cameraDistanceMax, cameraPitchMin, cameraPitchMax, cameraHeadClearance;
     public double smallTargetHeight, largeTargetHeight, smallTargetPitchMax, smallTargetAimFraction;
     public double cameraFeedForwardMaxSpeed, cameraFeedForwardTeleportDistance;
+    public double cameraFeedForwardStallSeconds, cameraFeedForwardStallRecovery;
     public double cameraCollisionRadius, cameraCollisionPadding, cameraCollisionMaxSpeed;
     public double cameraCollisionLookAhead, cameraHidePlayerDistance, cameraHidePlayerHysteresis;
     public double lockStrongThirdMaxOffset, lockStrongThirdOffsetDecay, lockFlickThresholdDegrees;
@@ -263,6 +264,24 @@ public final class CombatConfig {
                 10f,
                 "Target displacement in blocks that discards velocity prediction"),
             3);
+        cameraFeedForwardStallSeconds = finite(
+            config.getFloat(
+                "cameraFeedForwardStallSeconds",
+                "camera",
+                .1f,
+                .05f,
+                1f,
+                "Real render interval above which bearing prediction is discarded, in seconds"),
+            .1);
+        cameraFeedForwardStallRecovery = finite(
+            config.getFloat(
+                "cameraFeedForwardStallRecovery",
+                "camera",
+                .3f,
+                0f,
+                2f,
+                "Wall-clock suppression after a stalled frame; existing damping continues, in seconds"),
+            .3);
         cameraCollisionMaxSpeed = finite(
             config.getFloat(
                 "cameraCollisionMaxSpeed",

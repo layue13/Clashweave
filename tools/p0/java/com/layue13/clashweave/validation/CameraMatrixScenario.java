@@ -33,8 +33,9 @@ public final class CameraMatrixScenario {
         String kind=suite.equals("audit")?new String[]{"CHICKEN","SPIDER","ZOMBIE"}[current/20]:suite.equals("real")?new String[]{"CHICKEN","SPIDER","CAVE_SPIDER","ZOMBIE","PLAYER"}[current/4]:suite.equals("sprint")?new String[]{"SPIDER","ZOMBIE","ENDERMAN"}[current%3]:"ZOMBIE";
         String name=suite.equals("audit")?"AUDIT_"+kind+"_"+current:suite.equals("real")?"REAL_"+kind+"_R"+r:suite.equals("motion")?new String[]{"MOTION_45","MOTION_90","MOTION_STRAFE"}[current]:suite.equals("compare")?new String[]{"COMPARE_SOULS","OFF_COMPARE"}[current]:"SPRINT_R"+(int)r+"_H"+new double[]{.9,1.8,2.9}[current%3];
         if(index!=current){
-            boolean retain=suite.equals("motion") && index>=0;
+            boolean retain=suite.equals("motion") && index>=0 && !Boolean.getBoolean("cw.p0.motionStress");
             if(!retain){
+            motionAngle=0;
             if(target!=null && target!=b)target.setDead();
             a.playerNetServerHandler.setPlayerLocation(0,64,0,0,0);
             b.playerNetServerHandler.setPlayerLocation(-15,64,-15,0,0);

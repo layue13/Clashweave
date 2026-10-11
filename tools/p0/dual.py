@@ -32,6 +32,7 @@ parser.add_argument('--view-test', action='store_true')
 parser.add_argument('--lock-test', action='store_true')
 parser.add_argument('--low-lock', action='store_true')
 parser.add_argument('--camera-diagnosis', action='store_true')
+parser.add_argument('--motion-stress', action='store_true')
 parser.add_argument('--diagnosis-no-feed', action='store_true')
 parser.add_argument('--sweep-test', action='store_true')
 parser.add_argument('--fast-turn', action='store_true')
@@ -86,6 +87,7 @@ def spawn(role):
         command += ['-Dcw.p0.lockTest=true']
     if args.low_lock: command += ['-Dcw.p0.lowLock=true']
     if args.camera_diagnosis: command += ['-Dcw.p0.cameraDiagnosis=true']
+    if args.motion_stress: command += ['-Dcw.p0.motionStress=true']
     if args.diagnosis_no_feed: command += ['-Dcw.p0.diagnosisNoFeed=true']
     if args.render_only:
         command += ['-Dcw.p0.renderOnly=true']

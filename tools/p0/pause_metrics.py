@@ -14,6 +14,9 @@ a = p.parse_args()
 run = pathlib.Path(__file__).resolve().parents[2] / 'build/p0/runs' / a.label
 def fields(line): return dict(re.findall(r'(\w+)=([^ ]+)', line))
 def wrap(value): return (value + 180) % 360 - 180
+def percentile(values, fraction):
+    ordered = sorted(values)
+    return ordered[min(len(ordered)-1, math.ceil(len(ordered)*fraction)-1)]
 groups, events, pauses = collections.defaultdict(list), {}, {}
 latest = None
 for line in (run / 'P0A/process.log').read_text(encoding='utf-8', errors='replace').splitlines():
@@ -55,10 +58,18 @@ for phase, rr in groups.items():
         curve.append(entry)
     end = pauses.get(phase, {}).get('end', events.get(phase, origin))
     post = [r for r in selected if r['nano'] >= end]
+    post_all = [r for r in rr if r['nano'] >= end]
     signs = [1 if r['error'] > .5 else -1 if r['error'] < -.5 else 0 for r in post]
     nonzero = [s for s in signs if s]
     reversals = sum(s != nonzero[i-1] for i,s in enumerate(nonzero) if i)
     out['phases'][phase] = {'frames': len(selected), 'pause': pauses.get(phase, {}), 'eventNano': events.get(phase),
+        'all_phase_frames': len(rr),
+        'all_phase_x_abs_median': percentile([abs(r['x']) for r in rr], .5),
+        'all_phase_x_abs_p95': percentile([abs(r['x']) for r in rr], .95),
+        'post_reverse_lead_max_degrees': max(0, -min(r['error'] for r in post_all)),
+        'post_all_frames': len(post_all),
+        'post_all_feed_speed_max': max(r['feedSpeed'] for r in post_all),
+        'reverse_lead_acceptance_uses': 'Every frame after event/pause through phase end, not just the plotted window',
         'pre_error_mean': statistics.mean(r['error'] for r in selected if -.5 <= (r['nano']-origin)/1e9 < -.1),
         'late_error_mean': statistics.mean(r['error'] for r in post if (r['nano']-origin)/1e9 >= 2),
         'post_signed_bearing_min': min(r['error'] for r in post), 'post_signed_bearing_max': max(r['error'] for r in post),

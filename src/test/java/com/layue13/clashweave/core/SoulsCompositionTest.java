@@ -54,6 +54,23 @@ public class SoulsCompositionTest {
         assertEquals(45, c.smallTargetPitchMax, 0);
         assertEquals(.85, c.smallTargetAimFraction, .00001);
         assertEquals(12, c.lockStrongThirdMaxOffset, 0);
+        assertEquals(.1, c.cameraFeedForwardStallSeconds, .00001);
+        assertEquals(.3, c.cameraFeedForwardStallRecovery, .00001);
+    }
+
+    @Test
+    public void stallConfigurationReadsOverrides() throws Exception {
+        File d = temporary.newFolder();
+        Configuration f = new Configuration(new File(d, "combat.cfg"));
+        f.get("camera", "cameraFeedForwardStallSeconds", .1)
+            .set(.2);
+        f.get("camera", "cameraFeedForwardStallRecovery", .3)
+            .set(.4);
+        f.save();
+        CombatConfig c = new CombatConfig();
+        c.load(d);
+        assertEquals(.2, c.cameraFeedForwardStallSeconds, 1e-6);
+        assertEquals(.4, c.cameraFeedForwardStallRecovery, 1e-6);
     }
 
     @Test

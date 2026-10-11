@@ -42,6 +42,7 @@ public final class CompositionReplay {
         }
 
         if(elapsed==100 && Boolean.getBoolean("cw.p0.souls") && !phase.startsWith("MOTION"))capture="souls-"+phase.toLowerCase();
+        if(elapsed==100 && phase.startsWith("MOTION") && Boolean.getBoolean("cw.p0.motionStress"))capture="stress-"+phase.toLowerCase();
         if(elapsed==80 && Boolean.getBoolean("cw.p0.cameraProbe"))capture="composition-"+phase.toLowerCase();
     }
     @SubscribeEvent public void world(RenderWorldLastEvent e){if(mc.thePlayer==null || !mc.thePlayer.getCommandSenderName().equals("P0A") || phase.equals("WAIT"))return;

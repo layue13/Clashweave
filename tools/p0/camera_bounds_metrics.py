@@ -10,7 +10,7 @@ p = argparse.ArgumentParser()
 p.add_argument('--label', required=True)
 a = p.parse_args()
 run = pathlib.Path(__file__).resolve().parents[2] / 'build/p0/runs' / a.label
-rows, cameras, began = {}, {}, {}
+rows, cameras, began, predictors = {}, {}, {}, {}
 phase = ''
 for line in (run / 'P0A/process.log').read_text(encoding='utf-8', errors='replace').splitlines():
     d = dict(re.findall(r'(\w+)=([^ ]+)', line))
@@ -19,6 +19,8 @@ for line in (run / 'P0A/process.log').read_text(encoding='utf-8', errors='replac
         began[phase] = int(d['receivedNano'])
     if 'CW_SOULS_FRAME ' in line:
         cameras.setdefault(phase, []).append(d)
+    if 'CW_THIRD_FRAME ' in line:
+        predictors.setdefault(phase, []).append(d)
     if 'P0_SOULS_PROJECTION ' in line:
         rows.setdefault(d['phase'], []).append(d)
 
@@ -59,6 +61,22 @@ for phase, rr in rows.items():
         return any(solid(x + dx, y + dy, z + dz) for dx in [-.12, 0, .12]
                    for dy in [-.12, 0, .12] for dz in [-.12, 0, .12])
     results[phase]['collision'] = {'cube_samples': len(cr), 'cube_intersections': sum(collision(d) for d in cr)}
+    pr = predictors.get(phase, [])
+    gaps = [(int(pr[i]['nano'])-int(pr[i-1]['nano']))/1e9 for i in range(1,len(pr))]
+    longest = 0
+    zero_start = None
+    for item in pr:
+        nano = int(item['nano'])
+        if float(item['lead']) == 0:
+            if zero_start is None: zero_start = nano
+            longest = max(longest,(nano-zero_start)/1e9)
+        else: zero_start = None
+    results[phase]['prediction_audit'] = {'frames':len(pr),
+        'real_intervals_above_100ms':sum(g>.1 for g in gaps),
+        'max_real_interval_millis':max(gaps,default=0)*1000,
+        'zero_lead_frames':sum(float(d['lead'])==0 for d in pr),
+        'longest_zero_lead_seconds':longest,
+        'note':'Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.'}
 
 out = {'label': a.label, 'measurement': 'GLU projection of rendered bounding boxes; conservative rectangle coverage',
        'settling_seconds': 2, 'motion_acceptance_uses': 'all frames, not only settled frames', 'phases': results}
