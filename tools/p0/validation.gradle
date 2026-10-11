@@ -24,6 +24,18 @@ gradle.projectsEvaluated {
         destinationDirectory.set(p.layout.buildDirectory.dir('p0'))
         manifest.attributes('FMLCorePlugin': 'com.layue13.clashweave.cameraprobe.CameraPlugin')
     }
+    def diagnostics = p.sourceSets.create('p0Diagnostics') {
+        java.srcDir('tools/p0-diagnostics/java')
+        compileClasspath = p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+        runtimeClasspath = output + compileClasspath
+    }
+    p.tasks.register('p0DiagnosticsJar', Jar) {
+        dependsOn(diagnostics.classesTaskName)
+        from(diagnostics.output)
+        archiveFileName.set('p0-diagnostics.jar')
+        destinationDirectory.set(p.layout.buildDirectory.dir('p0'))
+        manifest.attributes('FMLCorePlugin': 'com.layue13.clashweave.diagnostics.TracePlugin')
+    }
     p.tasks.register('p0LaunchFiles') {
         dependsOn('p0ValidationJar', 'jar')
         dependsOn { ['runClient', 'runServer'].collectMany { n -> p.tasks.getByName(n).taskDependencies.getDependencies(p.tasks.getByName(n)).toList() } }

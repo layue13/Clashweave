@@ -33,6 +33,7 @@ parser.add_argument('--lock-test', action='store_true')
 parser.add_argument('--low-lock', action='store_true')
 parser.add_argument('--camera-diagnosis', action='store_true')
 parser.add_argument('--motion-stress', action='store_true')
+parser.add_argument('--diagnostic-trace', action='store_true')
 parser.add_argument('--diagnosis-no-feed', action='store_true')
 parser.add_argument('--sweep-test', action='store_true')
 parser.add_argument('--fast-turn', action='store_true')
@@ -70,6 +71,8 @@ def spawn(role):
     (directory/'mods').mkdir()
     (directory/'config').mkdir()
     shutil.copyfile(validation,directory/'mods/p0-validation.jar')
+    if args.diagnostic_trace:
+        shutil.copyfile(snapshot(ROOT/'build/p0/p0-diagnostics.jar'),directory/'mods/p0-diagnostics.jar')
     server = role == 'server'
     launch = json.loads((ROOT/'build/p0'/('runServer.json' if server else 'runClient.json')).read_text(encoding='utf-8'))
     command = [launch['java'], '-Xms256M', '-Xmx1G', '-Dfile.encoding=UTF-8',
