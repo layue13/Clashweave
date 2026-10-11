@@ -103,7 +103,7 @@ public final class NetworkScenario {
         maximum = Math.max(maximum, cost);
         samples++;
         if (bothTicks % 100 == 0) System.out.println("P0_PERF samples=" + samples + " meanNanos=" + sum / samples + " maxNanos=" + maximum);
-        if (!Boolean.getBoolean("cw.p0.lockSupport") && !Boolean.getBoolean("cw.p0.composition") && bothTicks == (Boolean.getBoolean("cw.p0.correctionTest") ? 260 : Boolean.getBoolean("cw.p0.viewTest") ? 1800 : 1000) && !Boolean.getBoolean("cw.p0.manual")) {
+        if (!Boolean.getBoolean("cw.p0.lockSupport") && !Boolean.getBoolean("cw.p0.composition") && bothTicks == (Boolean.getBoolean("cw.p0.edgeBoundary") ? 2400 : Boolean.getBoolean("cw.p0.correctionTest") ? 260 : Boolean.getBoolean("cw.p0.viewTest") ? 1800 : 1000) && !Boolean.getBoolean("cw.p0.manual")) {
             System.out.println("P0_NETWORK COMPLETE");
             MinecraftServer.getServer().initiateShutdown();
         }

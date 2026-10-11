@@ -23,7 +23,7 @@ public final class ComboLatencySample {
 
     @SubscribeEvent(priority=EventPriority.HIGHEST)
     public void tick(TickEvent.ServerTickEvent event) throws ReflectiveOperationException {
-        if(event.phase!=TickEvent.Phase.END || !Boolean.getBoolean("cw.p0.soulsView")
+        if(event.phase!=TickEvent.Phase.END || !(Boolean.getBoolean("cw.p0.soulsView") || Boolean.getBoolean("cw.p0.edgeBoundary"))
             || !Boolean.getBoolean("clashweave.trace"))return;
         CombatServer server=Clashweave.server;
         if(config==null){Field f=CombatServer.class.getDeclaredField("config");f.setAccessible(true);

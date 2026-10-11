@@ -25,6 +25,7 @@ parser.add_argument('--camera-suite', choices=['real','motion','sprint','compare
 parser.add_argument('--snapshot-coremod', action='store_true')
 parser.add_argument('--souls', action='store_true')
 parser.add_argument('--souls-view', action='store_true')
+parser.add_argument('--edge-boundary', action='store_true')
 parser.add_argument('--movement', action='store_true')
 parser.add_argument('--low-tps', action='store_true')
 parser.add_argument('--engagement', action='store_true')
@@ -46,6 +47,7 @@ if args.low_lock or args.camera_diagnosis: args.composition=True
 if args.camera_suite: args.souls=True
 if args.souls: args.composition=True
 if args.souls_view: args.view_test=True
+if args.edge_boundary: args.view_test=True; args.render_only=True
 if not args.accept_eula:
     raise SystemExit('Explicit EULA acceptance required')
 folder = ROOT / 'build/p0/runs' / args.label
@@ -80,6 +82,7 @@ def spawn(role):
     if not args.mod_snapshot or args.snapshot_coremod: command += ['-Dfml.coreMods.load=com.layue13.clashweave.coremod.CameraLoadingPlugin']
     if args.view_test:
         command += ['-Dcw.p0.viewTest=true']
+    if args.edge_boundary: command += ['-Dcw.p0.edgeBoundary=true']
     if args.sweep_test:
         command += ['-Dcw.p0.sweepTest=true']
     if args.fast_turn:
@@ -164,7 +167,7 @@ try:
         time.sleep(.2)
     else: raise RuntimeError('First client login timeout')
     clients.append(spawn('P0B'))
-    deadline = time.perf_counter()+(600 if args.manual else 300 if args.lock_support or args.composition or args.camera_probe else 160)
+    deadline = time.perf_counter()+(600 if args.manual else 300 if args.lock_support or args.composition or args.camera_probe else 200 if args.edge_boundary else 160)
     while server.poll() is None and time.perf_counter()<deadline:
         if any(client.poll() is not None for client in clients):
             server.stdin.write(b'stop\n')
