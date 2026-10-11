@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "namespace": "katana",
+  "animations": [
+    {
+      "id": "katana:rigid_arc",
+      "preset": "rigid_arc"
+    }
+  ]
+}

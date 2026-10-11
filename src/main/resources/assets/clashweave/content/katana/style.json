@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "namespace": "katana",
+  "styles": [
+    {
+      "id": "katana:default",
+      "bufferTicks": 4,
+      "effectVelocityLimit": 1.2,
+      "actions": [
+        "katana:iai",
+        "katana:light_1",
+        "katana:light_2",
+        "katana:light_3",
+        "katana:heavy",
+        "katana:sheathe",
+        "katana:launcher"
+      ]
+    }
+  ]
+}

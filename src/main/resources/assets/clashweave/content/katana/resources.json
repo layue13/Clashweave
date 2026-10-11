@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "namespace": "katana",
+  "resources": [
+    {
+      "id": "katana:default",
+      "models": {
+        "held": "clashweave:models/katana.obj",
+        "stowed": "clashweave:models/sheath.obj",
+        "stowed_empty": "clashweave:models/sheath.obj"
+      },
+      "texture": "clashweave:textures/models/katana.png",
+      "grip": {
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "handGrips": {
+        "right": {
+          "x": -0.0625,
+          "y": 0.55,
+          "z": 0
+        },
+        "left": {
+          "x": 0.0625,
+          "y": 0.55,
+          "z": 0
+        }
+      },
+      "mounts": [
+        {
+          "slot": "left_hip",
+          "x": 0.58,
+          "y": 0.55,
+          "z": 0.18,
+          "angle": 45
+        }
+      ]
+    }
+  ]
+}
