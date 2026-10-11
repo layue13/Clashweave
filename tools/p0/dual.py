@@ -11,6 +11,8 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 parser = argparse.ArgumentParser()
 parser.add_argument('--label', required=True)
+parser.add_argument('--launcher-audit', action='store_true')
+parser.add_argument('--launcher', choices=['native', 'player', 'extras', 'enderman', 'control', 'native-final', 'review'])
 parser.add_argument('--accept-eula', action='store_true')
 parser.add_argument('--render-only', action='store_true')
 parser.add_argument('--supplement', action='store_true')
@@ -41,6 +43,7 @@ parser.add_argument('--fast-turn', action='store_true')
 parser.add_argument('--correction-test', action='store_true')
 parser.add_argument('--rtt', type=int, default=0)
 args = parser.parse_args()
+if args.launcher: args.manual=True; args.render_only=True
 if args.follow_only: args.lock_support=True
 if args.first_only: args.composition=True
 if args.low_lock or args.camera_diagnosis: args.composition=True
@@ -80,6 +83,8 @@ def spawn(role):
     command = [launch['java'], '-Xms256M', '-Xmx1G', '-Dfile.encoding=UTF-8',
                '-Dfml.ignoreInvalidMinecraftCertificates=true', '-Dclashweave.trace=true', '-Dcw.p0.network=true']
     if not args.mod_snapshot or args.snapshot_coremod: command += ['-Dfml.coreMods.load=com.layue13.clashweave.coremod.CameraLoadingPlugin']
+    if args.launcher_audit: command += ['-Dcw.p1.audit=true']
+    if args.launcher: command += ['-Dcw.p1.launcher='+args.launcher]
     if args.view_test:
         command += ['-Dcw.p0.viewTest=true']
     if args.edge_boundary: command += ['-Dcw.p0.edgeBoundary=true']
@@ -195,7 +200,7 @@ finally:
     lines=(folder/'server/process.log').read_text(encoding='utf-8',errors='replace').splitlines()
     leaks=[line for line in lines if line.startswith('[Loaded ') and ('net.minecraft.client.' in line or 'org.lwjgl.opengl.' in line or 'clashweave.client.' in line or 'validation.ClientReplay' in line)]
     summary=dict(server_exit=processes[0].returncode,client_class_loads=len(leaks),
-                 complete=any('P0_NETWORK COMPLETE' in line or 'P0_SUPPLEMENT COMPLETE' in line or 'P0_MOVEMENT COMPLETE' in line or 'P0_ENGAGEMENT COMPLETE' in line or 'P0_SWEEP COMPLETE' in line for line in lines),
+                 complete=any('P1_COMPLETE' in line or 'P0_NETWORK COMPLETE' in line or 'P0_SUPPLEMENT COMPLETE' in line or 'P0_MOVEMENT COMPLETE' in line or 'P0_ENGAGEMENT COMPLETE' in line or 'P0_SWEEP COMPLETE' in line for line in lines),
                  captures=[str(p.relative_to(folder)) for p in folder.rglob('p0-*.png')],
                  performance=[line for line in lines if 'P0_PERF' in line])
     (folder/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')

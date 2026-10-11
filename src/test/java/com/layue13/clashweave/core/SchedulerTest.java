@@ -16,9 +16,7 @@ public class SchedulerTest {
     private Scheduler scheduler() {
         return new Scheduler(
             new ActionCatalog(
-                new InputStreamReader(
-                    getClass().getResourceAsStream("/assets/clashweave/combat/katana.json"),
-                    StandardCharsets.UTF_8)));
+                new InputStreamReader(getClass().getResourceAsStream("/p0-katana.json"), StandardCharsets.UTF_8)));
     }
 
     private Scheduler drawn() {

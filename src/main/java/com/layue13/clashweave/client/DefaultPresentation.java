@@ -22,6 +22,11 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
     public void accept(SemanticEvents.Event event) {
         if (minecraft.thePlayer == null) return;
         int own = minecraft.thePlayer.getEntityId();
+        if (event.kind == SemanticEvents.Kind.LAUNCH) {
+            net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
+            if (entity != null) minecraft.theWorld
+                .spawnParticle("crit", entity.posX, entity.posY + entity.height / 2, entity.posZ, 0, 0, 0);
+        }
         com.layue13.clashweave.presentation.FeedbackPolicy.Sound sound = policy.sound(event, own);
         if (sound != com.layue13.clashweave.presentation.FeedbackPolicy.Sound.NONE) {
             proxy.lastFeedbackFrozen = event.frozen;

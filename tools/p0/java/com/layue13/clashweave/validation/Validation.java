@@ -29,6 +29,8 @@ public final class Validation {
     public void initialize(FMLInitializationEvent event) {
         FMLCommonHandler.instance().bus().register(this);
         FMLCommonHandler.instance().bus().register(new NetworkScenario());
+        FMLCommonHandler.instance().bus().register(new LauncherScenario());
+        FMLCommonHandler.instance().bus().register(new LauncherReview());
         Supplement supplement = new Supplement();
         FMLCommonHandler.instance().bus().register(supplement);
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(supplement);
@@ -47,6 +49,7 @@ public final class Validation {
         if (FMLCommonHandler.instance().getSide().isClient()) {
             try {
                 Class.forName("com.layue13.clashweave.validation.ClientReplay").newInstance();
+                if(System.getProperty("cw.p1.launcher")!=null)Class.forName("com.layue13.clashweave.validation.LauncherReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.edgeBoundary"))Class.forName("com.layue13.clashweave.validation.EdgeBoundaryReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.cameraDiagnosis"))Class.forName("com.layue13.clashweave.validation.CameraPauseReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.lowLock"))Class.forName("com.layue13.clashweave.validation.LowLockReplay").newInstance();

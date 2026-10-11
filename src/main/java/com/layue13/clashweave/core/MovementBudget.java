@@ -9,6 +9,15 @@ public final class MovementBudget {
     private final double margin;
     private double path;
     private double vertical;
+
+    private static final class Credit {
+
+        double remaining;
+        long expires;
+    }
+
+    private final java.util.List<Credit> credits = new java.util.ArrayList<>();
+    private double spentLaunch;
     private long sampled;
     private final double jump;
     private final double epsilon;
@@ -29,6 +38,22 @@ public final class MovementBudget {
 
     public boolean accept(long now, double horizontalDelta, double verticalDelta, double walkingSpeed,
         double externalHorizontal, double externalVertical) {
+        return accept(
+            now,
+            Math.max(0, now - started) / 50_000_000L,
+            horizontalDelta,
+            verticalDelta,
+            walkingSpeed,
+            externalHorizontal,
+            externalVertical);
+    }
+
+    public boolean accept(long now, long tick, double horizontalDelta, double verticalDelta, double walkingSpeed,
+        double externalHorizontal, double externalVertical) {
+        credits.removeIf(credit -> tick >= credit.expires);
+        double available = credits.stream()
+            .mapToDouble(credit -> credit.remaining)
+            .sum();
         double ticks = Math.max(0, now - started) / 50_000_000.0;
         double root = Math.min(total, speed * (ticks + margin));
         double next = path + horizontalDelta;
@@ -37,11 +62,32 @@ public final class MovementBudget {
         // Walking/jumping and server knockback have separate finite allowances.
         if (horizontalDelta > (speed + walkingSpeed) * batchTicks + externalHorizontal + epsilon
             || next > root + walkingSpeed * (ticks + margin) + externalHorizontal + epsilon
-            || nextY > jump + externalVertical) return false;
+            || nextY > jump + externalVertical + spentLaunch + available) return false;
+        double needed = Math.max(0, nextY - jump - externalVertical - spentLaunch);
+        for (Credit credit : credits) {
+            double used = Math.min(needed, credit.remaining);
+            credit.remaining -= used;
+            needed -= used;
+            spentLaunch += used;
+        }
         path = next;
         vertical = nextY;
         sampled = now;
         return true;
+    }
+
+    /** Delayed pre-impulse C03 ground flags cannot revoke a new velocity authorization. */
+    public static double remainingVertical(double credit, double previousY, double nextY, long tick, long expires) {
+        return tick >= expires ? 0 : Math.max(0, credit - Math.max(0, nextY - previousY));
+    }
+
+    /** Finite server-authorized launch/lift credit; does not enlarge walking or root allowances. */
+    public void creditVertical(double amount, long expires) {
+        if (!Double.isFinite(amount) || amount < 0) throw new IllegalArgumentException("vertical credit");
+        Credit credit = new Credit();
+        credit.remaining = amount;
+        credit.expires = expires;
+        credits.add(credit);
     }
 
     public double path() {
