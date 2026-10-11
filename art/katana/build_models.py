@@ -36,8 +36,8 @@ REGION = {
 # ---- proportions: every dimension is derived from the player's visible height with the golden ratio ----
 PHI = (1 + 5 ** 0.5) / 2
 PLAYER_H = 1.875  # visible model height of the biped (2.0 model units * the 0.9375 player scale)
-REF = float(os.environ.get("KATANA_REF", 1 / PHI))  # sword length as a fraction of the player height
-L = PLAYER_H * REF  # total sword length, kashira end to kissaki tip (default: player : sword = phi : 1)
+REF = float(os.environ.get("KATANA_REF", PHI ** -0.5))  # sword length / player height; default 1/sqrt(phi) = 0.786 (the golden mean of 1/phi and 1)
+L = PLAYER_H * REF  # total sword length, kashira end to kissaki tip (the blade:hilt = phi^2 ratio below is kept for any length)
 T_THICK = 0.03  # tsuba thickness (aesthetic, not derived)
 HILT = (L - T_THICK) / (1 + PHI ** 2)  # kashira .. tsuba: blade : hilt = phi^2 : 1 (real katana is about 2.8 : 1)
 BLADE = L - T_THICK - HILT  # habaki + blade to the tip
