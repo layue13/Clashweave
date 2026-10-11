@@ -184,11 +184,14 @@ def render_action(aid, track, reach, arc):
         rot = Matrix.Rotation(yaw, 4, "Z")
         torso.rotation_euler = (0, 0, yaw)
         head.rotation_euler = (0, 0, yaw * 0.4)
-        sr, sl = rot @ Vector(SR), rot @ Vector(SL)
+        pel = Vector(s["pelvis"])
+        sr, sl = rot @ Vector(SR) + pel, rot @ Vector(SL) + pel
+        torso.location = Vector((0, 0, 1.125 * K)) + pel
+        head.location = Vector((0, 0, 1.75 * K)) + pel
         limb(armR, sr, s["handR"], 0.75 * K)
         limb(armL, sl, s["handL"]["p"], 0.75 * K)
-        hip_r, hip_l = Vector((0.125 * K, 0, HIP_Z)), Vector((-0.125 * K, 0, HIP_Z))
-        limb(legR, hip_r, (s["footR"][0], s["footR"][1], 0), HIP_Z)
+        hip_r, hip_l = Vector((0.125 * K, 0, HIP_Z)) + pel, Vector((-0.125 * K, 0, HIP_Z)) + pel
+        limb(legR, hip_r, (s["footR"][0], s["footR"][1], 0), HIP_Z)  # rigid leg towards the foot target
         limb(legL, hip_l, (s["footL"][0], s["footL"][1], 0), HIP_Z)
         sword.location = s["sword"]["p"]
         sword.rotation_mode = "QUATERNION"
