@@ -61,6 +61,7 @@ public final class Scheduler {
         long origin;
         String target;
         ActionCatalog.Edge edge;
+        long compensation;
     }
 
     private ActionCatalog catalog;
@@ -109,8 +110,13 @@ public final class Scheduler {
     }
 
     public void request(Intent input, int sequence, long tick) {
+        buffer(input, sequence, tick, 0);
+    }
+
+    private void buffer(Intent input, int sequence, long tick, long compensation) {
         Request request = new Request();
         request.sequence = sequence;
+        request.compensation = compensation;
         request.expires = tick + catalog.bufferTicks;
         request.origin = current == null ? 0 : current.id;
         if (current == null) {
@@ -120,7 +126,7 @@ public final class Scheduler {
             if (input == Intent.LIGHT && counter(tick)) request.expires = Math.min(request.expires, counterUntil);
         } else {
             for (ActionCatalog.Edge edge : current.definition.edges) {
-                if (edge.input == input && tick - current.start < edge.until) {
+                if (edge.input == input && tick - request.compensation - current.start < edge.until) {
                     request.edge = edge;
                     request.target = edge.target;
                     break;
@@ -137,11 +143,16 @@ public final class Scheduler {
 
     /** Wire requests bind the instance observed at the press, including an explicit idle origin. */
     public void request(Intent input, int sequence, long tick, long expectedOrigin) {
+        request(input, sequence, tick, expectedOrigin, 0, 0);
+    }
+
+    /** Receipt age must come from a stamp already accepted by InputGate. */
+    public void request(Intent input, int sequence, long tick, long expectedOrigin, long receiptAge, int limit) {
         if (expectedOrigin != (current == null ? 0 : current.id)) {
             results.add(new Result(sequence, "ORIGIN_CHANGED", ""));
             return;
         }
-        request(input, sequence, tick);
+        buffer(input, sequence, tick, Math.max(0, Math.min(receiptAge, limit)));
     }
 
     public void tick(long tick) {
@@ -156,11 +167,12 @@ public final class Scheduler {
                 results.add(new Result(request.sequence, "EXPIRED_OR_CHANGED", request.target));
                 iterator.remove();
             } else if (request.edge == null
-                || (tick - current.start >= request.edge.from && tick - current.start < request.edge.until
+                || (tick - current.start >= request.edge.from
+                    && tick - request.compensation - current.start < request.edge.until
                     && (!request.edge.hit || current.confirmedHit))) {
                         ready.add(request);
                     } else
-                if (tick - current.start >= request.edge.until) {
+                if (tick - request.compensation - current.start >= request.edge.until) {
                     results.add(new Result(request.sequence, "WINDOW_CLOSED", request.target));
                     iterator.remove();
                 }

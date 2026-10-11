@@ -443,7 +443,13 @@ public final class CombatServer {
                     + facing.accepted
                     + " reason="
                     + facing.reason);
-            state.scheduler.request(intent, message.sequence, tick, message.origin);
+            state.scheduler.request(
+                intent,
+                message.sequence,
+                tick,
+                message.origin,
+                input.receivedTick - effectiveStamp,
+                config.inputEdgeCompensationTicks);
         }
     }
 

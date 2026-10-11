@@ -22,6 +22,7 @@ public final class CombatConfig {
     public int guardCooldown;
     public int counterWindow;
     public int stampAge;
+    public int inputEdgeCompensationTicks;
     public int futureTolerance;
     public int disengage;
     public double radius;
@@ -89,6 +90,16 @@ public final class CombatConfig {
             40,
             "P0 provisional ordinary counter entry; original timing missing");
         stampAge = config.getInt("stampAgeLimit", "network", 8, 1, 20, "Maximum accepted input age");
+        inputEdgeCompensationTicks = Math.min(
+            stampAge,
+            config.getInt(
+                "inputEdgeCompensationTicks",
+                "network",
+                4,
+                0,
+                8,
+                "Late combo edge allowance from validated receipt age; 0 disables. Capped to prevent unlimited "
+                    + "windows at high latency; must not exceed stampAgeLimit"));
         futureTolerance = config
             .getInt("futureTolerance", "network", 2, 0, 4, "Future stamp allowance; clamp to receipt tick");
         disengage = config.getInt("disengageTicks", "combat", 60, 1, 400, "Exit hysteresis");

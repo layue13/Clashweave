@@ -30,6 +30,169 @@ public class SchedulerTest {
         return scheduler;
     }
 
+    private Scheduler lightTwo() {
+        Scheduler scheduler = drawn();
+        scheduler.request(Intent.LIGHT, 2, 894, 0);
+        scheduler.tick(894);
+        scheduler.current().confirmedHit = true;
+        scheduler.request(Intent.LIGHT, 3, 902, scheduler.current().id);
+        scheduler.tick(902);
+        assertEquals("light_2", scheduler.current().definition.id);
+        assertEquals(902, scheduler.current().start);
+        scheduler.current().confirmedHit = true;
+        scheduler.drainResults();
+        return scheduler;
+    }
+
+    private String derivative(long tick, long age, int limit) {
+        Scheduler scheduler = lightTwo();
+        // Keep the origin alive to isolate the until boundary from action completion.
+        scheduler.current().definition.recovery = 20;
+        scheduler.request(Intent.LIGHT, 4, tick, scheduler.current().id, age, limit);
+        scheduler.tick(tick);
+        return scheduler.drainResults()
+            .get(0).status;
+    }
+
+    @Test
+    public void boundedReceiptAgeRecoversLateDerivativeWithoutBackdatingStart() {
+        InputGate gate = new InputGate(1);
+        assertEquals("OK", gate.validate(1, 4, 906, 912, 8, 2));
+        long age = 912 - InputGate.effectiveStamp(906, 912);
+        assertEquals("ILLEGAL_NODE", derivative(913, age, 0));
+        Scheduler scheduler = lightTwo();
+        scheduler.request(Intent.LIGHT, 4, 913, scheduler.current().id, age, 4);
+        scheduler.tick(913);
+        assertEquals(
+            "START",
+            scheduler.drainResults()
+                .get(0).status);
+        assertEquals("light_3", scheduler.current().definition.id);
+        assertEquals(913, scheduler.current().start);
+    }
+
+    @Test
+    public void compensationCapAndHalfOpenUntilAreDeterministic() {
+        for (int run = 0; run < 20; run++) {
+            assertEquals("START", derivative(915, 8, 4));
+            assertEquals("ILLEGAL_NODE", derivative(916, 8, 4));
+            assertEquals("ILLEGAL_NODE", derivative(913, 8, 0));
+            assertEquals("ILLEGAL_NODE", derivative(912, 0, 4));
+            assertEquals("ILLEGAL_NODE", derivative(912, -2, 4));
+        }
+    }
+
+    @Test
+    public void disabledCompensationMatchesLegacyRequestsAtEveryAge() {
+        for (int age = 0; age <= 14; age++) {
+            Scheduler legacy = lightTwo();
+            Scheduler disabled = lightTwo();
+            long tick = 902 + age;
+            legacy.request(Intent.LIGHT, 4, tick, legacy.current().id);
+            disabled.request(Intent.LIGHT, 4, tick, disabled.current().id, 8, 0);
+            for (long consume = tick; consume <= tick + 4; consume++) {
+                legacy.tick(consume);
+                disabled.tick(consume);
+                List<Scheduler.Result> expected = legacy.drainResults();
+                List<Scheduler.Result> actual = disabled.drainResults();
+                assertEquals(expected.size(), actual.size());
+                for (int index = 0; index < expected.size(); index++) {
+                    assertEquals(expected.get(index).sequence, actual.get(index).sequence);
+                    assertEquals(expected.get(index).status, actual.get(index).status);
+                    assertEquals(expected.get(index).action, actual.get(index).action);
+                }
+                if (legacy.current() == null) assertNull(disabled.current());
+                else {
+                    assertEquals(legacy.current().id, disabled.current().id);
+                    assertEquals(legacy.current().start, disabled.current().start);
+                    assertEquals(legacy.current().definition.id, disabled.current().definition.id);
+                }
+            }
+        }
+    }
+
+    @Test
+    public void toleratedFutureStampGivesNoEdgeCompensation() {
+        InputGate gate = new InputGate(1);
+        assertEquals("OK", gate.validate(1, 4, 914, 912, 8, 2));
+        assertEquals("ILLEGAL_NODE", derivative(912, 912 - InputGate.effectiveStamp(914, 912), 4));
+    }
+
+    @Test
+    public void compensationDoesNotMoveFromOrExtendBufferExpiry() {
+        Scheduler scheduler = lightTwo();
+        Scheduler.Instance origin = scheduler.current();
+        scheduler.request(Intent.LIGHT, 4, 907, origin.id, 4, 4);
+        scheduler.tick(907);
+        assertSame(origin, scheduler.current());
+        scheduler.tick(908);
+        assertEquals("light_3", scheduler.current().definition.id);
+        assertEquals(908, scheduler.current().start);
+        scheduler = lightTwo();
+        origin = scheduler.current();
+        scheduler.request(Intent.LIGHT, 4, 903, origin.id, 4, 4);
+        scheduler.tick(907);
+        assertSame(origin, scheduler.current());
+        assertEquals(
+            "EXPIRED_OR_CHANGED",
+            scheduler.drainResults()
+                .get(0).status);
+    }
+
+    @Test
+    public void compensationKeepsConfirmedHitAndDoesNotAccumulateWhileBuffered() {
+        Scheduler scheduler = lightTwo();
+        Scheduler.Instance origin = scheduler.current();
+        origin.definition.recovery = 20;
+        origin.confirmedHit = false;
+        scheduler.request(Intent.LIGHT, 4, 913, origin.id, 6, 4);
+        scheduler.tick(913);
+        scheduler.tick(914);
+        scheduler.tick(915);
+        assertSame(origin, scheduler.current());
+        assertTrue(
+            scheduler.drainResults()
+                .isEmpty());
+        origin.confirmedHit = true;
+        scheduler.tick(916);
+        assertSame(origin, scheduler.current());
+        assertEquals(
+            "WINDOW_CLOSED",
+            scheduler.drainResults()
+                .get(0).status);
+    }
+
+    @Test
+    public void compensationLeavesIdleCounterAndOriginChecksUnchanged() {
+        Scheduler scheduler = drawn();
+        scheduler.openCounter(900, 2);
+        scheduler.request(Intent.LIGHT, 4, 901, 0, 8, 4);
+        scheduler.tick(902);
+        assertNull(scheduler.current());
+        assertEquals(
+            "EXPIRED_OR_CHANGED",
+            scheduler.drainResults()
+                .get(0).status);
+        scheduler.request(Intent.LIGHT, 5, 903, 0, 8, 4);
+        scheduler.tick(903);
+        assertEquals("light_1", scheduler.current().definition.id);
+        assertEquals(903, scheduler.current().start);
+        scheduler = lightTwo();
+        long origin = scheduler.current().id;
+        scheduler.tick(914);
+        scheduler.request(Intent.LIGHT, 4, 914, origin, 8, 4);
+        assertEquals(
+            "ORIGIN_CHANGED",
+            scheduler.drainResults()
+                .get(0).status);
+        scheduler.request(Intent.LIGHT, 5, 915, 0, 8, 4);
+        scheduler.tick(915);
+        scheduler.request(Intent.LIGHT, 6, 916, origin, 8, 4);
+        List<Scheduler.Result> results = scheduler.drainResults();
+        assertEquals("START", results.get(0).status);
+        assertEquals("ORIGIN_CHANGED", results.get(1).status);
+    }
+
     @Test
     public void lateWireDerivativeAndStaleIdleCannotBecomeAnotherAttack() {
         Scheduler scheduler = drawn();
