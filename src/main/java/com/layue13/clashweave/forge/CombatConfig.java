@@ -23,6 +23,7 @@ public final class CombatConfig {
     public int counterWindow;
     public int stampAge;
     public int inputEdgeCompensationTicks;
+    public int inputEdgeCompensationJitterTicks;
     public int futureTolerance;
     public int disengage;
     public double radius;
@@ -98,8 +99,15 @@ public final class CombatConfig {
                 4,
                 0,
                 8,
-                "Late combo edge allowance from validated receipt age; 0 disables. Capped to prevent unlimited "
-                    + "windows at high latency; must not exceed stampAgeLimit"));
+                "Late combo edge allowance from validated receipt age; 0 disables. Also capped by server RTT "
+                    + "plus jitter allowance; unknown or zero RTT disables compensation; must not exceed stampAgeLimit"));
+        inputEdgeCompensationJitterTicks = config.getInt(
+            "inputEdgeCompensationJitterTicks",
+            "network",
+            1,
+            0,
+            4,
+            "Extra ticks for jitter beyond ceil(server keepalive RTT / 2 / 50 ms); only used with positive RTT");
         futureTolerance = config
             .getInt("futureTolerance", "network", 2, 0, 4, "Future stamp allowance; clamp to receipt tick");
         disengage = config.getInt("disengageTicks", "combat", 60, 1, 400, "Exit hysteresis");

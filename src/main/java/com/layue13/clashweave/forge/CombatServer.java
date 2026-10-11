@@ -35,6 +35,7 @@ import com.layue13.clashweave.core.FacingHistory;
 import com.layue13.clashweave.core.GuardTimeline;
 import com.layue13.clashweave.core.InputGate;
 import com.layue13.clashweave.core.Intent;
+import com.layue13.clashweave.core.LatencyCompensation;
 import com.layue13.clashweave.core.MovementBudget;
 import com.layue13.clashweave.core.Scheduler;
 import com.layue13.clashweave.core.WeaponDefinition;
@@ -443,14 +444,24 @@ public final class CombatServer {
                     + facing.accepted
                     + " reason="
                     + facing.reason);
+            long receiptAge = input.receivedTick - effectiveStamp;
             state.scheduler.request(
                 intent,
                 message.sequence,
                 tick,
                 message.origin,
-                input.receivedTick - effectiveStamp,
-                config.inputEdgeCompensationTicks);
+                receiptAge,
+                LatencyCompensation.limit(
+                    receiptAge,
+                    config.inputEdgeCompensationTicks,
+                    serverPingMillis(input.player),
+                    config.inputEdgeCompensationJitterTicks));
         }
+    }
+
+    /** Isolated MCP field access; mapping must be verified in the Forge development environment. */
+    private static int serverPingMillis(EntityPlayerMP player) {
+        return player == null ? 0 : player.ping;
     }
 
     private void advance(PlayerState state) {
