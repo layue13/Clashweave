@@ -48,6 +48,12 @@ public final class ClientReplay {
     private long viewRequested = -1;
     private boolean viewActive;
     private boolean viewLastNode;
+    private boolean viewSawAction;
+    private int viewBeganTick;
+    private int viewFirstAck;
+    private int viewCompleted;
+    private int viewFailed;
+    private boolean viewReported;
     private long engagementBase = -1;
     private int engagementStage;
     private final java.util.Map<Integer,Boolean> virtualKeys = new java.util.HashMap<>();
@@ -299,25 +305,57 @@ public final class ClientReplay {
         if(Boolean.getBoolean("cw.p0.soulsView") && !com.layue13.clashweave.client.SoulsCamera.active)return;
         String action = visual.state.action;
         double elapsed = proxy.elapsed(visual, 0);
+        if (viewActive) {
+            if (!action.isEmpty()) viewSawAction = true;
+            String result = visual.state.result;
+            if (visual.state.ack > viewFirstAck && (result.equals("ILLEGAL_NODE")
+                || result.equals("WINDOW_CLOSED") || result.equals("EXPIRED_OR_CHANGED")
+                || result.equals("ORIGIN_CHANGED") || result.startsWith("REJECT:"))) {
+                viewFinish(false, result, visual, elapsed);
+            } else if (action.isEmpty() && viewSawAction && !viewLastNode) {
+                viewFinish(false, viewRequested != viewObserved ? "NO_DERIVATIVE_REQUEST"
+                    : "DERIVATIVE_NOT_STARTED", visual, elapsed);
+            } else if (connected - viewBeganTick > 60) {
+                viewFinish(false, "TIMEOUT", visual, elapsed);
+            }
+        }
         if (viewActive && action.isEmpty() && viewLastNode) {
             System.out.println("P0_VIEW_SEQUENCE completed=" + viewSequences + " nano=" + System.nanoTime());
-            viewActive = false;
-            viewLastNode = false;
+            viewFinish(true, "OK", visual, elapsed);
         }
         if (!viewActive && action.isEmpty() && viewSequences < 20 && connected % 10 == 0) {
             viewSequences++;
             viewActive = true;
+            viewSawAction = false;
+            viewLastNode = false;
+            viewBeganTick = connected;
+            viewFirstAck = visual.state.ack;
             viewRequested = -1;
             System.out.println("P0_VIEW_SEQUENCE begin=" + viewSequences + " nano=" + System.nanoTime());
             request(Intent.LIGHT);
         }
-        if (action.equals("light_3")) viewLastNode = true;
+        if (viewActive && action.equals("light_3")) viewLastNode = true;
         if (viewActive && visual.state.instance != viewRequested && (action.equals("iai") && elapsed >= 6 && elapsed < 8
             || action.equals("light_1") && elapsed >= 5 && elapsed < 7 || action.equals("light_2") && elapsed >= 4 && elapsed < 6)) {
             viewRequested = visual.state.instance;
             request(Intent.LIGHT);
         }
-        if (viewSequences == 20 && !viewActive) System.out.println("P0_VIEW COMPLETE nano=" + System.nanoTime());
+        if (viewSequences == 20 && !viewActive && !viewReported) {
+            viewReported = true;
+            System.out.println("P0_VIEW COMPLETE attempted="+viewSequences+" completed="+viewCompleted
+                +" failed="+viewFailed+" nano="+System.nanoTime());
+        }
+    }
+
+    private void viewFinish(boolean complete, String reason, ClientProxy.Visual visual, double elapsed) {
+        if (complete) viewCompleted++; else viewFailed++;
+        System.out.println("P0_VIEW_RESULT sequence="+viewSequences+" status="+(complete?"COMPLETE":"FAILED")
+            +" reason="+reason+" ack="+visual.state.ack+" instance="+visual.state.instance
+            +" action="+visual.state.action+" elapsed="+elapsed+" revision="+visual.state.revision
+            +" nano="+System.nanoTime());
+        viewActive=false;
+        viewLastNode=false;
+        viewSawAction=false;
     }
 
     private void request(Intent intent) {
