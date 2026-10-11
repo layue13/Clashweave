@@ -11,8 +11,9 @@ import sys
 import bpy
 from mathutils import Vector
 
-OLD, NEW, TEX, OUT, OLD_K, NEW_K = sys.argv[sys.argv.index("--") + 1:]
-OLD_K, NEW_K = float(OLD_K), float(NEW_K)
+ARGS = sys.argv[sys.argv.index("--") + 1:]
+TEX, OUT = ARGS[0], ARGS[1]
+ITEMS = [a.split("|") for a in ARGS[2:]]  # path|kashira_y|x|label
 PLAYER_H = 1.875
 PHI = (1 + 5 ** 0.5) / 2
 
@@ -88,13 +89,22 @@ def place(path, x, kashira_y):
     # face the front of the blade to the camera: blade is +Z in Blender, edge +X; look from -Y
 
 
-place(OLD, -0.85, OLD_K)
-place(NEW, 0.85, NEW_K)
+def label(text, x):
+    bpy.ops.object.text_add(location=(x - 0.28, -0.35, -0.16), rotation=(math.radians(90), 0, 0))
+    t = bpy.context.active_object
+    t.data.body = text
+    t.data.size = 0.09
+    t.data.materials.append(mat_color("txt" + text, (1, 1, 1, 1), emit=True))
+
+
+for path, kk, x, text in ITEMS:
+    place(path, float(x), float(kk))
+    label(text, float(x))
 
 line = mat_color("line", (1.0, 0.55, 0.05, 1), emit=True)
-box("h_player", (2.6, 0.01, 0.008), (0, -0.3, PLAYER_H), line)
-box("h_phi", (2.6, 0.01, 0.008), (0, -0.3, PLAYER_H / PHI), mat_color("line2", (0.2, 0.9, 0.3, 1), emit=True))
-g = box("ground", (6, 4, 0.02), (0, 0, -0.01), mat_color("g", (0.20, 0.27, 0.20, 1)))
+box("h_player", (3.9, 0.01, 0.008), (0, -0.3, PLAYER_H), line)
+box("h_phi", (3.9, 0.01, 0.008), (0, -0.3, PLAYER_H / PHI), mat_color("line2", (0.2, 0.9, 0.3, 1), emit=True))
+g = box("ground", (8, 4, 0.02), (0, 0, -0.01), mat_color("g", (0.20, 0.27, 0.20, 1)))
 
 sun = bpy.data.lights.new("sun", "SUN")
 sun.energy = 3.2
@@ -108,10 +118,10 @@ world.use_nodes = True
 world.node_tree.nodes["Background"].inputs["Color"].default_value = (0.62, 0.64, 0.68, 1)
 cam = bpy.data.cameras.new("cam")
 cam.type = "ORTHO"
-cam.ortho_scale = 2.6
+cam.ortho_scale = 3.9
 co = bpy.data.objects.new("cam", cam)
 bpy.context.collection.objects.link(co)
-co.location = (0, -6, 0.98)
+co.location = (0, -6, 0.9)
 co.rotation_euler = (math.radians(90), 0, 0)
 bpy.context.scene.camera = co
 sc = bpy.context.scene
@@ -119,7 +129,7 @@ sc.render.engine = "CYCLES"
 sc.cycles.device = "CPU"
 sc.cycles.samples = 24
 sc.cycles.use_denoising = True
-sc.render.resolution_x, sc.render.resolution_y = 1100, 1100
+sc.render.resolution_x, sc.render.resolution_y = 1500, 900
 sc.render.filepath = OUT
 bpy.ops.render.render(write_still=True)
 print("PROP_OK")
