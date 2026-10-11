@@ -30,6 +30,9 @@ parser.add_argument('--low-tps', action='store_true')
 parser.add_argument('--engagement', action='store_true')
 parser.add_argument('--view-test', action='store_true')
 parser.add_argument('--lock-test', action='store_true')
+parser.add_argument('--low-lock', action='store_true')
+parser.add_argument('--camera-diagnosis', action='store_true')
+parser.add_argument('--diagnosis-no-feed', action='store_true')
 parser.add_argument('--sweep-test', action='store_true')
 parser.add_argument('--fast-turn', action='store_true')
 parser.add_argument('--correction-test', action='store_true')
@@ -37,6 +40,7 @@ parser.add_argument('--rtt', type=int, default=0)
 args = parser.parse_args()
 if args.follow_only: args.lock_support=True
 if args.first_only: args.composition=True
+if args.low_lock or args.camera_diagnosis: args.composition=True
 if args.camera_suite: args.souls=True
 if args.souls: args.composition=True
 if args.souls_view: args.view_test=True
@@ -80,6 +84,9 @@ def spawn(role):
         command += ['-Dcw.p0.correctionTest=true']
     if args.lock_test:
         command += ['-Dcw.p0.lockTest=true']
+    if args.low_lock: command += ['-Dcw.p0.lowLock=true']
+    if args.camera_diagnosis: command += ['-Dcw.p0.cameraDiagnosis=true']
+    if args.diagnosis_no_feed: command += ['-Dcw.p0.diagnosisNoFeed=true']
     if args.render_only:
         command += ['-Dcw.p0.renderOnly=true']
     if args.supplement:

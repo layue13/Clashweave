@@ -24,6 +24,12 @@ public final class LockScenario {
         b.setPosition(Math.sin(Math.toRadians(angle))*distance,64,Math.cos(Math.toRadians(angle))*distance);
         b.setHealth(200);
     }
+    private double oldScore(net.minecraft.entity.EntityLivingBase target) {
+        double dx=target.posX-a.posX,dz=target.posZ-a.posZ,dy=target.posY+target.getEyeHeight()-a.posY-a.getEyeHeight();
+        net.minecraft.util.Vec3 look=a.getLookVec();double length=Math.sqrt(dx*dx+dy*dy+dz*dz);
+        double angle=Math.toDegrees(Math.acos(Math.max(-1,Math.min(1,(dx*look.xCoord+dy*look.yCoord+dz*look.zCoord)/length))));
+        return com.layue13.clashweave.core.LockSelection.score(a.getDistanceToEntity(target),angle,16,30);
+    }
     @SubscribeEvent public void tick(TickEvent.ServerTickEvent event) {
         if (!Boolean.getBoolean("cw.p0.lockTest") || event.phase != TickEvent.Phase.END) return;
         if (MinecraftServer.getServer().getCurrentPlayerCount()<2) return;
@@ -61,6 +67,15 @@ public final class LockScenario {
             a.worldObj.getScoreboard().removePlayerFromTeams(b.getCommandSenderName());
             place(22,0);
             check(Clashweave.server.acquireLock(a)==null,"deadAndSelfExcluded");
+            net.minecraft.entity.monster.EntityZombie zombie=new net.minecraft.entity.monster.EntityZombie(a.worldObj);
+            zombie.tasks.taskEntries.clear();zombie.targetTasks.taskEntries.clear();zombie.setPosition(0,64,4);a.worldObj.spawnEntityInWorld(zombie);
+            place(8,15);
+            check(oldScore(zombie)<oldScore(b) && Clashweave.server.acquireLock(a)==zombie,"largePairZombieOldNew");
+            place(8,0);zombie.setPosition(-Math.sin(Math.toRadians(15))*4,64,Math.cos(Math.toRadians(15))*4);
+            check(oldScore(b)<oldScore(zombie) && Clashweave.server.acquireLock(a)==b,"largePairPlayerOldNew");
+            place(22,0);zombie.setPosition(0,73.72,2);a.rotationPitch=(float)-Math.toDegrees(Math.atan2((zombie.boundingBox.minY+zombie.boundingBox.maxY)/2-a.posY-a.getEyeHeight(),2));
+            check(a.canEntityBeSeen(zombie) && a.getDistanceToEntity(zombie)<16 && Clashweave.server.acquireLock(a)==null,"heightCapRejectsVisibleAlignedOverhead");
+            zombie.setDead();
             place(16,0);Clashweave.server.state(a).lock=b.getEntityId();
             System.out.println("P0_LOCK_KEEP scheduled=16");
         } else if(ticks==31) {

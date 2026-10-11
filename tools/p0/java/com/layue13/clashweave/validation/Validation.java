@@ -38,12 +38,16 @@ public final class Validation {
         FMLCommonHandler.instance().bus().register(new LockSupportScenario());
         FMLCommonHandler.instance().bus().register(new CompositionScenario());
         FMLCommonHandler.instance().bus().register(new CameraMatrixScenario());
+        FMLCommonHandler.instance().bus().register(new LowLockScenario());
+        FMLCommonHandler.instance().bus().register(new CameraPauseScenario());
         SweepScenario sweep=new SweepScenario();
         FMLCommonHandler.instance().bus().register(sweep);
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(sweep);
         if (FMLCommonHandler.instance().getSide().isClient()) {
             try {
                 Class.forName("com.layue13.clashweave.validation.ClientReplay").newInstance();
+                if(Boolean.getBoolean("cw.p0.cameraDiagnosis"))Class.forName("com.layue13.clashweave.validation.CameraPauseReplay").newInstance();
+                if(Boolean.getBoolean("cw.p0.lowLock"))Class.forName("com.layue13.clashweave.validation.LowLockReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.souls"))Class.forName("com.layue13.clashweave.validation.SoulsReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.composition"))Class.forName("com.layue13.clashweave.validation.CompositionReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.lockSupport"))Class.forName("com.layue13.clashweave.validation.LockSupportReplay").newInstance();

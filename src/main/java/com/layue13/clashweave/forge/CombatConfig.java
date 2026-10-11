@@ -28,6 +28,7 @@ public final class CombatConfig {
     public double lockAcquireRange;
     public double lockKeepRange;
     public double lockConeHalfAngle;
+    public double lockConeVerticalHalfAngle;
     public com.layue13.clashweave.core.ThirdPersonCamera.Preset lockCompositionPreset;
     public double lockStrongSmoothTime, lockStrongThirdPitchInfluence, lockTargetFilterTau;
     public double lockCompositionHorizonTolerance;
@@ -94,7 +95,15 @@ public final class CombatConfig {
         lockAcquireRange = config.getFloat("lockAcquireRange", "lock", 16, 1, 64, "Visible target acquisition range");
         lockKeepRange = config.getFloat("lockKeepRange", "lock", 20, 1, 96, "Keep range; clamped above acquire range");
         lockKeepRange = Math.max(lockAcquireRange + 1, lockKeepRange);
-        lockConeHalfAngle = config.getFloat("lockConeHalfAngle", "lock", 30, 1, 90, "Acquisition cone half angle");
+        lockConeHalfAngle = config
+            .getFloat("lockConeHalfAngle", "lock", 30, 1, 90, "Horizontal acquisition half angle");
+        lockConeVerticalHalfAngle = config.getFloat(
+            "lockConeVerticalHalfAngle",
+            "lock",
+            60,
+            1,
+            90,
+            "Vertical acquisition half angle about player elevation, using target bbox center; empirical start");
         lockAssistEnabled = config.getBoolean("lockAssistEnabled", "lock", true, "Server commitment assistance");
         lockAssistCone = config.getFloat("lockAssistCone", "lock", 45, 0, 90, "Horizontal half cone degrees");
         lockAssistMaxDegrees = config

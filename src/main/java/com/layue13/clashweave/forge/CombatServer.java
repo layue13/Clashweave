@@ -610,7 +610,6 @@ public final class CombatServer {
         double best = Double.POSITIVE_INFINITY;
         net.minecraft.util.Vec3 eye = net.minecraft.util.Vec3
             .createVectorHelper(player.posX, player.posY + player.getEyeHeight(), player.posZ);
-        net.minecraft.util.Vec3 look = player.getLookVec();
         for (Object object : player.worldObj.getEntitiesWithinAABB(
             EntityLivingBase.class,
             player.boundingBox.expand(config.lockAcquireRange, config.lockAcquireRange, config.lockAcquireRange))) {
@@ -620,13 +619,18 @@ public final class CombatServer {
                 || protectedTarget(player, target)
                 || !player.canEntityBeSeen(target)) continue;
             double dx = target.posX - eye.xCoord;
-            double dy = target.posY + target.getEyeHeight() - eye.yCoord;
+            double dy = (target.boundingBox.minY + target.boundingBox.maxY) / 2 - eye.yCoord;
             double dz = target.posZ - eye.zCoord;
-            double length = Math.sqrt(dx * dx + dy * dy + dz * dz);
-            double cosine = length == 0 ? 1 : (dx * look.xCoord + dy * look.yCoord + dz * look.zCoord) / length;
-            double angle = Math.toDegrees(Math.acos(Math.max(-1, Math.min(1, cosine))));
-            double score = com.layue13.clashweave.core.LockSelection
-                .score(player.getDistanceToEntity(target), angle, config.lockAcquireRange, config.lockConeHalfAngle);
+            double[] angles = com.layue13.clashweave.core.LockSelection
+                .angles(dx, dy, dz, player.rotationYaw, player.rotationPitch);
+            double score = com.layue13.clashweave.core.LockSelection.acquisitionScore(
+                player.getDistanceToEntity(target),
+                angles[0],
+                angles[1],
+                dy,
+                config.lockAcquireRange,
+                config.lockConeHalfAngle,
+                config.lockConeVerticalHalfAngle);
             if (com.layue13.clashweave.core.LockSelection.better(
                 score,
                 target.getEntityId(),

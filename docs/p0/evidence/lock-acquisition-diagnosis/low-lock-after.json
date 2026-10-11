@@ -1,0 +1,1352 @@
+{
+  "label": "low-lock-after",
+  "policy": "split",
+  "server_exit": 0,
+  "complete": true,
+  "client_class_loads": 0,
+  "runtime": [
+    {
+      "source": "build\\p0\\p0-validation.jar",
+      "snapshot": "runtime\\p0-validation.jar",
+      "sha256": "bd55954567e48ebc3e60c2fe9f0d1e174e2b348c4bc2412daf5bc7eab87aa298"
+    },
+    {
+      "source": "build\\rfg\\mclauncher-1.7.10.jar",
+      "snapshot": "runtime\\mclauncher-1.7.10.jar",
+      "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+    },
+    {
+      "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+      "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+      "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+    },
+    {
+      "source": "build\\libs\\clashweave-0.1.0-dev-dev.jar",
+      "snapshot": "runtime\\clashweave-0.1.0-dev-dev.jar",
+      "sha256": "008224faf1aac931a7d2bf45df73979d539c2fe02759629a476beacbd118462a"
+    }
+  ],
+  "reason_provenance": "Input gate and ACK are recorded; cone/visibility cause inferred from matched actual geometry and reviewed eligibility code, isolated single candidate",
+  "groups": {
+    "CHICKEN_R1.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "height": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.595,
+          "min": 0.595,
+          "max": 0.595
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 45.707318702387425,
+          "min": 45.707318702387425,
+          "max": 45.707318702387425
+        },
+        "threeD": {
+          "mean": 45.707318702387425,
+          "min": 45.707318702387425,
+          "max": 45.707318702387425
+        },
+        "verticalCenter": {
+          "mean": 51.7830490904635,
+          "min": 51.7830490904635,
+          "max": 51.7830490904635
+        },
+        "centerDy": {
+          "mean": -1.270000010728836,
+          "min": -1.270000010728836,
+          "max": -1.270000010728836
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "CHICKEN_R1.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.5,
+          "min": 1.5,
+          "max": 1.5
+        },
+        "height": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.595,
+          "min": 0.595,
+          "max": 0.595
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 34.346096779252804,
+          "min": 34.346096779252804,
+          "max": 34.346096779252804
+        },
+        "threeD": {
+          "mean": 34.346096779252804,
+          "min": 34.346096779252804,
+          "max": 34.346096779252804
+        },
+        "verticalCenter": {
+          "mean": 40.2534770952727,
+          "min": 40.2534770952727,
+          "max": 40.2534770952727
+        },
+        "centerDy": {
+          "mean": -1.270000010728836,
+          "min": -1.270000010728836,
+          "max": -1.270000010728836
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "CHICKEN_R2.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 2.5,
+          "min": 2.5,
+          "max": 2.5
+        },
+        "height": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.595,
+          "min": 0.595,
+          "max": 0.595
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 22.293628691912957,
+          "min": 22.293628691912957,
+          "max": 22.293628691912957
+        },
+        "threeD": {
+          "mean": 22.293628691912943,
+          "min": 22.293628691912943,
+          "max": 22.293628691912943
+        },
+        "verticalCenter": {
+          "mean": 26.930569728101293,
+          "min": 26.930569728101293,
+          "max": 26.930569728101293
+        },
+        "centerDy": {
+          "mean": -1.270000010728836,
+          "min": -1.270000010728836,
+          "max": -1.270000010728836
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "CHICKEN_R4.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "height": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.595,
+          "min": 0.595,
+          "max": 0.595
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 14.372778363995513,
+          "min": 14.372778363995513,
+          "max": 14.372778363995513
+        },
+        "threeD": {
+          "mean": 14.372778363995518,
+          "min": 14.372778363995518,
+          "max": 14.372778363995518
+        },
+        "verticalCenter": {
+          "mean": 17.614643439613133,
+          "min": 17.614643439613133,
+          "max": 17.614643439613133
+        },
+        "centerDy": {
+          "mean": -1.270000010728836,
+          "min": -1.270000010728836,
+          "max": -1.270000010728836
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "SPIDER_R1.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "height": {
+          "mean": 0.9,
+          "min": 0.9,
+          "max": 0.9
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.765,
+          "min": 0.765,
+          "max": 0.765
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 40.53044315310768,
+          "min": 40.53044315310768,
+          "max": 40.53044315310768
+        },
+        "threeD": {
+          "mean": 40.53044315310768,
+          "min": 40.53044315310768,
+          "max": 40.53044315310768
+        },
+        "verticalCenter": {
+          "mean": 49.47946085600872,
+          "min": 49.47946085600872,
+          "max": 49.47946085600872
+        },
+        "centerDy": {
+          "mean": -1.1700000166893005,
+          "min": -1.1700000166893005,
+          "max": -1.1700000166893005
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "SPIDER_R1.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.5,
+          "min": 1.5,
+          "max": 1.5
+        },
+        "height": {
+          "mean": 0.9,
+          "min": 0.9,
+          "max": 0.9
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.765,
+          "min": 0.765,
+          "max": 0.765
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 29.683140729016507,
+          "min": 29.683140729016507,
+          "max": 29.683140729016507
+        },
+        "threeD": {
+          "mean": 29.683140729016493,
+          "min": 29.683140729016493,
+          "max": 29.683140729016493
+        },
+        "verticalCenter": {
+          "mean": 37.954231271479394,
+          "min": 37.954231271479394,
+          "max": 37.954231271479394
+        },
+        "centerDy": {
+          "mean": -1.1700000166893005,
+          "min": -1.1700000166893005,
+          "max": -1.1700000166893005
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "SPIDER_R2.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 2.5,
+          "min": 2.5,
+          "max": 2.5
+        },
+        "height": {
+          "mean": 0.9,
+          "min": 0.9,
+          "max": 0.9
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.765,
+          "min": 0.765,
+          "max": 0.765
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 18.88068835670881,
+          "min": 18.88068835670881,
+          "max": 18.88068835670881
+        },
+        "threeD": {
+          "mean": 18.8806883567088,
+          "min": 18.8806883567088,
+          "max": 18.8806883567088
+        },
+        "verticalCenter": {
+          "mean": 25.079594335358138,
+          "min": 25.079594335358138,
+          "max": 25.079594335358138
+        },
+        "centerDy": {
+          "mean": -1.1700000166893005,
+          "min": -1.1700000166893005,
+          "max": -1.1700000166893005
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "SPIDER_R4.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "height": {
+          "mean": 0.9,
+          "min": 0.9,
+          "max": 0.9
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.765,
+          "min": 0.765,
+          "max": 0.765
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 12.065407500750709,
+          "min": 12.065407500750709,
+          "max": 12.065407500750709
+        },
+        "threeD": {
+          "mean": 12.065407500750696,
+          "min": 12.065407500750696,
+          "max": 12.065407500750696
+        },
+        "verticalCenter": {
+          "mean": 16.304198224048097,
+          "min": 16.304198224048097,
+          "max": 16.304198224048097
+        },
+        "centerDy": {
+          "mean": -1.1700000166893005,
+          "min": -1.1700000166893005,
+          "max": -1.1700000166893005
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "CAVE_SPIDER_R1.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "height": {
+          "mean": 0.5,
+          "min": 0.5,
+          "max": 0.5
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.425,
+          "min": 0.425,
+          "max": 0.425
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 50.07673009696301,
+          "min": 50.07673009696301,
+          "max": 50.07673009696301
+        },
+        "threeD": {
+          "mean": 50.07673009696301,
+          "min": 50.07673009696301,
+          "max": 50.07673009696301
+        },
+        "verticalCenter": {
+          "mean": 53.87328432217604,
+          "min": 53.87328432217604,
+          "max": 53.87328432217604
+        },
+        "centerDy": {
+          "mean": -1.3700000047683716,
+          "min": -1.3700000047683716,
+          "max": -1.3700000047683716
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "CAVE_SPIDER_R1.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.5,
+          "min": 1.5,
+          "max": 1.5
+        },
+        "height": {
+          "mean": 0.5,
+          "min": 0.5,
+          "max": 0.5
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.425,
+          "min": 0.425,
+          "max": 0.425
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 38.543163745839784,
+          "min": 38.543163745839784,
+          "max": 38.543163745839784
+        },
+        "threeD": {
+          "mean": 38.54316374583979,
+          "min": 38.54316374583979,
+          "max": 38.54316374583979
+        },
+        "verticalCenter": {
+          "mean": 42.406493654513426,
+          "min": 42.406493654513426,
+          "max": 42.406493654513426
+        },
+        "centerDy": {
+          "mean": -1.3700000047683716,
+          "min": -1.3700000047683716,
+          "max": -1.3700000047683716
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "CAVE_SPIDER_R2.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 2.5,
+          "min": 2.5,
+          "max": 2.5
+        },
+        "height": {
+          "mean": 0.5,
+          "min": 0.5,
+          "max": 0.5
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.425,
+          "min": 0.425,
+          "max": 0.425
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 25.54779946856953,
+          "min": 25.54779946856953,
+          "max": 25.54779946856953
+        },
+        "threeD": {
+          "mean": 25.54779946856953,
+          "min": 25.54779946856953,
+          "max": 25.54779946856953
+        },
+        "verticalCenter": {
+          "mean": 28.722741369038825,
+          "min": 28.722741369038825,
+          "max": 28.722741369038825
+        },
+        "centerDy": {
+          "mean": -1.3700000047683716,
+          "min": -1.3700000047683716,
+          "max": -1.3700000047683716
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "CAVE_SPIDER_R4.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "height": {
+          "mean": 0.5,
+          "min": 0.5,
+          "max": 0.5
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 0.425,
+          "min": 0.425,
+          "max": 0.425
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 16.63351538648973,
+          "min": 16.63351538648973,
+          "max": 16.63351538648973
+        },
+        "threeD": {
+          "mean": 16.63351538648972,
+          "min": 16.63351538648972,
+          "max": 16.63351538648972
+        },
+        "verticalCenter": {
+          "mean": 18.906332096217465,
+          "min": 18.906332096217465,
+          "max": 18.906332096217465
+        },
+        "centerDy": {
+          "mean": -1.3700000047683716,
+          "min": -1.3700000047683716,
+          "max": -1.3700000047683716
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "ZOMBIE_R1.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "height": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 1.53,
+          "min": 1.53,
+          "max": 1.53
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 5.142766454970802,
+          "min": 5.142766454970802,
+          "max": 5.142766454970802
+        },
+        "threeD": {
+          "mean": 5.142766454970855,
+          "min": 5.142766454970855,
+          "max": 5.142766454970855
+        },
+        "verticalCenter": {
+          "mean": 35.75388833402406,
+          "min": 35.75388833402406,
+          "max": 35.75388833402406
+        },
+        "centerDy": {
+          "mean": -0.7200000286102295,
+          "min": -0.7200000286102295,
+          "max": -0.7200000286102295
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "ZOMBIE_R1.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.5,
+          "min": 1.5,
+          "max": 1.5
+        },
+        "height": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 1.53,
+          "min": 1.53,
+          "max": 1.53
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 3.4336316328457426,
+          "min": 3.4336316328457426,
+          "max": 3.4336316328457426
+        },
+        "threeD": {
+          "mean": 3.4336316328457577,
+          "min": 3.4336316328457577,
+          "max": 3.4336316328457577
+        },
+        "verticalCenter": {
+          "mean": 25.641006712496328,
+          "min": 25.641006712496328,
+          "max": 25.641006712496328
+        },
+        "centerDy": {
+          "mean": -0.7200000286102295,
+          "min": -0.7200000286102295,
+          "max": -0.7200000286102295
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "ZOMBIE_R2.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 2.5,
+          "min": 2.5,
+          "max": 2.5
+        },
+        "height": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 1.53,
+          "min": 1.53,
+          "max": 1.53
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 2.0617584547495946,
+          "min": 2.0617584547495946,
+          "max": 2.0617584547495946
+        },
+        "threeD": {
+          "mean": 2.0617584547497465,
+          "min": 2.0617584547497465,
+          "max": 2.0617584547497465
+        },
+        "verticalCenter": {
+          "mean": 16.0664011406741,
+          "min": 16.0664011406741,
+          "max": 16.0664011406741
+        },
+        "centerDy": {
+          "mean": -0.7200000286102295,
+          "min": -0.7200000286102295,
+          "max": -0.7200000286102295
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "ZOMBIE_R4.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "height": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 1.53,
+          "min": 1.53,
+          "max": 1.53
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 1.288938038058215,
+          "min": 1.288938038058215,
+          "max": 1.288938038058215
+        },
+        "threeD": {
+          "mean": 1.28893803805833,
+          "min": 1.28893803805833,
+          "max": 1.28893803805833
+        },
+        "verticalCenter": {
+          "mean": 10.20397411868185,
+          "min": 10.20397411868185,
+          "max": 10.20397411868185
+        },
+        "centerDy": {
+          "mean": -0.7200000286102295,
+          "min": -0.7200000286102295,
+          "max": -0.7200000286102295
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "PLAYER_R1.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "height": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "threeD": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalCenter": {
+          "mean": 35.75388833402406,
+          "min": 35.75388833402406,
+          "max": 35.75388833402406
+        },
+        "centerDy": {
+          "mean": -0.7200000286102295,
+          "min": -0.7200000286102295,
+          "max": -0.7200000286102295
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "PLAYER_R1.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 1.5,
+          "min": 1.5,
+          "max": 1.5
+        },
+        "height": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "threeD": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalCenter": {
+          "mean": 25.641006712496328,
+          "min": 25.641006712496328,
+          "max": 25.641006712496328
+        },
+        "centerDy": {
+          "mean": -0.7200000286102295,
+          "min": -0.7200000286102295,
+          "max": -0.7200000286102295
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "PLAYER_R2.5": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 2.5,
+          "min": 2.5,
+          "max": 2.5
+        },
+        "height": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "threeD": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalCenter": {
+          "mean": 16.0664011406741,
+          "min": 16.0664011406741,
+          "max": 16.0664011406741
+        },
+        "centerDy": {
+          "mean": -0.7200000286102295,
+          "min": -0.7200000286102295,
+          "max": -0.7200000286102295
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "PLAYER_R4.0": {
+      "requests": 20,
+      "accepted": 20,
+      "reasons": {
+        "ACCEPT": 20
+      },
+      "geometry_samples": 20,
+      "rate": 1.0,
+      "actual": {
+        "range": {
+          "mean": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "height": {
+          "mean": 1.8,
+          "min": 1.8,
+          "max": 1.8
+        },
+        "playerEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "targetEye": {
+          "mean": 1.62,
+          "min": 1.62,
+          "max": 1.62
+        },
+        "horizontal": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalEye": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "threeD": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "verticalCenter": {
+          "mean": 10.20397411868185,
+          "min": 10.20397411868185,
+          "max": 10.20397411868185
+        },
+        "centerDy": {
+          "mean": -0.7200000286102295,
+          "min": -0.7200000286102295,
+          "max": -0.7200000286102295
+        },
+        "yaw": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "pitch": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@ public final class CompositionScenario {
     private void phase(String name){String text="P0_COMPOSITION_PHASE name="+name+" target="+target.getEntityId()+" tick="+Clashweave.server.tick;a.addChatMessage(new ChatComponentText(text));if(Boolean.getBoolean("cw.p0.souls"))for(Object o:MinecraftServer.getServer().getConfigurationManager().playerEntityList){EntityPlayerMP observer=(EntityPlayerMP)o;if(observer!=a)observer.addChatMessage(new ChatComponentText(text));}System.out.println(text);}
     @SubscribeEvent public void tick(TickEvent.ServerTickEvent event){
         if(!System.getProperty("cw.p0.cameraSuite","").isEmpty())return;
-        if(!Boolean.getBoolean("cw.p0.composition") || event.phase!=TickEvent.Phase.END || MinecraftServer.getServer().getCurrentPlayerCount()<2)return;
+        if(!Boolean.getBoolean("cw.p0.composition") || Boolean.getBoolean("cw.p0.lowLock") || Boolean.getBoolean("cw.p0.cameraDiagnosis") || event.phase!=TickEvent.Phase.END || MinecraftServer.getServer().getCurrentPlayerCount()<2)return;
         if(a==null)for(Object o:MinecraftServer.getServer().getConfigurationManager().playerEntityList){EntityPlayerMP p=(EntityPlayerMP)o;if(p.getCommandSenderName().equals("P0A"))a=p;else p.playerNetServerHandler.setPlayerLocation(-15,64,-15,Boolean.getBoolean("cw.p0.souls")?-45:0,Boolean.getBoolean("cw.p0.souls")?-2:0);}
         if(!started){if(target==null && ++wait>=30){target=spawn(0);phase("WAIT");}if(target==null || Clashweave.server.state(a).lock!=target.getEntityId())return;started=true;ticks=Boolean.getBoolean("cw.p0.firstOnly")?1000:0;}
         ticks++;
