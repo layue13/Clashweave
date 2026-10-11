@@ -18,7 +18,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import com.layue13.clashweave.core.ActionCatalog;
 import com.layue13.clashweave.core.HitEffect;
@@ -74,9 +73,9 @@ public final class ContentRegistry {
             for (Map.Entry<String, JsonObject> entry : loader.entries.get(category)
                 .entrySet()) {
                 JsonObject value = entry.getValue();
-                index.put(entry.getKey(), value.deepCopy());
+                index.put(entry.getKey(), JsonCompat.copy(value));
                 if (category.equals("weapons")) {
-                    JsonObject rules = value.deepCopy();
+                    JsonObject rules = JsonCompat.copy(value);
                     JsonObject appearance = new JsonObject();
                     for (String field : Arrays.asList("resource", "animation")) {
                         appearance.add(field, rules.remove(field));
@@ -88,8 +87,8 @@ public final class ContentRegistry {
                 } else visual.add(entry.getKey(), value);
             }
             frozen.put(category, Collections.unmodifiableMap(index));
-            if (game.size() > 0) gameplay.add(category, game);
-            if (visual.size() > 0) presentation.add(category, visual);
+            if (JsonCompat.size(game) > 0) gameplay.add(category, game);
+            if (JsonCompat.size(visual) > 0) presentation.add(category, visual);
         }
         entries = Collections.unmodifiableMap(frozen);
         Map<String, ContentPack> packIndex = new LinkedHashMap<>();
@@ -150,14 +149,14 @@ public final class ContentRegistry {
         data.addProperty("effectVelocityLimit", style.effectVelocityLimit);
         JsonArray actions = new JsonArray();
         for (String id : style.actions) actions.add(
-            entries.get("actions")
-                .get(id)
-                .deepCopy());
+            JsonCompat.copy(
+                entries.get("actions")
+                    .get(id)));
         data.add("actions", actions);
         JsonObject entry = entries.get("styles")
             .get(styleId)
             .getAsJsonObject("entry");
-        data.add("entry", entry.deepCopy());
+        data.add("entry", JsonCompat.copy(entry));
         return new ActionCatalog(new java.io.StringReader(data.toString()));
     }
 
@@ -193,7 +192,7 @@ public final class ContentRegistry {
         void read(Source source) {
             JsonElement parsed;
             try {
-                parsed = JsonParser.parseReader(source.reader);
+                parsed = JsonCompat.parse(source.reader);
             } catch (RuntimeException e) {
                 error(source.name, "$", "invalid JSON: " + e.getMessage());
                 return;
@@ -203,7 +202,7 @@ public final class ContentRegistry {
                 return;
             }
             JsonObject root = parsed.getAsJsonObject();
-            for (String field : root.keySet()) if (!CATEGORIES.contains(field) && !field.equals("namespace")
+            for (String field : JsonCompat.keys(root)) if (!CATEGORIES.contains(field) && !field.equals("namespace")
                 && !field.equals("schemaVersion")
                 && !field.startsWith("_")) error(source.name, field, "unknown field");
             JsonElement version = root.get("schemaVersion");
@@ -241,8 +240,7 @@ public final class ContentRegistry {
                         error(source.name, path, "expected object");
                         continue;
                     }
-                    JsonObject value = raw.getAsJsonObject()
-                        .deepCopy();
+                    JsonObject value = JsonCompat.copy(raw.getAsJsonObject());
                     required(source.name, path, value, requiredFields(category));
                     int before = errors.size();
                     shape(source.name, path, value, TYPES[c]);
@@ -441,7 +439,7 @@ public final class ContentRegistry {
                 if (!entry.has(state) || !entry.get(state)
                     .isJsonObject()) continue;
                 JsonObject map = entry.getAsJsonObject(state);
-                for (String intent : new java.util.ArrayList<>(map.keySet())) if (map.get(intent)
+                for (String intent : JsonCompat.keys(map)) if (map.get(intent)
                     .isJsonPrimitive())
                     qualify(source, path + ".entry." + state + "." + intent, map, intent, namespace);
             }
@@ -452,20 +450,17 @@ public final class ContentRegistry {
         void qualifyArray(String source, String path, JsonObject value, String field, String namespace) {
             if (!value.has(field) || !value.get(field)
                 .isJsonArray()) return;
-            JsonArray array = value.getAsJsonArray(field);
+            JsonArray array = value.getAsJsonArray(field), result = new JsonArray();
             for (int i = 0; i < array.size(); i++) {
+                JsonElement item = array.get(i);
                 try {
-                    array.set(
-                        i,
-                        new JsonPrimitive(
-                            ContentId.qualify(
-                                namespace,
-                                array.get(i)
-                                    .getAsString())));
+                    result.add(new JsonPrimitive(ContentId.qualify(namespace, item.getAsString())));
                 } catch (RuntimeException e) {
+                    result.add(item);
                     error(source, path + "." + field + "[" + i + "]", e.getMessage());
                 }
             }
+            value.add(field, result);
         }
 
         void shape(String source, String path, JsonElement value, Type type) {

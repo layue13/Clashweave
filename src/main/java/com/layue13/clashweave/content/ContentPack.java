@@ -81,11 +81,7 @@ public final class ContentPack {
         for (Map.Entry<String, Map<String, JsonObject>> category : source.entrySet()) {
             Map<String, JsonObject> entries = new LinkedHashMap<>();
             for (Map.Entry<String, JsonObject> entry : category.getValue()
-                .entrySet())
-                entries.put(
-                    entry.getKey(),
-                    entry.getValue()
-                        .deepCopy());
+                .entrySet()) entries.put(entry.getKey(), JsonCompat.copy(entry.getValue()));
             frozen.put(category.getKey(), Collections.unmodifiableMap(entries));
         }
         data = Collections.unmodifiableMap(frozen);

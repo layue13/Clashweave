@@ -37,7 +37,7 @@ public class ContentRegistryTest {
     private static JsonObject read(String path) throws Exception {
         try (InputStream stream = ContentRegistryTest.class.getResourceAsStream(path)) {
             assertNotNull(path, stream);
-            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8))
+            return new JsonParser().parse(new InputStreamReader(stream, StandardCharsets.UTF_8))
                 .getAsJsonObject();
         }
     }
@@ -182,8 +182,8 @@ public class ContentRegistryTest {
             .get(0)
             .getAsJsonObject()
             .getAsJsonArray("actions")
-            .add("test:missing_action");
-        JsonObject edge = JsonParser.parseString("{\"input\":\"LIGHT\",\"target\":\"test:foo\",\"from\":1,\"until\":2}")
+            .add(new com.google.gson.JsonPrimitive("test:missing_action"));
+        JsonObject edge = new JsonParser().parse("{\"input\":\"LIGHT\",\"target\":\"test:foo\",\"from\":1,\"until\":2}")
             .getAsJsonObject();
         data.getAsJsonArray("actions")
             .get(0)
@@ -191,7 +191,7 @@ public class ContentRegistryTest {
             .getAsJsonArray("edges")
             .add(edge);
         data.getAsJsonArray("weapons")
-            .add(weapon.deepCopy());
+            .add(JsonCompat.copy(weapon));
         ContentValidationException error = invalid(source("spear.json", data));
         assertTrue(
             error.getMessage(),
@@ -229,12 +229,12 @@ public class ContentRegistryTest {
             .get(0)
             .getAsJsonObject();
         action
-            .add("effects", JsonParser.parseString("[{\"type\":\"BOGUS\",\"vy\":0.2},{\"type\":\"OTHER\",\"vy\":-1}]"));
+            .add("effects", new JsonParser().parse("[{\"type\":\"BOGUS\",\"vy\":0.2},{\"type\":\"OTHER\",\"vy\":-1}]"));
         String message = invalid(source("bad.json", data)).getMessage();
         assertTrue(message.contains("bad.json: actions[0].effects[0].type:"));
         assertTrue(message.contains("bad.json: actions[0].effects[1].type:"));
         action
-            .add("effects", JsonParser.parseString("[{\"type\":\"LAUNCH\",\"vy\":2},{\"type\":\"LAUNCH\",\"vy\":-1}]"));
+            .add("effects", new JsonParser().parse("[{\"type\":\"LAUNCH\",\"vy\":2},{\"type\":\"LAUNCH\",\"vy\":-1}]"));
         action.addProperty("lift", 2);
         message = invalid(source("bad.json", data)).getMessage();
         assertTrue(message.contains("effects[1].type: duplicate LAUNCH"));
@@ -272,19 +272,19 @@ public class ContentRegistryTest {
             .getAsJsonObject();
         action.add(
             "edges",
-            JsonParser.parseString(
+            new JsonParser().parse(
                 "[{\"input\":\"LIGHT\",\"target\":\"test:thrust\",\"from\":1," + "\"until\":20,\"requires\":\"FLY\"},"
                     + "{\"input\":\"LIGHT\",\"target\":\"test:thrust\",\"from\":2,\"until\":3}]"));
         String message = invalid(source("edges.json", data)).getMessage();
         assertTrue(message.contains("edges[0].requires: expected GROUND or AIR"));
         assertTrue(message.contains("edges[0].until: out of range"));
         assertTrue(message.contains("edges[1].input: ambiguous overlapping input window"));
-        JsonObject extra = action.deepCopy();
+        JsonObject extra = JsonCompat.copy(action);
         extra.addProperty("id", "test:other");
         extra.add("edges", new JsonArray());
         action.add(
             "edges",
-            JsonParser.parseString("[{\"input\":\"LIGHT\",\"target\":\"test:other\",\"from\":1,\"until\":2}]"));
+            new JsonParser().parse("[{\"input\":\"LIGHT\",\"target\":\"test:other\",\"from\":1,\"until\":2}]"));
         data.getAsJsonArray("actions")
             .add(extra);
         assertTrue(
@@ -346,7 +346,7 @@ public class ContentRegistryTest {
         String hash = spear(original).manifest().gameplayHash;
         for (String field : new String[] { "startup", "active", "recovery", "damage", "reach", "arc", "distance",
             "speed", "lift", "sweepElevation" }) {
-            JsonObject changed = original.deepCopy();
+            JsonObject changed = JsonCompat.copy(original);
             JsonObject action = changed.getAsJsonArray("actions")
                 .get(0)
                 .getAsJsonObject();
@@ -363,11 +363,11 @@ public class ContentRegistryTest {
                     .getAsInt() + 1);
             assertNotEquals(field, hash, spear(changed).manifest().gameplayHash);
         }
-        JsonObject changed = original.deepCopy();
+        JsonObject changed = JsonCompat.copy(original);
         changed.getAsJsonArray("actions")
             .get(0)
             .getAsJsonObject()
-            .add("effects", JsonParser.parseString("[{\"type\":\"LAUNCH\",\"vy\":0.5}]"));
+            .add("effects", new JsonParser().parse("[{\"type\":\"LAUNCH\",\"vy\":0.5}]"));
         String launchHash = spear(changed).manifest().gameplayHash;
         assertNotEquals(hash, launchHash);
         changed.getAsJsonArray("actions")
@@ -379,7 +379,7 @@ public class ContentRegistryTest {
             .addProperty("vy", 0.6);
         assertNotEquals(launchHash, spear(changed).manifest().gameplayHash);
         for (String field : new String[] { "bufferTicks", "effectVelocityLimit" }) {
-            changed = original.deepCopy();
+            changed = JsonCompat.copy(original);
             changed.getAsJsonArray("styles")
                 .get(0)
                 .getAsJsonObject()
@@ -405,13 +405,13 @@ public class ContentRegistryTest {
         data.getAsJsonArray("actions")
             .get(0)
             .getAsJsonObject()
-            .add("damage", JsonParser.parseString("2.000e0"));
+            .add("damage", new JsonParser().parse("2.000e0"));
         data.getAsJsonArray("actions")
             .get(0)
             .getAsJsonObject()
             .addProperty("_comment", "ignored editorial comment");
         assertEquals(hash, spear(data).manifest().gameplayHash);
-        assertEquals("{\"a\":0,\"b\":2}", ContentManifest.canonical(JsonParser.parseString("{\"b\":2.00,\"a\":-0.0}")));
+        assertEquals("{\"a\":0,\"b\":2}", ContentManifest.canonical(new JsonParser().parse("{\"b\":2.00,\"a\":-0.0}")));
     }
 
     @Test
@@ -435,7 +435,7 @@ public class ContentRegistryTest {
             .getAsJsonObject();
         action.addProperty("reach", -1);
         action.addProperty("recovery", 0);
-        action.add("effects", JsonParser.parseString("[{\"type\":\"UNKNOWN\",\"vy\":-1}]"));
+        action.add("effects", new JsonParser().parse("[{\"type\":\"UNKNOWN\",\"vy\":-1}]"));
         action.addProperty("active", "broken");
         String message = invalid(source("mixed.json", data)).getMessage();
         assertTrue(message.contains("actions[0].active: expected finite int"));
@@ -465,7 +465,7 @@ public class ContentRegistryTest {
         data.getAsJsonArray("actions")
             .get(0)
             .getAsJsonObject()
-            .add("effects", JsonParser.parseString("[{\"type\":\"LAUNCH\"}]"));
+            .add("effects", new JsonParser().parse("[{\"type\":\"LAUNCH\"}]"));
         String message = invalid(source("resource.json", data)).getMessage();
         assertTrue(message.contains("resources[0].models.held: expected namespaced asset location"));
         assertTrue(message.contains("resources[0].models.stowed_empty: missing field"));
@@ -491,8 +491,8 @@ public class ContentRegistryTest {
     @Test
     public void hashesEveryEdgeFieldAndAllWeaponRules() throws Exception {
         JsonObject data = read("/content/spear.json");
-        JsonObject edge = JsonParser
-            .parseString("{\"input\":\"LIGHT\",\"target\":\"test:thrust\"," + "\"from\":1,\"until\":3}")
+        JsonObject edge = new JsonParser()
+            .parse("{\"input\":\"LIGHT\",\"target\":\"test:thrust\"," + "\"from\":1,\"until\":3}")
             .getAsJsonObject();
         data.getAsJsonArray("actions")
             .get(0)
@@ -501,7 +501,7 @@ public class ContentRegistryTest {
             .add(edge);
         String hash = spear(data).manifest().gameplayHash;
         for (String field : new String[] { "input", "from", "until", "hit", "damageHit", "requires" }) {
-            JsonObject changed = data.deepCopy();
+            JsonObject changed = JsonCompat.copy(data);
             JsonObject e = changed.getAsJsonArray("actions")
                 .get(0)
                 .getAsJsonObject()
@@ -517,11 +517,11 @@ public class ContentRegistryTest {
                     .getAsInt() + 1);
             assertNotEquals(field, hash, spear(changed).manifest().gameplayHash);
         }
-        JsonObject targetChange = data.deepCopy();
-        JsonObject other = targetChange.getAsJsonArray("actions")
-            .get(0)
-            .getAsJsonObject()
-            .deepCopy();
+        JsonObject targetChange = JsonCompat.copy(data);
+        JsonObject other = JsonCompat.copy(
+            targetChange.getAsJsonArray("actions")
+                .get(0)
+                .getAsJsonObject());
         other.addProperty("id", "test:other");
         other.add("edges", new JsonArray());
         targetChange.getAsJsonArray("actions")
@@ -530,7 +530,7 @@ public class ContentRegistryTest {
             .get(0)
             .getAsJsonObject()
             .getAsJsonArray("actions")
-            .add("test:other");
+            .add(new com.google.gson.JsonPrimitive("test:other"));
         String targetHash = spear(targetChange).manifest().gameplayHash;
         targetChange.getAsJsonArray("actions")
             .get(0)
@@ -541,11 +541,11 @@ public class ContentRegistryTest {
             .addProperty("target", "test:other");
         assertNotEquals(targetHash, spear(targetChange).manifest().gameplayHash);
         for (String field : new String[] { "poiseMultiplier", "costMultiplier", "saSlots", "effectSlots" }) {
-            JsonObject changed = data.deepCopy();
+            JsonObject changed = JsonCompat.copy(data);
             JsonObject weapon = changed.getAsJsonArray("weapons")
                 .get(0)
                 .getAsJsonObject();
-            if (field.endsWith("Slots")) weapon.add(field, JsonParser.parseString("[\"test:reserved\"]"));
+            if (field.endsWith("Slots")) weapon.add(field, new JsonParser().parse("[\"test:reserved\"]"));
             else weapon.addProperty(field, 2);
             assertNotEquals(field, hash, spear(changed).manifest().gameplayHash);
         }

@@ -29,7 +29,7 @@ public class ContentEntryTest {
     private static JsonObject read(String path) throws Exception {
         try (InputStream stream = ContentEntryTest.class.getResourceAsStream(path)) {
             assertNotNull(path, stream);
-            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8))
+            return new JsonParser().parse(new InputStreamReader(stream, StandardCharsets.UTF_8))
                 .getAsJsonObject();
         }
     }
@@ -141,7 +141,7 @@ public class ContentEntryTest {
         style.getAsJsonArray("styles")
             .get(0)
             .getAsJsonObject()
-            .add("entry", JsonParser.parseString(entryJson));
+            .add("entry", new JsonParser().parse(entryJson));
         return style;
     }
 
