@@ -358,3 +358,8 @@ if __name__ == "__main__":
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, "katana_sheathed.blend"))
     export(objs, os.path.join(OUT, "sheath.obj"))
     print("SHEATH tris", tris, bounds(os.path.join(OUT, "sheath.obj")))
+
+    # sheath without the hilt: drawn state (the katana is in the hand, the scabbard is empty)
+    objs, tris = new_model("sheath_empty", [(build_sheath, "saya")])
+    export(objs, os.path.join(OUT, "sheath_empty.obj"))
+    print("SHEATH_EMPTY tris", tris, bounds(os.path.join(OUT, "sheath_empty.obj")))
