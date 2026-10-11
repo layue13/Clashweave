@@ -49,10 +49,12 @@ public final class ActionCatalog {
         double effectVelocityLimit = 1.2;
         List<Definition> actions;
         List<String> deferred;
+        EntryRules entry;
     }
 
     private final Map<String, Definition> definitions = new LinkedHashMap<>();
     public final int bufferTicks;
+    private final EntryRules entry;
 
     public ActionCatalog(Reader reader) {
         this(reader, Double.NaN);
@@ -94,7 +96,7 @@ public final class ActionCatalog {
                 || definition.distance < 0
                 || definition.speed < 0
                 || definition.edges == null
-                || definitions.put(definition.id, definition) != null) {
+                || definitions.put(normalize(definition.id), definition) != null) {
                 throw new IllegalArgumentException("Invalid action definition");
             }
         }
@@ -103,7 +105,7 @@ public final class ActionCatalog {
                 if (edge == null
                     || edge.requires != null && !edge.requires.equals("GROUND") && !edge.requires.equals("AIR")
                     || edge.input == null
-                    || !definitions.containsKey(edge.target)
+                    || !definitions.containsKey(normalize(edge.target))
                     || edge.from < 0
                     || edge.until <= edge.from
                     || edge.until > definition.duration()) {
@@ -119,10 +121,61 @@ public final class ActionCatalog {
                 }
             }
         }
+        entry = data.entry == null ? EntryRules.legacyKatana(definitions.values()) : data.entry;
+        if (entry.ready == null || entry.entersReady == null || entry.entersSheathed == null)
+            throw new IllegalArgumentException("entry");
+        entry.ready = normalized(entry.ready);
+        if (entry.sheathed != null) entry.sheathed = normalized(entry.sheathed);
+        entry.entersReady = normalized(entry.entersReady);
+        entry.entersSheathed = normalized(entry.entersSheathed);
+        if (data.entry != null && entry.sheathed != null
+            && (entry.entersReady.isEmpty() || entry.entersSheathed.isEmpty()))
+            throw new IllegalArgumentException("entry: a sheathed state needs entersReady and entersSheathed");
+    }
+
+    private java.util.Map<Intent, String> normalized(java.util.Map<Intent, String> source) {
+        java.util.Map<Intent, String> result = new java.util.EnumMap<>(Intent.class);
+        for (java.util.Map.Entry<Intent, String> e : source.entrySet()) result.put(e.getKey(), member(e.getValue()));
+        return result;
+    }
+
+    private java.util.Set<String> normalized(java.util.Set<String> source) {
+        java.util.Set<String> result = new java.util.HashSet<>();
+        for (String id : source) result.add(member(id));
+        return result;
+    }
+
+    private String member(String id) {
+        String full = normalize(id);
+        if (!definitions.containsKey(full)) throw new IllegalArgumentException("entry: unknown action " + id);
+        return full;
+    }
+
+    public boolean hasSheathedState() {
+        return entry.sheathed != null;
+    }
+
+    public String entryTarget(boolean sheathed, Intent input) {
+        Map<Intent, String> state = sheathed ? entry.sheathed : entry.ready;
+        return state == null ? null : state.get(input);
+    }
+
+    public boolean entersReady(String id) {
+        return entry.entersReady.contains(normalize(id));
+    }
+
+    public boolean entersSheathed(String id) {
+        return entry.entersSheathed.contains(normalize(id));
+    }
+
+    /** Short IDs retain the legacy katana namespace, including on namespaced catalogs. */
+    public static String normalize(String id) {
+        if (id == null) throw new IllegalArgumentException("Missing action ID");
+        return id.indexOf(':') < 0 ? "katana:" + id : id;
     }
 
     public Definition get(String id) {
-        Definition definition = definitions.get(id);
+        Definition definition = definitions.get(normalize(id));
         if (definition == null) throw new IllegalArgumentException("Unknown action: " + id);
         return definition;
     }
@@ -142,6 +195,8 @@ public final class ActionCatalog {
     }
 
     public Map<String, Definition> all() {
-        return Collections.unmodifiableMap(definitions);
+        Map<String, Definition> result = new LinkedHashMap<>();
+        for (Definition definition : definitions.values()) result.put(definition.id, definition);
+        return Collections.unmodifiableMap(result);
     }
 }

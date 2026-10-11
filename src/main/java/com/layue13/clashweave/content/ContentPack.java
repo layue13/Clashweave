@@ -32,6 +32,7 @@ public final class ContentPack {
         public int bufferTicks = 4;
         public double effectVelocityLimit = 1.2;
         public List<String> actions;
+        public com.layue13.clashweave.core.EntryRules entry;
     }
 
     public static final class Animation {

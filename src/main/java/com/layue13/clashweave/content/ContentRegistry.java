@@ -22,6 +22,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import com.layue13.clashweave.core.ActionCatalog;
 import com.layue13.clashweave.core.HitEffect;
+import com.layue13.clashweave.core.Intent;
 
 /** Load on startup, then reuse indexed definitions and the cached manifest. Owns no IO lifecycle. */
 public final class ContentRegistry {
@@ -146,6 +147,8 @@ public final class ContentRegistry {
         JsonArray actions = new JsonArray();
         for (String id : style.actions) actions.add(entries.get("actions").get(id).deepCopy());
         data.add("actions", actions);
+        JsonObject entry = entries.get("styles").get(styleId).getAsJsonObject("entry");
+        data.add("entry", entry.deepCopy());
         return new ActionCatalog(new java.io.StringReader(data.toString()));
     }
 
@@ -244,6 +247,7 @@ public final class ContentRegistry {
                             qualifyArray(source.name, path, value, field, namespace);
                     } else if (category.equals("styles")) {
                         qualifyArray(source.name, path, value, "actions", namespace);
+                        qualifyEntry(source.name, path, value, namespace);
                     } else if (category.equals("actions") && value.has("edges") && value.get("edges").isJsonArray()) {
                         int edgeIndex = 0;
                         for (JsonElement edge : value.getAsJsonArray("edges")) {
@@ -275,6 +279,18 @@ public final class ContentRegistry {
 
         // Keep independent semantic checks running after type errors, without coercing invalid input.
         JsonElement sanitize(JsonElement value, Type type) {
+            if (type instanceof ParameterizedType && ((ParameterizedType) type).getRawType() == Map.class) {
+                JsonObject result = new JsonObject();
+                if (value != null && value.isJsonObject()) {
+                    Type[] args = ((ParameterizedType) type).getActualTypeArguments();
+                    for (Map.Entry<String, JsonElement> item : value.getAsJsonObject().entrySet()) {
+                        if (primitiveReason(new JsonPrimitive(item.getKey()), (Class<?>) args[0]) != null) continue;
+                        JsonElement clean = sanitize(item.getValue(), args[1]);
+                        if (!clean.isJsonNull()) result.add(item.getKey(), clean);
+                    }
+                }
+                return result;
+            }
             if (type instanceof ParameterizedType) {
                 JsonArray result = new JsonArray();
                 if (value != null && value.isJsonArray()) {
@@ -311,6 +327,9 @@ public final class ContentRegistry {
                         effect.getAsJsonObject(), "type", "vy");
                     i++;
                 }
+            } else if (category.equals("styles")) {
+                if (raw.has("entry") && raw.get("entry").isJsonObject())
+                    required(source, path + ".entry", raw.getAsJsonObject("entry"), "ready");
             } else if (category.equals("resources")) {
                 if (raw.has("mounts") && raw.get("mounts").isJsonArray()) {
                     int i = 0;
@@ -337,7 +356,7 @@ public final class ContentRegistry {
             if (category.equals("actions")) return new String[] { "id", "startup", "active", "recovery", "damage",
                 "reach", "arc", "distance", "speed", "edges" };
             if (category.equals("weapons")) return new String[] { "id", "style", "resource", "animation" };
-            if (category.equals("styles")) return new String[] { "id", "actions" };
+            if (category.equals("styles")) return new String[] { "id", "actions", "entry" };
             if (category.equals("animations")) return new String[] { "id", "preset" };
             return new String[] { "id", "models", "texture", "grip", "handGrips", "mounts" };
         }
@@ -357,6 +376,20 @@ public final class ContentRegistry {
             }
         }
 
+        void qualifyEntry(String source, String path, JsonObject style, String namespace) {
+            if (!style.has("entry") || !style.get("entry").isJsonObject()) return;
+            JsonObject entry = style.getAsJsonObject("entry");
+            for (String state : Arrays.asList("sheathed", "ready")) {
+                if (!entry.has(state) || !entry.get(state).isJsonObject()) continue;
+                JsonObject map = entry.getAsJsonObject(state);
+                for (String intent : new java.util.ArrayList<>(map.keySet()))
+                    if (map.get(intent).isJsonPrimitive())
+                        qualify(source, path + ".entry." + state + "." + intent, map, intent, namespace);
+            }
+            for (String field : Arrays.asList("entersReady", "entersSheathed"))
+                qualifyArray(source, path + ".entry", entry, field, namespace);
+        }
+
         void qualifyArray(String source, String path, JsonObject value, String field, String namespace) {
             if (!value.has(field) || !value.get(field).isJsonArray()) return;
             JsonArray array = value.getAsJsonArray(field);
@@ -372,6 +405,19 @@ public final class ContentRegistry {
         void shape(String source, String path, JsonElement value, Type type) {
             if (value == null || value.isJsonNull()) {
                 error(source, path, "null is not allowed; omit optional fields instead");
+                return;
+            }
+            if (type instanceof ParameterizedType && ((ParameterizedType) type).getRawType() == Map.class) {
+                if (!value.isJsonObject()) {
+                    error(source, path, "expected object");
+                    return;
+                }
+                Type[] args = ((ParameterizedType) type).getActualTypeArguments();
+                for (Map.Entry<String, JsonElement> item : value.getAsJsonObject().entrySet()) {
+                    String reason = primitiveReason(new JsonPrimitive(item.getKey()), (Class<?>) args[0]);
+                    if (reason != null) error(source, path + "." + item.getKey(), reason);
+                    else shape(source, path + "." + item.getKey(), item.getValue(), args[1]);
+                }
                 return;
             }
             if (type instanceof ParameterizedType) {
@@ -537,6 +583,27 @@ public final class ContentRegistry {
                     + " \"" + id + "\"");
         }
 
+        void entry(Record r, ContentPack.Style s, java.util.Set<String> members) {
+            if (s.entry == null) return;
+            if (s.entry.ready == null) return; // already reported as a missing field
+            for (String state : Arrays.asList("sheathed", "ready")) {
+                Map<Intent, String> map = state.equals("ready") ? s.entry.ready : s.entry.sheathed;
+                if (map != null) for (Map.Entry<Intent, String> e : map.entrySet())
+                    if (!members.contains(e.getValue())) error(r.source, r.path + ".entry." + state + "." + e.getKey(),
+                        "action \"" + e.getValue() + "\" is not in the style graph");
+            }
+            for (String field : Arrays.asList("entersReady", "entersSheathed")) {
+                java.util.Set<String> ids = field.equals("entersReady") ? s.entry.entersReady : s.entry.entersSheathed;
+                for (String id : ids) if (!members.contains(id))
+                    error(r.source, r.path + ".entry." + field, "action \"" + id + "\" is not in the style graph");
+            }
+            if (s.entry.sheathed != null && s.entry.entersReady.isEmpty())
+                error(r.source, r.path + ".entry.entersReady", "a sheathed state needs an action that enters ready");
+            if (s.entry.sheathed != null && s.entry.entersSheathed.isEmpty())
+                error(r.source, r.path + ".entry.entersSheathed", "a sheathed state needs an action that returns to it");
+            if (s.entry.ready.isEmpty()) error(r.source, r.path + ".entry.ready", "at least one ready-state input");
+        }
+
         void references() {
             for (Record r : records) {
                 if (r.category.equals("weapons")) {
@@ -569,6 +636,7 @@ public final class ContentRegistry {
                             if (!members.contains(edge.target)) error(r.source, r.path + ".actions[" + i + "]",
                                 id + ": edge target outside style graph \"" + edge.target + "\"");
                     }
+                    entry(r, s, members);
                 }
             }
         }

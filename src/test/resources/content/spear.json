@@ -15,7 +15,12 @@
       "id": "test:thrust",
       "actions": [
         "test:thrust"
-      ]
+      ],
+      "entry": {
+        "ready": { "LIGHT": "test:thrust" },
+        "entersReady": ["test:thrust"],
+        "entersSheathed": []
+      }
     }
   ],
   "actions": [
