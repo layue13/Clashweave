@@ -19,7 +19,9 @@ python tools/p0/test_view_metrics.py
 
 合成日志测试1项通过：失败→成功→漏发失败→未决分别统计为2失败/1成功/1未决，后续序列没有被吞掉。夹具编译通过。**真实Windows双客户端恢复路径尚未验证**，须在补偿A/B矩阵中验证，不能用合成汇总测试替代。
 
-## 构建门槛与暂时阻塞
+## 构建门槛与暂时阻塞（历史记录，已解决）
+
+后续用户允许仅格式修正；17b0f2d完整检查通过，107项JUnit、ping字段验证成立。固定0/100ms矩阵已执行，基线一次漏发后继续完成剩余五条，详见[Windows测量](COMBO-COMPENSATION-WINDOWS.md)。以下保留首次构建受阻记录，不替代最终结果。
 
 基线542ebab执行用户指定的Spotless、Checkstyle main/test、test --rerun、p0LaunchFiles命令通过，实际90项JUnit，0失败/错误/跳过。冻结baseline-542ebab.jar SHA256：`b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef`。
 
