@@ -166,13 +166,11 @@ public final class Scheduler {
             if (tick >= request.expires || origin != request.origin) {
                 results.add(new Result(request.sequence, "EXPIRED_OR_CHANGED", request.target));
                 iterator.remove();
-            } else if (request.edge == null
-                || (tick - current.start >= request.edge.from
-                    && tick - request.compensation - current.start < request.edge.until
-                    && (!request.edge.hit || current.confirmedHit))) {
-                        ready.add(request);
-                    } else
-                if (tick - request.compensation - current.start >= request.edge.until) {
+            } else if (request.edge == null || (tick - current.start >= request.edge.from
+                && tick - request.compensation - current.start < request.edge.until
+                && (!request.edge.hit || current.confirmedHit))) {
+                    ready.add(request);
+                } else if (tick - request.compensation - current.start >= request.edge.until) {
                     results.add(new Result(request.sequence, "WINDOW_CLOSED", request.target));
                     iterator.remove();
                 }
