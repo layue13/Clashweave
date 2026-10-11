@@ -14,6 +14,11 @@ import com.layue13.clashweave.core.ActionCatalog;
 public final class CombatConfig {
 
     public double presentationRange;
+    public double effectVelocityLimit;
+    public int controlCapacity, launchCost, launchProtectionTicks, controlResetTicks, controlExpiryTicks,
+        launchCreditTicks;
+    public boolean launchRequiresHit, launchRequiresGround, launchExcludeSwimming;
+    public String[] launchExemptEntities;
     public double multiplierMinimum;
     public double multiplierMaximum;
     public int maxResistance;
@@ -424,6 +429,55 @@ public final class CombatConfig {
         movementEpsilon = config.getFloat("movementEpsilon", "movement", 0.03f, 0, 0.5f, "Position tolerance");
         friendly = config.getBoolean("protectFriendly", "combat", true, "Villagers, tamed pets, team players");
         blocks = config.getBoolean("peacefulBlockInteraction", "input", true, "Block right click outside engagement");
+        effectVelocityLimit = config
+            .getFloat("effectVelocityLimit", "control", 1.2f, 0, 2, "Max effect/lift velocity, blocks per tick");
+        controlCapacity = config.getInt("capacity", "control", 3, 1, 20, "Shared control points per target chain");
+        launchCost = config
+            .getInt("launchCost", "control", 1, 1, controlCapacity, "Points spent on each accepted launch");
+        launchProtectionTicks = config.getInt(
+            "protectionTicks",
+            "control",
+            40,
+            1,
+            400,
+            "Anti-launch ticks after exhaustion; damage is unaffected");
+        controlResetTicks = config.getInt(
+            "groundQuietTicks",
+            "control",
+            20,
+            1,
+            200,
+            "Grounded and uncontrolled duration required to replenish");
+        controlExpiryTicks = config.getInt(
+            "chainExpiryTicks",
+            "control",
+            120,
+            controlResetTicks,
+            1200,
+            "Inactive chain retention; never replenishes in air");
+        launchCreditTicks = config.getInt(
+            "velocityCreditTicks",
+            "control",
+            60,
+            1,
+            400,
+            "Finite launch movement credit lifetime across action changes");
+        launchRequiresHit = config.getBoolean(
+            "requiresConfirmedHit",
+            "control",
+            true,
+            "Provisional launch route requires prior unblocked damage hit");
+        launchRequiresGround = config
+            .getBoolean("requiresGround", "control", true, "Provisional launch route is grounded only");
+        launchExcludeSwimming = config
+            .getBoolean("excludeSwimming", "control", true, "No launch for targets currently in water");
+        launchExemptEntities = config
+            .get(
+                "control",
+                "exemptEntities",
+                new String[] { "EnderDragon", "WitherBoss", "Ghast", "Blaze", "Bat", "Squid" },
+                "Bosses and native flying/water mobs; chickens remain launchable")
+            .getStringList();
         config.save();
         File data = new File(directory, CombatWeapons.DEFAULT.actionData + ".json");
         if (!data.exists()) {
@@ -437,7 +491,17 @@ public final class CombatConfig {
             }
         }
         try (InputStreamReader reader = new InputStreamReader(new FileInputStream(data), StandardCharsets.UTF_8)) {
-            actions = new ActionCatalog(reader);
+            actions = new ActionCatalog(reader, effectVelocityLimit);
+            for (ActionCatalog.Definition action : actions.all()
+                .values()) for (ActionCatalog.Edge edge : action.edges) {
+                    boolean launch = actions.get(edge.target).effects.stream()
+                        .anyMatch(effect -> effect.type == com.layue13.clashweave.core.HitEffect.Type.LAUNCH);
+                    if (launch) {
+                        edge.hit = launchRequiresHit;
+                        edge.damageHit = launchRequiresHit;
+                        if (!launchRequiresGround && "GROUND".equals(edge.requires)) edge.requires = null;
+                    }
+                }
         }
     }
 

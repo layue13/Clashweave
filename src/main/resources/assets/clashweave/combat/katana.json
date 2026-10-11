@@ -1,18 +1,200 @@
 {
   "bufferTicks": 4,
-  "deferred": ["launcher", "step_slash", "retreat_slash", "air_follow", "special", "mode", "dodge"],
-  "missingOriginalTiming": ["air_follow", "dodge", "mode", "perfect_counter_window_in_combat_cfg"],
+  "deferred": [
+    "step_slash",
+    "retreat_slash",
+    "air_follow",
+    "special",
+    "mode",
+    "dodge"
+  ],
+  "missingOriginalTiming": [
+    "air_follow",
+    "dodge",
+    "mode",
+    "perfect_counter_window_in_combat_cfg"
+  ],
   "actions": [
-    {"id":"iai", "startup":5,"active":2,"recovery":10,"damage":5,"reach":3.2,"arc":90,"distance":1.2,"speed":0.2,
-     "edges":[{"input":"LIGHT","target":"light_1","from":8,"until":13,"hit":true},{"input":"HEAVY","target":"heavy","from":9,"until":14,"hit":true},{"input":"SHEATHE","target":"sheathe","from":12,"until":17,"hit":true}]},
-    {"id":"light_1", "startup":4,"active":2,"recovery":7,"damage":3,"reach":2.5,"arc":120,"distance":0.3,"speed":0.1,
-     "edges":[{"input":"LIGHT","target":"light_2","from":7,"until":11,"hit":true},{"input":"HEAVY","target":"heavy","from":7,"until":11,"hit":true},{"input":"SHEATHE","target":"sheathe","from":9,"until":13,"hit":true}]},
-    {"id":"light_2", "startup":3,"active":2,"recovery":7,"damage":3,"reach":2.5,"arc":120,"distance":0.3,"speed":0.1,
-     "edges":[{"input":"LIGHT","target":"light_3","from":6,"until":10,"hit":true},{"input":"SHEATHE","target":"sheathe","from":8,"until":12,"hit":true}]},
-    {"id":"light_3", "startup":4,"active":2,"recovery":8,"damage":4,"reach":2.5,"arc":110,"distance":0.3,"speed":0.1,
-     "edges":[{"input":"SHEATHE","target":"sheathe","from":10,"until":14,"hit":true}]},
-    {"id":"heavy", "startup":5,"active":3,"recovery":9,"damage":6,"reach":2.8,"arc":90,"distance":0.5,"speed":0.1,
-     "edges":[{"input":"SHEATHE","target":"sheathe","from":13,"until":17,"hit":true}]},
-    {"id":"sheathe", "startup":0,"active":0,"recovery":8,"damage":0,"reach":0,"arc":0,"distance":0,"speed":0,"edges":[]}
-  ]
+    {
+      "id": "iai",
+      "startup": 5,
+      "active": 2,
+      "recovery": 10,
+      "damage": 5,
+      "reach": 3.2,
+      "arc": 90,
+      "distance": 1.2,
+      "speed": 0.2,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "light_1",
+          "from": 8,
+          "until": 13,
+          "hit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "heavy",
+          "from": 9,
+          "until": 14,
+          "hit": true
+        },
+        {
+          "input": "SHEATHE",
+          "target": "sheathe",
+          "from": 12,
+          "until": 17,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "light_1",
+      "startup": 4,
+      "active": 2,
+      "recovery": 7,
+      "damage": 3,
+      "reach": 2.5,
+      "arc": 120,
+      "distance": 0.3,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "light_2",
+          "from": 7,
+          "until": 11,
+          "hit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "heavy",
+          "from": 7,
+          "until": 11,
+          "hit": true
+        },
+        {
+          "input": "SHEATHE",
+          "target": "sheathe",
+          "from": 9,
+          "until": 13,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "light_2",
+      "startup": 3,
+      "active": 2,
+      "recovery": 7,
+      "damage": 3,
+      "reach": 2.5,
+      "arc": 120,
+      "distance": 0.3,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "light_3",
+          "from": 6,
+          "until": 10,
+          "hit": true
+        },
+        {
+          "input": "SHEATHE",
+          "target": "sheathe",
+          "from": 8,
+          "until": 12,
+          "hit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "launcher",
+          "from": 6,
+          "until": 10,
+          "hit": true,
+          "requires": "GROUND",
+          "damageHit": true
+        }
+      ]
+    },
+    {
+      "id": "light_3",
+      "startup": 4,
+      "active": 2,
+      "recovery": 8,
+      "damage": 4,
+      "reach": 2.5,
+      "arc": 110,
+      "distance": 0.3,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "SHEATHE",
+          "target": "sheathe",
+          "from": 10,
+          "until": 14,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "heavy",
+      "startup": 5,
+      "active": 3,
+      "recovery": 9,
+      "damage": 6,
+      "reach": 2.8,
+      "arc": 90,
+      "distance": 0.5,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "SHEATHE",
+          "target": "sheathe",
+          "from": 13,
+          "until": 17,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "sheathe",
+      "startup": 0,
+      "active": 0,
+      "recovery": 8,
+      "damage": 0,
+      "reach": 0,
+      "arc": 0,
+      "distance": 0,
+      "speed": 0,
+      "edges": []
+    },
+    {
+      "id": "launcher",
+      "startup": 5,
+      "active": 2,
+      "recovery": 10,
+      "damage": 4,
+      "reach": 2.6,
+      "arc": 80,
+      "distance": 0,
+      "speed": 0,
+      "lift": 0,
+      "sweepElevation": 20,
+      "effects": [
+        {
+          "type": "LAUNCH",
+          "vy": 0.6
+        }
+      ],
+      "edges": [],
+      "_comment": "P1-a provisional: upward elevation in degrees; lift is attacker velocity declaration only; LAUNCH vy blocks/tick. No posture or aerial chain."
+    }
+  ],
+  "_p1_notes": {
+    "launcher": "Timing/damage/geometry/launch are provisional configurable starts, not frozen. LIGHT light_2 edge remains unchanged.",
+    "lift": "0 by default; declared vertical velocity credits attacker envelope, no aerial chain or automatic jump in P1-a."
+  }
 }

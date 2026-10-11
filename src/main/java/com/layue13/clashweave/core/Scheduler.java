@@ -20,6 +20,7 @@ public final class Scheduler {
         public final ActionCatalog.Definition definition;
         private final Set<String> hits = new HashSet<>();
         public boolean confirmedHit;
+        public boolean confirmedDamageHit;
 
         Instance(long id, long start, int sequence, ActionCatalog.Definition definition) {
             this.id = id;
@@ -156,6 +157,10 @@ public final class Scheduler {
     }
 
     public void tick(long tick) {
+        tick(tick, true);
+    }
+
+    public void tick(long tick, boolean grounded) {
         // Expire before finishing the origin: a derivative must never become an idle request.
         List<Request> ready = new ArrayList<>();
         Iterator<Request> iterator = buffered.values()
@@ -166,14 +171,19 @@ public final class Scheduler {
             if (tick >= request.expires || origin != request.origin) {
                 results.add(new Result(request.sequence, "EXPIRED_OR_CHANGED", request.target));
                 iterator.remove();
-            } else if (request.edge == null || (tick - current.start >= request.edge.from
-                && tick - request.compensation - current.start < request.edge.until
-                && (!request.edge.hit || current.confirmedHit))) {
-                    ready.add(request);
-                } else if (tick - request.compensation - current.start >= request.edge.until) {
-                    results.add(new Result(request.sequence, "WINDOW_CLOSED", request.target));
+            } else if (request.edge != null && request.edge.requires != null
+                && (!grounded || request.edge.requires.equals("AIR"))) {
+                    results.add(new Result(request.sequence, "CONDITION_CHANGED", request.target));
                     iterator.remove();
-                }
+                } else if (request.edge == null || (tick - current.start >= request.edge.from
+                    && tick - request.compensation - current.start < request.edge.until
+                    && (!request.edge.hit || current.confirmedHit)
+                    && (!request.edge.damageHit || current.confirmedDamageHit))) {
+                        ready.add(request);
+                    } else if (tick - request.compensation - current.start >= request.edge.until) {
+                        results.add(new Result(request.sequence, "WINDOW_CLOSED", request.target));
+                        iterator.remove();
+                    }
         }
         ready.sort(Comparator.comparingInt(request -> request.sequence));
         if (!ready.isEmpty()) {

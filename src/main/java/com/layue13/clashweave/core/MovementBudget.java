@@ -9,6 +9,7 @@ public final class MovementBudget {
     private final double margin;
     private double path;
     private double vertical;
+    private double launchAllowance;
     private long sampled;
     private final double jump;
     private final double epsilon;
@@ -37,11 +38,22 @@ public final class MovementBudget {
         // Walking/jumping and server knockback have separate finite allowances.
         if (horizontalDelta > (speed + walkingSpeed) * batchTicks + externalHorizontal + epsilon
             || next > root + walkingSpeed * (ticks + margin) + externalHorizontal + epsilon
-            || nextY > jump + externalVertical) return false;
+            || nextY > jump + externalVertical + launchAllowance) return false;
         path = next;
         vertical = nextY;
         sampled = now;
         return true;
+    }
+
+    /** Delayed pre-impulse C03 ground flags cannot revoke a new velocity authorization. */
+    public static double remainingVertical(double credit, double previousY, double nextY, long tick, long expires) {
+        return tick >= expires ? 0 : Math.max(0, credit - Math.max(0, nextY - previousY));
+    }
+
+    /** Finite server-authorized launch/lift credit; does not enlarge walking or root allowances. */
+    public void creditVertical(double amount) {
+        if (!Double.isFinite(amount) || amount < 0) throw new IllegalArgumentException("vertical credit");
+        launchAllowance += amount;
     }
 
     public double path() {

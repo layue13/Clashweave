@@ -78,6 +78,18 @@ final class CombatPresentation {
         rememberHealth(target);
     }
 
+    void launch(EntityPlayer attacker, EntityLivingBase target, Scheduler.Instance action, long tick, long frozen) {
+        events.emit(
+            new SemanticEvents.Event(
+                SemanticEvents.Kind.LAUNCH,
+                target.getEntityId(),
+                attacker.getEntityId(),
+                action.id,
+                tick,
+                frozen,
+                action.definition.id));
+    }
+
     void nativeGuard(LivingHurtEvent event, int guard, long tick) {
         if (guard > 0) {
             NativeGuard result = new NativeGuard();

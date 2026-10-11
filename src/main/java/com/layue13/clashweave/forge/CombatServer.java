@@ -92,6 +92,8 @@ public final class CombatServer {
         public double externalHorizontal;
         public double externalVertical;
         public boolean pendingImpulse;
+        public double launchCredit, launchY;
+        public long launchCreditUntil;
         public final Map<EntityLivingBase, Long> contacts = new HashMap<>();
 
         PlayerState(EntityPlayerMP player, WeaponDefinition weapon, ActionCatalog actions) {
@@ -116,6 +118,7 @@ public final class CombatServer {
     private final CombatConfig config;
     private final CombatWeapons weapons;
     private final CombatPresentation presentation = new CombatPresentation();
+    private final HitEffects effects;
     private final ResistanceOwnership resistance;
     private final Map<UUID, PlayerState> states = new LinkedHashMap<>();
     private final List<Inbound> inbox = new ArrayList<>();
@@ -135,9 +138,11 @@ public final class CombatServer {
     public CombatServer(CombatConfig config) {
         this.config = config;
         weapons = new CombatWeapons(config);
+        effects = new HitEffects(config, presentation);
         resistance = new ResistanceOwnership(config.maxResistance);
         JsonObject data = new JsonObject();
         data.addProperty("bufferTicks", config.actions.bufferTicks);
+        data.addProperty("effectVelocityLimit", config.effectVelocityLimit);
         data.add(
             "actions",
             new Gson().toJsonTree(
@@ -218,6 +223,7 @@ public final class CombatServer {
     public void death(LivingDeathEvent event) {
         if (event.entityLiving.worldObj.isRemote) return;
         resistance.remove(event.entityLiving);
+        effects.remove(event.entityLiving);
         PlayerState state = event.entityLiving instanceof EntityPlayer ? state((EntityPlayer) event.entityLiving)
             : null;
         if (state != null) {
@@ -230,6 +236,7 @@ public final class CombatServer {
 
     private void remove(EntityPlayer player) {
         presentation.remove(player);
+        effects.remove(player);
         PlayerState state = states.remove(player.getUniqueID());
         if (state != null) state.scheduler.interrupt();
         resistance.remove(player);
@@ -241,6 +248,7 @@ public final class CombatServer {
 
     public void stop() {
         resistance.clear();
+        effects.clear();
         states.clear();
         pending.clear();
         synchronized (inbox) {
@@ -261,7 +269,13 @@ public final class CombatServer {
                 state -> state.player.getUniqueID()
                     .toString()));
         // Check the old envelope before an input can cancel/replace its action and discard that budget.
-        for (PlayerState state : ordered) validateMovement(state);
+        for (PlayerState state : ordered) {
+            validateMovement(state);
+            state.launchCredit = MovementBudget
+                .remainingVertical(state.launchCredit, state.launchY, state.player.posY, tick, state.launchCreditUntil);
+            state.launchY = state.player.posY;
+        }
+        effects.tick(tick);
         // The same lock registers arrivals and cuts off inputs for a commit. No world work on Netty.
         long cutoff;
         List<Inbound> arrived;
@@ -356,6 +370,8 @@ public final class CombatServer {
                     config.movementMargin,
                     config.jumpAllowance,
                     config.movementEpsilon);
+                state.movement.creditVertical(
+                    state.launchCredit + state.scheduler.current().definition.lift * config.impulseMultiplier);
                 state.x = input.player.posX;
                 state.y = input.player.posY;
                 state.z = input.player.posZ;
@@ -471,7 +487,7 @@ public final class CombatServer {
             state.scheduler.clearBuffer();
         }
         boolean wasSheathed = state.scheduler.sheathed();
-        state.scheduler.tick(tick);
+        state.scheduler.tick(tick, player.onGround);
         if (!wasSheathed && state.scheduler.sheathed()) presentation.sheathed(player, state.instance, tick);
         if (state.scheduler.current() == null) {
             WeaponDefinition resolved = weapons.resolve(player.getHeldItem());
@@ -714,7 +730,7 @@ public final class CombatServer {
                 previous,
                 next,
                 state.yaw,
-                state.pitch,
+                (float) (state.pitch - definition.sweepElevation),
                 config.sweepLayers,
                 config.sweepBottom,
                 config.sweepTop);
@@ -765,10 +781,19 @@ public final class CombatServer {
             hit = contact.target.attackEntityFrom(new CombatSource(contact.attacker.player), damage);
         }
         contact.instance.confirmedHit |= hit || guard > 0;
+        contact.instance.confirmedDamageHit |= hit && guard == 0;
         presentation
             .contact(contact.attacker.player, contact.target, contact.instance, tick, contact.frozen, hit, guard);
         if (guard == 2) defender.scheduler.openCounter(tick, config.counterWindow);
         if (defender != null && hit) creditImpulse(defender);
+        double launchCredit = effects
+            .apply(contact.attacker.player, contact.target, contact.instance, tick, contact.frozen, hit, guard);
+        if (defender != null && launchCredit > 0) {
+            defender.launchCredit += launchCredit;
+            defender.launchY = defender.player.posY;
+            defender.launchCreditUntil = tick + config.launchCreditTicks;
+            if (defender.movement != null) defender.movement.creditVertical(launchCredit);
+        }
         trace(
             "COMMIT player=" + contact.attacker.player.getCommandSenderName()
                 + " targetPlayer="

@@ -14,7 +14,8 @@ public final class SemanticEvents {
         PARRY,
         SHEATHE,
         DRAW,
-        HURT
+        HURT,
+        LAUNCH
     }
 
     public static final class Event {

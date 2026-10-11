@@ -18,6 +18,8 @@ public final class ActionCatalog {
         public int from;
         public int until;
         public boolean hit;
+        public boolean damageHit;
+        public String requires;
     }
 
     public static final class Definition {
@@ -31,6 +33,9 @@ public final class ActionCatalog {
         public double arc;
         public double distance;
         public double speed;
+        public double lift;
+        public double sweepElevation;
+        public List<HitEffect> effects = new java.util.ArrayList<>();
         public List<Edge> edges;
 
         public int duration() {
@@ -41,6 +46,7 @@ public final class ActionCatalog {
     private static final class Data {
 
         int bufferTicks;
+        double effectVelocityLimit = 1.2;
         List<Definition> actions;
         List<String> deferred;
     }
@@ -49,12 +55,29 @@ public final class ActionCatalog {
     public final int bufferTicks;
 
     public ActionCatalog(Reader reader) {
+        this(reader, Double.NaN);
+    }
+
+    public ActionCatalog(Reader reader, double velocityLimit) {
         Data data = new Gson().fromJson(reader, Data.class);
         if (data == null || data.actions == null || data.bufferTicks < 1) {
             throw new IllegalArgumentException("Missing action data");
         }
         bufferTicks = data.bufferTicks;
+        double maximum = Double.isNaN(velocityLimit) ? data.effectVelocityLimit : velocityLimit;
+        if (!Double.isFinite(maximum) || maximum < 0) throw new IllegalArgumentException("effectVelocityLimit");
         for (Definition definition : data.actions) {
+            if (definition == null || definition.effects == null
+                || !Double.isFinite(definition.lift)
+                || definition.lift < 0
+                || definition.lift > maximum
+                || !Double.isFinite(definition.sweepElevation)
+                || Math.abs(definition.sweepElevation) > 90)
+                throw new IllegalArgumentException("actions.lift/sweepElevation/effects");
+            for (HitEffect effect : definition.effects) {
+                if (effect == null) throw new IllegalArgumentException("actions.effects");
+                effect.validate(maximum);
+            }
             if (definition.id == null || definition.startup < 0
                 || definition.active < 0
                 || definition.recovery < 1
@@ -71,14 +94,18 @@ public final class ActionCatalog {
         }
         for (Definition definition : definitions.values()) {
             for (Edge edge : definition.edges) {
-                if (edge.input == null || !definitions.containsKey(edge.target)
+                if (edge == null
+                    || edge.requires != null && !edge.requires.equals("GROUND") && !edge.requires.equals("AIR")
+                    || edge.input == null
+                    || !definitions.containsKey(edge.target)
                     || edge.from < 0
                     || edge.until <= edge.from
                     || edge.until > definition.duration()) {
                     throw new IllegalArgumentException("Invalid edge in " + definition.id);
                 }
                 for (Edge other : definition.edges) {
-                    if (other != edge && other.input == edge.input
+                    if (other != null && other != edge
+                        && other.input == edge.input
                         && other.from < edge.until
                         && edge.from < other.until) {
                         throw new IllegalArgumentException("Ambiguous edge in " + definition.id);
