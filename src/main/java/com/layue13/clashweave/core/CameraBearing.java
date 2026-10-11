@@ -3,6 +3,8 @@ package com.layue13.clashweave.core;
 /** Render-only velocity estimate. Discontinuities discard prediction, never add an angular impulse. */
 public final class CameraBearing {
 
+    private static final double UNCONDITIONAL_JUMP_DISTANCE = 5;
+
     private boolean ready, lostHistory;
     private double previous, x, z, velocity, suppressed, rawSeconds, rawVx, rawVz;
 
@@ -26,12 +28,16 @@ public final class CameraBearing {
         double change = FacingHistory.difference((float) bearing, (float) previous);
         // Raw sample age is wall time, not the capped integration credit of a stalled render frame.
         rawSeconds += realSeconds;
-        boolean moved = Math.hypot(rawX - x, rawZ - z) > 1e-6;
-        // Compare with the last observed velocity, allowing ordinary batched position samples.
-        // An initially stationary target still has zero velocity and cannot explain a teleport.
+        double displacement = Math.hypot(rawX - x, rawZ - z);
+        boolean moved = displacement > 1e-6;
+        // Only excess displacement is evidence of a jump; stale arrival velocity can overpredict.
+        // Never let that velocity explain a >=5-block sample, the smallest required teleport.
+        // Keep the configured threshold as a lower bound for both checks.
         if (rawSeconds > .5) rawVx = rawVz = 0;
         boolean jump = !ready
-            || moved && Math.hypot(rawX - x - rawVx * rawSeconds, rawZ - z - rawVz * rawSeconds) > teleportDistance
+            || moved && displacement > teleportDistance
+                && (displacement >= UNCONDITIONAL_JUMP_DISTANCE
+                    || displacement - Math.hypot(rawVx, rawVz) * rawSeconds > teleportDistance)
             || Math.abs(change) > Math.max(30, maxSpeed * realSeconds * 2);
         suppressed = Math.max(0, suppressed - realSeconds);
         // A switched target keeps the position filter; its catch-up is not target velocity.

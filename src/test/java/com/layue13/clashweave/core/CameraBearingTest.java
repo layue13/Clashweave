@@ -7,6 +7,75 @@ import org.junit.Test;
 public class CameraBearingTest {
 
     @Test
+    public void delayedSampleSmallerThanVelocityPredictionIsNotJump() {
+        CameraBearing b = new CameraBearing();
+        b.lead(0, 0, 8, .01, .15, .1, 180, 3);
+        // Establish 39.6 blocks/s without reflection or a discontinuity.
+        assertTrue(b.lead(.9, .396, 8, .01, .15, .1, 180, 3) > 0);
+        assertTrue(b.lead(8.352, .396, 8, .0828, .15, .1, 180, 3) > 0);
+        // Sample age .101s, actual displacement .613, render interval 18.2ms,
+        // bearing change 1.012695 degrees: the old residual is 3.3866 blocks.
+        assertTrue(b.lead(9.364695, 1.009, 8, .0182, .15, .1, 180, 3) > 0);
+        assertTrue(b.lead(10.264695, 1.009, 8, .01, .15, .1, 180, 3) > 0);
+    }
+
+    @Test
+    public void teleportsSuppressRegardlessOfPreviousSampleSpeed() {
+        for (double speed : new double[] { 0, 12.57, 39.6, 500 }) {
+            for (double distance : new double[] { 5, 10, 30 }) {
+                for (int direction = 0; direction < 4; direction++) {
+                    CameraBearing b = new CameraBearing();
+                    double x = speed * .001;
+                    b.lead(0, 0, 8, .01, .15, .1, 180, 3);
+                    assertTrue(b.lead(.09, x, 8, .001, .15, .1, 180, 3) > 0);
+                    assertTrue(b.lead(7.542, x, 8, .0828, .15, .1, 180, 3) > 0);
+                    double nextX = x + (direction == 0 ? distance : direction == 1 ? -distance : 0);
+                    double nextZ = 8 + (direction == 2 ? distance : direction == 3 ? -distance : 0);
+                    String context = "speed=" + speed + " distance=" + distance + " direction=" + direction;
+                    assertEquals(context, 0, b.lead(8.554695, nextX, nextZ, .0182, .15, .1, 180, 3), 0);
+                    assertEquals(context, 0, b.lead(9.454695, nextX, nextZ, .01, .15, .1, 180, 3), 0);
+                    assertTrue(context, b.lead(76.954695, nextX, nextZ, .75, .15, .1, 180, 3, 1, .3) > 0);
+                }
+            }
+        }
+    }
+
+    @Test
+    public void batchedOrbitSamplesDoNotSuppressPrediction() {
+        CameraBearing b = new CameraBearing();
+        ThirdPersonCamera.Filter filter = new ThirdPersonCamera.Filter();
+        double angle = 0, x = 0, z = 8;
+        b.lead(0, x, z, .01, .15, .1, 180, 3);
+        // 90 degrees/s on radius 8: ten unchanged render samples, then two
+        // adjacent batches, each containing twice a 50ms server-tick displacement.
+        for (int i = 0; i < 1200; i++) {
+            int frame = i % 12;
+            double dt = frame < 10 ? .018 : .01;
+            if (frame >= 10) {
+                angle += 9;
+                x = -8 * Math.sin(Math.toRadians(angle));
+                z = 8 * Math.cos(Math.toRadians(angle));
+            }
+            filter.step(x, 0, z, dt, .1);
+            double goal = Math.toDegrees(Math.atan2(-filter.x, filter.z));
+            double lead = b.lead(goal, x, z, dt, .15, .1, 180, 3);
+            if (i >= 10) assertTrue("frame=" + i + " lead=" + lead, lead > 0);
+            assertTrue(Math.abs(lead) <= 45);
+        }
+    }
+
+    @Test
+    public void displacementThresholdRemainsStrict() {
+        for (double distance : new double[] { 3, 3.0001 }) {
+            CameraBearing b = new CameraBearing();
+            b.lead(0, 0, 8, .01, .15, .1, 180, 3);
+            double lead = b.lead(.9, distance, 8, .01, .15, .1, 180, 3);
+            if (distance == 3) assertTrue(lead > 0);
+            else assertEquals(0, lead, 0);
+        }
+    }
+
+    @Test
     public void uncappedIntervalDoesNotInflateVelocity() {
         CameraBearing b = new CameraBearing();
         b.lead(0, 0, 8, .01, .15, .1, 180, 3, 1, .3);
