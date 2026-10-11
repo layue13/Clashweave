@@ -1,0 +1,140 @@
+> Task :spotlessJava
+> Task :spotlessJavaApply
+> Task :spotlessKotlin UP-TO-DATE
+> Task :spotlessKotlinApply UP-TO-DATE
+> Task :spotlessMisc UP-TO-DATE
+> Task :spotlessMiscApply UP-TO-DATE
+> Task :spotlessScala UP-TO-DATE
+> Task :spotlessScalaApply UP-TO-DATE
+> Task :spotlessApply
+> Task :spotlessJavaCheck UP-TO-DATE
+> Task :spotlessKotlinCheck UP-TO-DATE
+> Task :spotlessMiscCheck UP-TO-DATE
+> Task :spotlessScalaCheck UP-TO-DATE
+> Task :spotlessCheck UP-TO-DATE
+> Task :compileInjectedInterfacesJava NO-SOURCE
+> Task :extractDependencyATs SKIPPED
+> Task :generateForgeSrgMappings SKIPPED
+> Task :downloadVanillaJars SKIPPED
+> Task :mergeVanillaSidedJars SKIPPED
+> Task :deobfuscateMergedJarToSrg SKIPPED
+> Task :downloadFernflower SKIPPED
+> Task :decompileSrgJar SKIPPED
+> Task :cleanupDecompSrgJar SKIPPED
+> Task :patchDecompiledJar SKIPPED
+> Task :applyJST SKIPPED
+> Task :remapDecompiledJar SKIPPED
+> Task :decompressDecompiledSources UP-TO-DATE
+> Task :processInjectedInterfacesResources NO-SOURCE
+> Task :injectedInterfacesClasses UP-TO-DATE
+> Task :compilePatchedMcJava UP-TO-DATE
+> Task :processPatchedMcResources UP-TO-DATE
+> Task :patchedMcClasses UP-TO-DATE
+> Task :compileApiJava NO-SOURCE
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses UP-TO-DATE
+> Task :injectTags UP-TO-DATE
+> Task :compileInjectedTagsJava UP-TO-DATE
+> Task :extractNatives2 UP-TO-DATE
+> Task :createMcLauncherFiles UP-TO-DATE
+> Task :compileMcLauncherJava UP-TO-DATE
+> Task :processInjectedTagsResources NO-SOURCE
+> Task :injectedTagsClasses UP-TO-DATE
+> Task :processMcLauncherResources NO-SOURCE
+> Task :mcLauncherClasses UP-TO-DATE
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :jar
+> Task :packageMcLauncher UP-TO-DATE
+> Task :packagePatchedMc UP-TO-DATE
+> Task :reobfJar
+> Task :sourcesJar
+> Task :assemble
+> Task :checkstyleApi NO-SOURCE
+> Task :compileCameraProbeJava
+> Task :processCameraProbeResources NO-SOURCE
+> Task :cameraProbeClasses
+> Task :compileIdeVirtualMainJava SKIPPED
+> Task :processIdeVirtualMainResources SKIPPED
+> Task :ideVirtualMainClasses SKIPPED
+> Task :checkstyleIdeVirtualMain SKIPPED
+> Task :checkstyleInjectedInterfaces NO-SOURCE
+> Task :checkstyleInjectedTags SKIPPED
+> Task :checkstyleMcLauncher SKIPPED
+> Task :checkstyleTest
+> Task :compileP0ValidationJava
+> Task :processP0ValidationResources NO-SOURCE
+> Task :p0ValidationClasses
+> Task :checkstylePatchedMc SKIPPED
+> Task :cameraProbeJar UP-TO-DATE
+> Task :p0ValidationJar UP-TO-DATE
+> Task :checkstyleMain
+> Task :checkstyleP0Validation
+> Task :checkstyleCameraProbe
+> Task :test
+AnimationLookupTest > lookupResolvesWeaponThenTypeThenGlobal PASSED
+AppearanceTest > onlyIdsRoundTripAndReachObservers PASSED
+AppearanceTest > pendingAppearanceWaitsForSafePointWithoutRestartOrHitReset PASSED
+AuthorityTest > sessionReplayFutureAndStaleRejectWithoutFallback PASSED
+AuthorityTest > tolerantGatePreservesOtherRejectsAndSequenceConsumption PASSED
+AuthorityTest > cumulativeBudgetAllowsBatchAfterLongTickButRejectsTeleportAndTotalOverflow PASSED
+AuthorityTest > guardRequiresBothClocksAndStrictArrivalBoundary PASSED
+AuthorityTest > shortEnvelopeCannotIdentifyModerateOverspeedWithinItsMargin PASSED
+AuthorityTest > futureToleranceClampsWithoutMovingGuardDeadlines PASSED
+CorrectionMarkersTest > oneShotAndTimeoutBoundary PASSED
+CorrectionMarkersTest > sequenceAndPositionDoNotCrossMatch PASSED
+CorrectionMarkersTest > reconnectHasIndependentSequenceAndCodec PASSED
+FacingHistoryTest > receiveTimestampExcludesLaterPacketsEvenIfDispatchIsDelayed PASSED
+FacingHistoryTest > forgedAnglesAndOldOrDistantHistoryFallBack PASSED
+FacingHistoryTest > snapshotUsesHistoryNotFutureSamples PASSED
+FacingHistoryTest > fastTurnsAndOlderMatchingSampleAreAccepted PASSED
+FacingHistoryTest > wrappedAnglesAndPositionOnlyPacketsRetainLook PASSED
+LockSelectionTest > acquireKeepHysteresis PASSED
+LockSelectionTest > balancesAngleAndDistanceAndStableTies PASSED
+LockSelectionTest > coneAndRangeIncludeBoundaryOnly PASSED
+LockSupportTest > markerRequiresArmedLiveInRangeAuthoritativeTarget PASSED
+LockSupportTest > strongMouseCannotAddUnboundedTurnOnTopOfFollowCredit PASSED
+LockSupportTest > weakYieldsImmediatelyAndRespectsActionDeadZoneBehindAndClockCaps PASSED
+LockSupportTest > automaticViewIsOneShotAndManualF5Wins PASSED
+LockSupportTest > strongOffsetsDecayAndF5ModesTransitionWithCapsDuringCommitment PASSED
+LockSupportTest > followStopsForGuiDisabledAndOcclusionAndClearsOffset PASSED
+LockSupportTest > f5RoundTripWithinOneTickStillPreventsAutomaticRestore PASSED
+LockSupportTest > assistanceHasConeCapWrapAndSafeDegenerateBehavior PASSED
+SchedulerTest > interruptionRejectsBoundEdge PASSED
+SchedulerTest > counterRequestExpiresWithoutFallingBackToIdleAttack PASSED
+SchedulerTest > latestValidRequestReplacesButInvalidDoesNotErase PASSED
+SchedulerTest > hitLedgerIsPerTargetAndSegmentAndClearsAtEnd PASSED
+SchedulerTest > guiClearsBufferedDerivativeButKeepsCurrentRecoveryAndLedger PASSED
+SchedulerTest > lateWireDerivativeAndStaleIdleCannotBecomeAnotherAttack PASSED
+SchedulerTest > frozenTradeSurvivesEveryTraversalPermutation PASSED
+SchedulerTest > expiredDerivativeNeverBecomesIdleAttack PASSED
+SchedulerTest > illegalNodesAndUnavailableLauncherReject PASSED
+SemanticEventsTest > presentationFailureCannotStopOtherSubscribers PASSED
+SemanticEventsTest > authoritativeEventsHaveStableOrderAndDoNotInventHits PASSED
+ThirdPersonCameraTest > springConvergesWithoutOvershootAndRespectsSpeed PASSED
+ThirdPersonCameraTest > springFrameRateAndCreditCap PASSED
+ThirdPersonCameraTest > compositionRecomputesWithFovAndAspect PASSED
+ThirdPersonCameraTest > flickWindowCooldownAndTwentySmallMotions PASSED
+ThirdPersonCameraTest > switchUsesSideRelativeToLockedTarget PASSED
+ThirdPersonCameraTest > exponentialFilterFrameRateAndAttenuation PASSED
+ThirdPersonCameraTest > thirdPersonHandoffPreservesFirstPersonMouseGraceAndCurrentView PASSED
+ThirdPersonCameraTest > targetHeightIsBoundedAroundComposition PASSED
+ThirdPersonCameraTest > horizonEnvelopeLimitsHeightWithinScreenTolerance PASSED
+WeaponResolverTest > registeredStaticItemIgnoresForgedDefinitionsInNbt PASSED
+WeaponResolverTest > serverCatalogRejectsUnknownStyleAndActionReference PASSED
+WeaponResolverTest > serverBoundsRejectNonfiniteOrOutOfRangeNumbers PASSED
+InputMessageTest > encodedLayoutMatchesReceiptObserverConstants PASSED
+StateMessageTest > inputEncodingPreservesObservedOriginAndRejectsTruncatedPacket PASSED
+StateMessageTest > semanticResultEncodingPreservesAuthorityOrderIdentity PASSED
+StateMessageTest > observerEncodingCannotMutateOrExposeOwnerCredentials PASSED
+FeedbackPolicyTest > partialBlockKeepsOneGuardCueAndUnblockedHitStillPlays PASSED
+> Task :check
+> Task :build
+> Task :downloadAssetManifest SKIPPED
+> Task :downloadVanillaAssets UP-TO-DATE
+> Task :p0LaunchFiles
+BUILD SUCCESSFUL in 5s

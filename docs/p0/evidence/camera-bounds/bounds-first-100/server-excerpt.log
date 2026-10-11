@@ -1,0 +1,6 @@
+# Bounded key excerpts; source line count: 5562
+[13:04:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=WAIT target=77510 tick=442
+[13:04:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=FIRST target=77510 tick=464
+[13:04:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=152748 maxNanos=1678700
+[13:04:45] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=143920 maxNanos=5481100
+[13:04:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:tick:30]: P0_NETWORK COMPLETE

@@ -1,0 +1,17 @@
+# Bounded key excerpts; source line count: 5548
+[13:15:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=WAIT target=81986 tick=443
+[13:15:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R2_H0.9 target=89511 tick=463
+[13:15:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=155921 maxNanos=4154100
+[13:16:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=112371 maxNanos=4154100
+[13:16:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R2_H1.8 target=112337 tick=583
+[13:16:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R2_H2.9 target=134430 tick=703
+[13:16:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R4_H0.9 target=156463 tick=823
+[13:16:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R4_H1.8 target=177781 tick=943
+[13:16:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R4_H2.9 target=199202 tick=1063
+[13:16:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R8_H0.9 target=221283 tick=1183
+[13:16:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R8_H1.8 target=243556 tick=1303
+[13:16:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_R8_H2.9 target=265997 tick=1423
+[13:16:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=OFF_R8_H1.8 target=287718 tick=1543
+[13:16:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_WALL target=309139 tick=1663
+[13:17:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:16]: P0_COMPOSITION_PHASE name=SOULS_CEILING target=331053 tick=1783
+[13:17:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:souls:40]: P0_NETWORK COMPLETE

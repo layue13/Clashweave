@@ -1,0 +1,63 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 5554
+# Marker counts: {'Exception': 171, 'ERROR': 2, 'P0_NETWORK': 3, ' CW INPUT': 4, 'P0_COMPOSITION_PHASE': 13, ' CW ENGAGEMENT': 1, ' CW LOCK': 1, ' CW ACK': 1, 'P0_PERF': 14, 'CW_EVENT': 11}
+# Special counts: {'complete:P0_NETWORK': 1}
+[Loaded java.lang.Exception from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.RuntimeException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ReflectiveOperationException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassNotFoundException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassCastException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArrayStoreException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.IllegalMonitorStateException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.Thread$UncaughtExceptionHandler from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.NullPointerException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArithmeticException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.InterruptedException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.security.PrivilegedExceptionAction from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[11:37:58] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[11:37:58] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[11:38:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:login:44]: P0_NETWORK login=P0A
+[11:38:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW INPUT player=P0A seq=1 kind=-2 target=-1 origin=0 stamp=259 effectiveStamp=259 receivedTick=259 consumedTick=260 arrival=103516308273800 gate=OK
+[11:38:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:login:44]: P0_NETWORK login=P0B
+[11:38:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW INPUT player=P0B seq=1 kind=-2 target=-1 origin=0 stamp=527 effectiveStamp=527 receivedTick=528 consumedTick=529 arrival=103528477234800 gate=OK
+[11:38:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW INPUT player=P0B seq=2 kind=-2 target=-1 origin=0 stamp=528 effectiveStamp=528 receivedTick=528 consumedTick=529 arrival=103528477255800 gate=OK
+[11:38:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=WAIT target=96902 tick=555
+[11:38:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW ENGAGEMENT player=P0A engaged=true revision=3 tick=556 sent=103529827875300
+[11:38:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW INPUT player=P0A seq=2 kind=5 target=-1 origin=0 stamp=574 effectiveStamp=574 receivedTick=574 consumedTick=575 arrival=103530767082100 gate=OK
+[11:38:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW LOCK_TARGET player=P0A target=96902 hint=-1
+[11:38:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:872]: CW ACK player=P0A seq=2 result=LOCK
+[11:38:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R2_H1.0 target=96902 tick=575
+[11:38:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=174545 maxNanos=4990600
+[11:38:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R2_H1.8 target=96902 tick=695
+[11:38:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=124488 maxNanos=4990600
+[11:38:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R2_H3.0 target=96902 tick=815
+[11:38:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=1 kind=HURT actor=0 target=-1 instance=0 tick=820
+[11:38:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=300 meanNanos=110600 maxNanos=4990600
+[11:38:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=2 kind=HURT actor=0 target=-1 instance=0 tick=835
+[11:38:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=3 kind=HURT actor=0 target=-1 instance=0 tick=847
+[11:38:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=4 kind=HURT actor=0 target=-1 instance=0 tick=862
+[11:38:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=5 kind=HURT actor=0 target=-1 instance=0 tick=867
+[11:38:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=6 kind=HURT actor=0 target=-1 instance=0 tick=874
+[11:38:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=7 kind=HURT actor=0 target=-1 instance=0 tick=889
+[11:38:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=8 kind=HURT actor=0 target=-1 instance=0 tick=894
+[11:38:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=9 kind=HURT actor=0 target=-1 instance=0 tick=901
+[11:38:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=10 kind=HURT actor=0 target=-1 instance=0 tick=913
+[11:38:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=400 meanNanos=108749 maxNanos=4990600
+[11:38:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=11 kind=HURT actor=0 target=-1 instance=0 tick=928
+[11:38:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R4_H1.0 target=96902 tick=935
+[11:38:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=500 meanNanos=99263 maxNanos=4990600
+[11:38:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R4_H1.8 target=96902 tick=1055
+[11:39:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=600 meanNanos=92029 maxNanos=4990600
+[11:39:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R4_H3.0 target=96902 tick=1175
+[11:39:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=700 meanNanos=86689 maxNanos=4990600
+[11:39:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R8_H1.0 target=96902 tick=1295
+[11:39:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=800 meanNanos=82689 maxNanos=4990600
+[11:39:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R8_H1.8 target=96902 tick=1415
+[11:39:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=900 meanNanos=80906 maxNanos=4990600
+[11:39:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1000 meanNanos=82182 maxNanos=4990600
+[11:39:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_R8_H3.0 target=96902 tick=1535
+[11:39:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1100 meanNanos=79246 maxNanos=4990600
+[11:39:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=OFF_R8_H1.8 target=96902 tick=1655
+[11:39:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1200 meanNanos=76817 maxNanos=4990600
+[11:39:35] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:phase:15]: P0_COMPOSITION_PHASE name=SOULS_WALL target=96902 tick=1775
+[11:39:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionScenario:souls:38]: P0_NETWORK COMPLETE

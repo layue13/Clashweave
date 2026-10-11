@@ -1,0 +1,10 @@
+# Bounded key excerpts; source line count: 5503
+[12:58:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=114206 maxNanos=1610800
+[12:58:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=102184 maxNanos=2442200
+[12:58:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:48]: P0_COMPOSITION_PHASE name=COMPARE_SOULS target=105374 tick=533
+[12:58:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:49]: P0_CAMERA_ENTITY phase=COMPARE_SOULS class=EntityZombie height=1.8 width=0.6
+[12:58:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:57]: P0_CAMERA_POSITION phase=COMPARE_SOULS actualRange=4.0 feetDelta=0.0
+[12:58:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:48]: P0_COMPOSITION_PHASE name=OFF_COMPARE target=129244 tick=653
+[12:58:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:49]: P0_CAMERA_ENTITY phase=OFF_COMPARE class=EntityZombie height=1.8 width=0.6
+[12:58:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:57]: P0_CAMERA_POSITION phase=OFF_COMPARE actualRange=4.0 feetDelta=0.0
+[12:58:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:32]: P0_NETWORK COMPLETE

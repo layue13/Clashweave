@@ -1,0 +1,22 @@
+{
+  "events": 130,
+  "contacts": 39,
+  "order_violations": 0,
+  "violations": [],
+  "observers": {
+    "P0A": {
+      "received": 130,
+      "received_order_violations": 0,
+      "expected_cues": 39,
+      "actual_cues": 39,
+      "cue_difference": 0
+    },
+    "P0B": {
+      "received": 117,
+      "received_order_violations": 0,
+      "expected_cues": 36,
+      "actual_cues": 36,
+      "cue_difference": 0
+    }
+  }
+}

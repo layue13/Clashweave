@@ -1,0 +1,8 @@
+{
+  "tests": 64,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "command": "JAVA_HOME=Zulu25 VERSION=0.1.0-dev gradlew spotlessApply spotlessCheck checkstyleMain checkstyleTest build -I tools/p0/validation.gradle p0LaunchFiles --no-configuration-cache --console=plain",
+  "output": "BUILD SUCCESSFUL in 4s; 38 actionable tasks: 7 executed, 31 up-to-date"
+}

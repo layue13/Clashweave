@@ -1,0 +1,752 @@
+{
+  "turns": [
+    {
+      "case": "1",
+      "turn": "45",
+      "yaw": "45.0",
+      "nano": "37760875567100"
+    },
+    {
+      "case": "2",
+      "turn": "90",
+      "yaw": "135.0",
+      "nano": "37762392554600"
+    },
+    {
+      "case": "3",
+      "turn": "180",
+      "yaw": "315.0",
+      "nano": "37763892715100"
+    },
+    {
+      "case": "4",
+      "turn": "45",
+      "yaw": "360.0",
+      "nano": "37765392762700"
+    },
+    {
+      "case": "5",
+      "turn": "90",
+      "yaw": "450.0",
+      "nano": "37766892716500"
+    },
+    {
+      "case": "6",
+      "turn": "180",
+      "yaw": "630.0",
+      "nano": "37768392525100"
+    },
+    {
+      "case": "7",
+      "turn": "45",
+      "yaw": "675.0",
+      "nano": "37769908403300"
+    },
+    {
+      "case": "8",
+      "turn": "90",
+      "yaw": "765.0",
+      "nano": "37771408427600"
+    },
+    {
+      "case": "9",
+      "turn": "180",
+      "yaw": "945.0",
+      "nano": "37772909229400"
+    },
+    {
+      "case": "10",
+      "turn": "45",
+      "yaw": "990.0",
+      "nano": "37774409030500"
+    },
+    {
+      "case": "11",
+      "turn": "90",
+      "yaw": "1080.0",
+      "nano": "37775909240700"
+    },
+    {
+      "case": "12",
+      "turn": "180",
+      "yaw": "1260.0",
+      "nano": "37777408607200"
+    },
+    {
+      "case": "13",
+      "turn": "45",
+      "yaw": "1305.0",
+      "nano": "37778908883800"
+    },
+    {
+      "case": "14",
+      "turn": "90",
+      "yaw": "1395.0",
+      "nano": "37780408754400"
+    },
+    {
+      "case": "15",
+      "turn": "180",
+      "yaw": "1575.0",
+      "nano": "37781908303000"
+    },
+    {
+      "case": "16",
+      "turn": "45",
+      "yaw": "1620.0",
+      "nano": "37783409228000"
+    },
+    {
+      "case": "17",
+      "turn": "90",
+      "yaw": "1710.0",
+      "nano": "37784908625200"
+    },
+    {
+      "case": "18",
+      "turn": "180",
+      "yaw": "1890.0",
+      "nano": "37786409339900"
+    },
+    {
+      "case": "19",
+      "turn": "45",
+      "yaw": "1935.0",
+      "nano": "37787908697800"
+    },
+    {
+      "case": "20",
+      "turn": "90",
+      "yaw": "2025.0",
+      "nano": "37789410134600"
+    },
+    {
+      "case": "21",
+      "turn": "180",
+      "yaw": "2205.0",
+      "nano": "37790908461200"
+    },
+    {
+      "case": "22",
+      "turn": "45",
+      "yaw": "2250.0",
+      "nano": "37792408126500"
+    },
+    {
+      "case": "23",
+      "turn": "90",
+      "yaw": "2340.0",
+      "nano": "37793896955200"
+    },
+    {
+      "case": "24",
+      "turn": "180",
+      "yaw": "2520.0",
+      "nano": "37795396525400"
+    }
+  ],
+  "requests": [
+    {
+      "player": "P0A",
+      "seq": "76",
+      "requested": "45.0",
+      "known": "45.0",
+      "chosen": "45.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "78",
+      "requested": "135.0",
+      "known": "135.0",
+      "chosen": "135.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "80",
+      "requested": "315.0",
+      "known": "315.0",
+      "chosen": "315.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "82",
+      "requested": "360.0",
+      "known": "0.0",
+      "chosen": "360.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "84",
+      "requested": "450.0",
+      "known": "90.0",
+      "chosen": "450.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "86",
+      "requested": "630.0",
+      "known": "270.0",
+      "chosen": "630.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "88",
+      "requested": "675.0",
+      "known": "315.0",
+      "chosen": "675.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "90",
+      "requested": "765.0",
+      "known": "45.0",
+      "chosen": "765.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "92",
+      "requested": "945.0",
+      "known": "225.0",
+      "chosen": "945.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "94",
+      "requested": "990.0",
+      "known": "270.0",
+      "chosen": "990.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "96",
+      "requested": "1080.0",
+      "known": "0.0",
+      "chosen": "1080.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "98",
+      "requested": "1260.0",
+      "known": "180.0",
+      "chosen": "1260.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "100",
+      "requested": "1305.0",
+      "known": "225.0",
+      "chosen": "1305.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "102",
+      "requested": "1395.0",
+      "known": "315.0",
+      "chosen": "1395.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "104",
+      "requested": "1575.0",
+      "known": "135.0",
+      "chosen": "1575.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "106",
+      "requested": "1620.0",
+      "known": "180.0",
+      "chosen": "1620.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "108",
+      "requested": "1710.0",
+      "known": "270.0",
+      "chosen": "1710.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "110",
+      "requested": "1890.0",
+      "known": "90.0",
+      "chosen": "1890.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "112",
+      "requested": "1935.0",
+      "known": "135.0",
+      "chosen": "1935.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "114",
+      "requested": "2025.0",
+      "known": "225.0",
+      "chosen": "2025.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "116",
+      "requested": "2205.0",
+      "known": "45.0",
+      "chosen": "2205.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "118",
+      "requested": "2250.0",
+      "known": "90.0",
+      "chosen": "2250.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "120",
+      "requested": "2340.0",
+      "known": "180.0",
+      "chosen": "2340.0",
+      "accepted": "true",
+      "reason": "OK"
+    },
+    {
+      "player": "P0A",
+      "seq": "122",
+      "requested": "2520.0",
+      "known": "0.0",
+      "chosen": "2520.0",
+      "accepted": "true",
+      "reason": "OK"
+    }
+  ],
+  "action_starts": [
+    {
+      "player": "P0A",
+      "id": "1",
+      "requested": "45.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "45.0",
+      "selected": "45.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "2",
+      "requested": "135.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "135.0",
+      "selected": "135.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "3",
+      "requested": "315.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "315.0",
+      "selected": "315.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "4",
+      "requested": "360.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "0.0",
+      "selected": "360.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "5",
+      "requested": "450.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "90.0",
+      "selected": "450.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "6",
+      "requested": "630.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "270.0",
+      "selected": "630.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "7",
+      "requested": "675.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "315.0",
+      "selected": "675.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "8",
+      "requested": "765.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "45.0",
+      "selected": "765.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "9",
+      "requested": "945.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "225.0",
+      "selected": "945.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "10",
+      "requested": "990.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "270.0",
+      "selected": "990.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "11",
+      "requested": "1080.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "0.0",
+      "selected": "1080.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "12",
+      "requested": "1260.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "180.0",
+      "selected": "1260.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "13",
+      "requested": "1305.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "225.0",
+      "selected": "1305.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "14",
+      "requested": "1395.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "315.0",
+      "selected": "1395.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "15",
+      "requested": "1575.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "135.0",
+      "selected": "1575.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "16",
+      "requested": "1620.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "180.0",
+      "selected": "1620.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "17",
+      "requested": "1710.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "270.0",
+      "selected": "1710.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "18",
+      "requested": "1890.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "90.0",
+      "selected": "1890.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "19",
+      "requested": "1935.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "135.0",
+      "selected": "1935.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "20",
+      "requested": "2025.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "225.0",
+      "selected": "2025.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "21",
+      "requested": "2205.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "45.0",
+      "selected": "2205.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "22",
+      "requested": "2250.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "90.0",
+      "selected": "2250.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "23",
+      "requested": "2340.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "180.0",
+      "selected": "2340.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    },
+    {
+      "player": "P0A",
+      "id": "24",
+      "requested": "2520.0",
+      "requestedPitch": "0.0",
+      "selectedPitch": "0.0",
+      "beforePitchDelta": "0.0",
+      "afterPitchDelta": "0.0",
+      "baseline": "0.0",
+      "selected": "2520.0",
+      "beforeDelta": "0.0",
+      "afterDelta": "0.0",
+      "accepted": "true"
+    }
+  ],
+  "fast_turn_count": 24,
+  "accepted": 24,
+  "fallback": 0,
+  "input_gate_rejections": [],
+  "overall_acceptance_rate": 1.0,
+  "evaluated_acceptance_rate": 1.0,
+  "counts_by_angle": {
+    "45": 8,
+    "90": 8,
+    "180": 8
+  },
+  "all_submitted_accounted_for": true,
+  "marked_packets": [],
+  "unmarked_packets": [
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "180.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "180.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "37747276651800"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "37749908192500"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "37750225479900"
+    }
+  ],
+  "marked_view_violations": 0,
+  "unmarked_vanilla_violations": 0,
+  "empty_hand": []
+}

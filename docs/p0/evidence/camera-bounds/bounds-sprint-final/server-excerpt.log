@@ -1,0 +1,31 @@
+# Bounded key excerpts; source line count: 5548
+[13:17:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=104870 maxNanos=847600
+[13:17:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=97593 maxNanos=2560400
+[13:17:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R2_H0.9 target=102278 tick=508
+[13:17:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R2_H0.9 class=EntitySpider height=0.9 width=1.4
+[13:17:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R2_H0.9 actualRange=2.0 feetDelta=0.0
+[13:17:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R2_H1.8 target=125236 tick=628
+[13:17:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R2_H1.8 class=EntityZombie height=1.8 width=0.6
+[13:17:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R2_H1.8 actualRange=2.0 feetDelta=0.0
+[13:17:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R2_H2.9 target=128609 tick=748
+[13:17:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R2_H2.9 class=EntityEnderman height=2.9 width=0.6
+[13:18:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R2_H2.9 actualRange=2.0 feetDelta=0.0
+[13:18:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R4_H0.9 target=128610 tick=868
+[13:18:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R4_H0.9 class=EntitySpider height=0.9 width=1.4
+[13:18:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R4_H0.9 actualRange=4.0 feetDelta=0.0
+[13:18:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R4_H1.8 target=128969 tick=988
+[13:18:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R4_H1.8 class=EntityZombie height=1.8 width=0.6
+[13:18:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R4_H1.8 actualRange=4.0 feetDelta=0.0
+[13:18:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R4_H2.9 target=128970 tick=1108
+[13:18:14] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R4_H2.9 class=EntityEnderman height=2.9 width=0.6
+[13:18:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R4_H2.9 actualRange=4.0 feetDelta=0.0
+[13:18:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R8_H0.9 target=128971 tick=1228
+[13:18:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R8_H0.9 class=EntitySpider height=0.9 width=1.4
+[13:18:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R8_H0.9 actualRange=8.0 feetDelta=0.0
+[13:18:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R8_H1.8 target=128972 tick=1348
+[13:18:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R8_H1.8 class=EntityZombie height=1.8 width=0.6
+[13:18:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R8_H1.8 actualRange=8.0 feetDelta=0.0
+[13:18:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:46]: P0_COMPOSITION_PHASE name=SPRINT_R8_H2.9 target=128973 tick=1468
+[13:18:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:47]: P0_CAMERA_ENTITY phase=SPRINT_R8_H2.9 class=EntityEnderman height=2.9 width=0.6
+[13:18:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:55]: P0_CAMERA_POSITION phase=SPRINT_R8_H2.9 actualRange=8.0 feetDelta=0.0
+[13:18:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CameraMatrixScenario:tick:31]: P0_NETWORK COMPLETE

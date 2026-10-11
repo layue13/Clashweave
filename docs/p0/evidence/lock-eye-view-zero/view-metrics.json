@@ -1,0 +1,923 @@
+{
+  "sequences": [
+    {
+      "sequence": 1,
+      "complete": true,
+      "began": 89508802542200,
+      "ended": 89510602940500,
+      "starts": [
+        {
+          "sequence": "1",
+          "instance": "1",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.368053",
+          "pitch": "-1.5961332",
+          "nano": "89508854799800"
+        },
+        {
+          "sequence": "1",
+          "instance": "2",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.797803",
+          "pitch": "-2.061442",
+          "nano": "89509257241600"
+        },
+        {
+          "sequence": "1",
+          "instance": "3",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.882677",
+          "pitch": "-2.4803064",
+          "nano": "89509606013500"
+        },
+        {
+          "sequence": "1",
+          "instance": "4",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.736598",
+          "pitch": "-2.8378627",
+          "nano": "89509903914700"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 2,
+      "complete": true,
+      "began": 89510802813600,
+      "ended": 89512203660600,
+      "starts": [
+        {
+          "sequence": "2",
+          "instance": "5",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "7.0057817",
+          "pitch": "-3.8685834",
+          "nano": "89510853254300"
+        },
+        {
+          "sequence": "2",
+          "instance": "6",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "5.9381332",
+          "pitch": "-4.1766458",
+          "nano": "89511202984800"
+        },
+        {
+          "sequence": "2",
+          "instance": "7",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "4.874502",
+          "pitch": "-4.3978133",
+          "nano": "89511504019800"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 3,
+      "complete": true,
+      "began": 89512303620100,
+      "ended": 89513707373500,
+      "starts": [
+        {
+          "sequence": "3",
+          "instance": "8",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "1.3416356",
+          "pitch": "-4.7684064",
+          "nano": "89512359639900"
+        },
+        {
+          "sequence": "3",
+          "instance": "9",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-0.22700046",
+          "pitch": "-4.799744",
+          "nano": "89512705062600"
+        },
+        {
+          "sequence": "3",
+          "instance": "10",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-1.5705842",
+          "pitch": "-4.768234",
+          "nano": "89513007179600"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 4,
+      "complete": true,
+      "began": 89513806505200,
+      "ended": 89515206715300,
+      "starts": [
+        {
+          "sequence": "4",
+          "instance": "11",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-5.1028333",
+          "pitch": "-4.3972225",
+          "nano": "89513857393100"
+        },
+        {
+          "sequence": "4",
+          "instance": "12",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-6.330692",
+          "pitch": "-4.1350207",
+          "nano": "89514208848800"
+        },
+        {
+          "sequence": "4",
+          "instance": "13",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-7.2332306",
+          "pitch": "-3.867741",
+          "nano": "89514506939000"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 5,
+      "complete": true,
+      "began": 89515306482200,
+      "ended": 89516706820100,
+      "starts": [
+        {
+          "sequence": "5",
+          "instance": "14",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-8.869378",
+          "pitch": "-2.9542186",
+          "nano": "89515357199200"
+        },
+        {
+          "sequence": "5",
+          "instance": "15",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-9.097563",
+          "pitch": "-2.5391803",
+          "nano": "89515707118500"
+        },
+        {
+          "sequence": "5",
+          "instance": "16",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-9.074737",
+          "pitch": "-2.1795597",
+          "nano": "89516007118900"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 6,
+      "complete": true,
+      "began": 89516807259900,
+      "ended": 89518207070700,
+      "starts": [
+        {
+          "sequence": "6",
+          "instance": "17",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-7.9367914",
+          "pitch": "-1.213742",
+          "nano": "89516857226300"
+        },
+        {
+          "sequence": "6",
+          "instance": "18",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-7.042854",
+          "pitch": "-0.8685858",
+          "nano": "89517207188300"
+        },
+        {
+          "sequence": "6",
+          "instance": "19",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-6.106909",
+          "pitch": "-0.609605",
+          "nano": "89517507398000"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 7,
+      "complete": true,
+      "began": 89518306477900,
+      "ended": 89519707317000,
+      "starts": [
+        {
+          "sequence": "7",
+          "instance": "20",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-2.8055153",
+          "pitch": "-0.10977182",
+          "nano": "89518357292800"
+        },
+        {
+          "sequence": "7",
+          "instance": "21",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-1.2691615",
+          "pitch": "-0.019716246",
+          "nano": "89518707713000"
+        },
+        {
+          "sequence": "7",
+          "instance": "22",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "0.07765174",
+          "pitch": "-3.4986643E-4",
+          "nano": "89519007511700"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 8,
+      "complete": true,
+      "began": 89519806502700,
+      "ended": 89521206506100,
+      "starts": [
+        {
+          "sequence": "8",
+          "instance": "23",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "3.770891",
+          "pitch": "-0.2347228",
+          "nano": "89519856924900"
+        },
+        {
+          "sequence": "8",
+          "instance": "24",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "5.125219",
+          "pitch": "-0.44809365",
+          "nano": "89520207205800"
+        },
+        {
+          "sequence": "8",
+          "instance": "25",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "6.1601706",
+          "pitch": "-0.6787341",
+          "nano": "89520506737400"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 9,
+      "complete": true,
+      "began": 89521307735200,
+      "ended": 89522707246400,
+      "starts": [
+        {
+          "sequence": "9",
+          "instance": "26",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.26338",
+          "pitch": "-1.5215434",
+          "nano": "89521357171100"
+        },
+        {
+          "sequence": "9",
+          "instance": "27",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.7089205",
+          "pitch": "-1.9238411",
+          "nano": "89521706961900"
+        },
+        {
+          "sequence": "9",
+          "instance": "28",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.876633",
+          "pitch": "-2.280722",
+          "nano": "89522007353800"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 10,
+      "complete": true,
+      "began": 89522806653000,
+      "ended": 89524206613200,
+      "starts": [
+        {
+          "sequence": "10",
+          "instance": "29",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.261185",
+          "pitch": "-3.2796974",
+          "nano": "89522856975700"
+        },
+        {
+          "sequence": "10",
+          "instance": "30",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "7.55885",
+          "pitch": "-3.65504",
+          "nano": "89523207325300"
+        },
+        {
+          "sequence": "10",
+          "instance": "31",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "6.769324",
+          "pitch": "-3.9466505",
+          "nano": "89523507289200"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 11,
+      "complete": true,
+      "began": 89524307132900,
+      "ended": 89525716533700,
+      "starts": [
+        {
+          "sequence": "11",
+          "instance": "32",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "3.7654808",
+          "pitch": "-4.5657196",
+          "nano": "89524357778200"
+        },
+        {
+          "sequence": "11",
+          "instance": "33",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "2.2921598",
+          "pitch": "-4.7126904",
+          "nano": "89524717714700"
+        },
+        {
+          "sequence": "11",
+          "instance": "34",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "0.74538356",
+          "pitch": "-4.7890115",
+          "nano": "89525067260100"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 12,
+      "complete": true,
+      "began": 89525816772800,
+      "ended": 89527267408700,
+      "starts": [
+        {
+          "sequence": "12",
+          "instance": "35",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-2.8112354",
+          "pitch": "-4.689502",
+          "nano": "89525868175200"
+        },
+        {
+          "sequence": "12",
+          "instance": "36",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-4.264926",
+          "pitch": "-4.529232",
+          "nano": "89526217505300"
+        },
+        {
+          "sequence": "12",
+          "instance": "37",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-5.4115753",
+          "pitch": "-4.3398476",
+          "nano": "89526517550800"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 13,
+      "complete": true,
+      "began": 89527316952600,
+      "ended": 89528617305700,
+      "starts": [
+        {
+          "sequence": "13",
+          "instance": "38",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-7.939752",
+          "pitch": "-3.5846205",
+          "nano": "89527374774900"
+        },
+        {
+          "sequence": "13",
+          "instance": "39",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-8.432586",
+          "pitch": "-3.315147",
+          "nano": "89527617056400"
+        },
+        {
+          "sequence": "13",
+          "instance": "40",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-8.852071",
+          "pitch": "-2.9733126",
+          "nano": "89527916865400"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 14,
+      "complete": true,
+      "began": 89528816906200,
+      "ended": 89530166825500,
+      "starts": [
+        {
+          "sequence": "14",
+          "instance": "41",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-8.867991",
+          "pitch": "-1.8439784",
+          "nano": "89528867640600"
+        },
+        {
+          "sequence": "14",
+          "instance": "42",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-8.371316",
+          "pitch": "-1.4459617",
+          "nano": "89529217333600"
+        },
+        {
+          "sequence": "14",
+          "instance": "43",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-7.7440114",
+          "pitch": "-1.1275579",
+          "nano": "89529517074600"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 15,
+      "complete": true,
+      "began": 89530316799500,
+      "ended": 89531767395600,
+      "starts": [
+        {
+          "sequence": "15",
+          "instance": "44",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-5.097841",
+          "pitch": "-0.40164337",
+          "nano": "89530367125700"
+        },
+        {
+          "sequence": "15",
+          "instance": "45",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-3.71704",
+          "pitch": "-0.20069975",
+          "nano": "89530716991300"
+        },
+        {
+          "sequence": "15",
+          "instance": "46",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-2.2261324",
+          "pitch": "-0.066934176",
+          "nano": "89531067121600"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 16,
+      "complete": true,
+      "began": 89531817136800,
+      "ended": 89533216783900,
+      "starts": [
+        {
+          "sequence": "16",
+          "instance": "47",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "1.3475538",
+          "pitch": "-0.031604342",
+          "nano": "89531867133500"
+        },
+        {
+          "sequence": "16",
+          "instance": "48",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "2.871511",
+          "pitch": "-0.13556464",
+          "nano": "89532217052300"
+        },
+        {
+          "sequence": "16",
+          "instance": "49",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "3.9068627",
+          "pitch": "-0.25243977",
+          "nano": "89532467070200"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 17,
+      "complete": true,
+      "began": 89533316726300,
+      "ended": 89534720765500,
+      "starts": [
+        {
+          "sequence": "17",
+          "instance": "50",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "7.0094504",
+          "pitch": "-0.9324324",
+          "nano": "89533367408000"
+        },
+        {
+          "sequence": "17",
+          "instance": "51",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "7.858775",
+          "pitch": "-1.2855093",
+          "nano": "89533721183000"
+        },
+        {
+          "sequence": "17",
+          "instance": "52",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.393749",
+          "pitch": "-1.6156791",
+          "nano": "89534021952800"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 18,
+      "complete": true,
+      "began": 89534820724100,
+      "ended": 89536269093400,
+      "starts": [
+        {
+          "sequence": "18",
+          "instance": "53",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.849547",
+          "pitch": "-2.6207232",
+          "nano": "89534870974300"
+        },
+        {
+          "sequence": "18",
+          "instance": "54",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.568473",
+          "pitch": "-3.0334477",
+          "nano": "89535220993300"
+        },
+        {
+          "sequence": "18",
+          "instance": "55",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "8.022221",
+          "pitch": "-3.4268186",
+          "nano": "89535571132900"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 19,
+      "complete": true,
+      "began": 89536319005400,
+      "ended": 89537768928100,
+      "starts": [
+        {
+          "sequence": "19",
+          "instance": "56",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "5.7106824",
+          "pitch": "-4.229892",
+          "nano": "89536419405300"
+        },
+        {
+          "sequence": "19",
+          "instance": "57",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "4.619767",
+          "pitch": "-4.441397",
+          "nano": "89536718951400"
+        },
+        {
+          "sequence": "19",
+          "instance": "58",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "3.4225745",
+          "pitch": "-4.6070547",
+          "nano": "89537018781900"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    },
+    {
+      "sequence": 20,
+      "complete": true,
+      "began": 89537819122500,
+      "ended": 89539168605800,
+      "starts": [
+        {
+          "sequence": "20",
+          "instance": "59",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-0.30465746",
+          "pitch": "-4.7993903",
+          "nano": "89537869464300"
+        },
+        {
+          "sequence": "20",
+          "instance": "60",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-1.8683795",
+          "pitch": "-4.7538195",
+          "nano": "89538219121000"
+        },
+        {
+          "sequence": "20",
+          "instance": "61",
+          "yawDelta": "0.0",
+          "pitchDelta": "0.0",
+          "yaw": "-3.1677973",
+          "pitch": "-4.657415",
+          "nano": "89538531925200"
+        }
+      ],
+      "position_packets": 0,
+      "max_yaw_delta": 0.0,
+      "max_pitch_delta": 0.0
+    }
+  ],
+  "complete_sequences": 20,
+  "action_starts": 61,
+  "position_packets_in_sequences": 0,
+  "max_start_yaw_delta": 0.0,
+  "max_start_pitch_delta": 0.0,
+  "all_position_packets": [
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "180.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "180.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89492738987000"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493178814400"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493179079900"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493179307700"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493179489000"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493179706100"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493179931900"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493180112600"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493180320400"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493180522000"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493180720100"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493180903900"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493181108600"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "89493561732800"
+    }
+  ],
+  "position_packet_view_violations": 0,
+  "all_position_packet_rotation_changes": 1,
+  "unmarked_rotating_packets": 1
+}

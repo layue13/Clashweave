@@ -1,0 +1,11 @@
+{
+  "reference": "3712f43 / docs/p0/evidence/souls and local souls-static-matrix aggregate",
+  "phases": {
+    "SOULS_WALL": {
+      "max_collision_fraction_step_all_frames": 0.013384799276310866
+    },
+    "SOULS_CEILING": {
+      "max_collision_fraction_step_all_frames": 0.06651931163246427
+    }
+  }
+}

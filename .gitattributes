@@ -3,6 +3,7 @@
 # Preserve whitespace in recorded native server warnings.
 docs/probes/round2/evidence/s1b-reentry/server.log -whitespace
 docs/probes/round2/evidence/**/*.log -whitespace
+docs/p0/evidence/**/*.log -whitespace
 
 *.[jJ][aA][rR]          binary
 

@@ -1,0 +1,242 @@
+# Bounded key excerpts; source line count: 12728
+[13:05:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=180.0 pitchDelta=0.0 requestedYawDelta=180.0 requestedPitchDelta=0.0 nano=108725416760800
+[13:05:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108725417650900
+[13:05:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_0 receivedNano=108742254861200
+[13:05:26] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_0 target=109766 tick=519
+[13:05:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_0 nano=108743204795600
+[13:05:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108745300972000
+[13:05:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_1 receivedNano=108745301289400
+[13:05:29] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_1 target=121911 tick=579
+[13:05:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_1 nano=108746252107600
+[13:05:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108748301102300
+[13:05:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_2 receivedNano=108748301496400
+[13:05:32] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_2 target=132952 tick=639
+[13:05:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_2 nano=108749251892300
+[13:05:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108751301730500
+[13:05:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_3 receivedNano=108751302054000
+[13:05:35] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_3 target=144581 tick=699
+[13:05:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_3 nano=108752251845800
+[13:05:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108754251416500
+[13:05:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_4 receivedNano=108754251772600
+[13:05:38] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_4 target=156258 tick=759
+[13:05:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_4 nano=108755201973800
+[13:05:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108757301700800
+[13:05:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_5 receivedNano=108757302010800
+[13:05:41] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_5 target=167383 tick=819
+[13:05:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_5 nano=108758251768300
+[13:05:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108760251328400
+[13:05:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_6 receivedNano=108760251641300
+[13:05:44] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_6 target=178016 tick=879
+[13:05:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_6 nano=108761201791600
+[13:05:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108763251198900
+[13:05:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_7 receivedNano=108763251502400
+[13:05:47] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_7 target=189035 tick=939
+[13:05:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_7 nano=108764201781100
+[13:05:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108766301097500
+[13:05:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_8 receivedNano=108766301423500
+[13:05:50] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_8 target=200172 tick=999
+[13:05:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_8 nano=108767251725900
+[13:05:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108769251276600
+[13:05:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_9 receivedNano=108769251595300
+[13:05:53] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_9 target=211381 tick=1059
+[13:05:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_9 nano=108770201775500
+[13:05:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108772301719400
+[13:05:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_10 receivedNano=108772302125300
+[13:05:56] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_10 target=222998 tick=1119
+[13:05:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_10 nano=108773252129100
+[13:05:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108775301040500
+[13:05:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_11 receivedNano=108775301461200
+[13:05:59] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_11 target=233487 tick=1179
+[13:06:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_11 nano=108776252570800
+[13:06:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108778301217600
+[13:06:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_12 receivedNano=108778301573700
+[13:06:02] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_12 target=244324 tick=1239
+[13:06:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_12 nano=108779251714800
+[13:06:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108781251159500
+[13:06:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_13 receivedNano=108781251534100
+[13:06:05] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_13 target=254873 tick=1299
+[13:06:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_13 nano=108782201528100
+[13:06:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108784251740900
+[13:06:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_14 receivedNano=108784252070800
+[13:06:08] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_14 target=265326 tick=1359
+[13:06:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_14 nano=108785202002600
+[13:06:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108787250913200
+[13:06:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_15 receivedNano=108787251400500
+[13:06:11] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_15 target=276847 tick=1419
+[13:06:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_15 nano=108788202153300
+[13:06:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108790301287300
+[13:06:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_16 receivedNano=108790301605600
+[13:06:14] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_16 target=288032 tick=1479
+[13:06:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_16 nano=108791252040400
+[13:06:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108793301155900
+[13:06:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_17 receivedNano=108793301431400
+[13:06:17] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_17 target=299193 tick=1539
+[13:06:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_17 nano=108794252130500
+[13:06:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108796301324600
+[13:06:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_18 receivedNano=108796301678600
+[13:06:20] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_18 target=310330 tick=1599
+[13:06:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_18 nano=108797251675100
+[13:06:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108799300938100
+[13:06:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_19 receivedNano=108799301281100
+[13:06:23] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_CHICKEN_19 target=321095 tick=1659
+[13:06:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_CHICKEN_19 nano=108800252335100
+[13:06:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108802301105800
+[13:06:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_20 receivedNano=108802301410200
+[13:06:26] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_20 target=332268 tick=1719
+[13:06:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_20 nano=108803252671300
+[13:06:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108805251213300
+[13:06:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_21 receivedNano=108805251535000
+[13:06:29] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_21 target=343765 tick=1779
+[13:06:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_21 nano=108806201937700
+[13:06:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108808251368400
+[13:06:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_22 receivedNano=108808251687400
+[13:06:32] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_22 target=355317 tick=1839
+[13:06:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_22 nano=108809201533900
+[13:06:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108811301418300
+[13:06:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_23 receivedNano=108811301720000
+[13:06:35] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_23 target=366406 tick=1899
+[13:06:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_23 nano=108812252048700
+[13:06:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108814250844200
+[13:06:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_24 receivedNano=108814251125100
+[13:06:38] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_24 target=377903 tick=1959
+[13:06:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_24 nano=108815201552500
+[13:06:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108817250981200
+[13:06:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_25 receivedNano=108817251263000
+[13:06:41] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_25 target=388668 tick=2019
+[13:06:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_25 nano=108818201536500
+[13:06:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108820301086600
+[13:06:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_26 receivedNano=108820301361400
+[13:06:44] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_26 target=399517 tick=2079
+[13:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_26 nano=108821251693500
+[13:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108823301721400
+[13:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_27 receivedNano=108823302069600
+[13:06:47] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_27 target=409910 tick=2139
+[13:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_27 nano=108824251999300
+[13:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108826251139400
+[13:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_28 receivedNano=108826251429700
+[13:06:50] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_28 target=420399 tick=2199
+[13:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_28 nano=108827201774900
+[13:06:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108829251271400
+[13:06:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_29 receivedNano=108829251566500
+[13:06:53] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_29 target=432016 tick=2259
+[13:06:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_29 nano=108830201532300
+[13:06:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108832251052500
+[13:06:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_30 receivedNano=108832251376900
+[13:06:56] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_30 target=442985 tick=2319
+[13:06:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_30 nano=108833201843500
+[13:06:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108835301050200
+[13:06:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_31 receivedNano=108835301322200
+[13:06:59] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_31 target=453690 tick=2379
+[13:07:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_31 nano=108836251780200
+[13:07:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108838300930900
+[13:07:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_32 receivedNano=108838301208700
+[13:07:02] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_32 target=464827 tick=2439
+[13:07:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_32 nano=108839251920700
+[13:07:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108841251360800
+[13:07:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_33 receivedNano=108841251803000
+[13:07:05] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_33 target=475496 tick=2499
+[13:07:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_33 nano=108842201632400
+[13:07:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108844301558800
+[13:07:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_34 receivedNano=108844301836800
+[13:07:08] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_34 target=486273 tick=2559
+[13:07:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_34 nano=108845252184900
+[13:07:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108847301162500
+[13:07:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_35 receivedNano=108847301441700
+[13:07:11] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_35 target=496762 tick=2619
+[13:07:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_35 nano=108848251792800
+[13:07:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108850301169200
+[13:07:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_36 receivedNano=108850301449600
+[13:07:14] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_36 target=507407 tick=2679
+[13:07:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_36 nano=108851252466500
+[13:07:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108853251159300
+[13:07:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_37 receivedNano=108853251424200
+[13:07:17] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_37 target=518666 tick=2739
+[13:07:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_37 nano=108854202495700
+[13:07:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108856301342500
+[13:07:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_38 receivedNano=108856301637500
+[13:07:20] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_38 target=529767 tick=2799
+[13:07:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_38 nano=108857252359400
+[13:07:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108859251115700
+[13:07:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_SPIDER_39 receivedNano=108859251631300
+[13:07:23] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_SPIDER_39 target=541204 tick=2859
+[13:07:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_SPIDER_39 nano=108860202470100
+[13:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108862300942600
+[13:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_40 receivedNano=108862301265300
+[13:07:26] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_40 target=552041 tick=2919
+[13:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_40 nano=108863251902200
+[13:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108865301262500
+[13:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_41 receivedNano=108865301652900
+[13:07:29] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_41 target=563238 tick=2979
+[13:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_41 nano=108866251975700
+[13:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108868300857700
+[13:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_42 receivedNano=108868301144200
+[13:07:32] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_42 target=573703 tick=3039
+[13:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_42 nano=108869252732400
+[13:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108871252047700
+[13:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_43 receivedNano=108871252309500
+[13:07:35] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_43 target=584396 tick=3099
+[13:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_43 nano=108872202112100
+[13:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108874300875400
+[13:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_44 receivedNano=108874301200800
+[13:07:38] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_44 target=595185 tick=3159
+[13:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_44 nano=108875251656500
+[13:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108877301137100
+[13:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_45 receivedNano=108877301443900
+[13:07:41] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_45 target=606322 tick=3219
+[13:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_45 nano=108878252083200
+[13:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108880251031300
+[13:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_46 receivedNano=108880251326100
+[13:07:44] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_46 target=617807 tick=3279
+[13:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_46 nano=108881201793400
+[13:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108883301089100
+[13:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_47 receivedNano=108883301343200
+[13:07:47] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_47 target=629076 tick=3339
+[13:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_47 nano=108884251745900
+[13:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108886301339700
+[13:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_48 receivedNano=108886301627100
+[13:07:50] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_48 target=640525 tick=3399
+[13:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_48 nano=108887251679000
+[13:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108889251144600
+[13:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_49 receivedNano=108889251412300
+[13:07:53] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_49 target=650966 tick=3459
+[13:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_49 nano=108890201927000
+[13:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108892251252200
+[13:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_50 receivedNano=108892251528700
+[13:07:56] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_50 target=661659 tick=3519
+[13:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_50 nano=108893201572900
+[13:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108895250863600
+[13:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_51 receivedNano=108895251192300
+[13:07:59] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_51 target=672688 tick=3579
+[13:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_51 nano=108896201527900
+[13:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108898301190000
+[13:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_52 receivedNano=108898301688600
+[13:08:02] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_52 target=684114 tick=3639
+[13:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_52 nano=108899251614700
+[13:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108901251189700
+[13:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_53 receivedNano=108901251591200
+[13:08:05] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_53 target=694999 tick=3699
+[13:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_53 nano=108902201731100
+[13:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108904251041400
+[13:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_54 receivedNano=108904251339600
+[13:08:08] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_54 target=706016 tick=3759
+[13:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_54 nano=108905201776300
+[13:08:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108907301149300
+[13:08:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_55 receivedNano=108907301448300
+[13:08:11] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_55 target=716565 tick=3819
+[13:08:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_55 nano=108908251911100
+[13:08:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108910251216400
+[13:08:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_56 receivedNano=108910251532900
+[13:08:14] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_56 target=727870 tick=3879
+[13:08:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_56 nano=108911201951100
+[13:08:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108913251497700
+[13:08:17] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_57 receivedNano=108913251787600
+[13:08:17] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_57 target=738959 tick=3939
+[13:08:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_57 nano=108914201707600
+[13:08:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108916251338700
+[13:08:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_58 receivedNano=108916251589000
+[13:08:20] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_58 target=750108 tick=3999
+[13:08:21] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_58 nano=108917201699900
+[13:08:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=108919300831300
+[13:08:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:chat:28]: P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_59 receivedNano=108919301086500
+[13:08:23] [Client thread/INFO]: [CHAT] P0_COMPOSITION_PHASE name=AUDIT_ZOMBIE_59 target=760753 tick=4059
+[13:08:24] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.CompositionReplay:tick:35]: P0_CAMERA_SWEEP_INPUT phase=AUDIT_ZOMBIE_59 nano=108920252160900

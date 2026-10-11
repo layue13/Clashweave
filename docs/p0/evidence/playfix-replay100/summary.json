@@ -1,0 +1,27 @@
+{
+  "server_exit": 0,
+  "client_class_loads": 0,
+  "complete": true,
+  "captures": [
+    "P0A\\screenshots\\p0-draw-0.png",
+    "P0A\\screenshots\\p0-draw-2.png",
+    "P0A\\screenshots\\p0-sheathe-0.png",
+    "P0A\\screenshots\\p0-sheathe-2.png",
+    "P0A\\screenshots\\p0-sheathed-0.png",
+    "P0A\\screenshots\\p0-sheathed-2.png",
+    "P0A\\screenshots\\p0-swing-0.png",
+    "P0A\\screenshots\\p0-swing-2.png"
+  ],
+  "performance": [
+    "[15:04:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=100 meanNanos=240088 maxNanos=2167100",
+    "[15:04:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=200 meanNanos=219612 maxNanos=2167100",
+    "[15:04:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=300 meanNanos=214578 maxNanos=2167100",
+    "[15:04:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=400 meanNanos=217781 maxNanos=6807400",
+    "[15:04:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=500 meanNanos=214930 maxNanos=6807400",
+    "[15:04:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=600 meanNanos=203827 maxNanos=6807400",
+    "[15:04:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=700 meanNanos=216927 maxNanos=12741300",
+    "[15:05:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=800 meanNanos=207822 maxNanos=12741300",
+    "[15:05:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=900 meanNanos=201712 maxNanos=12741300",
+    "[15:05:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:89]: P0_PERF samples=1000 meanNanos=199147 maxNanos=12741300"
+  ]
+}

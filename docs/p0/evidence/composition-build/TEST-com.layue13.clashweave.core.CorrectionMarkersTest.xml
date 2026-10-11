@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.layue13.clashweave.core.CorrectionMarkersTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-10T16:00:56.505Z" hostname="DESKTOP-NCOAQL3" time="0.0">
+  <properties/>
+  <testcase name="oneShotAndTimeoutBoundary" classname="com.layue13.clashweave.core.CorrectionMarkersTest" time="0.0"/>
+  <testcase name="sequenceAndPositionDoNotCrossMatch" classname="com.layue13.clashweave.core.CorrectionMarkersTest" time="0.0"/>
+  <testcase name="reconnectHasIndependentSequenceAndCodec" classname="com.layue13.clashweave.core.CorrectionMarkersTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

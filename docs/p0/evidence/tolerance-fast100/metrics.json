@@ -1,0 +1,873 @@
+{
+  "identities": {
+    "P0A": "0",
+    "P0B": "69289"
+  },
+  "contacts": 10,
+  "mob_extra_ticks": {
+    "count": 9,
+    "minimum": 0,
+    "maximum": 0,
+    "mean": 0.0
+  },
+  "mob_commit_ms": {
+    "count": 9,
+    "minimum": 0.1712,
+    "maximum": 0.4947,
+    "mean": 0.2711444444444444
+  },
+  "guard_violations": 0,
+  "deadline_violations": 0,
+  "freeze_to_commit": {
+    "count": 10,
+    "minimum": 0.1712,
+    "maximum": 199.6832,
+    "mean": 20.21235
+  },
+  "feedback": {
+    "receive": {
+      "count": 11,
+      "minimum": 74.3291,
+      "maximum": 277.4311,
+      "mean": 121.03337272727272
+    },
+    "frame": {
+      "count": 11,
+      "minimum": 75.611,
+      "maximum": 278.4592,
+      "mean": 122.79261818181818
+    },
+    "audio_source": {
+      "count": 10,
+      "minimum": 74.7021,
+      "maximum": 277.6865,
+      "mean": 105.77934
+    }
+  },
+  "input_gate_rejects": [
+    {
+      "player": "P0A",
+      "seq": "1",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "196",
+      "effectiveStamp": "196",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345315885100",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "2",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "197",
+      "effectiveStamp": "197",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345315957200",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "3",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "198",
+      "effectiveStamp": "198",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345315973800",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "4",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "199",
+      "effectiveStamp": "199",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345315987200",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "5",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "200",
+      "effectiveStamp": "200",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345315998400",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "6",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "201",
+      "effectiveStamp": "201",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345316008800",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "7",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "202",
+      "effectiveStamp": "202",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345316022000",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "8",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "203",
+      "effectiveStamp": "203",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345316035200",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "9",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "204",
+      "effectiveStamp": "204",
+      "receivedTick": "224",
+      "consumedTick": "225",
+      "arrival": "39345316046200",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "10",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "205",
+      "effectiveStamp": "205",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371450800",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "11",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "206",
+      "effectiveStamp": "206",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371498600",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "12",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "207",
+      "effectiveStamp": "207",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371512300",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "13",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "208",
+      "effectiveStamp": "208",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371524400",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "14",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "209",
+      "effectiveStamp": "209",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371535400",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "15",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "210",
+      "effectiveStamp": "210",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371544600",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "16",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "211",
+      "effectiveStamp": "211",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371823700",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "17",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "212",
+      "effectiveStamp": "212",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371853700",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "18",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "213",
+      "effectiveStamp": "213",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371883500",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "19",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "214",
+      "effectiveStamp": "214",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371892900",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "20",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "215",
+      "effectiveStamp": "215",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371902600",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "21",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "216",
+      "effectiveStamp": "216",
+      "receivedTick": "225",
+      "consumedTick": "226",
+      "arrival": "39345371911900",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "22",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "217",
+      "effectiveStamp": "217",
+      "receivedTick": "226",
+      "consumedTick": "227",
+      "arrival": "39345422130700",
+      "gate": "STALE",
+      "type": "INPUT"
+    },
+    {
+      "player": "P0A",
+      "seq": "52",
+      "kind": "-2",
+      "target": "-1",
+      "origin": "0",
+      "stamp": "226",
+      "effectiveStamp": "226",
+      "receivedTick": "228",
+      "consumedTick": "229",
+      "arrival": "39345519410500",
+      "gate": "RATE",
+      "type": "INPUT"
+    }
+  ],
+  "acknowledgements": [
+    {
+      "player": "P0A",
+      "seq": "1",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "2",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "3",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "4",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "5",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "6",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "7",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "8",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "9",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "10",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "11",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "12",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "13",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "14",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "15",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "16",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "17",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "18",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "19",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "20",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "21",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "22",
+      "result": "REJECT:STALE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "52",
+      "result": "REJECT:RATE",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "54",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "55",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "56",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "57",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "58",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "59",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "60",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "61",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "62",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "63",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "64",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "65",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "66",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "67",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "68",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "69",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "70",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "71",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "72",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "73",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "74",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "75",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "76",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "77",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "78",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "79",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "80",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "81",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "82",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "83",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "84",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "85",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "86",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "87",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "88",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "89",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "90",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "91",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "92",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "93",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "94",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "95",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "96",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "97",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "98",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "99",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "100",
+      "result": "START",
+      "type": "ACK"
+    },
+    {
+      "player": "P0A",
+      "seq": "101",
+      "result": "MOVE_READY",
+      "type": "ACK"
+    }
+  ],
+  "mob_feedback": {
+    "receive": {
+      "count": 9,
+      "minimum": 74.3291,
+      "maximum": 92.9292,
+      "mean": 86.36862222222221
+    },
+    "frame": {
+      "count": 9,
+      "minimum": 75.611,
+      "maximum": 96.5929,
+      "mean": 88.26374444444444
+    },
+    "audio_source": {
+      "count": 9,
+      "minimum": 74.7021,
+      "maximum": 93.2,
+      "mean": 86.67854444444444
+    }
+  },
+  "aim": {
+    "samples": 24,
+    "accepted": 24,
+    "known_yaw_deviation": {
+      "count": 24,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    },
+    "selected_yaw_deviation": {
+      "count": 24,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    },
+    "old_horizontal_pitch_deviation": {
+      "count": 24,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    },
+    "selected_pitch_deviation": {
+      "count": 24,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0
+    }
+  },
+  "local_swing_dispatch_ms": {
+    "count": 24,
+    "minimum": 0.2656,
+    "maximum": 4.6767,
+    "mean": 0.5091625000000001
+  },
+  "local_audio_source_ms": {
+    "count": 24,
+    "minimum": 0.0937,
+    "maximum": 0.3126,
+    "mean": 0.135375
+  },
+  "action_execution": {
+    "legal": 24,
+    "executed": 24,
+    "rate": 1.0,
+    "invalid": 0,
+    "invalid_executed": 0
+  },
+  "prediction": {
+    "alignments": 24,
+    "backwards": 0,
+    "forwards": 0,
+    "same": 24,
+    "hard_corrections_max": 0
+  }
+}

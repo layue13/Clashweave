@@ -1,0 +1,31 @@
+{
+  "phases": {},
+  "horizon": {},
+  "mouse": [],
+  "flick_cases": [],
+  "first_person": {
+    "WEAK": {
+      "count": 190,
+      "max_written_delta": 9.0,
+      "yaw_first": "35.0",
+      "yaw_last": "8.0"
+    },
+    "MOUSE": {
+      "count": 5,
+      "max_written_delta": 0.0,
+      "yaw_first": "13.0",
+      "yaw_last": "13.0"
+    },
+    "COMMITTED": {
+      "count": 7,
+      "max_written_delta": 0.0,
+      "yaw_first": "8.0",
+      "yaw_last": "8.0"
+    }
+  },
+  "server_switches": [],
+  "stationary_trials": 0,
+  "small_trials": 0,
+  "client_flicks": [],
+  "small_or_stationary_false_triggers": 0
+}

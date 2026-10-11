@@ -1,0 +1,31 @@
+> Task :spotlessJava
+> Task :spotlessJavaApply
+> Task :spotlessKotlin UP-TO-DATE
+> Task :spotlessKotlinApply UP-TO-DATE
+> Task :spotlessMisc UP-TO-DATE
+> Task :spotlessMiscApply UP-TO-DATE
+> Task :spotlessScala UP-TO-DATE
+> Task :spotlessScalaApply UP-TO-DATE
+> Task :spotlessApply
+> Task :spotlessJavaCheck UP-TO-DATE
+> Task :spotlessKotlinCheck UP-TO-DATE
+> Task :spotlessMiscCheck UP-TO-DATE
+> Task :spotlessScalaCheck UP-TO-DATE
+> Task :spotlessCheck UP-TO-DATE
+> Task :checkstyleTest
+> Task :checkstyleMain
+CameraConstraintsTest > batchedContinuousPositionsDoNotRemainInTeleportSuppression PASSED
+CameraConstraintsTest > sizeLimitsAndFallbackNeverEscapeHardBounds PASSED
+CameraConstraintsTest > projectionFovIncludesDynamicScale PASSED
+CameraConstraintsTest > bearingPredictionConvergesAtNinetyAndRejectsTeleport PASSED
+CameraConstraintsTest > openFieldNeverHidesEvenWithPreviousHiddenState PASSED
+CameraConstraintsTest > stalledRenderUsesWallSampleAgeButKeepsIntegrationCapped PASSED
+CameraConstraintsTest > steadyOrbitLagIsLessThanThreeDegrees PASSED
+SoulsCompositionTest > closeCameraModelHidingIsLocalScopedAndHasHysteresis PASSED
+SoulsCompositionTest > oldPresetMigratesInsteadOfThrowingOnStartup PASSED
+SoulsCompositionTest > collisionSmoothingCannotCrossNewSafetyLimit PASSED
+SoulsCompositionTest > configNonfiniteValuesFallBackAndDistanceIsBounded PASSED
+SoulsCompositionTest > configReadsAllCameraValuesAndOnlyOffSouls PASSED
+SoulsCompositionTest > configDefaultsAreEmpiricalStarts PASSED
+SoulsCompositionTest > newBoundsAndSizeConfigurationAreReadAndOrdered PASSED
+BUILD SUCCESSFUL in 5s

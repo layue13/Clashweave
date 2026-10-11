@@ -1,0 +1,7 @@
+{
+  "tests": 36,
+  "failures": 0,
+  "errors": 0,
+  "build": "history-marker-build10: BUILD SUCCESSFUL in 5s; fixture supplement build11: BUILD SUCCESSFUL in 3s",
+  "command": "JAVA_HOME=Zulu25 VERSION=0.1.0-dev gradlew.bat spotlessApply spotlessCheck checkstyleMain checkstyleTest build -I tools/p0/validation.gradle p0LaunchFiles --no-configuration-cache"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.layue13.clashweave.core.FacingHistoryTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-09T23:11:46.984Z" hostname="DESKTOP-NCOAQL3" time="0.0">
+  <properties/>
+  <testcase name="batchOfSmallForgedTurnsCannotResetWallClockTurnBudget" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <testcase name="forgedAnglesAndOldOrDistantHistoryFallBack" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <testcase name="snapshotUsesHistoryNotFutureSamples" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <testcase name="wrappedAnglesAndPositionOnlyPacketsRetainLook" classname="com.layue13.clashweave.core.FacingHistoryTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

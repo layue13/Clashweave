@@ -1,0 +1,141 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 6359
+# Marker counts: {'Exception': 171, 'ERROR': 2, 'P0_NETWORK': 3, ' CW ENGAGEMENT': 2, ' CW INPUT': 221, ' CW ACK': 196, ' CW FACING': 63, ' CW START': 61, ' CW AIM': 61, 'CW_EVENT': 138, ' CW FREEZE': 43, ' CW COMMIT': 43, 'P0_PREP': 60, ' CW LOCK': 1, 'P0_PERF': 10}
+[Loaded java.lang.Exception from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.RuntimeException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ReflectiveOperationException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassNotFoundException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassCastException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArrayStoreException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.IllegalMonitorStateException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.Thread$UncaughtExceptionHandler from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.NullPointerException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArithmeticException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.InterruptedException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.security.PrivilegedExceptionAction from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[17:25:26] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[17:25:26] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:login:44]: P0_NETWORK login=P0A
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ENGAGEMENT player=P0A engaged=true revision=2 tick=210 sent=37962047413800
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=1 kind=-2 target=-1 origin=0 stamp=211 receivedTick=232 consumedTick=233 arrival=37962618565300 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=1 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=2 kind=-2 target=-1 origin=0 stamp=212 receivedTick=232 consumedTick=233 arrival=37962618628200 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=2 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=3 kind=-2 target=-1 origin=0 stamp=213 receivedTick=232 consumedTick=233 arrival=37962618643400 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=3 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=4 kind=-2 target=-1 origin=0 stamp=214 receivedTick=232 consumedTick=233 arrival=37962618655200 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=4 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=5 kind=-2 target=-1 origin=0 stamp=215 receivedTick=232 consumedTick=233 arrival=37962618665400 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=5 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=6 kind=-2 target=-1 origin=0 stamp=216 receivedTick=232 consumedTick=233 arrival=37962618674900 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=6 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=7 kind=-2 target=-1 origin=0 stamp=217 receivedTick=232 consumedTick=233 arrival=37962618694200 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=7 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=8 kind=-2 target=-1 origin=0 stamp=218 receivedTick=232 consumedTick=233 arrival=37962618705500 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=8 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=9 kind=-2 target=-1 origin=0 stamp=219 receivedTick=232 consumedTick=233 arrival=37962618714800 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=9 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=10 kind=-2 target=-1 origin=0 stamp=220 receivedTick=232 consumedTick=233 arrival=37962618724000 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=10 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=11 kind=-2 target=-1 origin=0 stamp=221 receivedTick=232 consumedTick=233 arrival=37962618735900 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=11 result=REJECT:STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW INPUT player=P0A seq=12 kind=-2 target=-1 origin=0 stamp=222 receivedTick=232 consumedTick=233 arrival=37962618749300 gate=STALE
+[17:25:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ACK player=P0A seq=12 result=REJECT:STALE
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=36 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=1 action=iai tick=314
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=1 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=1 kind=DRAW actor=0 target=-1 instance=1 tick=314
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=2 kind=SWING actor=0 target=-1 instance=1 tick=314
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=false target=1 id=1 hitTick=320 frozen=37966959683500
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=3 kind=HIT actor=0 target=1 instance=1 tick=320
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=4 kind=HURT actor=1 target=0 instance=1 tick=320
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=false target=1 id=1 hitTick=320 commitTick=320 frozen=37966959683500 cutoff=37966960018200 guard=0 damage=5.0 hit=true hp=189.4 facing=true
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=38 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=2 action=light_1 tick=323
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=2 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=5 kind=SWING actor=0 target=-1 instance=2 tick=323
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=false target=1 id=2 hitTick=328 frozen=37967357902700
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=6 kind=HIT actor=0 target=1 instance=2 tick=328
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=7 kind=HURT actor=1 target=0 instance=2 tick=328
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=false target=1 id=2 hitTick=328 commitTick=328 frozen=37967357902700 cutoff=37967358170500 guard=0 damage=3.0 hit=true hp=186.56 facing=true
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=40 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=3 action=light_2 tick=331
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=3 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=8 kind=SWING actor=0 target=-1 instance=3 tick=331
+[17:25:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=42 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=43 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=44 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=4 action=light_1 tick=360
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=4 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=9 kind=SWING actor=0 target=-1 instance=4 tick=360
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=false target=1 id=4 hitTick=365 frozen=37969207322200
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=10 kind=HIT actor=0 target=1 instance=4 tick=365
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=11 kind=HURT actor=1 target=0 instance=4 tick=365
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=false target=1 id=4 hitTick=365 commitTick=365 frozen=37969207322200 cutoff=37969207551500 guard=0 damage=3.0 hit=true hp=182.8 facing=true
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=46 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=5 action=heavy tick=368
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=5 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.SemanticDispatcher:publish:33]: CW_EVENT id=12 kind=SWING actor=0 target=-1 instance=5 tick=368
+[17:25:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=48 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=6 action=heavy tick=410
+[17:25:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=6 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:login:44]: P0_NETWORK login=P0B
+[17:25:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0A afterInstance=6
+[17:25:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0B afterInstance=6
+[17:25:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=50 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=7 action=sheathe tick=436
+[17:25:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=7 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0A afterInstance=7
+[17:25:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0B afterInstance=7
+[17:25:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW LOCK_TARGET player=P0B target=0 hint=0
+[17:25:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW ENGAGEMENT player=P0B engaged=true revision=4 tick=451 sent=37973511930200
+[17:25:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=52 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=8 action=iai tick=461
+[17:25:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=8 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=8 hitTick=466 frozen=37974258707200
+[17:25:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=54 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=8 hitTick=466 commitTick=470 frozen=37974258707200 cutoff=37974459512200 guard=2 damage=0.0 hit=false hp=200.0 facing=true
+[17:25:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=9 action=light_1 tick=471
+[17:25:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=9 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=9 hitTick=475 frozen=37974708381300
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FACING player=P0A seq=56 requested=0.0 known=0.0 chosen=0.0 accepted=true reason=OK
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=9 hitTick=475 commitTick=479 frozen=37974708381300 cutoff=37974908261700 guard=1 damage=0.75 hit=false hp=200.0 facing=true
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=10 action=light_2 tick=480
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=10 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=10 hitTick=483 frozen=37975108307100
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=10 hitTick=483 commitTick=486 frozen=37975108307100 cutoff=37975259751600 guard=1 damage=0.75 hit=true hp=199.25 facing=true
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=11 action=light_3 tick=487
+[17:25:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=11 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:26:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0A afterInstance=11
+[17:26:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0B afterInstance=11
+[17:26:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW START player=P0A id=12 action=heavy tick=511
+[17:26:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW AIM player=P0A id=12 requested=0.0 requestedPitch=0.0 selectedPitch=0.0 beforePitchDelta=0.0 afterPitchDelta=0.0 baseline=0.0 selected=0.0 beforeDelta=0.0 afterDelta=0.0 accepted=true
+[17:26:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=12 hitTick=516 frozen=37976758851500
+[17:26:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=12 hitTick=516 commitTick=520 frozen=37976758851500 cutoff=37976958134100 guard=2 damage=0.0 hit=false hp=199.25 facing=true
+[17:26:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=100 meanNanos=344532 maxNanos=2686000
+[17:26:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0A afterInstance=12
+[17:26:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0B afterInstance=12
+[17:26:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0A afterInstance=13
+[17:26:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0B afterInstance=13
+[17:26:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=14 hitTick=566 frozen=37979258409000
+[17:26:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=14 hitTick=566 commitTick=570 frozen=37979258409000 cutoff=37979458024700 guard=2 damage=0.0 hit=false hp=200.0 facing=true
+[17:26:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=15 hitTick=575 frozen=37979709203500
+[17:26:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=15 hitTick=575 commitTick=578 frozen=37979709203500 cutoff=37979859368100 guard=2 damage=0.0 hit=false hp=200.0 facing=true
+[17:26:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=16 hitTick=584 frozen=37980158572300
+[17:26:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=16 hitTick=584 commitTick=587 frozen=37980158572300 cutoff=37980309527900 guard=1 damage=1.5 hit=true hp=198.5 facing=true
+[17:26:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0A afterInstance=16
+[17:26:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:98]: P0_PREP player=P0B afterInstance=16
+[17:26:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=17 hitTick=616 frozen=37981759785100
+[17:26:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=17 hitTick=616 commitTick=620 frozen=37981759785100 cutoff=37981959151400 guard=2 damage=0.0 hit=false hp=198.5 facing=true
+[17:26:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=200 meanNanos=298270 maxNanos=2686000
+[17:26:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW FREEZE player=P0A targetPlayer=true target=67250 id=19 hitTick=666 frozen=37984260231600
+[17:26:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.CombatServer:trace:786]: CW COMMIT player=P0A targetPlayer=true target=67250 id=19 hitTick=666 commitTick=670 frozen=37984260231600 cutoff=37984458146300 guard=2 damage=0.0 hit=false hp=198.5 facing=true
+[17:26:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=300 meanNanos=277197 maxNanos=2686000
+[17:26:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=400 meanNanos=265667 maxNanos=2686000
+[17:26:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=500 meanNanos=260739 maxNanos=2686000
+[17:26:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=600 meanNanos=270371 maxNanos=12604200
+[17:26:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=700 meanNanos=261896 maxNanos=12604200
+[17:26:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=800 meanNanos=260402 maxNanos=12604200
+[17:26:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=900 meanNanos=272563 maxNanos=13091400
+[17:26:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:105]: P0_PERF samples=1000 meanNanos=266618 maxNanos=13091400
+[17:26:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.NetworkScenario:tick:107]: P0_NETWORK COMPLETE

@@ -1,0 +1,39 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 5039
+# Marker counts: {'Exception': 162, 'ERROR': 2, 'P0_ASSERT': 18, 'P0_TIMER': 3, 'P0_SERVER_CHECK': 1}
+[Loaded java.lang.Exception from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.RuntimeException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ReflectiveOperationException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassNotFoundException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ClassCastException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArrayStoreException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.IllegalMonitorStateException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.Thread$UncaughtExceptionHandler from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.NullPointerException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.ArithmeticException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.lang.InterruptedException from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[Loaded java.security.PrivilegedExceptionAction from C:\Program Files\Zulu\zulu-8\jre\lib\rt.jar]
+[11:09:23] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[11:09:23] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT twoOwners=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT firstHit=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT gap4Hit1=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT gap4Hit2=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT threeHitsLoss6=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT oneOwnerRemains=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT restore20=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT externalWritePreserved=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT dimensionRestore=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:firstEqualHit:139]: P0_TIMER max=20 firstEqualAccepted=10
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT vanillaEqualSourceWindow10=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:firstEqualHit:139]: P0_TIMER max=8 firstEqualAccepted=4
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT engagedEqualSourceWindow4=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT entityOverrideSeesPersistent8=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT overrideExceptionNoExtraDamageOrTransientReset=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT overrideExitRestore=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT observedForeignOwnershipDoesNotReturnWhenValueMatchesAgain=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT entryKeepsOldTimer20=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT oldTimerRejectsEqualDamage=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:firstEqualHit:139]: P0_TIMER max=8 firstEqualAccepted=16
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:require:47]: P0_ASSERT oldTimerTransitionFirstEqual16=true
+[11:09:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Validation:tick:130]: P0_SERVER_CHECK COMPLETE

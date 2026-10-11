@@ -1,0 +1,149 @@
+{
+  "attempts": [
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-static",
+      "classification": "Development scaled-entity fixture, not accepted real-entity matrix; expansion regression found.",
+      "motion_x_quantiles": {}
+    },
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-real",
+      "classification": "Legacy spider AI affected static positioning; superseded by controlled real matrix.",
+      "motion_x_quantiles": {}
+    },
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-motion-0",
+      "classification": "Mixed motion stress: target change/reposition and synchronous screenshot inside sample window; retained, not substituted for isolated uniform motion.",
+      "motion_x_quantiles": {
+        "MOTION_45": {
+          "median": 0.003763735294342041,
+          "p95": 0.012197911739349365
+        },
+        "MOTION_90": {
+          "median": 0.008974134922027588,
+          "p95": 0.08968281745910645
+        },
+        "MOTION_STRAFE": {
+          "median": 0.018915235996246338,
+          "p95": 0.019900083541870117
+        }
+      }
+    },
+    {
+      "server_exit": 1,
+      "complete": false,
+      "client_class_loads": 0,
+      "label": "bounds-motion-100",
+      "classification": "First client login timeout; no gameplay samples, cause unconfirmed."
+    },
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-sprint",
+      "classification": "Development scaled-entity fixture, superseded by real-entity sprint matrix.",
+      "motion_x_quantiles": {}
+    },
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-motion-final-0",
+      "classification": "Mixed motion stress: target change/reposition and synchronous screenshot inside sample window; retained, not substituted for isolated uniform motion.",
+      "motion_x_quantiles": {
+        "MOTION_45": {
+          "median": 0.003415405750274658,
+          "p95": 0.0347476601600647
+        },
+        "MOTION_90": {
+          "median": 0.00719025731086731,
+          "p95": 0.09377419948577881
+        },
+        "MOTION_STRAFE": {
+          "median": 0.01897752285003662,
+          "p95": 0.024132192134857178
+        }
+      }
+    },
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-motion-final-100",
+      "classification": "Mixed motion stress: target change/reposition and synchronous screenshot inside sample window; retained, not substituted for isolated uniform motion.",
+      "motion_x_quantiles": {
+        "MOTION_45": {
+          "median": 0.0033690333366394043,
+          "p95": 0.014108389616012573
+        },
+        "MOTION_90": {
+          "median": 0.010298728942871094,
+          "p95": 0.09126609563827515
+        },
+        "MOTION_STRAFE": {
+          "median": 0.018255174160003662,
+          "p95": 0.02337515354156494
+        }
+      }
+    },
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-static-final",
+      "classification": "Spawn-before-final-placement left client targets at 8 blocks; measured range exposed invalid fixture.",
+      "motion_x_quantiles": {}
+    },
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-motion-clock-0",
+      "classification": "Mixed motion stress: target change/reposition and synchronous screenshot inside sample window; retained, not substituted for isolated uniform motion.",
+      "motion_x_quantiles": {
+        "MOTION_45": {
+          "median": 0.0033308565616607666,
+          "p95": 0.008028984069824219
+        },
+        "MOTION_90": {
+          "median": 0.0071266889572143555,
+          "p95": 0.09762704372406006
+        },
+        "MOTION_STRAFE": {
+          "median": 0.018350183963775635,
+          "p95": 0.024000465869903564
+        }
+      }
+    },
+    {
+      "server_exit": 0,
+      "complete": true,
+      "client_class_loads": 0,
+      "label": "bounds-motion-clock-100",
+      "classification": "Mixed motion stress: target change/reposition and synchronous screenshot inside sample window; retained, not substituted for isolated uniform motion.",
+      "motion_x_quantiles": {
+        "MOTION_45": {
+          "median": 0.003406822681427002,
+          "p95": 0.015187442302703857
+        },
+        "MOTION_90": {
+          "median": 0.006879836320877075,
+          "p95": 0.08659642934799194
+        },
+        "MOTION_STRAFE": {
+          "median": 0.018142402172088623,
+          "p95": 0.020814478397369385
+        }
+      }
+    }
+  ],
+  "no_green_run_replacement": "Distinct code/fixture changes and all failed/superseded attempts remain summarized; isolated matrix uses unchanged thresholds and all phase frames."
+}

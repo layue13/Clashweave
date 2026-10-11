@@ -1,0 +1,90 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 363
+# Marker counts: {'ERROR': 3, 'CW_RENDER': 1, 'Exception': 2, 'P0_AUDIO': 37, 'CW_ENGAGEMENT': 1, 'P0_REPLAY': 29, 'P0_CAPTURE': 8, 'P0_REQUEST': 60, 'CW_ALIGN': 33, 'CW_FEEDBACK': 36, 'CW_FRAME': 36}
+[11:20:32] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[11:20:32] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+[11:20:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:42]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[11:20:36] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[11:20:36] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[11:20:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:53]: P0_AUDIO initial loader settled
+[11:20:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:199]: CW_ENGAGEMENT player=P0A engaged=true revision=2 tick=188 receive=16056683852900
+[11:20:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=40 action= progress=2.1937756065426584E-4 feedback=
+[11:20:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:277]: P0_CAPTURE sheathed-0 instance=0 progress=1.1505219999999952 nano=16058792595200
+[11:20:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:277]: P0_CAPTURE sheathed-2 instance=0 progress=0.7697805315706319 nano=16058838915200
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=LIGHT nano=16060789912500
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=80 action= progress=2.2999999998774E-4 feedback=
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=4 predicted=0 authoritative=0 sameAction=true
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:277]: P0_CAPTURE draw-0 instance=1 progress=1.7934720000000084 nano=16060929425300
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:277]: P0_CAPTURE draw-2 instance=1 progress=2.655276000000015 nano=16060972516500
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=LIGHT nano=16061157530700
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=HIT frozen=16061129671300 receive=16061357458600 corrections=0
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.successful_hit frozen=16061129671300 nano=16061357622600
+[11:20:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16061129671300 frame=16061360949800
+[11:20:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=120 action= progress=2.3599999997259147E-4 feedback=EXPIRED_OR_CHANGED
+[11:20:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=LIGHT nano=16063106851500
+[11:20:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=7 predicted=0 authoritative=0 sameAction=true
+[11:20:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=HEAVY nano=16063407311700
+[11:20:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=HEAVY nano=16064390167700
+[11:20:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=10 predicted=0 authoritative=0 sameAction=true
+[11:20:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:277]: P0_CAPTURE swing-0 instance=3 progress=6.86305746335637 nano=16064784017200
+[11:20:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:277]: P0_CAPTURE swing-2 instance=3 progress=7.783116000000007 nano=16064823805000
+[11:20:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=160 action=heavy progress=9.00018 feedback=MOVE_READY
+[11:20:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=SHEATHE nano=16065658308000
+[11:20:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=12 predicted=0 authoritative=0 sameAction=true
+[11:20:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:277]: P0_CAPTURE sheathe-0 instance=4 progress=2.776252302044213 nano=16065846871500
+[11:20:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:frame:277]: P0_CAPTURE sheathe-2 instance=4 progress=3.8087939999999776 nano=16065888268400
+[11:20:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=LIGHT nano=16066922817500
+[11:20:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=200 action= progress=8.400000001529406E-5 feedback=MOVE_READY
+[11:20:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=14 predicted=0 authoritative=0 sameAction=true
+[11:20:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=LIGHT nano=16067273190800
+[11:20:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=PARRY frozen=16067192850000 receive=16067423472400 corrections=0
+[11:20:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16067192850000 nano=16067423628400
+[11:20:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16067192850000 frame=16067426122300
+[11:20:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=LIGHT nano=16067723397400
+[11:20:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=BLOCK frozen=16067635569500 receive=16067873505000 corrections=0
+[11:20:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16067635569500 nano=16067873678400
+[11:20:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16067635569500 frame=16067874038400
+[11:20:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=LIGHT nano=16068123224500
+[11:20:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=BLOCK frozen=16068030407300 receive=16068273709600 corrections=0
+[11:20:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16068030407300 nano=16068273868100
+[11:20:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16068030407300 frame=16068274283400
+[11:20:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=240 action=light_3 progress=13.00009799999998 feedback=MOVE_READY
+[11:20:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=HEAVY nano=16069439052200
+[11:20:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=22 predicted=0 authoritative=0 sameAction=true
+[11:20:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=PARRY frozen=16069730846700 receive=16069938794100 corrections=0
+[11:20:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16069730846700 nano=16069939034600
+[11:20:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16069730846700 frame=16069939422300
+[11:20:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:193]: P0_REQUEST intent=SHEATHE nano=16070689376600
+[11:20:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=24 predicted=0 authoritative=0 sameAction=true
+[11:20:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=280 action=sheathe progress=4.000216000000023 feedback=MOVE_READY
+[11:20:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=26 predicted=0 authoritative=0 sameAction=true
+[11:20:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=PARRY frozen=16072232916900 receive=16072456013600 corrections=0
+[11:20:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16072232916900 nano=16072456251700
+[11:20:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16072232916900 frame=16072456608200
+[11:20:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=PARRY frozen=16072678371900 receive=16072856238300 corrections=0
+[11:20:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16072678371900 nano=16072856384300
+[11:20:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16072678371900 frame=16072856748000
+[11:20:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=320 action=heavy progress=1.000099999999975 feedback=MOVE_READY
+[11:20:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=32 predicted=0 authoritative=0 sameAction=true
+[11:20:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=PARRY frozen=16074729669300 receive=16074956304000 corrections=0
+[11:20:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16074729669300 nano=16074956477100
+[11:20:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=360 action=heavy progress=9.000099758385204 feedback=PARRY
+[11:20:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16074729669300 frame=16074956881600
+[11:21:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=34 predicted=0 authoritative=0 sameAction=true
+[11:21:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=400 action= progress=7.944941557980201E-5 feedback=MOVE_READY
+[11:21:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=36 predicted=0 authoritative=0 sameAction=true
+[11:21:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=PARRY frozen=16077228304800 receive=16077405509000 corrections=0
+[11:21:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16077228304800 nano=16077405664000
+[11:21:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16077228304800 frame=16077406050900
+[11:21:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=BLOCK frozen=16077629312600 receive=16077855737400 corrections=0
+[11:21:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16077629312600 nano=16077855868900
+[11:21:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16077629312600 frame=16077856209900
+[11:21:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=BLOCK frozen=16078028501200 receive=16078210077200 corrections=0
+[11:21:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:289]: P0_AUDIO source=random.anvil_land frozen=16078028501200 nano=16078210224100
+[11:21:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16078028501200 frame=16078210642800
+[11:21:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=440 action= progress=5.599999997230043E-5 feedback=MOVE_READY
+[11:21:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:213]: CW_ALIGN player=P0A seq=44 predicted=0 authoritative=0 sameAction=true
+[11:21:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:258]: CW_FEEDBACK player=P0A result=PARRY frozen=16079727907600 receive=16079906353700 corrections=0
+[11:21:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:325]: CW_FRAME frozen=16079727907600 frame=16079906902700
+[11:21:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:188]: P0_REPLAY tick=480 action=sheathe progress=4.00007800000003 feedback=MOVE_READY

@@ -1,0 +1,20 @@
+[
+  {
+    "label": "low-lock-before",
+    "note": "INVALID: original composition fixture ran concurrently, changed lock and introduced another target; stopped owned server, data excluded",
+    "server_exit": 4294967295,
+    "complete": false,
+    "client_class_loads": 0
+  },
+  {
+    "label": "low-lock-fix-build",
+    "note": "Test compile failed: CombatConfig has load(File), not a Configuration constructor; corrected fixture test, later complete build passed"
+  },
+  {
+    "label": "low-lock-regression",
+    "note": "NO GAMEPLAY: client native EXCEPTION_ACCESS_VIOLATION in USER32.dll during startup, server exit1/completefalse; subsequent retry preserved separately",
+    "server_exit": 1,
+    "complete": false,
+    "client_class_loads": 0
+  }
+]

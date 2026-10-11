@@ -1,0 +1,545 @@
+{
+  "phases": {
+    "STILL": {
+      "samples": 479,
+      "yaw_peak_speed": 0.0,
+      "pitch_peak_speed": 0.0,
+      "yaw_peak_acceleration": 0.0,
+      "pitch_peak_acceleration": 0.0,
+      "yaw_pp": 0.0,
+      "raw_target_yaw_pp": 0.0,
+      "filtered_target_yaw_pp": 0.0,
+      "pitch_pp": 0.0,
+      "jitter_attenuation": null,
+      "speed_violations": 0
+    },
+    "ORBIT": {
+      "samples": 318,
+      "yaw_peak_speed": 249.96770405166785,
+      "pitch_peak_speed": 0.48248086523421996,
+      "yaw_peak_acceleration": 10553.22206125755,
+      "pitch_peak_acceleration": 62.39564664949003,
+      "yaw_pp": 237.8001,
+      "raw_target_yaw_pp": 358.43370881301695,
+      "filtered_target_yaw_pp": 359.5162763050962,
+      "pitch_pp": 0.07753499999999924,
+      "jitter_attenuation": 0.6634423441575704,
+      "speed_violations": 0
+    },
+    "JITTER": {
+      "samples": 466,
+      "yaw_peak_speed": 9.4291473269586,
+      "pitch_peak_speed": 0.0009531809435573958,
+      "yaw_peak_acceleration": 1175.0367352749845,
+      "pitch_peak_acceleration": 0.2278702892362653,
+      "yaw_pp": 2.268379999999979,
+      "raw_target_yaw_pp": 4.473958126875403,
+      "filtered_target_yaw_pp": 3.2103459981017,
+      "pitch_pp": 0.00017000000000066962,
+      "jitter_attenuation": 0.5070186031410643,
+      "speed_violations": 0
+    },
+    "JUMP": {
+      "samples": 476,
+      "yaw_peak_speed": 0.0,
+      "pitch_peak_speed": 35.67428513715034,
+      "yaw_peak_acceleration": 0.0,
+      "pitch_peak_acceleration": 806.3897278206949,
+      "yaw_pp": 0.0,
+      "raw_target_yaw_pp": 0.0,
+      "filtered_target_yaw_pp": 3.2241496113988195e-09,
+      "pitch_pp": 9.221358299999999,
+      "jitter_attenuation": null,
+      "speed_violations": 0
+    },
+    "MOUSE": {
+      "samples": 478,
+      "yaw_peak_speed": 134.71095103492445,
+      "pitch_peak_speed": 0.0031536697248436447,
+      "yaw_peak_acceleration": 7208.314168399633,
+      "pitch_peak_acceleration": 0.07365440823349485,
+      "yaw_pp": 29.966670000000022,
+      "raw_target_yaw_pp": 29.966741870611706,
+      "filtered_target_yaw_pp": 29.96674187061171,
+      "pitch_pp": 0.0006489999999992335,
+      "jitter_attenuation": 0.9999976016541273,
+      "speed_violations": 0
+    }
+  },
+  "horizon": {
+    "STILL": {
+      "count": 480,
+      "minimum": 0.3737832307815552,
+      "maximum": 0.3737832307815552,
+      "median": 0.3737832307815552,
+      "max_golden_error": 0.00821676921844483,
+      "golden_tolerance_violations": 0
+    },
+    "ORBIT": {
+      "count": 319,
+      "minimum": 0.3727971911430359,
+      "maximum": 0.3737823963165283,
+      "median": 0.37376463413238525,
+      "max_golden_error": 0.009202808856964118,
+      "golden_tolerance_violations": 0
+    },
+    "JITTER": {
+      "count": 467,
+      "minimum": 0.3737832307815552,
+      "maximum": 0.3737853765487671,
+      "median": 0.37378406524658203,
+      "max_golden_error": 0.00821676921844483,
+      "golden_tolerance_violations": 0
+    },
+    "JUMP": {
+      "count": 477,
+      "minimum": 0.27892911434173584,
+      "maximum": 0.39951562881469727,
+      "median": 0.3389403223991394,
+      "max_golden_error": 0.10307088565826417,
+      "golden_tolerance_violations": 272
+    },
+    "MOUSE": {
+      "count": 479,
+      "minimum": 0.3737831115722656,
+      "maximum": 0.37379151582717896,
+      "median": 0.3737832307815552,
+      "max_golden_error": 0.008216888427734381,
+      "golden_tolerance_violations": 0
+    }
+  },
+  "mouse": [
+    {
+      "nano": "92793629817100",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92793829475800",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92794032092900",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92794232679000",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92794422891600",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92794623399400",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92794823668400",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92795022378800",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92795222737000",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92795422506000",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92795622501200",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92795822564800",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92796023161000",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92796222282400",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92796422291800",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92796622758500",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92796822192700",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92797022675400",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92797225822400",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92797423074600",
+      "delta": "2.0",
+      "switch": "0",
+      "offset": "2.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92797923186600",
+      "delta": "30.0",
+      "switch": "1",
+      "offset": "0.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92798022285700",
+      "delta": "-30.0",
+      "switch": "0",
+      "offset": "-8.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92798922913700",
+      "delta": "30.0",
+      "switch": "1",
+      "offset": "0.0",
+      "phase": "MOUSE"
+    }
+  ],
+  "flick_cases": [
+    {
+      "kind": "stationary",
+      "serial": "1",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "2",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "3",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "4",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "5",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "6",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "7",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "8",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "9",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "10",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "11",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "12",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "13",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "14",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "15",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "16",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "17",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "18",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "19",
+      "delta": "0"
+    },
+    {
+      "kind": "stationary",
+      "serial": "20",
+      "delta": "0"
+    },
+    {
+      "kind": "small",
+      "serial": "1",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "2",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "3",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "4",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "5",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "6",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "7",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "8",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "9",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "10",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "11",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "12",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "13",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "14",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "15",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "16",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "17",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "18",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "19",
+      "delta": "2"
+    },
+    {
+      "kind": "small",
+      "serial": "20",
+      "delta": "2"
+    },
+    {
+      "kind": "large",
+      "elapsed": "170"
+    },
+    {
+      "kind": "large",
+      "elapsed": "172"
+    },
+    {
+      "kind": "large",
+      "elapsed": "190"
+    }
+  ],
+  "first_person": {
+    "WEAK": {
+      "count": 201,
+      "max_written_delta": 0.0,
+      "yaw_first": "389.9667",
+      "yaw_last": "389.9667"
+    }
+  },
+  "server_switches": [
+    {
+      "player": "P0A",
+      "direction": "1",
+      "selected": "385745",
+      "seq": "4",
+      "arrival": "92797956971400"
+    },
+    {
+      "player": "P0A",
+      "direction": "1",
+      "selected": "-1",
+      "seq": "5",
+      "arrival": "92798158538300"
+    },
+    {
+      "player": "P0A",
+      "direction": "1",
+      "selected": "-1",
+      "seq": "6",
+      "arrival": "92798219742000"
+    },
+    {
+      "player": "P0A",
+      "direction": "1",
+      "selected": "-1",
+      "seq": "7",
+      "arrival": "92798954076200"
+    }
+  ],
+  "stationary_trials": 20,
+  "small_trials": 20,
+  "client_flicks": [
+    {
+      "nano": "92797923186600",
+      "delta": "30.0",
+      "switch": "1",
+      "offset": "0.0",
+      "phase": "MOUSE"
+    },
+    {
+      "nano": "92798922913700",
+      "delta": "30.0",
+      "switch": "1",
+      "offset": "0.0",
+      "phase": "MOUSE"
+    }
+  ],
+  "small_or_stationary_false_triggers": 0
+}

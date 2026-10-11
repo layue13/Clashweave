@@ -1,0 +1,88 @@
+{
+  "turns": [],
+  "requests": [],
+  "action_starts": [],
+  "fast_turn_count": 0,
+  "accepted": 0,
+  "fallback": 0,
+  "input_gate_rejections": [],
+  "overall_acceptance_rate": null,
+  "evaluated_acceptance_rate": null,
+  "counts_by_angle": {
+    "45": 0,
+    "90": 0,
+    "180": 0
+  },
+  "all_submitted_accounted_for": null,
+  "marked_packets": [
+    {
+      "packet": "1",
+      "marker": "1",
+      "protected": "true",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "-135.0",
+      "requestedPitchDelta": "-50.0",
+      "nano": "37638230066400"
+    }
+  ],
+  "unmarked_packets": [
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "180.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "180.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "37622048771400"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "37622072625900"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "0.0",
+      "pitchDelta": "0.0",
+      "requestedYawDelta": "0.0",
+      "requestedPitchDelta": "0.0",
+      "nano": "37622439419500"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "45.0",
+      "pitchDelta": "20.0",
+      "requestedYawDelta": "45.0",
+      "requestedPitchDelta": "20.0",
+      "nano": "37636212681100"
+    },
+    {
+      "packet": "1",
+      "marker": "0",
+      "protected": "false",
+      "yawDelta": "75.0",
+      "pitchDelta": "-30.0",
+      "requestedYawDelta": "75.0",
+      "requestedPitchDelta": "-30.0",
+      "nano": "37641229943200"
+    }
+  ],
+  "marked_view_violations": 0,
+  "unmarked_vanilla_violations": 0,
+  "empty_hand": [
+    {
+      "emptyHand": "true"
+    }
+  ]
+}

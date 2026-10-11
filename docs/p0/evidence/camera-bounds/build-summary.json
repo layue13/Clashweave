@@ -1,0 +1,132 @@
+{
+  "command": ".\\gradlew.bat spotlessApply spotlessCheck checkstyleMain checkstyleTest build -I tools/p0/validation.gradle p0LaunchFiles --no-configuration-cache --console=plain",
+  "java_home": "C:\\Program Files\\Zulu\\zulu-25",
+  "version": "0.1.0-dev",
+  "result": "BUILD SUCCESSFUL",
+  "junit": {
+    "tests": 72,
+    "failures": 0,
+    "errors": 0
+  },
+  "suites": [
+    {
+      "name": "com.layue13.clashweave.core.AnimationLookupTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:47.974Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.AppearanceTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:47.982Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.AuthorityTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.045Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.CameraConstraintsTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.048Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.CameraTransformTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.102Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.CorrectionMarkersTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.120Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.FacingHistoryTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.122Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.LockSelectionTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.124Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.LockSupportTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.126Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.SchedulerTest",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.130Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.SemanticEventsTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.144Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.SoulsCompositionTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:48.149Z"
+    },
+    {
+      "name": "com.layue13.clashweave.core.ThirdPersonCameraTest",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:49.207Z"
+    },
+    {
+      "name": "com.layue13.clashweave.forge.WeaponResolverTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:49.212Z"
+    },
+    {
+      "name": "com.layue13.clashweave.network.InputMessageTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:49.214Z"
+    },
+    {
+      "name": "com.layue13.clashweave.network.StateMessageTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:49.216Z"
+    },
+    {
+      "name": "com.layue13.clashweave.presentation.FeedbackPolicyTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-10-10T20:34:49.217Z"
+    }
+  ]
+}

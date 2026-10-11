@@ -1,0 +1,1137 @@
+{
+  "baseline": "dabfb96",
+  "candidate": "2bd3b68",
+  "rtt_ms": 100,
+  "order": [
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B"
+  ],
+  "criterion_set_before_runs": {
+    "p95_limit_W": 0.05,
+    "candidate_all_zero_lead_frames": 0,
+    "ten_zero_frames_requires_other_trigger_report": 10,
+    "every_view_complete": 20,
+    "both_versions_normal": "THIS_BATCH_CANNOT_DISTINGUISH"
+  },
+  "judgment": {
+    "motion": "CANDIDATE_MET_PREDECLARED_MOTION_CRITERIA",
+    "baseline_motion_all_normal": false,
+    "candidate_motion_all_normal": true,
+    "candidate_runs_at_least_ten_zero_frames": [],
+    "all_combo_runs_complete": false
+  },
+  "scope": "MOTION_90 all frames incl transition, nearest-rank quantiles. Zero duration first-to-last consecutive zero timestamp. View S08 from first combo to last camera frame incl incomplete sequence.",
+  "runs": [
+    {
+      "block": 1,
+      "variant": "A",
+      "motion_label": "jump-1-A-motion",
+      "view_label": "jump-1-A-view",
+      "motion": {
+        "median": 0.00697702169418335,
+        "p95": 0.010939985513687134,
+        "projection_frames": 717,
+        "frames": 717,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 79.1296,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "zero_episode_summaries": []
+      },
+      "view": {
+        "completed_combos": 20,
+        "planned_combos": 20,
+        "attempted_combos": 20,
+        "action_requests": 61,
+        "action_starts": 61,
+        "rejections": {},
+        "expired_requests": [],
+        "rejected_requests": [],
+        "incomplete_combos": [],
+        "s08_in_combo_period": 0,
+        "packet_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 2,
+        "facing_results": {
+          "OK": 61
+        }
+      },
+      "runtime": {
+        "motion": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\baseline-dabfb96.jar",
+              "snapshot": "runtime\\baseline-dabfb96.jar",
+              "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        },
+        "view": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\baseline-dabfb96.jar",
+              "snapshot": "runtime\\baseline-dabfb96.jar",
+              "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "block": 2,
+      "variant": "B",
+      "motion_label": "jump-2-B-motion",
+      "view_label": "jump-2-B-view",
+      "motion": {
+        "median": 0.006979852914810181,
+        "p95": 0.00961199402809143,
+        "projection_frames": 715,
+        "frames": 715,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 40.7059,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "zero_episode_summaries": []
+      },
+      "view": {
+        "completed_combos": 20,
+        "planned_combos": 20,
+        "attempted_combos": 20,
+        "action_requests": 61,
+        "action_starts": 61,
+        "rejections": {},
+        "expired_requests": [],
+        "rejected_requests": [],
+        "incomplete_combos": [],
+        "s08_in_combo_period": 0,
+        "packet_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 4,
+        "facing_results": {
+          "OK": 61
+        }
+      },
+      "runtime": {
+        "motion": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\jump-candidate.jar",
+              "snapshot": "runtime\\jump-candidate.jar",
+              "sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        },
+        "view": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\jump-candidate.jar",
+              "snapshot": "runtime\\jump-candidate.jar",
+              "sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "block": 3,
+      "variant": "A",
+      "motion_label": "jump-3-A-motion",
+      "view_label": "jump-3-A-view",
+      "motion": {
+        "median": 0.0074065327644348145,
+        "p95": 0.022045254707336426,
+        "projection_frames": 677,
+        "frames": 677,
+        "real_intervals_above_100ms": 1,
+        "max_real_interval_millis": 166.5917,
+        "zero_lead_frames": 7,
+        "longest_zero_lead_seconds": 0.2407018,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "zero_episode_summaries": [
+          {
+            "start_seconds": 0.6995308,
+            "frames": 7,
+            "duration_seconds": 0.24070179999999997,
+            "max_observed_interval_millis": 166.5917
+          }
+        ]
+      },
+      "view": {
+        "completed_combos": 18,
+        "planned_combos": 20,
+        "attempted_combos": 19,
+        "action_requests": 56,
+        "action_starts": 56,
+        "rejections": {},
+        "expired_requests": [],
+        "rejected_requests": [],
+        "incomplete_combos": [
+          {
+            "combo": 19,
+            "observed_action_starts": 1,
+            "started_instances": [
+              56
+            ],
+            "sent_requests": [
+              {
+                "sequence": 155,
+                "stamp": 1270,
+                "instance_id": 0,
+                "gate": "OK"
+              }
+            ],
+            "note": "Incomplete sequence retained; absence of a follow-up request is not a server rejection."
+          }
+        ],
+        "s08_in_combo_period": 0,
+        "packet_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 3,
+        "facing_results": {
+          "OK": 56
+        }
+      },
+      "runtime": {
+        "motion": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\baseline-dabfb96.jar",
+              "snapshot": "runtime\\baseline-dabfb96.jar",
+              "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        },
+        "view": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\baseline-dabfb96.jar",
+              "snapshot": "runtime\\baseline-dabfb96.jar",
+              "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "block": 4,
+      "variant": "B",
+      "motion_label": "jump-4-B-motion",
+      "view_label": "jump-4-B-view",
+      "motion": {
+        "median": 0.007001698017120361,
+        "p95": 0.009777486324310303,
+        "projection_frames": 715,
+        "frames": 715,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 65.4058,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "zero_episode_summaries": []
+      },
+      "view": {
+        "completed_combos": 20,
+        "planned_combos": 20,
+        "attempted_combos": 20,
+        "action_requests": 61,
+        "action_starts": 61,
+        "rejections": {},
+        "expired_requests": [],
+        "rejected_requests": [],
+        "incomplete_combos": [],
+        "s08_in_combo_period": 0,
+        "packet_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 3,
+        "facing_results": {
+          "OK": 61
+        }
+      },
+      "runtime": {
+        "motion": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\jump-candidate.jar",
+              "snapshot": "runtime\\jump-candidate.jar",
+              "sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        },
+        "view": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\jump-candidate.jar",
+              "snapshot": "runtime\\jump-candidate.jar",
+              "sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "block": 5,
+      "variant": "A",
+      "motion_label": "jump-5-A-motion",
+      "view_label": "jump-5-A-view",
+      "motion": {
+        "median": 0.006929755210876465,
+        "p95": 0.011030584573745728,
+        "projection_frames": 716,
+        "frames": 716,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 53.909800000000004,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "zero_episode_summaries": []
+      },
+      "view": {
+        "completed_combos": 20,
+        "planned_combos": 20,
+        "attempted_combos": 20,
+        "action_requests": 61,
+        "action_starts": 61,
+        "rejections": {},
+        "expired_requests": [],
+        "rejected_requests": [],
+        "incomplete_combos": [],
+        "s08_in_combo_period": 0,
+        "packet_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 3,
+        "facing_results": {
+          "OK": 61
+        }
+      },
+      "runtime": {
+        "motion": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\baseline-dabfb96.jar",
+              "snapshot": "runtime\\baseline-dabfb96.jar",
+              "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        },
+        "view": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\baseline-dabfb96.jar",
+              "snapshot": "runtime\\baseline-dabfb96.jar",
+              "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "block": 6,
+      "variant": "B",
+      "motion_label": "jump-6-B-motion",
+      "view_label": "jump-6-B-view",
+      "motion": {
+        "median": 0.006819307804107666,
+        "p95": 0.01923421025276184,
+        "projection_frames": 719,
+        "frames": 719,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 42.5641,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "zero_episode_summaries": []
+      },
+      "view": {
+        "completed_combos": 6,
+        "planned_combos": 20,
+        "attempted_combos": 7,
+        "action_requests": 22,
+        "action_starts": 21,
+        "rejections": {
+          "ILLEGAL_NODE": 1
+        },
+        "expired_requests": [],
+        "rejected_requests": [
+          {
+            "result": "ILLEGAL_NODE",
+            "sequence": 79,
+            "stamp": 906,
+            "instance_id": 21,
+            "revision": 3,
+            "revision_source": "last client CW_ENGAGEMENT at/before P0_REQUEST; revision is not carried by InputMessage",
+            "request_pairing": "FIFO order of action-only CW INPUT and P0_REQUEST, with equal counts verified",
+            "received_tick": 912,
+            "consumed_tick": 913,
+            "stamp_age_at_receive": 6,
+            "client_yaw": -0.21142532,
+            "client_pitch": 2.9959307,
+            "combo": 7,
+            "gate": "OK",
+            "facing_validation": {
+              "player": "P0A",
+              "seq": "79",
+              "requested": "-0.21142532",
+              "known": "-0.21142532",
+              "chosen": "-0.21142532",
+              "accepted": "true",
+              "reason": "OK"
+            },
+            "origin_start": {
+              "player": "P0A",
+              "id": "21",
+              "action": "light_2",
+              "tick": "902"
+            },
+            "origin_elapsed_at_consume": 11
+          }
+        ],
+        "incomplete_combos": [
+          {
+            "combo": 7,
+            "observed_action_starts": 2,
+            "started_instances": [
+              20,
+              21
+            ],
+            "sent_requests": [
+              {
+                "sequence": 75,
+                "stamp": 890,
+                "instance_id": 0,
+                "gate": "OK"
+              },
+              {
+                "sequence": 77,
+                "stamp": 899,
+                "instance_id": 20,
+                "gate": "OK"
+              },
+              {
+                "sequence": 79,
+                "stamp": 906,
+                "instance_id": 21,
+                "gate": "OK"
+              }
+            ],
+            "note": "Incomplete sequence retained; absence of a follow-up request is not a server rejection."
+          }
+        ],
+        "s08_in_combo_period": 0,
+        "packet_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 2,
+        "facing_results": {
+          "OK": 22
+        }
+      },
+      "runtime": {
+        "motion": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\jump-candidate.jar",
+              "snapshot": "runtime\\jump-candidate.jar",
+              "sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        },
+        "view": {
+          "hashes": [
+            {
+              "source": "build\\p0\\p0-validation.jar",
+              "snapshot": "runtime\\p0-validation.jar",
+              "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+            },
+            {
+              "source": "build\\rfg\\mclauncher-1.7.10.jar",
+              "snapshot": "runtime\\mclauncher-1.7.10.jar",
+              "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+            },
+            {
+              "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+              "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+              "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+            },
+            {
+              "source": "build\\p0\\jump-candidate.jar",
+              "snapshot": "runtime\\jump-candidate.jar",
+              "sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef"
+            }
+          ],
+          "process_summary": {
+            "server_exit": 0,
+            "client_class_loads": 0,
+            "complete": true
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "A": {
+      "median": {
+        "mean": 0.00710443655649821,
+        "min": 0.006929755210876465,
+        "max": 0.0074065327644348145,
+        "range": 0.0004767775535583496
+      },
+      "p95": {
+        "mean": 0.01467194159825643,
+        "min": 0.010939985513687134,
+        "max": 0.022045254707336426,
+        "range": 0.011105269193649292
+      },
+      "zero_lead_frames": {
+        "mean": 2.3333333333333335,
+        "min": 0,
+        "max": 7,
+        "range": 7
+      },
+      "longest_zero_lead_seconds": {
+        "mean": 0.08023393333333333,
+        "min": 0,
+        "max": 0.2407018,
+        "range": 0.2407018
+      },
+      "completed_combos": {
+        "mean": 19.333333333333332,
+        "min": 18,
+        "max": 20,
+        "range": 2
+      },
+      "s08_in_combo_period": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "packet_rotation_changes": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "reject_counts": {}
+    },
+    "B": {
+      "median": {
+        "mean": 0.006933619578679402,
+        "min": 0.006819307804107666,
+        "max": 0.007001698017120361,
+        "range": 0.0001823902130126953
+      },
+      "p95": {
+        "mean": 0.012874563535054525,
+        "min": 0.00961199402809143,
+        "max": 0.01923421025276184,
+        "range": 0.00962221622467041
+      },
+      "zero_lead_frames": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "longest_zero_lead_seconds": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "completed_combos": {
+        "mean": 15.333333333333334,
+        "min": 6,
+        "max": 20,
+        "range": 14
+      },
+      "s08_in_combo_period": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "packet_rotation_changes": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "reject_counts": {
+        "ILLEGAL_NODE": 1
+      }
+    }
+  },
+  "builds": {
+    "A": {
+      "commit": "dabfb96",
+      "tests": {
+        "tests": 86,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "test_executed": true,
+      "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+      "commit_full": "dabfb966d07f49ea52af88a312365b01a646681b",
+      "checks": {
+        "spotlessCheck": "PASS",
+        "checkstyleMain": "PASS",
+        "checkstyleTest": "PASS",
+        "test": "PASS",
+        "p0LaunchFiles": "PASS"
+      },
+      "command": "gradlew.bat spotlessCheck checkstyleMain checkstyleTest test --rerun p0LaunchFiles -I tools/p0/validation.gradle --no-configuration-cache --console=plain",
+      "build_java": "C:/Program Files/Zulu/zulu-25",
+      "runtime_java": "C:/Program Files/Zulu/zulu-8/bin/java.exe"
+    },
+    "B": {
+      "commit": "2bd3b68",
+      "tests": {
+        "tests": 90,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "test_executed": true,
+      "sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef",
+      "commit_full": "2bd3b68eee7b4ae8b510ccd4d2c13bec9a412f05",
+      "checks": {
+        "spotlessCheck": "PASS",
+        "checkstyleMain": "PASS",
+        "checkstyleTest": "PASS",
+        "test": "PASS",
+        "p0LaunchFiles": "PASS"
+      },
+      "command": "gradlew.bat spotlessCheck checkstyleMain checkstyleTest test --rerun p0LaunchFiles -I tools/p0/validation.gradle --no-configuration-cache --console=plain",
+      "build_java": "C:/Program Files/Zulu/zulu-25",
+      "runtime_java": "C:/Program Files/Zulu/zulu-8/bin/java.exe"
+    }
+  },
+  "execution_manifest": {
+    "order": [
+      "A",
+      "B",
+      "A",
+      "B",
+      "A",
+      "B"
+    ],
+    "rtt_ms": 100,
+    "runs": [
+      {
+        "block": 1,
+        "variant": "A",
+        "scene": "motion",
+        "label": "jump-1-A-motion",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-1-A-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T15:21:19Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:22:34Z"
+      },
+      {
+        "block": 1,
+        "variant": "A",
+        "scene": "view",
+        "label": "jump-1-A-view",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-1-A-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T15:22:34Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:24:39Z"
+      },
+      {
+        "block": 2,
+        "variant": "B",
+        "scene": "motion",
+        "label": "jump-2-B-motion",
+        "jar_sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-2-B-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\jump-candidate.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T15:24:39Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:25:53Z"
+      },
+      {
+        "block": 2,
+        "variant": "B",
+        "scene": "view",
+        "label": "jump-2-B-view",
+        "jar_sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-2-B-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\jump-candidate.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T15:25:53Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:27:57Z"
+      },
+      {
+        "block": 3,
+        "variant": "A",
+        "scene": "motion",
+        "label": "jump-3-A-motion",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-3-A-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T15:27:57Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:29:22Z"
+      },
+      {
+        "block": 3,
+        "variant": "A",
+        "scene": "view",
+        "label": "jump-3-A-view",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-3-A-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T15:29:22Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:31:24Z"
+      },
+      {
+        "block": 4,
+        "variant": "B",
+        "scene": "motion",
+        "label": "jump-4-B-motion",
+        "jar_sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-4-B-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\jump-candidate.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T15:31:24Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:32:48Z"
+      },
+      {
+        "block": 4,
+        "variant": "B",
+        "scene": "view",
+        "label": "jump-4-B-view",
+        "jar_sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-4-B-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\jump-candidate.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T15:32:48Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:34:51Z"
+      },
+      {
+        "block": 5,
+        "variant": "A",
+        "scene": "motion",
+        "label": "jump-5-A-motion",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-5-A-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T15:34:51Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:36:05Z"
+      },
+      {
+        "block": 5,
+        "variant": "A",
+        "scene": "view",
+        "label": "jump-5-A-view",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-5-A-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T15:36:05Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:38:06Z"
+      },
+      {
+        "block": 6,
+        "variant": "B",
+        "scene": "motion",
+        "label": "jump-6-B-motion",
+        "jar_sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-6-B-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\jump-candidate.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T15:38:06Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:39:23Z"
+      },
+      {
+        "block": 6,
+        "variant": "B",
+        "scene": "view",
+        "label": "jump-6-B-view",
+        "jar_sha256": "b22166219f1acdbbe7d3c216065963a210661dbe4eed6397abf2d46dc381c0ef",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "jump-6-B-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\jump-candidate.jar",
+          "--snapshot-coremod",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T15:39:23Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T15:41:42Z"
+      }
+    ]
+  },
+  "validation_jar_sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+}

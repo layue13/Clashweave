@@ -1,0 +1,76 @@
+{
+  "samples": 10,
+  "maximum_ms": 93.9745,
+  "rows": [
+    {
+      "player": "P0A",
+      "revision": "3",
+      "serverTick": "416",
+      "engaged": "true",
+      "delay_ms": 81.4637
+    },
+    {
+      "player": "P0A",
+      "revision": "4",
+      "serverTick": "514",
+      "engaged": "false",
+      "delay_ms": 66.868
+    },
+    {
+      "player": "P0A",
+      "revision": "5",
+      "serverTick": "535",
+      "engaged": "true",
+      "delay_ms": 76.423
+    },
+    {
+      "player": "P0A",
+      "revision": "6",
+      "serverTick": "614",
+      "engaged": "false",
+      "delay_ms": 85.3594
+    },
+    {
+      "player": "P0A",
+      "revision": "7",
+      "serverTick": "635",
+      "engaged": "true",
+      "delay_ms": 80.7802
+    },
+    {
+      "player": "P0A",
+      "revision": "8",
+      "serverTick": "703",
+      "engaged": "false",
+      "delay_ms": 81.4915
+    },
+    {
+      "player": "P0A",
+      "revision": "9",
+      "serverTick": "719",
+      "engaged": "true",
+      "delay_ms": 78.4375
+    },
+    {
+      "player": "P0A",
+      "revision": "10",
+      "serverTick": "818",
+      "engaged": "false",
+      "delay_ms": 86.8506
+    },
+    {
+      "player": "P0A",
+      "revision": "11",
+      "serverTick": "859",
+      "engaged": "true",
+      "delay_ms": 91.2074
+    },
+    {
+      "player": "P0A",
+      "revision": "12",
+      "serverTick": "935",
+      "engaged": "false",
+      "delay_ms": 93.9745
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.layue13.clashweave.core.ThirdPersonCameraTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-10T16:00:56.529Z" hostname="DESKTOP-NCOAQL3" time="0.003">
+  <properties/>
+  <testcase name="springConvergesWithoutOvershootAndRespectsSpeed" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.001"/>
+  <testcase name="springFrameRateAndCreditCap" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="compositionRecomputesWithFovAndAspect" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="flickWindowCooldownAndTwentySmallMotions" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="switchUsesSideRelativeToLockedTarget" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="exponentialFilterFrameRateAndAttenuation" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="thirdPersonHandoffPreservesFirstPersonMouseGraceAndCurrentView" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="targetHeightIsBoundedAroundComposition" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.0"/>
+  <testcase name="horizonEnvelopeLimitsHeightWithinScreenTolerance" classname="com.layue13.clashweave.core.ThirdPersonCameraTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

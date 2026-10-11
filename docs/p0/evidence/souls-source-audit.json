@@ -1,0 +1,7 @@
+{
+  "source_jar": "build\\rfg\\mcp_patched_minecraft-sources.jar",
+  "sha256": "c3e6edaf8bef71c608305575d8b6ad928a6d19c5fa75db53044dae0385ecda29",
+  "orientCamera_line": 552,
+  "native_collision": "8 offset rays; native camera translation brackets 1.62-yOffset eye-anchor convention",
+  "SOULS": "new controlled entry/exit matrix replacement, new 9 current plus 36 anticipatory rays, OFF leaves native matrix; no shoulder probe classes included"
+}

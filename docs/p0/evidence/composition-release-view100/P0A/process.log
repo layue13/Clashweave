@@ -1,0 +1,1027 @@
+# Log excerpt; complete raw log retained locally under build/p0/runs.
+# Original lines: 1621
+# Marker counts: {'ERROR': 3, 'CW_RENDER': 1, 'Exception': 2, 'P0_AUDIO': 64, 'CW_VIEW': 3, 'CW_ENGAGEMENT': 2, 'P0_APPEARANCE': 2, 'P0_VIEW_SEQUENCE': 40, 'P0_LOCAL_AUDIO': 20, 'CW_LOCAL_SWING': 20, 'P0_REQUEST': 61, 'CW_ALIGN': 20, 'CW_PRESENT': 188, 'P0_VIEW_START': 61, 'CW_FEEDBACK': 63, 'CW_FRAME': 63, 'P0_VIEW': 891}
+[09:06:15] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[09:06:15] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+[09:06:19] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.KatanaRendering:load:35]: CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=45.0
+[09:06:20] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[09:06:20] [Forge Version Check/INFO] [STDERR]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[09:06:20] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:<init>:69]: P0_AUDIO initial loader settled
+[09:06:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=180.0 pitchDelta=0.0 requestedYawDelta=180.0 requestedPitchDelta=0.0 nano=94403294216600
+[09:06:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=94404202431000
+[09:06:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ViewPreservingCorrections$Preserved:processPacket:140]: CW_VIEW packet=1 marker=0 protected=false yawDelta=0.0 pitchDelta=0.0 requestedYawDelta=0.0 requestedPitchDelta=0.0 nano=94404936014700
+[09:06:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:254]: CW_ENGAGEMENT player=P0A engaged=false revision=1 tick=253 receive=94404937848500
+[09:06:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:97]: P0_APPEARANCE entity=0 skin=clashweave:katana effects=clashweave:default animations=clashweave:katana style=katana
+[09:06:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:254]: CW_ENGAGEMENT player=P0A engaged=true revision=3 tick=494 receive=94415250481700
+[09:06:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:tick:97]: P0_APPEARANCE entity=71965 skin=clashweave:katana effects=clashweave:default animations=clashweave:katana style=katana
+[09:06:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:305]: P0_VIEW_SEQUENCE begin=1 nano=94420566687700
+[09:06:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94420567907300
+[09:06:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=93 press=94420567694000 feedback=94420569984700
+[09:06:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=8.850097 pitch=-2.1806195 nano=94420570288700
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=93 predicted=0 authoritative=0 sameAction=true
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=1 kind=DRAW actor=0 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=2 kind=SWING actor=0 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=1 instance=1 yawDelta=0.0 pitchDelta=0.0 yaw=8.88651 pitch=-2.36032 nano=94420769000600
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94420907506100 receive=94420966309900 corrections=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94420907506100 nano=94420966740400
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=3 kind=HIT actor=0 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=4 kind=HURT actor=74786 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94420907506100 frame=94420969720700
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=8.807628 pitch=-2.7193766 nano=94421015968600
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94420907258600 receive=94421168541400 corrections=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94420907258600 nano=94421168899200
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=5 kind=HIT actor=0 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=6 kind=HURT actor=71965 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94420907258600 frame=94421169936300
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=7 kind=SWING actor=0 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=1 instance=2 yawDelta=0.0 pitchDelta=0.0 yaw=8.692776 pitch=-2.8967137 nano=94421216385100
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94421308861700 receive=94421366190900 corrections=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94421308861700 nano=94421366505000
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=8 kind=HIT actor=0 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=9 kind=HURT actor=74786 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94421308861700 frame=94421367279600
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=8.391788 pitch=-3.1855826 nano=94421416113400
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94421309073700 receive=94421517963700 corrections=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94421309073700 nano=94421518206600
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=10 kind=HIT actor=0 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=11 kind=HURT actor=71965 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94421309073700 frame=94421518945700
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:tick:197]: CW_PRESENT id=12 kind=SWING actor=0 owner=0
+[09:06:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=1 instance=3 yawDelta=0.0 pitchDelta=0.0 yaw=8.2339 pitch=-3.297944 nano=94421566208600
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94421649270700 receive=94421715714000 corrections=0
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94421649270700 nano=94421716008000
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94421649270700 frame=94421716971200
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=7.7489047 pitch=-3.5684266 nano=94421765896400
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=1 instance=4 yawDelta=0.0 pitchDelta=0.0 yaw=7.520068 pitch=-3.6717412 nano=94421915957700
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94422063018200 receive=94422116012900 corrections=0
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94422063018200 nano=94422116339800
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94422063018200 frame=94422117294000
+[09:06:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:297]: P0_VIEW_SEQUENCE completed=1 nano=94422615739300
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:305]: P0_VIEW_SEQUENCE begin=2 nano=94423070095200
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94423071204600
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=101 press=94423071081500 feedback=94423071427500
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=3.4938688 pitch=-4.598839 nano=94423071618300
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=101 predicted=0 authoritative=0 sameAction=true
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=2 instance=5 yawDelta=0.0 pitchDelta=0.0 yaw=3.077228 pitch=-4.6441555 nano=94423216520400
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94423354966100 receive=94423415896900 corrections=0
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94423354966100 nano=94423416289900
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94423354966100 frame=94423417202800
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=1.7837327 pitch=-4.746066 nano=94423466215900
+[09:06:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=2 instance=6 yawDelta=0.0 pitchDelta=0.0 yaw=1.3416356 pitch=-4.7684064 nano=94423616116900
+[09:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94423705074200 receive=94423766099600 corrections=0
+[09:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94423705074200 nano=94423766548700
+[09:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94423705074200 frame=94423767783000
+[09:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=0.22293048 pitch=-4.798271 nano=94423815770400
+[09:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=2 instance=7 yawDelta=0.0 pitchDelta=0.0 yaw=-0.22700046 pitch=-4.799744 nano=94423966284400
+[09:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94424110891900 receive=94424165887400 corrections=0
+[09:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94424110891900 nano=94424166281000
+[09:06:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94424110891900 frame=94424167258400
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:297]: P0_VIEW_SEQUENCE completed=2 nano=94424665736300
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:305]: P0_VIEW_SEQUENCE begin=3 nano=94425065917800
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94425066300300
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=107 press=94425066172200 feedback=94425066550600
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=-5.1028333 pitch=-4.3972225 nano=94425066788400
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=107 predicted=0 authoritative=0 sameAction=true
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=3 instance=8 yawDelta=0.0 pitchDelta=0.0 yaw=-5.470943 pitch=-4.328216 nano=94425216363500
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94425363036200 receive=94425416166400 corrections=0
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94425363036200 nano=94425416463400
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94425363036200 frame=94425417390100
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=-6.4914017 pitch=-4.093028 nano=94425465813100
+[09:06:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=3 instance=9 yawDelta=0.0 pitchDelta=0.0 yaw=-6.800763 pitch=-4.0058956 nano=94425616086600
+[09:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94425706169600 receive=94425765830400 corrections=0
+[09:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:419]: P0_AUDIO source=random.successful_hit frozen=94425706169600 nano=94425766213500
+[09:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94425706169600 frame=94425769083000
+[09:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=-7.4994416 pitch=-3.7710032 nano=94425815752700
+[09:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=3 instance=10 yawDelta=0.0 pitchDelta=0.0 yaw=-7.747189 pitch=-3.6708384 nano=94425967105000
+[09:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:313]: CW_FEEDBACK player=P0A result=HIT frozen=94426104950300 receive=94426167070000 corrections=0
+[09:06:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:hud:384]: CW_FRAME frozen=94426104950300 frame=94426168151700
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:297]: P0_VIEW_SEQUENCE completed=3 nano=94426666088700
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:305]: P0_VIEW_SEQUENCE begin=4 nano=94427065977500
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94427067031900
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=113 press=94427066939200 feedback=94427067293100
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=-9.111447 pitch=-2.3592558 nano=94427067520800
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=113 predicted=0 authoritative=0 sameAction=true
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=4 instance=11 yawDelta=0.0 pitchDelta=0.0 yaw=-9.092588 pitch=-2.2393706 nano=94427216398000
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:request:320]: P0_REQUEST intent=LIGHT yaw=-8.901806 pitch=-1.8833151 nano=94427466792600
+[09:06:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:284]: P0_VIEW_START sequence=4 instance=12 yawDelta=0.0 pitchDelta=0.0 yaw=-8.794006 pitch=-1.7668188 nano=94427616202700
+[09:06:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:297]: P0_VIEW_SEQUENCE completed=4 nano=94428666923000
+[09:06:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:305]: P0_VIEW_SEQUENCE begin=5 nano=94429066262500
+[09:06:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94429067493000
+[09:06:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=119 press=94429067302400 feedback=94429067810200
+[09:06:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=119 predicted=0 authoritative=0 sameAction=true
+[09:06:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:297]: P0_VIEW_SEQUENCE completed=5 nano=94430666672300
+[09:06:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:305]: P0_VIEW_SEQUENCE begin=6 nano=94431065879600
+[09:06:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94431066501700
+[09:06:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=125 press=94431066240200 feedback=94431067086800
+[09:06:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=125 predicted=0 authoritative=0 sameAction=true
+[09:06:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:297]: P0_VIEW_SEQUENCE completed=6 nano=94432666311700
+[09:06:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94433067154400
+[09:06:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=131 press=94433066910900 feedback=94433067395400
+[09:06:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=131 predicted=0 authoritative=0 sameAction=true
+[09:06:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94435066113700
+[09:06:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=137 press=94435065977300 feedback=94435066363700
+[09:06:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=137 predicted=0 authoritative=0 sameAction=true
+[09:07:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94437066171300
+[09:07:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=143 press=94437066034700 feedback=94437066364600
+[09:07:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=143 predicted=0 authoritative=0 sameAction=true
+[09:07:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94439066366300
+[09:07:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=149 press=94439066220000 feedback=94439066569300
+[09:07:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=149 predicted=0 authoritative=0 sameAction=true
+[09:07:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94441066360200
+[09:07:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=155 press=94441066190000 feedback=94441066596200
+[09:07:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=155 predicted=0 authoritative=0 sameAction=true
+[09:07:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:audio:418]: P0_LOCAL_AUDIO nano=94443066265100
+[09:07:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:send:169]: CW_LOCAL_SWING seq=161 press=94443066138700 feedback=94443066456100
+[09:07:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.client.ClientProxy:apply:268]: CW_ALIGN player=P0A seq=161 predicted=0 authoritative=0 sameAction=true
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94460666289000
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94460716212000
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94460765903400
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94460816126800
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94460865896400
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94460915690400
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94460966089000
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461015876700
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461066048400
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461116489700
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461166344000
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461216987800
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461265959700
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461315937800
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461366156500
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461415773000
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461465589200
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461516062200
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461566299800
+[09:07:25] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461615980400
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461666886300
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461716067400
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461765967700
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461815665400
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461865816000
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461915641900
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94461965677400
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462015704100
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462065652700
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462115747800
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462165761000
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462215815500
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462266302300
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462316021200
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462365723500
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462415675200
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462465847300
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462515731300
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462565761200
+[09:07:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462616091500
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462666154900
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462716056000
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462766606000
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462816458300
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462867910600
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462916302800
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94462966085400
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463015852300
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463065995000
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463115813200
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463166164300
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463216119100
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463266042500
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463316086700
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463366134100
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463415794400
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463465880000
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463516351000
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463565810300
+[09:07:27] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463615653000
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463666052900
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463715961200
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463765890300
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463815720300
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463865976900
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463915976000
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94463966015200
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464015649000
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464065653200
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464115973800
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464166114700
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464216434600
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464265760700
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464315631600
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464366052200
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464415620100
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464465684200
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464515586900
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464565956400
+[09:07:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464615634800
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464665880800
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464716046500
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464765840500
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464815581900
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464865898100
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464916175100
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94464966047600
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465015954500
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465066079700
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465116071600
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465166031900
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465216090300
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465266176500
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465316058900
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465365937900
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465416746500
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465465834000
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465516067700
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465565855100
+[09:07:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465616656000
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465665964700
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465716054700
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465766340400
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465815939400
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465865683600
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465916048100
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94465965707900
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466015965400
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466065829100
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466115756600
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466166079000
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466215764300
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466265863300
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466316462300
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466365910800
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466415827200
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466466010900
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466515826800
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466565845600
+[09:07:30] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466616124800
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466665959700
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466715913100
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466766532500
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466816056100
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466866446600
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466915925500
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94466965695700
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467016083400
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467066294800
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467116230600
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467166031000
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467215840100
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467266608900
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467315836900
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467365836700
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467415836900
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467465713300
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467515675900
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467565991900
+[09:07:31] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467615853600
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467665777900
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467716063800
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467765911100
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467815636700
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467865624500
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467915761400
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94467970693200
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468015664600
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468065903200
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468115766500
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468166073300
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468215860000
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468265799500
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468315822300
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468366074400
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468415669200
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468465878200
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468516813400
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468566102300
+[09:07:32] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468616063700
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468666519000
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468715878800
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468766539200
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468815872200
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468865761900
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468915708700
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94468965662700
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469015691700
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469065796800
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469115897200
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469165845700
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469215741300
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469265828800
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469315729400
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469365751300
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469416012400
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469465863100
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469516563300
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469566013300
+[09:07:33] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469616038500
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469665894600
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469715671100
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469765702200
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469815740200
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469865897300
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469916432500
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94469966040500
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470015909700
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470066098000
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470116033400
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470166208600
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470215674000
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470265907300
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470315912000
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470365708900
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470415957200
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470465763500
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470515609600
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470565719800
+[09:07:34] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470615766600
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470665998400
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470716702100
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470765605500
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470815937400
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470865714400
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470915752400
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94470965894400
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471016022000
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471065667600
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471116079700
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471166005800
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471216499600
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471266007400
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471316274000
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471365734000
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471415846100
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471466184600
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471515897100
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471566156500
+[09:07:35] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471615853800
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471665721700
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471716266600
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471765813400
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471815596700
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471865733700
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471916255700
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94471965632200
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472016039000
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472065685800
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472115667800
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472165772500
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472215707100
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472266153400
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472315990500
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472366129500
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472415604000
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472466023100
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472515663100
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472565913500
+[09:07:36] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472615868600
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472665859700
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472715640100
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472766330300
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472815896500
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472866002200
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472915695100
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94472965805600
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473015891900
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473065676800
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473115662700
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473166429500
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473215942300
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473266303800
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473315987700
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473365879400
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473415819300
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473466019100
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473515720600
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473566359100
+[09:07:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473616094600
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473665700300
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473715772400
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473766058100
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473815839700
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473866265300
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473915819900
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94473965828100
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474015895400
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474065991900
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474116206000
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474166103500
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474216479800
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474265603000
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474315765100
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474365742900
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474416017900
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474465832800
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474516184400
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474565874500
+[09:07:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474615713500
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474665989200
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474715617700
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474766086200
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474815583900
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474865733600
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474916137500
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94474965763300
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475015735100
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475065755200
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475115790700
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475166015300
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475215652800
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475265892200
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475315599300
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475365836300
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475415785800
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475465885700
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475515786900
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475565802900
+[09:07:39] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475616518500
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475666074700
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475715894700
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475766131500
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475815701800
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475865859000
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475915756700
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94475965906600
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476016000300
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476065902000
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476116063600
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476165952300
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476215753600
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476266034200
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476316180100
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476365855000
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476415647900
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476466023200
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476516189500
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476565772900
+[09:07:40] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476615615500
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476665642200
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476716238900
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476766875800
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476815629500
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476866020500
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476915697700
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94476965688300
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477015774400
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477065802400
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477115962700
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477166495500
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477215815000
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477265844500
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477316233700
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477365848800
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477481182100
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477486491900
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477514425800
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477563772200
+[09:07:41] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477614330600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477663628600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477713803600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477763984100
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477813945600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477864415800
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477913898000
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94477963556100
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478013913100
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478063946400
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478113664600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478164315600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478213580600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478263604600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478314087100
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478364101700
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478413601000
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478463621600
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478513708700
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478563723000
+[09:07:42] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478614089000
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478664821900
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478714030900
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478763090700
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478812608700
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478862985600
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478913566500
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94478962648500
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479012666300
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479063192600
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479113811500
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479163256300
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479212880600
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479262741600
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479313495100
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479363636500
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479412695300
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479463469000
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479513288500
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479563161700
+[09:07:43] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479613058200
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479663538500
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479713371300
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479763174100
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479812991100
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479863528700
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479912907400
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94479962990700
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480013063300
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480063637400
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480125114000
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480174817200
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480225342300
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480259690300
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480325054900
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480359713000
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480424766100
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480474825900
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480524954600
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480574838700
+[09:07:44] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480625082200
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480659520400
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480725663700
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480774986400
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480825463700
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480874826100
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480925651100
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94480974606000
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481024732600
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481075002700
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481124896300
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481175392300
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481226173200
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481274780000
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481309692100
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481360055100
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481409896000
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481474991200
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481524933700
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481575538400
+[09:07:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481625024200
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481675112800
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481724785500
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481774707000
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481824912200
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481874662100
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481924978500
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94481974721100
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482024736500
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482075498800
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482125351700
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482174764500
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482225494600
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482259537300
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482324855400
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482374917400
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482424633900
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482474979200
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482525986600
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482574882100
+[09:07:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482624870600
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482674686600
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482724643100
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482774603500
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482809521900
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482865217600
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482915811600
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94482964828900
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483014800000
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483064783400
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483115004700
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483164644800
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483214714100
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483264948700
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483315609300
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483364758200
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483415242900
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483464748000
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483514994600
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483565032800
+[09:07:47] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483614822200
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483665024500
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483714805100
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483765294600
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483814690100
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483864850600
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483914748300
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94483965243900
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484015049600
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484064633600
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484115060800
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484165035200
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484214626300
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484264955600
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484314928800
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484364580700
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484414843300
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484465377300
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484515171600
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484564646800
+[09:07:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484615227500
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484664937200
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484714871800
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484765592300
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484814795800
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484865133900
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484915514700
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94484966107400
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485014544900
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485065141300
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485115026500
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485164668200
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485214792900
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485265360000
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485315031000
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485364978100
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485415404700
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485464863800
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485514551100
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485564637000
+[09:07:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485614548100
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485664833800
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485715551000
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485764625700
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485814614000
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485865009800
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485914600600
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94485964918800
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486015247000
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486065993600
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486114825100
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486164977100
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486214780600
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486264905100
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486314766500
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486364696200
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486414867200
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486465150800
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486515113200
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486564871500
+[09:07:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486615134800
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486664602400
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486715033900
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486764963200
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486814927800
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486865255200
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486914912900
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94486970884500
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487021008500
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487070925800
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487121387700
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487170955300
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487220917800
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487270634700
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487320934700
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487370896900
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487421276200
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487471673300
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487521113600
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487570874200
+[09:07:51] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487621018600
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487671640800
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487720905500
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487771258500
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487820703300
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487870956800
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487921292700
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94487970979700
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488020965800
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488070798500
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488120992400
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488170591600
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488220969600
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488271658100
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488320853400
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488370944800
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488420922600
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488471983200
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488520798200
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488571441900
+[09:07:52] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488620643100
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488670591500
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488720689400
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488771141400
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488820885400
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488870659500
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488921379000
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94488971092600
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489020956000
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489070992200
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489121803000
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489170914100
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489221051700
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489271103400
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489321498500
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489370577300
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489421439800
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489470717600
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489520766800
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489570993600
+[09:07:53] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489620797100
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489659532800
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489725051300
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489774855000
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489825081100
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489875662000
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489925043900
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94489974974300
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490024898600
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490075455000
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490124663900
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490179196100
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490224795600
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490274701200
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490324809300
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490375142500
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490424789900
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490474813100
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490524594900
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490575098100
+[09:07:54] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490625398900
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490675476900
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490724900000
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490774905100
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490824560900
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490874719100
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490924726200
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94490974620300
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491020709000
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491069852000
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491119616000
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491169884600
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491219891600
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491270107700
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491319727200
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491369948100
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491419968200
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491469785400
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491519861300
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491570257100
+[09:07:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491619584300
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491670042400
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491720129500
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491770056400
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491819621600
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491869957300
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491919955500
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94491969836200
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492020048300
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492069826500
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492119554500
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492169686000
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492220089600
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492270100100
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492320151700
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492369938000
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492419771600
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492470035600
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492520189100
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492570032100
+[09:07:56] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492619954000
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492670027200
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492720143700
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492769729200
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492819921100
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492870132000
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492919872900
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94492970004800
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493020128200
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493070138700
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493119932900
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493170149500
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493219943000
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493270244200
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493319986400
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493369881900
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493420036100
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493469882600
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493520199000
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493570096000
+[09:07:57] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493620072000
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493669952000
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493720067000
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493770199800
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493820131400
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493869990000
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493919664300
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94493970178700
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494020399500
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494069812800
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494120190800
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494169784300
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494220474600
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494270116400
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494319844300
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494370086500
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494419959300
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494469883200
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494520056000
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494569939600
+[09:07:58] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494619954300
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494670023800
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494720475300
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494769781400
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494819924400
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494869935800
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494920496000
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94494970149600
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495020201600
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495069714500
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495117699500
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495166720200
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495216843700
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495267342200
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495317475600
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495366835300
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495417008700
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495466917400
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495517186200
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495568069400
+[09:07:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495616632700
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495667508700
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495716983900
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495767267300
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495817010300
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495867502800
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495917169200
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94495966857800
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496016686900
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496067127300
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496116683400
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496166834500
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496216986100
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496266657000
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496316603600
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496367207100
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496416891800
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496460882000
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496509753600
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496559938200
+[09:08:00] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496610158900
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496660179100
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496710020200
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496759991500
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496809972500
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496859858100
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496909668300
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94496959821600
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497009904800
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497059777400
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497109878100
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497160011400
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497210047200
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497259979900
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497309760100
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497360105700
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497409745000
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497460100000
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497509836500
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497559867000
+[09:08:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497609816200
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497660385100
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497710304700
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497760100900
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497810033600
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497859820300
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497909669300
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94497960003100
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498009684200
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498060089400
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498110344900
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498160370100
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498210195000
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498259941600
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498310105600
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498360227300
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498409960300
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498460215800
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498510067600
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498559719200
+[09:08:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498609759400
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498660044500
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498709952700
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498759965100
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498809660500
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498860279200
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498910191800
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94498959704300
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499009924900
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499060362600
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499110155500
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499159750300
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499215789500
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499265194400
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499315054900
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499365153500
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499415002800
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499464640700
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499515082000
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499564718100
+[09:08:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499615113400
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499664904700
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499714584200
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499765119000
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499815299500
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499865711000
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499915080300
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94499965045300
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500015023500
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500064804900
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500115403800
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500165018600
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500214607100
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500265040100
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500315421300
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500365155300
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500414859200
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500464686900
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500515218200
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500566768700
+[09:08:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500616469400
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500665983500
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500715673900
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500765772200
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500816195600
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500865622100
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500915704300
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94500966090900
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501015816700
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501066004100
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501115921100
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501166728100
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501215918000
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501265991500
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501316010700
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501365711600
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501416121500
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501466862500
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501515631600
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501565846600
+[09:08:05] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501616052500
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501665801400
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501715640400
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501765728900
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501815938600
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501866068800
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501910057400
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94501973757600
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502023771300
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502074842200
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502124098100
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502173730500
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502224340800
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502273793900
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502324243100
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502374084600
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502423807700
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502473729800
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502523960000
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502574374200
+[09:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502624116600
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502673809000
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502723971700
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502774053200
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502824941500
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502874040000
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502923770700
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94502974532100
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503023733900
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503074386800
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503124054500
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503174027900
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503223745100
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503274146700
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503323751000
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503373853800
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503424227700
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503474082700
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503524441900
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503573712300
+[09:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503623911700
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503673759500
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503724192400
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503774577300
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503823654900
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503874263700
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503923809600
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94503973853300
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504024324300
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504074910900
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504124317400
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504175254300
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504224474900
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504274865900
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504324355500
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504373829600
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504424174200
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504473646000
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504523815500
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504574374600
+[09:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504625113000
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504674013400
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504723847400
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504774651700
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504823987000
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504874071400
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504923759100
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94504973668200
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94505024241900
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94505073870200
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94505124493200
+[09:08:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:314]: P0_VIEW COMPLETE nano=94505173876100

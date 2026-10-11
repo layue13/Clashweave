@@ -1,0 +1,1580 @@
+{
+  "design": "Six alternating A/B blocks, isolated motion then view subprocesses in each block. No completed or partial run retries.",
+  "rtt_ms": 100,
+  "motion_scope": "MOTION_90 all GLU frames, including transition; nearest-rank quantiles; zero duration is first-to-last zero-lead timestamp.",
+  "view_scope": "P0A LIGHT/HEAVY/SHEATHE after first combo begin; S08 through last camera frame, including incomplete combos. Login/setup S08 excluded and separately counted.",
+  "history_lost_note": "An annotation of !ready with lostHistory in B; not a fourth independent OR term. Counts overlap NOT_READY.",
+  "runs": [
+    {
+      "block": 1,
+      "variant": "A",
+      "motion_label": "ab-1-A-motion",
+      "view_label": "ab-1-A-view",
+      "runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-a72ad97.jar",
+          "snapshot": "runtime\\baseline-a72ad97.jar",
+          "sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8"
+        }
+      ],
+      "view_runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-a72ad97.jar",
+          "snapshot": "runtime\\baseline-a72ad97.jar",
+          "sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8"
+        }
+      ],
+      "motion": {
+        "projection_frames": 720,
+        "median": 0.006947904825210571,
+        "p95": 0.009364813566207886,
+        "frames": 720,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 20.029600000000002,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "jump_branch_counts": {},
+        "trace_events": [],
+        "all_motion_branch_counts": {
+          "NOT_READY": 1
+        },
+        "all_motion_branch_events": [
+          {
+            "phase": "MOTION_45",
+            "seconds_from_phase_start": 0.0037093,
+            "branch": "NOT_READY",
+            "historyLost": "false",
+            "stall": "false",
+            "residual": "8.0",
+            "change": "0.0",
+            "threshold": "30.0",
+            "realSeconds": "0.0",
+            "suppressed": "0.0",
+            "beforeVelocity": "0.0",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0,
+              "raw_position_delta_blocks": 8.0,
+              "previous_raw_speed_blocks_per_second": 0.0,
+              "predicted_delta_blocks": 0.0,
+              "reconstructed_position_residual": 8.0,
+              "logged_position_residual": 8.0,
+              "reconstruction_matches_log": true
+            }
+          }
+        ]
+      },
+      "view": {
+        "completed_combos": 20,
+        "attempted_combos": 20,
+        "planned_combos": 20,
+        "action_requests": 61,
+        "rejections": {},
+        "expired_diagnostics": [],
+        "input_received_age_ticks": {
+          "mean": 2.0327868852459017,
+          "min": 2,
+          "max": 4,
+          "range": 2
+        },
+        "input_consumed_effective_age_ticks": {
+          "mean": 3.0327868852459017,
+          "min": 3,
+          "max": 5,
+          "range": 2
+        },
+        "observed_origin_changes_on_arrival": 0,
+        "observed_revision_changes_on_arrival": 0,
+        "facing_results": {
+          "OK": 61
+        },
+        "facing_fallbacks": 0,
+        "s08_during_combo_period": 0,
+        "packet_caused_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 2,
+        "action_starts": 61
+      },
+      "view_branch_counts": {
+        "NOT_READY": 1,
+        "POSITION_RESIDUAL": 1
+      },
+      "view_branch_events": [
+        {
+          "seconds_from_combo_start": -4.4807007,
+          "branch": "NOT_READY",
+          "historyLost": "false",
+          "stall": "false",
+          "ready": "false",
+          "residual": "1.90625",
+          "change": "0.0",
+          "threshold": "30.0",
+          "realSeconds": "0.0",
+          "dt": "0.0",
+          "beforeVelocity": "0.0",
+          "modern": "false",
+          "afterVelocity": "0.0",
+          "suppressed": "0.0",
+          "lead": "0.0"
+        },
+        {
+          "seconds_from_combo_start": 7.6133944,
+          "branch": "POSITION_RESIDUAL",
+          "historyLost": "false",
+          "stall": "false",
+          "ready": "true",
+          "residual": "14.53611947679989",
+          "change": "0.0",
+          "threshold": "30.0",
+          "realSeconds": "0.0176482",
+          "dt": "0.0176482",
+          "beforeVelocity": "0.0",
+          "modern": "false",
+          "afterVelocity": "0.0",
+          "suppressed": "0.7323518223517418",
+          "lead": "0.0"
+        }
+      ],
+      "process_summary": {
+        "motion": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        },
+        "view": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        }
+      }
+    },
+    {
+      "block": 2,
+      "variant": "B",
+      "motion_label": "ab-2-B-motion",
+      "view_label": "ab-2-B-view",
+      "runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-dabfb96.jar",
+          "snapshot": "runtime\\baseline-dabfb96.jar",
+          "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+        }
+      ],
+      "view_runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-dabfb96.jar",
+          "snapshot": "runtime\\baseline-dabfb96.jar",
+          "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+        }
+      ],
+      "motion": {
+        "projection_frames": 720,
+        "median": 0.006972521543502808,
+        "p95": 0.01057693362236023,
+        "frames": 720,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 18.3601,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "jump_branch_counts": {},
+        "trace_events": [],
+        "all_motion_branch_counts": {
+          "NOT_READY": 1
+        },
+        "all_motion_branch_events": [
+          {
+            "phase": "MOTION_45",
+            "seconds_from_phase_start": 0.0635103,
+            "branch": "NOT_READY",
+            "historyLost": "false",
+            "stall": "false",
+            "residual": "8.0",
+            "change": "0.0",
+            "threshold": "30.0",
+            "realSeconds": "0.0",
+            "suppressed": "0.0",
+            "beforeVelocity": "0.0",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0,
+              "raw_position_delta_blocks": 8.0,
+              "previous_raw_speed_blocks_per_second": 0.0,
+              "predicted_delta_blocks": 0.0,
+              "reconstructed_position_residual": 8.0,
+              "logged_position_residual": 8.0,
+              "reconstruction_matches_log": true
+            }
+          }
+        ]
+      },
+      "view": {
+        "completed_combos": 20,
+        "attempted_combos": 20,
+        "planned_combos": 20,
+        "action_requests": 61,
+        "rejections": {},
+        "expired_diagnostics": [],
+        "input_received_age_ticks": {
+          "mean": 2,
+          "min": 1,
+          "max": 3,
+          "range": 2
+        },
+        "input_consumed_effective_age_ticks": {
+          "mean": 3,
+          "min": 2,
+          "max": 4,
+          "range": 2
+        },
+        "observed_origin_changes_on_arrival": 0,
+        "observed_revision_changes_on_arrival": 0,
+        "facing_results": {
+          "OK": 61
+        },
+        "facing_fallbacks": 0,
+        "s08_during_combo_period": 0,
+        "packet_caused_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 3,
+        "action_starts": 61
+      },
+      "view_branch_counts": {
+        "NOT_READY": 1
+      },
+      "view_branch_events": [
+        {
+          "seconds_from_combo_start": -4.582172,
+          "branch": "NOT_READY",
+          "historyLost": "false",
+          "stall": "false",
+          "ready": "false",
+          "residual": "1.90625",
+          "change": "0.0",
+          "threshold": "30.0",
+          "realSeconds": "0.0",
+          "dt": "0.0",
+          "beforeVelocity": "0.0",
+          "modern": "true",
+          "afterVelocity": "0.0",
+          "suppressed": "0.0",
+          "lead": "0.0"
+        }
+      ],
+      "process_summary": {
+        "motion": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        },
+        "view": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        }
+      }
+    },
+    {
+      "block": 3,
+      "variant": "A",
+      "motion_label": "ab-3-A-motion",
+      "view_label": "ab-3-A-view",
+      "runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-a72ad97.jar",
+          "snapshot": "runtime\\baseline-a72ad97.jar",
+          "sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8"
+        }
+      ],
+      "view_runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-a72ad97.jar",
+          "snapshot": "runtime\\baseline-a72ad97.jar",
+          "sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8"
+        }
+      ],
+      "motion": {
+        "projection_frames": 720,
+        "median": 0.006910175085067749,
+        "p95": 0.009168267250061035,
+        "frames": 720,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 25.9204,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "jump_branch_counts": {},
+        "trace_events": [],
+        "all_motion_branch_counts": {
+          "NOT_READY": 1
+        },
+        "all_motion_branch_events": [
+          {
+            "phase": "MOTION_45",
+            "seconds_from_phase_start": 0.0493296,
+            "branch": "NOT_READY",
+            "historyLost": "false",
+            "stall": "false",
+            "residual": "8.0",
+            "change": "0.0",
+            "threshold": "30.0",
+            "realSeconds": "0.0",
+            "suppressed": "0.0",
+            "beforeVelocity": "0.0",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0,
+              "raw_position_delta_blocks": 8.0,
+              "previous_raw_speed_blocks_per_second": 0.0,
+              "predicted_delta_blocks": 0.0,
+              "reconstructed_position_residual": 8.0,
+              "logged_position_residual": 8.0,
+              "reconstruction_matches_log": true
+            }
+          }
+        ]
+      },
+      "view": {
+        "completed_combos": 20,
+        "attempted_combos": 20,
+        "planned_combos": 20,
+        "action_requests": 61,
+        "rejections": {},
+        "expired_diagnostics": [],
+        "input_received_age_ticks": {
+          "mean": 2.081967213114754,
+          "min": 1,
+          "max": 3,
+          "range": 2
+        },
+        "input_consumed_effective_age_ticks": {
+          "mean": 3.081967213114754,
+          "min": 2,
+          "max": 4,
+          "range": 2
+        },
+        "observed_origin_changes_on_arrival": 0,
+        "observed_revision_changes_on_arrival": 0,
+        "facing_results": {
+          "OK": 61
+        },
+        "facing_fallbacks": 0,
+        "s08_during_combo_period": 0,
+        "packet_caused_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 2,
+        "action_starts": 61
+      },
+      "view_branch_counts": {
+        "NOT_READY": 1
+      },
+      "view_branch_events": [
+        {
+          "seconds_from_combo_start": -4.5153608,
+          "branch": "NOT_READY",
+          "historyLost": "false",
+          "stall": "false",
+          "ready": "false",
+          "residual": "1.90625",
+          "change": "0.0",
+          "threshold": "30.0",
+          "realSeconds": "0.0",
+          "dt": "0.0",
+          "beforeVelocity": "0.0",
+          "modern": "false",
+          "afterVelocity": "0.0",
+          "suppressed": "0.0",
+          "lead": "0.0"
+        }
+      ],
+      "process_summary": {
+        "motion": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        },
+        "view": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        }
+      }
+    },
+    {
+      "block": 4,
+      "variant": "B",
+      "motion_label": "ab-4-B-motion",
+      "view_label": "ab-4-B-view",
+      "runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-dabfb96.jar",
+          "snapshot": "runtime\\baseline-dabfb96.jar",
+          "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+        }
+      ],
+      "view_runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-dabfb96.jar",
+          "snapshot": "runtime\\baseline-dabfb96.jar",
+          "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+        }
+      ],
+      "motion": {
+        "projection_frames": 714,
+        "median": 0.008565962314605713,
+        "p95": 0.070767343044281,
+        "frames": 714,
+        "real_intervals_above_100ms": 1,
+        "max_real_interval_millis": 108.6092,
+        "zero_lead_frames": 40,
+        "longest_zero_lead_seconds": 0.7459897,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "jump_branch_counts": {
+          "POSITION_RESIDUAL": 1,
+          "STALL": 1
+        },
+        "trace_events": [
+          {
+            "phase": "MOTION_90",
+            "seconds_from_phase_start": 10.9891486,
+            "branch": "POSITION_RESIDUAL",
+            "historyLost": "false",
+            "stall": "false",
+            "residual": "3.4056314290094782",
+            "change": "1.0126953125",
+            "threshold": "30.0",
+            "realSeconds": "0.0182193",
+            "suppressed": "0.7500000223517418",
+            "beforeVelocity": "78.95599159826061",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0.10105819999999999,
+              "raw_position_delta_blocks": 0.6130807903984234,
+              "previous_raw_speed_blocks_per_second": 39.62719134904384,
+              "predicted_delta_blocks": 4.004652628789942,
+              "reconstructed_position_residual": 3.4056314290094782,
+              "logged_position_residual": 3.4056314290094782,
+              "reconstruction_matches_log": true
+            }
+          },
+          {
+            "phase": "MOTION_90",
+            "seconds_from_phase_start": 11.213469,
+            "branch": "NONE",
+            "historyLost": "false",
+            "stall": "true",
+            "residual": "0.4222621695469685",
+            "change": "6.6231689453125",
+            "threshold": "39.099312",
+            "realSeconds": "0.1086092",
+            "suppressed": "0.5256796223517419",
+            "beforeVelocity": "0.0",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0.1247877,
+              "raw_position_delta_blocks": 1.2527746981977423,
+              "previous_raw_speed_blocks_per_second": 12.182889972963178,
+              "predicted_delta_blocks": 1.520274819079137,
+              "reconstructed_position_residual": 0.42226216954696844,
+              "logged_position_residual": 0.4222621695469685,
+              "reconstruction_matches_log": true
+            }
+          }
+        ],
+        "all_motion_branch_counts": {
+          "NOT_READY": 1,
+          "POSITION_RESIDUAL": 1,
+          "STALL": 1
+        },
+        "all_motion_branch_events": [
+          {
+            "phase": "MOTION_45",
+            "seconds_from_phase_start": 0.0492227,
+            "branch": "NOT_READY",
+            "historyLost": "false",
+            "stall": "false",
+            "residual": "8.0",
+            "change": "0.0",
+            "threshold": "30.0",
+            "realSeconds": "0.0",
+            "suppressed": "0.0",
+            "beforeVelocity": "0.0",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0,
+              "raw_position_delta_blocks": 8.0,
+              "previous_raw_speed_blocks_per_second": 0.0,
+              "predicted_delta_blocks": 0.0,
+              "reconstructed_position_residual": 8.0,
+              "logged_position_residual": 8.0,
+              "reconstruction_matches_log": true
+            }
+          },
+          {
+            "phase": "MOTION_90",
+            "seconds_from_phase_start": 10.9891486,
+            "branch": "POSITION_RESIDUAL",
+            "historyLost": "false",
+            "stall": "false",
+            "residual": "3.4056314290094782",
+            "change": "1.0126953125",
+            "threshold": "30.0",
+            "realSeconds": "0.0182193",
+            "suppressed": "0.7500000223517418",
+            "beforeVelocity": "78.95599159826061",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0.10105819999999999,
+              "raw_position_delta_blocks": 0.6130807903984234,
+              "previous_raw_speed_blocks_per_second": 39.62719134904384,
+              "predicted_delta_blocks": 4.004652628789942,
+              "reconstructed_position_residual": 3.4056314290094782,
+              "logged_position_residual": 3.4056314290094782,
+              "reconstruction_matches_log": true
+            }
+          },
+          {
+            "phase": "MOTION_90",
+            "seconds_from_phase_start": 11.213469,
+            "branch": "NONE",
+            "historyLost": "false",
+            "stall": "true",
+            "residual": "0.4222621695469685",
+            "change": "6.6231689453125",
+            "threshold": "39.099312",
+            "realSeconds": "0.1086092",
+            "suppressed": "0.5256796223517419",
+            "beforeVelocity": "0.0",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0.1247877,
+              "raw_position_delta_blocks": 1.2527746981977423,
+              "previous_raw_speed_blocks_per_second": 12.182889972963178,
+              "predicted_delta_blocks": 1.520274819079137,
+              "reconstructed_position_residual": 0.42226216954696844,
+              "logged_position_residual": 0.4222621695469685,
+              "reconstruction_matches_log": true
+            }
+          }
+        ]
+      },
+      "view": {
+        "completed_combos": 20,
+        "attempted_combos": 20,
+        "planned_combos": 20,
+        "action_requests": 61,
+        "rejections": {},
+        "expired_diagnostics": [],
+        "input_received_age_ticks": {
+          "mean": 1.9508196721311475,
+          "min": 1,
+          "max": 3,
+          "range": 2
+        },
+        "input_consumed_effective_age_ticks": {
+          "mean": 2.9508196721311477,
+          "min": 2,
+          "max": 4,
+          "range": 2
+        },
+        "observed_origin_changes_on_arrival": 0,
+        "observed_revision_changes_on_arrival": 0,
+        "facing_results": {
+          "OK": 61
+        },
+        "facing_fallbacks": 0,
+        "s08_during_combo_period": 0,
+        "packet_caused_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 3,
+        "action_starts": 61
+      },
+      "view_branch_counts": {
+        "NOT_READY": 1
+      },
+      "view_branch_events": [
+        {
+          "seconds_from_combo_start": -4.7821168,
+          "branch": "NOT_READY",
+          "historyLost": "false",
+          "stall": "false",
+          "ready": "false",
+          "residual": "1.90625",
+          "change": "0.0",
+          "threshold": "30.0",
+          "realSeconds": "0.0",
+          "dt": "0.0",
+          "beforeVelocity": "0.0",
+          "modern": "true",
+          "afterVelocity": "0.0",
+          "suppressed": "0.0",
+          "lead": "0.0"
+        }
+      ],
+      "process_summary": {
+        "motion": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        },
+        "view": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        }
+      }
+    },
+    {
+      "block": 5,
+      "variant": "A",
+      "motion_label": "ab-5-A-motion",
+      "view_label": "ab-5-A-view",
+      "runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-a72ad97.jar",
+          "snapshot": "runtime\\baseline-a72ad97.jar",
+          "sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8"
+        }
+      ],
+      "view_runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-a72ad97.jar",
+          "snapshot": "runtime\\baseline-a72ad97.jar",
+          "sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8"
+        }
+      ],
+      "motion": {
+        "projection_frames": 719,
+        "median": 0.006979018449783325,
+        "p95": 0.009741753339767456,
+        "frames": 719,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 51.6802,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "jump_branch_counts": {},
+        "trace_events": [],
+        "all_motion_branch_counts": {
+          "NOT_READY": 1
+        },
+        "all_motion_branch_events": [
+          {
+            "phase": "MOTION_45",
+            "seconds_from_phase_start": 0.0497538,
+            "branch": "NOT_READY",
+            "historyLost": "false",
+            "stall": "false",
+            "residual": "8.0",
+            "change": "0.0",
+            "threshold": "30.0",
+            "realSeconds": "0.0",
+            "suppressed": "0.0",
+            "beforeVelocity": "0.0",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0,
+              "raw_position_delta_blocks": 8.0,
+              "previous_raw_speed_blocks_per_second": 0.0,
+              "predicted_delta_blocks": 0.0,
+              "reconstructed_position_residual": 8.0,
+              "logged_position_residual": 8.0,
+              "reconstruction_matches_log": true
+            }
+          }
+        ]
+      },
+      "view": {
+        "completed_combos": 20,
+        "attempted_combos": 20,
+        "planned_combos": 20,
+        "action_requests": 61,
+        "rejections": {},
+        "expired_diagnostics": [],
+        "input_received_age_ticks": {
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "range": 0
+        },
+        "input_consumed_effective_age_ticks": {
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "range": 0
+        },
+        "observed_origin_changes_on_arrival": 0,
+        "observed_revision_changes_on_arrival": 0,
+        "facing_results": {
+          "OK": 61
+        },
+        "facing_fallbacks": 0,
+        "s08_during_combo_period": 0,
+        "packet_caused_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 3,
+        "action_starts": 61
+      },
+      "view_branch_counts": {
+        "NOT_READY": 1
+      },
+      "view_branch_events": [
+        {
+          "seconds_from_combo_start": -4.5698802,
+          "branch": "NOT_READY",
+          "historyLost": "false",
+          "stall": "false",
+          "ready": "false",
+          "residual": "1.90625",
+          "change": "0.0",
+          "threshold": "30.0",
+          "realSeconds": "0.0",
+          "dt": "0.0",
+          "beforeVelocity": "0.0",
+          "modern": "false",
+          "afterVelocity": "0.0",
+          "suppressed": "0.0",
+          "lead": "0.0"
+        }
+      ],
+      "process_summary": {
+        "motion": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        },
+        "view": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        }
+      }
+    },
+    {
+      "block": 6,
+      "variant": "B",
+      "motion_label": "ab-6-B-motion",
+      "view_label": "ab-6-B-view",
+      "runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-dabfb96.jar",
+          "snapshot": "runtime\\baseline-dabfb96.jar",
+          "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+        }
+      ],
+      "view_runtime_hashes": [
+        {
+          "source": "build\\p0\\p0-validation.jar",
+          "snapshot": "runtime\\p0-validation.jar",
+          "sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91"
+        },
+        {
+          "source": "build\\p0\\p0-diagnostics.jar",
+          "snapshot": "runtime\\p0-diagnostics.jar",
+          "sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436"
+        },
+        {
+          "source": "build\\rfg\\mclauncher-1.7.10.jar",
+          "snapshot": "runtime\\mclauncher-1.7.10.jar",
+          "sha256": "45dbc84868d093a1ca7fca8742d90cdbcea1337485416032bb6b414dfd334e05"
+        },
+        {
+          "source": "build\\rfg\\recompiled_minecraft-1.7.10.jar",
+          "snapshot": "runtime\\recompiled_minecraft-1.7.10.jar",
+          "sha256": "28bede3e4de996b5d36c3f4655031605f079ea0df144a30b34b3e4851129a18f"
+        },
+        {
+          "source": "build\\p0\\baseline-dabfb96.jar",
+          "snapshot": "runtime\\baseline-dabfb96.jar",
+          "sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9"
+        }
+      ],
+      "motion": {
+        "projection_frames": 720,
+        "median": 0.006936520338058472,
+        "p95": 0.00932842493057251,
+        "frames": 720,
+        "real_intervals_above_100ms": 0,
+        "max_real_interval_millis": 21.6275,
+        "zero_lead_frames": 0,
+        "longest_zero_lead_seconds": 0,
+        "note": "Derived from consecutive CW_THIRD_FRAME wall timestamps and lead; zero lead does not identify which guard branch fired.",
+        "jump_branch_counts": {},
+        "trace_events": [],
+        "all_motion_branch_counts": {
+          "NOT_READY": 1
+        },
+        "all_motion_branch_events": [
+          {
+            "phase": "MOTION_45",
+            "seconds_from_phase_start": 0.0315285,
+            "branch": "NOT_READY",
+            "historyLost": "false",
+            "stall": "false",
+            "residual": "8.0",
+            "change": "0.0",
+            "threshold": "30.0",
+            "realSeconds": "0.0",
+            "suppressed": "0.0",
+            "beforeVelocity": "0.0",
+            "afterVelocity": "0.0",
+            "raw_sample_context": {
+              "reconstructed_sample_age_seconds": 0,
+              "raw_position_delta_blocks": 8.0,
+              "previous_raw_speed_blocks_per_second": 0.0,
+              "predicted_delta_blocks": 0.0,
+              "reconstructed_position_residual": 8.0,
+              "logged_position_residual": 8.0,
+              "reconstruction_matches_log": true
+            }
+          }
+        ]
+      },
+      "view": {
+        "completed_combos": 20,
+        "attempted_combos": 20,
+        "planned_combos": 20,
+        "action_requests": 61,
+        "rejections": {},
+        "expired_diagnostics": [],
+        "input_received_age_ticks": {
+          "mean": 2.0491803278688523,
+          "min": 1,
+          "max": 3,
+          "range": 2
+        },
+        "input_consumed_effective_age_ticks": {
+          "mean": 3.0491803278688523,
+          "min": 2,
+          "max": 4,
+          "range": 2
+        },
+        "observed_origin_changes_on_arrival": 0,
+        "observed_revision_changes_on_arrival": 0,
+        "facing_results": {
+          "OK": 61
+        },
+        "facing_fallbacks": 0,
+        "s08_during_combo_period": 0,
+        "packet_caused_rotation_changes": 0,
+        "max_packet_yaw_delta": 0,
+        "max_packet_pitch_delta": 0,
+        "pre_combo_s08": 2,
+        "action_starts": 61
+      },
+      "view_branch_counts": {
+        "NOT_READY": 1,
+        "STALL": 1
+      },
+      "view_branch_events": [
+        {
+          "seconds_from_combo_start": -4.4645818,
+          "branch": "NOT_READY",
+          "historyLost": "false",
+          "stall": "false",
+          "ready": "false",
+          "residual": "1.90625",
+          "change": "0.0",
+          "threshold": "30.0",
+          "realSeconds": "0.0",
+          "dt": "0.0",
+          "beforeVelocity": "0.0",
+          "modern": "true",
+          "afterVelocity": "0.0",
+          "suppressed": "0.0",
+          "lead": "0.0"
+        },
+        {
+          "seconds_from_combo_start": 31.2072348,
+          "branch": "NONE",
+          "historyLost": "false",
+          "stall": "true",
+          "ready": "true",
+          "residual": "0.0",
+          "change": "0.0",
+          "threshold": "37.831572",
+          "realSeconds": "0.1050877",
+          "dt": "0.05",
+          "beforeVelocity": "0.0",
+          "modern": "true",
+          "afterVelocity": "0.0",
+          "suppressed": "0.30000001192092896",
+          "lead": "0.0"
+        }
+      ],
+      "process_summary": {
+        "motion": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        },
+        "view": {
+          "server_exit": 0,
+          "client_class_loads": 0,
+          "complete": true
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "A": {
+      "p95": {
+        "mean": 0.009424944718678793,
+        "min": 0.009168267250061035,
+        "max": 0.009741753339767456,
+        "range": 0.0005734860897064209
+      },
+      "median": {
+        "mean": 0.006945699453353882,
+        "min": 0.006910175085067749,
+        "max": 0.006979018449783325,
+        "range": 6.884336471557617e-05
+      },
+      "zero_lead_frames": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "longest_zero_lead_seconds": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "completed_combos": {
+        "mean": 20,
+        "min": 20,
+        "max": 20,
+        "range": 0
+      },
+      "s08_during_combo_period": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "packet_caused_rotation_changes": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "reject_counts": {},
+      "branch_counts": {}
+    },
+    "B": {
+      "p95": {
+        "mean": 0.030224233865737915,
+        "min": 0.00932842493057251,
+        "max": 0.070767343044281,
+        "range": 0.061438918113708496
+      },
+      "median": {
+        "mean": 0.007491668065388997,
+        "min": 0.006936520338058472,
+        "max": 0.008565962314605713,
+        "range": 0.0016294419765472412
+      },
+      "zero_lead_frames": {
+        "mean": 13.333333333333334,
+        "min": 0,
+        "max": 40,
+        "range": 40
+      },
+      "longest_zero_lead_seconds": {
+        "mean": 0.24866323333333332,
+        "min": 0,
+        "max": 0.7459897,
+        "range": 0.7459897
+      },
+      "completed_combos": {
+        "mean": 20,
+        "min": 20,
+        "max": 20,
+        "range": 0
+      },
+      "s08_during_combo_period": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "packet_caused_rotation_changes": {
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "range": 0
+      },
+      "reject_counts": {},
+      "branch_counts": {
+        "POSITION_RESIDUAL": 1,
+        "STALL": 1
+      }
+    }
+  },
+  "mean_p95_B_minus_A": 0.02079928914705912,
+  "p0-validation.jar_sha256": "8fcbbed513e35c6d97aa56a83a819217fb6bee14fb88bb196d8bdc6cf5827d91",
+  "p0-diagnostics.jar_sha256": "91402c2f27b69d4ea8e28dd0210332063125850b808a00977fa54c1ce52f5436",
+  "execution_manifest": {
+    "order": [
+      "A",
+      "B",
+      "A",
+      "B",
+      "A",
+      "B"
+    ],
+    "rtt_ms": 100,
+    "runs": [
+      {
+        "block": 1,
+        "variant": "A",
+        "scene": "motion",
+        "label": "ab-1-A-motion",
+        "jar_sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-1-A-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-a72ad97.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "existing_first_run": true,
+        "exit": 0
+      },
+      {
+        "block": 1,
+        "variant": "A",
+        "scene": "view",
+        "label": "ab-1-A-view",
+        "jar_sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-1-A-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-a72ad97.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T09:16:39Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:18:41Z"
+      },
+      {
+        "block": 2,
+        "variant": "B",
+        "scene": "motion",
+        "label": "ab-2-B-motion",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-2-B-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T09:18:41Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:19:56Z"
+      },
+      {
+        "block": 2,
+        "variant": "B",
+        "scene": "view",
+        "label": "ab-2-B-view",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-2-B-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T09:19:56Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:21:57Z"
+      },
+      {
+        "block": 3,
+        "variant": "A",
+        "scene": "motion",
+        "label": "ab-3-A-motion",
+        "jar_sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-3-A-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-a72ad97.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T09:21:57Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:23:12Z"
+      },
+      {
+        "block": 3,
+        "variant": "A",
+        "scene": "view",
+        "label": "ab-3-A-view",
+        "jar_sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-3-A-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-a72ad97.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T09:23:12Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:25:32Z"
+      },
+      {
+        "block": 4,
+        "variant": "B",
+        "scene": "motion",
+        "label": "ab-4-B-motion",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-4-B-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T09:25:32Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:26:48Z"
+      },
+      {
+        "block": 4,
+        "variant": "B",
+        "scene": "view",
+        "label": "ab-4-B-view",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-4-B-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T09:26:48Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:28:52Z"
+      },
+      {
+        "block": 5,
+        "variant": "A",
+        "scene": "motion",
+        "label": "ab-5-A-motion",
+        "jar_sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-5-A-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-a72ad97.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T09:28:52Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:30:08Z"
+      },
+      {
+        "block": 5,
+        "variant": "A",
+        "scene": "view",
+        "label": "ab-5-A-view",
+        "jar_sha256": "ca5ab905aaae97cbe512a39660a012a305a8d29209ce77b8a17ca1d478b5b4c8",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-5-A-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-a72ad97.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T09:30:08Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:32:13Z"
+      },
+      {
+        "block": 6,
+        "variant": "B",
+        "scene": "motion",
+        "label": "ab-6-B-motion",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-6-B-motion",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--camera-suite",
+          "motion"
+        ],
+        "started_utc": "2026-10-11T09:32:13Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:33:28Z"
+      },
+      {
+        "block": 6,
+        "variant": "B",
+        "scene": "view",
+        "label": "ab-6-B-view",
+        "jar_sha256": "54293996e7197acd62d4ecc03bcafad141a2721dd83b98b4b9bfcd9ba105f7d9",
+        "command": [
+          "C:\\Users\\layue13\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\tools\\p0\\dual.py",
+          "--label",
+          "ab-6-B-view",
+          "--rtt",
+          "100",
+          "--mod-snapshot",
+          "C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar",
+          "--snapshot-coremod",
+          "--diagnostic-trace",
+          "--accept-eula",
+          "--souls-view"
+        ],
+        "started_utc": "2026-10-11T09:33:28Z",
+        "exit": 0,
+        "finished_utc": "2026-10-11T09:35:32Z"
+      }
+    ]
+  },
+  "observer_verification": [
+    {
+      "variant": "A",
+      "exit": 0,
+      "summary": [
+        "READ_ONLY_CHECK jar=C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-a72ad97.jar comparisons=20000 result=PASS traceOff=unchanged fieldWrites=unchanged"
+      ]
+    },
+    {
+      "variant": "B",
+      "exit": 0,
+      "summary": [
+        "READ_ONLY_CHECK jar=C:\\Users\\layue13\\Documents\\Projects\\Clashweave\\build\\p0\\baseline-dabfb96.jar comparisons=22000 result=PASS traceOff=unchanged fieldWrites=unchanged"
+      ]
+    }
+  ],
+  "checks": {
+    "junit": {
+      "tests": 86,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "test_task_executed": true,
+    "spotless": "PASS",
+    "checkstyleMain": "PASS",
+    "checkstyleTest": "PASS",
+    "production_source_changes": false
+  }
+}
