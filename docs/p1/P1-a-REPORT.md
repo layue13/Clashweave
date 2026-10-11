@@ -172,3 +172,67 @@ python tools/p0/dual.py --launcher native-final --snapshot-coremod --mod-snapsho
 ## 审核建议
 
 效果、控制预算与最终玩家浮空的限定场景已有实际证据；自然蜘蛛几何、真实联网生命周期、完整 P0 回归及性能最大值仍需审核。暂定入口及新配置不修改设计文档。本轮提交为草稿，停止在 P1-a，不能据此直接开始 P1-b 或 WF-1。
+
+## 审核修复
+
+本节追加到 `p1/launcher`，仅处理本轮六项发现。原先 23 场及失败数据不覆盖，验收口径仍是每档 20 条连击/20 次玩家浮空、区间 S08=0、包引起视角变化=0；不把预期外的失败剔除。不修改设计文档、动作时序、相机、锁敌、效果/伤害规则或消息字段。推送需要用户另行批准。
+
+### 逐项复现与处理
+
+修复前，四项核心复现测试输出 `4 tests completed, 4 failed`：重复握手缺少实例领取标志、已复制额度到期仍可用、重复 LAUNCH 能加载、开启落地策略不补 GROUND。为使同一策略可在 JUnit 中验证，将原配置边处理原样提到 ActionCatalog；随后再改其行为。MOVE_READY 的生产问题另由冻结旧 jar 的最小专服入口夹具复现，不只靠一个新布尔方法作证。
+
+| 项 | 复现 | 修复 | 证据 |
+|---|---|---|---|
+| 1. 重复 MOVE_READY | 旧 jar 同实例两次入口处理：`rebuilt=true timerChanged=true`，重建会抹掉累计路径并再领 lift/launch | Scheduler.Instance 记录一次领取；收到匹配实例的重复 kind=-1 后 trace 并直接返回，不建预算、不重置时钟/位置、不再领额度 | 新 jar：`rebuilt=false timerChanged=false`，trace `MOVE_READY_DUPLICATE ... id=123456 sequence=3`；JUnit 同实例二次/清账本仍拒绝，新实例可领 |
+| 2. 副本无截止 | 清掉 PlayerState 余额后，旧 MovementBudget 在 60 tick 仍接受额外 2 格上升 | 每份垂直授权保存逻辑截止 tick，accept 内丢弃到期未使用余额；生产检查传入实际服务端 tick，不从墙钟推断逻辑期限 | JUnit 精确截止、低 TPS、两份不同截止、余额已使用后到期的检查；不依赖外部清零 |
+| 3. 同动作重复 LAUNCH | 两个 vy=0.6 的 effect 可加载；旧执行取 max 速度却会两次授予额度 | **选择加载时拒绝重复 LAUNCH**，错误带 `actions[one].effects: duplicate LAUNCH` | JUnit 同动作两次 LAUNCH 拒绝。理由：一段提交最多一次同类浮空，避免重复预算花费/事件/额度；不改变单次 vy 与预算量 |
+| 4. 落地配置未补 | 缺省 requires 的带 LAUNCH 边，开启后仍为 null | 开启时全部进入 LAUNCH 动作的边强制 GROUND；关闭时只移除 GROUND，不删除 AIR 或改普通边 | JUnit 缺省→开→关→再开；AIR→开覆盖为 GROUND；关闭保留 AIR；无 LAUNCH 的边不受影响 |
+| 5. 线性存活检查 | 源码每条记录 contains 扫描实体列表；最小夹具调用 WorldServer.onEntityRemoved 后实体仍在旧列表，旧 jar 记录仍为 1 | 用世界实体 ID 索引查询并比较对象身份，保留 isDead/health/dimension 检查。平均每条记录 O(1)，整批 O(记录数) | 同一夹具：`dead=false inList=true indexed=false`，旧 after=1、新 after=0，清理原版移除回调已完成但列表尚未清掉的窗口 |
+| 6. 重复豁免计算 | 先核对源码成功路径在 allowed/submit 各计算一次，后补冻结旧 jar 的隔离计数夹具：一次 apply 的 isInWater 查询为 2 | 同次 apply 只算一次 alive/exempt，过滤、trace、submit 共用局部值 | 新 jar 一次 apply 查询为 1；未增加跨次缓存或生命周期状态 |
+
+第 2 项的“已用额度”仅是累计上升账本中的历史支出：避免到期把此前合法上升追溯成违规，并不是永久可用余额。测试证明到期后原地检查可通过，再增加 0.01 格且超出原跳跃额度即拒绝。每份新 grant 有自己的截止，不因新 grant 延长旧副本。`lift` 额度止于当前动作结束，launch 副本沿原 60 tick 截止；原跳跃、root、WASD、impulseMultiplier 和余量全部不变。
+
+最小入口夹具使用真实专服玩家、生产 enqueue/输入门处理（有效 session/stamp/sequence），不是修改客户端消息格式。它只重复握手并模拟原版实体移除回调，不宣称已覆盖完整区块卸载/联网生命周期。
+第 6 项计数用未生成到世界的 EntityZombie 子类，只在隔离的 apply 调用中计数，避免原版物理 tick 的水查询混入；直接传入已接受伤害条件，验证政策查询次数，不代替普通伤害路径验收。
+
+### 构建与复现命令
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Zulu\zulu-25'
+$env:VERSION='0.1.0-dev'
+# 修复前：四项断言失败的红阶段
+.\gradlew.bat test --tests '*P1AuditTest' --rerun --no-configuration-cache --console=plain
+# 修复后：完整生产检查与构建；验证源集单独编译
+.\gradlew.bat spotlessCheck checkstyleMain checkstyleTest test build --no-configuration-cache --console=plain
+.\gradlew.bat p0LaunchFiles -I tools/p0/validation.gradle --no-configuration-cache --console=plain
+python tools/p1/run_audit_regression.py
+# 补充豁免查询计数（原批次不覆盖）
+python tools/p0/dual.py --launcher review --snapshot-coremod --mod-snapshot build/p1/candidate-impulse-fix.jar --label p1-audit-count-old --accept-eula
+python tools/p0/dual.py --launcher review --snapshot-coremod --mod-snapshot build/p1/candidate-audit.jar --label p1-audit-count-new --accept-eula
+```
+
+修复后 `BUILD SUCCESSFUL`，JUnit 实际 **133 项，failure/error/skipped=0**。原 126 项均保留，4 个原 P1 测试只适配额度方法的截止参数，断言未删除；新增 7 项审核测试。旧冻结 jar 为前节 `candidate-impulse-fix.jar`，新 `candidate-audit.jar` SHA256：
+`123bef23b9774590f5ffacbf8990b7f9f1b11f0493450a0ae013fd0872be150c`。
+
+### 双客户端对照
+
+同一 Windows 主机、原 FIFO 100 ms 代理，0 ms 先跑；每个子场景按旧/新顺序，各自新启专服与 P0A/P0B。浮空夹具和连击口径沿用上一轮，没有调整参数或重试择优。每个浮空场景仍包含 20 次受击方浮空后新建预算。
+
+| 完整标签 | 版本 | RTT | 场景完成 | 预算纠正 | 区间 S08 A/B | 包 yaw/pitch 最大变化 A/B | 玩家双截止违例 |
+|---|---|---:|---:|---:|---:|---|---:|
+| p1-audit-player-old-0 | 旧 | 0 | 浮空 20/20 | 0 | 0/0 | 0°/0° | 0 |
+| p1-audit-player-new-0 | 新 | 0 | 浮空 20/20 | 0 | 0/0 | 0°/0° | 0 |
+| p1-audit-combo-old-0 | 旧 | 0 | 连击 20/20 | 0 | 0/0 | 0°/0° | 0 |
+| p1-audit-combo-new-0 | 新 | 0 | 连击 20/20 | 0 | 0/0 | 0°/0° | 0 |
+| p1-audit-player-old-100 | 旧 | 100 | 浮空 20/20 | 0 | 0/0 | 0°/0° | 0 |
+| p1-audit-player-new-100 | 新 | 100 | 浮空 20/20 | 0 | 0/0 | 0°/0° | 0 |
+| p1-audit-combo-old-100 | 旧 | 100 | 连击 20/20 | 0 | 0/0 | 0°/0° | 0 |
+| p1-audit-combo-new-100 | 新 | 100 | 连击 20/20 | 0 | 0/0 | 0°/0° | 0 |
+
+两版每个浮空场景各 61 个玩家命中提交；双截止检查用实际 hitTick/commitTick/frozen/cutoff。S08 和包视角仍只计合法回放测量区间，初始化传送不混入，与上一轮口径相同。整场输入门拒绝计数原样留在汇总，不能由 20/20 推导整场所有输入都被接受。
+
+包括四个最小夹具在内，本次共 **12 个游戏会话**，全部正常结束、专服客户端/OpenGL 类加载检查均为 0。完整摘要和每场冻结运行时哈希见 [audit-summary.json](audit-summary.json)。修复前四项红阶段失败保留；本次回归没有失败场景，无择优重跑。
+
+汇总时误导入尚无入口保护的回放脚本，曾触发一次重复标签拒绝（FileExistsError）；没有启动游戏或改变原场景目录。已给脚本增加 `main` 保护、全批次存在性预检和日志独占创建，导入不再启动回放。此操作错误在摘要中单列，不算一个新游戏会话。重现时应使用新的标签前缀，不能覆盖本报告已有标签。
+
+本次没有重跑完整 PvE/相机/联网生命周期/性能矩阵，前节蜘蛛、旧失败、性能与生命周期限制继续保留，不因这次限定回归通过而抹去。未开始 P1-b 或 WF-1。本地追加提交完成后等待用户批准，再推送并更新现有 PR #17。

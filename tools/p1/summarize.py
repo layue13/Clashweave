@@ -50,6 +50,8 @@ def summarize(label):
         elif opened is not None:
             cases.append(line)
     result['movement']=[fields(x) for x in lines if 'P0_MOVEMENT ' in x]
+    result['audit_findings']=[{'kind':re.search(r'P1_AUDIT_(\w+)',x).group(1),**fields(x)}
+        for x in lines if 'P1_AUDIT_' in x]
     result['runtime_jars']=json.loads((folder/'runtime-snapshot.json').read_text())
     result['performance_last']=next((fields(x) for x in reversed(lines) if 'P0_PERF samples=' in x),None)
     # Commit invariants are computed from actual frozen/commit values, not expected fixture ticks.

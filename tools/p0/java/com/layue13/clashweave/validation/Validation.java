@@ -30,6 +30,7 @@ public final class Validation {
         FMLCommonHandler.instance().bus().register(this);
         FMLCommonHandler.instance().bus().register(new NetworkScenario());
         FMLCommonHandler.instance().bus().register(new LauncherScenario());
+        FMLCommonHandler.instance().bus().register(new LauncherReview());
         Supplement supplement = new Supplement();
         FMLCommonHandler.instance().bus().register(supplement);
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(supplement);

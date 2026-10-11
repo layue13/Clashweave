@@ -66,46 +66,40 @@ final class HitEffects {
     double apply(EntityPlayerMP attacker, EntityLivingBase entity, Scheduler.Instance action, long tick, long frozen,
         boolean hit, int guard) {
         if (action.definition.effects.isEmpty()) return 0;
-        if (!HitEffect.allowed(hit, guard, !entity.isDead && entity.getHealth() > 0, exempt(entity))) {
-            trace(
-                "SKIP target=" + entity
-                    .getEntityId() + " guard=" + guard + " hit=" + hit + " exempt=" + exempt(entity));
+        boolean alive = !entity.isDead && entity.getHealth() > 0;
+        boolean exempt = exempt(entity);
+        if (!HitEffect.allowed(hit, guard, alive, exempt)) {
+            trace("SKIP target=" + entity.getEntityId() + " guard=" + guard + " hit=" + hit + " exempt=" + exempt);
             return 0;
         }
         double[] credit = { 0 };
-        HitEffect.submit(
-            action.definition.effects,
-            hit,
-            guard,
-            !entity.isDead && entity.getHealth() > 0,
-            exempt(entity),
-            effect -> {
-                if (effect.type != HitEffect.Type.LAUNCH || effect.vy <= 0) return;
-                Target target = target(entity);
-                boolean accepted = target.budget.consume(tick, config.launchCost, entity.onGround);
-                if (accepted) {
-                    entity.motionY = Math.max(entity.motionY, effect.vy);
-                    entity.velocityChanged = true;
-                    if (entity instanceof EntityPlayerMP) ((EntityPlayerMP) entity).playerNetServerHandler
-                        .sendPacket(new S12PacketEntityVelocity(entity));
-                    credit[0] += effect.vy * config.impulseMultiplier;
-                    presentation.launch(attacker, entity, action, tick, frozen);
-                }
-                trace(
-                    "LAUNCH target=" + entity.getEntityId()
-                        + " accepted="
-                        + accepted
-                        + " tick="
-                        + tick
-                        + " remaining="
-                        + target.budget.remaining()
-                        + " protectionUntil="
-                        + target.budget.protectedUntil()
-                        + " vy="
-                        + entity.motionY
-                        + " hp="
-                        + entity.getHealth());
-            });
+        HitEffect.submit(action.definition.effects, hit, guard, alive, exempt, effect -> {
+            if (effect.type != HitEffect.Type.LAUNCH || effect.vy <= 0) return;
+            Target target = target(entity);
+            boolean accepted = target.budget.consume(tick, config.launchCost, entity.onGround);
+            if (accepted) {
+                entity.motionY = Math.max(entity.motionY, effect.vy);
+                entity.velocityChanged = true;
+                if (entity instanceof EntityPlayerMP)
+                    ((EntityPlayerMP) entity).playerNetServerHandler.sendPacket(new S12PacketEntityVelocity(entity));
+                credit[0] += effect.vy * config.impulseMultiplier;
+                presentation.launch(attacker, entity, action, tick, frozen);
+            }
+            trace(
+                "LAUNCH target=" + entity.getEntityId()
+                    + " accepted="
+                    + accepted
+                    + " tick="
+                    + tick
+                    + " remaining="
+                    + target.budget.remaining()
+                    + " protectionUntil="
+                    + target.budget.protectedUntil()
+                    + " vy="
+                    + entity.motionY
+                    + " hp="
+                    + entity.getHealth());
+        });
         return credit[0];
     }
 
@@ -116,7 +110,7 @@ final class HitEffects {
                 EntityLivingBase entity = target.entity;
                 if (entity.isDead || entity.getHealth() <= 0
                     || entity.dimension != target.dimension
-                    || !entity.worldObj.loadedEntityList.contains(entity)) return true;
+                    || entity.worldObj.getEntityByID(entity.getEntityId()) != entity) return true;
                 target.budget.advance(tick, entity.onGround);
                 return target.budget.remaining() == config.controlCapacity && target.budget.expired(tick);
             });

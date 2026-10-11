@@ -74,9 +74,15 @@ public final class ActionCatalog {
                 || !Double.isFinite(definition.sweepElevation)
                 || Math.abs(definition.sweepElevation) > 90)
                 throw new IllegalArgumentException("actions.lift/sweepElevation/effects");
+            boolean launch = false;
             for (HitEffect effect : definition.effects) {
                 if (effect == null) throw new IllegalArgumentException("actions.effects");
                 effect.validate(maximum);
+                if (effect.type == HitEffect.Type.LAUNCH) {
+                    if (launch)
+                        throw new IllegalArgumentException("actions[" + definition.id + "].effects: duplicate LAUNCH");
+                    launch = true;
+                }
             }
             if (definition.id == null || definition.startup < 0
                 || definition.active < 0
@@ -119,6 +125,20 @@ public final class ActionCatalog {
         Definition definition = definitions.get(id);
         if (definition == null) throw new IllegalArgumentException("Unknown action: " + id);
         return definition;
+    }
+
+    /** Server configuration overrides for edges that enter launch-bearing actions. */
+    public void launchPolicy(boolean requiresHit, boolean requiresGround) {
+        for (Definition action : definitions.values()) for (Edge edge : action.edges) {
+            boolean launch = get(edge.target).effects.stream()
+                .anyMatch(effect -> effect.type == HitEffect.Type.LAUNCH);
+            if (launch) {
+                edge.hit = requiresHit;
+                edge.damageHit = requiresHit;
+                if (requiresGround) edge.requires = "GROUND";
+                else if ("GROUND".equals(edge.requires)) edge.requires = null;
+            }
+        }
     }
 
     public Map<String, Definition> all() {

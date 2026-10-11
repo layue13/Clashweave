@@ -21,6 +21,7 @@ public final class Scheduler {
         private final Set<String> hits = new HashSet<>();
         public boolean confirmedHit;
         public boolean confirmedDamageHit;
+        private boolean movementReady;
 
         Instance(long id, long start, int sequence, ActionCatalog.Definition definition) {
             this.id = id;
@@ -31,6 +32,12 @@ public final class Scheduler {
 
         public boolean claim(String target, int segment) {
             return hits.add(target + ":" + segment);
+        }
+
+        public boolean claimMovementReady() {
+            if (movementReady) return false;
+            movementReady = true;
+            return true;
         }
 
         public int ledgerSize() {

@@ -360,6 +360,16 @@ public final class CombatServer {
         }
         if (message.kind == -1) {
             if (state.scheduler.current() != null && message.target == (int) state.scheduler.current().id) {
+                if (!state.scheduler.current()
+                    .claimMovementReady()) {
+                    trace(
+                        "MOVE_READY_DUPLICATE player=" + input.player.getCommandSenderName()
+                            + " id="
+                            + state.scheduler.current().id
+                            + " sequence="
+                            + message.sequence);
+                    return;
+                }
                 state.ready = true;
                 state.budgetNano = System.nanoTime();
                 state.budgetTick = tick;
@@ -370,8 +380,10 @@ public final class CombatServer {
                     config.movementMargin,
                     config.jumpAllowance,
                     config.movementEpsilon);
+                state.movement.creditVertical(state.launchCredit, state.launchCreditUntil);
                 state.movement.creditVertical(
-                    state.launchCredit + state.scheduler.current().definition.lift * config.impulseMultiplier);
+                    state.scheduler.current().definition.lift * config.impulseMultiplier,
+                    state.scheduler.current().start + state.scheduler.current().definition.duration());
                 state.x = input.player.posX;
                 state.y = input.player.posY;
                 state.z = input.player.posZ;
@@ -792,7 +804,7 @@ public final class CombatServer {
             defender.launchCredit += launchCredit;
             defender.launchY = defender.player.posY;
             defender.launchCreditUntil = tick + config.launchCreditTicks;
-            if (defender.movement != null) defender.movement.creditVertical(launchCredit);
+            if (defender.movement != null) defender.movement.creditVertical(launchCredit, defender.launchCreditUntil);
         }
         trace(
             "COMMIT player=" + contact.attacker.player.getCommandSenderName()
@@ -841,8 +853,14 @@ public final class CombatServer {
             creditImpulse(state);
             state.pendingImpulse = false;
         }
-        if (!state.movement
-            .accept(System.nanoTime(), horizontal, vertical, walk, state.externalHorizontal, state.externalVertical)) {
+        if (!state.movement.accept(
+            System.nanoTime(),
+            tick,
+            horizontal,
+            vertical,
+            walk,
+            state.externalHorizontal,
+            state.externalVertical)) {
             Clashweave.network.sendTo(
                 new com.layue13.clashweave.network.CorrectionMessage(
                     ++correctionSequence,

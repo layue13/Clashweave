@@ -492,16 +492,7 @@ public final class CombatConfig {
         }
         try (InputStreamReader reader = new InputStreamReader(new FileInputStream(data), StandardCharsets.UTF_8)) {
             actions = new ActionCatalog(reader, effectVelocityLimit);
-            for (ActionCatalog.Definition action : actions.all()
-                .values()) for (ActionCatalog.Edge edge : action.edges) {
-                    boolean launch = actions.get(edge.target).effects.stream()
-                        .anyMatch(effect -> effect.type == com.layue13.clashweave.core.HitEffect.Type.LAUNCH);
-                    if (launch) {
-                        edge.hit = launchRequiresHit;
-                        edge.damageHit = launchRequiresHit;
-                        if (!launchRequiresGround && "GROUND".equals(edge.requires)) edge.requires = null;
-                    }
-                }
+            actions.launchPolicy(launchRequiresHit, launchRequiresGround);
         }
     }
 

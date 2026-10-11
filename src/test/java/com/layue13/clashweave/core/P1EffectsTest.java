@@ -95,12 +95,12 @@ public class P1EffectsTest {
     @Test
     public void launchCreditIsFiniteAndCannotLoosenHorizontalBudget() {
         MovementBudget budget = new MovementBudget(0, 0, 0, 0, 1.25, .03);
-        budget.creditVertical(.6 * 4);
+        budget.creditVertical(.6 * 4, 60);
         assertTrue(budget.accept(50_000_000L, 0, 2, 0, 0, 0));
         assertFalse(budget.accept(100_000_000L, 0, 2, 0, 0, 0));
         assertFalse(budget.accept(100_000_000L, 1, 0, 0, 0, 0));
         try {
-            budget.creditVertical(Double.NaN);
+            budget.creditVertical(Double.NaN, 60);
             fail();
         } catch (IllegalArgumentException expected) {}
     }
@@ -127,7 +127,7 @@ public class P1EffectsTest {
         remaining = MovementBudget.remainingVertical(remaining, 64, 64.6, 1033, 1090);
         remaining = MovementBudget.remainingVertical(remaining, 64.6, 65.2, 1034, 1090);
         MovementBudget nextAction = new MovementBudget(0, 0, 0, 0);
-        nextAction.creditVertical(remaining);
+        nextAction.creditVertical(remaining, 60);
         assertTrue(nextAction.accept(50_000_000, 0, 1.76363, 0, 0, 0));
         assertFalse(nextAction.accept(100_000_000, 0, 1, 0, 0, 0));
     }
@@ -144,7 +144,7 @@ public class P1EffectsTest {
         double remaining = MovementBudget.remainingVertical(2.4, 64, 66, 10, 60);
         assertEquals(.4, remaining, .000001);
         MovementBudget next = new MovementBudget(0, 0, 0, 0);
-        next.creditVertical(remaining);
+        next.creditVertical(remaining, 60);
         assertFalse(next.accept(50_000_000, 0, 2, 0, 0, 0));
         assertEquals(0, MovementBudget.remainingVertical(remaining, 66, 66, 60, 60), 0);
     }

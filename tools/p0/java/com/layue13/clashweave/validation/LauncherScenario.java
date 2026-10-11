@@ -62,7 +62,15 @@ public final class LauncherScenario {
         if(index==89)b.setGameType(net.minecraft.world.WorldSettings.GameType.CREATIVE);
         origin=target.posY;peak=origin;health=target.getHealth();airborneBudget=false;beforeCorrections=Clashweave.server.state(b).corrections;
     }
-    private Object budgetField(Object budget,String name)throws Exception {Field f=budget.getClass().getDeclaredField(name);f.setAccessible(true);return f.get(budget);}
+    private Object budgetField(Object budget,String name)throws Exception {
+        try {Field f=budget.getClass().getDeclaredField(name);f.setAccessible(true);return f.get(budget);}
+        catch(NoSuchFieldException missing){
+            if(!name.equals("launchAllowance"))throw missing;
+            double value=((Number)budgetField(budget,"spentLaunch")).doubleValue();
+            for(Object credit:(List)budgetField(budget,"credits")){Field f=credit.getClass().getDeclaredField("remaining");f.setAccessible(true);value+=f.getDouble(credit);}
+            return value;
+        }
+    }
     @SubscribeEvent(priority=cpw.mods.fml.common.eventhandler.EventPriority.HIGHEST)
     public void audit(TickEvent.ServerTickEvent e){
         if(!Boolean.getBoolean("cw.p1.audit")||e.phase!=TickEvent.Phase.END||b==null||index<0||elapsed<25||elapsed>70)return;
@@ -70,7 +78,7 @@ public final class LauncherScenario {
         try {System.out.println("P1_BUDGET case="+index+" tick="+(Clashweave.server.tick+1)+" y="+b.posY+" baseY="+s.y+" ground="+b.onGround+" credit="+s.launchCredit+" allowance="+(s.movement==null?-1:budgetField(s.movement,"launchAllowance"))+" vertical="+(s.movement==null?-1:budgetField(s.movement,"vertical"))+" external="+s.externalVertical+" ready="+s.ready+" nano="+System.nanoTime());}catch(Exception failure){throw new IllegalStateException(failure);}
     }
     @SubscribeEvent public void tick(TickEvent.ServerTickEvent e) {
-        String mode=System.getProperty("cw.p1.launcher");if(mode==null||e.phase!=TickEvent.Phase.END)return;
+        String mode=System.getProperty("cw.p1.launcher");if(mode==null||mode.equals("review")||e.phase!=TickEvent.Phase.END)return;
         for(Object o:MinecraftServer.getServer().getConfigurationManager().playerEntityList){EntityPlayerMP p=(EntityPlayerMP)o;if(p.getCommandSenderName().equals("P0A"))a=p;else b=p;}
         if(a==null||b==null||Clashweave.server.state(a)==null||Clashweave.server.state(b)==null)return;
         try {
