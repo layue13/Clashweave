@@ -28,6 +28,7 @@ parser.add_argument('--snapshot-coremod', action='store_true')
 parser.add_argument('--souls', action='store_true')
 parser.add_argument('--souls-view', action='store_true')
 parser.add_argument('--edge-boundary', action='store_true')
+parser.add_argument('--art-verify', action='store_true')
 parser.add_argument('--movement', action='store_true')
 parser.add_argument('--low-tps', action='store_true')
 parser.add_argument('--engagement', action='store_true')
@@ -51,6 +52,7 @@ if args.camera_suite: args.souls=True
 if args.souls: args.composition=True
 if args.souls_view: args.view_test=True
 if args.edge_boundary: args.view_test=True; args.render_only=True
+if args.art_verify: args.render_only=True
 if not args.accept_eula:
     raise SystemExit('Explicit EULA acceptance required')
 folder = ROOT / 'build/p0/runs' / args.label
@@ -88,6 +90,7 @@ def spawn(role):
     if args.view_test:
         command += ['-Dcw.p0.viewTest=true']
     if args.edge_boundary: command += ['-Dcw.p0.edgeBoundary=true']
+    if args.art_verify: command += ['-Dcw.p0.artVerify=true']
     if args.sweep_test:
         command += ['-Dcw.p0.sweepTest=true']
     if args.fast_turn:

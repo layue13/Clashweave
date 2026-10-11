@@ -18,7 +18,7 @@ public final class KatanaRendering {
     private final Minecraft minecraft = Minecraft.getMinecraft();
     private final ModelBiped arm = new ModelBiped();
     public static double sheathAngle = 45;
-    public static double sheathX = 0.32;
+    public static double sheathX = 0.58;
     public static double sheathY = 0.55;
     public static double sheathZ = 0.18;
 
@@ -27,7 +27,7 @@ public final class KatanaRendering {
             new java.io.File(Minecraft.getMinecraft().mcDataDir, "config/clashweave/render.cfg"));
         config.load();
         sheathAngle = config.getFloat("sheathAngle", "mount", 45, 30, 60, "Angle to downward body axis");
-        sheathX = config.getFloat("sheathX", "mount", 0.32f, 0.25f, 0.6f, "Left hip in block units");
+        sheathX = config.getFloat("sheathX", "mount", 0.58f, 0.25f, 0.6f, "Left hip in block units");
         sheathY = config.getFloat("sheathY", "mount", 0.55f, 0.4f, 0.8f, "Height in Biped downward axis");
         sheathZ = config.getFloat("sheathZ", "mount", 0.18f, 0.1f, 0.4f, "Rear offset in block units");
         config.save();
