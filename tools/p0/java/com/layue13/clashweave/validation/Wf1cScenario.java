@@ -31,6 +31,8 @@ import cpw.mods.fml.common.gameevent.TickEvent;
  */
 public final class Wf1cScenario {
 
+    private int badSyncTick;
+
     private static final class Snap {
 
         long session;
@@ -822,6 +824,30 @@ public final class Wf1cScenario {
         try {
             if (mode.startsWith("float-")) {
                 floatTick();
+                return;
+            }
+            if (mode.equals("handshake-sync")) {
+                if (badSyncTick == 0) {
+                    java.util.List<EntityPlayerMP> targets = new java.util.ArrayList<>();
+                    for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+                        EntityPlayerMP p = (EntityPlayerMP)o;
+                        if (state(p) != null && state(p).verified) targets.add(p);
+                    }
+                    if (targets.size() == 2) {
+                        String bad = "0000000000000000000000000000000000000000000000000000000000000000";
+                        for (EntityPlayerMP p : targets) Clashweave.network.sendTo(
+                            new com.layue13.clashweave.network.ContentSyncMessage(bad,
+                                Clashweave.content.rules.overridesCanonical,
+                                com.layue13.clashweave.forge.CombatWeapons.table().names()), p);
+                        badSyncTick = ticks;
+                        System.out.println("WF1C_BAD_SYNC sent=2 tick=" + ticks);
+                    }
+                } else if (ticks == badSyncTick + 50) {
+                    int connected = MinecraftServer.getServer().getCurrentPlayerCount();
+                    result("handshake-effective-diff-refused", connected == 0 ? null : connected + " client(s) remain connected", null, null);
+                    System.out.println("WF1C_BAD_SYNC connected=" + connected);
+                    finish();
+                }
                 return;
             }
             if (mode.equals("handshake")) {

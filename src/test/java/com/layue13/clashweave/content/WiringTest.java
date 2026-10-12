@@ -291,6 +291,26 @@ public class WiringTest {
     }
 
     @Test
+    public void legacyProductionCatalogAndWireUseFullyQualifiedActionIds() throws IOException {
+        try (java.io.Reader legacy = new java.io.InputStreamReader(
+            getClass().getResourceAsStream("/assets/clashweave/combat/katana.json"),
+            StandardCharsets.UTF_8)) {
+            EffectiveRules rules = EffectiveRules
+                .build(loadWithGlaive().registry, new EffectiveRules.Overrides(true, true, 1.2, true), legacy);
+            ActionCatalog catalog = rules.catalog("katana:default");
+            assertEquals("katana:light_1", catalog.byId("katana:light_1").id);
+            for (ActionCatalog.Definition action : catalog.all()
+                .values()) {
+                assertTrue(action.id.startsWith("katana:"));
+                for (ActionCatalog.Edge edge : action.edges) assertTrue(edge.target.startsWith("katana:"));
+            }
+            ActionCatalog wire = new ActionCatalog(new StringReader(rules.wireJson("katana:default")));
+            assertNotNull(wire.byId(wire.entryTarget(true, Intent.LIGHT)));
+            assertEquals(catalog.get("light_1").id, wire.get("light_1").id);
+        }
+    }
+
+    @Test
     public void overlongActionIdsAreRefusedAtLoad() throws IOException {
         String longId = "x23456789012345678901234567890123";
         String pack = "{\"schemaVersion\":1,\"namespace\":\"longns\",\"styles\":[{\"id\":\"longns:s\",\"actions\":[\"longns:"

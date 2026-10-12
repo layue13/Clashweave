@@ -21,7 +21,6 @@ public final class WeaponRendering {
 
     private final Minecraft minecraft = Minecraft.getMinecraft();
     private final ModelBiped arm = new ModelBiped();
-    private boolean warmed;
 
     public static void load() {
         PresentationAssets.load(Clashweave.content.loaded.registry, Clashweave.log);
@@ -30,10 +29,15 @@ public final class WeaponRendering {
                 .size());
     }
 
-    private PresentationAssets.Render render(ClientProxy.Visual visual) {
+    private PresentationAssets.Render render(ClientProxy.Visual visual, net.minecraft.item.ItemStack held) {
         if (visual != null) return visual.render;
-        CombatWeapons.Entry held = CombatWeapons.entry(minecraft.thePlayer.getHeldItem());
-        return PresentationAssets.render(held == null ? "" : held.definition.appearance.skin);
+        return PresentationAssets.render(resourceFor(held));
+    }
+
+    /** Before state arrives, resolve the rendered entity's item, never the observer's item. */
+    static String resourceFor(net.minecraft.item.ItemStack held) {
+        CombatWeapons.Entry entry = CombatWeapons.entry(held);
+        return entry == null ? "" : entry.definition.appearance.skin;
     }
 
     private double swing(ClientProxy.Visual visual, float partial) {
@@ -65,7 +69,7 @@ public final class WeaponRendering {
     public void specialPost(RenderPlayerEvent.Specials.Post event) {
         if (!CombatWeapons.armed(event.entityPlayer.getHeldItem())) return;
         ClientProxy.Visual visual = ClientProxy.instance.visualOf(event.entityPlayer.getEntityId());
-        PresentationAssets.Render render = render(visual);
+        PresentationAssets.Render render = render(visual, event.entityPlayer.getHeldItem());
         boolean drawn = drawn(visual, event.partialRenderTick);
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
@@ -105,13 +109,9 @@ public final class WeaponRendering {
         if (minecraft.thePlayer == null || minecraft.gameSettings.thirdPersonView != 0
             || !CombatWeapons.armed(minecraft.thePlayer.getHeldItem())) return;
         event.setCanceled(true);
-        if (!warmed) {
-            warmed = true;
-            PresentationAssets.warm(minecraft.getTextureManager());
-        }
         ClientProxy.Visual visual = ClientProxy.instance.own();
         if (!drawn(visual, event.partialTicks)) return;
-        PresentationAssets.Render render = render(visual);
+        PresentationAssets.Render render = render(visual, minecraft.thePlayer.getHeldItem());
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1, 1, 1, 1);
@@ -152,7 +152,7 @@ public final class WeaponRendering {
         if (minecraft.thePlayer == null || minecraft.gameSettings.thirdPersonView != 0
             || !CombatWeapons.armed(minecraft.thePlayer.getHeldItem())) return;
         ClientProxy.Visual visual = ClientProxy.instance.own();
-        PresentationAssets.Render render = render(visual);
+        PresentationAssets.Render render = render(visual, minecraft.thePlayer.getHeldItem());
         if (!render.mounted) return;
         net.minecraft.client.entity.EntityClientPlayerMP player = minecraft.thePlayer;
         double partial = event.partialTicks;

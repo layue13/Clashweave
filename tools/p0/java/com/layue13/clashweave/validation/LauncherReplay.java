@@ -37,6 +37,9 @@ public final class LauncherReplay {
         else if(node.equals("iai") && age>=17 && requested.add("after-iai"))p.send(Intent.LIGHT,-1);
         else if(node.isEmpty() && requested.contains("saw-iai") && requested.add("idle-light"))p.send(Intent.LIGHT,-1);
         else if(node.equals("light_1")&&age>=5&&requested.add("light_2"))p.send(Intent.LIGHT,-1);
-        else if(node.equals("light_2")&&age>=6&&requested.add("launcher"))p.send(Intent.HEAVY,-1);
+        else if(node.equals("light_2")&&age>=6&&requested.add("launcher")){
+            if(Boolean.getBoolean("cw.p1.audit"))System.out.println("P1_LAUNCH_REQUEST case="+(cases-1)+" age="+age+" ground="+mc.thePlayer.onGround+" feetY="+mc.thePlayer.boundingBox.minY+" motionY="+mc.thePlayer.motionY+" health="+mc.thePlayer.getHealth()+" nano="+System.nanoTime());
+            p.send(Intent.HEAVY,-1);
+        }
     }
 }

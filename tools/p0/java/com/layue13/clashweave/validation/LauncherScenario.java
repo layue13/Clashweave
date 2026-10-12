@@ -34,6 +34,11 @@ public final class LauncherScenario {
     private int beforeCorrections;
     private boolean airborneBudget;
 
+    public LauncherScenario(){if(Boolean.getBoolean("cw.p1.audit"))net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(this);}
+    @SubscribeEvent public void attackAudit(net.minecraftforge.event.entity.living.LivingAttackEvent event){
+        if(Boolean.getBoolean("cw.p1.audit")&&event.entityLiving==a)System.out.println("P1_ACTOR_DAMAGE case="+index+" tick="+Clashweave.server.tick+" source="+event.source.getDamageType()+" health="+a.getHealth()+" ground="+a.onGround+" y="+a.posY);
+    }
+
     private Scheduler.Instance instance(String action,long start) throws Exception {
         Constructor<Scheduler.Instance> c=Scheduler.Instance.class.getDeclaredConstructor(long.class,long.class,int.class,ActionCatalog.Definition.class);
         c.setAccessible(true);return c.newInstance(100000L+sample++,start,0,Ids.katana().get(action));
@@ -75,6 +80,7 @@ public final class LauncherScenario {
     public void audit(TickEvent.ServerTickEvent e){
         if(!Boolean.getBoolean("cw.p1.audit")||e.phase!=TickEvent.Phase.END||b==null||index<0||elapsed<25||elapsed>70)return;
         CombatServer.PlayerState s=Clashweave.server.state(b);if(s==null)return;
+        System.out.println("P1_ACTOR case="+index+" tick="+(Clashweave.server.tick+1)+" ground="+a.onGround+" y="+a.posY+" motionY="+a.motionY+" health="+a.getHealth()+" hurtTime="+a.hurtTime);
         try {System.out.println("P1_BUDGET case="+index+" tick="+(Clashweave.server.tick+1)+" y="+b.posY+" baseY="+s.y+" ground="+b.onGround+" credit="+s.launchCredit+" allowance="+(s.movement==null?-1:budgetField(s.movement,"launchAllowance"))+" vertical="+(s.movement==null?-1:budgetField(s.movement,"vertical"))+" external="+s.externalVertical+" ready="+s.ready+" nano="+System.nanoTime());}catch(Exception failure){throw new IllegalStateException(failure);}
     }
     @SubscribeEvent public void tick(TickEvent.ServerTickEvent e) {

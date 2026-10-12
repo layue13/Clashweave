@@ -149,7 +149,26 @@ public final class EffectiveRules {
         String style) {
         if (overrides.legacyKatana && style.equals(LEGACY_STYLE)) {
             if (legacyKatana == null) throw new IllegalStateException("legacy katana data unavailable");
-            return new ActionCatalog(legacyKatana, overrides.effectVelocityLimit);
+            ActionCatalog legacy = new ActionCatalog(legacyKatana, overrides.effectVelocityLimit);
+            JsonObject data = new JsonParser().parse(legacy.toWireJson())
+                .getAsJsonObject();
+            for (com.google.gson.JsonElement value : data.getAsJsonArray("actions")) {
+                JsonObject action = value.getAsJsonObject();
+                action.addProperty(
+                    "id",
+                    legacy.normalize(
+                        action.get("id")
+                            .getAsString()));
+                for (com.google.gson.JsonElement reference : action.getAsJsonArray("edges")) {
+                    JsonObject edge = reference.getAsJsonObject();
+                    edge.addProperty(
+                        "target",
+                        legacy.normalize(
+                            edge.get("target")
+                                .getAsString()));
+                }
+            }
+            return new ActionCatalog(new java.io.StringReader(data.toString()), overrides.effectVelocityLimit);
         }
         try {
             return registry.catalog(style, overrides.effectVelocityLimit);

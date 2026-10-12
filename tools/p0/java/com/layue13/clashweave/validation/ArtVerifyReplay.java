@@ -62,7 +62,7 @@ public final class ArtVerifyReplay {
                 }else observerStable=0;
             }return;
         }
-        mc.thePlayer.rotationYaw=0;mc.thePlayer.rotationPitch=0;
+        mc.thePlayer.rotationYaw=0;mc.thePlayer.rotationPitch="sheathed-first".equals(shot)?65:0;
         key(mc.gameSettings.keyBindSneak,ticks>=160&&ticks<180);
         key(mc.gameSettings.keyBindForward,ticks>=190&&ticks<215);
         key(mc.gameSettings.keyBindSprint,ticks>=190&&ticks<215);
@@ -70,6 +70,7 @@ public final class ArtVerifyReplay {
         if(ticks==125)photo("sheathed-side",1,90);
         if(ticks==132){mc.gameSettings.fovSetting=30;photo("sheathed-detail",1,35);}
         if(ticks==140)photo("sheathed-back",1,0);
+        if(ticks==150){photo("sheathed-first",0,0);mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=65;}
         if(ticks==172)photo("sheathed-crouch",1,90);
         if(ticks==205)photo("sheathed-run",1,90);
         if(ticks==230)p.send(Intent.LIGHT,-1);
@@ -97,6 +98,7 @@ public final class ArtVerifyReplay {
         ScreenShotHelper.saveScreenshot(new File("."),"art-"+shot+".png",mc.displayWidth,mc.displayHeight,mc.getFramebuffer());
         ClientProxy.Visual v=ClientProxy.instance.own();
         System.out.println("ART_CAPTURE name="+shot+" tick="+ticks+" action="+v.state.action+" sheathed="+v.state.sheathed
+            +" view="+mc.gameSettings.thirdPersonView+" pitch="+mc.thePlayer.rotationPitch
             +" sneak="+mc.thePlayer.isSneaking()+" sprint="+mc.thePlayer.isSprinting()+" onGround="+mc.thePlayer.onGround
             +" feet="+mc.thePlayer.boundingBox.minY+" frames="+frames+" maximumFrameNanos="+maximum);
         captured.add(shot);shot=null;

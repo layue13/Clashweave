@@ -32,6 +32,7 @@ public final class Wf1cReplay {
     private String shot;
     private boolean orbit;
     private int shots;
+    private boolean fallbackChecked;
 
     public Wf1cReplay() {
         FMLCommonHandler.instance()
@@ -100,6 +101,7 @@ public final class Wf1cReplay {
         ClientProxy proxy = ClientProxy.instance;
         ClientProxy.Visual own = proxy.own();
         if (own == null) return;
+        fallbackAudit(proxy, own);
         connected++;
         sinceJoin++;
         for (ClientProxy.Visual visual : proxy.visuals.values()) {
@@ -176,6 +178,35 @@ public final class Wf1cReplay {
                     + (float) Math.toDegrees(Math.atan2(-(remote.posX - mc.thePlayer.posX), remote.posZ - mc.thePlayer.posZ));
                 mc.thePlayer.rotationPitch = mc.thePlayer.prevRotationPitch = 8;
                 shot = "observer-glaive";
+            }
+        }
+    }
+
+    /** Real client test: resolve without a Visual, then ensure cached authoritative Visual wins. */
+    private void fallbackAudit(ClientProxy proxy, ClientProxy.Visual own) {
+        if (fallbackChecked || !mode.equals("weapon2") || !mc.thePlayer.getCommandSenderName().equals("P0B")) return;
+        for (Object value : mc.theWorld.playerEntities) {
+            net.minecraft.entity.player.EntityPlayer target = (net.minecraft.entity.player.EntityPlayer) value;
+            if (target == mc.thePlayer) continue;
+            ClientProxy.Visual other = proxy.visualOf(target.getEntityId());
+            if (other == null || !other.state.appearance.skin.equals("wf1test:glaive")
+                || other.state.appearance.skin.equals(own.state.appearance.skin)) continue;
+            com.layue13.clashweave.forge.CombatWeapons.Entry held = com.layue13.clashweave.forge.CombatWeapons.entry(target.getHeldItem());
+            if (held == null || !held.definition.appearance.skin.equals(other.state.appearance.skin)) continue;
+            fallbackChecked = true;
+            try {
+                com.layue13.clashweave.client.WeaponRendering renderer = new com.layue13.clashweave.client.WeaponRendering();
+                java.lang.reflect.Method resolve = renderer.getClass().getDeclaredMethod("render", ClientProxy.Visual.class, net.minecraft.item.ItemStack.class);
+                resolve.setAccessible(true);
+                java.lang.reflect.Field cached = ClientProxy.Visual.class.getDeclaredField("render");
+                cached.setAccessible(true);
+                Object fallback = resolve.invoke(renderer, null, target.getHeldItem());
+                Object authoritative = resolve.invoke(renderer, other, mc.thePlayer.getHeldItem());
+                boolean ok = fallback == cached.get(other) && authoritative == cached.get(other);
+                System.out.println("WF1C_FALLBACK ok=" + ok + " observer=" + mc.thePlayer.getCommandSenderName()
+                    + " local=" + own.resolvedRender() + " target=" + other.resolvedRender());
+            } catch (Exception failure) {
+                System.out.println("WF1C_FALLBACK ok=false error=" + failure);
             }
         }
     }

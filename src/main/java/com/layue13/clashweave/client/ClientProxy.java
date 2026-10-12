@@ -186,13 +186,12 @@ public final class ClientProxy extends CommonProxy {
             if (!told.effectiveHash.equals(message.effectiveHash)) {
                 // Our pack plus the server's overrides do not reproduce the server's rules: do not act on them.
                 Clashweave.log.error(
-                    "Clashweave: negotiated rules differ (server {}, derived {}); weapons disabled for this session",
+                    "Clashweave: negotiated rules differ (server {}, derived {}); connection refused",
                     message.effectiveHash,
                     told.effectiveHash);
-                CombatWeapons.install(null);
+                rejectContent("Clashweave: negotiated gameplay rules differ");
                 return;
             }
-            rules = told;
             CombatWeapons.install(
                 CombatWeapons.build(
                     message.items,
@@ -200,6 +199,7 @@ public final class ClientProxy extends CommonProxy {
                     0.0001,
                     1000,
                     name -> (net.minecraft.item.Item) net.minecraft.item.Item.itemRegistry.getObject(name)));
+            rules = told;
             Clashweave.log.info(
                 "Clashweave: joined with negotiated rules {} ({} ms to derive them) and weapon table {}",
                 message.effectiveHash,
@@ -207,8 +207,15 @@ public final class ClientProxy extends CommonProxy {
                 message.items);
         } catch (RuntimeException e) {
             Clashweave.log.error("Clashweave: server content sync rejected: {}", String.valueOf(e));
-            CombatWeapons.install(null);
+            rejectContent("Clashweave: invalid server content sync");
         }
+    }
+
+    private void rejectContent(String reason) {
+        CombatWeapons.install(null);
+        minecraft.getNetHandler()
+            .getNetworkManager()
+            .closeChannel(new net.minecraft.util.ChatComponentText(reason));
     }
 
     public long stamp() {
