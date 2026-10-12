@@ -538,7 +538,8 @@ public final class Wf1cScenario {
         steps.add(new Step("reconnect-new-state") {
 
             {
-                settle = 60;
+                // The replay client waits 60 client ticks after joining before it attacks (life-3 judged at 60).
+                settle = 160;
             }
 
             private EntityPlayerMP fresh() {

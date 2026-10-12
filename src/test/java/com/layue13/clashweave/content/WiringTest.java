@@ -113,6 +113,18 @@ public class WiringTest {
     }
 
     @Test
+    public void catalogAcceptsShortStyleIdsLikeEveryOtherLookup() throws IOException {
+        ContentRegistry registry = loadWithGlaive().registry;
+        // Before WF-1c this threw NullPointerException: the index was probed with the unqualified ID.
+        assertEquals(
+            registry.catalog("katana:default")
+                .toWireJson(),
+            registry.catalog("default")
+                .toWireJson());
+        assertEquals("wf1test", registry.catalog("wf1test:reach").namespace);
+    }
+
+    @Test
     public void presentationOnlyEditsKeepGameplayHashAndAreAllowed() throws IOException {
         ContentLoader.Loaded server = loadWithGlaive();
         String edited = text("/wf1test/glaive.json").replace("\"y\": 0.5", "\"y\": 0.6");

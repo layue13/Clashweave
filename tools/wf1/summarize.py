@@ -6,8 +6,11 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / 'tools/p1'))
-import summarize as p1  # noqa: E402
+import importlib.util  # noqa: E402
+
+_spec = importlib.util.spec_from_file_location('p1_summarize', ROOT / 'tools/p1/summarize.py')
+p1 = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(p1)
 
 
 def render_stats(folder, role):

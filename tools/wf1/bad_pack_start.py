@@ -63,8 +63,22 @@ def run(label, mutate, jar, timeout):
     errors = [re.sub(r'^\[[^\]]*\] \[[^\]]*\] \[[^\]]*\]: ', '', x) for x in lines if 'Clashweave content error' in x]
     refusal = [re.sub(r'^\[[^\]]*\] \[[^\]]*\] \[[^\]]*\]: ', '', x) for x in lines if 'Clashweave refuses to start' in x]
     return dict(label=label, outcome=outcome, exit=process.returncode, seconds=round(elapsed, 1),
-                crash_report=any('---- Minecraft Crash Report ----' in x for x in lines),
+                crash_report=any('This crash report has been saved to' in x for x in lines),
                 content_errors=errors, refusal=refusal[:1])
+
+
+def reparse(prefix):
+    """Re-read retained logs (no launch): used after a detection fix, never to replace a run."""
+    results = []
+    for name in CASES:
+        folder = ROOT / 'build/wf1c/bad' / f'{prefix}-{name}'
+        lines = (folder / 'process.log').read_text(encoding='utf-8', errors='replace').splitlines()
+        strip = lambda x: re.sub(r'^\[[^\]]*\] \[[^\]]*\] \[[^\]]*\]: ', '', x)
+        results.append(dict(label=f'{prefix}-{name}', crash_report_written=any('This crash report has been saved to' in x for x in lines),
+                            reached_server_start=any('Done (' in x for x in lines),
+                            content_errors=[strip(x) for x in lines if 'Clashweave content error' in x],
+                            refusal=[strip(x) for x in lines if 'Clashweave refuses to start' in x][:1]))
+    return results
 
 
 def main():
@@ -73,7 +87,13 @@ def main():
     parser.add_argument('--prefix', required=True)
     parser.add_argument('--timeout', type=int, default=120)
     parser.add_argument('--cases', nargs='*', default=list(CASES))
+    parser.add_argument('--reparse', action='store_true')
     args = parser.parse_args()
+    if args.reparse:
+        out = ROOT / f'build/wf1c/bad-{args.prefix}-reparsed.json'
+        out.write_text(json.dumps(reparse(args.prefix), indent=2, ensure_ascii=False), encoding='utf-8')
+        print(out)
+        return
     results = [run(f'{args.prefix}-{name}', CASES[name], args.jar, args.timeout) for name in args.cases]
     out = ROOT / f'build/wf1c/bad-{args.prefix}.json'
     out.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding='utf-8')
