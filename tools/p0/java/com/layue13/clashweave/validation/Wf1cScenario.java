@@ -823,6 +823,22 @@ public final class Wf1cScenario {
                 floatTick();
                 return;
             }
+            if (mode.equals("handshake")) {
+                // Both clients carry gameplay content the server does not: nobody may stay verified or armed.
+                if (ticks == 1500) {
+                    int verified = 0, states = 0;
+                    for (Object o : MinecraftServer.getServer()
+                        .getConfigurationManager().playerEntityList) {
+                        CombatServer.PlayerState st = state((EntityPlayerMP) o);
+                        if (st != null) states++;
+                        if (st != null && st.verified) verified++;
+                    }
+                    result("handshake-gameplay-diff-refused", verified == 0 ? null : verified + " mismatching client(s) are verified", null, null);
+                    System.out.println("WF1C_HANDSHAKE connected=" + MinecraftServer.getServer().getCurrentPlayerCount() + " withState=" + states + " verified=" + verified);
+                    finish();
+                }
+                return;
+            }
             for (Object o : MinecraftServer.getServer()
                 .getConfigurationManager().playerEntityList) {
                 EntityPlayerMP p = (EntityPlayerMP) o;
