@@ -43,8 +43,15 @@ parser.add_argument('--sweep-test', action='store_true')
 parser.add_argument('--fast-turn', action='store_true')
 parser.add_argument('--correction-test', action='store_true')
 parser.add_argument('--rtt', type=int, default=0)
+parser.add_argument('--render-probe', action='store_true', help='-Dcw.wf1c.render=true: jar-independent render timing probe on both clients')
+parser.add_argument('--wf1c', help='WF-1c scenario name; implies --manual --render-only and -Dcw.wf1c=<name>')
+parser.add_argument('--content-pack', action='append', default=[], help='directory copied into config/clashweave/content/<name>/ on the server and both clients')
+parser.add_argument('--weapon-items', help='comma separated <item>=<weapon>; written to combat.cfg weapons.items on every process')
+parser.add_argument('--client-content-pack', action='append', default=[], help='[ROLE=]dir copied into the client config only (ROLE is P0A or P0B; omitted means both)')
+parser.add_argument('--server-cfg', action='append', default=[], help='category:key=value lines appended to the server combat.cfg (booleans/ints/floats)')
 args = parser.parse_args()
 if args.launcher: args.manual=True; args.render_only=True
+if args.wf1c: args.manual=True; args.render_only=True
 if args.follow_only: args.lock_support=True
 if args.first_only: args.composition=True
 if args.low_lock or args.camera_diagnosis: args.composition=True
@@ -72,11 +79,38 @@ def snapshot(source):
 validation=snapshot(ROOT/'build/p0/p0-validation.jar')
 
 
+def configure(directory, role):
+    root = directory/'config/clashweave'
+    packs = list(args.content_pack)
+    for entry in args.client_content_pack:
+        target, _, path = entry.rpartition('=')   # 'P0B=dir' limits the pack to one client; plain 'dir' is both clients
+        if role != 'server' and target in ('', role): packs.append(path)
+    for pack in packs:
+        source = pathlib.Path(pack)
+        shutil.copytree(source, root/'content'/source.name)
+    lines = []
+    if args.weapon_items:
+        rows = ''.join('        %s\n' % item for item in args.weapon_items.split(','))
+        lines.append('weapons {\n    S:items <\n' + rows + '     >\n}\n')
+    if role == 'server':
+        sections = {}
+        for entry in args.server_cfg:
+            path, value = entry.split('=', 1)
+            category, key = path.split(':', 1)
+            kind = 'B' if value in ('true', 'false') else 'I' if value.lstrip('-').isdigit() else 'D' if value.replace('.', '', 1).lstrip('-').isdigit() else 'S'
+            sections.setdefault(category, []).append('    %s:%s=%s\n' % (kind, key, value))
+        for category, rows in sections.items(): lines.append(category + ' {\n' + ''.join(rows) + '}\n')
+    if lines:
+        root.mkdir(parents=True, exist_ok=True)
+        (root/'combat.cfg').write_text(''.join(lines), encoding='utf-8')
+
+
 def spawn(role):
     directory = folder / role
     directory.mkdir()
     (directory/'mods').mkdir()
     (directory/'config').mkdir()
+    configure(directory, role)
     shutil.copyfile(validation,directory/'mods/p0-validation.jar')
     if args.diagnostic_trace:
         shutil.copyfile(snapshot(ROOT/'build/p0/p0-diagnostics.jar'),directory/'mods/p0-diagnostics.jar')
@@ -87,6 +121,8 @@ def spawn(role):
     if not args.mod_snapshot or args.snapshot_coremod: command += ['-Dfml.coreMods.load=com.layue13.clashweave.coremod.CameraLoadingPlugin']
     if args.launcher_audit: command += ['-Dcw.p1.audit=true']
     if args.launcher: command += ['-Dcw.p1.launcher='+args.launcher]
+    if args.wf1c: command += ['-Dcw.wf1c='+args.wf1c]
+    if args.render_probe: command += ['-Dcw.wf1c.render=true']
     if args.view_test:
         command += ['-Dcw.p0.viewTest=true']
     if args.edge_boundary: command += ['-Dcw.p0.edgeBoundary=true']
@@ -203,7 +239,7 @@ finally:
     lines=(folder/'server/process.log').read_text(encoding='utf-8',errors='replace').splitlines()
     leaks=[line for line in lines if line.startswith('[Loaded ') and ('net.minecraft.client.' in line or 'org.lwjgl.opengl.' in line or 'clashweave.client.' in line or 'validation.ClientReplay' in line)]
     summary=dict(server_exit=processes[0].returncode,client_class_loads=len(leaks),
-                 complete=any('P1_COMPLETE' in line or 'P0_NETWORK COMPLETE' in line or 'P0_SUPPLEMENT COMPLETE' in line or 'P0_MOVEMENT COMPLETE' in line or 'P0_ENGAGEMENT COMPLETE' in line or 'P0_SWEEP COMPLETE' in line for line in lines),
+                 complete=any('P1_COMPLETE' in line or 'P0_NETWORK COMPLETE' in line or 'P0_SUPPLEMENT COMPLETE' in line or 'WF1C_COMPLETE' in line or 'P0_MOVEMENT COMPLETE' in line or 'P0_ENGAGEMENT COMPLETE' in line or 'P0_SWEEP COMPLETE' in line for line in lines),
                  captures=[str(p.relative_to(folder)) for p in folder.rglob('p0-*.png')],
                  performance=[line for line in lines if 'P0_PERF' in line])
     (folder/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')

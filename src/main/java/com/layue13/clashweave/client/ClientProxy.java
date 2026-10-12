@@ -49,6 +49,15 @@ public final class ClientProxy extends CommonProxy {
         public ActionCatalog catalog;
         public ActionCatalog.Definition definition;
         boolean returnsToSheath;
+
+        /** Diagnostics for fixtures: what the state's IDs resolved to. */
+        public String resolvedRender() {
+            return render == null ? "" : render.id;
+        }
+
+        public boolean hasPreset() {
+            return preset != null;
+        }
     }
 
     public static ClientProxy instance;
@@ -165,8 +174,15 @@ public final class ClientProxy extends CommonProxy {
     }
 
     private void synchronize(ContentSyncMessage message) {
+        if (minecraft.isIntegratedServerRunning()) {
+            // Same JVM: the server already owns the table and rules; a client-built copy must not replace them.
+            Clashweave.log.info("Clashweave: integrated server, keeping its weapon table ({})", message.effectiveHash);
+            return;
+        }
         try {
+            long begin = System.nanoTime();
             EffectiveRules told = Clashweave.content.rulesFor(EffectiveRules.Overrides.parse(message.overrides));
+            long derived = System.nanoTime() - begin;
             if (!told.effectiveHash.equals(message.effectiveHash)) {
                 // Our pack plus the server's overrides do not reproduce the server's rules: do not act on them.
                 Clashweave.log.error(
@@ -185,8 +201,9 @@ public final class ClientProxy extends CommonProxy {
                     1000,
                     name -> (net.minecraft.item.Item) net.minecraft.item.Item.itemRegistry.getObject(name)));
             Clashweave.log.info(
-                "Clashweave: joined with negotiated rules {} and weapon table {}",
+                "Clashweave: joined with negotiated rules {} ({} ms to derive them) and weapon table {}",
                 message.effectiveHash,
+                String.format(java.util.Locale.ROOT, "%.1f", derived / 1e6),
                 message.items);
         } catch (RuntimeException e) {
             Clashweave.log.error("Clashweave: server content sync rejected: {}", String.valueOf(e));

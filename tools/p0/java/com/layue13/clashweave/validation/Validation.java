@@ -29,6 +29,7 @@ public final class Validation {
     public void initialize(FMLInitializationEvent event) {
         FMLCommonHandler.instance().bus().register(this);
         FMLCommonHandler.instance().bus().register(new NetworkScenario());
+        FMLCommonHandler.instance().bus().register(new Wf1cScenario());
         FMLCommonHandler.instance().bus().register(new LauncherScenario());
         FMLCommonHandler.instance().bus().register(new LauncherReview());
         Supplement supplement = new Supplement();
@@ -49,6 +50,8 @@ public final class Validation {
         if (FMLCommonHandler.instance().getSide().isClient()) {
             try {
                 Class.forName("com.layue13.clashweave.validation.ClientReplay").newInstance();
+                if(System.getProperty("cw.wf1c")!=null)Class.forName("com.layue13.clashweave.validation.Wf1cReplay").newInstance();
+                if(Boolean.getBoolean("cw.wf1c.render"))Class.forName("com.layue13.clashweave.validation.RenderProbe").newInstance();
                 if(System.getProperty("cw.p1.launcher")!=null)Class.forName("com.layue13.clashweave.validation.LauncherReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.artVerify"))Class.forName("com.layue13.clashweave.validation.ArtVerifyReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.edgeBoundary"))Class.forName("com.layue13.clashweave.validation.EdgeBoundaryReplay").newInstance();

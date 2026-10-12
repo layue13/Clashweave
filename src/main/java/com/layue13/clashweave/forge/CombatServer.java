@@ -200,12 +200,19 @@ public final class CombatServer {
 
     @SubscribeEvent
     public void login(PlayerEvent.PlayerLoggedInEvent event) {
-        if (event.player instanceof EntityPlayerMP) {
+        begin(event.player, false);
+    }
+
+    /** Respawn and dimension change replace the state but not the connection, so they keep its verification. */
+    private void begin(EntityPlayer player, boolean verified) {
+        if (player instanceof EntityPlayerMP) {
+            PlayerEvent.PlayerLoggedInEvent event = new PlayerEvent.PlayerLoggedInEvent(player);
             CombatWeapons.Entry held = CombatWeapons.entry(event.player.getHeldItem());
             PlayerState state = new PlayerState(
                 (EntityPlayerMP) event.player,
                 held != null ? held : CombatWeapons.fallback());
-            state.helloDeadline = tick + config.helloTimeoutTicks;
+            state.verified = verified;
+            state.helloDeadline = verified ? Long.MAX_VALUE : tick + config.helloTimeoutTicks;
             presentation.rememberHealth(event.player);
             state.revision = ++nextRevision;
             state.networkAfter = tick + 1;
@@ -231,14 +238,19 @@ public final class CombatServer {
 
     @SubscribeEvent
     public void dimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-        remove(event.player);
-        login(new PlayerEvent.PlayerLoggedInEvent(event.player));
+        restart(event.player);
     }
 
     @SubscribeEvent
     public void respawn(PlayerEvent.PlayerRespawnEvent event) {
-        remove(event.player);
-        login(new PlayerEvent.PlayerLoggedInEvent(event.player));
+        restart(event.player);
+    }
+
+    private void restart(EntityPlayer player) {
+        PlayerState old = states.get(player.getUniqueID());
+        boolean verified = old != null && old.verified;
+        remove(player);
+        begin(player, verified);
     }
 
     @SubscribeEvent
@@ -254,6 +266,14 @@ public final class CombatServer {
             state.contacts.clear();
             state.engaged = false;
         }
+    }
+
+    /**
+     * A player at zero health stays in the world, not isDead, until it respawns. It must neither start actions nor
+     * hit anything in that time, whatever it holds (keepInventory leaves the weapon in hand).
+     */
+    private static boolean dead(EntityPlayer player) {
+        return player.isDead || player.getHealth() <= 0;
     }
 
     /** Server thread. Weapons change only between actions; a new style also makes the client re-acknowledge. */
@@ -468,8 +488,8 @@ public final class CombatServer {
             snapshot(state, message.sequence, "REJECT:UNVERIFIED", false);
             return;
         }
-        if (!armed(input.player) || input.player.isDead) {
-            snapshot(state, message.sequence, input.player.isDead ? "REJECT:DEAD" : "REJECT:UNARMED", false);
+        if (!armed(input.player) || dead(input.player)) {
+            snapshot(state, message.sequence, dead(input.player) ? "REJECT:DEAD" : "REJECT:UNARMED", false);
             return;
         }
         if (message.kind == -1) {
@@ -703,15 +723,18 @@ public final class CombatServer {
             config.lockKeepRange,
             !lock.isDead && (!(lock instanceof EntityLivingBase) || ((EntityLivingBase) lock).getHealth() > 0)))
             state.lock = -1;
-        boolean trigger = action != null || state.guard.held() || state.lock >= 0 || player.hurtTime > 0;
+        boolean trigger = !dead(player)
+            && (action != null || state.guard.held() || state.lock >= 0 || player.hurtTime > 0);
         for (Object object : player.worldObj.getEntitiesWithinAABB(
             EntityLiving.class,
             player.boundingBox.expand(config.radius, config.radius, config.radius))) {
             EntityLiving mob = (EntityLiving) object;
-            if (mob.getAttackTarget() == player && mob.getDistanceToEntity(player) <= config.radius) trigger = true;
+            if (mob.getAttackTarget() == player && mob.getDistanceToEntity(player) <= config.radius && !dead(player))
+                trigger = true;
         }
         if (trigger) state.lastTrigger = tick;
-        boolean engaged = trigger || state.engaged && tick - state.lastTrigger < config.disengage;
+        // Waiting on the death screen is not combat: the death handler's disengage must not be undone by hurtTime.
+        boolean engaged = !dead(player) && (trigger || state.engaged && tick - state.lastTrigger < config.disengage);
         if (engaged) player.setSneaking(false);
         if (state.engaged != engaged) {
             state.engaged = engaged;
@@ -738,7 +761,7 @@ public final class CombatServer {
                 .removeIf(
                     entry -> tick > entry.getValue() || entry.getKey().isDead
                         || entry.getKey().dimension != state.player.dimension);
-            if (!state.engaged || state.player.isDead) continue;
+            if (!state.engaged || dead(state.player)) continue;
             own(desired, state.player, state.player.getUniqueID());
             for (EntityLivingBase target : state.contacts.keySet()) own(desired, target, state.player.getUniqueID());
             Entity locked = state.player.worldObj.getEntityByID(state.lock);
@@ -835,7 +858,7 @@ public final class CombatServer {
 
     private void collect(PlayerState state) {
         Scheduler.Instance action = state.scheduler.current();
-        if (action == null || state.player.isDead || !armed(state.player)) return;
+        if (action == null || dead(state.player) || !armed(state.player)) return;
         int elapsed = (int) (tick - action.start);
         ActionCatalog.Definition definition = action.definition;
         if (elapsed < definition.startup || elapsed >= definition.startup + definition.active) return;

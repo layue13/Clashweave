@@ -38,7 +38,7 @@ public final class LauncherReview {
             player.playerNetServerHandler.setPlayerLocation(0,64,0,0,0);
             target=new EntityZombie(player.worldObj);target.setPosition(0,64,1.8);target.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200);target.setHealth(200);target.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);player.worldObj.spawnEntityInWorld(target);
             Constructor<Scheduler.Instance> c=Scheduler.Instance.class.getDeclaredConstructor(long.class,long.class,int.class,ActionCatalog.Definition.class);c.setAccessible(true);
-            Field f=Scheduler.class.getDeclaredField("current");f.setAccessible(true);state.scheduler.interrupt();reviewAction=c.newInstance(123456L,Clashweave.server.tick,0,Clashweave.config.actions.get("launcher"));f.set(state.scheduler,reviewAction);stage=1;
+            Field f=Scheduler.class.getDeclaredField("current");f.setAccessible(true);state.scheduler.interrupt();reviewAction=c.newInstance(123456L,Clashweave.server.tick,0,Ids.katana().get("launcher"));f.set(state.scheduler,reviewAction);stage=1;
         }else if(stage==1 && state.ready){
             budget=state.movement;budgetNano=state.budgetNano;firstTick=Clashweave.server.tick;
             Field last=state.gate.getClass().getDeclaredField("lastSequence");last.setAccessible(true);

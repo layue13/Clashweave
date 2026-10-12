@@ -80,7 +80,7 @@ public final class ArtVerifyReplay {
         }
         if(ticks==310){mc.gameSettings.fovSetting=30;photo("drawn-detail",1,90);}
         if(ticks==325)p.send(Intent.HEAVY,-1);
-        if(own.state.action.equals("heavy")&&p.elapsed(own,0)>=5&&p.elapsed(own,0)<8)photo("swing-first",0,0);
+        if(Ids.local(own.state.action).equals("heavy")&&p.elapsed(own,0)>=5&&p.elapsed(own,0)<8)photo("swing-first",0,0);
     }
     @SubscribeEvent public void frame(TickEvent.RenderTickEvent event){
         if(event.phase!=TickEvent.Phase.END||mc.thePlayer==null)return;

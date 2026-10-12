@@ -18,8 +18,32 @@ final class JsonCompat {
 
     private JsonCompat() {}
 
+    /**
+     * JsonParser is always lenient, so "[,", unquoted names and trailing commas parse silently into nulls. Read the
+     * text once, reject anything a strict reader rejects with a message, then build the tree.
+     */
     static JsonElement parse(Reader reader) {
-        return new JsonParser().parse(reader);
+        String text;
+        try {
+            java.io.StringWriter buffer = new java.io.StringWriter();
+            char[] chunk = new char[4096];
+            int count;
+            while ((count = reader.read(chunk)) >= 0) buffer.write(chunk, 0, count);
+            text = buffer.toString();
+        } catch (java.io.IOException e) {
+            throw new IllegalArgumentException("unreadable: " + e.getMessage(), e);
+        }
+        try {
+            com.google.gson.stream.JsonReader strict = new com.google.gson.stream.JsonReader(
+                new java.io.StringReader(text));
+            strict.setLenient(false);
+            strict.skipValue();
+            if (strict.peek() != com.google.gson.stream.JsonToken.END_DOCUMENT)
+                throw new IllegalArgumentException("text after the top-level value");
+        } catch (java.io.IOException | RuntimeException e) {
+            throw new IllegalArgumentException(e.getMessage(), e);
+        }
+        return new JsonParser().parse(text);
     }
 
     static JsonObject copy(JsonObject source) {

@@ -31,7 +31,7 @@ public final class LauncherReplay {
         ClientProxy p=ClientProxy.instance;ClientProxy.Visual v=p.own();if(v==null)return;
         if(mc.thePlayer.getCommandSenderName().equals("P0B")){mc.thePlayer.rotationYaw+=4;mc.thePlayer.motionX=0;mc.thePlayer.motionZ=0;mc.thePlayer.setPosition(0,mc.thePlayer.posY,1.8);return;}
         mc.thePlayer.rotationYaw=0;mc.thePlayer.rotationPitch=0;mc.thePlayer.motionX=0;mc.thePlayer.motionZ=0;mc.thePlayer.setPosition(0,mc.thePlayer.posY,0);
-        String node=v.state.action;double age=p.elapsed(v,0);
+        String node=Ids.local(v.state.action);double age=p.elapsed(v,0);
         if(node.equals("iai"))requested.add("saw-iai");
         if(node.isEmpty() && !requested.contains("entry")){requested.add("entry");p.send(Intent.LIGHT,-1);}
         else if(node.equals("iai") && age>=17 && requested.add("after-iai"))p.send(Intent.LIGHT,-1);

@@ -112,22 +112,11 @@ final class PresentationAssets {
         presets.clear();
         fallbackRender = null;
         Map<String, IModelCustom> models = new HashMap<>();
+        // Sorted, so which render stands in for an unknown skin does not depend on pack load order.
+        Map<String, ContentPack.Resource> resources = new java.util.TreeMap<>();
         for (ContentPack pack : registry.packs()
             .values()) {
-            for (Map.Entry<String, ContentPack.Resource> entry : pack.resources()
-                .entrySet()) {
-                ContentPack.Resource data = entry.getValue();
-                String id = entry.getKey();
-                Render render = new Render(
-                    id,
-                    model(models, id, "held", data.models.held),
-                    model(models, id, "stowed", data.models.stowed),
-                    model(models, id, "stowed_empty", data.models.stowed_empty),
-                    data,
-                    location(id, "texture", data.texture));
-                renders.put(id, render);
-                if (fallbackRender == null || id.equals("katana:default")) fallbackRender = render;
-            }
+            resources.putAll(pack.resources());
             for (ContentPack.Animation animation : pack.animations()
                 .values()) {
                 Preset preset = PRESETS.get(animation.preset);
@@ -141,6 +130,19 @@ final class PresentationAssets {
                 }
                 presets.put(animation.id, preset);
             }
+        }
+        for (Map.Entry<String, ContentPack.Resource> entry : resources.entrySet()) {
+            ContentPack.Resource data = entry.getValue();
+            String id = entry.getKey();
+            Render render = new Render(
+                id,
+                model(models, id, "held", data.models.held),
+                model(models, id, "stowed", data.models.stowed),
+                model(models, id, "stowed_empty", data.models.stowed_empty),
+                data,
+                location(id, "texture", data.texture));
+            renders.put(id, render);
+            if (fallbackRender == null) fallbackRender = render;
         }
         fallbackPreset = PRESETS.get(DEFAULT_PRESET);
         log.info("Clashweave presentation: {} render(s), {} animation(s)", renders.size(), presets.size());

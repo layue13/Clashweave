@@ -36,7 +36,7 @@ public final class LauncherScenario {
 
     private Scheduler.Instance instance(String action,long start) throws Exception {
         Constructor<Scheduler.Instance> c=Scheduler.Instance.class.getDeclaredConstructor(long.class,long.class,int.class,ActionCatalog.Definition.class);
-        c.setAccessible(true);return c.newInstance(100000L+sample++,start,0,Clashweave.config.actions.get(action));
+        c.setAccessible(true);return c.newInstance(100000L+sample++,start,0,Ids.katana().get(action));
     }
     private void force(EntityPlayerMP player,String action) throws Exception {
         CombatServer.PlayerState s=Clashweave.server.state(player);s.scheduler.interrupt();s.scheduler.clearBuffer();

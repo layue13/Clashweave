@@ -42,17 +42,17 @@ public final class EdgeBoundaryReplay {
         mc.thePlayer.rotationYaw=0;mc.thePlayer.rotationPitch=0;
         if(++ready<100)return;
         if(until==0){for(ActionCatalog.Edge edge:proxy.actions.get("light_1").edges)
-            if(edge.input==Intent.LIGHT && edge.target.equals("light_2"))until=edge.until;
+            if(edge.input==Intent.LIGHT && Ids.local(edge.target).equals("light_2"))until=edge.until;
             if(until==0)throw new IllegalStateException("Missing LIGHT edge");
             System.out.println("P0_EDGE_PLAN until="+until+" kMin="+(until-7)+" kMax="+(until+1)+" repeats=5 trials=45");}
         if(visual.state.sheathed){if(!boot && visual.state.action.isEmpty()){
             int seq=send(proxy);boot=true;System.out.println("P0_EDGE_BOOT seq="+seq);}
             return;}
-        if(stage==1 && visual.state.action.equals("light_1")){
+        if(stage==1 && Ids.local(visual.state.action).equals("light_1")){
             origin=visual.state.instance;stage=2;
             System.out.println("P0_EDGE_ORIGIN trial="+trial+" k="+k+" instance="+origin+" start="+visual.state.start);}
         if(stage>0 && ready-started>80){finish("TIMEOUT");}
-        if(stage==2 && (!visual.state.action.equals("light_1") || visual.state.instance!=origin))finish("ACTION_ENDED_BEFORE_PRESS");
+        if(stage==2 && (!Ids.local(visual.state.action).equals("light_1") || visual.state.instance!=origin))finish("ACTION_ENDED_BEFORE_PRESS");
         if(stage==3 && visual.state.action.isEmpty())finish("NATURAL_IDLE_AFTER_PRESS");
         if(stage!=0)return;
         if(!visual.state.action.isEmpty()){idle=0;return;}
@@ -67,7 +67,7 @@ public final class EdgeBoundaryReplay {
     public void frame(TickEvent.RenderTickEvent event) throws IllegalAccessException {
         if(event.phase!=TickEvent.Phase.END || stage!=2 || mc.thePlayer==null)return;
         ClientProxy proxy=ClientProxy.instance;ClientProxy.Visual visual=proxy.own();
-        if(visual==null || visual.state.instance!=origin || !visual.state.action.equals("light_1"))return;
+        if(visual==null || visual.state.instance!=origin || !Ids.local(visual.state.action).equals("light_1"))return;
         double age=proxy.elapsed(visual,0);
         if(age<k)return;
         if(age>=k+1){finish("AGE_OVERSHOOT");return;}

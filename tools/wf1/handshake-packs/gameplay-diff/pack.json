@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "namespace": "wf1cheat",
+  "weapons": [ { "id": "wf1cheat:blade", "style": "wf1cheat:fast", "resource": "wf1cheat:blade", "animation": "wf1cheat:arc" } ],
+  "styles": [ { "id": "wf1cheat:fast", "actions": ["wf1cheat:slash"], "entry": { "ready": { "LIGHT": "wf1cheat:slash" }, "entersReady": ["wf1cheat:slash"], "entersSheathed": [] } } ],
+  "actions": [ { "id": "wf1cheat:slash", "startup": 1, "active": 1, "recovery": 1, "damage": 100, "reach": 6, "arc": 360, "distance": 0, "speed": 0, "edges": [] } ],
+  "animations": [ { "id": "wf1cheat:arc", "preset": "rigid_arc" } ],
+  "resources": [ { "id": "wf1cheat:blade", "models": { "held": "clashweave:models/katana.obj", "stowed": "clashweave:models/sheath.obj", "stowed_empty": "clashweave:models/sheath_empty.obj" }, "texture": "clashweave:textures/models/katana.png", "grip": { "offset": { "x": 0, "y": 0, "z": 0 } }, "handGrips": { "right": { "x": -0.0625, "y": 0.55, "z": 0 }, "left": { "x": 0.0625, "y": 0.55, "z": 0 } }, "mounts": [] } ]
+}
