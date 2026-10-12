@@ -11,7 +11,7 @@
 | 任务 | 把 WF-1a/1b 的纯逻辑内容层接入 Forge（加载、武器表、命名空间、握手），把渲染从 `KatanaRendering` 解耦为数据驱动，加入纯数据的第二把武器，并在真实游戏中验证生命周期、错误数据包与性能 |
 | 分支 | 本地 `prototype/wf1-wire`，基于 `origin/prototype/wf1-core`（`a9f96bc`），独立 worktree |
 | 美术合入 | 合并 `origin/claude/upbeat-goodall-klai2o`（PR #15，`c0bf83e`），合并提交 `70df9cc`。美术资源无冲突，保留该分支版本；唯一文本冲突在 `tools/p0/java/com/layue13/clashweave/validation/Validation.java`（两侧各增一行 `Class.forName(...)`），两行均保留 |
-| `docs/design/` | 未修改（`git diff --stat 9ab1aef..HEAD -- docs/design` 为空） |
+| `docs/design/` | 未修改（`git diff --stat origin/prototype/wf1-core..HEAD -- docs/design` 为空） |
 | 推送 | 未推送，等待批准 |
 | 后续工作 | 未开始 C2a、P1-b |
 
@@ -79,7 +79,7 @@
 | 编号 | 现象与证据 | 处理 | 测试 |
 |---|---|---|---|
 | D-1 | **内容层在真实构建中无法编译。** WF-1a/1b 的 128 项只在 Gson 2.13.2 下验证；Minecraft 1.7.10 自带 Gson 2.2.4，缺少公开的 `JsonObject.deepCopy/size/keySet`、`JsonParser.parseReader`、`JsonArray.set`。首次 `gradlew build` 输出 `compileJava FAILED … 12 errors`（`deepCopy() is not public in com.google.gson.JsonObject`） | 新增 `content/JsonCompat.java`（复制/键集/解析），`qualifyArray` 改为重建数组 | `ContentRegistryTest`、`ContentEntryTest` 现在随 Gradle 在 Gson 2.2.4 下执行并通过 |
-| D-2 | 基线 `spotlessCheck` 失败（8 个文件的格式违规，含 `Scheduler.java`） | 只格式化提交 `a47cf01` | — |
+| D-2 | 基线 `spotlessCheck` 失败（7 个文件的格式违规，含 `Scheduler.java`） | 只格式化提交 `a47cf01` | — |
 | D-3 | `JsonParser` 恒宽松：`"actions": [,` 被解析成 `null` 元素，报成 `styles[0].actions[0]: null is not allowed` 等误导错误，没有“invalid JSON” | `JsonCompat.parse` 先用严格 `JsonReader` 通读一遍，失败报 `$: invalid JSON: … at line N column M` | `BadPackTest.invalidJsonIsReportedAtTheRoot` |
 | D-4 | **死亡玩家（生命 0，原版直到重生才置 `isDead`）仍能开始动作、命中目标、保持 `engaged`。** `consume`/`collect` 只判 `isDead`；`keepInventory` 时武器仍在手。夹具 `life-1` 记录 `death-mid-action: action survived death: katana:light_1`，`life-2` 记录 `still engaged after death`（`hurtTime>0` 把死亡处理器的脱战又推翻） | `CombatServer.dead()`（`isDead \|\| getHealth()<=0`）用于输入拒绝（`REJECT:DEAD`）、命中采集与交战判定 | 生命周期夹具 `death-mid-action`（`life-3`、`life-4` 通过） |
 | D-5 | 本轮自己引入后被验证发现：握手验证绑在 `PlayerState` 上，重生/换维度重建状态后验证丢失，客户端不会再发 Hello，输入将全部 `REJECT:UNVERIFIED` 并在 400 tick 后被踢 | `restart()` 在重建前读取并继承验证标志 | `respawn-new-state`、`dimension-change-mid-action`（`life-2`～`life-4` 通过） |
@@ -132,7 +132,7 @@ $env:VERSION='0.1.0-dev'
 | 换维度（动作中，`travelToDimension(1)` 再返回） | 不继承原维度的动作；无纠正；验证保留 | 新 `session`、`corrections=0`、`verified=true`，新维度内开始新动作；返回后亦换会话 | 通过 |
 | 断线重连（动作中，服务端踢出） | 状态清除、待提交接触清除；重连为新会话并重新验证 | `player still listed` 不成立、`combat state survived` 不成立、无该攻击者的待提交接触；重连后新会话且 `verified=true`、开始新动作 | 通过 |
 
-**失败史（保留，未择优）**：`life-1`（12/16，失败 4 项）：`death-mid-action: action survived death`（产品缺陷 D-4）；`respawn-new-state` 与 `reconnect-new-state` 的 `session reused`，是夹具把“本步开始时的会话”当作“事件前会话”来比较（夹具缺陷）；`disconnect-mid-action: player still listed`，是夹具在玩家断开期间不推进步骤，等到客户端重连后才核对，核对到的是新玩家（夹具缺陷）；`life-2`（15/16）：`death-mid-action: still engaged after death`（D-4 的第二半，已修）；`life-3`（15/16）：`reconnect-new-state: no action started after reconnecting`——证据：该会话在断线重连后第一次 `CW START player=P0A id=1 action=katana:iai tick=1685` 发生在检查之后一个 tick，而回放客户端在入世后等待 60 个客户端 tick 才开始攻击，而该步只等 60 tick；产品行为没有问题，夹具余量不足，将该步等待改为 160 tick 后得到 `life-4`。`life-4` 不替换前三者。
+**失败史（保留，未择优）**：`life-1`（12/16，失败 4 项）：`death-mid-action: action survived death`（产品缺陷 D-4）；`respawn-new-state` 与 `reconnect-new-state` 的 `session reused`，是夹具把“本步开始时的会话”当作“事件前会话”来比较（夹具缺陷）；`disconnect-mid-action: player still listed`，是夹具在玩家断开期间不推进步骤，等到客户端重连后才核对，核对到的是新玩家（夹具缺陷）；`life-2`（15/16）：`death-mid-action: still engaged after death`（D-4 的第二半，已修）；`life-3`（15/16）：`reconnect-new-state: no action started after reconnecting`——证据：服务端日志中 `WF1C_CHECK step=reconnect-new-state ok=false` 先于重连后的第一次 `CW START player=P0A id=1 action=katana:iai tick=1685`（同为 18:20:57）；回放客户端在入世后等待 60 个客户端 tick 才开始攻击，而该步只等 60 tick。产品行为没有问题，夹具余量不足；将该步等待改为 160 tick 后得到 `life-4`。`life-4` 不替换前三者。
 
 ### 6.3 浮空期间的死亡、换维度、断线（P1-a 报告 §“保留的失败与未验证项” 第 5 项，通过）
 
@@ -165,9 +165,9 @@ $env:VERSION='0.1.0-dev'
 
 | 会话 | 设置 | 结果（逐字） |
 |---|---|---|
-| `hs-presonly` | P0B 的配置目录多一个只含动画的 pack（Presentation 哈希不同、Gameplay 不变） | 服务端：`Clashweave: P0B has different presentation content only (server 7bef4ba2…, client f975d6dc…); allowed`；两客户端 `joined with negotiated rules 2314f71c…`；连击 20/20 |
+| `hs-presonly` | P0B 的配置目录多一个只含动画的 pack（Presentation 哈希不同、Gameplay 不变） | 服务端：`Clashweave: P0B has different presentation content only (server 7bef4ba2…, client f975d6dc…); allowed`；两客户端 `joined with negotiated rules 2314f71c…`；连击 20/20、S08 0/0 |
 | `hs-gamediff` | 两个客户端都多一个含武器/风格/动作的 pack（Gameplay 哈希不同） | 服务端：`Clashweave: refusing P0A: gameplay content differs (gameplay server 518dafda… client a815dc1f…; presentation …)`；客户端被踢，消息 `Clashweave: gameplay content differs. Install the same content packs as the server (server gameplay 518dafda0b4e, yours a815dc1f1083).`；结束时 `WF1C_HANDSHAKE connected=0 withState=0 verified=0` |
-| `legacy-1` | 服务端 `content.legacyKatanaJson=true` | 两客户端从服务端覆盖推导出同一有效哈希 `7e9679e8…` 并加入；连击 20/20（见 §6.6 表外） |
+| `legacy-1` | 服务端 `content.legacyKatanaJson=true` | 两客户端从服务端覆盖推导出同一有效哈希 `7e9679e8…` 并加入；连击 20/20、S08 0/0 |
 
 ### 6.6 双客户端回归，`--souls-view`，0/100 ms（验收，通过）
 
@@ -234,7 +234,7 @@ $env:VERSION='0.1.0-dev'
 | frame/drawn-idle | 522.1 [511.5–543.8] / 694.3 | 563.3 [551.1–587.1] / 715.9 | 568.9 [535.2–643.0] / 745.3 | 1.01 |
 | frame/combo | 607.5 [587.5–620.0] / 792.3 | 642.5 [617.2–687.3] / 803.2 | 638.2 [616.6–700.0] / 796.9 | 0.99 |
 
-- **接线的影响（候选/对照）：**各分类的比值在 0.83～1.02；`specials`（玩家身上的武器绘制）在拔刀、连击中略低（0.91、0.94、0.97），符合预期——拔刀态用 380 面的空鞘代替 556 面的带柄鞘；收刀态、`waist`、`hand` 在 1.00～1.02。`frame` 的整帧值在 0.99～1.02，只有 `draw`（仅 24～26 帧/会话）为 0.83。**没有可测到的渲染劣化。**
+- **接线的影响（候选/对照）：**各分类的比值在 0.83～1.02；`specials`（玩家身上的武器绘制）在拔刀、连击中略低（0.91、0.94、0.97），符合预期——拔刀态用 380 面的空鞘代替 556 面的带柄鞘；收刀态、`waist`、`hand` 在 1.00～1.02。`frame` 的整帧值在 0.99～1.02，只有 `draw`（约 24 帧/会话，样本少）为 0.83。**没有可测到的渲染劣化。**
 - 美术模型本身的代价：基线→美术对照，`specials/sheathed-idle` 35.5→101.9 µs、`waist` 9.4→69.2 µs（鞘从占位模型变为 556 面带柄模型），这是资源变化，不属于本改动。
 - 主批次前 3 个候选会话的 `frame/drawn-idle` 偏高（578～643 µs），补充的 3 个为 535～559 µs，6 会话中位 568.9 对 563.3；会话间漂移（同一 JAR 内范围约 100 µs）大于两 JAR 的差。服务端战斗逻辑在这 6+6 个会话中：对照均值 0.0943～0.1083 ms、最大 2.77～5.07 ms，候选均值 0.0949～0.1068 ms、最大 3.84～5.17 ms，全部 20/20、S08=0。
 
