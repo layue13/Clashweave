@@ -1,0 +1,4485 @@
+{
+ "batches": {
+  "recheck": [
+   {
+    "label": "rev-p1-base-0",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 159.7
+   },
+   {
+    "label": "rev-p1-review-0",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 164.4
+   },
+   {
+    "label": "rev-p1-base-100",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100",
+     "--launcher-audit"
+    ],
+    "returncode": 0,
+    "seconds": 161.7
+   },
+   {
+    "label": "rev-p1-review-100",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100",
+     "--launcher-audit"
+    ],
+    "returncode": 0,
+    "seconds": 161.7
+   },
+   {
+    "label": "rev-ab-base-0-1",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 122.7
+   },
+   {
+    "label": "rev-ab-review-0-1",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 121.2
+   },
+   {
+    "label": "rev-ab-base-100-1",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 127.8
+   },
+   {
+    "label": "rev-ab-review-100-1",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 128.3
+   },
+   {
+    "label": "rev-ab-base-0-2",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 119.9
+   },
+   {
+    "label": "rev-ab-review-0-2",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 124.7
+   },
+   {
+    "label": "rev-ab-base-100-2",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 128.5
+   },
+   {
+    "label": "rev-ab-review-100-2",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 125.8
+   },
+   {
+    "label": "rev-ab-base-0-3",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 122.7
+   },
+   {
+    "label": "rev-ab-review-0-3",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 124.3
+   },
+   {
+    "label": "rev-ab-base-100-3",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 125.9
+   },
+   {
+    "label": "rev-ab-review-100-3",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 131.1
+   },
+   {
+    "label": "rev-w2",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--wf1c",
+     "weapon2",
+     "--content-pack",
+     "src/test/resources/wf1test",
+     "--weapon-items",
+     "clashweave:katana=katana:katana,minecraft:stick=wf1test:glaive"
+    ],
+    "returncode": 0,
+    "seconds": 79.6
+   },
+   {
+    "label": "rev-life",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--wf1c",
+     "lifecycle",
+     "--content-pack",
+     "src/test/resources/wf1test",
+     "--weapon-items",
+     "clashweave:katana=katana:katana,minecraft:stick=wf1test:glaive"
+    ],
+    "returncode": 0,
+    "seconds": 105.0
+   },
+   {
+    "label": "rev-art",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--art-verify"
+    ],
+    "returncode": 0,
+    "seconds": 88.1
+   },
+   {
+    "label": "rev-float-death",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--wf1c",
+     "float-death"
+    ],
+    "returncode": 0,
+    "seconds": 53.3
+   },
+   {
+    "label": "rev-float-dimension",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--wf1c",
+     "float-dimension"
+    ],
+    "returncode": 0,
+    "seconds": 50.8
+   },
+   {
+    "label": "rev-float-disconnect",
+    "jar": "build/wf1c/cand-review.jar",
+    "args": [
+     "--wf1c",
+     "float-disconnect"
+    ],
+    "returncode": 0,
+    "seconds": 57.0
+   }
+  ],
+  "recheck-supp": [
+   {
+    "label": "rev2-legacy",
+    "jar": "build/wf1c/cand-canonical.jar",
+    "args": [
+     "--souls-view",
+     "--server-cfg",
+     "content:legacyKatanaJson=true"
+    ],
+    "returncode": 0,
+    "seconds": 122.2
+   },
+   {
+    "label": "rev2-w2",
+    "jar": "build/wf1c/cand-canonical.jar",
+    "args": [
+     "--wf1c",
+     "weapon2",
+     "--content-pack",
+     "src/test/resources/wf1test",
+     "--weapon-items",
+     "clashweave:katana=katana:katana,minecraft:stick=wf1test:glaive"
+    ],
+    "returncode": 0,
+    "seconds": 65.5
+   },
+   {
+    "label": "rev2-art",
+    "jar": "build/wf1c/cand-canonical.jar",
+    "args": [
+     "--art-verify"
+    ],
+    "returncode": 0,
+    "seconds": 81.2
+   }
+  ],
+  "recheck-final": [
+   {
+    "label": "rev2-sync-red",
+    "jar": "build/wf1c/cand-canonical.jar",
+    "args": [
+     "--wf1c",
+     "handshake-sync"
+    ],
+    "returncode": 0,
+    "seconds": 34.2
+   },
+   {
+    "label": "rev3-sync",
+    "jar": "build/wf1c/cand-rechecked.jar",
+    "args": [
+     "--wf1c",
+     "handshake-sync"
+    ],
+    "returncode": 0,
+    "seconds": 35.5
+   },
+   {
+    "label": "rev3-view-0",
+    "jar": "build/wf1c/cand-rechecked.jar",
+    "args": [
+     "--souls-view",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 122.6
+   },
+   {
+    "label": "rev3-view-100",
+    "jar": "build/wf1c/cand-rechecked.jar",
+    "args": [
+     "--souls-view",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 120.7
+   },
+   {
+    "label": "rev3-presonly",
+    "jar": "build/wf1c/cand-rechecked.jar",
+    "args": [
+     "--souls-view",
+     "--client-content-pack",
+     "P0B=tools/wf1/handshake-packs/presentation-only"
+    ],
+    "returncode": 0,
+    "seconds": 120.5
+   },
+   {
+    "label": "rev3-gamediff",
+    "jar": "build/wf1c/cand-rechecked.jar",
+    "args": [
+     "--wf1c",
+     "handshake",
+     "--client-content-pack",
+     "tools/wf1/handshake-packs/gameplay-diff"
+    ],
+    "returncode": 0,
+    "seconds": 84.8
+   },
+   {
+    "label": "rev3-p1-0",
+    "jar": "build/wf1c/cand-rechecked.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 159.3
+   },
+   {
+    "label": "rev3-p1-100",
+    "jar": "build/wf1c/cand-rechecked.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 159.2
+   }
+  ]
+ },
+ "runs": [
+  {
+   "label": "rev-p1-base-0",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 2500,
+   "perf_mean_ms": 0.371107,
+   "perf_max_ms": 112.8153,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 20,
+   "launch_cases_accepted": 20,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-p1-review-0",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 2500,
+   "perf_mean_ms": 0.259507,
+   "perf_max_ms": 50.9462,
+   "rejections": {
+    "REJECT:STALE": 27
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 20,
+   "launch_cases_accepted": 20,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-p1-base-100",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 2500,
+   "perf_mean_ms": 0.200241,
+   "perf_max_ms": 42.4898,
+   "rejections": {
+    "REJECT:STALE": 8
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 20,
+   "launch_cases_accepted": 19,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-p1-review-100",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 2500,
+   "perf_mean_ms": 0.181201,
+   "perf_max_ms": 24.3859,
+   "rejections": {
+    "REJECT:STALE": 9
+   },
+   "movement_corrections": 1,
+   "launcher_cases": 20,
+   "launch_cases_accepted": 18,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 1,
+     "packet_yaw_max": 0.0,
+     "packet_pitch_max": 0.0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-base-0-1",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.171224,
+   "perf_max_ms": 6.0684,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 86.0,
+       "meanUs": 1315.4,
+       "p50Us": 394.7,
+       "p95Us": 8601.4,
+       "p99Us": 16587.4,
+       "maxUs": 16587.4
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 857.0,
+       "meanUs": 707.2,
+       "p50Us": 368.0,
+       "p95Us": 1429.9,
+       "p99Us": 11803.7,
+       "maxUs": 18174.3
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1260.0,
+       "meanUs": 28.3,
+       "p50Us": 6.7,
+       "p95Us": 18.5,
+       "p99Us": 46.7,
+       "maxUs": 17797.8
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1618.0,
+       "meanUs": 844.8,
+       "p50Us": 685.6,
+       "p95Us": 959.4,
+       "p99Us": 6730.6,
+       "maxUs": 24589.2
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 24.0,
+       "meanUs": 731.0,
+       "p50Us": 740.6,
+       "p95Us": 833.1,
+       "p99Us": 873.6,
+       "maxUs": 873.6
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 3415.0,
+       "meanUs": 674.6,
+       "p50Us": 653.0,
+       "p95Us": 779.4,
+       "p99Us": 879.7,
+       "maxUs": 13052.8
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1618.0,
+       "meanUs": 70.2,
+       "p50Us": 65.2,
+       "p95Us": 94.2,
+       "p99Us": 149.6,
+       "maxUs": 998.5
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 24.0,
+       "meanUs": 70.5,
+       "p50Us": 67.4,
+       "p95Us": 85.4,
+       "p99Us": 102.9,
+       "maxUs": 102.9
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 3415.0,
+       "meanUs": 60.8,
+       "p50Us": 59.9,
+       "p95Us": 73.5,
+       "p99Us": 86.8,
+       "maxUs": 249.9
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 281.2,
+       "p50Us": 182.6,
+       "p95Us": 358.7,
+       "p99Us": 1174.8,
+       "maxUs": 22943.3
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.3,
+       "p50Us": 2.3,
+       "p95Us": 3.3,
+       "p99Us": 6.8,
+       "maxUs": 60.8
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 32.0,
+       "meanUs": 70.4,
+       "p50Us": 65.6,
+       "p95Us": 114.4,
+       "p99Us": 170.6,
+       "maxUs": 170.6
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 25.0,
+       "meanUs": 64.2,
+       "p50Us": 59.4,
+       "p95Us": 94.3,
+       "p99Us": 150.7,
+       "maxUs": 150.7
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 311.0,
+       "meanUs": 68.4,
+       "p50Us": 8.6,
+       "p95Us": 17.8,
+       "p99Us": 72.1,
+       "maxUs": 8954.2
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 14.1,
+       "p50Us": 11.9,
+       "p95Us": 17.5,
+       "p99Us": 24.1,
+       "maxUs": 8839.5
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-review-0-1",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.178724,
+   "perf_max_ms": 7.5101,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 93.0,
+       "meanUs": 1302.0,
+       "p50Us": 377.3,
+       "p95Us": 9123.4,
+       "p99Us": 17426.8,
+       "maxUs": 17426.8
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 862.0,
+       "meanUs": 734.5,
+       "p50Us": 414.8,
+       "p95Us": 1474.9,
+       "p99Us": 10982.6,
+       "maxUs": 17804.3
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1202.0,
+       "meanUs": 93.6,
+       "p50Us": 68.3,
+       "p95Us": 112.0,
+       "p99Us": 309.8,
+       "maxUs": 13214.0
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1618.0,
+       "meanUs": 795.8,
+       "p50Us": 723.4,
+       "p95Us": 944.8,
+       "p99Us": 3108.3,
+       "maxUs": 12665.3
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 24.0,
+       "meanUs": 764.5,
+       "p50Us": 747.3,
+       "p95Us": 1087.3,
+       "p99Us": 1104.2,
+       "maxUs": 1104.2
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 2803.0,
+       "meanUs": 781.5,
+       "p50Us": 683.2,
+       "p95Us": 958.4,
+       "p99Us": 3180.3,
+       "maxUs": 18424.4
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1618.0,
+       "meanUs": 100.6,
+       "p50Us": 91.2,
+       "p95Us": 119.1,
+       "p99Us": 181.0,
+       "maxUs": 5034.1
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 24.0,
+       "meanUs": 90.9,
+       "p50Us": 88.1,
+       "p95Us": 105.2,
+       "p99Us": 106.8,
+       "maxUs": 106.8
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 2803.0,
+       "meanUs": 81.1,
+       "p50Us": 82.6,
+       "p95Us": 114.3,
+       "p99Us": 212.1,
+       "maxUs": 4611.4
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 354.4,
+       "p50Us": 235.3,
+       "p95Us": 486.7,
+       "p99Us": 3802.1,
+       "maxUs": 25587.5
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.1,
+       "p50Us": 1.9,
+       "p95Us": 3.4,
+       "p99Us": 5.5,
+       "maxUs": 228.4
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 25.0,
+       "meanUs": 90.8,
+       "p50Us": 82.2,
+       "p95Us": 119.3,
+       "p99Us": 197.0,
+       "maxUs": 197.0
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 22.0,
+       "meanUs": 83.6,
+       "p50Us": 84.7,
+       "p95Us": 101.8,
+       "p99Us": 121.7,
+       "maxUs": 121.7
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 293.0,
+       "meanUs": 80.9,
+       "p50Us": 66.6,
+       "p95Us": 212.7,
+       "p99Us": 349.0,
+       "maxUs": 564.8
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 68.1,
+       "p50Us": 59.2,
+       "p95Us": 84.5,
+       "p99Us": 126.3,
+       "maxUs": 8747.7
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-base-100-1",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.247932,
+   "perf_max_ms": 26.8637,
+   "rejections": {
+    "REJECT:STALE": 3
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 19.0,
+       "meanUs": 2750.2,
+       "p50Us": 441.1,
+       "p95Us": 17741.2,
+       "p99Us": 17741.2,
+       "maxUs": 17741.2
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 868.0,
+       "meanUs": 826.5,
+       "p50Us": 422.0,
+       "p95Us": 1807.3,
+       "p99Us": 9570.6,
+       "maxUs": 23607.5
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1417.0,
+       "meanUs": 37.5,
+       "p50Us": 8.4,
+       "p95Us": 19.6,
+       "p99Us": 86.6,
+       "maxUs": 22721.9
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1735.0,
+       "meanUs": 909.2,
+       "p50Us": 696.5,
+       "p95Us": 1161.5,
+       "p99Us": 6411.4,
+       "maxUs": 24523.1
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 27.0,
+       "meanUs": 1329.5,
+       "p50Us": 841.9,
+       "p95Us": 1078.6,
+       "p99Us": 13925.7,
+       "maxUs": 13925.7
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 2751.0,
+       "meanUs": 719.6,
+       "p50Us": 664.1,
+       "p95Us": 809.4,
+       "p99Us": 1367.0,
+       "maxUs": 36834.6
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1735.0,
+       "meanUs": 29.0,
+       "p50Us": 15.6,
+       "p95Us": 95.1,
+       "p99Us": 143.5,
+       "maxUs": 1013.4
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 27.0,
+       "meanUs": 88.7,
+       "p50Us": 85.3,
+       "p95Us": 124.4,
+       "p99Us": 130.5,
+       "maxUs": 130.5
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 2751.0,
+       "meanUs": 16.6,
+       "p50Us": 13.7,
+       "p95Us": 18.4,
+       "p99Us": 93.7,
+       "maxUs": 709.3
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 317.2,
+       "p50Us": 183.9,
+       "p95Us": 448.8,
+       "p99Us": 3705.6,
+       "maxUs": 34693.3
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.4,
+       "p50Us": 2.2,
+       "p95Us": 4.4,
+       "p99Us": 7.1,
+       "maxUs": 112.4
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 58.0,
+       "meanUs": 83.9,
+       "p50Us": 71.6,
+       "p95Us": 189.4,
+       "p99Us": 326.6,
+       "maxUs": 326.6
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 25.0,
+       "meanUs": 84.5,
+       "p50Us": 79.3,
+       "p95Us": 136.6,
+       "p99Us": 191.4,
+       "maxUs": 191.4
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 293.0,
+       "meanUs": 42.1,
+       "p50Us": 10.5,
+       "p95Us": 18.7,
+       "p99Us": 45.2,
+       "maxUs": 8987.5
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 16.0,
+       "p50Us": 12.0,
+       "p95Us": 19.0,
+       "p99Us": 29.2,
+       "maxUs": 8907.7
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-review-100-1",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.177961,
+   "perf_max_ms": 8.1531,
+   "rejections": {
+    "REJECT:STALE": 2
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 20.0,
+       "meanUs": 2292.5,
+       "p50Us": 381.1,
+       "p95Us": 16996.8,
+       "p99Us": 16996.8,
+       "maxUs": 16996.8
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 931.0,
+       "meanUs": 770.6,
+       "p50Us": 406.1,
+       "p95Us": 1459.9,
+       "p99Us": 10402.4,
+       "maxUs": 22205.6
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1653.0,
+       "meanUs": 43.8,
+       "p50Us": 27.1,
+       "p95Us": 52.0,
+       "p99Us": 89.1,
+       "maxUs": 17725.9
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1741.0,
+       "meanUs": 829.3,
+       "p50Us": 743.6,
+       "p95Us": 970.2,
+       "p99Us": 2278.2,
+       "maxUs": 13446.2
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 23.0,
+       "meanUs": 767.4,
+       "p50Us": 757.0,
+       "p95Us": 935.3,
+       "p99Us": 939.9,
+       "maxUs": 939.9
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 3285.0,
+       "meanUs": 729.3,
+       "p50Us": 704.2,
+       "p95Us": 867.7,
+       "p99Us": 955.7,
+       "maxUs": 30929.8
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1741.0,
+       "meanUs": 38.5,
+       "p50Us": 37.3,
+       "p95Us": 51.9,
+       "p99Us": 68.1,
+       "maxUs": 177.7
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 23.0,
+       "meanUs": 40.1,
+       "p50Us": 39.8,
+       "p95Us": 45.9,
+       "p99Us": 47.1,
+       "maxUs": 47.1
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 3285.0,
+       "meanUs": 36.8,
+       "p50Us": 36.0,
+       "p95Us": 47.0,
+       "p99Us": 67.7,
+       "maxUs": 296.9
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 342.4,
+       "p50Us": 244.9,
+       "p95Us": 459.0,
+       "p99Us": 1219.9,
+       "maxUs": 23071.5
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.0,
+       "p50Us": 2.0,
+       "p95Us": 3.0,
+       "p99Us": 4.3,
+       "maxUs": 51.5
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 141.0,
+       "meanUs": 91.6,
+       "p50Us": 85.7,
+       "p95Us": 115.2,
+       "p99Us": 279.5,
+       "maxUs": 325.2
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 28.0,
+       "meanUs": 93.2,
+       "p50Us": 88.5,
+       "p95Us": 124.6,
+       "p99Us": 135.0,
+       "maxUs": 135.0
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 36.0,
+       "meanUs": 81.6,
+       "p50Us": 80.5,
+       "p95Us": 100.4,
+       "p99Us": 102.4,
+       "maxUs": 102.4
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 304.0,
+       "meanUs": 128.1,
+       "p50Us": 68.9,
+       "p95Us": 237.6,
+       "p99Us": 389.3,
+       "maxUs": 8774.4
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 67.4,
+       "p50Us": 62.1,
+       "p95Us": 86.6,
+       "p99Us": 103.1,
+       "maxUs": 9414.0
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-base-0-2",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.168435,
+   "perf_max_ms": 5.2167,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 19.0,
+       "meanUs": 2668.5,
+       "p50Us": 408.6,
+       "p95Us": 17539.7,
+       "p99Us": 17539.7,
+       "maxUs": 17539.7
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 865.0,
+       "meanUs": 744.8,
+       "p50Us": 400.0,
+       "p95Us": 1445.1,
+       "p99Us": 11928.6,
+       "maxUs": 18031.9
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1207.0,
+       "meanUs": 30.7,
+       "p50Us": 7.0,
+       "p95Us": 16.7,
+       "p99Us": 44.0,
+       "maxUs": 17618.6
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1609.0,
+       "meanUs": 750.3,
+       "p50Us": 706.2,
+       "p95Us": 890.8,
+       "p99Us": 1077.0,
+       "maxUs": 12930.7
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 25.0,
+       "meanUs": 746.3,
+       "p50Us": 720.3,
+       "p95Us": 896.9,
+       "p99Us": 1042.6,
+       "maxUs": 1042.6
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 2882.0,
+       "meanUs": 880.7,
+       "p50Us": 659.6,
+       "p95Us": 837.0,
+       "p99Us": 1667.4,
+       "maxUs": 215063.0
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1609.0,
+       "meanUs": 69.8,
+       "p50Us": 67.0,
+       "p95Us": 87.7,
+       "p99Us": 110.3,
+       "maxUs": 399.9
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 25.0,
+       "meanUs": 75.5,
+       "p50Us": 68.3,
+       "p95Us": 104.6,
+       "p99Us": 108.7,
+       "maxUs": 108.7
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 2882.0,
+       "meanUs": 54.0,
+       "p50Us": 58.5,
+       "p95Us": 80.0,
+       "p99Us": 99.7,
+       "maxUs": 13538.7
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 289.4,
+       "p50Us": 191.7,
+       "p95Us": 368.8,
+       "p99Us": 1980.2,
+       "maxUs": 28329.5
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.3,
+       "p50Us": 2.1,
+       "p95Us": 3.7,
+       "p99Us": 8.7,
+       "maxUs": 33.5
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 21.0,
+       "meanUs": 74.8,
+       "p50Us": 61.7,
+       "p95Us": 99.7,
+       "p99Us": 277.2,
+       "maxUs": 277.2
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 22.0,
+       "meanUs": 69.5,
+       "p50Us": 62.2,
+       "p95Us": 100.7,
+       "p99Us": 133.4,
+       "maxUs": 133.4
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 314.0,
+       "meanUs": 89.1,
+       "p50Us": 8.5,
+       "p95Us": 16.6,
+       "p99Us": 68.1,
+       "maxUs": 11776.5
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 10.0,
+       "p50Us": 6.9,
+       "p95Us": 16.6,
+       "p99Us": 24.4,
+       "maxUs": 4327.2
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-review-0-2",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.236353,
+   "perf_max_ms": 35.1746,
+   "rejections": {
+    "REJECT:STALE": 2
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 19,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 91.0,
+       "meanUs": 1307.8,
+       "p50Us": 367.3,
+       "p95Us": 7679.1,
+       "p99Us": 18398.7,
+       "maxUs": 18398.7
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 862.0,
+       "meanUs": 776.6,
+       "p50Us": 433.4,
+       "p95Us": 1511.2,
+       "p99Us": 8644.9,
+       "maxUs": 24993.2
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1270.0,
+       "meanUs": 99.3,
+       "p50Us": 70.8,
+       "p95Us": 112.0,
+       "p99Us": 367.3,
+       "maxUs": 17435.6
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1533.0,
+       "meanUs": 1214.1,
+       "p50Us": 742.6,
+       "p95Us": 1086.2,
+       "p99Us": 8324.2,
+       "maxUs": 306504.4
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 21.0,
+       "meanUs": 721.7,
+       "p50Us": 700.1,
+       "p95Us": 885.9,
+       "p99Us": 908.2,
+       "maxUs": 908.2
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 2893.0,
+       "meanUs": 879.6,
+       "p50Us": 672.5,
+       "p95Us": 903.6,
+       "p99Us": 12126.2,
+       "maxUs": 110115.3
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1533.0,
+       "meanUs": 123.2,
+       "p50Us": 90.7,
+       "p95Us": 135.2,
+       "p99Us": 325.1,
+       "maxUs": 38411.3
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 21.0,
+       "meanUs": 90.1,
+       "p50Us": 87.5,
+       "p95Us": 102.3,
+       "p99Us": 103.1,
+       "maxUs": 103.1
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 2893.0,
+       "meanUs": 41.2,
+       "p50Us": 36.6,
+       "p95Us": 78.8,
+       "p99Us": 118.0,
+       "maxUs": 190.2
+      }
+     },
+     "combo_failed_sequences": [
+      {
+       "sequence": "13",
+       "status": "FAILED",
+       "reason": "NO_DERIVATIVE_REQUEST",
+       "ack": "0",
+       "instance": "0",
+       "elapsed": "0.003324325398352812",
+       "revision": "3",
+       "nano": "223957858702200"
+      }
+     ]
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 426.5,
+       "p50Us": 216.4,
+       "p95Us": 474.8,
+       "p99Us": 4518.4,
+       "maxUs": 232970.4
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.3,
+       "p50Us": 2.1,
+       "p95Us": 3.6,
+       "p99Us": 6.5,
+       "maxUs": 33.3
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 28.0,
+       "meanUs": 92.5,
+       "p50Us": 87.7,
+       "p95Us": 139.6,
+       "p99Us": 180.7,
+       "maxUs": 180.7
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 25.0,
+       "meanUs": 81.1,
+       "p50Us": 78.1,
+       "p95Us": 101.2,
+       "p99Us": 115.6,
+       "maxUs": 115.6
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 304.0,
+       "meanUs": 155.6,
+       "p50Us": 67.9,
+       "p95Us": 232.7,
+       "p99Us": 464.0,
+       "maxUs": 8775.8
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 51.7,
+       "p50Us": 36.6,
+       "p95Us": 82.0,
+       "p99Us": 116.3,
+       "maxUs": 14031.8
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-base-100-2",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.178442,
+   "perf_max_ms": 5.1782,
+   "rejections": {
+    "REJECT:STALE": 24
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 19,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 79.0,
+       "meanUs": 1363.1,
+       "p50Us": 376.5,
+       "p95Us": 9157.7,
+       "p99Us": 15804.7,
+       "maxUs": 15804.7
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 890.0,
+       "meanUs": 739.5,
+       "p50Us": 341.9,
+       "p95Us": 1433.4,
+       "p99Us": 13553.4,
+       "maxUs": 26580.1
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1473.0,
+       "meanUs": 26.2,
+       "p50Us": 5.8,
+       "p95Us": 17.7,
+       "p99Us": 57.0,
+       "maxUs": 17218.5
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1694.0,
+       "meanUs": 792.1,
+       "p50Us": 698.0,
+       "p95Us": 905.3,
+       "p99Us": 2948.0,
+       "maxUs": 13375.1
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 27.0,
+       "meanUs": 747.9,
+       "p50Us": 737.6,
+       "p95Us": 955.1,
+       "p99Us": 961.2,
+       "maxUs": 961.2
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 2710.0,
+       "meanUs": 958.3,
+       "p50Us": 678.0,
+       "p95Us": 1081.8,
+       "p99Us": 7728.0,
+       "maxUs": 69088.9
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1694.0,
+       "meanUs": 58.0,
+       "p50Us": 64.1,
+       "p95Us": 82.4,
+       "p99Us": 108.9,
+       "maxUs": 382.3
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 27.0,
+       "meanUs": 69.2,
+       "p50Us": 68.3,
+       "p95Us": 82.8,
+       "p99Us": 87.7,
+       "maxUs": 87.7
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 2710.0,
+       "meanUs": 26.0,
+       "p50Us": 15.1,
+       "p95Us": 70.2,
+       "p99Us": 81.8,
+       "maxUs": 1087.3
+      }
+     },
+     "combo_failed_sequences": [
+      {
+       "sequence": "16",
+       "status": "FAILED",
+       "reason": "NO_DERIVATIVE_REQUEST",
+       "ack": "0",
+       "instance": "0",
+       "elapsed": "0.004185999999890555",
+       "revision": "3",
+       "nano": "224098045283700"
+      }
+     ]
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 304.4,
+       "p50Us": 195.7,
+       "p95Us": 403.6,
+       "p99Us": 2649.9,
+       "maxUs": 23769.5
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.5,
+       "p50Us": 2.3,
+       "p95Us": 4.1,
+       "p99Us": 7.3,
+       "maxUs": 87.1
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 74.0,
+       "meanUs": 68.3,
+       "p50Us": 60.1,
+       "p95Us": 127.9,
+       "p99Us": 272.7,
+       "maxUs": 272.7
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 25.0,
+       "meanUs": 61.1,
+       "p50Us": 58.1,
+       "p95Us": 70.0,
+       "p99Us": 139.0,
+       "maxUs": 139.0
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 302.0,
+       "meanUs": 38.9,
+       "p50Us": 8.5,
+       "p95Us": 15.9,
+       "p99Us": 36.3,
+       "maxUs": 8785.2
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 15.3,
+       "p50Us": 10.1,
+       "p95Us": 20.4,
+       "p99Us": 36.2,
+       "maxUs": 8753.6
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-review-100-2",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.204388,
+   "perf_max_ms": 29.3126,
+   "rejections": {
+    "REJECT:STALE": 4
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 19.0,
+       "meanUs": 2991.2,
+       "p50Us": 442.9,
+       "p95Us": 19608.9,
+       "p99Us": 19608.9,
+       "maxUs": 19608.9
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 955.0,
+       "meanUs": 1029.5,
+       "p50Us": 616.6,
+       "p95Us": 1963.5,
+       "p99Us": 16839.3,
+       "maxUs": 28277.6
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1510.0,
+       "meanUs": 116.4,
+       "p50Us": 71.6,
+       "p95Us": 156.2,
+       "p99Us": 566.7,
+       "maxUs": 13282.6
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1737.0,
+       "meanUs": 845.4,
+       "p50Us": 752.6,
+       "p95Us": 960.0,
+       "p99Us": 2955.8,
+       "maxUs": 29212.3
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 28.0,
+       "meanUs": 768.0,
+       "p50Us": 770.7,
+       "p95Us": 944.6,
+       "p99Us": 981.7,
+       "maxUs": 981.7
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 2661.0,
+       "meanUs": 875.4,
+       "p50Us": 670.9,
+       "p95Us": 874.4,
+       "p99Us": 1262.5,
+       "maxUs": 172656.8
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1737.0,
+       "meanUs": 96.5,
+       "p50Us": 94.3,
+       "p95Us": 120.2,
+       "p99Us": 176.6,
+       "maxUs": 375.6
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 28.0,
+       "meanUs": 95.4,
+       "p50Us": 95.2,
+       "p95Us": 123.3,
+       "p99Us": 125.4,
+       "maxUs": 125.4
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 2661.0,
+       "meanUs": 120.5,
+       "p50Us": 86.8,
+       "p95Us": 112.4,
+       "p99Us": 150.7,
+       "maxUs": 82930.1
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 386.3,
+       "p50Us": 241.0,
+       "p95Us": 474.3,
+       "p99Us": 3790.6,
+       "maxUs": 70761.1
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.1,
+       "p50Us": 2.0,
+       "p95Us": 3.0,
+       "p99Us": 4.7,
+       "maxUs": 56.7
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 53.0,
+       "meanUs": 92.6,
+       "p50Us": 89.6,
+       "p95Us": 132.6,
+       "p99Us": 178.3,
+       "maxUs": 178.3
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 27.0,
+       "meanUs": 91.6,
+       "p50Us": 88.5,
+       "p95Us": 120.7,
+       "p99Us": 150.7,
+       "maxUs": 150.7
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 317.0,
+       "meanUs": 129.1,
+       "p50Us": 68.5,
+       "p95Us": 270.1,
+       "p99Us": 482.2,
+       "maxUs": 8630.8
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 68.2,
+       "p50Us": 62.0,
+       "p95Us": 86.4,
+       "p99Us": 124.8,
+       "maxUs": 8620.5
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-base-0-3",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.301522,
+   "perf_max_ms": 177.3919,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 19,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 107.0,
+       "meanUs": 1136.9,
+       "p50Us": 340.1,
+       "p95Us": 7688.8,
+       "p99Us": 13882.8,
+       "maxUs": 16725.5
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 886.0,
+       "meanUs": 664.5,
+       "p50Us": 308.5,
+       "p95Us": 1372.1,
+       "p99Us": 7395.7,
+       "maxUs": 28516.1
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1226.0,
+       "meanUs": 27.0,
+       "p50Us": 6.6,
+       "p95Us": 16.5,
+       "p99Us": 49.2,
+       "maxUs": 17503.9
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1525.0,
+       "meanUs": 1160.2,
+       "p50Us": 710.6,
+       "p95Us": 1403.8,
+       "p99Us": 10057.0,
+       "maxUs": 119482.1
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 24.0,
+       "meanUs": 727.8,
+       "p50Us": 729.9,
+       "p95Us": 858.5,
+       "p99Us": 903.0,
+       "maxUs": 903.0
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 3458.0,
+       "meanUs": 694.7,
+       "p50Us": 656.0,
+       "p95Us": 806.7,
+       "p99Us": 987.4,
+       "maxUs": 33397.2
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1525.0,
+       "meanUs": 59.1,
+       "p50Us": 21.2,
+       "p95Us": 95.6,
+       "p99Us": 257.3,
+       "maxUs": 15353.0
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 24.0,
+       "meanUs": 66.9,
+       "p50Us": 64.9,
+       "p95Us": 79.3,
+       "p99Us": 91.2,
+       "maxUs": 91.2
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 3458.0,
+       "meanUs": 14.8,
+       "p50Us": 13.1,
+       "p95Us": 18.8,
+       "p99Us": 67.4,
+       "maxUs": 118.8
+      }
+     },
+     "combo_failed_sequences": [
+      {
+       "sequence": "10",
+       "status": "FAILED",
+       "reason": "NO_DERIVATIVE_REQUEST",
+       "ack": "0",
+       "instance": "0",
+       "elapsed": "0.003902000000039152",
+       "revision": "3",
+       "nano": "224329773987500"
+      }
+     ]
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 327.3,
+       "p50Us": 182.4,
+       "p95Us": 406.0,
+       "p99Us": 4540.4,
+       "maxUs": 74598.1
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.5,
+       "p50Us": 2.3,
+       "p95Us": 4.3,
+       "p99Us": 7.1,
+       "maxUs": 267.4
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 23.0,
+       "meanUs": 66.1,
+       "p50Us": 61.8,
+       "p95Us": 74.8,
+       "p99Us": 159.4,
+       "maxUs": 159.4
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 25.0,
+       "meanUs": 63.0,
+       "p50Us": 60.3,
+       "p95Us": 81.0,
+       "p99Us": 130.3,
+       "maxUs": 130.3
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 284.0,
+       "meanUs": 88.3,
+       "p50Us": 8.7,
+       "p95Us": 17.3,
+       "p99Us": 4644.4,
+       "maxUs": 8872.8
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 28.7,
+       "p50Us": 11.6,
+       "p95Us": 20.9,
+       "p99Us": 32.0,
+       "maxUs": 73795.4
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-review-0-3",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.227865,
+   "perf_max_ms": 30.3663,
+   "rejections": {
+    "REJECT:STALE": 4
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 51.0,
+       "meanUs": 1787.3,
+       "p50Us": 447.7,
+       "p95Us": 11828.2,
+       "p99Us": 17144.5,
+       "maxUs": 17144.5
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 962.0,
+       "meanUs": 1347.9,
+       "p50Us": 424.5,
+       "p95Us": 4875.3,
+       "p99Us": 17912.4,
+       "maxUs": 62603.9
+      },
+      "hand/no-state": {
+       "key": "hand/no-state",
+       "n": 3.0,
+       "meanUs": 134.6,
+       "p50Us": 109.6,
+       "p95Us": 216.9,
+       "p99Us": 216.9,
+       "maxUs": 216.9
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1291.0,
+       "meanUs": 106.0,
+       "p50Us": 72.5,
+       "p95Us": 123.6,
+       "p99Us": 393.1,
+       "maxUs": 13006.7
+      },
+      "waist/no-state": {
+       "key": "waist/no-state",
+       "n": 3.0,
+       "meanUs": 333.8,
+       "p50Us": 101.7,
+       "p95Us": 812.8,
+       "p99Us": 812.8,
+       "maxUs": 812.8
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1621.0,
+       "meanUs": 804.6,
+       "p50Us": 717.8,
+       "p95Us": 1031.8,
+       "p99Us": 1702.3,
+       "maxUs": 14274.5
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 23.0,
+       "meanUs": 2514.3,
+       "p50Us": 823.5,
+       "p95Us": 13237.7,
+       "p99Us": 13495.5,
+       "maxUs": 13495.5
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 3343.0,
+       "meanUs": 684.0,
+       "p50Us": 672.2,
+       "p95Us": 827.5,
+       "p99Us": 901.5,
+       "maxUs": 12758.7
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1621.0,
+       "meanUs": 97.2,
+       "p50Us": 91.1,
+       "p95Us": 126.9,
+       "p99Us": 162.4,
+       "maxUs": 1205.3
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 23.0,
+       "meanUs": 105.4,
+       "p50Us": 97.3,
+       "p95Us": 132.4,
+       "p99Us": 150.0,
+       "maxUs": 150.0
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 3343.0,
+       "meanUs": 90.9,
+       "p50Us": 88.9,
+       "p95Us": 112.5,
+       "p99Us": 128.0,
+       "maxUs": 284.2
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 332.7,
+       "p50Us": 234.5,
+       "p95Us": 440.0,
+       "p99Us": 937.9,
+       "maxUs": 24070.2
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.0,
+       "p50Us": 1.9,
+       "p95Us": 3.2,
+       "p99Us": 5.3,
+       "maxUs": 51.2
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 18.0,
+       "meanUs": 94.8,
+       "p50Us": 87.4,
+       "p95Us": 189.8,
+       "p99Us": 189.8,
+       "maxUs": 189.8
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 25.0,
+       "meanUs": 91.0,
+       "p50Us": 84.9,
+       "p95Us": 130.6,
+       "p99Us": 153.0,
+       "maxUs": 153.0
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 297.0,
+       "meanUs": 129.9,
+       "p50Us": 68.3,
+       "p95Us": 275.2,
+       "p99Us": 567.2,
+       "maxUs": 8619.3
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 65.7,
+       "p50Us": 59.5,
+       "p95Us": 85.8,
+       "p99Us": 107.8,
+       "maxUs": 8528.1
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-base-100-3",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.25248,
+   "perf_max_ms": 44.9662,
+   "rejections": {
+    "REJECT:STALE": 11
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 48.0,
+       "meanUs": 1847.4,
+       "p50Us": 521.6,
+       "p95Us": 8889.0,
+       "p99Us": 17325.8,
+       "maxUs": 17325.8
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 960.0,
+       "meanUs": 1227.0,
+       "p50Us": 520.6,
+       "p95Us": 3251.7,
+       "p99Us": 15841.7,
+       "maxUs": 69788.1
+      },
+      "hand/no-state": {
+       "key": "hand/no-state",
+       "n": 3.0,
+       "meanUs": 173.7,
+       "p50Us": 199.4,
+       "p95Us": 215.0,
+       "p99Us": 215.0,
+       "maxUs": 215.0
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1657.0,
+       "meanUs": 44.9,
+       "p50Us": 9.6,
+       "p95Us": 31.0,
+       "p99Us": 64.8,
+       "maxUs": 41849.3
+      },
+      "waist/no-state": {
+       "key": "waist/no-state",
+       "n": 3.0,
+       "meanUs": 279.0,
+       "p50Us": 41.7,
+       "p95Us": 757.8,
+       "p99Us": 757.8,
+       "maxUs": 757.8
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1717.0,
+       "meanUs": 966.8,
+       "p50Us": 720.7,
+       "p95Us": 1153.4,
+       "p99Us": 7433.1,
+       "maxUs": 52683.3
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 26.0,
+       "meanUs": 2372.5,
+       "p50Us": 715.9,
+       "p95Us": 11904.1,
+       "p99Us": 32194.1,
+       "maxUs": 32194.1
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 2649.0,
+       "meanUs": 778.5,
+       "p50Us": 683.1,
+       "p95Us": 965.6,
+       "p99Us": 2627.4,
+       "maxUs": 38072.6
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1717.0,
+       "meanUs": 19.2,
+       "p50Us": 16.7,
+       "p95Us": 32.0,
+       "p99Us": 45.2,
+       "maxUs": 181.1
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 26.0,
+       "meanUs": 21.0,
+       "p50Us": 19.6,
+       "p95Us": 27.1,
+       "p99Us": 35.2,
+       "maxUs": 35.2
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 2649.0,
+       "meanUs": 15.7,
+       "p50Us": 14.5,
+       "p95Us": 24.2,
+       "p99Us": 37.3,
+       "maxUs": 763.6
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 344.4,
+       "p50Us": 192.7,
+       "p95Us": 502.9,
+       "p99Us": 2150.1,
+       "maxUs": 123788.2
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.8,
+       "p50Us": 2.4,
+       "p95Us": 5.3,
+       "p99Us": 9.0,
+       "maxUs": 50.7
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 143.0,
+       "meanUs": 26.3,
+       "p50Us": 24.2,
+       "p95Us": 37.9,
+       "p99Us": 52.3,
+       "maxUs": 81.1
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 31.0,
+       "meanUs": 24.6,
+       "p50Us": 21.6,
+       "p95Us": 35.4,
+       "p99Us": 89.2,
+       "maxUs": 89.2
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 31.0,
+       "meanUs": 23.5,
+       "p50Us": 22.5,
+       "p95Us": 32.4,
+       "p99Us": 41.4,
+       "maxUs": 41.4
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 305.0,
+       "meanUs": 105.4,
+       "p50Us": 14.6,
+       "p95Us": 34.9,
+       "p99Us": 133.1,
+       "maxUs": 11173.2
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 16.7,
+       "p50Us": 12.1,
+       "p95Us": 25.7,
+       "p99Us": 42.0,
+       "maxUs": 4290.5
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-ab-review-100-3",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.199146,
+   "perf_max_ms": 13.3506,
+   "rejections": {
+    "REJECT:STALE": 13,
+    "REJECT:RATE": 4
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/no-state": {
+       "key": "frame/no-state",
+       "n": 49.0,
+       "meanUs": 2161.7,
+       "p50Us": 518.6,
+       "p95Us": 10983.6,
+       "p99Us": 16359.3,
+       "maxUs": 16359.3
+      },
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 947.0,
+       "meanUs": 793.9,
+       "p50Us": 401.4,
+       "p95Us": 1511.5,
+       "p99Us": 9448.9,
+       "maxUs": 63778.6
+      },
+      "hand/no-state": {
+       "key": "hand/no-state",
+       "n": 3.0,
+       "meanUs": 476.5,
+       "p50Us": 132.8,
+       "p95Us": 1181.2,
+       "p99Us": 1181.2,
+       "maxUs": 1181.2
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 1520.0,
+       "meanUs": 92.2,
+       "p50Us": 65.3,
+       "p95Us": 100.8,
+       "p99Us": 287.7,
+       "maxUs": 13084.5
+      },
+      "waist/no-state": {
+       "key": "waist/no-state",
+       "n": 3.0,
+       "meanUs": 624.7,
+       "p50Us": 156.3,
+       "p95Us": 1572.6,
+       "p99Us": 1572.6,
+       "maxUs": 1572.6
+      },
+      "frame/combo": {
+       "key": "frame/combo",
+       "n": 1718.0,
+       "meanUs": 949.7,
+       "p50Us": 727.7,
+       "p95Us": 961.9,
+       "p99Us": 3522.1,
+       "maxUs": 92587.4
+      },
+      "frame/draw": {
+       "key": "frame/draw",
+       "n": 27.0,
+       "meanUs": 766.4,
+       "p50Us": 771.3,
+       "p95Us": 911.2,
+       "p99Us": 944.4,
+       "maxUs": 944.4
+      },
+      "frame/drawn-idle": {
+       "key": "frame/drawn-idle",
+       "n": 2659.0,
+       "meanUs": 827.3,
+       "p50Us": 685.4,
+       "p95Us": 868.5,
+       "p99Us": 2124.2,
+       "maxUs": 96330.5
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 1718.0,
+       "meanUs": 83.9,
+       "p50Us": 89.8,
+       "p95Us": 116.4,
+       "p99Us": 178.4,
+       "maxUs": 1401.0
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 27.0,
+       "meanUs": 93.8,
+       "p50Us": 93.1,
+       "p95Us": 106.3,
+       "p99Us": 109.7,
+       "maxUs": 109.7
+      },
+      "specials/drawn-idle": {
+       "key": "specials/drawn-idle",
+       "n": 2659.0,
+       "meanUs": 48.1,
+       "p50Us": 36.9,
+       "p95Us": 98.6,
+       "p99Us": 115.8,
+       "maxUs": 2171.4
+      }
+     },
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "render": {
+      "frame/sheathed-idle": {
+       "key": "frame/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 358.9,
+       "p50Us": 229.3,
+       "p95Us": 469.5,
+       "p99Us": 2262.1,
+       "maxUs": 77780.2
+      },
+      "hand/sheathed-idle": {
+       "key": "hand/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 2.3,
+       "p50Us": 2.2,
+       "p95Us": 3.5,
+       "p99Us": 5.5,
+       "maxUs": 259.6
+      },
+      "specials/combo": {
+       "key": "specials/combo",
+       "n": 58.0,
+       "meanUs": 94.7,
+       "p50Us": 87.4,
+       "p95Us": 138.5,
+       "p99Us": 269.2,
+       "maxUs": 269.2
+      },
+      "specials/draw": {
+       "key": "specials/draw",
+       "n": 27.0,
+       "meanUs": 89.8,
+       "p50Us": 87.2,
+       "p95Us": 105.8,
+       "p99Us": 127.3,
+       "maxUs": 127.3
+      },
+      "specials/sheathed-idle": {
+       "key": "specials/sheathed-idle",
+       "n": 308.0,
+       "meanUs": 84.8,
+       "p50Us": 70.2,
+       "p95Us": 204.2,
+       "p99Us": 331.4,
+       "maxUs": 522.9
+      },
+      "waist/sheathed-idle": {
+       "key": "waist/sheathed-idle",
+       "n": 4800.0,
+       "meanUs": 54.4,
+       "p50Us": 41.0,
+       "p95Us": 78.6,
+       "p99Us": 106.9,
+       "maxUs": 9072.6
+      }
+     },
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-w2",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 700,
+   "perf_mean_ms": 0.365798,
+   "perf_max_ms": 12.5593,
+   "rejections": {
+    "REJECT:STALE": 1
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-life",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1300,
+   "perf_mean_ms": 0.413807,
+   "perf_max_ms": 12.8143,
+   "rejections": {
+    "REJECT:UNARMED": 11,
+    "REJECT:DEAD": 7,
+    "REJECT:STALE": 10
+   },
+   "movement_corrections": 1,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-art",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1000,
+   "perf_mean_ms": 0.063862,
+   "perf_max_ms": 8.1615,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-float-death",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 300,
+   "perf_mean_ms": 0.166549,
+   "perf_max_ms": 14.4079,
+   "rejections": {
+    "REJECT:DEAD": 1
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-float-dimension",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 300,
+   "perf_mean_ms": 0.1641,
+   "perf_max_ms": 12.5764,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev-float-disconnect",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 300,
+   "perf_mean_ms": 0.174057,
+   "perf_max_ms": 10.9634,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev2-legacy",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.176475,
+   "perf_max_ms": 12.9823,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev2-w2",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 700,
+   "perf_mean_ms": 0.318939,
+   "perf_max_ms": 6.2806,
+   "rejections": {},
+   "movement_corrections": 1,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev2-art",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1000,
+   "perf_mean_ms": 0.074562,
+   "perf_max_ms": 7.6535,
+   "rejections": {
+    "REJECT:STALE": 1
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev2-sync-red",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": null,
+   "perf_mean_ms": null,
+   "perf_max_ms": null,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev3-sync",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": null,
+   "perf_mean_ms": null,
+   "perf_max_ms": null,
+   "rejections": {
+    "REJECT:STALE": 2
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev3-view-0",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.159448,
+   "perf_max_ms": 6.5171,
+   "rejections": {
+    "REJECT:STALE": 6
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev3-view-100",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.163653,
+   "perf_max_ms": 6.7408,
+   "rejections": {
+    "REJECT:STALE": 13,
+    "REJECT:RATE": 1
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev3-presonly",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 1800,
+   "perf_mean_ms": 0.165888,
+   "perf_max_ms": 12.5645,
+   "rejections": {
+    "REJECT:STALE": 1
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": 20,
+     "combo_completed": 20,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev3-gamediff",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": null,
+   "perf_mean_ms": null,
+   "perf_max_ms": null,
+   "rejections": {},
+   "movement_corrections": 0,
+   "launcher_cases": 0,
+   "launch_cases_accepted": 0,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": null,
+     "packet_yaw_max": null,
+     "packet_pitch_max": null,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev3-p1-0",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 2500,
+   "perf_mean_ms": 0.172224,
+   "perf_max_ms": 12.3925,
+   "rejections": {
+    "REJECT:STALE": 1
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 20,
+   "launch_cases_accepted": 20,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  },
+  {
+   "label": "rev3-p1-100",
+   "server_exit": 0,
+   "complete": true,
+   "client_class_loads": 0,
+   "perf_samples": 2500,
+   "perf_mean_ms": 0.155802,
+   "perf_max_ms": 7.389,
+   "rejections": {
+    "REJECT:STALE": 6
+   },
+   "movement_corrections": 0,
+   "launcher_cases": 20,
+   "launch_cases_accepted": 20,
+   "clients": {
+    "P0A": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    },
+    "P0B": {
+     "combo_attempted": null,
+     "combo_completed": null,
+     "s08": 0,
+     "packet_yaw_max": 0,
+     "packet_pitch_max": 0,
+     "combo_failed_sequences": []
+    }
+   },
+   "resource_loading": {
+    "P0A": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    },
+    "P0B": {
+     "models_loaded": 1,
+     "model_texture_error_count": 0,
+     "error_excerpts": []
+    }
+   }
+  }
+ ],
+ "perf_groups": {
+  "base-0": {
+   "labels": [
+    "rev-ab-base-0-1",
+    "rev-ab-base-0-2",
+    "rev-ab-base-0-3"
+   ],
+   "perf_mean_ms": {
+    "values": [
+     0.171224,
+     0.168435,
+     0.301522
+    ],
+    "mean": 0.213727,
+    "median": 0.171224,
+    "min": 0.168435,
+    "max": 0.301522
+   },
+   "perf_max_ms": {
+    "values": [
+     6.0684,
+     5.2167,
+     177.3919
+    ],
+    "mean": 62.89233333333333,
+    "median": 6.0684,
+    "min": 5.2167,
+    "max": 177.3919
+   }
+  },
+  "review-0": {
+   "labels": [
+    "rev-ab-review-0-1",
+    "rev-ab-review-0-2",
+    "rev-ab-review-0-3"
+   ],
+   "perf_mean_ms": {
+    "values": [
+     0.178724,
+     0.236353,
+     0.227865
+    ],
+    "mean": 0.214314,
+    "median": 0.227865,
+    "min": 0.178724,
+    "max": 0.236353
+   },
+   "perf_max_ms": {
+    "values": [
+     7.5101,
+     35.1746,
+     30.3663
+    ],
+    "mean": 24.35033333333333,
+    "median": 30.3663,
+    "min": 7.5101,
+    "max": 35.1746
+   }
+  },
+  "base-100": {
+   "labels": [
+    "rev-ab-base-100-1",
+    "rev-ab-base-100-2",
+    "rev-ab-base-100-3"
+   ],
+   "perf_mean_ms": {
+    "values": [
+     0.247932,
+     0.178442,
+     0.25248
+    ],
+    "mean": 0.22628466666666666,
+    "median": 0.247932,
+    "min": 0.178442,
+    "max": 0.25248
+   },
+   "perf_max_ms": {
+    "values": [
+     26.8637,
+     5.1782,
+     44.9662
+    ],
+    "mean": 25.66936666666667,
+    "median": 26.8637,
+    "min": 5.1782,
+    "max": 44.9662
+   }
+  },
+  "review-100": {
+   "labels": [
+    "rev-ab-review-100-1",
+    "rev-ab-review-100-2",
+    "rev-ab-review-100-3"
+   ],
+   "perf_mean_ms": {
+    "values": [
+     0.177961,
+     0.204388,
+     0.199146
+    ],
+    "mean": 0.19383166666666665,
+    "median": 0.199146,
+    "min": 0.177961,
+    "max": 0.204388
+   },
+   "perf_max_ms": {
+    "values": [
+     8.1531,
+     29.3126,
+     13.3506
+    ],
+    "mean": 16.938766666666666,
+    "median": 13.3506,
+    "min": 8.1531,
+    "max": 29.3126
+   }
+  }
+ },
+ "jars": {
+  "build/wf1c/base.jar": "6f63e327f25b0a5e18cf89caed3505e9bfdda4f2aec47995312e6695df7f7e1d",
+  "build/wf1c/cand-review.jar": "525ac208d5e35c503ef9fc152c1749e421abb050c0ef9532feebf0df526064b3",
+  "build/wf1c/cand-canonical.jar": "fc2879fc3fd6da7ef83eff6b5318db3dbe55976441906824d8fabc8aa967d0af",
+  "build/wf1c/cand-rechecked.jar": "f79eaf3af7d2c71ef804758d6d0afa9571b4fa4ef90fd69415f36eae2738c3ae"
+ },
+ "checks": {
+  "rev-w2": {
+   "checks": [
+    {
+     "step": "weapon2-actions-and-chain",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon2-damage-multiplier",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=weapon2 passed=2 failed=0"
+  },
+  "rev-life": {
+   "checks": [
+    {
+     "step": "teleport-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-open-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-close-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "ride-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dismount-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "drop-weapon-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon-back-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-katana-to-glaive-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-glaive-to-katana-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "death-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "respawn-new-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "respawn-combat-resumes",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-change-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-return",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "disconnect-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "reconnect-new-state",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=lifecycle passed=16 failed=0"
+  },
+  "rev-float-death": {
+   "checks": [
+    {
+     "step": "float-death-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-death-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-death passed=2 failed=0"
+  },
+  "rev-float-dimension": {
+   "checks": [
+    {
+     "step": "float-dimension-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-dimension-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-dimension passed=2 failed=0"
+  },
+  "rev-float-disconnect": {
+   "checks": [
+    {
+     "step": "float-disconnect-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-disconnect-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-disconnect passed=2 failed=0"
+  },
+  "rev2-w2": {
+   "checks": [
+    {
+     "step": "weapon2-actions-and-chain",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon2-damage-multiplier",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=weapon2 passed=2 failed=0"
+  },
+  "rev2-sync-red": {
+   "checks": [
+    {
+     "step": "handshake-effective-diff-refused",
+     "ok": false,
+     "detail": "2 client(s) remain connected"
+    }
+   ],
+   "complete": "mode=handshake-sync passed=0 failed=1"
+  },
+  "rev3-sync": {
+   "checks": [
+    {
+     "step": "handshake-effective-diff-refused",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=handshake-sync passed=1 failed=0"
+  },
+  "rev3-gamediff": {
+   "checks": [
+    {
+     "step": "handshake-gameplay-diff-refused",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=handshake passed=1 failed=0"
+  }
+ },
+ "key_evidence": {
+  "rev-p1-base-0": {
+   "server": [
+    "[20:44:10] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=543 remaining=2 protectionUntil=0 vy=0.6 hp=185.0",
+    "[20:44:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=649 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:44:22] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=776 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:44:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=900 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:44:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=1025 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:44:41] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=1149 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:44:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=1275 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:44:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=1400 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:44:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=1523 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=1651 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=1774 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=1900 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:24] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=2024 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=2151 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=2276 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=2399 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:49] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=2525 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:45:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=2650 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:46:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=2775 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:46:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=65353 accepted=true tick=2900 remaining=2 protectionUntil=0 vy=0.6 hp=190.0"
+   ],
+   "P0A": [],
+   "P0B": []
+  },
+  "rev-p1-review-0": {
+   "server": [
+    "[20:46:20] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 42.8 ms, with server overrides 56.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[20:46:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=590 remaining=2 protectionUntil=0 vy=0.6 hp=185.0",
+    "[20:47:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=700 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=823 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:12] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=948 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=1075 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=1199 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=1323 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=1448 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:43] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=1573 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=1698 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:47:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=1824 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:48:02] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=1948 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:48:08] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=2073 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:48:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=2197 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:48:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=2323 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:48:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=2449 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:48:33] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=2573 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:48:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=2697 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:48:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=76981 accepted=true tick=2822 remaining=2 protectionUntil=0 vy=0.6 hp=190.0"
+   ],
+   "P0A": [
+    "[20:46:29] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.9 ms, with server overrides 46.5 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[20:46:36] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.1 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ],
+   "P0B": [
+    "[20:46:42] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 36.8 ms, with server overrides 48.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[20:46:47] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.1 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-p1-base-100": {
+   "server": [
+    "[20:49:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=583 remaining=2 protectionUntil=0 vy=0.6 hp=185.0",
+    "[20:49:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=689 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:49:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=814 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:49:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=940 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:00] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=1064 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:06] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=1189 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=1315 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=1440 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:25] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=1564 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=1689 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=1815 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=1939 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=2064 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:50:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=2189 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:51:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=2439 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:51:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=2564 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:51:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=2689 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:51:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=2815 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:51:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73202 accepted=true tick=2940 remaining=2 protectionUntil=0 vy=0.6 hp=190.0"
+   ],
+   "P0A": [],
+   "P0B": []
+  },
+  "rev-p1-review-100": {
+   "server": [
+    "[20:51:45] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.9 ms, with server overrides 54.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[20:52:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=559 remaining=2 protectionUntil=0 vy=0.6 hp=185.0",
+    "[20:52:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=664 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:52:29] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=791 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:52:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=1165 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:52:54] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=1291 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=1416 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=1541 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=1665 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=1791 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=1916 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=2039 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=2166 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=2290 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:51] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=2414 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:53:57] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=2541 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:54:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=2665 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:54:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=2791 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[20:54:16] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=61180 accepted=true tick=2916 remaining=2 protectionUntil=0 vy=0.6 hp=190.0"
+   ],
+   "P0A": [
+    "[20:51:55] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.7 ms, with server overrides 45.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[20:52:01] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ],
+   "P0B": [
+    "[20:52:05] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.1 ms, with server overrides 45.2 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[20:52:11] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.6 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-ab-base-0-1": {
+   "server": [],
+   "P0A": [
+    "[20:55:28] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=223346801733300"
+   ],
+   "P0B": []
+  },
+  "rev-ab-review-0-1": {
+   "server": [
+    "[20:56:29] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 37.4 ms, with server overrides 50.6 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[20:56:38] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.5 ms, with server overrides 45.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[20:56:44] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.9 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[20:57:29] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=223467781606300"
+   ],
+   "P0B": [
+    "[20:56:48] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 32.9 ms, with server overrides 43.6 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[20:56:53] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-ab-base-100-1": {
+   "server": [],
+   "P0A": [
+    "[20:59:46] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=223605060908400"
+   ],
+   "P0B": []
+  },
+  "rev-ab-review-100-1": {
+   "server": [
+    "[21:00:40] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 40.2 ms, with server overrides 54.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[21:00:53] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 105.0 ms, with server overrides 116.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:00:59] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.3 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[21:01:55] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=223733746468000"
+   ],
+   "P0B": [
+    "[21:01:03] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.0 ms, with server overrides 44.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:01:10] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.6 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-ab-base-0-2": {
+   "server": [],
+   "P0A": [
+    "[21:03:45] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=223843862344800"
+   ],
+   "P0B": []
+  },
+  "rev-ab-review-0-2": {
+   "server": [
+    "[21:04:47] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 41.7 ms, with server overrides 56.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[21:04:59] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.6 ms, with server overrides 43.8 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:05:05] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.9 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[21:05:49] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=19 failed=1 nano=223968319213400"
+   ],
+   "P0B": [
+    "[21:05:09] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 43.4 ms, with server overrides 60.1 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:05:14] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.8 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-ab-base-100-2": {
+   "server": [],
+   "P0A": [
+    "[21:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=19 failed=1 nano=224105833342800"
+   ],
+   "P0B": []
+  },
+  "rev-ab-review-100-2": {
+   "server": [
+    "[21:09:00] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 57.0 ms, with server overrides 84.7 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[21:09:12] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 35.0 ms, with server overrides 48.8 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:09:18] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.5 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[21:10:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=224232629004200"
+   ],
+   "P0B": [
+    "[21:09:23] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 43.6 ms, with server overrides 58.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:09:28] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-ab-base-0-3": {
+   "server": [],
+   "P0A": [
+    "[21:12:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=19 failed=1 nano=224345476015200"
+   ],
+   "P0B": []
+  },
+  "rev-ab-review-0-3": {
+   "server": [
+    "[21:13:08] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.4 ms, with server overrides 53.5 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[21:13:17] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 31.0 ms, with server overrides 42.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:13:24] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[21:14:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=224469889938300"
+   ],
+   "P0B": [
+    "[21:13:28] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 35.2 ms, with server overrides 46.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:13:36] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.1 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-ab-base-100-3": {
+   "server": [],
+   "P0A": [
+    "[21:16:26] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=224605205592400"
+   ],
+   "P0B": []
+  },
+  "rev-ab-review-100-3": {
+   "server": [
+    "[21:17:19] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 48.7 ms, with server overrides 65.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[21:17:34] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 36.3 ms, with server overrides 48.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:17:41] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.6 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[21:18:38] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=224737057997500"
+   ],
+   "P0B": [
+    "[21:17:46] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.1 ms, with server overrides 45.3 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:17:52] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.5 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-w2": {
+   "server": [
+    "[21:19:29] [Server thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 47.0 ms, with server overrides 78.5 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:20:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:784]: WF1C_COMPLETE mode=weapon2 passed=2 failed=0"
+   ],
+   "P0A": [
+    "[21:19:39] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 38.3 ms, with server overrides 52.9 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:19:54] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 (2.8 ms to derive them) and weapon table {clashweave:katana=katana:katana, minecraft:stick=wf1test:glaive}"
+   ],
+   "P0B": [
+    "[21:20:00] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 40.0 ms, with server overrides 54.8 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:20:07] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 (3.9 ms to derive them) and weapon table {clashweave:katana=katana:katana, minecraft:stick=wf1test:glaive}",
+    "[21:20:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cReplay:fallbackAudit:206]: WF1C_FALLBACK ok=false error=java.lang.NoSuchFieldException: render"
+   ]
+  },
+  "rev-life": {
+   "server": [
+    "[21:20:49] [Server thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 47.0 ms, with server overrides 62.8 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:21:19] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:result:773]: WF1C_CHECK step=teleport-mid-action ok=true detail=- before=[session=7281554736564343898 rev=2 instance=10 action=katana:light_1 style=katana:default sheathed=false engaged=true verified=true sentDef=true corrections=0 contacts=1 held=KatanaItem#4096 dead=false riding=false gui=false dim=0 pos=0.0,64.0,0.3 hp=200] after=[session=7281554736564343898 rev=2 instance=13 action=katana:heavy style=katana:default sheathed=false engaged=true verified=true sentDef=true corrections=1 contacts=1 held=KatanaItem#4096 dead=false riding=false gui=false dim=0 pos=0.0,64.0,0.0 hp=195]",
+    "[21:22:27] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:784]: WF1C_COMPLETE mode=lifecycle passed=16 failed=0"
+   ],
+   "P0A": [
+    "[21:20:59] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 40.3 ms, with server overrides 51.8 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:21:06] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 (4.2 ms to derive them) and weapon table {clashweave:katana=katana:katana, minecraft:stick=wf1test:glaive}",
+    "[21:22:19] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 (2.3 ms to derive them) and weapon table {clashweave:katana=katana:katana, minecraft:stick=wf1test:glaive}"
+   ],
+   "P0B": [
+    "[21:21:10] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 46.4 ms, with server overrides 63.3 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:21:17] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 (2.5 ms to derive them) and weapon table {clashweave:katana=katana:katana, minecraft:stick=wf1test:glaive}"
+   ]
+  },
+  "rev-art": {
+   "server": [
+    "[21:22:34] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 40.7 ms, with server overrides 55.2 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[21:22:42] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.3 ms, with server overrides 45.7 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:22:53] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.2 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ],
+   "P0B": [
+    "[21:22:57] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.8 ms, with server overrides 44.1 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:23:05] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-float-death": {
+   "server": [
+    "[21:24:02] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 42.2 ms, with server overrides 56.5 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:24:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=72649 accepted=true tick=519 remaining=2 protectionUntil=0 vy=0.6 hp=196.0",
+    "[21:24:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=72649 accepted=true tick=731 remaining=2 protectionUntil=0 vy=0.6 hp=16.0",
+    "[21:24:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:784]: WF1C_COMPLETE mode=float-death passed=2 failed=0"
+   ],
+   "P0A": [
+    "[21:24:12] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 32.9 ms, with server overrides 44.8 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:24:18] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.9 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ],
+   "P0B": [
+    "[21:24:23] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 30.4 ms, with server overrides 41.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:24:30] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-float-dimension": {
+   "server": [
+    "[21:24:55] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.8 ms, with server overrides 54.3 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:25:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73837 accepted=true tick=514 remaining=2 protectionUntil=0 vy=0.6 hp=196.0",
+    "[21:25:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=73837 accepted=true tick=704 remaining=2 protectionUntil=0 vy=0.6 hp=193.0",
+    "[21:25:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:784]: WF1C_COMPLETE mode=float-dimension passed=2 failed=0"
+   ],
+   "P0A": [
+    "[21:25:05] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 32.7 ms, with server overrides 45.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:25:11] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.4 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ],
+   "P0B": [
+    "[21:25:16] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.2 ms, with server overrides 45.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:25:22] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev-float-disconnect": {
+   "server": [
+    "[21:25:46] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 41.0 ms, with server overrides 55.2 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:26:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=69163 accepted=true tick=521 remaining=2 protectionUntil=0 vy=0.6 hp=196.0",
+    "[21:26:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=132468 accepted=true tick=816 remaining=2 protectionUntil=0 vy=0.6 hp=196.0",
+    "[21:26:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:784]: WF1C_COMPLETE mode=float-disconnect passed=2 failed=0"
+   ],
+   "P0A": [
+    "[21:25:56] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.8 ms, with server overrides 55.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:26:03] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.0 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ],
+   "P0B": [
+    "[21:26:07] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 32.2 ms, with server overrides 43.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[21:26:14] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.5 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[21:26:23] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.2 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev2-legacy": {
+   "server": [
+    "[22:13:58] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 38.1 ms, with server overrides 54.6 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=6f4e4c751d12ab74fa26d9ef77313b021deb6f9e9ee15dcf446cb60985ff49de overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":true}"
+   ],
+   "P0A": [
+    "[22:14:06] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 32.4 ms, with server overrides 43.8 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:14:12] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 6f4e4c751d12ab74fa26d9ef77313b021deb6f9e9ee15dcf446cb60985ff49de (3.6 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:14:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=228117685241900"
+   ],
+   "P0B": [
+    "[22:14:16] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.5 ms, with server overrides 44.7 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:14:23] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 6f4e4c751d12ab74fa26d9ef77313b021deb6f9e9ee15dcf446cb60985ff49de (3.1 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev2-w2": {
+   "server": [
+    "[22:16:00] [Server thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 45.9 ms, with server overrides 61.1 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:16:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:786]: WF1C_COMPLETE mode=weapon2 passed=2 failed=0"
+   ],
+   "P0A": [
+    "[22:16:06] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 39.0 ms, with server overrides 53.0 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:16:13] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 (3.5 ms to derive them) and weapon table {clashweave:katana=katana:katana, minecraft:stick=wf1test:glaive}"
+   ],
+   "P0B": [
+    "[22:16:17] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 38.2 ms, with server overrides 50.9 ms; packGameplay=d083df2067fb8a1dab2dc01672731d02f41645d2769964679bfe2dd835080037 presentation=5e049403db8ba62ec6d64171f3a26dfa043628f45b95912e691b309aa67d96b6 effectiveGameplay=cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:16:23] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules cbae8a28b49e0b8aea3dbe1a0b72ef9e3067cfe875135a227d7dcf29bfae0b34 (4.2 ms to derive them) and weapon table {clashweave:katana=katana:katana, minecraft:stick=wf1test:glaive}",
+    "[22:16:23] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cReplay:fallbackAudit:206]: WF1C_FALLBACK ok=true observer=P0B local=katana:default target=wf1test:glaive"
+   ]
+  },
+  "rev2-art": {
+   "server": [
+    "[22:17:06] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.8 ms, with server overrides 53.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[22:17:13] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 32.5 ms, with server overrides 44.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:17:19] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.2 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:17:37] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:100]: ART_CAPTURE name=sheathed-first tick=150 action= sheathed=true view=0 pitch=65.0 sneak=false sprint=false onGround=true feet=64.0 frames=1106 maximumFrameNanos=68379500"
+   ],
+   "P0B": [
+    "[22:17:24] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.0 ms, with server overrides 45.6 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:17:30] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.8 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev2-sync-red": {
+   "server": [
+    "[22:18:37] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 40.2 ms, with server overrides 54.5 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:19:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:tick:843]: WF1C_BAD_SYNC sent=2 tick=398",
+    "[22:19:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:tick:848]: WF1C_BAD_SYNC connected=2",
+    "[22:19:04] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:786]: WF1C_COMPLETE mode=handshake-sync passed=0 failed=1"
+   ],
+   "P0A": [
+    "[22:18:45] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.2 ms, with server overrides 46.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:18:51] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.9 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:19:01] [Client thread/ERROR] [clashweave]: Clashweave: negotiated rules differ (server 0000000000000000000000000000000000000000000000000000000000000000, derived 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e); weapons disabled for this session"
+   ],
+   "P0B": [
+    "[22:18:55] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.5 ms, with server overrides 43.8 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:19:01] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.8 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:19:01] [Client thread/ERROR] [clashweave]: Clashweave: negotiated rules differ (server 0000000000000000000000000000000000000000000000000000000000000000, derived 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e); weapons disabled for this session"
+   ]
+  },
+  "rev3-sync": {
+   "server": [
+    "[22:19:12] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.3 ms, with server overrides 53.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:19:37] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:tick:843]: WF1C_BAD_SYNC sent=2 tick=428",
+    "[22:19:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:tick:848]: WF1C_BAD_SYNC connected=0",
+    "[22:19:39] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:786]: WF1C_COMPLETE mode=handshake-sync passed=1 failed=0"
+   ],
+   "P0A": [
+    "[22:19:20] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.1 ms, with server overrides 45.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:19:26] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.3 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:19:37] [Client thread/ERROR] [clashweave]: Clashweave: negotiated rules differ (server 0000000000000000000000000000000000000000000000000000000000000000, derived 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e); connection refused"
+   ],
+   "P0B": [
+    "[22:19:30] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 35.2 ms, with server overrides 46.2 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:19:37] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.6 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:19:37] [Client thread/ERROR] [clashweave]: Clashweave: negotiated rules differ (server 0000000000000000000000000000000000000000000000000000000000000000, derived 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e); connection refused"
+   ]
+  },
+  "rev3-view-0": {
+   "server": [
+    "[22:19:47] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.2 ms, with server overrides 53.5 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[22:19:57] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 32.3 ms, with server overrides 43.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:20:03] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.9 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:20:48] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=228467477137500"
+   ],
+   "P0B": [
+    "[22:20:08] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.1 ms, with server overrides 44.9 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:20:13] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.8 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev3-view-100": {
+   "server": [
+    "[22:21:50] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.3 ms, with server overrides 53.6 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0A": [
+    "[22:21:57] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 34.0 ms, with server overrides 45.6 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:22:04] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.0 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:22:59] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=228597828923800"
+   ],
+   "P0B": [
+    "[22:22:08] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.3 ms, with server overrides 44.6 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:22:14] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.6 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev3-presonly": {
+   "server": [
+    "[22:23:50] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.1 ms, with server overrides 53.5 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:24:14] [Server thread/WARN] [clashweave]: Clashweave: P0B has different presentation content only (server 7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff, client f975d6dcc9d448cca4cdfa6d5c7c0d52dc8ce9c794ad5136dcaee70bd9a65b8a); allowed"
+   ],
+   "P0A": [
+    "[22:23:59] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.1 ms, with server overrides 45.0 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:24:05] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.1 ms to derive them) and weapon table {clashweave:katana=katana:katana}",
+    "[22:24:50] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ClientReplay:viewReplay:348]: P0_VIEW COMPLETE attempted=20 completed=20 failed=0 nano=228708656232200"
+   ],
+   "P0B": [
+    "[22:24:09] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 1 weapon(s), 1 style(s); registry load+validate 36.6 ms, with server overrides 48.3 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=f975d6dcc9d448cca4cdfa6d5c7c0d52dc8ce9c794ad5136dcaee70bd9a65b8a effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:24:14] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev3-gamediff": {
+   "server": [
+    "[22:25:51] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 36.8 ms, with server overrides 50.7 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:26:04] [Server thread/WARN] [clashweave]: Clashweave: refusing P0A: gameplay content differs (gameplay server 518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 client a815dc1f1083e6d9ac08a1a1f8f6cee93651c6d7d329a459772db646cce36ae7; presentation server 7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff client 341a8a7c9dd4cc99064628a07259977fb19e39711488a0387f68591053b8acbc)",
+    "[22:26:14] [Server thread/WARN] [clashweave]: Clashweave: refusing P0B: gameplay content differs (gameplay server 518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 client a815dc1f1083e6d9ac08a1a1f8f6cee93651c6d7d329a459772db646cce36ae7; presentation server 7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff client 341a8a7c9dd4cc99064628a07259977fb19e39711488a0387f68591053b8acbc)",
+    "[22:27:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.Wf1cScenario:finish:786]: WF1C_COMPLETE mode=handshake passed=1 failed=0"
+   ],
+   "P0A": [
+    "[22:25:58] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 44.0 ms, with server overrides 55.8 ms; packGameplay=a815dc1f1083e6d9ac08a1a1f8f6cee93651c6d7d329a459772db646cce36ae7 presentation=341a8a7c9dd4cc99064628a07259977fb19e39711488a0387f68591053b8acbc effectiveGameplay=5547572918fcf9b479d8112b468ff329b48bca585e231125e9a6105f5c739b22 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ],
+   "P0B": [
+    "[22:26:09] [Client thread/INFO] [clashweave]: Clashweave content: 6 file(s), 2 pack(s), 2 weapon(s), 2 style(s); registry load+validate 38.7 ms, with server overrides 50.9 ms; packGameplay=a815dc1f1083e6d9ac08a1a1f8f6cee93651c6d7d329a459772db646cce36ae7 presentation=341a8a7c9dd4cc99064628a07259977fb19e39711488a0387f68591053b8acbc effectiveGameplay=5547572918fcf9b479d8112b468ff329b48bca585e231125e9a6105f5c739b22 overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}"
+   ]
+  },
+  "rev3-p1-0": {
+   "server": [
+    "[22:27:16] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 38.9 ms, with server overrides 53.3 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:27:47] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=531 remaining=2 protectionUntil=0 vy=0.6 hp=185.0",
+    "[22:27:52] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=637 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:27:58] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=763 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=888 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=1012 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:17] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=1139 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:23] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=1261 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:30] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=1389 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:36] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=1511 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:42] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=1638 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:48] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=1762 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:28:55] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=1887 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:29:01] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=2013 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:29:07] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=2137 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:29:13] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=2263 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:29:20] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=2388 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:29:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=2513 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:29:32] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=2637 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:29:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63329 accepted=true tick=2763 remaining=2 protectionUntil=0 vy=0.6 hp=190.0"
+   ],
+   "P0A": [
+    "[22:27:24] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.8 ms, with server overrides 45.1 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:27:30] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.3 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ],
+   "P0B": [
+    "[22:27:34] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 33.2 ms, with server overrides 44.8 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:27:40] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (2.0 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  },
+  "rev3-p1-100": {
+   "server": [
+    "[22:29:55] [Server thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 39.2 ms, with server overrides 53.4 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:30:26] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=560 remaining=2 protectionUntil=0 vy=0.6 hp=185.0",
+    "[22:30:31] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=664 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:30:38] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=788 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:30:44] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=915 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:30:50] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=1040 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:30:56] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=1163 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:03] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=1290 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:09] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=1414 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:15] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=1539 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:21] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=1665 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:28] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=1789 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:34] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=1914 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:40] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=2040 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:46] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=2164 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:53] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=2289 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:31:59] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=2413 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:32:05] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=2539 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:32:11] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=2663 remaining=2 protectionUntil=0 vy=0.6 hp=190.0",
+    "[22:32:18] [Server thread/INFO] [STDOUT]: [com.layue13.clashweave.forge.HitEffects:trace:128]: CW_EFFECT LAUNCH target=63253 accepted=true tick=2790 remaining=2 protectionUntil=0 vy=0.6 hp=190.0"
+   ],
+   "P0A": [
+    "[22:30:03] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 30.6 ms, with server overrides 41.7 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:30:09] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.8 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ],
+   "P0B": [
+    "[22:30:13] [Client thread/INFO] [clashweave]: Clashweave content: 5 file(s), 1 pack(s), 1 weapon(s), 1 style(s); registry load+validate 35.0 ms, with server overrides 46.8 ms; packGameplay=518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 presentation=7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff effectiveGameplay=2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e overrides={\"effectVelocityLimit\":1.2000000476837158,\"launchRequiresGround\":true,\"launchRequiresHit\":true,\"legacyKatana\":false}",
+    "[22:30:19] [Client thread/INFO] [clashweave]: Clashweave: joined with negotiated rules 2314f71c7d568d7b706cc536588ee196dbb0305c7a625eb0ad83afb39b07173e (1.7 ms to derive them) and weapon table {clashweave:katana=katana:katana}"
+   ]
+  }
+ }
+}
