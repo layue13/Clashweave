@@ -142,9 +142,15 @@ public final class ContentRegistry {
 
     /** Detached catalog for the existing engine; configuration may mutate it without changing this registry. */
     public ActionCatalog catalog(String styleId) {
+        return catalog(styleId, Double.NaN);
+    }
+
+    /** A finite serverLimit can only tighten the style's own effect velocity limit, never raise it. */
+    public ActionCatalog catalog(String styleId, double serverLimit) {
         ContentPack.Style style = style(styleId);
         if (style == null) throw new IllegalArgumentException("Unknown style: " + styleId);
         JsonObject data = new JsonObject();
+        data.addProperty("namespace", style.id.substring(0, style.id.indexOf(':')));
         data.addProperty("bufferTicks", style.bufferTicks);
         data.addProperty("effectVelocityLimit", style.effectVelocityLimit);
         JsonArray actions = new JsonArray();
@@ -154,10 +160,11 @@ public final class ContentRegistry {
                     .get(id)));
         data.add("actions", actions);
         JsonObject entry = entries.get("styles")
-            .get(styleId)
+            .get(style.id)
             .getAsJsonObject("entry");
         data.add("entry", JsonCompat.copy(entry));
-        return new ActionCatalog(new java.io.StringReader(data.toString()));
+        double limit = Double.isNaN(serverLimit) ? Double.NaN : Math.min(serverLimit, style.effectVelocityLimit);
+        return new ActionCatalog(new java.io.StringReader(data.toString()), limit);
     }
 
     private static Map<String, Map<String, JsonObject>> emptyIndex() {

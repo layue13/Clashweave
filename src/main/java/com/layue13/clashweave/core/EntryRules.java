@@ -16,7 +16,7 @@ public final class EntryRules {
     /** Compatibility for pre-content catalogs only; new styles must supply explicit rules. */
     static EntryRules legacyKatana(Iterable<ActionCatalog.Definition> actions) {
         Set<String> present = new HashSet<>();
-        for (ActionCatalog.Definition action : actions) present.add(ActionCatalog.normalize(action.id));
+        for (ActionCatalog.Definition action : actions) present.add(ActionCatalog.legacyNormalize(action.id));
         EntryRules rules = new EntryRules();
         rules.sheathed = new EnumMap<>(Intent.class);
         rules.ready = new EnumMap<>(Intent.class);

@@ -42,16 +42,9 @@ final class CombatPresentation {
             action.definition.active > 0);
     }
 
-    void sheathed(EntityPlayer player, long instance, long tick) {
+    void sheathed(EntityPlayer player, long instance, long tick, String action) {
         events.emit(
-            new SemanticEvents.Event(
-                SemanticEvents.Kind.SHEATHE,
-                player.getEntityId(),
-                -1,
-                instance,
-                tick,
-                0,
-                "sheathe"));
+            new SemanticEvents.Event(SemanticEvents.Kind.SHEATHE, player.getEntityId(), -1, instance, tick, 0, action));
     }
 
     void rememberHealth(EntityLivingBase player) {

@@ -17,11 +17,15 @@ import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.input.Keyboard;
 
 import com.layue13.clashweave.Clashweave;
+import com.layue13.clashweave.content.EffectiveRules;
 import com.layue13.clashweave.core.ActionCatalog;
 import com.layue13.clashweave.core.Intent;
 import com.layue13.clashweave.forge.BlockInteraction;
 import com.layue13.clashweave.forge.CombatServer;
+import com.layue13.clashweave.forge.CombatWeapons;
 import com.layue13.clashweave.forge.CommonProxy;
+import com.layue13.clashweave.network.ContentSyncMessage;
+import com.layue13.clashweave.network.HelloMessage;
 import com.layue13.clashweave.network.InputMessage;
 import com.layue13.clashweave.network.StateMessage;
 
@@ -39,11 +43,27 @@ public final class ClientProxy extends CommonProxy {
         public long received;
         public double moved;
         public boolean movementReady;
+        /** Resolved when the state arrives, so a frame follows references instead of looking up strings. */
+        PresentationAssets.Render render;
+        PresentationAssets.Preset preset;
+        public ActionCatalog catalog;
+        public ActionCatalog.Definition definition;
+        boolean returnsToSheath;
     }
 
     public static ClientProxy instance;
     public final Map<Integer, Visual> visuals = new HashMap<>();
+    /** Mirror of visuals keyed without boxing, for lookups made on the render path. */
+    private final net.minecraft.util.IntHashMap byEntity = new net.minecraft.util.IntHashMap();
+    /** The catalog of the local player's current weapon. */
     public ActionCatalog actions;
+    /** Catalogs the server itself sent (post-override); preferred over the local pack for the same style. */
+    private final Map<String, ActionCatalog> authoritative = new HashMap<>();
+    private EffectiveRules rules;
+    private boolean helloSent, warmed;
+    private final Queue<ContentSyncMessage> syncs = new ConcurrentLinkedQueue<>();
+    private CombatWeapons.Table localTable;
+    private ActionCatalog.Definition predictedDefinition;
     public final LockCamera lockCamera = new LockCamera(this);
     public String feedback = "";
     public int corrections;
@@ -89,11 +109,12 @@ public final class ClientProxy extends CommonProxy {
         FMLCommonHandler.instance()
             .bus()
             .register(lockCamera);
-        MinecraftForge.EVENT_BUS.register(new KatanaRendering());
+        MinecraftForge.EVENT_BUS.register(new WeaponRendering());
         FMLCommonHandler.instance()
             .bus()
             .register(this);
-        KatanaRendering.load();
+        rules = Clashweave.content.rules;
+        WeaponRendering.load();
         FMLCommonHandler.instance()
             .bus()
             .register(new ViewPreservingCorrections());
@@ -109,6 +130,70 @@ public final class ClientProxy extends CommonProxy {
         if (events.size() < 1024) events.add(message);
     }
 
+    @Override
+    public void receive(ContentSyncMessage message) {
+        if (syncs.size() < 8) syncs.add(message);
+    }
+
+    /** O(1) and allocation free; used by the renderer for every armed player each frame. */
+    public Visual visualOf(int entity) {
+        return (Visual) byEntity.lookup(entity);
+    }
+
+    /** The catalog this client uses for a style: the server's own copy if it sent one, else the local pack's. */
+    private ActionCatalog catalogFor(String style) {
+        ActionCatalog sent = authoritative.get(style);
+        return sent != null ? sent : rules.catalog(style);
+    }
+
+    /** True while the local player shows an entry pose the server has not yet confirmed. */
+    public boolean predicted(Visual visual) {
+        return visual == own() && !predictedAction.isEmpty();
+    }
+
+    public ActionCatalog.Definition definition(Visual visual) {
+        if (visual == null) return null;
+        return predicted(visual) ? predictedDefinition : visual.definition;
+    }
+
+    private void handshake() {
+        if (!helloSent) {
+            helloSent = true;
+            EffectiveRules local = Clashweave.content.rules;
+            Clashweave.network.sendToServer(new HelloMessage(local.packGameplayHash, local.presentationHash));
+        }
+    }
+
+    private void synchronize(ContentSyncMessage message) {
+        try {
+            EffectiveRules told = Clashweave.content.rulesFor(EffectiveRules.Overrides.parse(message.overrides));
+            if (!told.effectiveHash.equals(message.effectiveHash)) {
+                // Our pack plus the server's overrides do not reproduce the server's rules: do not act on them.
+                Clashweave.log.error(
+                    "Clashweave: negotiated rules differ (server {}, derived {}); weapons disabled for this session",
+                    message.effectiveHash,
+                    told.effectiveHash);
+                CombatWeapons.install(null);
+                return;
+            }
+            rules = told;
+            CombatWeapons.install(
+                CombatWeapons.build(
+                    message.items,
+                    told,
+                    0.0001,
+                    1000,
+                    name -> (net.minecraft.item.Item) net.minecraft.item.Item.itemRegistry.getObject(name)));
+            Clashweave.log.info(
+                "Clashweave: joined with negotiated rules {} and weapon table {}",
+                message.effectiveHash,
+                message.items);
+        } catch (RuntimeException e) {
+            Clashweave.log.error("Clashweave: server content sync rejected: {}", String.valueOf(e));
+            CombatWeapons.install(null);
+        }
+    }
+
     public long stamp() {
         // A received END tick is an observation, not a synchronized clock. Keep one tick
         // of phase uncertainty so a boundary input cannot claim the next server tick early.
@@ -116,7 +201,7 @@ public final class ClientProxy extends CommonProxy {
     }
 
     public Visual own() {
-        return minecraft.thePlayer == null ? null : visuals.get(minecraft.thePlayer.getEntityId());
+        return minecraft.thePlayer == null ? null : visualOf(minecraft.thePlayer.getEntityId());
     }
 
     public boolean engaged() {
@@ -159,10 +244,14 @@ public final class ClientProxy extends CommonProxy {
         if (intent == Intent.LIGHT || intent == Intent.HEAVY || intent == Intent.SHEATHE) {
             Visual own = own();
             String prediction = "";
-            if (own != null && own.state.action.isEmpty()) {
-                if (intent == Intent.LIGHT) prediction = own.state.sheathed ? "iai" : "light_1";
-                else if (intent == Intent.HEAVY && !own.state.sheathed) prediction = "heavy";
-                else if (intent == Intent.SHEATHE && !own.state.sheathed) prediction = "sheathe";
+            ActionCatalog.Definition predicted = null;
+            if (own != null && own.state.action.isEmpty() && own.catalog != null) {
+                // The style's own entry rules: the same table the server's scheduler consults.
+                String entryAction = own.catalog.entryTarget(own.state.sheathed, intent);
+                if (entryAction != null) {
+                    prediction = entryAction;
+                    predicted = own.catalog.byId(entryAction);
+                }
             }
             if (!prediction.isEmpty() && intent != Intent.SHEATHE) {
                 minecraft.thePlayer.playSound("random.bow", .35F, .75F);
@@ -170,6 +259,7 @@ public final class ClientProxy extends CommonProxy {
                     .println("CW_LOCAL_SWING seq=" + next + " press=" + pressed + " feedback=" + System.nanoTime());
             }
             predictedAction = prediction;
+            predictedDefinition = predicted;
             predictedSequence = next;
             predictedEngagement = !prediction.isEmpty();
         }
@@ -184,11 +274,28 @@ public final class ClientProxy extends CommonProxy {
             events.clear();
             lastEvent = 0;
             visuals.clear();
+            byEntity.clearMap();
+            authoritative.clear();
+            syncs.clear();
+            if (helloSent || localTable != null) {
+                // Back to this client's own table and rules until the next server tells it otherwise.
+                helloSent = false;
+                rules = Clashweave.content.rules;
+                CombatWeapons.install(localTable);
+            }
             session = 0;
             predictedEngagement = false;
             predictedAction = "";
             return;
         }
+        if (!warmed) {
+            warmed = true;
+            PresentationAssets.warm(minecraft.getTextureManager());
+        }
+        if (localTable == null) localTable = CombatWeapons.table();
+        handshake();
+        ContentSyncMessage sync;
+        while ((sync = syncs.poll()) != null) synchronize(sync);
         StateMessage message;
         while ((message = incoming.poll()) != null) apply(message);
         com.layue13.clashweave.network.SemanticMessage semantic;
@@ -228,8 +335,8 @@ public final class ClientProxy extends CommonProxy {
             }
             minecraft.thePlayer.movementInput.updatePlayerMoveState();
             Visual visual = own();
-            if (visual != null && visual.movementReady && actions != null && !visual.state.action.isEmpty()) {
-                ActionCatalog.Definition definition = actions.get(visual.state.action);
+            if (visual != null && visual.movementReady && visual.definition != null && !visual.state.action.isEmpty()) {
+                ActionCatalog.Definition definition = visual.definition;
                 double delta = Math.min(definition.speed, definition.distance - visual.moved);
                 if (delta > 0 && elapsed(visual, 0) < definition.duration()) {
                     double yaw = Math.toRadians(visual.state.yaw);
@@ -297,9 +404,11 @@ public final class ClientProxy extends CommonProxy {
             serverTick = message.tick;
             anchor = now;
             if (!message.definitions.isEmpty()) {
-                actions = new ActionCatalog(new StringReader(message.definitions));
+                authoritative.put(message.style, new ActionCatalog(new StringReader(message.definitions)));
                 InputMessage acknowledgement = new InputMessage(session, stamp(), ++sequence, null, -1);
                 acknowledgement.kind = -2;
+                // Names the style received, so the server can tell this ack from one for a previous weapon.
+                acknowledgement.target = message.style.hashCode();
                 Clashweave.network.sendToServer(acknowledgement);
             }
             if (message.ack >= predictedSequence && message.ack > 0) {
@@ -334,10 +443,30 @@ public final class ClientProxy extends CommonProxy {
             visual.movementReady = previous.movementReady;
         }
         if (local && message.result.equals("MOVE_READY")) visual.movementReady = true;
+        resolve(visual, previous);
+        if (local) actions = visual.catalog;
         visuals.put(message.entity, visual);
+        byEntity.addKey(message.entity, visual);
         if (local && message.instance != 0 && (previous == null || previous.state.instance != message.instance)) {
             send(null, (int) message.instance);
         }
+    }
+
+    /** Follows the message's IDs to prebuilt objects once, so a frame never looks anything up by string. */
+    private void resolve(Visual visual, Visual previous) {
+        StateMessage message = visual.state;
+        ActionCatalog catalog = catalogFor(message.style);
+        visual.catalog = catalog;
+        if (previous != null && previous.render != null && previous.state.appearance.equals(message.appearance)) {
+            visual.render = previous.render;
+            visual.preset = previous.preset;
+        } else {
+            visual.render = PresentationAssets.render(message.appearance.skin);
+            visual.preset = PresentationAssets.preset(message.appearance.animations);
+        }
+        boolean acting = catalog != null && !message.action.isEmpty();
+        visual.definition = acting ? catalog.byId(message.action) : null;
+        visual.returnsToSheath = acting && catalog.entersSheathed(message.action);
     }
 
     private boolean blockInteraction() {

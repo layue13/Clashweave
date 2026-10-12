@@ -216,8 +216,8 @@ public final class LockCamera {
         ClientProxy.Visual own = proxy.own();
         boolean weakAllowed = proxy.action(own)
             .isEmpty();
-        if (!weakAllowed && proxy.actions != null && !own.state.action.isEmpty()) {
-            ActionCatalog.Definition definition = proxy.actions.get(own.state.action);
+        if (!weakAllowed && own.definition != null) {
+            ActionCatalog.Definition definition = own.definition;
             weakAllowed = proxy.elapsed(own, 0) >= definition.startup + definition.active;
         }
         double dx = target.posX - mc.thePlayer.posX;

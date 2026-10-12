@@ -47,13 +47,18 @@ public final class ActionCatalog {
 
         int bufferTicks;
         double effectVelocityLimit = 1.2;
+        String namespace;
         List<Definition> actions;
         List<String> deferred;
         EntryRules entry;
     }
 
+    public static final String LEGACY_NAMESPACE = "katana";
     private final Map<String, Definition> definitions = new LinkedHashMap<>();
     public final int bufferTicks;
+    /** Namespace that completes short IDs in this catalog; legacy data without one belongs to katana. */
+    public final String namespace;
+    public final double effectVelocityLimit;
     private final EntryRules entry;
 
     public ActionCatalog(Reader reader) {
@@ -66,8 +71,11 @@ public final class ActionCatalog {
             throw new IllegalArgumentException("Missing action data");
         }
         bufferTicks = data.bufferTicks;
+        namespace = data.namespace == null ? LEGACY_NAMESPACE : data.namespace;
+        if (!namespace.matches("[a-z0-9_]+")) throw new IllegalArgumentException("namespace");
         double maximum = Double.isNaN(velocityLimit) ? data.effectVelocityLimit : velocityLimit;
         if (!Double.isFinite(maximum) || maximum < 0) throw new IllegalArgumentException("effectVelocityLimit");
+        effectVelocityLimit = maximum;
         for (Definition definition : data.actions) {
             if (definition == null || definition.effects == null
                 || !Double.isFinite(definition.lift)
@@ -168,10 +176,28 @@ public final class ActionCatalog {
         return entry.entersSheathed.contains(normalize(id));
     }
 
-    /** Short IDs retain the legacy katana namespace, including on namespaced catalogs. */
-    public static String normalize(String id) {
+    /** Completes a short ID with this catalog's namespace; qualified IDs are returned as is, without allocation. */
+    public String normalize(String id) {
         if (id == null) throw new IllegalArgumentException("Missing action ID");
-        return id.indexOf(':') < 0 ? "katana:" + id : id;
+        return id.indexOf(':') < 0 ? namespace + ":" + id : id;
+    }
+
+    /** Pre-namespace data only: short IDs belong to katana. */
+    static String legacyNormalize(String id) {
+        if (id == null) throw new IllegalArgumentException("Missing action ID");
+        return id.indexOf(':') < 0 ? LEGACY_NAMESPACE + ":" + id : id;
+    }
+
+    /** Hot-path lookup for an already qualified ID; never concatenates and returns null when unknown. */
+    public Definition byId(String qualified) {
+        return definitions.get(qualified);
+    }
+
+    /** Hot-path lookup for an ID the scheduler already qualified; unknown IDs are a programming error. */
+    public Definition require(String qualified) {
+        Definition definition = definitions.get(qualified);
+        if (definition == null) throw new IllegalArgumentException("Unknown action: " + qualified);
+        return definition;
     }
 
     public Definition get(String id) {
@@ -192,6 +218,38 @@ public final class ActionCatalog {
                 else if ("GROUND".equals(edge.requires)) edge.requires = null;
             }
         }
+    }
+
+    /** Deterministic wire form for the client, including entry rules and the post-override action fields. */
+    public String toWireJson() {
+        com.google.gson.Gson gson = new Gson();
+        com.google.gson.JsonObject data = new com.google.gson.JsonObject();
+        data.addProperty("namespace", namespace);
+        data.addProperty("bufferTicks", bufferTicks);
+        data.addProperty("effectVelocityLimit", effectVelocityLimit);
+        com.google.gson.JsonArray list = new com.google.gson.JsonArray();
+        for (Definition definition : definitions.values()) list.add(gson.toJsonTree(definition));
+        data.add("actions", list);
+        com.google.gson.JsonObject rules = new com.google.gson.JsonObject();
+        if (entry.sheathed != null) rules.add("sheathed", intents(entry.sheathed));
+        rules.add("ready", intents(entry.ready));
+        rules.add("entersReady", sorted(entry.entersReady));
+        rules.add("entersSheathed", sorted(entry.entersSheathed));
+        data.add("entry", rules);
+        return data.toString();
+    }
+
+    private static com.google.gson.JsonObject intents(Map<Intent, String> source) {
+        com.google.gson.JsonObject result = new com.google.gson.JsonObject();
+        for (Intent intent : Intent.values())
+            if (source.containsKey(intent)) result.addProperty(intent.name(), source.get(intent));
+        return result;
+    }
+
+    private static com.google.gson.JsonArray sorted(java.util.Set<String> source) {
+        com.google.gson.JsonArray result = new com.google.gson.JsonArray();
+        for (String id : new java.util.TreeSet<>(source)) result.add(new com.google.gson.JsonPrimitive(id));
+        return result;
     }
 
     public Map<String, Definition> all() {

@@ -7,91 +7,94 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 
 import org.lwjgl.opengl.GL11;
 
-import com.layue13.clashweave.core.ActionCatalog;
-import com.layue13.clashweave.forge.CombatServer;
+import com.layue13.clashweave.Clashweave;
+import com.layue13.clashweave.forge.CombatWeapons;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
-/** Rigid placeholder adapter: block units, grip origin, blade +Y; Biped coordinates have downward Y. */
-public final class KatanaRendering {
+/**
+ * Rigid adapter for any weapon: grip, hand grips and mounts come from the weapon's Resource, the pose from its
+ * animation preset. Block units, grip at the model origin, blade +Y; Biped coordinates have downward Y. Every value a
+ * frame needs was resolved when the entity's state arrived, so rendering does no lookups by string.
+ */
+public final class WeaponRendering {
 
     private final Minecraft minecraft = Minecraft.getMinecraft();
     private final ModelBiped arm = new ModelBiped();
-    public static double sheathAngle = 45;
-    public static double sheathX = 0.58;
-    public static double sheathY = 0.55;
-    public static double sheathZ = 0.18;
+    private boolean warmed;
 
     public static void load() {
-        net.minecraftforge.common.config.Configuration config = new net.minecraftforge.common.config.Configuration(
-            new java.io.File(Minecraft.getMinecraft().mcDataDir, "config/clashweave/render.cfg"));
-        config.load();
-        sheathAngle = config.getFloat("sheathAngle", "mount", 45, 30, 60, "Angle to downward body axis");
-        sheathX = config.getFloat("sheathX", "mount", 0.58f, 0.25f, 0.6f, "Left hip in block units");
-        sheathY = config.getFloat("sheathY", "mount", 0.55f, 0.4f, 0.8f, "Height in Biped downward axis");
-        sheathZ = config.getFloat("sheathZ", "mount", 0.18f, 0.1f, 0.4f, "Rear offset in block units");
-        config.save();
-        PresentationAssets.load();
-        System.out.println("CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY angle=" + sheathAngle);
+        PresentationAssets.load(Clashweave.content.loaded.registry, Clashweave.log);
+        System.out.println(
+            "CW_RENDER models loaded units=block blade=+Y sheath=downwardBipedY resources=" + PresentationAssets.ids()
+                .size());
+    }
+
+    private PresentationAssets.Render render(ClientProxy.Visual visual) {
+        if (visual != null) return visual.render;
+        CombatWeapons.Entry held = CombatWeapons.entry(minecraft.thePlayer.getHeldItem());
+        return PresentationAssets.render(held == null ? "" : held.definition.appearance.skin);
     }
 
     private double swing(ClientProxy.Visual visual, float partial) {
-        String action = ClientProxy.instance.action(visual);
-        if (action.isEmpty() || ClientProxy.instance.actions == null) return 0;
-        String preset = PresentationAssets.animation(visual, action);
-        if (!preset.equals("rigid_arc")) throw new IllegalArgumentException("Unknown animation preset");
-        ActionCatalog.Definition definition = ClientProxy.instance.actions.get(action);
-        double elapsed = ClientProxy.instance.elapsed(visual, partial);
-        double angle;
-        if (elapsed < definition.startup) angle = -definition.arc / 2 * elapsed / Math.max(1, definition.startup);
-        else if (elapsed < definition.startup + definition.active) angle = -definition.arc / 2
-            + definition.arc * (elapsed - definition.startup) / Math.max(1, definition.active);
-        else angle = definition.arc / 2
-            * Math.max(0, 1 - (elapsed - definition.startup - definition.active) / definition.recovery);
-        return angle;
+        if (visual == null) return 0;
+        com.layue13.clashweave.core.ActionCatalog.Definition definition = ClientProxy.instance.definition(visual);
+        return definition == null ? 0 : visual.preset.swing(definition, ClientProxy.instance.elapsed(visual, partial));
     }
 
-    private boolean visible(ClientProxy.Visual visual, float partial) {
+    /** Whether the blade is in the hand rather than the sheath. */
+    private boolean drawn(ClientProxy.Visual visual, float partial) {
         if (visual == null) return true;
-        String action = ClientProxy.instance.action(visual);
-        if (action.equals("sheathe")) return ClientProxy.instance.elapsed(visual, partial) < 6;
-        return !visual.state.sheathed || !action.isEmpty();
+        ClientProxy proxy = ClientProxy.instance;
+        if (proxy.predicted(visual)) return true;
+        if (visual.state.action.isEmpty()) return !visual.state.sheathed;
+        return !visual.returnsToSheath || proxy.elapsed(visual, partial) < visual.preset.sheatheVisibleTicks();
+    }
+
+    private void sheath(PresentationAssets.Render render, boolean drawn) {
+        // Drawn: the empty scabbard (the blade is in the hand). Sheathed: the scabbard with its hilt.
+        (drawn ? render.stowedEmpty : render.stowed).renderAll();
     }
 
     @SubscribeEvent
     public void specialPre(RenderPlayerEvent.Specials.Pre event) {
-        if (CombatServer.armed(event.entityPlayer)) event.renderItem = false;
+        if (CombatWeapons.armed(event.entityPlayer.getHeldItem())) event.renderItem = false;
     }
 
     @SubscribeEvent
     public void specialPost(RenderPlayerEvent.Specials.Post event) {
-        if (!CombatServer.armed(event.entityPlayer)) return;
-        ClientProxy.Visual visual = ClientProxy.instance.visuals.get(event.entityPlayer.getEntityId());
+        if (!CombatWeapons.armed(event.entityPlayer.getHeldItem())) return;
+        ClientProxy.Visual visual = ClientProxy.instance.visualOf(event.entityPlayer.getEntityId());
+        PresentationAssets.Render render = render(visual);
+        boolean drawn = drawn(visual, event.partialRenderTick);
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1, 1, 1, 1);
         minecraft.getTextureManager()
-            .bindTexture(PresentationAssets.models(visual).texture);
-        GL11.glPushMatrix();
-        // The pelvis follows Biped's crouch translation, but not torso lean or walking leg rotation.
-        ModelBiped biped = event.renderer.modelBipedMain;
-        GL11.glTranslated(
-            sheathX,
-            sheathY + (biped.bipedLeftLeg.rotationPointY - 12) / 16.0,
-            sheathZ + biped.bipedLeftLeg.rotationPointZ / 16.0);
-        GL11.glRotated(sheathAngle, 1, 0, 0);
-        GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
-        PresentationAssets.models(visual).sheath.renderAll();
-        GL11.glPopMatrix();
-        if (visible(visual, event.partialRenderTick)) {
+            .bindTexture(render.texture);
+        if (render.mounted) {
+            GL11.glPushMatrix();
+            // The pelvis follows Biped's crouch translation, but not torso lean or walking leg rotation.
+            ModelBiped biped = event.renderer.modelBipedMain;
+            GL11.glTranslated(
+                render.mountX,
+                render.mountY + (biped.bipedLeftLeg.rotationPointY - 12) / 16.0,
+                render.mountZ + biped.bipedLeftLeg.rotationPointZ / 16.0);
+            GL11.glRotated(render.mountAngle, 1, 0, 0);
+            GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
+            sheath(render, drawn);
+            GL11.glPopMatrix();
+        }
+        if (drawn) {
             GL11.glPushMatrix();
             event.renderer.modelBipedMain.bipedRightArm.postRender(1 / 16f);
-            GL11.glTranslated(-0.0625, 0.55, 0);
+            GL11.glTranslated(render.rightX, render.rightY, render.rightZ);
             GL11.glRotated(-90, 1, 0, 0);
             GL11.glRotated(swing(visual, event.partialRenderTick), 0, 0, 1);
             GL11.glRotated(90, 0, 1, 0);
             GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
-            PresentationAssets.models(visual).blade.renderAll();
+            GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
+            render.held.renderAll();
             GL11.glPopMatrix();
         }
         GL11.glPopAttrib();
@@ -100,10 +103,15 @@ public final class KatanaRendering {
     @SubscribeEvent
     public void hand(RenderHandEvent event) {
         if (minecraft.thePlayer == null || minecraft.gameSettings.thirdPersonView != 0
-            || !CombatServer.armed(minecraft.thePlayer)) return;
+            || !CombatWeapons.armed(minecraft.thePlayer.getHeldItem())) return;
         event.setCanceled(true);
+        if (!warmed) {
+            warmed = true;
+            PresentationAssets.warm(minecraft.getTextureManager());
+        }
         ClientProxy.Visual visual = ClientProxy.instance.own();
-        if (!visible(visual, event.partialTicks)) return;
+        if (!drawn(visual, event.partialTicks)) return;
+        PresentationAssets.Render render = render(visual);
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1, 1, 1, 1);
@@ -125,12 +133,13 @@ public final class KatanaRendering {
             .bindTexture(minecraft.thePlayer.getLocationSkin());
         arm.bipedRightArm.render(1 / 16f);
         arm.bipedRightArm.postRender(1 / 16f);
-        GL11.glTranslated(-0.0625, 0.55, 0);
+        GL11.glTranslated(render.rightX, render.rightY, render.rightZ);
         GL11.glRotated(-55, 1, 0, 0);
         GL11.glRotated(swing(visual, event.partialTicks), 0, 0, 1);
         minecraft.getTextureManager()
-            .bindTexture(PresentationAssets.models(visual).texture);
-        PresentationAssets.models(visual).blade.renderAll();
+            .bindTexture(render.texture);
+        GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
+        render.held.renderAll();
         GL11.glPopMatrix();
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPopMatrix();
@@ -141,7 +150,10 @@ public final class KatanaRendering {
     @SubscribeEvent
     public void ownWaist(net.minecraftforge.client.event.RenderWorldLastEvent event) {
         if (minecraft.thePlayer == null || minecraft.gameSettings.thirdPersonView != 0
-            || !CombatServer.armed(minecraft.thePlayer)) return;
+            || !CombatWeapons.armed(minecraft.thePlayer.getHeldItem())) return;
+        ClientProxy.Visual visual = ClientProxy.instance.own();
+        PresentationAssets.Render render = render(visual);
+        if (!render.mounted) return;
         net.minecraft.client.entity.EntityClientPlayerMP player = minecraft.thePlayer;
         double partial = event.partialTicks;
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
@@ -157,20 +169,19 @@ public final class KatanaRendering {
                 - (player.isSneaking() ? .125 : 0),
             player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * partial
                 - net.minecraft.client.renderer.entity.RenderManager.renderPosZ);
-        ClientProxy.Visual visual = ClientProxy.instance.own();
         double yaw = visual != null && visual.state.instance != 0 ? visual.state.yaw : player.renderYawOffset;
         GL11.glRotated(180 - yaw, 0, 1, 0);
         GL11.glScaled(-.9375, -.9375, .9375);
         GL11.glTranslated(0, -1.5078125, 0);
         GL11.glTranslated(
-            sheathX,
-            sheathY - (player.isSneaking() ? 3 / 16.0 : 0),
-            sheathZ + (player.isSneaking() ? 4 / 16.0 : 0));
-        GL11.glRotated(sheathAngle, 1, 0, 0);
+            render.mountX,
+            render.mountY - (player.isSneaking() ? 3 / 16.0 : 0),
+            render.mountZ + (player.isSneaking() ? 4 / 16.0 : 0));
+        GL11.glRotated(render.mountAngle, 1, 0, 0);
         GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
         minecraft.getTextureManager()
-            .bindTexture(PresentationAssets.models(visual).texture);
-        PresentationAssets.models(visual).sheath.renderAll();
+            .bindTexture(render.texture);
+        sheath(render, drawn(visual, event.partialTicks));
         GL11.glPopMatrix();
         GL11.glPopAttrib();
     }

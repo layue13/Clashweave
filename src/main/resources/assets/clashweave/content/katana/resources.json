@@ -7,7 +7,7 @@
       "models": {
         "held": "clashweave:models/katana.obj",
         "stowed": "clashweave:models/sheath.obj",
-        "stowed_empty": "clashweave:models/sheath.obj"
+        "stowed_empty": "clashweave:models/sheath_empty.obj"
       },
       "texture": "clashweave:textures/models/katana.png",
       "grip": {
