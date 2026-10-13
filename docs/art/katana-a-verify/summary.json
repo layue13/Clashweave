@@ -1,0 +1,190 @@
+{
+  "tested_commit": "6e484fc",
+  "jar_sha256": "64c643a63b2ce42141fbedbcb3098492084e5178430bd2c5d6265fa955d15ae3",
+  "build": "PASS",
+  "junit": {
+    "tests": 107,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "faces": {
+    "katana": 340,
+    "sheath": 572
+  },
+  "screenshots": [
+    {
+      "file": "art-drawn-detail.png",
+      "bytes": 33516
+    },
+    {
+      "file": "art-drawn-first.png",
+      "bytes": 34033
+    },
+    {
+      "file": "art-drawn-side.png",
+      "bytes": 32323
+    },
+    {
+      "file": "art-drawn-third.png",
+      "bytes": 30888
+    },
+    {
+      "file": "art-sheathed-back.png",
+      "bytes": 31857
+    },
+    {
+      "file": "art-sheathed-crouch.png",
+      "bytes": 34033
+    },
+    {
+      "file": "art-sheathed-detail.png",
+      "bytes": 45725
+    },
+    {
+      "file": "art-sheathed-front.png",
+      "bytes": 28270
+    },
+    {
+      "file": "art-sheathed-run.png",
+      "bytes": 34810
+    },
+    {
+      "file": "art-sheathed-side.png",
+      "bytes": 33318
+    },
+    {
+      "file": "art-swing-first.png",
+      "bytes": 29231
+    },
+    {
+      "file": "art-observer-drawn.png",
+      "bytes": 65551
+    },
+    {
+      "file": "art-observer-sheathed.png",
+      "bytes": 67632
+    },
+    {
+      "file": "swing-third.png",
+      "bytes": 57547
+    },
+    {
+      "file": "failed-observer-empty.png",
+      "bytes": 50863
+    }
+  ],
+  "screenshot_bytes": 609597,
+  "view": {
+    "0": {
+      "complete_sequences": 20,
+      "failed_sequences": 0,
+      "unresolved_sequences": 0,
+      "position_packets_in_sequences": 0,
+      "position_packet_view_violations": 0,
+      "all_position_packet_rotation_changes": 1
+    },
+    "100": {
+      "complete_sequences": 20,
+      "failed_sequences": 0,
+      "unresolved_sequences": 0,
+      "position_packets_in_sequences": 0,
+      "position_packet_view_violations": 0,
+      "all_position_packet_rotation_changes": 0
+    }
+  },
+  "runs": [
+    {
+      "label": "art-a-render",
+      "complete": true,
+      "server_exit": 0,
+      "client_class_loads": 0,
+      "models_loaded": {
+        "P0A": 1,
+        "P0B": 1
+      },
+      "model_or_texture_errors": [],
+      "key_lines": []
+    },
+    {
+      "label": "art-a-view-0",
+      "complete": true,
+      "server_exit": 0,
+      "client_class_loads": 0,
+      "models_loaded": {
+        "P0A": 1,
+        "P0B": 1
+      },
+      "model_or_texture_errors": [],
+      "key_lines": []
+    },
+    {
+      "label": "art-a-view-100",
+      "complete": true,
+      "server_exit": 0,
+      "client_class_loads": 0,
+      "models_loaded": {
+        "P0A": 1,
+        "P0B": 1
+      },
+      "model_or_texture_errors": [],
+      "key_lines": []
+    },
+    {
+      "label": "art-a-detail",
+      "complete": true,
+      "server_exit": 0,
+      "client_class_loads": 0,
+      "models_loaded": {
+        "P0A": 1,
+        "P0B": 1
+      },
+      "model_or_texture_errors": [],
+      "key_lines": [
+        "[12:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:88]: ART_TEXTURE min=9728 mag=9728",
+        "[12:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=sheathed-front tick=110 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=962 maximumFrameNanos=70037200",
+        "[12:08:07] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=sheathed-side tick=125 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=1005 maximumFrameNanos=70037200",
+        "[12:08:08] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=sheathed-back tick=140 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=1049 maximumFrameNanos=70037200",
+        "[12:08:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=sheathed-crouch tick=172 action= sheathed=true sneak=true sprint=false onGround=true feet=64.0 frames=1145 maximumFrameNanos=70037200",
+        "[12:08:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=sheathed-run tick=205 action= sheathed=true sneak=false sprint=true onGround=true feet=64.0 frames=1243 maximumFrameNanos=70037200",
+        "[12:08:14] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=drawn-first tick=270 action= sheathed=false sneak=false sprint=false onGround=true feet=64.0 frames=1437 maximumFrameNanos=70037200",
+        "[12:08:15] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=drawn-third tick=285 action= sheathed=false sneak=false sprint=false onGround=true feet=64.0 frames=1481 maximumFrameNanos=70037200",
+        "[12:08:16] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=drawn-side tick=300 action= sheathed=false sneak=false sprint=false onGround=true feet=64.0 frames=1526 maximumFrameNanos=70037200",
+        "[12:08:18] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=swing-first tick=331 action=heavy sheathed=false sneak=false sprint=false onGround=false feet=64.0 frames=1618 maximumFrameNanos=70037200",
+        "[12:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:88]: ART_TEXTURE min=9728 mag=9728",
+        "[12:08:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=observer-sheathed tick=100 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=307 maximumFrameNanos=43424000",
+        "[12:08:13] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:94]: ART_CAPTURE name=observer-drawn tick=242 action= sheathed=true sneak=false sprint=false onGround=false feet=64.0 frames=738 maximumFrameNanos=72098800"
+      ]
+    },
+    {
+      "label": "art-a-detail2",
+      "complete": true,
+      "server_exit": 0,
+      "client_class_loads": 0,
+      "models_loaded": {
+        "P0A": 1,
+        "P0B": 1
+      },
+      "model_or_texture_errors": [],
+      "key_lines": [
+        "[12:11:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:93]: ART_TEXTURE min=9728 mag=9728",
+        "[12:11:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=sheathed-front tick=110 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=938 maximumFrameNanos=57107900",
+        "[12:11:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=sheathed-side tick=125 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=981 maximumFrameNanos=62395800",
+        "[12:11:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=sheathed-detail tick=132 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=1001 maximumFrameNanos=62395800",
+        "[12:11:03] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=sheathed-back tick=140 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=1023 maximumFrameNanos=70721600",
+        "[12:11:04] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=sheathed-crouch tick=172 action= sheathed=true sneak=true sprint=false onGround=true feet=64.0 frames=1106 maximumFrameNanos=249436800",
+        "[12:11:06] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=sheathed-run tick=205 action= sheathed=true sneak=false sprint=true onGround=true feet=64.0 frames=1205 maximumFrameNanos=249436800",
+        "[12:11:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=drawn-first tick=270 action= sheathed=false sneak=false sprint=false onGround=true feet=64.0 frames=1399 maximumFrameNanos=249436800",
+        "[12:11:10] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=drawn-third tick=285 action= sheathed=false sneak=false sprint=false onGround=true feet=64.0 frames=1443 maximumFrameNanos=249436800",
+        "[12:11:11] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=drawn-side tick=300 action= sheathed=false sneak=false sprint=false onGround=true feet=64.0 frames=1488 maximumFrameNanos=249436800",
+        "[12:11:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=drawn-detail tick=310 action= sheathed=false sneak=false sprint=false onGround=true feet=64.0 frames=1516 maximumFrameNanos=249436800",
+        "[12:11:12] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=swing-first tick=331 action=heavy sheathed=false sneak=false sprint=false onGround=false feet=64.0 frames=1569 maximumFrameNanos=249436800",
+        "[12:11:01] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:93]: ART_TEXTURE min=9728 mag=9728",
+        "[12:11:02] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=observer-sheathed tick=109 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=335 maximumFrameNanos=47262400",
+        "[12:11:09] [Client thread/INFO] [STDOUT]: [com.layue13.clashweave.validation.ArtVerifyReplay:frame:99]: ART_CAPTURE name=observer-drawn tick=251 action= sheathed=true sneak=false sprint=false onGround=true feet=64.0 frames=759 maximumFrameNanos=156977200"
+      ]
+    }
+  ],
+  "failed_observer_attempt_retained": true,
+  "resource_changes_during_measurement": false
+}

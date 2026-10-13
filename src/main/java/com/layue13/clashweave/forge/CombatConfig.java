@@ -1,15 +1,10 @@
 package com.layue13.clashweave.forge;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
 import net.minecraftforge.common.config.Configuration;
 
-import com.layue13.clashweave.core.ActionCatalog;
+import com.layue13.clashweave.content.EffectiveRules;
 
 public final class CombatConfig {
 
@@ -73,7 +68,9 @@ public final class CombatConfig {
     public double movementEpsilon;
     public boolean friendly;
     public boolean blocks;
-    public ActionCatalog actions;
+    public boolean legacyKatanaJson;
+    public String[] weaponItems;
+    public int helloTimeoutTicks;
 
     public void load(File directory) throws Exception {
         directory.mkdirs();
@@ -478,22 +475,36 @@ public final class CombatConfig {
                 new String[] { "EnderDragon", "WitherBoss", "Ghast", "Blaze", "Bat", "Squid" },
                 "Bosses and native flying/water mobs; chickens remain launchable")
             .getStringList();
+        legacyKatanaJson = config.getBoolean(
+            "legacyKatanaJson",
+            "content",
+            false,
+            "Emergency fallback for one release: run the katana style from the legacy combat/katana.json resource "
+                + "instead of its content pack. Not the source of truth; it changes the negotiated rules hash");
+        weaponItems = config
+            .get(
+                "weapons",
+                "items",
+                new String[] { "clashweave:katana=katana:katana" },
+                "Server-authoritative table: <item registry name>=<weapon ID>. Clients are sent this table on join")
+            .getStringList();
+        helloTimeoutTicks = config.getInt(
+            "helloTimeoutTicks",
+            "network",
+            400,
+            40,
+            6000,
+            "Ticks a connected player may take to present matching content hashes before being kicked");
         config.save();
-        File data = new File(directory, CombatWeapons.DEFAULT.actionData + ".json");
-        if (!data.exists()) {
-            try (
-                InputStream input = getClass()
-                    .getResourceAsStream("/assets/clashweave/combat/" + CombatWeapons.DEFAULT.actionData + ".json");
-                FileOutputStream output = new FileOutputStream(data)) {
-                byte[] buffer = new byte[4096];
-                int read;
-                while ((read = input.read(buffer)) >= 0) output.write(buffer, 0, read);
-            }
-        }
-        try (InputStreamReader reader = new InputStreamReader(new FileInputStream(data), StandardCharsets.UTF_8)) {
-            actions = new ActionCatalog(reader, effectVelocityLimit);
-            actions.launchPolicy(launchRequiresHit, launchRequiresGround);
-        }
+    }
+
+    /** Server settings that change gameplay data; they are folded into the negotiated rules hash. */
+    public EffectiveRules.Overrides overrides() {
+        return new EffectiveRules.Overrides(
+            launchRequiresHit,
+            launchRequiresGround,
+            effectVelocityLimit,
+            legacyKatanaJson);
     }
 
     private static double finite(double value, double fallback) {

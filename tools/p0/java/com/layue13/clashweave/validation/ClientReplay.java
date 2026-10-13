@@ -99,6 +99,8 @@ public final class ClientReplay {
         ClientProxy.Visual visual = proxy.own();
         if (visual == null || proxy.actions == null) return;
         connected++;
+        if(System.getProperty("cw.wf1c")!=null)return;
+        if(Boolean.getBoolean("cw.p0.artVerify"))return;
         if(Boolean.getBoolean("cw.p0.edgeBoundary"))return;
         if(Boolean.getBoolean("cw.p0.lockSupport") || Boolean.getBoolean("cw.p0.composition"))return;
         for(ClientProxy.Visual other:proxy.visuals.values())if(observedAppearance.add(other.state.entity))System.out.println("P0_APPEARANCE entity="+other.state.entity+" skin="+other.state.appearance.skin+" effects="+other.state.appearance.effects+" animations="+other.state.appearance.animations+" style="+other.state.style);
@@ -172,7 +174,7 @@ public final class ClientReplay {
             }
             for (ClientProxy.Visual remote : proxy.visuals.values()) {
                 if (remote != visual && remote.state.instance != 0 && remote.state.instance != guardInstance
-                    && proxy.elapsed(remote, 0) >= 1 && !remote.state.action.equals("sheathe")) {
+                    && proxy.elapsed(remote, 0) >= 1 && !Ids.local(remote.state.action).equals("sheathe")) {
                     guardInstance = remote.state.instance;
                     virtualKey(mc.gameSettings.keyBindSneak, true);
                     releaseAt = connected + 9;
@@ -183,7 +185,7 @@ public final class ClientReplay {
             return;
         }
         double elapsed = proxy.elapsed(visual, 0);
-        String action = visual.state.action;
+        String action = Ids.local(visual.state.action);
         if (!Boolean.getBoolean("cw.p0.renderOnly")) {
             if (endedOrigin==0 && visual.state.instance!=0) endedOrigin=visual.state.instance;
             if (endedOrigin!=0 && visual.state.instance==0 && !lateInjected) {
@@ -304,7 +306,7 @@ public final class ClientReplay {
         if(Boolean.getBoolean("cw.p0.soulsView") && connected%100==0){net.minecraft.entity.Entity e=mc.theWorld.getEntityByID(visual.state.lockTarget);System.out.println("P0_SOULS_VIEW_READY connected="+connected+" id="+visual.state.lockTarget+" entity="+(e==null?"null":e.getClass().getSimpleName())+" y="+(e==null?0:e.posY)+" playerY="+mc.thePlayer.posY+" keep="+visual.state.lockKeepRange+" armed="+com.layue13.clashweave.forge.CombatServer.armed(mc.thePlayer)+" targetValid="+(proxy.lockCamera.target()!=null)+" active="+com.layue13.clashweave.client.SoulsCamera.active+" screen="+(mc.currentScreen==null?"null":mc.currentScreen.getClass().getSimpleName()));}
         if (++viewReadyTicks < 100) return;
         if(Boolean.getBoolean("cw.p0.soulsView") && !com.layue13.clashweave.client.SoulsCamera.active)return;
-        String action = visual.state.action;
+        String action = Ids.local(visual.state.action);
         double elapsed = proxy.elapsed(visual, 0);
         if (viewActive) {
             if (!action.isEmpty()) viewSawAction = true;

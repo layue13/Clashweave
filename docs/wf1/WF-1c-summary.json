@@ -1,0 +1,2308 @@
+{
+ "ab": {
+  "perf": {
+   "base-0": {
+    "runs": [
+     "ab-base-0-1",
+     "ab-base-0-2",
+     "ab-base-0-3"
+    ],
+    "samples": [
+     1800,
+     1800,
+     1800
+    ],
+    "mean_ms": [
+     0.096533,
+     0.099312,
+     0.101945
+    ],
+    "mean_median": 0.099312,
+    "mean_range": [
+     0.096533,
+     0.101945
+    ],
+    "max_ms": [
+     3.873,
+     3.4717,
+     4.1667
+    ],
+    "max_median": 3.873,
+    "max_range": [
+     3.4717,
+     4.1667
+    ],
+    "combo": [
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     }
+    ],
+    "s08": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_yaw_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_pitch_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "rejections": [
+     {},
+     {},
+     {
+      "REJECT:STALE": 1
+     }
+    ],
+    "corrections": [
+     0,
+     0,
+     0
+    ],
+    "server_exit": [
+     0,
+     0,
+     0
+    ],
+    "client_class_loads": [
+     0,
+     0,
+     0
+    ]
+   },
+   "base-100": {
+    "runs": [
+     "ab-base-100-1",
+     "ab-base-100-2",
+     "ab-base-100-3"
+    ],
+    "samples": [
+     1800,
+     1800,
+     1800
+    ],
+    "mean_ms": [
+     0.104455,
+     0.105498,
+     0.092019
+    ],
+    "mean_median": 0.104455,
+    "mean_range": [
+     0.092019,
+     0.105498
+    ],
+    "max_ms": [
+     3.9901,
+     4.6746,
+     5.2123
+    ],
+    "max_median": 4.6746,
+    "max_range": [
+     3.9901,
+     5.2123
+    ],
+    "combo": [
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     }
+    ],
+    "s08": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_yaw_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_pitch_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "rejections": [
+     {
+      "REJECT:STALE": 2
+     },
+     {
+      "REJECT:STALE": 4
+     },
+     {
+      "REJECT:STALE": 17,
+      "REJECT:RATE": 8
+     }
+    ],
+    "corrections": [
+     0,
+     0,
+     0
+    ],
+    "server_exit": [
+     0,
+     0,
+     0
+    ],
+    "client_class_loads": [
+     0,
+     0,
+     0
+    ]
+   },
+   "ctrl-0": {
+    "runs": [
+     "ab-ctrl-0-1",
+     "ab-ctrl-0-2",
+     "ab-ctrl-0-3"
+    ],
+    "samples": [
+     1800,
+     1800,
+     1800
+    ],
+    "mean_ms": [
+     0.108317,
+     0.09441,
+     0.096668
+    ],
+    "mean_median": 0.096668,
+    "mean_range": [
+     0.09441,
+     0.108317
+    ],
+    "max_ms": [
+     4.3832,
+     2.7713,
+     4.3636
+    ],
+    "max_median": 4.3636,
+    "max_range": [
+     2.7713,
+     4.3832
+    ],
+    "combo": [
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     }
+    ],
+    "s08": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_yaw_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_pitch_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "rejections": [
+     {},
+     {},
+     {
+      "REJECT:STALE": 2
+     }
+    ],
+    "corrections": [
+     0,
+     0,
+     0
+    ],
+    "server_exit": [
+     0,
+     0,
+     0
+    ],
+    "client_class_loads": [
+     0,
+     0,
+     0
+    ]
+   },
+   "cand-0": {
+    "runs": [
+     "ab-cand-0-1",
+     "ab-cand-0-2",
+     "ab-cand-0-3"
+    ],
+    "samples": [
+     1800,
+     1800,
+     1800
+    ],
+    "mean_ms": [
+     0.106838,
+     0.099958,
+     0.097569
+    ],
+    "mean_median": 0.099958,
+    "mean_range": [
+     0.097569,
+     0.106838
+    ],
+    "max_ms": [
+     4.6271,
+     3.8404,
+     4.3097
+    ],
+    "max_median": 4.3097,
+    "max_range": [
+     3.8404,
+     4.6271
+    ],
+    "combo": [
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     }
+    ],
+    "s08": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_yaw_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_pitch_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "rejections": [
+     {},
+     {},
+     {}
+    ],
+    "corrections": [
+     0,
+     0,
+     0
+    ],
+    "server_exit": [
+     0,
+     0,
+     0
+    ],
+    "client_class_loads": [
+     0,
+     0,
+     0
+    ]
+   },
+   "cand-100": {
+    "runs": [
+     "ab-cand-100-1",
+     "ab-cand-100-2",
+     "ab-cand-100-3"
+    ],
+    "samples": [
+     1800,
+     1800,
+     1800
+    ],
+    "mean_ms": [
+     0.094417,
+     0.107838,
+     0.091638
+    ],
+    "mean_median": 0.094417,
+    "mean_range": [
+     0.091638,
+     0.107838
+    ],
+    "max_ms": [
+     4.9169,
+     4.9593,
+     3.7997
+    ],
+    "max_median": 4.9169,
+    "max_range": [
+     3.7997,
+     4.9593
+    ],
+    "combo": [
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     },
+     {
+      "P0A": [
+       20,
+       20
+      ]
+     }
+    ],
+    "s08": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_yaw_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "packet_pitch_max": [
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     },
+     {
+      "P0A": 0,
+      "P0B": 0
+     }
+    ],
+    "rejections": [
+     {
+      "REJECT:STALE": 22,
+      "REJECT:RATE": 10
+     },
+     {
+      "REJECT:STALE": 4
+     },
+     {
+      "REJECT:STALE": 2
+     }
+    ],
+    "corrections": [
+     0,
+     0,
+     0
+    ],
+    "server_exit": [
+     0,
+     0,
+     0
+    ],
+    "client_class_loads": [
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  "render": {
+   "base": {
+    "frame/combo": {
+     "n": 4848.0,
+     "mean_us_weighted": 604.9922648514852,
+     "p95_us_median_of_sessions": 792.3,
+     "max_us_range": [
+      6769.5,
+      8419.6
+     ],
+     "sessions": 3
+    },
+    "frame/draw": {
+     "n": 72.0,
+     "mean_us_weighted": 683.2666666666668,
+     "p95_us_median_of_sessions": 749.5,
+     "max_us_range": [
+      756.6,
+      5037.1
+     ],
+     "sessions": 3
+    },
+    "frame/drawn-idle": {
+     "n": 8622.0,
+     "mean_us_weighted": 525.8110647181628,
+     "p95_us_median_of_sessions": 694.3,
+     "max_us_range": [
+      1670.4,
+      3597.1
+     ],
+     "sessions": 3
+    },
+    "frame/no-state": {
+     "n": 70.0,
+     "mean_us_weighted": 2713.837142857143,
+     "p95_us_median_of_sessions": 16283.5,
+     "max_us_range": [
+      17202.5,
+      18629.3
+     ],
+     "sessions": 3
+    },
+    "frame/sheathed-idle": {
+     "n": 16988.0,
+     "mean_us_weighted": 345.39284789263013,
+     "p95_us_median_of_sessions": 896.4000000000001,
+     "max_us_range": [
+      20474.9,
+      27531.3
+     ],
+     "sessions": 6
+    },
+    "hand/sheathed-idle": {
+     "n": 14400.0,
+     "mean_us_weighted": 2.1666666666666665,
+     "p95_us_median_of_sessions": 3.6,
+     "max_us_range": [
+      36.0,
+      332.7
+     ],
+     "sessions": 3
+    },
+    "specials/combo": {
+     "n": 4914.0,
+     "mean_us_weighted": 71.77110297110296,
+     "p95_us_median_of_sessions": 88.45,
+     "max_us_range": [
+      140.3,
+      435.1
+     ],
+     "sessions": 6
+    },
+    "specials/draw": {
+     "n": 140.0,
+     "mean_us_weighted": 68.53285714285714,
+     "p95_us_median_of_sessions": 85.7,
+     "max_us_range": [
+      77.4,
+      134.3
+     ],
+     "sessions": 6
+    },
+    "specials/drawn-idle": {
+     "n": 8622.0,
+     "mean_us_weighted": 62.33469032707028,
+     "p95_us_median_of_sessions": 75.4,
+     "max_us_range": [
+      350.4,
+      362.1
+     ],
+     "sessions": 3
+    },
+    "specials/sheathed-idle": {
+     "n": 4508.0,
+     "mean_us_weighted": 36.609361135758654,
+     "p95_us_median_of_sessions": 19.049999999999997,
+     "max_us_range": [
+      8331.3,
+      17598.2
+     ],
+     "sessions": 6
+    },
+    "waist/sheathed-idle": {
+     "n": 14400.0,
+     "mean_us_weighted": 9.333333333333334,
+     "p95_us_median_of_sessions": 11.5,
+     "max_us_range": [
+      8460.7,
+      8903.4
+     ],
+     "sessions": 3
+    }
+   },
+   "ctrl": {
+    "frame/combo": {
+     "n": 4863.0,
+     "mean_us_weighted": 664.4666666666666,
+     "p95_us_median_of_sessions": 871.2,
+     "max_us_range": [
+      6603.9,
+      6941.8
+     ],
+     "sessions": 3
+    },
+    "frame/draw": {
+     "n": 66.0,
+     "mean_us_weighted": 851.5,
+     "p95_us_median_of_sessions": 809.9,
+     "max_us_range": [
+      4754.2,
+      5005.0
+     ],
+     "sessions": 3
+    },
+    "frame/drawn-idle": {
+     "n": 9240.0,
+     "mean_us_weighted": 575.9245021645022,
+     "p95_us_median_of_sessions": 761.1,
+     "max_us_range": [
+      1097.1,
+      9407.9
+     ],
+     "sessions": 3
+    },
+    "frame/no-state": {
+     "n": 135.0,
+     "mean_us_weighted": 1915.1318518518517,
+     "p95_us_median_of_sessions": 9484.8,
+     "max_us_range": [
+      16424.8,
+      21501.4
+     ],
+     "sessions": 3
+    },
+    "frame/sheathed-idle": {
+     "n": 16896.0,
+     "mean_us_weighted": 397.1145419034091,
+     "p95_us_median_of_sessions": 927.9,
+     "max_us_range": [
+      20497.8,
+      27441.5
+     ],
+     "sessions": 6
+    },
+    "hand/sheathed-idle": {
+     "n": 14400.0,
+     "mean_us_weighted": 2.1333333333333333,
+     "p95_us_median_of_sessions": 3.2,
+     "max_us_range": [
+      35.5,
+      266.7
+     ],
+     "sessions": 3
+    },
+    "specials/combo": {
+     "n": 4939.0,
+     "mean_us_weighted": 111.34351083215225,
+     "p95_us_median_of_sessions": 150.6,
+     "max_us_range": [
+      187.5,
+      704.8
+     ],
+     "sessions": 6
+    },
+    "specials/draw": {
+     "n": 133.0,
+     "mean_us_weighted": 101.52857142857142,
+     "p95_us_median_of_sessions": 125.55,
+     "max_us_range": [
+      129.0,
+      168.8
+     ],
+     "sessions": 6
+    },
+    "specials/drawn-idle": {
+     "n": 9240.0,
+     "mean_us_weighted": 102.66440476190478,
+     "p95_us_median_of_sessions": 128.8,
+     "max_us_range": [
+      442.0,
+      652.4
+     ],
+     "sessions": 3
+    },
+    "specials/sheathed-idle": {
+     "n": 4478.0,
+     "mean_us_weighted": 102.49332291201429,
+     "p95_us_median_of_sessions": 168.6,
+     "max_us_range": [
+      406.2,
+      13118.0
+     ],
+     "sessions": 6
+    },
+    "waist/sheathed-idle": {
+     "n": 14400.0,
+     "mean_us_weighted": 69.2,
+     "p95_us_median_of_sessions": 85.3,
+     "max_us_range": [
+      8768.1,
+      9239.3
+     ],
+     "sessions": 3
+    }
+   },
+   "cand": {
+    "frame/combo": {
+     "n": 4845.0,
+     "mean_us_weighted": 658.72346749226,
+     "p95_us_median_of_sessions": 812.3,
+     "max_us_range": [
+      7172.7,
+      10674.3
+     ],
+     "sessions": 3
+    },
+    "frame/draw": {
+     "n": 72.0,
+     "mean_us_weighted": 681.7333333333332,
+     "p95_us_median_of_sessions": 763.2,
+     "max_us_range": [
+      776.7,
+      5012.7
+     ],
+     "sessions": 3
+    },
+    "frame/drawn-idle": {
+     "n": 8679.0,
+     "mean_us_weighted": 620.3359142758383,
+     "p95_us_median_of_sessions": 829.7,
+     "max_us_range": [
+      1646.9,
+      7663.5
+     ],
+     "sessions": 3
+    },
+    "frame/no-state": {
+     "n": 77.0,
+     "mean_us_weighted": 2468.261038961039,
+     "p95_us_median_of_sessions": 10245.3,
+     "max_us_range": [
+      16245.5,
+      18318.3
+     ],
+     "sessions": 3
+    },
+    "frame/sheathed-idle": {
+     "n": 16927.0,
+     "mean_us_weighted": 416.9194245879364,
+     "p95_us_median_of_sessions": 976.05,
+     "max_us_range": [
+      20269.2,
+      25394.8
+     ],
+     "sessions": 6
+    },
+    "hand/sheathed-idle": {
+     "n": 14400.0,
+     "mean_us_weighted": 2.2666666666666666,
+     "p95_us_median_of_sessions": 4.1,
+     "max_us_range": [
+      57.5,
+      184.3
+     ],
+     "sessions": 3
+    },
+    "specials/combo": {
+     "n": 4916.0,
+     "mean_us_weighted": 104.13216029292107,
+     "p95_us_median_of_sessions": 131.5,
+     "max_us_range": [
+      167.5,
+      541.4
+     ],
+     "sessions": 6
+    },
+    "specials/draw": {
+     "n": 147.0,
+     "mean_us_weighted": 95.34285714285716,
+     "p95_us_median_of_sessions": 118.4,
+     "max_us_range": [
+      120.0,
+      156.4
+     ],
+     "sessions": 6
+    },
+    "specials/drawn-idle": {
+     "n": 8679.0,
+     "mean_us_weighted": 106.99305219495334,
+     "p95_us_median_of_sessions": 153.6,
+     "max_us_range": [
+      485.1,
+      2033.7
+     ],
+     "sessions": 3
+    },
+    "specials/sheathed-idle": {
+     "n": 4433.0,
+     "mean_us_weighted": 102.57744191292578,
+     "p95_us_median_of_sessions": 169.75,
+     "max_us_range": [
+      8577.2,
+      19881.8
+     ],
+     "sessions": 6
+    },
+    "waist/sheathed-idle": {
+     "n": 14400.0,
+     "mean_us_weighted": 71.0,
+     "p95_us_median_of_sessions": 97.1,
+     "max_us_range": [
+      8575.7,
+      9475.4
+     ],
+     "sessions": 3
+    }
+   }
+  }
+ },
+ "p1_float_regression": [
+  {
+   "label": "p1f-base-0",
+   "launch_cases_accepted": 20,
+   "cases": 20,
+   "condition_changed": 0,
+   "rejections": {},
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.085273,
+   "perf_max_ms": 3.7135,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-cand-0",
+   "launch_cases_accepted": 20,
+   "cases": 20,
+   "condition_changed": 0,
+   "rejections": {
+    "REJECT:STALE": 3
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.090527,
+   "perf_max_ms": 4.5834,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-base-100",
+   "launch_cases_accepted": 20,
+   "cases": 20,
+   "condition_changed": 0,
+   "rejections": {
+    "REJECT:STALE": 5
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.087003,
+   "perf_max_ms": 4.8884,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-cand-100",
+   "launch_cases_accepted": 19,
+   "cases": 20,
+   "condition_changed": 1,
+   "rejections": {
+    "REJECT:STALE": 8
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.088026,
+   "perf_max_ms": 4.7317,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-base-100-r2",
+   "launch_cases_accepted": 20,
+   "cases": 20,
+   "condition_changed": 0,
+   "rejections": {
+    "REJECT:STALE": 8
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.084988,
+   "perf_max_ms": 4.3257,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-cand-100-r2",
+   "launch_cases_accepted": 20,
+   "cases": 20,
+   "condition_changed": 0,
+   "rejections": {
+    "REJECT:STALE": 10
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.086164,
+   "perf_max_ms": 5.0757,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-base-100-r3",
+   "launch_cases_accepted": 15,
+   "cases": 20,
+   "condition_changed": 5,
+   "rejections": {
+    "REJECT:STALE": 8
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.084942,
+   "perf_max_ms": 4.3581,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-cand-100-r3",
+   "launch_cases_accepted": 13,
+   "cases": 20,
+   "condition_changed": 7,
+   "rejections": {
+    "REJECT:STALE": 7
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.078781,
+   "perf_max_ms": 5.1975,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-base-100-r4",
+   "launch_cases_accepted": 20,
+   "cases": 20,
+   "condition_changed": 0,
+   "rejections": {
+    "REJECT:STALE": 7
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.085639,
+   "perf_max_ms": 3.8964,
+   "server_exit": 0,
+   "client_class_loads": 0
+  },
+  {
+   "label": "p1f-cand-100-r4",
+   "launch_cases_accepted": 20,
+   "cases": 20,
+   "condition_changed": 0,
+   "rejections": {
+    "REJECT:STALE": 7
+   },
+   "movement_corrections": 0,
+   "s08": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_yaw_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "packet_pitch_max": {
+    "P0A": 0,
+    "P0B": 0
+   },
+   "perf_mean_ms": 0.08733,
+   "perf_max_ms": 6.6286,
+   "server_exit": 0,
+   "client_class_loads": 0
+  }
+ ],
+ "lifecycle": {
+  "life-1": {
+   "checks": [
+    {
+     "step": "teleport-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-open-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-close-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "ride-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dismount-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "drop-weapon-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon-back-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-katana-to-glaive-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-glaive-to-katana-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "death-mid-action",
+     "ok": false,
+     "detail": "action survived death: katana:light_1"
+    },
+    {
+     "step": "respawn-new-state",
+     "ok": false,
+     "detail": "session reused"
+    },
+    {
+     "step": "respawn-combat-resumes",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-change-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-return",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "disconnect-mid-action",
+     "ok": false,
+     "detail": "player still listed"
+    },
+    {
+     "step": "reconnect-new-state",
+     "ok": false,
+     "detail": "session reused across connections"
+    }
+   ],
+   "complete": "mode=lifecycle passed=12 failed=4"
+  },
+  "life-2": {
+   "checks": [
+    {
+     "step": "teleport-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-open-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-close-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "ride-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dismount-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "drop-weapon-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon-back-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-katana-to-glaive-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-glaive-to-katana-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "death-mid-action",
+     "ok": false,
+     "detail": "still engaged after death"
+    },
+    {
+     "step": "respawn-new-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "respawn-combat-resumes",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-change-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-return",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "disconnect-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "reconnect-new-state",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=lifecycle passed=15 failed=1"
+  },
+  "life-3": {
+   "checks": [
+    {
+     "step": "teleport-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-open-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-close-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "ride-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dismount-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "drop-weapon-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon-back-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-katana-to-glaive-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-glaive-to-katana-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "death-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "respawn-new-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "respawn-combat-resumes",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-change-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-return",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "disconnect-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "reconnect-new-state",
+     "ok": false,
+     "detail": "no action started after reconnecting"
+    }
+   ],
+   "complete": "mode=lifecycle passed=15 failed=1"
+  },
+  "life-4": {
+   "checks": [
+    {
+     "step": "teleport-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-open-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "gui-close-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "ride-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dismount-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "drop-weapon-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon-back-resume",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-katana-to-glaive-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "swap-glaive-to-katana-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "death-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "respawn-new-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "respawn-combat-resumes",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-change-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "dimension-return",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "disconnect-mid-action",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "reconnect-new-state",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=lifecycle passed=16 failed=0"
+  }
+ },
+ "floating": {
+  "float-death-1": {
+   "checks": [
+    {
+     "step": "float-death-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-death-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-death passed=2 failed=0"
+  },
+  "float-dimension-1": {
+   "checks": [
+    {
+     "step": "float-dimension-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-dimension-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-dimension passed=2 failed=0"
+  },
+  "float-disconnect-1": {
+   "checks": [
+    {
+     "step": "float-disconnect-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-disconnect-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-disconnect passed=2 failed=0"
+  },
+  "float-death-2": {
+   "checks": [
+    {
+     "step": "float-death-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-death-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-death passed=2 failed=0"
+  },
+  "float-dimension-2": {
+   "checks": [
+    {
+     "step": "float-dimension-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-dimension-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-dimension passed=2 failed=0"
+  },
+  "float-disconnect-2": {
+   "checks": [
+    {
+     "step": "float-disconnect-state",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "float-disconnect-relaunch",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=float-disconnect passed=2 failed=0"
+  }
+ },
+ "weapon2": {
+  "w2-1": {
+   "checks": [
+    {
+     "step": "weapon2-actions-and-chain",
+     "ok": false,
+     "detail": "saw [wf1test:sweep, wf1test:thrust]"
+    },
+    {
+     "step": "weapon2-damage-multiplier",
+     "ok": false,
+     "detail": "damage {} expected thrust 5.0 sweep 8.75 (4 and 7 times 1.25)"
+    }
+   ],
+   "complete": "mode=weapon2 passed=0 failed=2"
+  },
+  "w2-2": {
+   "checks": [
+    {
+     "step": "weapon2-actions-and-chain",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon2-damage-multiplier",
+     "ok": false,
+     "detail": "damage {wf1test:sweep=8.046875, wf1test:thrust=4.6015625, wf1test:thrust_b=4.6015625} expected thrust 5.0 sweep 8.75 (4 and 7 times 1.25)"
+    }
+   ],
+   "complete": "mode=weapon2 passed=1 failed=1"
+  },
+  "w2-3": {
+   "checks": [
+    {
+     "step": "weapon2-actions-and-chain",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon2-damage-multiplier",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=weapon2 passed=2 failed=0"
+  },
+  "w2-4": {
+   "checks": [
+    {
+     "step": "weapon2-actions-and-chain",
+     "ok": true,
+     "detail": "-"
+    },
+    {
+     "step": "weapon2-damage-multiplier",
+     "ok": true,
+     "detail": "-"
+    }
+   ],
+   "complete": "mode=weapon2 passed=2 failed=0"
+  }
+ },
+ "handshake": {
+  "hs-presonly": {
+   "server": [
+    "Clashweave: P0A presented matching content hashes",
+    "Clashweave: P0B has different presentation content only (server 7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff, client f975d6dcc9d448cca4cdfa6d5c7c0d52dc8ce9c794ad5136dcaee70bd9a65b8a); allowed"
+   ]
+  },
+  "hs-gamediff": {
+   "server": [
+    "Clashweave: refusing P0A: gameplay content differs (gameplay server 518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 client a815dc1f1083e6d9ac08a1a1f8f6cee93651c6d7d329a459772db646cce36ae7; presentation server 7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff client 341a8a7c9dd4cc99064628a07259977fb19e39711488a0387f68591053b8acbc)",
+    "Clashweave: refusing P0B: gameplay content differs (gameplay server 518dafda0b4e6b102b77cb058c6702c861566b3c86da9a8a5b0e6e45a1cc7c96 client a815dc1f1083e6d9ac08a1a1f8f6cee93651c6d7d329a459772db646cce36ae7; presentation server 7bef4ba2b818e6eaba7f9c0d735e900c765201cdbc3f9e6c41b93d95579f17ff client 341a8a7c9dd4cc99064628a07259977fb19e39711488a0387f68591053b8acbc)"
+   ]
+  }
+ },
+ "bad_packs": [
+  {
+   "label": "b1-missing-field",
+   "crash_report_written": true,
+   "reached_server_start": false,
+   "content_errors": [
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: actions[0].damage: missing field"
+   ],
+   "refusal": [
+    "java.lang.IllegalStateException: Clashweave refuses to start: content validation failed with 1 error(s); the first is \"config/clashweave/content/wf1test/glaive.json: actions[0].damage: missing field\". All errors are logged above."
+   ]
+  },
+  {
+   "label": "b1-unknown-action",
+   "crash_report_written": true,
+   "reached_server_start": false,
+   "content_errors": [
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: styles[0].actions[3]: unknown action \"wf1test:ghost\""
+   ],
+   "refusal": [
+    "java.lang.IllegalStateException: Clashweave refuses to start: content validation failed with 1 error(s); the first is \"config/clashweave/content/wf1test/glaive.json: styles[0].actions[3]: unknown action \"wf1test:ghost\"\". All errors are logged above."
+   ]
+  },
+  {
+   "label": "b1-misspelled-entry-field",
+   "crash_report_written": true,
+   "reached_server_start": false,
+   "content_errors": [
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: styles[0].entry.reedy: unknown field",
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: styles[0].entry.ready: missing field"
+   ],
+   "refusal": [
+    "java.lang.IllegalStateException: Clashweave refuses to start: content validation failed with 2 error(s); the first is \"config/clashweave/content/wf1test/glaive.json: styles[0].entry.reedy: unknown field\". All errors are logged above."
+   ]
+  },
+  {
+   "label": "b1-duplicate-id",
+   "crash_report_written": true,
+   "reached_server_start": false,
+   "content_errors": [
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: actions[1].id: duplicate ID \"wf1test:thrust\"",
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: styles[0].actions[1]: unknown action \"wf1test:thrust_b\"",
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: actions[0].edges[0].target: unknown action \"wf1test:thrust_b\""
+   ],
+   "refusal": [
+    "java.lang.IllegalStateException: Clashweave refuses to start: content validation failed with 3 error(s); the first is \"config/clashweave/content/wf1test/glaive.json: actions[1].id: duplicate ID \"wf1test:thrust\"\". All errors are logged above."
+   ]
+  },
+  {
+   "label": "b1-invalid-json",
+   "crash_report_written": true,
+   "reached_server_start": false,
+   "content_errors": [
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: $: invalid JSON: Use JsonReader.setLenient(true) to accept malformed JSON at line 20 column 20"
+   ],
+   "refusal": [
+    "java.lang.IllegalStateException: Clashweave refuses to start: content validation failed with 1 error(s); the first is \"config/clashweave/content/wf1test/glaive.json: $: invalid JSON: Use JsonReader.setLenient(true) to accept malformed JSON at line 20 column 20\". All errors are logged above."
+   ]
+  },
+  {
+   "label": "b1-unknown-edge-target",
+   "crash_report_written": true,
+   "reached_server_start": false,
+   "content_errors": [
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: styles[0].actions[0]: wf1test:thrust: edge target outside style graph \"wf1test:nowhere\"",
+    "Clashweave content error: config/clashweave/content/wf1test/glaive.json: actions[0].edges[1].target: unknown action \"wf1test:nowhere\""
+   ],
+   "refusal": [
+    "java.lang.IllegalStateException: Clashweave refuses to start: content validation failed with 2 error(s); the first is \"config/clashweave/content/wf1test/glaive.json: styles[0].actions[0]: wf1test:thrust: edge target outside style graph \"wf1test:nowhere\"\". All errors are logged above."
+   ]
+  }
+ ],
+ "batches": {
+  "main": [
+   {
+    "label": "ab-base-0-1",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 116.3
+   },
+   {
+    "label": "ab-ctrl-0-1",
+    "jar": "build/wf1c/ctrl-9ab1aef.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 116.7
+   },
+   {
+    "label": "ab-cand-0-1",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 115.8
+   },
+   {
+    "label": "ab-base-100-1",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 116.4
+   },
+   {
+    "label": "ab-cand-100-1",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 118.1
+   },
+   {
+    "label": "ab-base-0-2",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 116.2
+   },
+   {
+    "label": "ab-ctrl-0-2",
+    "jar": "build/wf1c/ctrl-9ab1aef.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 115.8
+   },
+   {
+    "label": "ab-cand-0-2",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 116.9
+   },
+   {
+    "label": "ab-base-100-2",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 118.2
+   },
+   {
+    "label": "ab-cand-100-2",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 119.3
+   },
+   {
+    "label": "ab-base-0-3",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 118.3
+   },
+   {
+    "label": "ab-ctrl-0-3",
+    "jar": "build/wf1c/ctrl-9ab1aef.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 115.1
+   },
+   {
+    "label": "ab-cand-0-3",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 116.0
+   },
+   {
+    "label": "ab-base-100-3",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 118.1
+   },
+   {
+    "label": "ab-cand-100-3",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 116.8
+   },
+   {
+    "label": "p1f-base-0",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 155.6
+   },
+   {
+    "label": "p1f-cand-0",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "0"
+    ],
+    "returncode": 0,
+    "seconds": 154.5
+   },
+   {
+    "label": "p1f-base-100",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 156.2
+   },
+   {
+    "label": "p1f-cand-100",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 156.5
+   },
+   {
+    "label": "art-ctrl",
+    "jar": "build/wf1c/ctrl-9ab1aef.jar",
+    "args": [
+     "--art-verify"
+    ],
+    "returncode": 0,
+    "seconds": 75.8
+   },
+   {
+    "label": "art-cand",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--art-verify"
+    ],
+    "returncode": 0,
+    "seconds": 76.2
+   },
+   {
+    "label": "hs-presonly",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--client-content-pack",
+     "P0B=tools/wf1/handshake-packs/presentation-only"
+    ],
+    "returncode": 0,
+    "seconds": 115.3
+   },
+   {
+    "label": "hs-gamediff",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--wf1c",
+     "handshake",
+     "--client-content-pack",
+     "tools/wf1/handshake-packs/gameplay-diff"
+    ],
+    "returncode": 0,
+    "seconds": 82.5
+   },
+   {
+    "label": "legacy-1",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--server-cfg",
+     "content:legacyKatanaJson=true"
+    ],
+    "returncode": 0,
+    "seconds": 115.5
+   },
+   {
+    "label": "life-3",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--wf1c",
+     "lifecycle",
+     "--content-pack",
+     "src/test/resources/wf1test",
+     "--weapon-items",
+     "clashweave:katana=katana:katana,minecraft:stick=wf1test:glaive"
+    ],
+    "returncode": 0,
+    "seconds": 91.7
+   },
+   {
+    "label": "float-death-2",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--wf1c",
+     "float-death"
+    ],
+    "returncode": 0,
+    "seconds": 42.8
+   },
+   {
+    "label": "float-dimension-2",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--wf1c",
+     "float-dimension"
+    ],
+    "returncode": 0,
+    "seconds": 40.8
+   },
+   {
+    "label": "float-disconnect-2",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--wf1c",
+     "float-disconnect"
+    ],
+    "returncode": 0,
+    "seconds": 47.5
+   },
+   {
+    "label": "w2-4",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--wf1c",
+     "weapon2",
+     "--content-pack",
+     "src/test/resources/wf1test",
+     "--weapon-items",
+     "clashweave:katana=katana:katana,minecraft:stick=wf1test:glaive"
+    ],
+    "returncode": 0,
+    "seconds": 60.8
+   }
+  ],
+  "diag": [
+   {
+    "label": "p1f-base-100-r2",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 157.5
+   },
+   {
+    "label": "p1f-cand-100-r2",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 157.6
+   },
+   {
+    "label": "p1f-base-100-r3",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 155.7
+   },
+   {
+    "label": "p1f-cand-100-r3",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 155.8
+   },
+   {
+    "label": "p1f-base-100-r4",
+    "jar": "build/wf1c/base.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 155.2
+   },
+   {
+    "label": "p1f-cand-100-r4",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--launcher",
+     "player",
+     "--rtt",
+     "100"
+    ],
+    "returncode": 0,
+    "seconds": 155.7
+   },
+   {
+    "label": "life-4",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--wf1c",
+     "lifecycle",
+     "--content-pack",
+     "src/test/resources/wf1test",
+     "--weapon-items",
+     "clashweave:katana=katana:katana,minecraft:stick=wf1test:glaive"
+    ],
+    "returncode": 0,
+    "seconds": 96.2
+   }
+  ],
+  "render": [
+   {
+    "label": "ab-cand-0-4",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 117.0
+   },
+   {
+    "label": "ab-ctrl-0-4",
+    "jar": "build/wf1c/ctrl-9ab1aef.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 115.3
+   },
+   {
+    "label": "ab-cand-0-5",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 115.8
+   },
+   {
+    "label": "ab-ctrl-0-5",
+    "jar": "build/wf1c/ctrl-9ab1aef.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 117.1
+   },
+   {
+    "label": "ab-cand-0-6",
+    "jar": "build/wf1c/cand-4.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 115.7
+   },
+   {
+    "label": "ab-ctrl-0-6",
+    "jar": "build/wf1c/ctrl-9ab1aef.jar",
+    "args": [
+     "--souls-view",
+     "--render-probe"
+    ],
+    "returncode": 0,
+    "seconds": 116.5
+   }
+  ],
+  "func-1": [
+   {
+    "label": "life-2",
+    "jar": "build/wf1c/cand-3.jar",
+    "args": [
+     "--wf1c",
+     "lifecycle",
+     "--content-pack",
+     "src/test/resources/wf1test",
+     "--weapon-items",
+     "clashweave:katana=katana:katana,minecraft:stick=wf1test:glaive"
+    ],
+    "returncode": 0,
+    "seconds": 92.0
+   },
+   {
+    "label": "float-death-1",
+    "jar": "build/wf1c/cand-3.jar",
+    "args": [
+     "--wf1c",
+     "float-death"
+    ],
+    "returncode": 0,
+    "seconds": 43.0
+   },
+   {
+    "label": "float-dimension-1",
+    "jar": "build/wf1c/cand-3.jar",
+    "args": [
+     "--wf1c",
+     "float-dimension"
+    ],
+    "returncode": 0,
+    "seconds": 42.8
+   },
+   {
+    "label": "float-disconnect-1",
+    "jar": "build/wf1c/cand-3.jar",
+    "args": [
+     "--wf1c",
+     "float-disconnect"
+    ],
+    "returncode": 0,
+    "seconds": 47.7
+   },
+   {
+    "label": "w2-3",
+    "jar": "build/wf1c/cand-3.jar",
+    "args": [
+     "--wf1c",
+     "weapon2",
+     "--content-pack",
+     "src/test/resources/wf1test",
+     "--weapon-items",
+     "clashweave:katana=katana:katana,minecraft:stick=wf1test:glaive"
+    ],
+    "returncode": 0,
+    "seconds": 60.6
+   }
+  ]
+ }
+}

@@ -11,7 +11,7 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
     private float renderedBody;
 
     private ClientProxy.Visual committed(EntityLivingBase player) {
-        ClientProxy.Visual visual = ClientProxy.instance.visuals.get(player.getEntityId());
+        ClientProxy.Visual visual = ClientProxy.instance.visualOf(player.getEntityId());
         return visual != null && visual.state.instance != 0 ? visual : null;
     }
 

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "namespace": "test",
+  "weapons": [
+    {
+      "id": "test:spear",
+      "style": "test:thrust",
+      "resource": "test:spear",
+      "animation": "test:thrust",
+      "damageMultiplier": 1.2
+    }
+  ],
+  "styles": [
+    {
+      "id": "test:thrust",
+      "actions": [
+        "test:thrust"
+      ],
+      "entry": {
+        "ready": { "LIGHT": "test:thrust" },
+        "entersReady": ["test:thrust"],
+        "entersSheathed": []
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "test:thrust",
+      "startup": 3,
+      "active": 1,
+      "recovery": 5,
+      "damage": 2,
+      "reach": 4,
+      "arc": 15,
+      "distance": 0,
+      "speed": 0,
+      "edges": []
+    }
+  ],
+  "animations": [
+    {
+      "id": "test:thrust",
+      "preset": "spear_thrust"
+    }
+  ],
+  "resources": [
+    {
+      "id": "test:spear",
+      "models": {
+        "held": "test:models/spear_held.obj",
+        "stowed": "test:models/spear_stowed.obj",
+        "stowed_empty": "test:models/spear_stowed_empty.obj"
+      },
+      "texture": "test:textures/spear.png",
+      "grip": {
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "handGrips": {
+        "right": {
+          "x": -0.0625,
+          "y": 0.55,
+          "z": 0
+        },
+        "left": {
+          "x": 0.0625,
+          "y": 0.55,
+          "z": 0
+        }
+      },
+      "mounts": [
+        {
+          "slot": "back",
+          "x": 0.58,
+          "y": 0.55,
+          "z": 0.18,
+          "angle": 45
+        }
+      ]
+    }
+  ]
+}

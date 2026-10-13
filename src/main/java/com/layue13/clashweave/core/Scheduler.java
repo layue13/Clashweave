@@ -95,7 +95,8 @@ public final class Scheduler {
 
     public Scheduler(WeaponDefinition weapon, ActionCatalog catalog) {
         this.weapon = java.util.Objects.requireNonNull(weapon);
-        this.catalog = catalog;
+        this.catalog = java.util.Objects.requireNonNull(catalog);
+        sheathed = catalog.hasSheathedState();
     }
 
     public WeaponDefinition weapon() {
@@ -104,7 +105,11 @@ public final class Scheduler {
 
     public void useWeapon(WeaponDefinition next, ActionCatalog actions) {
         if (current != null) throw new IllegalStateException("Weapon changes between actions only");
-        if (catalog != actions) clearBuffer();
+        if (catalog != actions) {
+            clearBuffer();
+            sheathed = java.util.Objects.requireNonNull(actions)
+                .hasSheathedState();
+        }
         weapon = java.util.Objects.requireNonNull(next);
         catalog = java.util.Objects.requireNonNull(actions);
     }
@@ -128,15 +133,13 @@ public final class Scheduler {
         request.expires = tick + catalog.bufferTicks;
         request.origin = current == null ? 0 : current.id;
         if (current == null) {
-            if (input == Intent.LIGHT) request.target = sheathed ? "iai" : "light_1";
-            else if (input == Intent.HEAVY && !sheathed) request.target = "heavy";
-            else if (input == Intent.SHEATHE && !sheathed) request.target = "sheathe";
+            request.target = catalog.entryTarget(sheathed, input);
             if (input == Intent.LIGHT && counter(tick)) request.expires = Math.min(request.expires, counterUntil);
         } else {
             for (ActionCatalog.Edge edge : current.definition.edges) {
                 if (edge.input == input && tick - request.compensation - current.start < edge.until) {
                     request.edge = edge;
-                    request.target = edge.target;
+                    request.target = catalog.normalize(edge.target);
                     break;
                 }
             }
@@ -146,7 +149,8 @@ public final class Scheduler {
             return;
         }
         Request replaced = buffered.put(input, request);
-        if (replaced != null) results.add(new Result(replaced.sequence, "REPLACED", replaced.target));
+        if (replaced != null)
+            results.add(new Result(replaced.sequence, "REPLACED", catalog.require(replaced.target).id));
     }
 
     /** Wire requests bind the instance observed at the press, including an explicit idle origin. */
@@ -168,6 +172,14 @@ public final class Scheduler {
     }
 
     public void tick(long tick, boolean grounded) {
+        if (buffered.isEmpty()) {
+            // Idle or mid-action with nothing buffered: no request can start, so skip the per-tick scratch list.
+            if (current != null && tick - current.start >= current.definition.duration()) {
+                if (catalog.entersSheathed(current.definition.id)) sheathed = true;
+                finish();
+            }
+            return;
+        }
         // Expire before finishing the origin: a derivative must never become an idle request.
         List<Request> ready = new ArrayList<>();
         Iterator<Request> iterator = buffered.values()
@@ -176,11 +188,11 @@ public final class Scheduler {
             Request request = iterator.next();
             long origin = current == null ? 0 : current.id;
             if (tick >= request.expires || origin != request.origin) {
-                results.add(new Result(request.sequence, "EXPIRED_OR_CHANGED", request.target));
+                results.add(new Result(request.sequence, "EXPIRED_OR_CHANGED", catalog.require(request.target).id));
                 iterator.remove();
             } else if (request.edge != null && request.edge.requires != null
                 && (!grounded || request.edge.requires.equals("AIR"))) {
-                    results.add(new Result(request.sequence, "CONDITION_CHANGED", request.target));
+                    results.add(new Result(request.sequence, "CONDITION_CHANGED", catalog.require(request.target).id));
                     iterator.remove();
                 } else if (request.edge == null || (tick - current.start >= request.edge.from
                     && tick - request.compensation - current.start < request.edge.until
@@ -188,7 +200,7 @@ public final class Scheduler {
                     && (!request.edge.damageHit || current.confirmedDamageHit))) {
                         ready.add(request);
                     } else if (tick - request.compensation - current.start >= request.edge.until) {
-                        results.add(new Result(request.sequence, "WINDOW_CLOSED", request.target));
+                        results.add(new Result(request.sequence, "WINDOW_CLOSED", catalog.require(request.target).id));
                         iterator.remove();
                     }
         }
@@ -196,16 +208,17 @@ public final class Scheduler {
         if (!ready.isEmpty()) {
             Request selected = ready.get(ready.size() - 1);
             for (Request request : buffered.values()) {
-                if (request != selected) results.add(new Result(request.sequence, "CONFLICT", request.target));
+                if (request != selected)
+                    results.add(new Result(request.sequence, "CONFLICT", catalog.require(request.target).id));
             }
             buffered.clear();
             counterUntil = 0;
             finish();
-            current = new Instance(++nextId, tick, selected.sequence, catalog.get(selected.target));
-            if (!selected.target.equals("sheathe")) sheathed = false;
-            results.add(new Result(selected.sequence, "START", selected.target));
+            current = new Instance(++nextId, tick, selected.sequence, catalog.require(selected.target));
+            if (catalog.entersReady(selected.target)) sheathed = false;
+            results.add(new Result(selected.sequence, "START", catalog.require(selected.target).id));
         } else if (current != null && tick - current.start >= current.definition.duration()) {
-            if (current.definition.id.equals("sheathe")) sheathed = true;
+            if (catalog.entersSheathed(current.definition.id)) sheathed = true;
             finish();
         }
     }
@@ -218,7 +231,7 @@ public final class Scheduler {
     public void clearBuffer() {
         counterUntil = 0;
         for (Request request : buffered.values()) {
-            results.add(new Result(request.sequence, "INTERRUPTED", request.target));
+            results.add(new Result(request.sequence, "INTERRUPTED", catalog.require(request.target).id));
         }
         buffered.clear();
     }

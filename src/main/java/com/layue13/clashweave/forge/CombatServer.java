@@ -26,9 +26,10 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.layue13.clashweave.Clashweave;
+import com.layue13.clashweave.content.ContentManifest;
+import com.layue13.clashweave.content.EffectiveRules;
+import com.layue13.clashweave.content.Handshake;
 import com.layue13.clashweave.core.ActionCatalog;
 import com.layue13.clashweave.core.AppearanceState;
 import com.layue13.clashweave.core.FacingHistory;
@@ -38,7 +39,8 @@ import com.layue13.clashweave.core.Intent;
 import com.layue13.clashweave.core.LatencyCompensation;
 import com.layue13.clashweave.core.MovementBudget;
 import com.layue13.clashweave.core.Scheduler;
-import com.layue13.clashweave.core.WeaponDefinition;
+import com.layue13.clashweave.network.ContentSyncMessage;
+import com.layue13.clashweave.network.HelloMessage;
 import com.layue13.clashweave.network.InputMessage;
 import com.layue13.clashweave.network.StateMessage;
 
@@ -88,6 +90,10 @@ public final class CombatServer {
         public long handshakeUntil;
         public boolean ready;
         public boolean sentDefinitions;
+        /** Style whose definitions the client is being sent; an acknowledgement must name it. */
+        public String definitionStyle = "";
+        public boolean verified;
+        public long helloDeadline;
         public int corrections;
         public double externalHorizontal;
         public double externalVertical;
@@ -96,11 +102,12 @@ public final class CombatServer {
         public long launchCreditUntil;
         public final Map<EntityLivingBase, Long> contacts = new HashMap<>();
 
-        PlayerState(EntityPlayerMP player, WeaponDefinition weapon, ActionCatalog actions) {
+        PlayerState(EntityPlayerMP player, CombatWeapons.Entry weapon) {
             this.player = player;
-            this.scheduler = new Scheduler(weapon, actions);
-            this.appearance.request(weapon.appearance);
+            this.scheduler = new Scheduler(weapon.definition, weapon.catalog);
+            this.appearance.request(weapon.definition.appearance);
             this.appearance.apply(true);
+            definitionStyle = weapon.definition.style;
         }
     }
 
@@ -116,14 +123,14 @@ public final class CombatServer {
 
     private long correctionSequence;
     private final CombatConfig config;
-    private final CombatWeapons weapons;
+    private final EffectiveRules rules;
+    private final List<PendingHello> hellos = new ArrayList<>();
     private final CombatPresentation presentation = new CombatPresentation();
     private final HitEffects effects;
     private final ResistanceOwnership resistance;
     private final Map<UUID, PlayerState> states = new LinkedHashMap<>();
     private final List<Inbound> inbox = new ArrayList<>();
     private final List<Contact> pending = new ArrayList<>();
-    private final String definitionJson;
     public volatile long tick;
     public long lastNanos;
     private int nextRevision;
@@ -135,20 +142,34 @@ public final class CombatServer {
         }
     }
 
-    public CombatServer(CombatConfig config) {
+    private static final class PendingHello {
+
+        EntityPlayerMP player;
+        HelloMessage message;
+        long queued;
+    }
+
+    public CombatServer(CombatConfig config, EffectiveRules rules) {
         this.config = config;
-        weapons = new CombatWeapons(config);
+        this.rules = rules;
         effects = new HitEffects(config, presentation);
         resistance = new ResistanceOwnership(config.maxResistance);
-        JsonObject data = new JsonObject();
-        data.addProperty("bufferTicks", config.actions.bufferTicks);
-        data.addProperty("effectVelocityLimit", config.effectVelocityLimit);
-        data.add(
-            "actions",
-            new Gson().toJsonTree(
-                config.actions.all()
-                    .values()));
-        definitionJson = data.toString();
+    }
+
+    public EffectiveRules rules() {
+        return rules;
+    }
+
+    /** Netty thread: only queues; the comparison and any kick happen on the server thread. */
+    public void hello(EntityPlayerMP player, HelloMessage message) {
+        synchronized (hellos) {
+            if (hellos.size() >= 64) return;
+            PendingHello hello = new PendingHello();
+            hello.player = player;
+            hello.message = message;
+            hello.queued = tick;
+            hellos.add(hello);
+        }
     }
 
     public PlayerState state(EntityPlayer player) {
@@ -160,7 +181,7 @@ public final class CombatServer {
     }
 
     public static boolean armed(EntityPlayer player) {
-        return CombatWeapons.RESOLVER.resolve(player.getHeldItem()) != null;
+        return CombatWeapons.armed(player.getHeldItem());
     }
 
     public void enqueue(EntityPlayerMP player, InputMessage message) {
@@ -179,22 +200,28 @@ public final class CombatServer {
 
     @SubscribeEvent
     public void login(PlayerEvent.PlayerLoggedInEvent event) {
-        if (event.player instanceof EntityPlayerMP) {
-            PlayerState state = new PlayerState(
-                (EntityPlayerMP) event.player,
-                CombatWeapons.DEFAULT,
-                weapons.catalog(CombatWeapons.DEFAULT));
-            presentation.rememberHealth(event.player);
+        begin(event.player, false);
+    }
+
+    /** Respawn and dimension change replace the state but not the connection, so they keep its verification. */
+    private void begin(EntityPlayer player, boolean verified) {
+        if (player instanceof EntityPlayerMP) {
+            EntityPlayerMP joined = (EntityPlayerMP) player;
+            CombatWeapons.Entry held = CombatWeapons.entry(joined.getHeldItem());
+            PlayerState state = new PlayerState(joined, held != null ? held : CombatWeapons.fallback());
+            state.verified = verified;
+            state.helloDeadline = verified ? Long.MAX_VALUE : tick + config.helloTimeoutTicks;
+            presentation.rememberHealth(joined);
             state.revision = ++nextRevision;
             state.networkAfter = tick + 1;
-            states.put(event.player.getUniqueID(), state);
+            states.put(joined.getUniqueID(), state);
             state.facingHistory.observe(
                 System.nanoTime(),
-                event.player.rotationYaw,
-                event.player.rotationPitch,
-                event.player.posX,
-                event.player.posY,
-                event.player.posZ,
+                joined.rotationYaw,
+                joined.rotationPitch,
+                joined.posX,
+                joined.posY,
+                joined.posZ,
                 true,
                 true);
             FacingPackets.install(state.player.playerNetServerHandler.netManager, state.facingHistory);
@@ -209,14 +236,19 @@ public final class CombatServer {
 
     @SubscribeEvent
     public void dimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-        remove(event.player);
-        login(new PlayerEvent.PlayerLoggedInEvent(event.player));
+        restart(event.player);
     }
 
     @SubscribeEvent
     public void respawn(PlayerEvent.PlayerRespawnEvent event) {
-        remove(event.player);
-        login(new PlayerEvent.PlayerLoggedInEvent(event.player));
+        restart(event.player);
+    }
+
+    private void restart(EntityPlayer player) {
+        PlayerState old = states.get(player.getUniqueID());
+        boolean verified = old != null && old.verified;
+        remove(player);
+        begin(player, verified);
     }
 
     @SubscribeEvent
@@ -234,6 +266,92 @@ public final class CombatServer {
         }
     }
 
+    /**
+     * A player at zero health stays in the world, not isDead, until it respawns. It must neither start actions nor
+     * hit anything in that time, whatever it holds (keepInventory leaves the weapon in hand).
+     */
+    private static boolean dead(EntityPlayer player) {
+        return player.isDead || player.getHealth() <= 0;
+    }
+
+    /** Server thread. Weapons change only between actions; a new style also makes the client re-acknowledge. */
+    private void use(PlayerState state, CombatWeapons.Entry entry) {
+        if (state.scheduler.weapon() != entry.definition) {
+            boolean style = !state.scheduler.weapon().style.equals(entry.definition.style);
+            state.scheduler.useWeapon(entry.definition, entry.catalog);
+            if (style) {
+                state.sentDefinitions = false;
+                state.definitionStyle = entry.definition.style;
+            }
+        }
+        state.appearance.request(entry.definition.appearance);
+    }
+
+    private void processHellos() {
+        List<PendingHello> batch;
+        synchronized (hellos) {
+            if (hellos.isEmpty()) return;
+            batch = new ArrayList<>(hellos);
+            hellos.clear();
+        }
+        for (PendingHello hello : batch) {
+            PlayerState state = state(hello.player);
+            if (state == null) {
+                // The login event can trail the first packet; give it a bounded number of ticks.
+                if (tick - hello.queued < 200) synchronized (hellos) {
+                    hellos.add(hello);
+                }
+                continue;
+            }
+            if (state.verified) continue;
+            HelloMessage message = hello.message;
+            ContentManifest.Comparison verdict = Handshake
+                .check(rules.packGameplayHash, rules.presentationHash, message.gameplay, message.presentation);
+            if (verdict == ContentManifest.Comparison.GAMEPLAY_MISMATCH) {
+                reject(state, "gameplay content differs", message.gameplay, message.presentation);
+                continue;
+            }
+            state.verified = true;
+            if (verdict == ContentManifest.Comparison.MATCH) Clashweave.log
+                .info("Clashweave: {} presented matching content hashes", state.player.getCommandSenderName());
+            else Clashweave.log.warn(
+                "Clashweave: {} has different presentation content only (server {}, client {}); allowed",
+                state.player.getCommandSenderName(),
+                rules.presentationHash,
+                message.presentation);
+            Clashweave.network.sendTo(
+                new ContentSyncMessage(
+                    rules.effectiveHash,
+                    rules.overridesCanonical,
+                    CombatWeapons.table()
+                        .names()),
+                state.player);
+        }
+    }
+
+    private void reject(PlayerState state, String reason, String gameplay, String presentation) {
+        state.helloDeadline = Long.MAX_VALUE;
+        Clashweave.log.warn(
+            "Clashweave: refusing {}: {} (gameplay server {} client {}; presentation server {} client {})",
+            state.player.getCommandSenderName(),
+            reason,
+            rules.packGameplayHash,
+            gameplay,
+            rules.presentationHash,
+            presentation);
+        state.player.playerNetServerHandler.kickPlayerFromServer(
+            "Clashweave: " + reason
+                + ". Install the same content packs as the server (server gameplay "
+                + abbreviate(rules.packGameplayHash)
+                + ", yours "
+                + abbreviate(gameplay)
+                + ").");
+    }
+
+    private static String abbreviate(String hash) {
+        return hash == null || hash.isEmpty() ? "none" : hash.substring(0, Math.min(12, hash.length()));
+    }
+
     private void remove(EntityPlayer player) {
         presentation.remove(player);
         effects.remove(player);
@@ -244,6 +362,9 @@ public final class CombatServer {
         synchronized (inbox) {
             inbox.removeIf(input -> input.player == player);
         }
+        synchronized (hellos) {
+            hellos.removeIf(hello -> hello.player == player);
+        }
     }
 
     public void stop() {
@@ -251,6 +372,9 @@ public final class CombatServer {
         effects.clear();
         states.clear();
         pending.clear();
+        synchronized (hellos) {
+            hellos.clear();
+        }
         synchronized (inbox) {
             inbox.clear();
         }
@@ -284,6 +408,9 @@ public final class CombatServer {
             arrived = new ArrayList<>(inbox);
             inbox.clear();
         }
+        processHellos();
+        for (PlayerState state : ordered) if (!state.verified && tick > state.helloDeadline)
+            reject(state, "no content hashes within " + config.helloTimeoutTicks + " ticks", "", "");
         for (Inbound input : arrived) consume(input);
         presentation.flush();
         for (PlayerState state : ordered) advance(state);
@@ -351,11 +478,16 @@ public final class CombatServer {
             return;
         }
         if (message.kind == -2) {
-            state.sentDefinitions = true;
+            // The acknowledgement names the style it received, so a late ack for the previous weapon is ignored.
+            if (message.target == state.definitionStyle.hashCode()) state.sentDefinitions = true;
             return;
         }
-        if (!armed(input.player) || input.player.isDead) {
-            snapshot(state, message.sequence, input.player.isDead ? "REJECT:DEAD" : "REJECT:UNARMED", false);
+        if (!state.verified) {
+            snapshot(state, message.sequence, "REJECT:UNVERIFIED", false);
+            return;
+        }
+        if (!armed(input.player) || dead(input.player)) {
+            snapshot(state, message.sequence, dead(input.player) ? "REJECT:DEAD" : "REJECT:UNARMED", false);
             return;
         }
         if (message.kind == -1) {
@@ -440,9 +572,7 @@ public final class CombatServer {
         } else {
             if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
             if (state.scheduler.current() == null) {
-                WeaponDefinition resolved = weapons.resolve(input.player.getHeldItem());
-                state.scheduler.useWeapon(resolved, weapons.catalog(resolved));
-                state.appearance.request(resolved.appearance);
+                use(state, CombatWeapons.entry(input.player.getHeldItem()));
                 state.appearance.apply(true);
             }
             FacingHistory.Result facing = state.facingHistory.choose(
@@ -499,14 +629,13 @@ public final class CombatServer {
             state.scheduler.clearBuffer();
         }
         boolean wasSheathed = state.scheduler.sheathed();
+        Scheduler.Instance running = state.scheduler.current();
         state.scheduler.tick(tick, player.onGround);
-        if (!wasSheathed && state.scheduler.sheathed()) presentation.sheathed(player, state.instance, tick);
+        if (!wasSheathed && state.scheduler.sheathed())
+            presentation.sheathed(player, state.instance, tick, running == null ? "" : running.definition.id);
         if (state.scheduler.current() == null) {
-            WeaponDefinition resolved = weapons.resolve(player.getHeldItem());
-            if (resolved != null) {
-                state.scheduler.useWeapon(resolved, weapons.catalog(resolved));
-                state.appearance.request(resolved.appearance);
-            }
+            CombatWeapons.Entry resolved = CombatWeapons.entry(player.getHeldItem());
+            if (resolved != null) use(state, resolved);
             state.appearance.apply(true);
         }
         presentation.health(player, tick);
@@ -592,15 +721,18 @@ public final class CombatServer {
             config.lockKeepRange,
             !lock.isDead && (!(lock instanceof EntityLivingBase) || ((EntityLivingBase) lock).getHealth() > 0)))
             state.lock = -1;
-        boolean trigger = action != null || state.guard.held() || state.lock >= 0 || player.hurtTime > 0;
+        boolean trigger = !dead(player)
+            && (action != null || state.guard.held() || state.lock >= 0 || player.hurtTime > 0);
         for (Object object : player.worldObj.getEntitiesWithinAABB(
             EntityLiving.class,
             player.boundingBox.expand(config.radius, config.radius, config.radius))) {
             EntityLiving mob = (EntityLiving) object;
-            if (mob.getAttackTarget() == player && mob.getDistanceToEntity(player) <= config.radius) trigger = true;
+            if (mob.getAttackTarget() == player && mob.getDistanceToEntity(player) <= config.radius && !dead(player))
+                trigger = true;
         }
         if (trigger) state.lastTrigger = tick;
-        boolean engaged = trigger || state.engaged && tick - state.lastTrigger < config.disengage;
+        // Waiting on the death screen is not combat: the death handler's disengage must not be undone by hurtTime.
+        boolean engaged = !dead(player) && (trigger || state.engaged && tick - state.lastTrigger < config.disengage);
         if (engaged) player.setSneaking(false);
         if (state.engaged != engaged) {
             state.engaged = engaged;
@@ -627,7 +759,7 @@ public final class CombatServer {
                 .removeIf(
                     entry -> tick > entry.getValue() || entry.getKey().isDead
                         || entry.getKey().dimension != state.player.dimension);
-            if (!state.engaged || state.player.isDead) continue;
+            if (!state.engaged || dead(state.player)) continue;
             own(desired, state.player, state.player.getUniqueID());
             for (EntityLivingBase target : state.contacts.keySet()) own(desired, target, state.player.getUniqueID());
             Entity locked = state.player.worldObj.getEntityByID(state.lock);
@@ -724,7 +856,7 @@ public final class CombatServer {
 
     private void collect(PlayerState state) {
         Scheduler.Instance action = state.scheduler.current();
-        if (action == null || state.player.isDead || !armed(state.player)) return;
+        if (action == null || dead(state.player) || !armed(state.player)) return;
         int elapsed = (int) (tick - action.start);
         ActionCatalog.Definition definition = action.definition;
         if (elapsed < definition.startup || elapsed >= definition.startup + definition.active) return;
@@ -921,7 +1053,7 @@ public final class CombatServer {
             message.budgetZ = state.z;
         }
         message.feedbackFrozen = Boolean.getBoolean("clashweave.trace") ? frozen : 0;
-        message.definitions = definitions || !state.sentDefinitions ? definitionJson : "";
+        message.definitions = definitions || !state.sentDefinitions ? rules.wireJson(message.style) : "";
         if (sequence > 0)
             trace("ACK player=" + state.player.getCommandSenderName() + " seq=" + sequence + " result=" + result);
         Clashweave.network.sendTo(message, state.player);

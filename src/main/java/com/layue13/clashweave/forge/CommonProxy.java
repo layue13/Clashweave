@@ -9,4 +9,6 @@ public class CommonProxy {
     public void receive(StateMessage message) {}
 
     public void receive(com.layue13.clashweave.network.SemanticMessage message) {}
+
+    public void receive(com.layue13.clashweave.network.ContentSyncMessage message) {}
 }
