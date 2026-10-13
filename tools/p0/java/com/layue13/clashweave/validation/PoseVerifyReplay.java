@@ -36,6 +36,8 @@ public final class PoseVerifyReplay {
 
     private void camera(float facing){
         if(camera==null)camera=new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Photo"));
+        // The camera entity stands on the player; left visible it would draw an unposed second body over the subject.
+        camera.setInvisible(true);
         mc.renderViewEntity=camera;
         camera.setPosition(mc.thePlayer.posX,mc.thePlayer.boundingBox.minY,mc.thePlayer.posZ);
         camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;

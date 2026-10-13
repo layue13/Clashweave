@@ -61,7 +61,6 @@ if args.souls: args.composition=True
 if args.souls_view: args.view_test=True
 if args.edge_boundary: args.view_test=True; args.render_only=True
 if args.art_verify: args.render_only=True
-if args.pose_verify is not None: args.souls_view=True; args.view_test=True
 if not args.accept_eula:
     raise SystemExit('Explicit EULA acceptance required')
 folder = ROOT / 'build/p0/runs' / args.label
