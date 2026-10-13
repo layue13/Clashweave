@@ -29,6 +29,7 @@ final class CombatBiped extends ModelBiped {
     @Override
     public void setRotationAngles(float limb, float amount, float age, float headYaw, float pitch, float scale,
         Entity entity) {
+        restore();
         super.setRotationAngles(limb, amount, age, headYaw, pitch, scale, entity);
         if (weight <= 0 || pose == null) return;
         float w = weight;
@@ -54,6 +55,26 @@ final class CombatBiped extends ModelBiped {
         bipedBody.rotateAngleY = mix(bipedBody.rotateAngleY, LimbSolver.torsoAngleY(pose.torsoYaw), w);
         pivot(bipedHead, point, w);
         pivot(bipedHeadwear, point, w);
+    }
+
+    /**
+     * One model draws every player. Vanilla's setRotationAngles never resets the head, headwear and body pivots, the
+     * arm
+     * pivot Y, the leg pivot X or the leg Z angle (only the constructor sets them), and the pose moves exactly those,
+     * so
+     * without this the next player drawn inherits the previous one's pelvis and twist: torso and limbs come apart.
+     */
+    private void restore() {
+        bipedHead.setRotationPoint(0, 0, 0);
+        bipedHeadwear.setRotationPoint(0, 0, 0);
+        bipedBody.setRotationPoint(0, 0, 0);
+        bipedBody.rotateAngleZ = 0;
+        bipedRightArm.setRotationPoint(-5, 2, 0);
+        bipedLeftArm.setRotationPoint(5, 2, 0);
+        bipedRightLeg.setRotationPoint(-1.9f, 12, 0);
+        bipedLeftLeg.setRotationPoint(1.9f, 12, 0);
+        bipedRightLeg.rotateAngleZ = 0;
+        bipedLeftLeg.rotateAngleZ = 0;
     }
 
     private void limb(ModelRenderer part, float[] direction, float w) {
