@@ -21,6 +21,8 @@ public final class WeaponRendering {
 
     private final Minecraft minecraft = Minecraft.getMinecraft();
     private final ModelBiped arm = new ModelBiped();
+    private final float[] swordMatrix = new float[16];
+    private final java.nio.FloatBuffer matrixBuffer = org.lwjgl.BufferUtils.createFloatBuffer(16);
 
     public static void load() {
         PresentationAssets.load(Clashweave.content.loaded.registry, Clashweave.log);
@@ -70,7 +72,11 @@ public final class WeaponRendering {
         if (!CombatWeapons.armed(event.entityPlayer.getHeldItem())) return;
         ClientProxy.Visual visual = ClientProxy.instance.visualOf(event.entityPlayer.getEntityId());
         PresentationAssets.Render render = render(visual, event.entityPlayer.getHeldItem());
-        boolean drawn = drawn(visual, event.partialRenderTick);
+        PoseDriver driver = PoseDriver.INSTANCE;
+        // Half-way through a fade the blade moves from the arm-attached pose to the baked one; the body is blended by
+        // then.
+        boolean posed = driver.entity == event.entityPlayer.getEntityId() && driver.weight >= 0.5f;
+        boolean drawn = posed ? driver.bladeDrawn : drawn(visual, event.partialRenderTick);
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1, 1, 1, 1);
@@ -89,7 +95,18 @@ public final class WeaponRendering {
             sheath(render, drawn);
             GL11.glPopMatrix();
         }
-        if (drawn) {
+        if (drawn && posed) {
+            // The blade follows the baked sword pose in body space, not the arm, so arm roll cannot turn it.
+            GL11.glPushMatrix();
+            com.layue13.clashweave.client.pose.LimbSolver.swordMatrix(driver.pose, swordMatrix);
+            matrixBuffer.clear();
+            matrixBuffer.put(swordMatrix)
+                .flip();
+            GL11.glMultMatrix(matrixBuffer);
+            GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
+            render.held.renderAll();
+            GL11.glPopMatrix();
+        } else if (drawn) {
             GL11.glPushMatrix();
             event.renderer.modelBipedMain.bipedRightArm.postRender(1 / 16f);
             GL11.glTranslated(render.rightX, render.rightY, render.rightZ);

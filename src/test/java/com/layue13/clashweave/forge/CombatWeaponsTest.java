@@ -165,8 +165,6 @@ public class CombatWeaponsTest {
     @Test
     public void weaponDefinitionsCarryTheContentIdsOnTheWire() {
         WeaponDefinition katana = rules.weapon("katana:katana");
-        assertEquals(
-            new AppearanceState("katana:default", "clashweave:default", "katana:rigid_arc"),
-            katana.appearance);
+        assertEquals(new AppearanceState("katana:default", "clashweave:default", "katana:track"), katana.appearance);
     }
 }

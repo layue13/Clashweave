@@ -602,6 +602,12 @@ public final class ContentRegistry {
             } else if (dto instanceof ContentPack.Animation) {
                 if (((ContentPack.Animation) dto).preset == null || ((ContentPack.Animation) dto).preset.isEmpty())
                     error(r.source, r.path + ".preset", "missing animation preset");
+                else if (((ContentPack.Animation) dto).preset.equals("track")) {
+                    String source = ((ContentPack.Animation) dto).source;
+                    int colon = source == null ? -1 : source.indexOf(':');
+                    if (colon <= 0 || colon == source.length() - 1)
+                        error(r.source, r.path + ".source", "preset \"track\" needs source as domain:path");
+                }
             } else if (dto instanceof ContentPack.Resource) {
                 validateResource(r, (ContentPack.Resource) dto);
             }

@@ -38,6 +38,10 @@ public final class ContentPack {
     public static final class Animation {
 
         public String id, preset;
+        /** Resource location of the baked track file; required by the "track" preset, ignored by the others. */
+        public String source;
+        /** Local ID of the action whose first frame is the engaged idle pose; used by the "track" preset. */
+        public String stance;
     }
 
     public static final class Resource {

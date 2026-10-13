@@ -11,6 +11,8 @@ import net.minecraftforge.client.model.IModelCustom;
 
 import org.apache.logging.log4j.Logger;
 
+import com.layue13.clashweave.client.pose.Track;
+import com.layue13.clashweave.client.pose.TrackData;
 import com.layue13.clashweave.content.ContentPack;
 import com.layue13.clashweave.content.ContentRegistry;
 import com.layue13.clashweave.core.ActionCatalog;
@@ -74,9 +76,19 @@ final class PresentationAssets {
 
         /** How long the drawn blade stays visible while an action that returns to the sheath plays. */
         int sheatheVisibleTicks();
+
+        /** Baked track of an action by local ID (no namespace), or null when this preset poses the body no further. */
+        default Track track(String localActionId) {
+            return null;
+        }
+
+        /** Track of the engaged idle pose, or null. */
+        default Track stance() {
+            return null;
+        }
     }
 
-    private static final class RigidArc implements Preset {
+    private static class RigidArc implements Preset {
 
         @Override
         public double swing(ActionCatalog.Definition definition, double elapsed) {
@@ -90,6 +102,28 @@ final class PresentationAssets {
         @Override
         public int sheatheVisibleTicks() {
             return 6;
+        }
+    }
+
+    /** The rigid swing plus baked body tracks: the tracks pose arms, legs and torso, the swing remains the fallback. */
+    private static final class TrackPreset extends RigidArc {
+
+        private final TrackData data;
+        private final Track stance;
+
+        TrackPreset(TrackData data, String stanceAction) {
+            this.data = data;
+            stance = stanceAction == null ? null : data.track(stanceAction);
+        }
+
+        @Override
+        public Track track(String localActionId) {
+            return data.track(localActionId);
+        }
+
+        @Override
+        public Track stance() {
+            return stance;
         }
     }
 
@@ -119,7 +153,8 @@ final class PresentationAssets {
             resources.putAll(pack.resources());
             for (ContentPack.Animation animation : pack.animations()
                 .values()) {
-                Preset preset = PRESETS.get(animation.preset);
+                Preset preset = "track".equals(animation.preset) ? trackPreset(animation)
+                    : PRESETS.get(animation.preset);
                 if (preset == null) {
                     log.warn(
                         "Clashweave: animation {} names unknown preset \"{}\"; using {}",
@@ -146,6 +181,25 @@ final class PresentationAssets {
         }
         fallbackPreset = PRESETS.get(DEFAULT_PRESET);
         log.info("Clashweave presentation: {} render(s), {} animation(s)", renders.size(), presets.size());
+    }
+
+    /** Tracks are read from the classpath, like the content packs; a bad file names the animation that wanted it. */
+    private static Preset trackPreset(ContentPack.Animation animation) {
+        String source = animation.source;
+        int colon = source.indexOf(':');
+        String path = "/assets/" + source.substring(0, colon) + "/" + source.substring(colon + 1);
+        try (java.io.InputStream stream = PresentationAssets.class.getResourceAsStream(path)) {
+            if (stream == null) throw new IllegalStateException("file not found");
+            TrackData data = TrackData
+                .parse(new java.io.InputStreamReader(stream, java.nio.charset.StandardCharsets.UTF_8));
+            if (animation.stance != null && !data.has(animation.stance))
+                throw new IllegalStateException("stance action " + animation.stance + " has no track");
+            return new TrackPreset(data, animation.stance);
+        } catch (java.io.IOException | RuntimeException e) {
+            throw new IllegalStateException(
+                "animation " + animation.id + " source " + source + " could not be loaded: " + e,
+                e);
+        }
     }
 
     private static IModelCustom model(Map<String, IModelCustom> cache, String resource, String field, String path) {

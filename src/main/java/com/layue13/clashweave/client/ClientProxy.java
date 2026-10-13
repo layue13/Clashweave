@@ -17,6 +17,7 @@ import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.input.Keyboard;
 
 import com.layue13.clashweave.Clashweave;
+import com.layue13.clashweave.client.pose.Track;
 import com.layue13.clashweave.content.EffectiveRules;
 import com.layue13.clashweave.core.ActionCatalog;
 import com.layue13.clashweave.core.Intent;
@@ -55,6 +56,13 @@ public final class ClientProxy extends CommonProxy {
         public ActionCatalog catalog;
         public ActionCatalog.Definition definition;
         boolean returnsToSheath;
+        /** Baked tracks resolved with the state: the playing action's and the engaged idle pose. */
+        Track track, stance;
+        /** Fade of the baked pose over the vanilla one, and the track it last played, kept for the fade out. */
+        float takeover;
+        long takeoverNanos;
+        Track lastTrack;
+        double lastTicks;
 
         /** Diagnostics for fixtures: what the state's IDs resolved to. */
         public String resolvedRender() {
@@ -162,6 +170,10 @@ public final class ClientProxy extends CommonProxy {
     }
 
     /** True while the local player shows an entry pose the server has not yet confirmed. */
+    long tickPeriod() {
+        return tickPeriod;
+    }
+
     public boolean predicted(Visual visual) {
         return visual == own() && !predictedAction.isEmpty();
     }
@@ -494,6 +506,15 @@ public final class ClientProxy extends CommonProxy {
         } else {
             visual.render = PresentationAssets.render(message.appearance.skin);
             visual.preset = PresentationAssets.preset(message.appearance.animations);
+        }
+        visual.stance = visual.preset == null ? null : visual.preset.stance();
+        visual.track = visual.preset == null || message.action.isEmpty() ? null
+            : visual.preset.track(message.action.substring(message.action.indexOf(':') + 1));
+        if (previous != null) {
+            visual.takeover = previous.takeover;
+            visual.takeoverNanos = previous.takeoverNanos;
+            visual.lastTrack = previous.lastTrack;
+            visual.lastTicks = previous.lastTicks;
         }
         boolean acting = catalog != null && !message.action.isEmpty();
         visual.definition = acting ? catalog.byId(message.action) : null;

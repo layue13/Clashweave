@@ -5,6 +5,12 @@
     {
       "id": "katana:rigid_arc",
       "preset": "rigid_arc"
+    },
+    {
+      "id": "katana:track",
+      "preset": "track",
+      "source": "clashweave:tracks/katana.tracks.json",
+      "stance": "light_1"
     }
   ]
 }
