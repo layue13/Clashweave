@@ -120,30 +120,6 @@ public final class LimbSolver {
         out16[15] = 1;
     }
 
-    /** Local +Y follows upperDir, +X is unit(upperDir cross pole); Rz Ry Rx, radians. */
-    public static void solveHinged(float[] upperDir, float[] pole, float[] outUpperXYZ) {
-        double ux = upperDir[0], uy = upperDir[1], uz = upperDir[2];
-        double norm = Math.sqrt(ux * ux + uy * uy + uz * uz);
-        if (!(norm > 0) || !Double.isFinite(norm))
-            throw new IllegalArgumentException("direction: expected finite nonzero vector");
-        ux /= norm;
-        uy /= norm;
-        uz /= norm;
-        double hx = uy * pole[2] - uz * pole[1];
-        double hy = uz * pole[0] - ux * pole[2];
-        double hz = ux * pole[1] - uy * pole[0];
-        norm = Math.sqrt(hx * hx + hy * hy + hz * hz);
-        if (norm < 1e-10) {
-            int axis = Math.abs(ux) <= Math.abs(uy) && Math.abs(ux) <= Math.abs(uz) ? 0
-                : Math.abs(uy) <= Math.abs(uz) ? 1 : 2;
-            hx = axis == 2 ? uy : axis == 1 ? -uz : 0;
-            hy = axis == 0 ? uz : axis == 2 ? -ux : 0;
-            hz = axis == 1 ? ux : axis == 0 ? -uy : 0;
-            norm = Math.sqrt(hx * hx + hy * hy + hz * hz);
-        }
-        frame(ux, uy, uz, hx / norm, hy / norm, hz / norm, outUpperXYZ);
-    }
-
     /** Rz Ry Rx for the frame with local +Y = u and local +X = h (h unit and perpendicular to u). */
     private static void frame(double ux, double uy, double uz, double hx, double hy, double hz, float[] outUpperXYZ) {
         double zz = hx * uy - hy * ux;

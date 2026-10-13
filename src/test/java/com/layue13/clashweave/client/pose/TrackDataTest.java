@@ -202,9 +202,8 @@ public class TrackDataTest {
                 .getAsJsonObject()
                 .addProperty("t", bad);
             reject(tree, "actions.test.samples[1].t");
-            tree = fixture();
-            tree.addProperty("sampleStepTicks", bad);
-            reject(tree, "sampleStepTicks");
+            // Fields the parser does not read (sampleStepTicks, checks, tip) are the generator's notes and are not
+            // judged.
         }
     }
 

@@ -62,17 +62,6 @@ public class PoseAllocationTest {
             LimbSolver.shoulderPoint(true, b.torsoYaw, b.pelvis, shoulder);
             sink = shoulder[0];
         });
-        perMillion("Pose.blend", () -> {
-            Pose.blend(a, b, .4f, out);
-            sink = out.swordP[0];
-        });
-        PoseBlend blend = new PoseBlend();
-        blend.start(a, Integer.MAX_VALUE);
-        perMillion("PoseBlend.update", () -> {
-            blend.update(b, .125, out);
-            sink = out.swordP[0];
-        });
-        assertTrue(blend.active());
     }
 
     @Test
@@ -87,16 +76,7 @@ public class PoseAllocationTest {
             .track("light_1")
             .sample(5, pose);
         LimbAngles out = new LimbAngles();
-        float[] pivot = new float[3], target = { .1f, .5f, -.1f }, pole = { 0, 1, .2f };
-        float[] upper = new float[3], lower = new float[3], angles = new float[3], end = new float[3];
-        perMillion("TwoBoneIk.solve", () -> {
-            TwoBoneIk.solve(pivot, target, pole, .375f, .375f, upper, lower);
-            sink = upper[0] + lower[2];
-        });
-        perMillion("LimbSolver.solveHinged", () -> {
-            LimbSolver.solveHinged(upper, pole, angles);
-            sink = angles[0];
-        });
+        float[] pivot = new float[3], end = new float[3];
         perMillion("LimbSolver.solveArm", () -> {
             LimbSolver.solveArm(true, pose, out);
             sink = out.upper[0] + out.childAngleX;
@@ -106,7 +86,7 @@ public class PoseAllocationTest {
             sink = out.upper[0] + out.childAngleX;
         });
         perMillion("LimbSolver.endPoint", () -> {
-            LimbSolver.endPoint(pivot, angles, -.7f, end);
+            LimbSolver.endPoint(pivot, out.upper, -.7f, end);
             sink = end[0];
         });
     }

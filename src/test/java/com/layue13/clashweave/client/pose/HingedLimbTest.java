@@ -185,19 +185,6 @@ public class HingedLimbTest {
         assertTrue(out.flex > Math.toRadians(20));
     }
 
-    @Test
-    public void fkConfirmsElbowForwardAndKneeBackwardLowerDirection() {
-        float[] upper = { 0, 1, 0 }, angles = new float[3], end = new float[3];
-        for (float side : new float[] { -1, 1 }) {
-            LimbSolver.solveHinged(upper, new float[] { side * .35f, 1, .2f }, angles);
-            LimbSolver.endPoint(new float[3], angles, -.7f, end);
-            assertTrue("elbow lower segment forward", end[2] < 0);
-            LimbSolver.solveHinged(upper, new float[] { side * .2f, 0, -1 }, angles);
-            LimbSolver.endPoint(new float[3], angles, -.7f, end);
-            assertTrue("knee lower segment backward", end[2] > 0);
-        }
-    }
-
     private static double distance(float[] a, float[] b) {
         double squared = 0;
         for (int i = 0; i < 3; i++) squared += (double) (a[i] - b[i]) * (a[i] - b[i]);

@@ -36,34 +36,6 @@ public final class Pose {
         bladeDrawn = source.bladeDrawn;
     }
 
-    /** Clamped blend, shortest quaternion arc, normalized directions; out may alias either input. */
-    public static void blend(Pose a, Pose b, float w, Pose out) {
-        if (!Float.isFinite(w)) throw new IllegalArgumentException("weight: not finite");
-        w = Math.max(0, Math.min(1, w));
-        if (w == 0) {
-            out.copyFrom(a);
-            return;
-        }
-        if (w == 1) {
-            out.copyFrom(b);
-            return;
-        }
-        mix(a.swordP, 0, b.swordP, 0, w, out.swordP, 3, false);
-        quaternion(a.swordQ, 0, b.swordQ, 0, w, out.swordQ);
-        mix(a.handR, 0, b.handR, 0, w, out.handR, 3, false);
-        mix(a.handL, 0, b.handL, 0, w, out.handL, 3, false);
-        mix(a.armR, 0, b.armR, 0, w, out.armR, 3, true);
-        mix(a.armL, 0, b.armL, 0, w, out.armL, 3, true);
-        mix(a.legR, 0, b.legR, 0, w, out.legR, 3, true);
-        mix(a.legL, 0, b.legL, 0, w, out.legL, 3, true);
-        mix(a.pelvis, 0, b.pelvis, 0, w, out.pelvis, 3, false);
-        mix(a.footR, 0, b.footR, 0, w, out.footR, 2, false);
-        mix(a.footL, 0, b.footL, 0, w, out.footL, 2, false);
-        out.torsoYaw = a.torsoYaw + (b.torsoYaw - a.torsoYaw) * w;
-        out.handLFree = w >= .5f ? b.handLFree : a.handLFree;
-        out.bladeDrawn = w >= .5f ? b.bladeDrawn : a.bladeDrawn;
-    }
-
     static void mix(float[] a, int ai, float[] b, int bi, float w, float[] out, int n, boolean unit) {
         double length = 0;
         // Select the nearer endpoint if antipodal directions cancel exactly.
