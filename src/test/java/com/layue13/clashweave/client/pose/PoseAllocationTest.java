@@ -59,7 +59,7 @@ public class PoseAllocationTest {
             sink = matrix[0];
         });
         perMillion("LimbSolver.shoulderPoint", () -> {
-            LimbSolver.shoulderPoint(true, b.torsoYaw, b.pelvis, shoulder);
+            LimbSolver.shoulderPoint(true, b, shoulder);
             sink = shoulder[0];
         });
     }

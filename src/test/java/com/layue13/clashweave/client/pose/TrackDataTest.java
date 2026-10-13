@@ -149,8 +149,12 @@ public class TrackDataTest {
     @Test
     public void invalidTimesVersionModeAndNormsAreRejected() {
         JsonObject tree = fixture();
-        tree.addProperty("version", 3);
+        tree.addProperty("version", 4);
         reject(tree, "version");
+        // Version 3 carries the torso lean and side bend on every sample.
+        tree = fixture();
+        tree.addProperty("version", 3);
+        reject(tree, "actions.test.samples[0].torsoLean");
         tree = fixture();
         tree.addProperty("version", 2.00000001);
         reject(tree, "version");

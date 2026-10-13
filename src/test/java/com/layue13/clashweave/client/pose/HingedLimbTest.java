@@ -24,7 +24,7 @@ public class HingedLimbTest {
                     boolean arm = limb < 2, right = limb % 2 == 0;
                     if (arm) {
                         LimbSolver.solveArm(right, pose, out);
-                        LimbSolver.shoulderPoint(right, pose.torsoYaw, pose.pelvis, pivot);
+                        LimbSolver.shoulderPoint(right, pose, pivot);
                         float[] hand = right ? pose.handR : pose.handL;
                         LimbSolver.bodyToBipedPoint(hand[0], hand[1], hand[2], target);
                     } else {

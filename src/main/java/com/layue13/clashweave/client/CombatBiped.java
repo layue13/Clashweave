@@ -96,10 +96,10 @@ final class CombatBiped extends ModelBiped {
         if (weight <= 0 || pose == null) return;
         float w = weight;
         // The parts are independent: every pivot follows the pelvis, the shoulders also follow the torso twist.
-        LimbSolver.shoulderPoint(true, pose.torsoYaw, pose.pelvis, point);
+        LimbSolver.shoulderPoint(true, pose, point);
         pivot(bipedRightArm, point, w);
         arm(bipedRightArm, rightForearm, true, pose.armR, w);
-        LimbSolver.shoulderPoint(false, pose.torsoYaw, pose.pelvis, point);
+        LimbSolver.shoulderPoint(false, pose, point);
         pivot(bipedLeftArm, point, w);
         arm(bipedLeftArm, leftForearm, false, pose.armL, w);
         LimbSolver.hipPoint(true, pose.pelvis, point);
@@ -108,15 +108,13 @@ final class CombatBiped extends ModelBiped {
         LimbSolver.hipPoint(false, pose.pelvis, point);
         pivot(bipedLeftLeg, point, w);
         leg(bipedLeftLeg, leftShin, false, pose.legL, w);
-        point[0] = -pose.pelvis[0] * 16 / .9375f;
-        point[1] = -pose.pelvis[2] * 16 / .9375f;
-        point[2] = -pose.pelvis[1] * 16 / .9375f;
+        // Body box, head and headwear hang from the neck, which the torso carries about the waist.
+        LimbSolver.neckPoint(pose, point);
         pivot(bipedBody, point, w);
-        bipedBody.rotateAngleX = mix(bipedBody.rotateAngleX, 0, w);
-        bipedBody.rotateAngleZ = mix(bipedBody.rotateAngleZ, 0, w);
-        bipedBody.rotateAngleY = mix(bipedBody.rotateAngleY, LimbSolver.torsoAngleY(pose.torsoYaw), w);
         pivot(bipedHead, point, w);
         pivot(bipedHeadwear, point, w);
+        LimbSolver.torsoAngles(pose, angles);
+        apply(bipedBody, angles, w);
     }
 
     /**
