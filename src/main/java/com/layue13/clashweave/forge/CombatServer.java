@@ -206,24 +206,22 @@ public final class CombatServer {
     /** Respawn and dimension change replace the state but not the connection, so they keep its verification. */
     private void begin(EntityPlayer player, boolean verified) {
         if (player instanceof EntityPlayerMP) {
-            PlayerEvent.PlayerLoggedInEvent event = new PlayerEvent.PlayerLoggedInEvent(player);
-            CombatWeapons.Entry held = CombatWeapons.entry(event.player.getHeldItem());
-            PlayerState state = new PlayerState(
-                (EntityPlayerMP) event.player,
-                held != null ? held : CombatWeapons.fallback());
+            EntityPlayerMP joined = (EntityPlayerMP) player;
+            CombatWeapons.Entry held = CombatWeapons.entry(joined.getHeldItem());
+            PlayerState state = new PlayerState(joined, held != null ? held : CombatWeapons.fallback());
             state.verified = verified;
             state.helloDeadline = verified ? Long.MAX_VALUE : tick + config.helloTimeoutTicks;
-            presentation.rememberHealth(event.player);
+            presentation.rememberHealth(joined);
             state.revision = ++nextRevision;
             state.networkAfter = tick + 1;
-            states.put(event.player.getUniqueID(), state);
+            states.put(joined.getUniqueID(), state);
             state.facingHistory.observe(
                 System.nanoTime(),
-                event.player.rotationYaw,
-                event.player.rotationPitch,
-                event.player.posX,
-                event.player.posY,
-                event.player.posZ,
+                joined.rotationYaw,
+                joined.rotationPitch,
+                joined.posX,
+                joined.posY,
+                joined.posZ,
                 true,
                 true);
             FacingPackets.install(state.player.playerNetServerHandler.netManager, state.facingHistory);
