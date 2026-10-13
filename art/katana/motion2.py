@@ -57,17 +57,26 @@ def slash(plane, phi, esign):
     return frame(mul(dd, esign), d)
 
 
+# The torso bends as one block about the waist (ModelBiped body bottom, 12 px above the ground pivot of the legs):
+# the game rotates the body box, the shoulders and the head pivot about this point with the same rotation.
+WAIST = 0.703125
+READY_LEAN = 3.0  # chudan stands slightly forward
+SIDE_PER_YAW = 0.2
+
 CHUDAN = frame((0.0, 0.0, -1.0), (0.04, 0.92, 0.40))
 C_READY = (0.04, 0.40, 1.08)
 
 
-def kf(t, fr, c, yaw=0.0, footR=None, footL=None, handL="grip", ease=ease_io, pel=(0.0, 0.0, 0.0), drawn=True):
+def kf(t, fr, c, yaw=0.0, footR=None, footL=None, handL="grip", ease=ease_io, pel=(0.0, 0.0, 0.0), drawn=True,
+       lean=READY_LEAN, side=None):
+    """lean: torso pitch about the waist, degrees, positive forward. side: degrees toward the player's right; by default
+    the chest leans a little into its own turn (a left turn, positive yaw, bends left)."""
     return dict(t=t, fr=fr, c=c, yaw=yaw, footR=footR or FEET_R0, footL=footL or FEET_L0, handL=handL, ease=ease,
-                pel=pel, drawn=drawn)
+                pel=pel, drawn=drawn, lean=lean, side=-SIDE_PER_YAW * yaw if side is None else side)
 
 
-def cut(plane, esign, phi, c, yaw, step, s, a, r, rear_follow=0.6):
-    """Generic two-handed cut. phi/c/yaw are (wind, start, end, over, hold) tuples."""
+def cut(plane, esign, phi, c, yaw, step, s, a, r, rear_follow=0.6, lean=(-4, 3, 14, 18, 8)):
+    """Generic two-handed cut. phi/c/yaw/lean are (wind, start, end, over, hold) tuples."""
     total = s + a + r
     tw = max(0.5, s - 1.0)
     fr = [slash(plane, p, esign) for p in phi]
@@ -78,11 +87,11 @@ def cut(plane, esign, phi, c, yaw, step, s, a, r, rear_follow=0.6):
     coil, lunge, sink = (0.0, -0.06, -0.04), (0.0, step * 0.9, -0.12), (0.0, step * 0.8, -0.09)
     return [
         kf(0.0, CHUDAN, C_READY, 0.0, fR0, fL0, ease=ease_io),
-        kf(tw, fr[0], c[0], yaw[0] * 1.5, fR0, fL0, ease=ease_out, pel=coil),  # anticipation: ease out into the peak
-        kf(float(s), fr[1], c[1], yaw[1], fR0, fL0, ease=ease_io, pel=coil),
-        kf(float(s + a), fr[2], c[2], yaw[2], fR1, fL0, ease=lambda u: u, pel=lunge),  # constant speed through contact
-        kf(float(s + a + 1), fr[3], c[3], yaw[3] * 1.3, fR1, fL1, ease=ease_out, pel=lunge),  # overshoot
-        kf(hold_t, fr[4], c[4], yaw[4], fR1, fL1, ease=ease_out, pel=sink),  # zanshin = combo link pose
+        kf(tw, fr[0], c[0], yaw[0] * 1.5, fR0, fL0, ease=ease_out, pel=coil, lean=lean[0]),  # anticipation
+        kf(float(s), fr[1], c[1], yaw[1], fR0, fL0, ease=ease_io, pel=coil, lean=lean[1]),
+        kf(float(s + a), fr[2], c[2], yaw[2], fR1, fL0, ease=lambda u: u, pel=lunge, lean=lean[2]),  # through contact
+        kf(float(s + a + 1), fr[3], c[3], yaw[3] * 1.3, fR1, fL1, ease=ease_out, pel=lunge, lean=lean[3]),  # overshoot
+        kf(hold_t, fr[4], c[4], yaw[4], fR1, fL1, ease=ease_out, pel=sink, lean=lean[4]),  # zanshin = combo link pose
         kf(float(total), CHUDAN, C_READY, 0.0, fR0, fL0, ease=ease_io),
     ]
 
@@ -108,11 +117,11 @@ def build_actions(actions):
     s, a, r = d["light_3"]["startup"], d["light_3"]["active"], d["light_3"]["recovery"]
     out["light_3"] = cut(RISE, 1, phis(d["light_3"]["arc"], 1, wind=-85),
                          [(-0.18, 0.32, 0.92), (-0.14, 0.36, 0.98), (0.14, 0.30, 1.40), (0.16, 0.26, 1.48),
-                          (0.06, 0.36, 1.30)], (14, 10, -10, -14, -4), 0.26, s, a, r)
+                          (0.06, 0.36, 1.30)], (14, 10, -10, -14, -4), 0.26, s, a, r, lean=(8, 6, -2, -5, 2))
     s, a, r = d["heavy"]["startup"], d["heavy"]["active"], d["heavy"]["recovery"]
     out["heavy"] = cut(FALL, 1, phis(d["heavy"]["arc"], 1, wind=-125),
                        [(0.14, 0.14, 1.64), (0.12, 0.24, 1.56), (-0.08, 0.44, 1.02), (-0.10, 0.46, 0.98),
-                        (0.00, 0.40, 1.04)], (-10, -6, 12, 16, 4), 0.36, s, a, r)
+                        (0.00, 0.40, 1.04)], (-10, -6, 12, 16, 4), 0.36, s, a, r, lean=(-10, -6, 22, 28, 10))
     # iai: rising draw cut (low left to high right) after saya-biki. The blade is in the saya until `drawn` flips.
     s, a, r = d["iai"]["startup"], d["iai"]["active"], d["iai"]["recovery"]
     total = s + a + r
@@ -123,16 +132,18 @@ def build_actions(actions):
     stepR = (FEET_R0[0], FEET_R0[1] + 0.46)
     coil, lunge, sink = (-0.04, -0.06, -0.04), (0.04, 0.42, -0.14), (0.02, 0.36, -0.11)
     iai = [
-        kf(0.0, sheathed, KOIGUCHI_GRIP, 0.0, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_io, drawn=False),
+        kf(0.0, sheathed, KOIGUCHI_GRIP, 0.0, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_io, drawn=False,
+           lean=0.0),
         kf(max(0.5, s - 1.5), fr[0], c[0], 26, FEET_R0, FEET_L0, handL=("free", KOIGUCHI_PULLED), ease=ease_out,
-           pel=coil, drawn=True),
-        kf(float(s), fr[1], c[1], 28, FEET_R0, FEET_L0, handL=("free", KOIGUCHI_PULLED), ease=ease_io, pel=coil),
+           pel=coil, drawn=True, lean=8.0),
+        kf(float(s), fr[1], c[1], 28, FEET_R0, FEET_L0, handL=("free", KOIGUCHI_PULLED), ease=ease_io, pel=coil,
+           lean=6.0),
         kf(float(s + a), fr[2], c[2], -18, stepR, FEET_L0, handL=("free", KOIGUCHI_PULLED), ease=lambda u: u,
-           pel=lunge),
+           pel=lunge, lean=16.0),
         kf(float(s + a + 1), fr[3], c[3], -26, stepR, (FEET_L0[0], FEET_L0[1] + 0.2), handL=("free", KOIGUCHI_PULLED),
-           ease=ease_out, pel=lunge),
+           ease=ease_out, pel=lunge, lean=20.0),
         kf(min(total - 3.0, s + a + 4.5), fr[4], c[4], -6, stepR, (FEET_L0[0], FEET_L0[1] + 0.3), handL="grip",
-           ease=ease_out, pel=sink),
+           ease=ease_out, pel=sink, lean=8.0),
         kf(float(total), CHUDAN, C_READY, 0.0, FEET_R0, FEET_L0, ease=ease_io),
     ]
     out["iai"] = iai
@@ -149,12 +160,14 @@ def build_actions(actions):
     out["sheathe"] = [
         kf(0.0, CHUDAN, C_READY, 0.0, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_io),
         kf(1.0, chiburi_up, (0.26, 0.22, 1.46), -10, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_out,
-           pel=(0.0, -0.03, -0.02)),
+           pel=(0.0, -0.03, -0.02), lean=-6.0),
         kf(2.5, chiburi_dn, (0.30, 0.40, 1.06), -14, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_in,
-           pel=(0.0, 0.06, -0.08)),
-        kf(4.0, mid, (-0.06, 0.20, 1.02), 6, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_io),
-        kf(float(total) - 1.5, noto_fr, c_noto, 8, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_out),
-        kf(float(total), noto_fr, c_noto, 8, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=lambda u: u),  # "click": hold
+           pel=(0.0, 0.06, -0.08), lean=12.0),
+        kf(4.0, mid, (-0.06, 0.20, 1.02), 6, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_io, lean=4.0),
+        kf(float(total) - 1.5, noto_fr, c_noto, 8, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_out,
+           lean=6.0),
+        kf(float(total), noto_fr, c_noto, 8, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=lambda u: u,
+           lean=6.0),  # "click": hold
     ]
     return out
 
@@ -172,10 +185,52 @@ def rot_z(p, deg):
     return (p[0] * math.cos(a) - p[1] * math.sin(a), p[0] * math.sin(a) + p[1] * math.cos(a), p[2])
 
 
-def clamp_reach(fr, c, hand_l, yaw, pel=(0.0, 0.0, 0.0)):
+def torso(p, yaw, lean, side, pel):
+    """Body-space point p carried by the torso: lean about the lateral axis through the waist, then the turn about the
+    vertical, then the side bend, then the pelvis translation. Same order as the game's Rz(side) Ry(yaw) Rx(lean)."""
+    x, y, z = p[0], p[1], p[2] - WAIST
+    a = math.radians(-lean)
+    y, z = y * math.cos(a) - z * math.sin(a), y * math.sin(a) + z * math.cos(a)
+    b = math.radians(yaw)
+    x, y = x * math.cos(b) - y * math.sin(b), x * math.sin(b) + y * math.cos(b)
+    g = math.radians(side)
+    x, z = x * math.cos(g) + z * math.sin(g), -x * math.sin(g) + z * math.cos(g)
+    return (x + pel[0], y + pel[1], z + WAIST + pel[2])
+
+
+def carry(v, yaw, lean, side):
+    """The part of the torso rotation the hands and sword ride along with: the authored hands already assume the chest
+    turned by yaw, so only the lean and side bend are added, Ry(side) Rz(yaw) Rx(-lean) Rz(-yaw). Vector, no pivot."""
+    x, y, z = v
+    b = math.radians(-yaw)
+    x, y = x * math.cos(b) - y * math.sin(b), x * math.sin(b) + y * math.cos(b)
+    a = math.radians(-lean)
+    y, z = y * math.cos(a) - z * math.sin(a), y * math.sin(a) + z * math.cos(a)
+    b = math.radians(yaw)
+    x, y = x * math.cos(b) - y * math.sin(b), x * math.sin(b) + y * math.cos(b)
+    g = math.radians(side)
+    x, z = x * math.cos(g) + z * math.sin(g), -x * math.sin(g) + z * math.cos(g)
+    return (x, y, z)
+
+
+def carried(fr, c, hand_l, yaw, lean, side, pel):
+    """Sword frame, hand midpoint and a free left hand moved with the chest about the waist (pelvis included)."""
+    pivot = (pel[0], pel[1], WAIST + pel[2])
+    fr = tuple(carry(axis, yaw, lean, side) for axis in fr)
+    c = add(pivot, carry(sub(c, pivot), yaw, lean, side))
+    if hand_l != "grip":
+        hand_l = (hand_l[0], add(pivot, carry(sub(hand_l[1], pivot), yaw, lean, side)))
+    return fr, c, hand_l
+
+
+def shoulders(yaw, lean, side, pel):
+    return torso(SHOULDER_R, yaw, lean, side, pel), torso(SHOULDER_L, yaw, lean, side, pel)
+
+
+def clamp_reach(fr, c, hand_l, yaw, pel=(0.0, 0.0, 0.0), lean=0.0, side=0.0):
     """Move c so both gripping hands are within arm reach. Returns (c, correction)."""
     c0 = c
-    sr, sl = add(rot_z(SHOULDER_R, yaw), pel), add(rot_z(SHOULDER_L, yaw), pel)
+    sr, sl = shoulders(yaw, lean, side, pel)
     lo, hi = GRIP_DIST - GRIP_TOL, GRIP_DIST + GRIP_TOL
     for _ in range(24):
         p0, pr, pl = hands_for(fr, c, hand_l, yaw)
@@ -219,9 +274,11 @@ def sample(kfs, t):
                     b_ = b_ or gripL
                 hl = ("free", tuple(lerp(x, y, u) for x, y in zip(a_, b_)))
             pel = tuple(lerp(a, b, u) for a, b in zip(k0["pel"], k1["pel"]))
-            return fr, c, yaw, fR, fL, hl, pel, (k0["drawn"] or k1["drawn"]) if u > 0 else k0["drawn"]
+            lean, side = lerp(k0["lean"], k1["lean"], u), lerp(k0["side"], k1["side"], u)
+            return (fr, c, yaw, fR, fL, hl, pel, (k0["drawn"] or k1["drawn"]) if u > 0 else k0["drawn"], lean,
+                    side)
     k = kfs[-1]
-    return k["fr"], k["c"], k["yaw"], k["footR"], k["footL"], k["handL"], k["pel"], k["drawn"]
+    return k["fr"], k["c"], k["yaw"], k["footR"], k["footL"], k["handL"], k["pel"], k["drawn"], k["lean"], k["side"]
 
 
 def active_intersects(samples, s, a, arc):
@@ -259,8 +316,12 @@ def build(actions):
         k = 0
         while k * STEP <= total + 1e-9:
             t = k * STEP
-            fr, c, yaw, fR, fL, hl, pel, drawn = sample(kfs, t)
-            c2, corr = clamp_reach(fr, c, hl, yaw, pel)
+            fr, c, yaw, fR, fL, hl, pel, drawn, lean, side = sample(kfs, t)
+            # A free left hand rests on the scabbard, which hangs from the pelvis: it moves with the pelvis, not the chest.
+            fr, c, _ = carried(fr, c, "grip", yaw, lean, side, pel)
+            if hl != "grip":
+                hl = (hl[0], add(hl[1], pel))
+            c2, corr = clamp_reach(fr, c, hl, yaw, pel, lean, side)
             max_corr = max(max_corr, corr)
             p0, pr, pl = hands_for(fr, c2, hl, yaw)
             if hl == "grip":
@@ -268,7 +329,7 @@ def build(actions):
                 if not (FIST - 1e-6 <= sep <= HILT_LEN + 1e-6):
                     space_viol += 1
             tip = add(p0, mul(fr[1], 1.227))  # the sword pose is already in body space; only the shoulders follow the torso twist
-            sr, sl = add(rot_z(SHOULDER_R, yaw), pel), add(rot_z(SHOULDER_L, yaw), pel)
+            sr, sl = shoulders(yaw, lean, side, pel)
             dr = math.sqrt(dot(sub(pr, sr), sub(pr, sr)))
             if not (GRIP_DIST - GRIP_TOL - 1e-3 <= dr <= GRIP_DIST + GRIP_TOL + 1e-3):
                 reach_viol += 1
@@ -289,6 +350,8 @@ def build(actions):
                 "handR": [round(x, 4) for x in pr],
                 "handL": {"mode": "grip" if hl == "grip" else "free", "p": [round(x, 4) for x in pl]},
                 "torsoYaw": round(yaw, 3),
+                "torsoLean": round(lean, 3),
+                "torsoSide": round(side, 3),
                 "footR": [round(x, 4) for x in fR],
                 "footL": [round(x, 4) for x in fL],
                 "tip": [round(x, 4) for x in tip],
@@ -309,7 +372,7 @@ if __name__ == "__main__":
     data = json.load(open(sys.argv[1]))
     acts = {x["id"]: x for x in data["actions"]}
     tracks, report = build(acts)
-    json.dump({"version": 2, "space": "body: x right, y forward, z up, blocks", "sampleStepTicks": STEP,
+    json.dump({"version": 3, "waist": WAIST, "space": "body: x right, y forward, z up, blocks", "sampleStepTicks": STEP,
                "swordLocal": "blade +Y, leading edge +X, normal +Z, origin = grip centre",
                "shoulders": [list(SHOULDER_R), list(SHOULDER_L)], "gripDistance": GRIP_DIST,
                "checks": report, "actions": tracks}, open(sys.argv[2], "w"), indent=1)

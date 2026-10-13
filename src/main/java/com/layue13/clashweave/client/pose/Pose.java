@@ -15,6 +15,8 @@ public final class Pose {
     public final float[] footR = new float[2];
     public final float[] footL = new float[2];
     public float torsoYaw;
+    /** Degrees about the waist: lean positive forward, side positive toward the player's right. */
+    public float torsoLean, torsoSide;
     public boolean handLFree;
     public boolean bladeDrawn;
 
@@ -32,6 +34,8 @@ public final class Pose {
         System.arraycopy(source.footR, 0, footR, 0, 2);
         System.arraycopy(source.footL, 0, footL, 0, 2);
         torsoYaw = source.torsoYaw;
+        torsoLean = source.torsoLean;
+        torsoSide = source.torsoSide;
         handLFree = source.handLFree;
         bladeDrawn = source.bladeDrawn;
     }

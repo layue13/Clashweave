@@ -31,7 +31,9 @@ public final class TrackData {
         JsonObject root = object(tree, "$");
         JsonElement version = field(root, "version", "version");
         number(version, "version");
-        if (version.getAsDouble() != 2) throw error("version", "expected 2");
+        // Version 3 adds the torso lean and side bend; version 2 tracks stand upright.
+        boolean torso = version.getAsDouble() == 3;
+        if (!torso && version.getAsDouble() != 2) throw error("version", "expected 2 or 3");
         JsonObject actions = object(field(root, "actions", "actions"), "actions");
         if (actions.entrySet()
             .isEmpty()) throw error("actions", "expected nonempty object");
@@ -78,6 +80,14 @@ public final class TrackData {
                 values[offset + Track.TORSO_YAW] = number(
                     field(sample, "torsoYaw", at + ".torsoYaw"),
                     at + ".torsoYaw");
+                if (torso) {
+                    values[offset + Track.TORSO_LEAN] = number(
+                        field(sample, "torsoLean", at + ".torsoLean"),
+                        at + ".torsoLean");
+                    values[offset + Track.TORSO_SIDE] = number(
+                        field(sample, "torsoSide", at + ".torsoSide"),
+                        at + ".torsoSide");
+                }
                 JsonElement drawn = field(sample, "bladeDrawn", at + ".bladeDrawn");
                 if (!drawn.isJsonPrimitive() || !drawn.getAsJsonPrimitive()
                     .isBoolean()) throw error(at + ".bladeDrawn", "expected boolean");

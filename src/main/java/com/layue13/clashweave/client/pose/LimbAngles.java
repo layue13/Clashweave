@@ -13,4 +13,7 @@ public final class LimbAngles {
     final float[] target = new float[3];
     final float[] upperDir = new float[3];
     final float[] lowerDir = new float[3];
+    /** The bend frame for this solve: undefined direction and lateral reference. */
+    final float[] singular = new float[3];
+    final float[] lateral = new float[3];
 }

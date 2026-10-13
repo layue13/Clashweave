@@ -9,6 +9,8 @@ public final class LimbSolver {
     public static final float ARM_SEGMENT = 5f / 16;
     /** The leg box hangs 12 px below the hip pivot: two segments of 6 px. */
     public static final float LEG_SEGMENT = 6f / 16;
+    /** The waist, 12 px below the neck: the point the torso bends about. */
+    private static final float WAIST_PX = 12;
     private static final float MAX_FLEX = (float) Math.toRadians(145);
     /**
      * Each limb's hinge frame is the lateral axis carried by the shortest rotation from {@code -singular} to the
@@ -77,13 +79,52 @@ public final class LimbSolver {
         }
     }
 
-    /** Shoulder rotation point in px. Exact ModelBiped anchors calibrate the rounded bake coordinates. */
-    public static void shoulderPoint(boolean right, float torsoYawDeg, float[] pelvis3, float[] outBipedPx3) {
-        double angle = Math.toRadians(torsoYawDeg);
-        float x = right ? -5 : 5;
-        outBipedPx3[0] = (float) (x * Math.cos(angle)) - pelvis3[0] * 16 / SCALE;
-        outBipedPx3[1] = 2 - pelvis3[2] * 16 / SCALE;
-        outBipedPx3[2] = (float) (x * Math.sin(angle)) - pelvis3[1] * 16 / SCALE;
+    /**
+     * The torso bends as one block about the waist, 12 px below the neck: lean about the lateral axis, then the turn
+     * about
+     * the vertical, then the side bend (ModelRenderer's Rz Ry Rx with X = lean, Y = -yaw, Z = -side), then the pelvis
+     * translation. Body box, shoulders and head all go through this one transform, so they cannot drift apart. Input
+     * and
+     * output in Biped px.
+     */
+    public static void torsoPoint(Pose pose, float px, float py, float pz, float[] outBipedPx3) {
+        torsoRotate(pose, px, py - WAIST_PX, pz, outBipedPx3);
+        outBipedPx3[0] -= pose.pelvis[0] * 16 / SCALE;
+        outBipedPx3[1] += WAIST_PX - pose.pelvis[2] * 16 / SCALE;
+        outBipedPx3[2] -= pose.pelvis[1] * 16 / SCALE;
+    }
+
+    /** The torso's rotation alone, Rz(-side) Ry(-yaw) Rx(lean), applied to a Biped vector. */
+    static void torsoRotate(Pose pose, double x, double y, double z, float[] out3) {
+        double lean = Math.toRadians(pose.torsoLean), cl = Math.cos(lean), sl = Math.sin(lean);
+        double y1 = y * cl - z * sl, z1 = y * sl + z * cl;
+        double yaw = Math.toRadians(-pose.torsoYaw), cy = Math.cos(yaw), sy = Math.sin(yaw);
+        double x2 = x * cy + z1 * sy, z2 = -x * sy + z1 * cy;
+        double side = Math.toRadians(-pose.torsoSide), cs = Math.cos(side), ss = Math.sin(side);
+        out3[0] = (float) (x2 * cs - y1 * ss);
+        out3[1] = (float) (x2 * ss + y1 * cs);
+        out3[2] = (float) z2;
+    }
+
+    /** ModelBiped's body box rotation for the pose: X = lean, Y = -yaw, Z = -side, radians. */
+    public static void torsoAngles(Pose pose, float[] outXYZ) {
+        outXYZ[0] = (float) Math.toRadians(pose.torsoLean);
+        outXYZ[1] = (float) Math.toRadians(-pose.torsoYaw);
+        outXYZ[2] = (float) Math.toRadians(-pose.torsoSide);
+    }
+
+    /**
+     * Shoulder rotation point in px, carried by the torso. The exact ModelBiped anchors (+-5, 2, 0) calibrate the
+     * rounded
+     * bake coordinates.
+     */
+    public static void shoulderPoint(boolean right, Pose pose, float[] outBipedPx3) {
+        torsoPoint(pose, right ? -5 : 5, 2, 0, outBipedPx3);
+    }
+
+    /** The neck: the head's and the body box's rotation point, carried by the torso. */
+    public static void neckPoint(Pose pose, float[] outBipedPx3) {
+        torsoPoint(pose, 0, 0, 0, outBipedPx3);
     }
 
     /** Independent leg rotation point in px; pelvis translates but does not rotate it. */
@@ -91,11 +132,6 @@ public final class LimbSolver {
         outBipedPx3[0] = (right ? -1.9f : 1.9f) - pelvis3[0] * 16 / SCALE;
         outBipedPx3[1] = 12 - pelvis3[2] * 16 / SCALE;
         outBipedPx3[2] = -pelvis3[1] * 16 / SCALE;
-    }
-
-    /** Body +Z maps to Biped -Y, so the right-handed yaw changes sign. */
-    public static float torsoAngleY(float torsoYawDeg) {
-        return (float) -Math.toRadians(torsoYawDeg);
     }
 
     /** Column-major affine matrix from sword-local blocks to Biped units, including scale 1/S. */
@@ -139,11 +175,16 @@ public final class LimbSolver {
 
     /** Shoulder/hand IK with a hinge frame that follows the arm, and the anatomical flex limit; output owns scratch. */
     public static void solveArm(boolean right, Pose pose, LimbAngles out) {
-        shoulderPoint(right, pose.torsoYaw, pose.pelvis, out.pivot);
+        shoulderPoint(right, pose, out.pivot);
         float[] hand = right ? pose.handR : pose.handL;
         bodyToBipedPoint(hand[0], hand[1], hand[2], out.target);
         // Elbows bend behind the upper arm's swing plane: forearm forward.
-        solveSegmented(right ? ARM_RIGHT_SINGULAR : ARM_LEFT_SINGULAR, 1, ARM_SEGMENT, out);
+        // The arms hang from the chest, so their bend frame turns with it: the undefined direction was placed against
+        // upright-torso tracks and must stay where the arm, seen from the chest, never points.
+        float[] singular = right ? ARM_RIGHT_SINGULAR : ARM_LEFT_SINGULAR;
+        torsoRotate(pose, singular[0], singular[1], singular[2], out.singular);
+        torsoRotate(pose, 1, 0, 0, out.lateral);
+        solveSegmented(out.singular, out.lateral, ARM_SEGMENT, out);
     }
 
     /** Hip/ground-foot IK; the existing hip anchor remains unchanged. */
@@ -152,7 +193,11 @@ public final class LimbSolver {
         float[] foot = right ? pose.footR : pose.footL;
         bodyToBipedPoint(foot[0], foot[1], 0, out.target);
         // Knees bend ahead of the thigh's swing plane: shin backward.
-        solveSegmented(LEG_SINGULAR, -1, LEG_SEGMENT, out);
+        // Legs hang from the pelvis, which only translates.
+        out.lateral[0] = -1;
+        out.lateral[1] = 0;
+        out.lateral[2] = 0;
+        solveSegmented(LEG_SINGULAR, out.lateral, LEG_SEGMENT, out);
     }
 
     /**
@@ -160,7 +205,7 @@ public final class LimbSolver {
      * direction t; it is perpendicular to t, so the bend plane holds t and the offset w = h x t. Segments of equal
      * length l and reach r: upper = (r/2 t + height w) / l, lower = (r/2 t - height w) / l. Closed form, no iteration.
      */
-    private static void solveSegmented(float[] singular, int lateral, float segment, LimbAngles out) {
+    private static void solveSegmented(float[] singular, float[] lateral, float segment, LimbAngles out) {
         for (int i = 0; i < 3; i++) out.pivot[i] /= 16;
         double rx = -singular[0], ry = -singular[1], rz = -singular[2];
         double dx = (double) out.target[0] - out.pivot[0], dy = (double) out.target[1] - out.pivot[1];
@@ -181,12 +226,12 @@ public final class LimbSolver {
             dz /= distance;
         }
         // h0: the lateral axis perpendicular to rest.
-        double dotX = rx;
-        double h0x = 1 - dotX * rx, h0y = -dotX * ry, h0z = -dotX * rz;
+        double dotX = lateral[0] * rx + lateral[1] * ry + lateral[2] * rz;
+        double h0x = lateral[0] - dotX * rx, h0y = lateral[1] - dotX * ry, h0z = lateral[2] - dotX * rz;
         double h0 = Math.sqrt(h0x * h0x + h0y * h0y + h0z * h0z);
-        h0x *= lateral / h0;
-        h0y *= lateral / h0;
-        h0z *= lateral / h0;
+        h0x /= h0;
+        h0y /= h0;
+        h0z /= h0;
         // Rodrigues rotation of h0 about rest x t by the angle between them.
         double ax = ry * dz - rz * dy, ay = rz * dx - rx * dz, az = rx * dy - ry * dx;
         double sine = Math.sqrt(ax * ax + ay * ay + az * az);

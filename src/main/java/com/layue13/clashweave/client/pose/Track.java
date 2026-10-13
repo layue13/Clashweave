@@ -5,7 +5,8 @@ public final class Track {
 
     /** Offsets of one packed sample; TrackData writes through these, sample() reads through them. */
     static final int SWORD_P = 0, SWORD_Q = 3, HAND_R = 7, HAND_L = 10, ARM_R = 13, ARM_L = 16, LEG_R = 19, LEG_L = 22,
-        PELVIS = 25, FOOT_R = 28, FOOT_L = 30, TORSO_YAW = 32, HAND_L_FREE = 33, BLADE_DRAWN = 34, STRIDE = 35;
+        PELVIS = 25, FOOT_R = 28, FOOT_L = 30, TORSO_YAW = 32, HAND_L_FREE = 33, BLADE_DRAWN = 34, TORSO_LEAN = 35,
+        TORSO_SIDE = 36, STRIDE = 37;
     private final float[] times;
     private final float[] values;
 
@@ -56,6 +57,8 @@ public final class Track {
         if (w == 0) System.arraycopy(values, a + FOOT_L, out.footL, 0, 2);
         else Pose.mix(values, a + FOOT_L, values, b + FOOT_L, w, out.footL, 2, false);
         out.torsoYaw = values[a + TORSO_YAW] + (values[b + TORSO_YAW] - values[a + TORSO_YAW]) * w;
+        out.torsoLean = values[a + TORSO_LEAN] + (values[b + TORSO_LEAN] - values[a + TORSO_LEAN]) * w;
+        out.torsoSide = values[a + TORSO_SIDE] + (values[b + TORSO_SIDE] - values[a + TORSO_SIDE]) * w;
         out.handLFree = values[a + HAND_L_FREE] != 0;
         out.bladeDrawn = values[a + BLADE_DRAWN] != 0;
     }

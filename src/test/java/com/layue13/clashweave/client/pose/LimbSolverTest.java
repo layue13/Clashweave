@@ -90,9 +90,9 @@ public class LimbSolverTest {
     @Test
     public void shouldersHipsAndPelvisOffsetsUsePixels() {
         float[] zero = new float[3], out = new float[3];
-        LimbSolver.shoulderPoint(true, 0, zero, out);
+        LimbSolver.shoulderPoint(true, new Pose(), out);
         assertArrayEquals(new float[] { -5, 2, 0 }, out, 0);
-        LimbSolver.shoulderPoint(false, 0, zero, out);
+        LimbSolver.shoulderPoint(false, new Pose(), out);
         assertArrayEquals(new float[] { 5, 2, 0 }, out, 0);
         LimbSolver.hipPoint(true, zero, out);
         assertArrayEquals(new float[] { -1.9f, 12, 0 }, out, 0);
@@ -101,7 +101,10 @@ public class LimbSolverTest {
         float[] pelvis = { .1f, .2f, .3f };
         for (boolean right : new boolean[] { true, false }) {
             float x = right ? -5 : 5;
-            LimbSolver.shoulderPoint(right, 30, pelvis, out);
+            Pose turned = new Pose();
+            turned.torsoYaw = 30;
+            System.arraycopy(pelvis, 0, turned.pelvis, 0, 3);
+            LimbSolver.shoulderPoint(right, turned, out);
             assertArrayEquals(
                 new float[] { (float) (x * Math.cos(Math.PI / 6)) - .1f * 16 / .9375f, 2 - .3f * 16 / .9375f,
                     (float) (x * Math.sin(Math.PI / 6)) - .2f * 16 / .9375f },
@@ -126,13 +129,71 @@ public class LimbSolverTest {
             (float) (x * Math.sin(bodyAngle) + y * Math.cos(bodyAngle)),
             z,
             after);
-        double bipedAngle = LimbSolver.torsoAngleY(30);
+        Pose turned = new Pose();
+        turned.torsoYaw = 30;
+        float[] torso = new float[3];
+        LimbSolver.torsoAngles(turned, torso);
+        double bipedAngle = torso[1];
         assertEquals(-bodyAngle, bipedAngle, 1e-7);
         assertArrayEquals(
             after,
             new float[] { (float) (before[0] * Math.cos(bipedAngle) + before[2] * Math.sin(bipedAngle)), before[1],
                 (float) (-before[0] * Math.sin(bipedAngle) + before[2] * Math.cos(bipedAngle)) },
             1e-6f);
+    }
+
+    /** motion2.torso(): lean about x (negative angle), then yaw about z, then side about y, about the waist. */
+    private static float[] bodyTorso(float[] p, double yaw, double lean, double side, float[] pel) {
+        double x = p[0], y = p[1], z = p[2] - .703125;
+        double a = Math.toRadians(-lean);
+        double y1 = y * Math.cos(a) - z * Math.sin(a), z1 = y * Math.sin(a) + z * Math.cos(a);
+        double b = Math.toRadians(yaw);
+        double x2 = x * Math.cos(b) - y1 * Math.sin(b), y2 = x * Math.sin(b) + y1 * Math.cos(b);
+        double g = Math.toRadians(side);
+        double x3 = x2 * Math.cos(g) + z1 * Math.sin(g), z3 = -x2 * Math.sin(g) + z1 * Math.cos(g);
+        return new float[] { (float) x3 + pel[0], (float) y2 + pel[1], (float) z3 + .703125f + pel[2] };
+    }
+
+    /** The game's torso and the bake's torso are the same transform, and the shoulders ride the body box. */
+    @Test
+    public void torsoTransformMatchesTheBakeAndCarriesShouldersWithTheBody() {
+        Pose pose = new Pose();
+        pose.torsoYaw = 23;
+        pose.torsoLean = 18;
+        pose.torsoSide = -6;
+        pose.pelvis[0] = .04f;
+        pose.pelvis[1] = .3f;
+        pose.pelvis[2] = -.11f;
+        // The exact ModelBiped right shoulder in body space: (5, 2) px.
+        float[] shoulderBody = { 5 * .9375f / 16, 0, (1.5f - 2 / 16f) * .9375f };
+        float[] expected = new float[3], actual = new float[3];
+        float[] baked = bodyTorso(shoulderBody, pose.torsoYaw, pose.torsoLean, pose.torsoSide, pose.pelvis);
+        LimbSolver.bodyToBipedPoint(baked[0], baked[1], baked[2], expected);
+        LimbSolver.shoulderPoint(true, pose, actual);
+        for (int i = 0; i < 3; i++) assertEquals(expected[i] * 16, actual[i], 1e-3);
+        // Forward lean moves the shoulders toward the front (-Z in Biped).
+        Pose upright = new Pose();
+        upright.torsoLean = 0;
+        Pose leaning = new Pose();
+        leaning.torsoLean = 20;
+        float[] a = new float[3], b = new float[3];
+        LimbSolver.shoulderPoint(true, upright, a);
+        LimbSolver.shoulderPoint(true, leaning, b);
+        assertTrue(b[2] < a[2] - 3);
+        // ModelRenderer draws the body box at neck + Rz Ry Rx * v; the shoulder anchor of that box is where the arm
+        // hangs.
+        float[] neck = new float[3], angles = new float[3];
+        LimbSolver.neckPoint(pose, neck);
+        LimbSolver.torsoAngles(pose, angles);
+        double[] v = { -5, 2, 0 };
+        double cx = Math.cos(angles[0]), sx = Math.sin(angles[0]), cy = Math.cos(angles[1]), sy = Math.sin(angles[1]);
+        double cz = Math.cos(angles[2]), sz = Math.sin(angles[2]);
+        double y1 = v[1] * cx - v[2] * sx, z1 = v[1] * sx + v[2] * cx;
+        double x2 = v[0] * cy + z1 * sy, z2 = -v[0] * sy + z1 * cy;
+        double x3 = x2 * cz - y1 * sz, y3 = x2 * sz + y1 * cz;
+        assertEquals(actual[0], neck[0] + x3, 1e-3);
+        assertEquals(actual[1], neck[1] + y3, 1e-3);
+        assertEquals(actual[2], neck[2] + z2, 1e-3);
     }
 
     @Test
