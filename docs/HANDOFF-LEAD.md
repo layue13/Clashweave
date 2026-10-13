@@ -23,7 +23,7 @@
 | --- | --- |
 | `work` | 主线。已含 P0 与 **P1-a(PR #17,743ae6f)** |
 | PR #18 `prototype/wf1-wire` | **WF-1 全部**(内容层、Scheduler 数据驱动、Forge 接线、渲染解耦、握手、第二武器、生命周期修复)+ 合入 PR #15 美术。草稿,**待用户确认合并**。最新 2bcd701(我在 8a51b22 之上加了一个清理提交,未在容器里编译,请你用 Gradle 复核) |
-| PR #15 `claude/upbeat-goodall-klai2o` | 美术(模型、贴图、`art/katana/` 生成脚本、`docs/art/*`、v3 动作预览)。内容已随 #18 合入,合并 #18 后关闭 #15 即可,但 `art/katana/` 与 `docs/art/motion-v3/` 要确认是否已进入 `work`(#18 合入了该分支,应该已含) |
+| PR #15 `claude/upbeat-goodall-klai2o` | 美术(模型、贴图、`art/katana/` 生成脚本、`docs/art/*`、v3 动作预览)。**已于 2026-10-13 合并进 `work`**(合并前 #18 已包含同一内容,#18 合并时美术部分不会冲突) |
 | PR #16 `docs/sync-p0` | 文档(`as-built-p0.md` + 本文)。草稿 |
 | `prototype/wf1-core` | WF-1a/1b 的容器内工作,已被 #18 包含,不用再动 |
 | `p1/ground-fix` | **尚未创建**,提示词已给用户(见 §4-①) |
