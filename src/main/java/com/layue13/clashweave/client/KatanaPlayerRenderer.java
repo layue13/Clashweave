@@ -8,6 +8,9 @@ import net.minecraft.entity.EntityLivingBase;
 public final class KatanaPlayerRenderer extends RenderPlayer {
 
     private final CombatBiped biped = new CombatBiped(0.0F);
+    /** The two armor models RenderPlayer draws vanilla armor with: the plain ModelBiped's, but posed like the skin. */
+    private final CombatBiped armorChest = new CombatBiped(1.0F);
+    private final CombatBiped armorLegs = new CombatBiped(0.5F);
     private float observedBody;
     private float renderedBody;
 
@@ -19,6 +22,8 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
     public KatanaPlayerRenderer() {
         mainModel = biped;
         modelBipedMain = biped;
+        modelArmorChestplate = armorChest;
+        modelArmor = armorLegs;
     }
 
     private static ClientProxy.Visual visualOf(EntityLivingBase player) {
@@ -48,10 +53,14 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
         PoseDriver driver = PoseDriver.INSTANCE;
         if (player instanceof net.minecraft.entity.player.EntityPlayer) {
             driver.prepare((net.minecraft.entity.player.EntityPlayer) player, visualOf(player));
-            biped.pose = driver.pose;
-            biped.weight = driver.weight;
+            net.minecraft.entity.player.EntityPlayer worn = (net.minecraft.entity.player.EntityPlayer) player;
+            // A worn piece keeps its limbs one straight block, skin included, so the joint cannot disagree with it.
+            biped.rigidArms = worn.getCurrentArmor(2) != null;
+            biped.rigidLegs = worn.getCurrentArmor(1) != null || worn.getCurrentArmor(0) != null;
+            biped.pose = armorChest.pose = armorLegs.pose = driver.pose;
+            biped.weight = armorChest.weight = armorLegs.weight = driver.weight;
         } else {
-            biped.weight = 0;
+            biped.weight = armorChest.weight = armorLegs.weight = 0;
         }
         super.renderModel(player, limb, amount, age, headYaw, pitch, scale);
     }

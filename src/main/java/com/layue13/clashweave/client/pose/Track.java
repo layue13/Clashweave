@@ -3,7 +3,9 @@ package com.layue13.clashweave.client.pose;
 /** Immutable packed samples. No per-frame lookup, iterator or scratch object is needed. */
 public final class Track {
 
-    static final int STRIDE = 35;
+    /** Offsets of one packed sample; TrackData writes through these, sample() reads through them. */
+    static final int SWORD_P = 0, SWORD_Q = 3, HAND_R = 7, HAND_L = 10, ARM_R = 13, ARM_L = 16, LEG_R = 19, LEG_L = 22,
+        PELVIS = 25, FOOT_R = 28, FOOT_L = 30, TORSO_YAW = 32, HAND_L_FREE = 33, BLADE_DRAWN = 34, STRIDE = 35;
     private final float[] times;
     private final float[] values;
 
@@ -31,30 +33,30 @@ public final class Track {
         int next = Math.min(low + 1, times.length - 1);
         float w = ticks <= times[low] || low == next ? 0 : (float) ((ticks - times[low]) / (times[next] - times[low]));
         int a = low * STRIDE, b = next * STRIDE;
-        if (w == 0) System.arraycopy(values, a + 0, out.swordP, 0, 3);
-        else Pose.mix(values, a + 0, values, b + 0, w, out.swordP, 3, false);
-        if (w == 0) System.arraycopy(values, a + 3, out.swordQ, 0, 4);
-        else Pose.quaternion(values, a + 3, values, b + 3, w, out.swordQ);
-        if (w == 0) System.arraycopy(values, a + 7, out.handR, 0, 3);
-        else Pose.mix(values, a + 7, values, b + 7, w, out.handR, 3, false);
-        if (w == 0) System.arraycopy(values, a + 10, out.handL, 0, 3);
-        else Pose.mix(values, a + 10, values, b + 10, w, out.handL, 3, false);
-        if (w == 0) System.arraycopy(values, a + 13, out.armR, 0, 3);
-        else Pose.mix(values, a + 13, values, b + 13, w, out.armR, 3, true);
-        if (w == 0) System.arraycopy(values, a + 16, out.armL, 0, 3);
-        else Pose.mix(values, a + 16, values, b + 16, w, out.armL, 3, true);
-        if (w == 0) System.arraycopy(values, a + 19, out.legR, 0, 3);
-        else Pose.mix(values, a + 19, values, b + 19, w, out.legR, 3, true);
-        if (w == 0) System.arraycopy(values, a + 22, out.legL, 0, 3);
-        else Pose.mix(values, a + 22, values, b + 22, w, out.legL, 3, true);
-        if (w == 0) System.arraycopy(values, a + 25, out.pelvis, 0, 3);
-        else Pose.mix(values, a + 25, values, b + 25, w, out.pelvis, 3, false);
-        if (w == 0) System.arraycopy(values, a + 28, out.footR, 0, 2);
-        else Pose.mix(values, a + 28, values, b + 28, w, out.footR, 2, false);
-        if (w == 0) System.arraycopy(values, a + 30, out.footL, 0, 2);
-        else Pose.mix(values, a + 30, values, b + 30, w, out.footL, 2, false);
-        out.torsoYaw = values[a + 32] + (values[b + 32] - values[a + 32]) * w;
-        out.handLFree = values[a + 33] != 0;
-        out.bladeDrawn = values[a + 34] != 0;
+        if (w == 0) System.arraycopy(values, a + SWORD_P, out.swordP, 0, 3);
+        else Pose.mix(values, a + SWORD_P, values, b + SWORD_P, w, out.swordP, 3, false);
+        if (w == 0) System.arraycopy(values, a + SWORD_Q, out.swordQ, 0, 4);
+        else Pose.quaternion(values, a + SWORD_Q, values, b + SWORD_Q, w, out.swordQ);
+        if (w == 0) System.arraycopy(values, a + HAND_R, out.handR, 0, 3);
+        else Pose.mix(values, a + HAND_R, values, b + HAND_R, w, out.handR, 3, false);
+        if (w == 0) System.arraycopy(values, a + HAND_L, out.handL, 0, 3);
+        else Pose.mix(values, a + HAND_L, values, b + HAND_L, w, out.handL, 3, false);
+        if (w == 0) System.arraycopy(values, a + ARM_R, out.armR, 0, 3);
+        else Pose.mix(values, a + ARM_R, values, b + ARM_R, w, out.armR, 3, true);
+        if (w == 0) System.arraycopy(values, a + ARM_L, out.armL, 0, 3);
+        else Pose.mix(values, a + ARM_L, values, b + ARM_L, w, out.armL, 3, true);
+        if (w == 0) System.arraycopy(values, a + LEG_R, out.legR, 0, 3);
+        else Pose.mix(values, a + LEG_R, values, b + LEG_R, w, out.legR, 3, true);
+        if (w == 0) System.arraycopy(values, a + LEG_L, out.legL, 0, 3);
+        else Pose.mix(values, a + LEG_L, values, b + LEG_L, w, out.legL, 3, true);
+        if (w == 0) System.arraycopy(values, a + PELVIS, out.pelvis, 0, 3);
+        else Pose.mix(values, a + PELVIS, values, b + PELVIS, w, out.pelvis, 3, false);
+        if (w == 0) System.arraycopy(values, a + FOOT_R, out.footR, 0, 2);
+        else Pose.mix(values, a + FOOT_R, values, b + FOOT_R, w, out.footR, 2, false);
+        if (w == 0) System.arraycopy(values, a + FOOT_L, out.footL, 0, 2);
+        else Pose.mix(values, a + FOOT_L, values, b + FOOT_L, w, out.footL, 2, false);
+        out.torsoYaw = values[a + TORSO_YAW] + (values[b + TORSO_YAW] - values[a + TORSO_YAW]) * w;
+        out.handLFree = values[a + HAND_L_FREE] != 0;
+        out.bladeDrawn = values[a + BLADE_DRAWN] != 0;
     }
 }

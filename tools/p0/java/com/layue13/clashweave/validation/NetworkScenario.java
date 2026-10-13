@@ -29,6 +29,18 @@ public final class NetworkScenario {
         boolean a = player.getCommandSenderName().equals("P0A");
         player.inventory.setInventorySlotContents(0, new ItemStack(Clashweave.katana));
         player.inventory.currentItem = 0;
+        String armor = System.getProperty("cw.c2b.armor");
+        if (a && armor != null) {
+            // 0 boots, 1 leggings, 2 chestplate, 3 helmet. "chest", "legs" or "boots" equip one piece; others all four.
+            net.minecraft.item.Item[] pieces = armor.startsWith("leather")
+                ? new net.minecraft.item.Item[] { net.minecraft.init.Items.leather_boots, net.minecraft.init.Items.leather_leggings, net.minecraft.init.Items.leather_chestplate, net.minecraft.init.Items.leather_helmet }
+                : new net.minecraft.item.Item[] { net.minecraft.init.Items.iron_boots, net.minecraft.init.Items.iron_leggings, net.minecraft.init.Items.iron_chestplate, net.minecraft.init.Items.iron_helmet };
+            for (int slot = 0; slot < 4; slot++) {
+                boolean wanted = armor.endsWith("-chest") ? slot == 2 : armor.endsWith("-legs") ? slot == 1 : armor.endsWith("-boots") ? slot == 0 : true;
+                if (wanted) player.inventory.armorInventory[slot] = new ItemStack(pieces[slot]);
+            }
+            System.out.println("C2B_ARMOR equipped " + armor);
+        }
         player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200);
         player.setHealth(200);
         player.playerNetServerHandler.setPlayerLocation(a ? 0 : Boolean.getBoolean("cw.p0.renderOnly") ? 6 : 1.15, 64, a ? 0 : 1.9, a ? 0 : 180, 0);

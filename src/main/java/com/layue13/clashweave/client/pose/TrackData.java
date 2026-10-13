@@ -52,11 +52,11 @@ public final class TrackData {
                     throw error(at + ".t", "expected zero start and strictly increasing ticks");
                 int offset = i * Track.STRIDE;
                 JsonObject sword = object(field(sample, "sword", at + ".sword"), at + ".sword");
-                vector(sword, "p", at + ".sword", 3, 0, values, offset);
-                vector(sword, "q", at + ".sword", 4, .001, values, offset + 3);
-                vector(sample, "handR", at, 3, 0, values, offset + 7);
+                vector(sword, "p", at + ".sword", 3, 0, values, offset + Track.SWORD_P);
+                vector(sword, "q", at + ".sword", 4, .001, values, offset + Track.SWORD_Q);
+                vector(sample, "handR", at, 3, 0, values, offset + Track.HAND_R);
                 JsonObject hand = object(field(sample, "handL", at + ".handL"), at + ".handL");
-                vector(hand, "p", at + ".handL", 3, 0, values, offset + 10);
+                vector(hand, "p", at + ".handL", 3, 0, values, offset + Track.HAND_L);
                 JsonElement mode = field(hand, "mode", at + ".handL.mode");
                 if (!mode.isJsonPrimitive() || !mode.getAsJsonPrimitive()
                     .isString()
@@ -65,25 +65,26 @@ public final class TrackData {
                         || mode.getAsString()
                             .equals("grip")))
                     throw error(at + ".handL.mode", "expected grip or free");
-                values[offset + 33] = mode.getAsString()
+                values[offset + Track.HAND_L_FREE] = mode.getAsString()
                     .equals("free") ? 1 : 0;
                 JsonObject baked = object(field(sample, "baked", at + ".baked"), at + ".baked");
-                vector(baked, "armR", at + ".baked", 3, .01, values, offset + 13);
-                vector(baked, "armL", at + ".baked", 3, .01, values, offset + 16);
-                vector(baked, "legR", at + ".baked", 3, .01, values, offset + 19);
-                vector(baked, "legL", at + ".baked", 3, .01, values, offset + 22);
-                vector(sample, "pelvis", at, 3, 0, values, offset + 25);
-                vector(sample, "footR", at, 2, 0, values, offset + 28);
-                vector(sample, "footL", at, 2, 0, values, offset + 30);
-                values[offset + 32] = number(field(sample, "torsoYaw", at + ".torsoYaw"), at + ".torsoYaw");
+                vector(baked, "armR", at + ".baked", 3, .01, values, offset + Track.ARM_R);
+                vector(baked, "armL", at + ".baked", 3, .01, values, offset + Track.ARM_L);
+                vector(baked, "legR", at + ".baked", 3, .01, values, offset + Track.LEG_R);
+                vector(baked, "legL", at + ".baked", 3, .01, values, offset + Track.LEG_L);
+                vector(sample, "pelvis", at, 3, 0, values, offset + Track.PELVIS);
+                vector(sample, "footR", at, 2, 0, values, offset + Track.FOOT_R);
+                vector(sample, "footL", at, 2, 0, values, offset + Track.FOOT_L);
+                values[offset + Track.TORSO_YAW] = number(
+                    field(sample, "torsoYaw", at + ".torsoYaw"),
+                    at + ".torsoYaw");
                 JsonElement drawn = field(sample, "bladeDrawn", at + ".bladeDrawn");
                 if (!drawn.isJsonPrimitive() || !drawn.getAsJsonPrimitive()
                     .isBoolean()) throw error(at + ".bladeDrawn", "expected boolean");
-                values[offset + 34] = drawn.getAsBoolean() ? 1 : 0;
+                values[offset + Track.BLADE_DRAWN] = drawn.getAsBoolean() ? 1 : 0;
             }
             tracks.put(entry.getKey(), new Track(times, values));
         }
-        finiteTree(tree, "$");
         return new TrackData(tracks);
     }
 
@@ -148,29 +149,6 @@ public final class TrackData {
             length = Math.sqrt(length);
             if (Math.abs(length - 1) > tolerance) throw error(path, "expected unit norm");
             for (int i = 0; i < count; i++) out[offset + i] /= length;
-        }
-    }
-
-    private static void finiteTree(JsonElement value, String path) {
-        if (value.isJsonObject()) {
-            for (Map.Entry<String, JsonElement> entry : value.getAsJsonObject()
-                .entrySet())
-                finiteTree(entry.getValue(), path.equals("$") ? entry.getKey() : path + "." + entry.getKey());
-        } else if (value.isJsonArray()) {
-            JsonArray array = value.getAsJsonArray();
-            for (int i = 0; i < array.size(); i++) finiteTree(array.get(i), path + "[" + i + "]");
-        } else if (value.isJsonPrimitive()) {
-            if (value.getAsJsonPrimitive()
-                .isNumber()) number(value, path);
-            else if (value.getAsJsonPrimitive()
-                .isString()
-                && (value.getAsString()
-                    .equals("NaN")
-                    || value.getAsString()
-                        .equals("Infinity")
-                    || value.getAsString()
-                        .equals("-Infinity")))
-                throw error(path, "not finite");
         }
     }
 }

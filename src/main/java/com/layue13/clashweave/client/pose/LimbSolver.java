@@ -5,7 +5,30 @@ public final class LimbSolver {
 
     private static final float SCALE = .9375f;
 
+    /** ModelBiped's arm box runs from -2 to 10 px about the shoulder pivot: 10 px reach, two segments of 5 px. */
+    public static final float ARM_SEGMENT = 5f / 16;
+    /** The leg box hangs 12 px below the hip pivot: two segments of 6 px. */
+    public static final float LEG_SEGMENT = 6f / 16;
+    private static final float MAX_FLEX = (float) Math.toRadians(145);
+    /**
+     * Each limb's hinge frame is the lateral axis carried by the shortest rotation from {@code -singular} to the
+     * direction of the target, so the bend plane turns smoothly with the arm instead of pointing at a fixed pole. Such
+     * a
+     * frame is undefined exactly when the target lies along {@code singular}; the axes below sit as far as possible
+     * from
+     * every direction the katana tracks send the limb (45 degrees tilted from straight up, away from the sword arc).
+     * They are Biped-space unit vectors; the tracks they were chosen against are in katana.tracks.json.
+     */
+    private static final float[] ARM_RIGHT_SINGULAR = unit(-.3f, -.71f, .64f);
+    private static final float[] ARM_LEFT_SINGULAR = unit(.7f, -.71f, .06f);
+    private static final float[] LEG_SINGULAR = { 0, -1, 0 };
+
     private LimbSolver() {}
+
+    private static float[] unit(float x, float y, float z) {
+        double n = Math.sqrt((double) x * x + (double) y * y + (double) z * z);
+        return new float[] { (float) (x / n), (float) (y / n), (float) (z / n) };
+    }
 
     /** Block-space body point to Biped units (px/16), including ground-origin translation. */
     public static void bodyToBipedPoint(float x, float y, float z, float[] out3) {
@@ -95,5 +118,126 @@ public final class LimbSolver {
         out16[13] = 1.5f - pose.swordP[2] / SCALE;
         out16[14] = -pose.swordP[1] / SCALE;
         out16[15] = 1;
+    }
+
+    /** Rz Ry Rx for the frame with local +Y = u and local +X = h (h unit and perpendicular to u). */
+    private static void frame(double ux, double uy, double uz, double hx, double hy, double hz, float[] outUpperXYZ) {
+        double zz = hx * uy - hy * ux;
+        double cosY = Math.hypot(hx, hy);
+        outUpperXYZ[1] = (float) Math.atan2(-hz, cosY);
+        if (cosY > 1e-10) {
+            outUpperXYZ[0] = (float) Math.atan2(uz, zz);
+            outUpperXYZ[2] = (float) Math.atan2(hy, hx);
+        } else {
+            outUpperXYZ[0] = 0;
+            outUpperXYZ[2] = (float) Math.atan2(-ux, uy);
+        }
+        // Keep the knee rest angle inside the chart; a stateless Euler chart still has a seam.
+        if (outUpperXYZ[0] < -Math.PI / 2) outUpperXYZ[0] += (float) (2 * Math.PI);
+        if (outUpperXYZ[2] < -Math.PI / 2) outUpperXYZ[2] += (float) (2 * Math.PI);
+    }
+
+    /** Shoulder/hand IK with a hinge frame that follows the arm, and the anatomical flex limit; output owns scratch. */
+    public static void solveArm(boolean right, Pose pose, LimbAngles out) {
+        shoulderPoint(right, pose.torsoYaw, pose.pelvis, out.pivot);
+        float[] hand = right ? pose.handR : pose.handL;
+        bodyToBipedPoint(hand[0], hand[1], hand[2], out.target);
+        // Elbows bend behind the upper arm's swing plane: forearm forward.
+        solveSegmented(right ? ARM_RIGHT_SINGULAR : ARM_LEFT_SINGULAR, 1, ARM_SEGMENT, out);
+    }
+
+    /** Hip/ground-foot IK; the existing hip anchor remains unchanged. */
+    public static void solveLeg(boolean right, Pose pose, LimbAngles out) {
+        hipPoint(right, pose.pelvis, out.pivot);
+        float[] foot = right ? pose.footR : pose.footL;
+        bodyToBipedPoint(foot[0], foot[1], 0, out.target);
+        // Knees bend ahead of the thigh's swing plane: shin backward.
+        solveSegmented(LEG_SINGULAR, -1, LEG_SEGMENT, out);
+    }
+
+    /**
+     * The hinge axis is {@code lateral * X} carried by the shortest rotation from {@code -singular} to the target
+     * direction t; it is perpendicular to t, so the bend plane holds t and the offset w = h x t. Segments of equal
+     * length l and reach r: upper = (r/2 t + height w) / l, lower = (r/2 t - height w) / l. Closed form, no iteration.
+     */
+    private static void solveSegmented(float[] singular, int lateral, float segment, LimbAngles out) {
+        for (int i = 0; i < 3; i++) out.pivot[i] /= 16;
+        double rx = -singular[0], ry = -singular[1], rz = -singular[2];
+        double dx = (double) out.target[0] - out.pivot[0], dy = (double) out.target[1] - out.pivot[1];
+        double dz = (double) out.target[2] - out.pivot[2];
+        double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        double minimum = 2 * segment * Math.cos(MAX_FLEX / 2);
+        double radius = Math.max(minimum, Math.min(2 * segment, distance));
+        out.reachable = distance >= minimum && distance <= 2 * segment;
+        out.shortfall = (float) Math.abs(radius - distance);
+        if (distance == 0) {
+            // Any ray is equally close; the rest direction keeps the hinge frame defined.
+            dx = rx;
+            dy = ry;
+            dz = rz;
+        } else {
+            dx /= distance;
+            dy /= distance;
+            dz /= distance;
+        }
+        // h0: the lateral axis perpendicular to rest.
+        double dotX = rx;
+        double h0x = 1 - dotX * rx, h0y = -dotX * ry, h0z = -dotX * rz;
+        double h0 = Math.sqrt(h0x * h0x + h0y * h0y + h0z * h0z);
+        h0x *= lateral / h0;
+        h0y *= lateral / h0;
+        h0z *= lateral / h0;
+        // Rodrigues rotation of h0 about rest x t by the angle between them.
+        double ax = ry * dz - rz * dy, ay = rz * dx - rx * dz, az = rx * dy - ry * dx;
+        double sine = Math.sqrt(ax * ax + ay * ay + az * az);
+        double cosine = rx * dx + ry * dy + rz * dz;
+        double hx = h0x, hy = h0y, hz = h0z;
+        if (sine > 1e-9) {
+            ax /= sine;
+            ay /= sine;
+            az /= sine;
+            double kh = ax * h0x + ay * h0y + az * h0z;
+            double cx = ay * h0z - az * h0y, cy = az * h0x - ax * h0z, cz = ax * h0y - ay * h0x;
+            hx = h0x * cosine + cx * sine + ax * kh * (1 - cosine);
+            hy = h0y * cosine + cy * sine + ay * kh * (1 - cosine);
+            hz = h0z * cosine + cz * sine + az * kh * (1 - cosine);
+        }
+        // Offset direction of the joint from the line pivot-target.
+        double wx = hy * dz - hz * dy, wy = hz * dx - hx * dz, wz = hx * dy - hy * dx;
+        double along = radius / 2;
+        double height = Math.sqrt(Math.max(0, (double) segment * segment - along * along));
+        double ux = (along * dx + height * wx) / segment, uy = (along * dy + height * wy) / segment;
+        double uz = (along * dz + height * wz) / segment;
+        double lx = ((radius - along) * dx - height * wx) / segment,
+            ly = ((radius - along) * dy - height * wy) / segment;
+        double lz = ((radius - along) * dz - height * wz) / segment;
+        out.upperDir[0] = (float) ux;
+        out.upperDir[1] = (float) uy;
+        out.upperDir[2] = (float) uz;
+        out.lowerDir[0] = (float) lx;
+        out.lowerDir[1] = (float) ly;
+        out.lowerDir[2] = (float) lz;
+        frame(ux, uy, uz, hx, hy, hz, out.upper);
+        out.flex = (float) Math.min(MAX_FLEX, 2 * Math.acos(Math.min(1, radius / (2 * segment))));
+        // The lower segment always lies on the -w side of the upper one, so the child angle is the negative flexion.
+        out.childAngleX = -out.flex;
+    }
+
+    /** FK for two segments of {@code segment} Biped units: pivot + Rz Ry Rx * (0, l + l*cos(child), l*sin(child)). */
+    public static void endPoint(float[] pivot, float[] upperXYZ, float childAngleX, float segment, float[] out3) {
+        double y = segment * (1 + Math.cos(childAngleX)), z = segment * Math.sin(childAngleX);
+        double cx = Math.cos(upperXYZ[0]), sx = Math.sin(upperXYZ[0]);
+        double cy = Math.cos(upperXYZ[1]), sy = Math.sin(upperXYZ[1]);
+        double cz = Math.cos(upperXYZ[2]), sz = Math.sin(upperXYZ[2]);
+        double ry = cx * y - sx * z, rz = sx * y + cx * z;
+        double rx = sy * rz;
+        out3[0] = (float) (pivot[0] + cz * rx - sz * ry);
+        out3[1] = (float) (pivot[1] + sz * rx + cz * ry);
+        out3[2] = (float) (pivot[2] + cy * rz);
+    }
+
+    /** {@link #endPoint(float[], float[], float, float, float[])} for the 6 px leg segments. */
+    public static void endPoint(float[] pivot, float[] upperXYZ, float childAngleX, float[] out3) {
+        endPoint(pivot, upperXYZ, childAngleX, LEG_SEGMENT, out3);
     }
 }

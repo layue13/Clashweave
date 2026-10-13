@@ -29,6 +29,7 @@ parser.add_argument('--souls', action='store_true')
 parser.add_argument('--souls-view', action='store_true')
 parser.add_argument('--edge-boundary', action='store_true')
 parser.add_argument('--art-verify', action='store_true')
+parser.add_argument('--armor', help='C2b: equip P0A with leather|iron (optionally -chest, -legs, -boots for one piece)')
 parser.add_argument('--pose-verify', type=float, help='C2a: frame-by-frame third-person captures of every action from this camera yaw (degrees, 90 = side)')
 parser.add_argument('--movement', action='store_true')
 parser.add_argument('--low-tps', action='store_true')
@@ -129,6 +130,7 @@ def spawn(role):
     if args.edge_boundary: command += ['-Dcw.p0.edgeBoundary=true']
     if args.art_verify: command += ['-Dcw.p0.artVerify=true']
     if args.pose_verify is not None: command += ['-Dcw.c2a.poseVerify='+str(args.pose_verify)]
+    if args.armor: command += ['-Dcw.c2b.armor='+args.armor]
     if args.sweep_test:
         command += ['-Dcw.p0.sweepTest=true']
     if args.fast_turn:

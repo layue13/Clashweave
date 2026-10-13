@@ -62,16 +62,32 @@ public class PoseAllocationTest {
             LimbSolver.shoulderPoint(true, b.torsoYaw, b.pelvis, shoulder);
             sink = shoulder[0];
         });
-        perMillion("Pose.blend", () -> {
-            Pose.blend(a, b, .4f, out);
-            sink = out.swordP[0];
+    }
+
+    @Test
+    public void segmentedHotPathsDoNotAllocate() throws Exception {
+        Assume.assumeTrue(ManagementFactory.getThreadMXBean() instanceof com.sun.management.ThreadMXBean);
+        com.sun.management.ThreadMXBean bean = (com.sun.management.ThreadMXBean) ManagementFactory.getThreadMXBean();
+        Assume.assumeTrue(bean.isThreadAllocatedMemorySupported());
+        if (!bean.isThreadAllocatedMemoryEnabled()) bean.setThreadAllocatedMemoryEnabled(true);
+        perMillion("counter baseline", () -> sink = 0);
+        Pose pose = new Pose();
+        TrackDataTest.realData()
+            .track("light_1")
+            .sample(5, pose);
+        LimbAngles out = new LimbAngles();
+        float[] pivot = new float[3], end = new float[3];
+        perMillion("LimbSolver.solveArm", () -> {
+            LimbSolver.solveArm(true, pose, out);
+            sink = out.upper[0] + out.childAngleX;
         });
-        PoseBlend blend = new PoseBlend();
-        blend.start(a, Integer.MAX_VALUE);
-        perMillion("PoseBlend.update", () -> {
-            blend.update(b, .125, out);
-            sink = out.swordP[0];
+        perMillion("LimbSolver.solveLeg", () -> {
+            LimbSolver.solveLeg(true, pose, out);
+            sink = out.upper[0] + out.childAngleX;
         });
-        assertTrue(blend.active());
+        perMillion("LimbSolver.endPoint", () -> {
+            LimbSolver.endPoint(pivot, out.upper, -.7f, end);
+            sink = end[0];
+        });
     }
 }
