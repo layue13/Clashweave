@@ -5,7 +5,10 @@ public final class LimbSolver {
 
     private static final float SCALE = .9375f;
 
-    private static final float SEGMENT = .375f;
+    /** ModelBiped's arm box runs from -2 to 10 px about the shoulder pivot: 10 px reach, two segments of 5 px. */
+    public static final float ARM_SEGMENT = 5f / 16;
+    /** The leg box hangs 12 px below the hip pivot: two segments of 6 px. */
+    public static final float LEG_SEGMENT = 6f / 16;
     private static final float MAX_FLEX = (float) Math.toRadians(145);
     /**
      * Each limb's hinge frame is the lateral axis carried by the shortest rotation from {@code -singular} to the
@@ -164,7 +167,7 @@ public final class LimbSolver {
         float[] hand = right ? pose.handR : pose.handL;
         bodyToBipedPoint(hand[0], hand[1], hand[2], out.target);
         // Elbows bend behind the upper arm's swing plane: forearm forward.
-        solveSegmented(right ? ARM_RIGHT_SINGULAR : ARM_LEFT_SINGULAR, 1, out);
+        solveSegmented(right ? ARM_RIGHT_SINGULAR : ARM_LEFT_SINGULAR, 1, ARM_SEGMENT, out);
     }
 
     /** Hip/ground-foot IK; the existing hip anchor remains unchanged. */
@@ -173,7 +176,7 @@ public final class LimbSolver {
         float[] foot = right ? pose.footR : pose.footL;
         bodyToBipedPoint(foot[0], foot[1], 0, out.target);
         // Knees bend ahead of the thigh's swing plane: shin backward.
-        solveSegmented(LEG_SINGULAR, -1, out);
+        solveSegmented(LEG_SINGULAR, -1, LEG_SEGMENT, out);
     }
 
     /**
@@ -181,15 +184,15 @@ public final class LimbSolver {
      * direction t; it is perpendicular to t, so the bend plane holds t and the offset w = h x t. Segments of equal
      * length l and reach r: upper = (r/2 t + height w) / l, lower = (r/2 t - height w) / l. Closed form, no iteration.
      */
-    private static void solveSegmented(float[] singular, int lateral, LimbAngles out) {
+    private static void solveSegmented(float[] singular, int lateral, float segment, LimbAngles out) {
         for (int i = 0; i < 3; i++) out.pivot[i] /= 16;
         double rx = -singular[0], ry = -singular[1], rz = -singular[2];
         double dx = (double) out.target[0] - out.pivot[0], dy = (double) out.target[1] - out.pivot[1];
         double dz = (double) out.target[2] - out.pivot[2];
         double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
-        double minimum = 2 * SEGMENT * Math.cos(MAX_FLEX / 2);
-        double radius = Math.max(minimum, Math.min(2 * SEGMENT, distance));
-        out.reachable = distance >= minimum && distance <= 2 * SEGMENT;
+        double minimum = 2 * segment * Math.cos(MAX_FLEX / 2);
+        double radius = Math.max(minimum, Math.min(2 * segment, distance));
+        out.reachable = distance >= minimum && distance <= 2 * segment;
         out.shortfall = (float) Math.abs(radius - distance);
         if (distance == 0) {
             // Any ray is equally close; the rest direction keeps the hinge frame defined.
@@ -226,12 +229,12 @@ public final class LimbSolver {
         // Offset direction of the joint from the line pivot-target.
         double wx = hy * dz - hz * dy, wy = hz * dx - hx * dz, wz = hx * dy - hy * dx;
         double along = radius / 2;
-        double height = Math.sqrt(Math.max(0, (double) SEGMENT * SEGMENT - along * along));
-        double ux = (along * dx + height * wx) / SEGMENT, uy = (along * dy + height * wy) / SEGMENT;
-        double uz = (along * dz + height * wz) / SEGMENT;
-        double lx = ((radius - along) * dx - height * wx) / SEGMENT,
-            ly = ((radius - along) * dy - height * wy) / SEGMENT;
-        double lz = ((radius - along) * dz - height * wz) / SEGMENT;
+        double height = Math.sqrt(Math.max(0, (double) segment * segment - along * along));
+        double ux = (along * dx + height * wx) / segment, uy = (along * dy + height * wy) / segment;
+        double uz = (along * dz + height * wz) / segment;
+        double lx = ((radius - along) * dx - height * wx) / segment,
+            ly = ((radius - along) * dy - height * wy) / segment;
+        double lz = ((radius - along) * dz - height * wz) / segment;
         out.upperDir[0] = (float) ux;
         out.upperDir[1] = (float) uy;
         out.upperDir[2] = (float) uz;
@@ -239,14 +242,14 @@ public final class LimbSolver {
         out.lowerDir[1] = (float) ly;
         out.lowerDir[2] = (float) lz;
         frame(ux, uy, uz, hx, hy, hz, out.upper);
-        out.flex = (float) Math.min(MAX_FLEX, 2 * Math.acos(Math.min(1, radius / (2 * SEGMENT))));
+        out.flex = (float) Math.min(MAX_FLEX, 2 * Math.acos(Math.min(1, radius / (2 * segment))));
         // The lower segment always lies on the -w side of the upper one, so the child angle is the negative flexion.
         out.childAngleX = -out.flex;
     }
 
-    /** FK for two 6 px segments: pivot + Rz Ry Rx * (0, l + l*cos(child), l*sin(child)). */
-    public static void endPoint(float[] pivot, float[] upperXYZ, float childAngleX, float[] out3) {
-        double y = SEGMENT * (1 + Math.cos(childAngleX)), z = SEGMENT * Math.sin(childAngleX);
+    /** FK for two segments of {@code segment} Biped units: pivot + Rz Ry Rx * (0, l + l*cos(child), l*sin(child)). */
+    public static void endPoint(float[] pivot, float[] upperXYZ, float childAngleX, float segment, float[] out3) {
+        double y = segment * (1 + Math.cos(childAngleX)), z = segment * Math.sin(childAngleX);
         double cx = Math.cos(upperXYZ[0]), sx = Math.sin(upperXYZ[0]);
         double cy = Math.cos(upperXYZ[1]), sy = Math.sin(upperXYZ[1]);
         double cz = Math.cos(upperXYZ[2]), sz = Math.sin(upperXYZ[2]);
@@ -255,5 +258,10 @@ public final class LimbSolver {
         out3[0] = (float) (pivot[0] + cz * rx - sz * ry);
         out3[1] = (float) (pivot[1] + sz * rx + cz * ry);
         out3[2] = (float) (pivot[2] + cy * rz);
+    }
+
+    /** {@link #endPoint(float[], float[], float, float, float[])} for the 6 px leg segments. */
+    public static void endPoint(float[] pivot, float[] upperXYZ, float childAngleX, float[] out3) {
+        endPoint(pivot, upperXYZ, childAngleX, LEG_SEGMENT, out3);
     }
 }

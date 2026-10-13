@@ -34,7 +34,12 @@ public class HingedLimbTest {
                         LimbSolver.bodyToBipedPoint(foot[0], foot[1], 0, target);
                     }
                     for (int i = 0; i < 3; i++) pivot[i] /= 16;
-                    LimbSolver.endPoint(pivot, out.upper, out.childAngleX, end);
+                    LimbSolver.endPoint(
+                        pivot,
+                        out.upper,
+                        out.childAngleX,
+                        arm ? LimbSolver.ARM_SEGMENT : LimbSolver.LEG_SEGMENT,
+                        end);
                     double error = distance(end, target);
                     assertTrue(Float.isFinite(out.flex));
                     assertTrue(Float.isFinite(out.childAngleX));
@@ -161,8 +166,8 @@ public class HingedLimbTest {
         assertFalse(out.reachable);
         assertEquals(Math.toRadians(145), out.flex, 1e-6);
         float[] end = new float[3];
-        LimbSolver.endPoint(out.pivot, out.upper, out.childAngleX, end);
-        assertEquals(.75 * Math.cos(Math.toRadians(145) / 2), distance(end, out.pivot), 1e-6);
+        LimbSolver.endPoint(out.pivot, out.upper, out.childAngleX, LimbSolver.ARM_SEGMENT, end);
+        assertEquals(2 * LimbSolver.ARM_SEGMENT * Math.cos(Math.toRadians(145) / 2), distance(end, out.pivot), 1e-6);
         assertEquals(distance(end, out.pivot), out.shortfall, 1e-6);
     }
 
