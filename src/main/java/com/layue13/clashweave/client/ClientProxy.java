@@ -37,6 +37,12 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 /** Client state belongs to an authoritative instance, never to a camera mode. */
 public final class ClientProxy extends CommonProxy {
 
+    /**
+     * The player's own ground flag as vanilla computed it for this tick, sampled before a root move can clear it. Input
+     * handling runs at the start of the next tick, where {@code onGround} still holds the root move's side effect.
+     */
+    private boolean physicalGround = true;
+
     public static final class Visual {
 
         public StateMessage state;
@@ -263,7 +269,7 @@ public final class ClientProxy extends CommonProxy {
                 new net.minecraft.network.play.client.C03PacketPlayer.C05PacketPlayerLook(
                     request.yaw,
                     request.pitch,
-                    minecraft.thePlayer.onGround));
+                    physicalGround));
         Clashweave.network.sendToServer(request);
         if (intent == Intent.LIGHT || intent == Intent.HEAVY || intent == Intent.SHEATHE) {
             Visual own = own();
@@ -358,6 +364,7 @@ public final class ClientProxy extends CommonProxy {
                 minecraft.thePlayer.movementInput = new CombatMovementInput(minecraft.thePlayer.movementInput);
             }
             minecraft.thePlayer.movementInput.updatePlayerMoveState();
+            physicalGround = minecraft.thePlayer.onGround;
             Visual visual = own();
             if (visual != null && visual.movementReady && visual.definition != null && !visual.state.action.isEmpty()) {
                 ActionCatalog.Definition definition = visual.definition;
