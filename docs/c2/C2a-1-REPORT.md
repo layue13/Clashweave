@@ -1,0 +1,55 @@
+# C2a-1:烘焙轨迹驱动的第三人称身体姿态(刚性手臂 v1)
+
+状态:**草稿,等待审核**。日期:2026-10-13。基线:`origin/work` `976175a`(PR #19 合并后),分支 `c2a/skeleton-1`。
+
+术语:**通过**＝该项预设判据在记录的运行中成立;**未验证**＝本轮没有运行;**观察**＝只记录,不下判据。
+
+## 1 结论
+
+- 纯逻辑层、内容 schema、渲染接线已完成并通过构建与 JUnit(214 项,新增 25 项,0 失败/错误/跳过;唯一改动的既有断言见 §3)。
+- 第三人称接管在真实游戏中生效:交锋态与 `iai`、`light_1` 的 12 帧(侧 90°、斜后 140°)显示躯干扭转、双臂与刀按轨迹摆动,刀鞘在髋部。
+- **视觉评价:肢体僵硬,不满足"柔软"目标。** 手臂/腿是 `ModelBiped` 的单个方块,无肘无膝,持刀时双臂在胸前交成"X"。这是刚性 v1 的已知范围(HANDOFF §3、§4),由 C2b 处理,本 PR 不宣称解决。
+- **未完成/未验证项**见 §5。本 PR 不是 C2a 的完成,只是它的第一半。
+
+## 2 实现
+
+| 部分 | 内容 |
+|---|---|
+| 轨迹数据 | `art/katana/motion2.py` 生成 `assets/clashweave/tracks/katana.tracks.json`(版本 2,6 个动作,每 0.5 tick 一个样本)。放在 `tracks/` 而不是 `content/<ns>/` 下,避免 `ContentLoader` 把它当内容文件解析。**未纳入 Presentation 清单哈希**(哈希只覆盖内容包文件);Presentation 允许差异,后果仅是两端轨迹不同时外观不同。 |
+| 内容 schema | `Animation` 增加 `source`(`domain:path`)、`stance`(本地动作 ID,其首帧作交锋态);`preset:"track"` 缺 `source` 在加载时拒绝。katana 武器改用 `katana:track`(`rigid_arc` 保留作回退)。 |
+| 纯逻辑 `client/pose/` | Codex 实现,我审查并独立复核:`TrackData` 解析与校验、`Track` 零分配采样、`LimbSolver`(Biped 坐标映射、最小扭转欧拉分解、肩/髋点、刀矩阵)、`Pose`、`PoseBlend`。契约与推导见 [C2a-1-codex-logic-NOTES.md](C2a-1-codex-logic-NOTES.md)。 |
+| 渲染 | `CombatBiped`(在原版角度上叠加姿态,3 tick 淡入淡出)、`PoseDriver`(每玩家每帧决定权重与姿态)、`KatanaPlayerRenderer` 换用 `CombatBiped`、`WeaponRendering` 在姿态生效时按轨迹刀姿直接绘制(不再挂在手臂上)。 |
+| 兼容 | 检测到 Mo' Bends(`mobends`)时战斗态让位并记日志。**该分支未在真实环境测试**(没有安装该模组)。 |
+| 夹具 | `PoseVerifyReplay`(`dual.py --pose-verify <相机偏角>`):纯观察者,按动作 6 个时间点拍摄。 |
+
+## 3 验证
+
+- 构建:`.\gradlew.bat spotlessCheck cleanTest checkstyleMain checkstyleTest test build`,`BUILD SUCCESSFUL`;JUnit XML 统计 214 项,失败 0、错误 0、跳过 0。Codex 在其沙箱内另有一次构建,数字一致;以上数字来自我在本机的独立复跑。
+- 既有断言改动 1 处:`CombatWeaponsTest.weaponDefinitionsCarryTheContentIdsOnTheWire` 把武器外观动画从 `katana:rigid_arc` 改为 `katana:track`,因为武器数据有意切换,不是回归。
+- 零分配:`PoseAllocationTest` 对 `Track.sample`、`LimbSolver.solveLimb/swordMatrix/shoulderPoint`、`Pose.blend`、`PoseBlend.update` 各 100 万次,测得 0 字节(计数器基线 512 字节/百万次,属测量开销;Codex 报告记录首轮曾测到 392 字节并解释为测量循环首次运行开销,未定位 JVM 内部来源)。渲染路径的 `CombatBiped`/`PoseDriver` **没有**单独的分配测试。
+- 真实画面:`c2a1-art-1`(静态)、`c2a1-pose-side-1`、`c2a1-pose-140-3`、`c2a1-pose-90-3`。失败过的运行保留:`c2a1-pose-90-2`、`c2a1-pose-140-2`(拍摄夹具过早抢占相机,0 帧)。
+
+## 4 已知问题(观察到的)
+
+1. 肢体僵硬(见 §1),C2b。
+2. 刀身在许多帧中近乎侧面朝向镜头而显得很细;可能与轴向有关,未查明。
+3. 手与刀柄有残差:轨迹自身已记录 light_2、iai 末段手够刀柄的偏差约 0.29–0.30 m,画面上未逐帧量化。
+4. 刀鞘挂点没有随骨盆偏移的 X 分量(只跟 Y、Z)。
+5. 盔甲/细臂皮肤/蹲下/骑乘:盔甲层用独立模型实例,不跟随姿态(设计:C2b 复制主模型角度);其余未处理。
+
+## 5 未验证/未完成
+
+- `light_2`、`light_3`、`heavy`、`sheathe` 的真实画面:拍摄场景(`--souls-view`)实际只触发了 `iai` 与 `light_1`,其余动作需要命中目标才能连段(动作图的边要求 `hit:true`),本轮没有拍到。
+- 第一人称:本 PR 不改(C2a-2)。
+- `--souls-view` 0/100 ms 连击回归、`--launcher player --rtt 100` 浮空回归、挂点 X 回测、`--render-probe` 渲染 CPU 对比:**均未运行**。因此本 PR 的性能影响、对战斗回归的影响尚无实测数据,合并前必须补。
+- Mo' Bends 让位分支、盔甲、多人同屏:未验证。
+
+## 6 复现
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Zulu\zulu-25'; $env:VERSION='0.1.0-dev'
+.\gradlew.bat spotlessApply cleanTest spotlessCheck checkstyleMain checkstyleTest test build --no-configuration-cache --console=plain
+.\gradlew.bat p0LaunchFiles p0ValidationJar -I tools/p0/validation.gradle --no-configuration-cache --console=plain
+python tools/p0/dual.py --pose-verify 140 --mod-snapshot build/<jar>-dev.jar --snapshot-coremod --label <新标签> --accept-eula
+python art/katana/motion2.py src/main/resources/assets/clashweave/combat/katana.json src/main/resources/assets/clashweave/tracks/katana.tracks.json
+```

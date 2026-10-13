@@ -29,6 +29,7 @@ parser.add_argument('--souls', action='store_true')
 parser.add_argument('--souls-view', action='store_true')
 parser.add_argument('--edge-boundary', action='store_true')
 parser.add_argument('--art-verify', action='store_true')
+parser.add_argument('--pose-verify', type=float, help='C2a: frame-by-frame third-person captures of every action from this camera yaw (degrees, 90 = side)')
 parser.add_argument('--movement', action='store_true')
 parser.add_argument('--low-tps', action='store_true')
 parser.add_argument('--engagement', action='store_true')
@@ -60,6 +61,7 @@ if args.souls: args.composition=True
 if args.souls_view: args.view_test=True
 if args.edge_boundary: args.view_test=True; args.render_only=True
 if args.art_verify: args.render_only=True
+if args.pose_verify is not None: args.souls_view=True; args.view_test=True
 if not args.accept_eula:
     raise SystemExit('Explicit EULA acceptance required')
 folder = ROOT / 'build/p0/runs' / args.label
@@ -127,6 +129,7 @@ def spawn(role):
         command += ['-Dcw.p0.viewTest=true']
     if args.edge_boundary: command += ['-Dcw.p0.edgeBoundary=true']
     if args.art_verify: command += ['-Dcw.p0.artVerify=true']
+    if args.pose_verify is not None: command += ['-Dcw.c2a.poseVerify='+str(args.pose_verify)]
     if args.sweep_test:
         command += ['-Dcw.p0.sweepTest=true']
     if args.fast_turn:
