@@ -21,6 +21,8 @@ final class PoseDriver {
     float weight;
     /** Whether the blade is in the hand, from the track while an action plays. */
     boolean bladeDrawn;
+    /** The pose is the idle ready stance rather than an action. */
+    boolean stance;
 
     private PoseDriver() {}
 
@@ -28,6 +30,7 @@ final class PoseDriver {
     void prepare(EntityPlayer player, ClientProxy.Visual visual) {
         entity = player.getEntityId();
         weight = 0;
+        stance = false;
         if (visual == null) return;
         double ticks = 0;
         Track track = null;
@@ -52,5 +55,6 @@ final class PoseDriver {
         }
         bladeDrawn = visual.state.action.isEmpty() ? !visual.state.sheathed : pose.bladeDrawn;
         weight = takeover;
+        stance = track != null && visual.state.action.isEmpty();
     }
 }

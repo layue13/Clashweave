@@ -42,7 +42,8 @@ public final class Locomotion {
             t[R_ARM_X] = rx;
             t[R_ARM_Y] = ry;
             t[R_ARM_Z] = rz;
-            t[R_FORE] = rf;
+            // A bare swing keeps a relaxed elbow; a held item is posed by vanilla as it is.
+            t[R_FORE] = in.usingItem ? rf : rf + 25 * DEG;
         }
         if (in.leftBusy) {
             t[L_ARM_X] = lx;

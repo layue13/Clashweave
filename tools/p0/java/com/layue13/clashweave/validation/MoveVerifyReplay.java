@@ -41,7 +41,7 @@ public final class MoveVerifyReplay {
         net.minecraft.entity.Entity focus=dummy!=null?dummy:mc.thePlayer;
         camera.setPosition(focus.posX,focus.boundingBox.minY,focus.posZ);
         camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
-        camera.rotationYaw=camera.prevRotationYaw=focus.rotationYaw+angle;camera.rotationPitch=camera.prevRotationPitch=0;
+        camera.rotationYaw=camera.prevRotationYaw=focus.rotationYaw+(angle>=800?angle-800:angle);camera.rotationPitch=camera.prevRotationPitch=0;
         mc.gameSettings.thirdPersonView=1;
     }
 
@@ -121,6 +121,20 @@ public final class MoveVerifyReplay {
             done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
+    /** Angle 800 + yaw: draws the katana with one light attack, then walks with the blade out; photographs the ready stance walking. */
+    private void stanceWalk(){
+        mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
+        if(ticks==100)mc.thePlayer.inventory.currentItem=0;
+        if(ticks==110)ClientProxy.instance.send(com.layue13.clashweave.core.Intent.LIGHT,-1);
+        camera();
+        // The server keeps a player engaged for 60 ticks after the last action: walk while it still is, then past it.
+        key(mc.gameSettings.keyBindForward,ticks>=128&&ticks<290);
+        if(ticks>=124&&ticks<=126)photo("stand-"+(ticks-124));
+        if(ticks>=138&&ticks<=173&&(ticks-138)%5==0)photo("stancewalk-"+((ticks-138)/5));
+        if(ticks>=215&&ticks<=239&&(ticks-215)%8==0)photo("drawnwalk-"+((ticks-215)/8));
+        if(ticks==300){done=true;System.out.println("MOVE_VERIFY_DONE");}
+    }
+
     private void photo(String name){if(shot==null)shot=name;}
 
     @SubscribeEvent public void tick(TickEvent.ClientTickEvent event){
@@ -129,6 +143,7 @@ public final class MoveVerifyReplay {
         if(!mc.thePlayer.getCommandSenderName().equals("P0A"))return;
         if(++ticks<100)return;
         if(angle>=900){crowd();return;}
+        if(angle>=800){stanceWalk();return;}
         if(ticks==100)mc.thePlayer.inventory.currentItem=1;
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         camera();
@@ -169,6 +184,8 @@ public final class MoveVerifyReplay {
         if(angle>=900&&event.phase==TickEvent.Phase.END&&ticks>160&&ticks<500&&frameCount<frames.length){long n=System.nanoTime();if(lastFrame!=0)frames[frameCount++]=n-lastFrame;lastFrame=n;return;}
         if(event.phase!=TickEvent.Phase.END||mc.thePlayer==null||shot==null)return;
         ScreenShotHelper.saveScreenshot(new File("."),"move-"+shot+".png",mc.displayWidth,mc.displayHeight,mc.getFramebuffer());
+        ClientProxy.Visual own=ClientProxy.instance.own();
+        if(own!=null)System.out.println("MOVE_STATE engaged="+own.state.engaged+" sheathed="+own.state.sheathed+" action="+own.state.action);
         System.out.println("MOVE_CAPTURE name="+shot+" tick="+ticks+" onGround="+mc.thePlayer.onGround+" sprint="+mc.thePlayer.isSprinting()
             +" limbSwingAmount="+mc.thePlayer.limbSwingAmount+" motionY="+mc.thePlayer.motionY);
         shot=null;

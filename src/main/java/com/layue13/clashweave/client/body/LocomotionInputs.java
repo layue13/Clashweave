@@ -23,4 +23,6 @@ public final class LocomotionInputs {
     public boolean armsBusy;
     /** The left arm too (a drawn bow holds with both). */
     public boolean leftBusy;
+    /** The busy arm is using an item (bow, food), not just swinging. */
+    public boolean usingItem;
 }
