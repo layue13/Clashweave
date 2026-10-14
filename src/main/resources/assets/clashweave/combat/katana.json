@@ -315,6 +315,27 @@
           "until": 10
         }
       ]
+    },
+    {
+      "id": "finisher",
+      "startup": 5,
+      "active": 2,
+      "recovery": 16,
+      "damage": 6,
+      "posture": 0,
+      "reach": 2.8,
+      "arc": 90,
+      "distance": 0.4,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "SHEATHE",
+          "target": "sheathe",
+          "from": 17,
+          "until": 22,
+          "hit": true
+        }
+      ]
     }
   ],
   "_p1_notes": {

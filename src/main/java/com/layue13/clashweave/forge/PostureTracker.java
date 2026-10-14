@@ -75,6 +75,12 @@ final class PostureTracker {
         }
     }
 
+    /** A finisher has landed: the break is over and the target starts to recover. */
+    void endBreak(EntityLivingBase target, long tick) {
+        Entry entry = entries.get(target.getUniqueID());
+        if (entry != null && entry.entity == target) entry.posture.endBreak(tick);
+    }
+
     float value(EntityLivingBase target) {
         Entry entry = entries.get(target.getUniqueID());
         return entry == null ? config.postureMax : entry.posture.value();

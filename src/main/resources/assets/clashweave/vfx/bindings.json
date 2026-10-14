@@ -54,6 +54,11 @@
       "kind": "MODE",
       "effect": "clashweave:mode_aura",
       "height": 0.02
+    },
+    {
+      "kind": "FINISH",
+      "effect": "clashweave:finish_burst",
+      "height": 0.6
     }
   ]
 }

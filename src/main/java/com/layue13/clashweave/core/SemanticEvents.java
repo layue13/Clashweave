@@ -18,7 +18,9 @@ public final class SemanticEvents {
         LAUNCH,
         SLAM,
         BREAK,
-        DELAYED
+        DELAYED,
+        /** A finisher landed on a broken target. */
+        FINISH
     }
 
     public static final class Event {

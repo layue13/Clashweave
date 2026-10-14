@@ -97,6 +97,19 @@ final class CombatPresentation {
                 ""));
     }
 
+    /** A finisher landed on the broken target. */
+    void finished(EntityLivingBase target, long tick) {
+        events.emit(
+            new SemanticEvents.Event(
+                SemanticEvents.Kind.FINISH,
+                target.getEntityId(),
+                target.getEntityId(),
+                0,
+                tick,
+                tick,
+                ""));
+    }
+
     /** The target's stance broke. */
     void broken(EntityLivingBase target, long tick) {
         events.emit(

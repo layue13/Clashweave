@@ -12,6 +12,8 @@ public final class EntryRules {
     public Map<Intent, String> ready;
     /** Inputs that mean something else right after a precise guard; omitted when there is no counter. */
     public Map<Intent, String> counter;
+    /** Inputs that mean something else while a broken target stands in reach; omitted when there is no finisher. */
+    public Map<Intent, String> finisher;
     public Set<String> entersReady = new HashSet<>();
     public Set<String> entersSheathed = new HashSet<>();
 

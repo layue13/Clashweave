@@ -306,6 +306,28 @@
       ],
       "edges": [],
       "_comment": "P1-b provisional finisher: drives the airborne target down, spends all its remaining control points and starts the anti-launch protection."
+    },
+    {
+      "id": "katana:finisher",
+      "startup": 5,
+      "active": 2,
+      "recovery": 16,
+      "damage": 6,
+      "posture": 0,
+      "reach": 2.8,
+      "arc": 90,
+      "distance": 0.4,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "SHEATHE",
+          "target": "katana:sheathe",
+          "from": 17,
+          "until": 22,
+          "hit": true
+        }
+      ],
+      "_comment": "P2 provisional finisher: starts only when heavy is pressed with a broken target in reach; on a target still broken when it lands the damage is multiplied (config finisher.multiplier), capped against players, the break ends and the gauge gains a bonus."
     }
   ]
 }

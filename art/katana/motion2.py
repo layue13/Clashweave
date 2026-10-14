@@ -137,6 +137,11 @@ def build_actions(actions):
     out["air_slam"] = cut(FALL, 1, phis(d["air_slam"]["arc"], 1, wind=-130),
                           [(0.14, 0.14, 1.70), (0.12, 0.22, 1.62), (-0.08, 0.46, 1.04), (-0.10, 0.48, 0.98),
                            (0.00, 0.40, 1.04)], (-10, -6, 12, 16, 4), 0.30, s, a, r, lean=(-12, -8, 24, 30, 10))
+    # finisher: the cut that ends a broken target, a high overhead wind-up and a deep, heavy fall (P2 provisional)
+    s, a, r = d["finisher"]["startup"], d["finisher"]["active"], d["finisher"]["recovery"]
+    out["finisher"] = cut(FALL, 1, phis(d["finisher"]["arc"], 1, wind=-140),
+                          [(0.14, 0.12, 1.76), (0.12, 0.20, 1.70), (-0.08, 0.48, 1.02), (-0.10, 0.50, 0.96),
+                           (0.00, 0.40, 1.04)], (-12, -8, 14, 20, 4), 0.38, s, a, r, lean=(-14, -10, 26, 32, 12))
     # guard: the blade held across the body, point up and to the left, to meet a cut (P2 provisional; a held pose, so
     # two identical keyframes)
     guard = frame((0.0, 0.0, -1.0), norm((-0.38, 0.50, 0.78)))
