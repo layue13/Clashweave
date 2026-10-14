@@ -41,7 +41,7 @@ public class SaTest {
         EffectiveRules rules = rules();
         assertNotNull(rules.active(rules.weapon("katana:katana")));
         ContentPack.Active active = rules.active(rules.weapon("katana:katana"));
-        assertEquals(8, active.range, 1e-9);
+        assertEquals(14, active.range, 1e-9);
         ActionCatalog catalog = rules.catalogs()
             .get("katana:default");
         assertEquals(
