@@ -80,6 +80,7 @@ public final class Scheduler {
     private Instance current;
     private boolean sheathed = true;
     private long counterUntil;
+    private long finisherUntil;
 
     public void openCounter(long tick, int window) {
         if (current == null) counterUntil = tick + window;
@@ -87,6 +88,18 @@ public final class Scheduler {
 
     public boolean counter(long tick) {
         return current == null && tick < counterUntil;
+    }
+
+    /**
+     * A broken target is in reach: for the next {@code window} ticks the finisher inputs mean the finisher, idle or
+     * mid-combo.
+     */
+    public void openFinisher(long tick, int window) {
+        finisherUntil = tick + window;
+    }
+
+    public boolean finisher(long tick) {
+        return tick < finisherUntil;
     }
 
     public Scheduler(ActionCatalog catalog) {
@@ -136,12 +149,20 @@ public final class Scheduler {
             request.target = catalog.entryTarget(sheathed, input);
             String counterTarget = counter(tick) ? catalog.counterTarget(input) : null;
             if (counterTarget != null) request.target = counterTarget;
+            String finisherTarget = finisher(tick) ? catalog.finisherTarget(input) : null;
+            if (finisherTarget != null) {
+                request.target = finisherTarget;
+                request.expires = Math.min(request.expires, finisherUntil);
+            }
             if (input == Intent.LIGHT && counter(tick)) request.expires = Math.min(request.expires, counterUntil);
         } else {
             for (ActionCatalog.Edge edge : current.definition.edges) {
                 if (edge.input == input && tick - request.compensation - current.start < edge.until) {
                     request.edge = edge;
                     request.target = catalog.normalize(edge.target);
+                    // The heavy of a running combo means the finisher too while a broken target is in reach.
+                    String finisherTarget = finisher(tick) ? catalog.finisherTarget(input) : null;
+                    if (finisherTarget != null) request.target = finisherTarget;
                     break;
                 }
             }
@@ -215,6 +236,7 @@ public final class Scheduler {
             }
             buffered.clear();
             counterUntil = 0;
+            finisherUntil = 0;
             finish();
             current = new Instance(++nextId, tick, selected.sequence, catalog.require(selected.target));
             if (catalog.entersReady(selected.target)) sheathed = false;
@@ -232,6 +254,7 @@ public final class Scheduler {
 
     public void clearBuffer() {
         counterUntil = 0;
+        finisherUntil = 0;
         for (Request request : buffered.values()) {
             results.add(new Result(request.sequence, "INTERRUPTED", catalog.require(request.target).id));
         }

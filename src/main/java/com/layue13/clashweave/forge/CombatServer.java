@@ -632,6 +632,7 @@ public final class CombatServer {
                         "DODGE_REQUEST player=" + input.player
                             .getCommandSenderName() + " octant=" + message.target + " tick=" + tick);
                 }
+                if (intent == Intent.HEAVY && brokenInReach(state)) state.scheduler.openFinisher(tick, 2);
                 if (state.scheduler.current() == null) {
                     use(state, CombatWeapons.entry(input.player.getHeldItem()));
                     state.appearance.apply(true);
@@ -987,9 +988,22 @@ public final class CombatServer {
             : defender.guard.defend(contact.tick, cutoff, config.perfectWindow, contact.facing);
         float damage = contact.instance.definition.damage * (float) contact.attacker.scheduler.weapon().damageMultiplier
             * (guard == 2 ? 0 : guard == 1 ? (float) config.blockDamage : 1);
+        // A finisher on a target that is still broken when it lands hits much harder; a player takes a capped amount.
+        boolean finisher = contact.instance.definition.id.endsWith(":finisher") && guard == 0
+            && posture.broken(contact.target, tick);
+        if (finisher) {
+            damage *= config.finisherMultiplier;
+            if (contact.target instanceof EntityPlayer) damage = Math.min(damage, config.finisherPlayerCap);
+        }
         boolean hit = false;
         if (damage > 0) {
             hit = contact.target.attackEntityFrom(new CombatSource(contact.attacker.player), damage);
+        }
+        if (finisher && hit) {
+            posture.endBreak(contact.target, tick);
+            presentation.finished(contact.target, tick);
+            gain(contact.attacker, com.layue13.clashweave.core.Gauge.Source.HIT, config.gaugeFinisher);
+            trace("FINISHER target=" + contact.target.getEntityId() + " damage=" + damage + " tick=" + tick);
         }
         contact.instance.confirmedHit |= hit || guard > 0;
         contact.instance.confirmedDamageHit |= hit && guard == 0;
@@ -1330,6 +1344,25 @@ public final class CombatServer {
                 "DELAYED_STRIKE target=" + target
                     .getEntityId() + " tick=" + tick + " guard=" + guard + " damage=" + damage + " hit=" + hit);
         }
+    }
+
+    /** Whether a broken living thing stands in front of the player within the finisher range. */
+    private boolean brokenInReach(PlayerState state) {
+        EntityPlayerMP p = state.player;
+        double yaw = Math.toRadians(p.rotationYaw);
+        double fx = -Math.sin(yaw), fz = Math.cos(yaw);
+        double range = config.finisherRange;
+        for (Object each : p.worldObj
+            .getEntitiesWithinAABBExcludingEntity(p, p.boundingBox.expand(range, 1.5, range))) {
+            if (!(each instanceof EntityLivingBase)) continue;
+            EntityLivingBase candidate = (EntityLivingBase) each;
+            if (candidate.isDead || candidate.getHealth() <= 0 || !posture.broken(candidate, tick)) continue;
+            double dx = candidate.posX - p.posX, dz = candidate.posZ - p.posZ;
+            double distance = Math.sqrt(dx * dx + dz * dz);
+            if (distance > range || distance > 1e-4 && (dx * fx + dz * fz) / distance < .64) continue;
+            return true;
+        }
+        return false;
     }
 
     private void gain(PlayerState state, com.layue13.clashweave.core.Gauge.Source source, float amount) {
