@@ -588,6 +588,8 @@ public final class ClientProxy extends CommonProxy {
             System.out.println("CW_FRAME frozen=" + lastFeedbackFrozen + " frame=" + System.nanoTime());
         }
         if (own != null) event.left.add(action(own) + " " + (int) elapsed(own, 0) + "t #" + own.state.instance);
+        if (own != null) event.left
+            .add("Gauge " + own.state.gauge + "%" + (own.state.mode > 0 ? "  MODE " + own.state.mode / 20 + "s" : ""));
     }
 
     private final class CombatMovementInput extends MovementInput {
