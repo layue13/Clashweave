@@ -14,6 +14,9 @@ public final class CombatConfig {
         launchCreditTicks;
     public boolean launchRequiresHit, launchRequiresGround, launchExcludeSwimming;
     public String[] launchExemptEntities;
+    public float chainDecay;
+    public boolean slamRequiresAir;
+    public int slamGraceTicks;
     public double multiplierMinimum;
     public double multiplierMaximum;
     public int maxResistance;
@@ -452,6 +455,22 @@ public final class CombatConfig {
             controlResetTicks,
             1200,
             "Inactive chain retention; never replenishes in air");
+        chainDecay = config.getFloat(
+            "chainDecay",
+            "control",
+            0.75f,
+            0.2f,
+            1,
+            "Each further accepted launch in one chain lifts this share of the previous one");
+        slamGraceTicks = config.getInt(
+            "slamGraceTicks",
+            "control",
+            3,
+            0,
+            20,
+            "A slam still counts a target that left the air this many ticks ago, so network delay cannot cost the finisher");
+        slamRequiresAir = config
+            .getBoolean("slamRequiresAir", "control", true, "A slam only drives a target that is off the ground");
         launchCreditTicks = config.getInt(
             "velocityCreditTicks",
             "control",

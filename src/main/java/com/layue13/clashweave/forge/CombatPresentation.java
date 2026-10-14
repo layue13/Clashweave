@@ -83,6 +83,19 @@ final class CombatPresentation {
                 action.definition.id));
     }
 
+    /** A slammed target has reached the ground. */
+    void slam(EntityLivingBase target, long tick) {
+        events.emit(
+            new SemanticEvents.Event(
+                SemanticEvents.Kind.SLAM,
+                target.getEntityId(),
+                target.getEntityId(),
+                0,
+                tick,
+                tick,
+                ""));
+    }
+
     void nativeGuard(LivingHurtEvent event, int guard, long tick) {
         if (guard > 0) {
             NativeGuard result = new NativeGuard();

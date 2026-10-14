@@ -189,12 +189,87 @@
           "vy": 0.6
         }
       ],
-      "edges": [],
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "air_light",
+          "from": 7,
+          "until": 15,
+          "hit": true,
+          "damageHit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "air_slam",
+          "from": 7,
+          "until": 15,
+          "hit": true,
+          "damageHit": true
+        }
+      ],
       "_comment": "P1-a provisional: upward elevation in degrees; lift is attacker velocity declaration only; LAUNCH vy blocks/tick. No posture or aerial chain."
+    },
+    {
+      "id": "air_light",
+      "startup": 4,
+      "active": 2,
+      "recovery": 9,
+      "damage": 3,
+      "reach": 2.3,
+      "arc": 100,
+      "distance": 0,
+      "speed": 0,
+      "lift": 0,
+      "sweepElevation": 35,
+      "effects": [
+        {
+          "type": "LAUNCH",
+          "vy": 0.45
+        }
+      ],
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "air_light",
+          "from": 6,
+          "until": 11,
+          "hit": true,
+          "damageHit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "air_slam",
+          "from": 6,
+          "until": 11,
+          "hit": true,
+          "damageHit": true
+        }
+      ]
+    },
+    {
+      "id": "air_slam",
+      "startup": 5,
+      "active": 2,
+      "recovery": 12,
+      "damage": 6,
+      "reach": 2.3,
+      "arc": 90,
+      "distance": 0,
+      "speed": 0,
+      "lift": 0,
+      "sweepElevation": 45,
+      "effects": [
+        {
+          "type": "SLAM",
+          "vy": 1.0
+        }
+      ],
+      "edges": []
     }
   ],
   "_p1_notes": {
     "launcher": "Timing/damage/geometry/launch are provisional configurable starts, not frozen. LIGHT light_2 edge remains unchanged.",
-    "lift": "0 by default; declared vertical velocity credits attacker envelope, no aerial chain or automatic jump in P1-a."
+    "lift": "0 by default; declared vertical velocity credits attacker envelope, no aerial chain or automatic jump in P1-a.",
+    "air": "P1-b provisional: aerial follow-ups limited by the shared control budget and chainDecay."
   }
 }

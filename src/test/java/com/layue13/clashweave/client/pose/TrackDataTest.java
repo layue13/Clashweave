@@ -82,11 +82,11 @@ public class TrackDataTest {
     public void realActionsDurationsAndSampleCounts() throws Exception {
         TrackData data = realData();
         assertEquals(
-            6,
+            8,
             data.actionIds()
                 .size());
-        for (String id : new String[] { "light_1", "light_2", "light_3", "heavy", "iai", "sheathe" })
-            assertTrue(data.has(id));
+        for (String id : new String[] { "light_1", "light_2", "light_3", "heavy", "iai", "sheathe", "air_light",
+            "air_slam" }) assertTrue(data.has(id));
         for (Map.Entry<String, JsonElement> entry : realTree().getAsJsonObject("actions")
             .entrySet()) {
             JsonObject action = entry.getValue()

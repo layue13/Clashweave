@@ -40,6 +40,20 @@ public final class ControlBudget {
         return true;
     }
 
+    /**
+     * Ends the chain: spends every remaining point and starts the protection, as a finisher does. A target whose
+     * points ran out on the way up is already protected; the finisher may still bring it down, and neither extends
+     * nor shortens that protection.
+     */
+    public boolean exhaust(long tick, boolean grounded) {
+        advance(tick, grounded);
+        if (tick < protectedUntil) return true;
+        remaining = 0;
+        lastControl = tick;
+        protectedUntil = tick + protectionTicks;
+        return true;
+    }
+
     public int remaining() {
         return remaining;
     }

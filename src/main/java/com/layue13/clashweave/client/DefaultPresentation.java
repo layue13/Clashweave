@@ -27,6 +27,23 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
             if (entity != null) minecraft.theWorld
                 .spawnParticle("crit", entity.posX, entity.posY + entity.height / 2, entity.posZ, 0, 0, 0);
         }
+        if (event.kind == SemanticEvents.Kind.SLAM) {
+            net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
+            if (entity != null) {
+                for (int i = 0; i < 8; i++) {
+                    double angle = i * Math.PI / 4;
+                    minecraft.theWorld.spawnParticle(
+                        "explode",
+                        entity.posX,
+                        entity.posY + .1,
+                        entity.posZ,
+                        Math.cos(angle) * .25,
+                        .05,
+                        Math.sin(angle) * .25);
+                }
+                minecraft.theWorld.playSound(entity.posX, entity.posY, entity.posZ, "random.explode", .3f, 1.6f, false);
+            }
+        }
         com.layue13.clashweave.presentation.FeedbackPolicy.Sound sound = policy.sound(event, own);
         if (sound != com.layue13.clashweave.presentation.FeedbackPolicy.Sound.NONE) {
             proxy.lastFeedbackFrozen = event.frozen;

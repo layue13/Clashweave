@@ -15,7 +15,8 @@ public final class SemanticEvents {
         SHEATHE,
         DRAW,
         HURT,
-        LAUNCH
+        LAUNCH,
+        SLAM
     }
 
     public static final class Event {

@@ -84,7 +84,7 @@ public final class ActionCatalog {
                 || !Double.isFinite(definition.sweepElevation)
                 || Math.abs(definition.sweepElevation) > 90)
                 throw new IllegalArgumentException("actions.lift/sweepElevation/effects");
-            boolean launch = false;
+            boolean launch = false, slam = false;
             for (HitEffect effect : definition.effects) {
                 if (effect == null) throw new IllegalArgumentException("actions.effects");
                 effect.validate(maximum);
@@ -92,7 +92,13 @@ public final class ActionCatalog {
                     if (launch)
                         throw new IllegalArgumentException("actions[" + definition.id + "].effects: duplicate LAUNCH");
                     launch = true;
+                } else if (effect.type == HitEffect.Type.SLAM) {
+                    if (slam)
+                        throw new IllegalArgumentException("actions[" + definition.id + "].effects: duplicate SLAM");
+                    slam = true;
                 }
+                if (launch && slam) throw new IllegalArgumentException(
+                    "actions[" + definition.id + "].effects: LAUNCH and SLAM in one action");
             }
             if (definition.id == null || definition.startup < 0
                 || definition.active < 0
