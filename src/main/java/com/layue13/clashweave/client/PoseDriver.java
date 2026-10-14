@@ -13,9 +13,6 @@ import com.layue13.clashweave.forge.CombatWeapons;
  */
 final class PoseDriver {
 
-    /** Ticks a takeover or release takes; a hard cut between the vanilla stance and the baked one reads as a glitch. */
-    private static final double FADE_TICKS = 3;
-
     static final PoseDriver INSTANCE = new PoseDriver();
 
     /** The pose of {@link #entity}; meaningful only while {@link #weight} is above zero. */
@@ -41,19 +38,12 @@ final class PoseDriver {
             ticks = ClientProxy.instance.elapsed(visual, 0);
         }
         boolean wanted = track != null && CombatWeapons.armed(player.getHeldItem());
-        long now = System.nanoTime();
-        double step = visual.takeoverNanos == 0 ? 0
-            : Math.min(FADE_TICKS, (now - visual.takeoverNanos) / (double) ClientProxy.instance.tickPeriod())
-                / FADE_TICKS;
-        visual.takeoverNanos = now;
-        visual.takeover = (float) Math.max(0, Math.min(1, visual.takeover + (wanted ? step : -step)));
-        if (visual.takeover <= 0) return;
+        // The body is taken over and handed back by chasing, at a rate that does not depend on the frame rate.
+        float takeover = visual.rig.advance(wanted, System.nanoTime(), ClientProxy.instance.tickPeriod());
+        if (takeover <= 0) return;
         if (track == null) {
             // Releasing: hold the last pose of whatever played so the fade has something to fade from.
-            if (visual.lastTrack == null) {
-                visual.takeover = 0;
-                return;
-            }
+            if (visual.lastTrack == null) return;
             visual.lastTrack.sample(visual.lastTicks, pose);
         } else {
             track.sample(ticks, pose);
@@ -61,6 +51,6 @@ final class PoseDriver {
             visual.lastTicks = ticks;
         }
         bladeDrawn = visual.state.action.isEmpty() ? !visual.state.sheathed : pose.bladeDrawn;
-        weight = visual.takeover;
+        weight = takeover;
     }
 }
