@@ -1345,7 +1345,11 @@ public final class CombatServer {
             Judgement j = it.next();
             EntityPlayerMP owner = j.owner.player;
             Scheduler.Instance running = j.owner.scheduler.current();
-            if (owner.isDead || owner.getHealth() <= 0 || running == null || running.id != j.instance) {
+            // The caster dead, gone from the server, or out of the cast (struck out of it, replaced): nothing lands.
+            if (owner.isDead || owner.getHealth() <= 0
+                || state(owner) != j.owner
+                || running == null
+                || running.id != j.instance) {
                 it.remove();
                 trace("JUDGE_CANCEL player=" + owner.getCommandSenderName() + " tick=" + tick);
                 continue;
