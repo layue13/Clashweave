@@ -122,6 +122,14 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
         org.lwjgl.opengl.GL11.glScalef(.9375f, .9375f, .9375f);
         org.lwjgl.opengl.GL11.glScalef(-1, -1, 1);
         org.lwjgl.opengl.GL11.glTranslatef(0, -1.5078125f, 0);
+        // Lying forward in the water carries the head far off its rest place: the eye rides it there, and the arms,
+        // drawn from the body, stay where they are relative to it. Elsewhere the lean is small and the framing above
+        // already accounts for it.
+        if (hands.inputs.mode == com.layue13.clashweave.client.body.LocomotionInputs.SWIM)
+            org.lwjgl.opengl.GL11.glTranslatef(
+                -hands.bipedHead.rotationPointX / 16f,
+                -hands.bipedHead.rotationPointY / 16f,
+                -hands.bipedHead.rotationPointZ / 16f);
     }
 
     private static ClientProxy.Visual visualOf(EntityLivingBase player) {

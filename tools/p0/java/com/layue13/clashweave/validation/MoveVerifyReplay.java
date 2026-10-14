@@ -180,7 +180,7 @@ public final class MoveVerifyReplay {
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=ladder?180:0;
         mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=ticks>=200&&ticks<220?40:0;
         key(mc.gameSettings.keyBindForward,(ticks>=130&&ticks<200)||(ladder&&ticks>=230)||(ride&&ticks<380));
-        key(mc.gameSettings.keyBindJump,false);
+        key(mc.gameSettings.keyBindJump,ticks>=125&&ticks<200&&ticks%7<3);
         if(ticks%10==0&&ticks>=120&&ticks<=200)System.out.println("MOVE_FP2_SWIM tick="+ticks+" amount="+mc.thePlayer.limbSwingAmount+" y="+mc.thePlayer.posY+" inWater="+mc.thePlayer.isInWater());
         if(ticks>=140&&ticks<=190&&(ticks-140)%10==0)photo("fp2-swim-"+((ticks-140)/10));
         if(ticks>=205&&ticks<=215&&(ticks-205)%5==0)photo("fp2-swimdown-"+((ticks-205)/5));
