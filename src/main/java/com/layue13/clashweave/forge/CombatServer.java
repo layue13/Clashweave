@@ -20,6 +20,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -1114,6 +1115,31 @@ public final class CombatServer {
         attacker.motionZ = dz / length * strength;
         attacker.motionY = Math.max(attacker.motionY, .12);
         attacker.velocityChanged = true;
+    }
+
+    /**
+     * A precise guard turns the blow away before it lands: no damage, no knockback and no hurt flash, which cancelling
+     * the later hurt event could not prevent. The counter window opens and the semantic result is published here,
+     * because a cancelled hurt event never reaches the presentation flush.
+     */
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public void attack(LivingAttackEvent event) {
+        if (event.entityLiving.worldObj.isRemote || event.source instanceof CombatSource
+            || !(event.entityLiving instanceof EntityPlayer)) return;
+        PlayerState state = state((EntityPlayer) event.entityLiving);
+        Entity attacker = event.source.getEntity();
+        if (state == null || attacker == null || !armed(state.player) || event.ammount <= 0) return;
+        int guard = state.guard
+            .defend(tick, System.nanoTime(), config.perfectWindow, facing(state.player, attacker, config.guardArc));
+        if (guard != 2) return;
+        event.setCanceled(true);
+        state.pendingImpulse = true;
+        state.scheduler.openCounter(tick, config.counterWindow);
+        if (event.source.getSourceOfDamage() == attacker) recoil(state.player, attacker, config.parryRecoil);
+        presentation.nativeParry(attacker, state.player, tick);
+        trace(
+            "NATIVE_PARRY player=" + state.player
+                .getCommandSenderName() + " attacker=" + attacker.getEntityId() + " tick=" + tick);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
