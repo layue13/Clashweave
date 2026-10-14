@@ -126,7 +126,7 @@ public class LocomotionTest {
         assertNotEquals(123f, t[R_LEG_X], 0);
         in.leftBusy = true;
         t = compute(in);
-        assertEquals(123f, t[L_FORE], 0);
+        assertEquals(123f + Math.toRadians(25), t[L_FORE], 1e-4);
     }
 
     @Test
@@ -169,5 +169,20 @@ public class LocomotionTest {
         float[] b = compute(in);
         assertTrue(a[R_SHIN] > b[R_SHIN] + Math.toRadians(30));
         assertTrue(a[L_SHIN] < b[L_SHIN] - Math.toRadians(30));
+    }
+
+    @Test
+    public void aMonstersGaitChangesTheWalkNotThePlayersNumbers() {
+        LocomotionInputs player = walking(2, .8f);
+        float[] p = compute(player);
+        LocomotionInputs zombie = walking(2, .8f);
+        zombie.gait = com.layue13.clashweave.client.body.Gait.ZOMBIE;
+        float[] z = compute(zombie);
+        // Leaning more, twisting less, head sagging, knee dragging.
+        assertTrue(z[BODY_X] > p[BODY_X]);
+        assertTrue(Math.abs(z[BODY_Y] - 123f) < Math.abs(p[BODY_Y] - 123f));
+        assertTrue(z[HEAD_X] > p[HEAD_X] - Math.toRadians(40));
+        float[] again = compute(walking(2, .8f));
+        assertArrayEquals(p, again, 0);
     }
 }

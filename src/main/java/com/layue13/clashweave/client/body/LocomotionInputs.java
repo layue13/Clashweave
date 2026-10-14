@@ -25,4 +25,6 @@ public final class LocomotionInputs {
     public boolean leftBusy;
     /** The busy arm is using an item (bow, food), not just swinging. */
     public boolean usingItem;
+    /** The body's own walk character. */
+    public Gait gait = Gait.PLAYER;
 }
