@@ -63,7 +63,7 @@ public final class Validation {
                 if(Boolean.getBoolean("cw.p2.sa"))Class.forName("com.layue13.clashweave.validation.SaReplay").newInstance();
                 if(Boolean.getBoolean("cw.p2.dodge"))Class.forName("com.layue13.clashweave.validation.DodgeReplay").newInstance();
                 if(Boolean.getBoolean("cw.p2.guard"))Class.forName("com.layue13.clashweave.validation.GuardReplay").newInstance();
-                if(Boolean.getBoolean("cw.p1b.chase"))Class.forName("com.layue13.clashweave.validation.ChaseReplay").newInstance();
+                if(Boolean.getBoolean("cw.p1b.chase")&&!Boolean.getBoolean("cw.p2.finisher"))Class.forName("com.layue13.clashweave.validation.ChaseReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.artVerify"))Class.forName("com.layue13.clashweave.validation.ArtVerifyReplay").newInstance();
                 if(System.getProperty("cw.c2a.poseVerify")!=null)Class.forName("com.layue13.clashweave.validation.PoseVerifyReplay").newInstance();
                 if(System.getProperty("cw.b2.moveVerify")!=null)Class.forName("com.layue13.clashweave.validation.MoveVerifyReplay").newInstance();

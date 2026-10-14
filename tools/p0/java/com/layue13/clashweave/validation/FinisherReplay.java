@@ -15,7 +15,7 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 public final class FinisherReplay {
     private final Minecraft mc=Minecraft.getMinecraft();
     private final int end=Integer.getInteger("cw.p2.finishEnd",1500),delay=Integer.getInteger("cw.p2.finishDelay",0);
-    private int ticks,breaks,pressAt=-1;
+    private int ticks,breaks,pressAt=-1,lastLight=-100;
     private long sentFor=-1;
     private boolean done,hooked,broke;
     public FinisherReplay(){FMLCommonHandler.instance().bus().register(this);}
@@ -46,8 +46,9 @@ public final class FinisherReplay {
             if(breaks%4!=0){System.out.println("FINISH_PRESS tick="+ticks+" action="+action);p.send(Intent.HEAVY,-1);}
             else System.out.println("FINISH_SKIP tick="+ticks);
         }else if(pressAt<0){
-            if(action.isEmpty()){if(ticks%12==0)p.send(Intent.LIGHT,-1);}
-            else if(sentFor!=instance&&action.equals("light_1")&&p.elapsed(own,0)>=8){sentFor=instance;p.send(Intent.LIGHT,-1);}
+            // single light_1 strikes spaced past the combo link: a chain would reach the launcher and put the zombie in the air,
+            // where heavy is the air slam, not the finisher
+            if(action.isEmpty()&&ticks-lastLight>=Integer.getInteger("cw.p2.finishSpacing",26)){lastLight=ticks;p.send(Intent.LIGHT,-1);}
         }
         if(ticks%50==0)System.out.println("FINISH_STATE tick="+ticks+" action="+action+" breaks="+breaks);
         if(ticks>=end){done=true;System.out.println("FINISH_COMPLETE breaks="+breaks);mc.shutdown();}
