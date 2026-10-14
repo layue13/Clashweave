@@ -35,6 +35,7 @@ public final class Locomotion {
         else if (in.mode == LocomotionInputs.RIDE) ride(in, t);
         else if (in.mode == LocomotionInputs.CLIMB) climb(in, t);
         else if (in.mode == LocomotionInputs.FLY) fly(in, t);
+        else if (in.mode == LocomotionInputs.SLEEP) sleep(in, t);
         else ground(in, t);
         t[BODY_Y] += twist;
         t[HEAD_Y] -= twist;
@@ -141,6 +142,33 @@ public final class Locomotion {
             t[L_ARM_Z] = -(16 - 5 * sway) * DEG;
             t[R_FORE] = t[L_FORE] = (18 + 14 * move) * DEG;
         }
+    }
+
+    /**
+     * Lying in a bed (the renderer lays the whole body down): breathing, the head turned a little to one side, arms
+     * and legs loose and slightly bent, one hand drawn in toward the belly.
+     */
+    private static void sleep(LocomotionInputs in, float[] t) {
+        float breath = (float) Math.sin(in.age * .045f);
+        torso(in, t, (.8f * breath) * DEG, 0, 0);
+        t[HEAD_X] = 4 * DEG;
+        t[HEAD_Y] = 14 * DEG;
+        t[ROOT_Y] = 0;
+        t[R_ARM_X] = -6 * DEG;
+        t[R_ARM_Y] = 0;
+        t[R_ARM_Z] = (11 + .6f * breath) * DEG;
+        t[R_FORE] = 14 * DEG;
+        t[L_ARM_X] = -26 * DEG;
+        t[L_ARM_Y] = 14 * DEG;
+        t[L_ARM_Z] = -(6 + .6f * breath) * DEG;
+        t[L_FORE] = 36 * DEG;
+        t[R_LEG_X] = -3 * DEG;
+        t[L_LEG_X] = -12 * DEG;
+        t[R_LEG_Y] = t[L_LEG_Y] = 0;
+        t[R_LEG_Z] = 4 * DEG;
+        t[L_LEG_Z] = -5 * DEG;
+        t[R_SHIN] = 8 * DEG;
+        t[L_SHIN] = 22 * DEG;
     }
 
     /** Ladder: hand over hand, one knee drawn up at a time. */

@@ -40,7 +40,7 @@ final class PoseDriver {
             track = visual.track;
             ticks = ClientProxy.instance.elapsed(visual, 0);
         }
-        boolean wanted = track != null && CombatWeapons.armed(player.getHeldItem());
+        boolean wanted = track != null && !player.isPlayerSleeping() && CombatWeapons.armed(player.getHeldItem());
         // The body is taken over and handed back by chasing, at a rate that does not depend on the frame rate.
         float takeover = visual.rig.advance(wanted, System.nanoTime(), ClientProxy.instance.tickPeriod());
         if (takeover <= 0) return;

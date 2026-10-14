@@ -57,14 +57,14 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
                 .getItemUseAction() == net.minecraft.item.EnumAction.bow;
         boolean climbing = player.isOnLadder() && !player.onGround;
         in.climbPhase = rig.observeClimb(player.posY, climbing);
-        in.mode = player.isRiding() ? com.layue13.clashweave.client.body.LocomotionInputs.RIDE
-            : climbing ? com.layue13.clashweave.client.body.LocomotionInputs.CLIMB
-                : player.capabilities.isFlying && !player.onGround
-                    ? com.layue13.clashweave.client.body.LocomotionInputs.FLY
-                    : player.isInWater() ? com.layue13.clashweave.client.body.LocomotionInputs.SWIM
-                        : com.layue13.clashweave.client.body.LocomotionInputs.GROUND;
-        // Sleeping is not animated yet: vanilla's pose stands in for them.
-        skin.locomotion = !player.isPlayerSleeping();
+        in.mode = player.isPlayerSleeping() ? com.layue13.clashweave.client.body.LocomotionInputs.SLEEP
+            : player.isRiding() ? com.layue13.clashweave.client.body.LocomotionInputs.RIDE
+                : climbing ? com.layue13.clashweave.client.body.LocomotionInputs.CLIMB
+                    : player.capabilities.isFlying && !player.onGround
+                        ? com.layue13.clashweave.client.body.LocomotionInputs.FLY
+                        : player.isInWater() ? com.layue13.clashweave.client.body.LocomotionInputs.SWIM
+                            : com.layue13.clashweave.client.body.LocomotionInputs.GROUND;
+        skin.locomotion = true;
         skin.rig = rig;
         if (skin != biped) {
             skin.frameNanos = now;
