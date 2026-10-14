@@ -303,6 +303,20 @@ def visual_reach(samples, s, a):
     return best
 
 
+LEG_REACH = 0.70  # 12 px legs are 0.703 units; the foot target stays inside
+
+
+def foot_in_reach(f, hip):
+    """Pull a ground foot target toward the point below its hip until the straight leg can reach it."""
+    dx, dy = f[0] - hip[0], f[1] - hip[1]
+    h = math.hypot(dx, dy)
+    hmax = math.sqrt(max(0.0, LEG_REACH * LEG_REACH - hip[2] * hip[2]))
+    if h <= hmax or h == 0.0:
+        return f
+    k = hmax / h
+    return (hip[0] + dx * k, hip[1] + dy * k)
+
+
 def build(actions):
     kfs_all = build_actions(actions)
     out, report = {}, {}
@@ -334,6 +348,7 @@ def build(actions):
             if not (GRIP_DIST - GRIP_TOL - 1e-3 <= dr <= GRIP_DIST + GRIP_TOL + 1e-3):
                 reach_viol += 1
             hipR, hipL = add((0.117, 0.0, 0.703), pel), add((-0.117, 0.0, 0.703), pel)
+            fR, fL = foot_in_reach(fR, hipR), foot_in_reach(fL, hipL)
             legR = norm(sub((fR[0], fR[1], 0.0), hipR))
             legL = norm(sub((fL[0], fL[1], 0.0), hipL))
             samples.append({
