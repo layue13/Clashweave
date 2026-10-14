@@ -132,7 +132,8 @@ public final class ClientProxy extends CommonProxy {
             .bus()
             .register(lockCamera);
         MinecraftForge.EVENT_BUS.register(new WeaponRendering());
-        MinecraftForge.EVENT_BUS.register(new MobBodies());
+        // A switch for before/after measurements; monsters are taken over unless it is set.
+        if (!Boolean.getBoolean("cw.mobBodies.off")) MinecraftForge.EVENT_BUS.register(new MobBodies());
         FMLCommonHandler.instance()
             .bus()
             .register(this);

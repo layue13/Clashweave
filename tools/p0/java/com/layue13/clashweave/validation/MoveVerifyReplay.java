@@ -19,6 +19,7 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 public final class MoveVerifyReplay {
     private final Minecraft mc=Minecraft.getMinecraft();
     private final float angle=Float.parseFloat(System.getProperty("cw.b2.moveVerify"));
+    private final String mode=System.getProperty("cw.b2.moveMode","player");
     private EntityOtherPlayerMP camera;
     private int ticks;
     private String shot;
@@ -26,7 +27,7 @@ public final class MoveVerifyReplay {
     private int baseX,baseY,baseZ;
     private EntityBoat boat;
     private net.minecraft.entity.EntityLiving mob;
-    private final java.util.List<EntityOtherPlayerMP> crowd=new java.util.ArrayList<EntityOtherPlayerMP>();
+    private final java.util.List<net.minecraft.entity.EntityLivingBase> crowd=new java.util.ArrayList<net.minecraft.entity.EntityLivingBase>();
     private final long[] frames=new long[4000];
     private int frameCount;
     private long lastFrame;
@@ -42,7 +43,7 @@ public final class MoveVerifyReplay {
         net.minecraft.entity.Entity focus=mob!=null?mob:dummy!=null?dummy:mc.thePlayer;
         camera.setPosition(focus.posX,focus.boundingBox.minY,focus.posZ);
         camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
-        camera.rotationYaw=camera.prevRotationYaw=focus.rotationYaw+(angle>=700?angle%100:angle);camera.rotationPitch=camera.prevRotationPitch=0;
+        camera.rotationYaw=camera.prevRotationYaw=focus.rotationYaw+angle;camera.rotationPitch=camera.prevRotationPitch=0;
         mc.gameSettings.thirdPersonView=1;
     }
 
@@ -106,16 +107,17 @@ public final class MoveVerifyReplay {
 
     /** Angle 900 or more: not photographs but frame times with 40 walking mannequins in view, for before/after comparison. */
     private void crowd(){
-        mc.gameSettings.hideGUI=true;mc.gameSettings.limitFramerate=260;mc.gameSettings.enableVsync=false;
+        mc.gameSettings.hideGUI=true;mc.gameSettings.limitFramerate=260;mc.gameSettings.enableVsync=false;org.lwjgl.opengl.Display.setVSyncEnabled(false);
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         if(ticks==110)for(int i=0;i<40;i++){
             double x=mc.thePlayer.posX+(i%8-3.5)*1.6,z=mc.thePlayer.posZ+4+(i/8)*1.6;
-            EntityOtherPlayerMP m=new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Crowd"+i));
+            net.minecraft.entity.EntityLivingBase m=mode.equals("crowdmobs")?new net.minecraft.entity.monster.EntityZombie(mc.theWorld)
+                :new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Crowd"+i));
             m.setPosition(x,mc.thePlayer.boundingBox.minY,z);mc.theWorld.spawnEntityInWorld(m);crowd.add(m);
         }
-        if(ticks>110){int i=0;for(EntityOtherPlayerMP m:crowd){
+        if(ticks>110){int i=0;for(net.minecraft.entity.EntityLivingBase m:crowd){
             double a=ticks*.07+i*.7;m.prevPosX=m.lastTickPosX=m.posX;m.prevPosZ=m.lastTickPosZ=m.posZ;
-            m.setPosition(m.posX+Math.cos(a)*.1,m.posY,m.posZ+Math.sin(a)*.1);m.rotationYaw=m.prevRotationYaw=(float)Math.toDegrees(a)-90;m.renderYawOffset=m.prevRenderYawOffset=m.rotationYaw;m.rotationYawHead=m.prevRotationYawHead=m.rotationYaw;i++;}}
+            m.setPosition(m.posX+Math.cos(a)*.1,m.posY,m.posZ+Math.sin(a)*.1);m.rotationYaw=m.prevRotationYaw=(float)Math.toDegrees(a)-90;m.renderYawOffset=m.prevRenderYawOffset=m.rotationYaw;m.rotationYawHead=m.prevRotationYawHead=m.rotationYaw;m.prevLimbSwingAmount=m.limbSwingAmount;m.limbSwingAmount=.7f;m.limbSwing+=.55f;i++;}}
         if(ticks==500){
             long[] sorted=java.util.Arrays.copyOf(frames,frameCount);java.util.Arrays.sort(sorted);long sum=0;for(long f:sorted)sum+=f;
             System.out.println("MOVE_CROWD frames="+frameCount+" meanMs="+(sum/1e6/Math.max(1,frameCount))+" p50Ms="+sorted[frameCount/2]/1e6+" p95Ms="+sorted[(int)(frameCount*.95)]/1e6+" maxMs="+sorted[frameCount-1]/1e6);
@@ -136,24 +138,99 @@ public final class MoveVerifyReplay {
         if(ticks==300){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
-    /** Angle 700 + yaw: a zombie, a skeleton and a zombie pigman, client-only, walk past the camera one after another. */
+    /** Photographs whichever server-driven monster is nearest as they walk at P0A; the orbit camera follows it. */
+    private void walkers(){
+        mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
+        if(ticks<120)return;
+        net.minecraft.entity.EntityLiving best=null;double bestD=1e9;
+        for(Object o:mc.theWorld.loadedEntityList){
+            if(!(o instanceof net.minecraft.entity.monster.EntityZombie||o instanceof net.minecraft.entity.monster.EntitySkeleton))continue;
+            net.minecraft.entity.EntityLiving l=(net.minecraft.entity.EntityLiving)o;
+            double d=l.getDistanceSqToEntity(mc.thePlayer);
+            if(d>16&&d<bestD){bestD=d;best=l;}
+        }
+        mob=best;
+        if(mob!=null)camera();
+        int local=ticks-120;
+        if(mob!=null&&local>=0&&local<=360&&local%12==0)photo("walker-"+(local/12)+"-"+mob.getClass().getSimpleName());
+        if(local>400){done=true;System.out.println("MOVE_VERIFY_DONE");}
+    }
+
+    private static final String[] SCENES=System.getProperty("cw.b2.scenes","zombie,skeleton,pigman,armored,bow,child,water,chickenjockey,spiderjockey,modded,zvillager,armoredfull,skelarmor").split(",");
+    private net.minecraft.entity.Entity mobMount;
+    private net.minecraft.client.renderer.entity.Render savedRender;
+
+    /** A model a mod might ship: its own class extending the vanilla one, which must keep its own posing. */
+    private static final class ModdedZombie extends net.minecraft.client.model.ModelZombie {}
+
+    private net.minecraft.entity.EntityLiving make(String scene,double x,double y,double z){
+        net.minecraft.world.World w=mc.theWorld;
+        net.minecraft.entity.EntityLiving e;
+        if(scene.equals("skeleton")||scene.equals("bow")||scene.equals("spiderjockey")||scene.equals("skelarmor"))e=new net.minecraft.entity.monster.EntitySkeleton(w);
+        else if(scene.equals("pigman"))e=new net.minecraft.entity.monster.EntityPigZombie(w);
+        else e=new net.minecraft.entity.monster.EntityZombie(w);
+        e.setPosition(x,y,z);e.rotationYaw=e.prevRotationYaw=0;e.renderYawOffset=e.prevRenderYawOffset=0;e.rotationYawHead=e.prevRotationYawHead=0;
+        if(scene.equals("armored")){e.setCurrentItemOrArmor(4,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_helmet));e.setCurrentItemOrArmor(3,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_chestplate));e.setCurrentItemOrArmor(1,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_boots));}
+        if(scene.equals("armoredfull")||scene.equals("skelarmor")){
+            e.setCurrentItemOrArmor(4,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_helmet));e.setCurrentItemOrArmor(3,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_chestplate));
+            e.setCurrentItemOrArmor(2,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_leggings));e.setCurrentItemOrArmor(1,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_boots));}
+        if(scene.equals("zvillager")&&e instanceof net.minecraft.entity.monster.EntityZombie)((net.minecraft.entity.monster.EntityZombie)e).setVillager(true);
+        if(scene.equals("bow"))e.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.bow));
+        if(scene.equals("pigman"))e.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.golden_sword));
+        if(scene.equals("child")&&e instanceof net.minecraft.entity.monster.EntityZombie)((net.minecraft.entity.monster.EntityZombie)e).setChild(true);
+        mc.theWorld.spawnEntityInWorld(e);
+        return e;
+    }
+
+    private void setFlag(net.minecraft.entity.Entity target,String name,boolean value){
+        try{java.lang.reflect.Field f=net.minecraft.entity.Entity.class.getDeclaredField(name);f.setAccessible(true);f.setBoolean(target,value);}
+        catch(Exception e){System.out.println("MOVE_FLAG_UNAVAILABLE "+name+" "+e);}
+    }
+
+    private void step(net.minecraft.entity.Entity e,double dz){
+        e.prevPosX=e.lastTickPosX=e.posX;e.prevPosY=e.lastTickPosY=e.posY;e.prevPosZ=e.lastTickPosZ=e.posZ;
+        e.setPosition(e.posX,e.posY,e.posZ+dz);e.onGround=e.ridingEntity==null;
+        e.rotationYaw=e.prevRotationYaw=0;
+        if(e instanceof net.minecraft.entity.EntityLivingBase){
+            net.minecraft.entity.EntityLivingBase l=(net.minecraft.entity.EntityLivingBase)e;
+            l.prevLimbSwingAmount=l.limbSwingAmount;l.limbSwingAmount=.7f;l.limbSwing+=.55f;
+            l.renderYawOffset=l.prevRenderYawOffset=0;l.rotationYawHead=l.prevRotationYawHead=0;
+        }
+    }
+
+    /** Monster scenes, client-only, one after another: each walks past the camera and is photographed. */
     private void mobs(){
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         double x=mc.thePlayer.posX+3,y=mc.thePlayer.boundingBox.minY,z=mc.thePlayer.posZ;
-        int local=(ticks-110)%80;String[] names={"zombie","skeleton","pigman","armored","bow"};int which=(ticks-110)/80;
         if(ticks<110)return;
-        if(which>=5){done=true;System.out.println("MOVE_VERIFY_DONE");return;}
+        int local=(ticks-110)%80,which=(ticks-110)/80;
+        if(which>=SCENES.length){done=true;System.out.println("MOVE_VERIFY_DONE");return;}
+        String scene=SCENES[which];
         if(local==0){
-            mob=which==0||which==3?new net.minecraft.entity.monster.EntityZombie(mc.theWorld):which==1||which==4?new net.minecraft.entity.monster.EntitySkeleton(mc.theWorld):new net.minecraft.entity.monster.EntityPigZombie(mc.theWorld);
-            if(which==3){mob.setCurrentItemOrArmor(4,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_helmet));mob.setCurrentItemOrArmor(3,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_chestplate));mob.setCurrentItemOrArmor(1,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_boots));}
-            if(which==4)mob.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.bow));
-            mob.setPosition(x,y,z);mob.rotationYaw=mob.prevRotationYaw=0;mob.renderYawOffset=mob.prevRenderYawOffset=0;mob.rotationYawHead=mob.prevRotationYawHead=0;
-            mc.theWorld.spawnEntityInWorld(mob);}
-        if(mob!=null&&local>0){mob.prevPosX=mob.lastTickPosX=mob.posX;mob.prevPosY=mob.lastTickPosY=mob.posY;mob.prevPosZ=mob.lastTickPosZ=mob.posZ;
-            mob.setPosition(mob.posX,mob.posY,mob.posZ+.13);mob.onGround=true;mob.prevLimbSwingAmount=mob.limbSwingAmount;mob.limbSwingAmount=.7f;mob.limbSwing+=.55f;mob.rotationYaw=mob.prevRotationYaw=0;mob.renderYawOffset=mob.prevRenderYawOffset=0;mob.rotationYawHead=mob.prevRotationYawHead=0;}
+            if(scene.equals("modded")){
+                // Swap the zombie renderer for one whose model is a mod-style subclass: it must be left alone.
+                java.util.Map map=net.minecraft.client.renderer.entity.RenderManager.instance.entityRenderMap;
+                savedRender=(net.minecraft.client.renderer.entity.Render)map.get(net.minecraft.entity.monster.EntityZombie.class);
+                net.minecraft.client.renderer.entity.RenderBiped r=new net.minecraft.client.renderer.entity.RenderBiped(new ModdedZombie(),.5f){protected net.minecraft.util.ResourceLocation getEntityTexture(net.minecraft.entity.Entity e){return new net.minecraft.util.ResourceLocation("textures/entity/zombie/zombie.png");}};
+                r.setRenderManager(net.minecraft.client.renderer.entity.RenderManager.instance);
+                map.put(net.minecraft.entity.monster.EntityZombie.class,r);
+            }
+            mob=make(scene,x,y,z);
+            if(scene.equals("chickenjockey")){mobMount=new net.minecraft.entity.passive.EntityChicken(mc.theWorld);mobMount.setPosition(x,y,z);mc.theWorld.spawnEntityInWorld(mobMount);mob.mountEntity(mobMount);}
+            if(scene.equals("spiderjockey")){mobMount=new net.minecraft.entity.monster.EntitySpider(mc.theWorld);mobMount.setPosition(x,y,z);mc.theWorld.spawnEntityInWorld(mobMount);mob.mountEntity(mobMount);}
+        }
+        if(mob!=null&&local>0){
+            step(mob,mobMount==null?.13:0);
+            if(mobMount!=null)step(mobMount,.13);
+            if(scene.equals("water"))setFlag(mob,"inWater",true);
+        }
         camera();
-        if(local>=30&&local<=66&&(local-30)%6==0)photo("mob-"+names[which]+"-"+((local-30)/6));
-        if(local==75&&mob!=null){mc.theWorld.removeEntity(mob);mob=null;}
+        if(local>=30&&local<=66&&(local-30)%6==0)photo("mob-"+scene+"-"+((local-30)/6));
+        if(local==75){
+            if(mob!=null){mc.theWorld.removeEntity(mob);mob=null;}
+            if(mobMount!=null){mc.theWorld.removeEntity(mobMount);mobMount=null;}
+            if(scene.equals("modded")&&savedRender!=null)net.minecraft.client.renderer.entity.RenderManager.instance.entityRenderMap.put(net.minecraft.entity.monster.EntityZombie.class,savedRender);
+        }
     }
 
     private void photo(String name){if(shot==null)shot=name;}
@@ -163,9 +240,10 @@ public final class MoveVerifyReplay {
         mc.gameSettings.hideGUI=true;mc.gameSettings.limitFramerate=60;mc.gameSettings.pauseOnLostFocus=false;
         if(!mc.thePlayer.getCommandSenderName().equals("P0A"))return;
         if(++ticks<100)return;
-        if(angle>=900){crowd();return;}
-        if(angle>=800){stanceWalk();return;}
-        if(angle>=700){mobs();return;}
+        if(mode.equals("crowd")||mode.equals("crowdmobs")){crowd();return;}
+        if(mode.equals("stance")){stanceWalk();return;}
+        if(mode.equals("mobs")){mobs();return;}
+        if(mode.equals("walkers")){walkers();return;}
         if(ticks==100)mc.thePlayer.inventory.currentItem=1;
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         camera();
@@ -203,7 +281,7 @@ public final class MoveVerifyReplay {
     }
 
     @SubscribeEvent public void frame(TickEvent.RenderTickEvent event){
-        if(angle>=900&&event.phase==TickEvent.Phase.END&&ticks>160&&ticks<500&&frameCount<frames.length){long n=System.nanoTime();if(lastFrame!=0)frames[frameCount++]=n-lastFrame;lastFrame=n;return;}
+        if(mode.startsWith("crowd")&&event.phase==TickEvent.Phase.END&&ticks>160&&ticks<500&&frameCount<frames.length){long n=System.nanoTime();if(lastFrame!=0)frames[frameCount++]=n-lastFrame;lastFrame=n;return;}
         if(event.phase!=TickEvent.Phase.END||mc.thePlayer==null||shot==null)return;
         ScreenShotHelper.saveScreenshot(new File("."),"move-"+shot+".png",mc.displayWidth,mc.displayHeight,mc.getFramebuffer());
         ClientProxy.Visual own=ClientProxy.instance.own();

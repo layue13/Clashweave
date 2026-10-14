@@ -221,9 +221,11 @@ final class CombatBiped extends ModelBiped {
         leftElbow.rotateAngleX = leftForearm.rotateAngleX * .5f;
         rightKnee.rotateAngleX = rightShin.rotateAngleX * .5f;
         leftKnee.rotateAngleX = leftShin.rotateAngleX * .5f;
-        boolean show = !rigidArms;
-        rightElbow.showModel = leftElbow.showModel = show;
-        rightKnee.showModel = leftKnee.showModel = !rigidLegs;
+        // Straight, the wedge a bend opens is a fraction of a pixel: nothing to fill, nothing to draw.
+        rightElbow.showModel = !rigidArms && Math.abs(rightForearm.rotateAngleX) > .06f;
+        leftElbow.showModel = !rigidArms && Math.abs(leftForearm.rotateAngleX) > .06f;
+        rightKnee.showModel = !rigidLegs && Math.abs(rightShin.rotateAngleX) > .06f;
+        leftKnee.showModel = !rigidLegs && Math.abs(leftShin.rotateAngleX) > .06f;
     }
 
     static void cap(ModelRenderer part, boolean bottom, float u, float v) {

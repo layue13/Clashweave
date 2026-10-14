@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 
 import com.layue13.clashweave.client.body.BodyRig;
+import com.layue13.clashweave.client.body.Gait;
 import com.layue13.clashweave.client.body.Locomotion;
 import com.layue13.clashweave.client.body.LocomotionInputs;
 
@@ -23,10 +24,14 @@ final class MobBiped extends ModelBiped {
     private final ModelRenderer rightElbow, leftElbow, rightKnee, leftKnee;
     private final LocomotionInputs inputs = new LocomotionInputs();
     private final boolean armsBelongToVanilla;
+    private final Gait gait;
     private boolean released;
+    private static final float STRAIGHT = .06f;
+    /** Set per frame from the worn armor: that pair of limbs stays one straight block so it and the armor agree. */
+    boolean rigidArms, rigidLegs;
 
     /** Returns null when the donor's limbs cannot be cut (not single boxes tall enough). */
-    static MobBiped of(ModelBiped donor, boolean armsBelongToVanilla) {
+    static MobBiped of(ModelBiped donor, boolean armsBelongToVanilla, Gait gait) {
         float[] home = BipedChannels.homeOf(donor);
         ModelRenderer[] cut = new ModelRenderer[8];
         ModelRenderer[] parts = { donor.bipedRightArm, donor.bipedLeftArm, donor.bipedRightLeg, donor.bipedLeftLeg };
@@ -37,14 +42,15 @@ final class MobBiped extends ModelBiped {
             cut[i] = joint.lower;
             cut[i + 4] = joint.prism;
         }
-        return new MobBiped(donor, home, cut, armsBelongToVanilla);
+        return new MobBiped(donor, home, cut, armsBelongToVanilla, gait);
     }
 
-    private MobBiped(ModelBiped donor, float[] home, ModelRenderer[] cut, boolean armsBelongToVanilla) {
+    private MobBiped(ModelBiped donor, float[] home, ModelRenderer[] cut, boolean armsBelongToVanilla, Gait gait) {
         super(0);
         this.donor = donor;
         this.home = home;
         this.armsBelongToVanilla = armsBelongToVanilla;
+        this.gait = gait;
         textureWidth = donor.textureWidth;
         textureHeight = donor.textureHeight;
         bipedHead = donor.bipedHead;
@@ -111,7 +117,7 @@ final class MobBiped extends ModelBiped {
         donor.setRotationAngles(limb, amount, age, headYaw, pitch, scale, entity);
         rightForearm.rotateAngleX = leftForearm.rotateAngleX = rightShin.rotateAngleX = leftShin.rotateAngleX = 0;
         long now = System.nanoTime();
-        long period = ClientProxy.instance.tickPeriod();
+        long period = ClientProxy.instance == null ? 50_000_000L : ClientProxy.instance.tickPeriod();
         BodyRig rig = BodyRigs.of(entity.getEntityId(), now);
         if (rig.beginFrame(now)) rig.observeGround(entity.onGround, now, period);
         if (rig.needsStep()) {
@@ -127,18 +133,34 @@ final class MobBiped extends ModelBiped {
             in.ticksSinceTouchdown = rig.ticksSinceTouchdown();
             in.ticksAirborne = rig.ticksAirborne();
             in.armsBusy = in.leftBusy = armsBelongToVanilla;
-            in.usingItem = true;
+            // A held item rides the upper arm alone, so an elbow bend would leave it behind: no elbow when holding one.
+            in.usingItem = entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getHeldItem() != null;
+            in.gait = gait;
             in.mode = entity.isRiding() ? LocomotionInputs.RIDE
                 : entity.isInWater() ? LocomotionInputs.SWIM : LocomotionInputs.GROUND;
             BipedChannels.readVanilla(this, rig.target());
             Locomotion.compute(in, rig.target());
             rig.chase(now, period);
         }
-        BipedChannels
-            .writeBase(this, rightForearm, leftForearm, rightShin, leftShin, false, false, home, rig.smoothed());
+        BipedChannels.writeBase(
+            this,
+            rightForearm,
+            leftForearm,
+            rightShin,
+            leftShin,
+            rigidArms,
+            rigidLegs,
+            home,
+            rig.smoothed());
         rightElbow.rotateAngleX = rightForearm.rotateAngleX * .5f;
         leftElbow.rotateAngleX = leftForearm.rotateAngleX * .5f;
         rightKnee.rotateAngleX = rightShin.rotateAngleX * .5f;
         leftKnee.rotateAngleX = leftShin.rotateAngleX * .5f;
+        // The wedge a bend opens is a fraction of a pixel until the joint is well bent: straight, there is nothing to
+        // fill.
+        rightElbow.showModel = !rigidArms && Math.abs(rightForearm.rotateAngleX) > STRAIGHT;
+        leftElbow.showModel = !rigidArms && Math.abs(leftForearm.rotateAngleX) > STRAIGHT;
+        rightKnee.showModel = !rigidLegs && Math.abs(rightShin.rotateAngleX) > STRAIGHT;
+        leftKnee.showModel = !rigidLegs && Math.abs(leftShin.rotateAngleX) > STRAIGHT;
     }
 }

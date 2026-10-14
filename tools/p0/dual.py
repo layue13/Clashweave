@@ -31,6 +31,8 @@ parser.add_argument('--edge-boundary', action='store_true')
 parser.add_argument('--art-verify', action='store_true')
 parser.add_argument('--move-verify', type=float, help='B2: photograph P0A standing, walking, sprinting and jumping from this camera yaw (90 = side)')
 parser.add_argument('--armor', help='C2b: equip P0A with leather|iron (optionally -chest, -legs, -boots for one piece)')
+parser.add_argument('--move-mode', default='player', choices=['player','mobs','stance','crowd','crowdmobs','walkers'], help='B2-B4: what --move-verify stages: player (default), mobs (client-side monsters), stance (engaged katana walk), crowd / crowdmobs (40 walking mannequins / zombies, frame times), walkers (real server-side zombie, skeleton and pigman walking at P0A)')
+parser.add_argument('--jvm-arg', action='append', default=[], help='extra -D argument for the clients, e.g. -Dcw.mobBodies.off=true (monster takeover off, for before/after runs of one jar)')
 parser.add_argument('--pose-verify', type=float, help='C2a: frame-by-frame third-person captures of every action from this camera yaw (degrees, 90 = side)')
 parser.add_argument('--movement', action='store_true')
 parser.add_argument('--low-tps', action='store_true')
@@ -133,7 +135,8 @@ def spawn(role):
     if args.art_verify: command += ['-Dcw.p0.artVerify=true']
     if args.pose_verify is not None: command += ['-Dcw.c2a.poseVerify='+str(args.pose_verify)]
     if args.armor: command += ['-Dcw.c2b.armor='+args.armor]
-    if args.move_verify is not None: command += ['-Dcw.b2.moveVerify='+str(args.move_verify)]
+    command += list(args.jvm_arg)
+    if args.move_verify is not None: command += ['-Dcw.b2.moveVerify='+str(args.move_verify),'-Dcw.b2.moveMode='+args.move_mode] + (['-Dcw.b4.walkers=true'] if args.move_mode == 'walkers' else [])
     if args.sweep_test:
         command += ['-Dcw.p0.sweepTest=true']
     if args.fast_turn:
