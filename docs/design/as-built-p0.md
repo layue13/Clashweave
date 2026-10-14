@@ -26,12 +26,14 @@
 
 ## 4. 保持不变的 P0 机制
 
-数据驱动动作表(`katana.json`:iai、light_1..3、heavy、sheathe)、服务端 Scheduler、InputGate、玩家目标延后提交(`confirmationDelay 3`)、持久 `maxHurtResistantTime 8`、FacingHistory(角度容差 `5°`、历史 `500 ms`)、MovementBudget(外部纵向/横向额度,`impulseMultiplier 4`)。
+数据驱动动作表(P0 时为 iai、light_1..3、heavy、sheathe;之后增加 launcher、air_light、air_slam、counter、step,见各阶段报告)、服务端 Scheduler、InputGate、玩家目标延后提交(`confirmationDelay 3`)、持久 `maxHurtResistantTime 8`、FacingHistory(角度容差 `5°`、历史 `500 ms`)、MovementBudget(外部纵向/横向额度,`impulseMultiplier 4`)。
 
 ## 5. 美术方向与比例(摘要)
 
 基础美术语言为"低多边形 + 手绘色块"(方向 A);刀的全部尺寸由玩家可见身高 `1.875` 推出,默认刀长 `0.786×身高`(1.47)。细节、图集分区与挂点结论见 `docs/art/katana-a.md`;该文档在 PR #15 中。
 
-## 6. 尚未实现(设计已有)
+## 6. 之后阶段已实现与尚未实现
 
-内容包装载与注册表(`extension.md` §15–17)、玩家骨架接管与移动层(`assets.md`)、切上/浮空/控制预算(P1-a)、空中追击(P1-b)、SA 与爆发。路线见维护者的阶段计划。
+本文的数值只描述 P0 的相机、锁定与连段补偿(这些在后续阶段未改)。其后已合并:内容包装载与注册表(WF-1)、身体动画取代 Mo' Bends(B)、战斗动画(C2)、切上与浮空控制预算(P1-a)、空中追击与落斩(P1-b)、格挡/弹刀、架势与崩势、精准格挡反击、踏步回避、SA 框架与居合延迟斩、气与模式、主动 SA 例子(P2-a…g,默认值见 `docs/p2/` 各报告与 `CombatConfig`)、数据驱动的特效层(P3)。
+
+尚未实现或未验证:受限踏步闪移(模式增强的一部分)、更多 SA、模式的观察者视觉之外的表现、多敌与双人 PvP 的专门验收(P2 收口)、动物与非人形怪物的身体动画。路线见维护者的阶段计划。
