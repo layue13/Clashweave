@@ -76,7 +76,13 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
     public void accept(SemanticEvents.Event event) {
         if (minecraft.thePlayer == null) return;
         int own = minecraft.thePlayer.getEntityId();
-        if (event.kind == SemanticEvents.Kind.LAUNCH) {
+        // What the data binds to these events is played first; the vanilla particles below remain as the fallback.
+        boolean fx = (event.kind == SemanticEvents.Kind.LAUNCH || event.kind == SemanticEvents.Kind.SLAM
+            || event.kind == SemanticEvents.Kind.BREAK
+            || event.kind == SemanticEvents.Kind.DELAYED)
+            && com.layue13.clashweave.client.vfx.Vfx.INSTANCE
+                .playEvent(event.kind.name(), minecraft.theWorld.getEntityByID(event.actor));
+        if (event.kind == SemanticEvents.Kind.LAUNCH && !fx) {
             net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
             if (entity != null) minecraft.theWorld
                 .spawnParticle("crit", entity.posX, entity.posY + entity.height / 2, entity.posZ, 0, 0, 0);
@@ -85,7 +91,7 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
         if (event.kind == SemanticEvents.Kind.DELAYED) {
             net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
             if (entity != null) {
-                for (int i = 0; i < 14; i++) {
+                for (int i = 0; i < 14 && !fx; i++) {
                     double t = i / 13.0 * 2 - 1;
                     minecraft.theWorld.spawnParticle(
                         "fireworksSpark",
@@ -102,7 +108,7 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
         if (event.kind == SemanticEvents.Kind.BREAK) {
             net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
             if (entity != null) {
-                for (int i = 0; i < 12; i++) minecraft.theWorld.spawnParticle(
+                for (int i = 0; i < 12 && !fx; i++) minecraft.theWorld.spawnParticle(
                     "crit",
                     entity.posX + (minecraft.theWorld.rand.nextDouble() - .5) * entity.width,
                     entity.posY + entity.height * .8,
@@ -116,7 +122,7 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
         if (event.kind == SemanticEvents.Kind.SLAM) {
             net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
             if (entity != null) {
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 8 && !fx; i++) {
                     double angle = i * Math.PI / 4;
                     minecraft.theWorld.spawnParticle(
                         "explode",

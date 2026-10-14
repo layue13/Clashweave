@@ -27,7 +27,26 @@ public final class EffectLibrary {
 
     private final List<EffectDef> effects = new ArrayList<>();
     private final Map<String, Integer> handles = new HashMap<>();
-    private final Map<String, Integer> byEvent = new HashMap<>();
+    private final Map<String, List<Binding>> byEvent = new HashMap<>();
+
+    /** What an event kind plays, where, and for which kind of entity ({@code null} entity = any). */
+    public static final class Binding {
+
+        public String kind, effect, anchor = "actor", dir = "up", entity, follow;
+        /** Share of the entity's height the effect plays at: 0 feet, 1 top. */
+        public float height = .5f;
+        public int followInterval = 4, followDuration = 0;
+        transient int effectHandle = -1, followHandle = -1;
+
+        public int effect() {
+            return effectHandle;
+        }
+
+        public int followEffect() {
+            return followHandle;
+        }
+    }
+
     private final List<String> errors = new ArrayList<>();
     private EffectDef.Trail trail;
 
@@ -75,27 +94,58 @@ public final class EffectLibrary {
         }
     }
 
-    /** Reads {@code {"events":[{"kind":"BLOCK","effect":"id"}]}}. */
+    /** Reads {@code {"events":[{"kind":"BLOCK","effect":"id", ...}]}}; see {@link Binding} for the other fields. */
     public void readBindings(Reader reader) {
         JsonObject root = new JsonParser().parse(reader)
             .getAsJsonObject();
         if (!root.has("events")) return;
+        Gson gson = new Gson();
         for (JsonElement element : root.getAsJsonArray("events")) {
-            JsonObject o = element.getAsJsonObject();
-            String kind = o.get("kind")
-                .getAsString();
-            String effect = o.get("effect")
-                .getAsString();
-            Integer handle = handles.get(effect);
-            if (handle == null || handle < 0) errors.add("binding " + kind + " -> unknown effect " + effect);
-            else byEvent.put(kind, handle);
+            try {
+                Binding binding = gson.fromJson(element, Binding.class);
+                if (binding.kind == null || binding.effect == null)
+                    throw new IllegalArgumentException("binding needs kind and effect");
+                binding.effectHandle = handle(binding.effect);
+                if (binding.effectHandle < 0)
+                    throw new IllegalArgumentException(binding.kind + " -> unknown effect " + binding.effect);
+                if (binding.follow != null) {
+                    binding.followHandle = handle(binding.follow);
+                    if (binding.followHandle < 0 || binding.followDuration < 1 || binding.followInterval < 1)
+                        throw new IllegalArgumentException(binding.kind + " -> bad follow " + binding.follow);
+                }
+                if (!(binding.height >= 0 && binding.height <= 1.5f)
+                    || !("actor".equals(binding.anchor) || "target".equals(binding.anchor))
+                    || !("up".equals(binding.dir) || "side".equals(binding.dir)))
+                    throw new IllegalArgumentException(
+                        binding.kind + ": anchor actor|target, dir up|side, height 0-1.5");
+                byEvent.computeIfAbsent(binding.kind, k -> new ArrayList<>())
+                    .add(binding);
+            } catch (RuntimeException e) {
+                errors.add(String.valueOf(e.getMessage() == null ? e : e.getMessage()));
+            }
         }
+    }
+
+    /**
+     * The binding for an event kind and an entity class (simple name): a class-specific one first, else the generic.
+     */
+    public Binding resolve(String kind, String entityClass) {
+        List<Binding> list = byEvent.get(kind);
+        if (list == null) return null;
+        Binding generic = null;
+        for (int i = 0; i < list.size(); i++) {
+            Binding binding = list.get(i);
+            if (binding.entity == null) {
+                if (generic == null) generic = binding;
+            } else if (binding.entity.equals(entityClass)) return binding;
+        }
+        return generic;
     }
 
     /** The effect bound to a semantic event kind name, or -1. */
     public int forEvent(String kind) {
-        Integer handle = byEvent.get(kind);
-        return handle == null ? -1 : handle;
+        Binding binding = resolve(kind, null);
+        return binding == null ? -1 : binding.effectHandle;
     }
 
     public int handle(String id) {

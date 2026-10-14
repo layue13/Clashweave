@@ -41,6 +41,29 @@ public final class VfxReplay {
         camera.setPosition(mc.thePlayer.posX,mc.thePlayer.boundingBox.minY,mc.thePlayer.posZ);
         camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
         camera.rotationYaw=camera.prevRotationYaw=angle;camera.rotationPitch=camera.prevRotationPitch=10;
+        String eventKind=System.getProperty("cw.p3.event");
+        if(eventKind!=null){
+            // A bound event played at a monster (or the wielder), one frame per tick, so the data and entity filter are judged alone.
+            int local=ticks-110,k=((local%50)+50)%50;
+            if(local>=0&&k==0){
+                String mob=System.getProperty("cw.p3.mob","zombie");
+                net.minecraft.entity.Entity target=null;
+                if(mob.equals("player"))target=mc.thePlayer;
+                else{
+                    for(Object o:mc.theWorld.loadedEntityList)if(o instanceof net.minecraft.entity.monster.EntityZombie){target=(net.minecraft.entity.Entity)o;break;}
+                    if(!mob.equals("zombie")){
+                        net.minecraft.entity.EntityLiving spawned=mob.equals("skeleton")?new net.minecraft.entity.monster.EntitySkeleton(mc.theWorld):new net.minecraft.entity.monster.EntityPigZombie(mc.theWorld);
+                        spawned.setPosition(mc.thePlayer.posX,mc.thePlayer.boundingBox.minY,mc.thePlayer.posZ-1.6);
+                        mc.theWorld.spawnEntityInWorld(spawned);target=spawned;
+                    }
+                }
+                boolean played=target!=null&&com.layue13.clashweave.client.vfx.Vfx.INSTANCE.playEvent(eventKind,target);
+                System.out.println("VFX_EVENT_TEST kind="+eventKind+" mob="+mob+" played="+played);
+            }
+            if(local>=0&&k<20&&shot==null&&taken<shots)shot="vfx-ev-"+eventKind+"-"+System.getProperty("cw.p3.mob","zombie")+"-"+(taken++);
+            if(taken>=shots){done=true;System.out.println("VFX_COMPLETE taken="+taken);mc.shutdown();}
+            return;
+        }
         String burst=System.getProperty("cw.p3.burst");
         if(burst!=null){
             // Effects thrown straight at the camera's subject, one frame per tick, so the rendering is judged alone.

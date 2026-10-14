@@ -6,6 +6,7 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.Entity;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -94,9 +95,98 @@ public final class Vfx {
         if (ENABLED) trails.capture(entity, x, y, z);
     }
 
+    private static final int FOLLOWERS = 32;
+    private final int[] followEntity = new int[FOLLOWERS], followEffect = new int[FOLLOWERS],
+        followLeft = new int[FOLLOWERS], followEvery = new int[FOLLOWERS], followPhase = new int[FOLLOWERS];
+    private final float[] followHeight = new float[FOLLOWERS];
+    private int followers;
+    private final java.util.Map<Class<?>, String> classNames = new java.util.HashMap<>();
+
+    private String className(Object entity) {
+        Class<?> type = entity.getClass();
+        String name = classNames.get(type);
+        if (name == null) {
+            name = type.getSimpleName();
+            classNames.put(type, name);
+        }
+        return name;
+    }
+
+    /**
+     * Plays what the data binds to this event kind for the entity it happened to (or at, per the binding anchor), and
+     * starts a following effect if the binding asks for one. Returns whether anything was bound.
+     */
+    public boolean playEvent(String kind, Entity entity) {
+        if (!ENABLED || entity == null) return false;
+        EffectLibrary.Binding binding = library.resolve(kind, className(entity));
+        if (binding == null) return false;
+        if (DEBUG)
+            System.out.println("VFX_EVENT kind=" + kind + " entity=" + className(entity) + " effect=" + binding.effect);
+        double x = entity.posX, y = entity.boundingBox.minY + entity.height * binding.height, z = entity.posZ;
+        float dx = 0, dy = 1, dz = 0;
+        if ("side".equals(binding.dir)) {
+            // Across the line of sight, so a slash always reads as a slash on screen.
+            Entity viewer = Minecraft.getMinecraft().renderViewEntity;
+            double vx = viewer == null ? 0 : entity.posX - viewer.posX,
+                vz = viewer == null ? 1 : entity.posZ - viewer.posZ;
+            double length = Math.sqrt(vx * vx + vz * vz);
+            if (length > 1e-4) {
+                dx = (float) (-vz / length);
+                dy = 0;
+                dz = (float) (vx / length);
+            } else {
+                dx = 1;
+                dy = 0;
+            }
+        }
+        play(binding.effect(), x, y, z, dx, dy, dz);
+        if (binding.followEffect() >= 0 && followers < FOLLOWERS) {
+            int i = followers++;
+            followEntity[i] = entity.getEntityId();
+            followEffect[i] = binding.followEffect();
+            followLeft[i] = binding.followDuration;
+            followEvery[i] = binding.followInterval;
+            followPhase[i] = 0;
+            followHeight[i] = binding.height;
+        }
+        return true;
+    }
+
+    /** Plays a bound effect for an entity every {@code interval} of its own ticks (an aura while something holds). */
+    public void ambient(String kind, Entity entity, int interval) {
+        if (ENABLED && entity != null && entity.ticksExisted % interval == 0) playEvent(kind, entity);
+    }
+
     @SubscribeEvent
     public void tick(TickEvent.ClientTickEvent event) {
-        if (event.phase == TickEvent.Phase.END) pool.tick();
+        if (event.phase != TickEvent.Phase.END) return;
+        pool.tick();
+        Minecraft minecraft = Minecraft.getMinecraft();
+        for (int i = 0; i < followers;) {
+            Entity entity = minecraft.theWorld == null ? null : minecraft.theWorld.getEntityByID(followEntity[i]);
+            if (entity == null || entity.isDead || --followLeft[i] < 0) {
+                int last = --followers;
+                followEntity[i] = followEntity[last];
+                followEffect[i] = followEffect[last];
+                followLeft[i] = followLeft[last];
+                followEvery[i] = followEvery[last];
+                followPhase[i] = followPhase[last];
+                followHeight[i] = followHeight[last];
+                continue;
+            }
+            if (++followPhase[i] >= followEvery[i]) {
+                followPhase[i] = 0;
+                play(
+                    followEffect[i],
+                    entity.posX,
+                    entity.boundingBox.minY + entity.height * followHeight[i],
+                    entity.posZ,
+                    0,
+                    1,
+                    0);
+            }
+            i++;
+        }
     }
 
     @SubscribeEvent
@@ -186,7 +276,16 @@ public final class Vfx {
             for (int k = 0; k <= 20; k++) {
                 double angle = k * Math.PI / 10;
                 float c = (float) Math.cos(angle), sn = (float) Math.sin(angle);
-                float cx2 = rx * c + ux * sn, cy2 = ry * c + uy * sn, cz2 = rz * c + uz * sn;
+                float cx2, cy2, cz2;
+                if (em.facing == EffectDef.Facing.GROUND) {
+                    cx2 = c;
+                    cy2 = 0;
+                    cz2 = sn;
+                } else {
+                    cx2 = rx * c + ux * sn;
+                    cy2 = ry * c + uy * sn;
+                    cz2 = rz * c + uz * sn;
+                }
                 if (disc) t.setColorRGBA_F(1f, 1f, 1f, a);
                 else t.setColorRGBA_F(em.color[0], em.color[1], em.color[2], 0f);
                 t.addVertex(ox + cx2 * inner, oy + cy2 * inner, oz + cz2 * inner);

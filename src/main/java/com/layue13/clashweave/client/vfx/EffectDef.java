@@ -18,6 +18,13 @@ public final class EffectDef {
         RING
     }
 
+    public enum Facing {
+        /** Turned to the viewer. */
+        CAMERA,
+        /** Lying flat on the ground (discs and rings only). */
+        GROUND
+    }
+
     public static final class Emitter {
 
         public Kind kind = Kind.STREAK;
@@ -34,6 +41,11 @@ public final class EffectDef {
         public float forward;
         public float[] alpha = { 1f, 0f };
         public float[] scale = { 1f, 1f };
+        public Facing facing = Facing.CAMERA;
+        /** -1 throws the particles the opposite way along the effect direction. */
+        public float dirSign = 1;
+        /** Each particle starts at a random point within this distance of the anchor. */
+        public float scatter;
 
         transient Curve alphaCurve, scaleCurve;
 
@@ -79,6 +91,9 @@ public final class EffectDef {
             Emitter e = emitters.get(i);
             String where = id + ".emitters[" + i + "]";
             if (e == null || e.kind == null) throw new IllegalArgumentException(where + ": missing kind");
+            if (e.facing == null || !(e.dirSign == 1 || e.dirSign == -1))
+                throw new IllegalArgumentException(where + ": facing and dirSign (1 or -1)");
+            if (!(e.scatter >= 0 && e.scatter <= 4)) throw new IllegalArgumentException(where + ".scatter 0-4");
             if (e.count < 1 || e.count > 64) throw new IllegalArgumentException(where + ".count 1-64");
             range(e.speed, 0, 2, where + ".speed");
             range(e.life, 1, 200, where + ".life");

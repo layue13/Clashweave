@@ -367,6 +367,12 @@ public final class ClientProxy extends CommonProxy {
                     + " owner="
                     + minecraft.thePlayer.getEntityId());
         }
+        // An aura under everyone whose mode is running.
+        if (!visuals.isEmpty()) for (java.util.Map.Entry<Integer, Visual> each : visuals.entrySet()) {
+            Visual visual = each.getValue();
+            if (visual.state != null && visual.state.mode > 0) com.layue13.clashweave.client.vfx.Vfx.INSTANCE
+                .ambient("MODE", minecraft.theWorld.getEntityByID(each.getKey()), 6);
+        }
         lockCamera.tick();
         boolean armed = CombatServer.armed(minecraft.thePlayer);
         boolean openGui = minecraft.currentScreen != null;

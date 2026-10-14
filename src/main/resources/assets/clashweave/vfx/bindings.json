@@ -1,6 +1,59 @@
 {
   "events": [
-    { "kind": "BLOCK", "effect": "clashweave:guard_block" },
-    { "kind": "PARRY", "effect": "clashweave:guard_parry" }
+    {
+      "kind": "BLOCK",
+      "effect": "clashweave:guard_block"
+    },
+    {
+      "kind": "PARRY",
+      "effect": "clashweave:guard_parry"
+    },
+    {
+      "kind": "BREAK",
+      "effect": "clashweave:break_generic",
+      "height": 0.8,
+      "follow": "clashweave:stagger_stars",
+      "followInterval": 4,
+      "followDuration": 16
+    },
+    {
+      "kind": "BREAK",
+      "entity": "EntityZombie",
+      "effect": "clashweave:break_zombie",
+      "height": 0.8,
+      "follow": "clashweave:stagger_stars",
+      "followInterval": 4,
+      "followDuration": 16
+    },
+    {
+      "kind": "BREAK",
+      "entity": "EntitySkeleton",
+      "effect": "clashweave:break_skeleton",
+      "height": 0.8,
+      "follow": "clashweave:stagger_stars",
+      "followInterval": 4,
+      "followDuration": 16
+    },
+    {
+      "kind": "SLAM",
+      "effect": "clashweave:slam_impact",
+      "height": 0.05
+    },
+    {
+      "kind": "LAUNCH",
+      "effect": "clashweave:launch_burst",
+      "height": 0.05
+    },
+    {
+      "kind": "DELAYED",
+      "effect": "clashweave:afterimage_slash",
+      "height": 0.6,
+      "dir": "side"
+    },
+    {
+      "kind": "MODE",
+      "effect": "clashweave:mode_aura",
+      "height": 0.02
+    }
   ]
 }
