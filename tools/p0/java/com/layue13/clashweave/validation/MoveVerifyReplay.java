@@ -131,7 +131,8 @@ public final class MoveVerifyReplay {
 
     /** Angle 800 + yaw: draws the katana with one light attack, then walks with the blade out; photographs the ready stance walking. */
     private void stanceWalk(){
-        mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
+        // Walk out and back: the floor is only 100 blocks long, and sprinting covers it.
+        mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=ticks<215?0:180;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         if(ticks==100)mc.thePlayer.inventory.currentItem=0;
         if(ticks==110)ClientProxy.instance.send(com.layue13.clashweave.core.Intent.LIGHT,-1);
         camera();
@@ -146,7 +147,7 @@ public final class MoveVerifyReplay {
         if(ticks>=124&&ticks<=126)photo("stand-"+(ticks-124));
         if(ticks>=138&&ticks<=173&&(ticks-138)%5==0)photo("stancewalk-"+((ticks-138)/5));
         if(ticks>=215&&ticks<=239&&(ticks-215)%8==0)photo("drawnwalk-"+((ticks-215)/8));
-        if(ticks==300){done=true;System.out.println("MOVE_VERIFY_DONE");}
+        if(ticks==345){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
     /** Real input in the player's own eyes: sheathed, drawing, ready stance, walking, sprinting, sneaking, jumping, looking up and down, then an empty hand. */
@@ -319,6 +320,7 @@ public final class MoveVerifyReplay {
         if(mob!=null&&local>0){
             step(mob,mobMount==null?.13:0);
             if(mobMount!=null)step(mobMount,.13);
+            for(net.minecraft.entity.Entity mate:packMates)step(mate,.13);
             if(scene.equals("water"))setFlag(mob,"inWater",true);
             if(scene.endsWith("hurt"))mob.hurtTime=6;
             if(scene.equals("dying")){mob.setHealth(0);mob.deathTime=12;}
