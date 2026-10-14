@@ -833,6 +833,339 @@
       ]
     },
     {
+      "id": "clashweave:judge_blink",
+      "emitters": [
+        {
+          "kind": "RING",
+          "count": 1,
+          "life": [
+            9,
+            9
+          ],
+          "size": [
+            1.5,
+            1.5
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "alpha": [
+            0.95,
+            0
+          ],
+          "scale": [
+            0.2,
+            1.0
+          ],
+          "facing": "GROUND"
+        },
+        {
+          "kind": "DISC",
+          "count": 1,
+          "life": [
+            4,
+            4
+          ],
+          "size": [
+            1.0,
+            1.0
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "alpha": [
+            1,
+            0
+          ],
+          "scale": [
+            0.4,
+            1.0
+          ]
+        },
+        {
+          "kind": "STREAK",
+          "count": 16,
+          "speed": [
+            0.1,
+            0.35
+          ],
+          "spread": 40,
+          "life": [
+            8,
+            13
+          ],
+          "size": [
+            0.09,
+            0.14
+          ],
+          "gravity": -0.004,
+          "drag": 0.9,
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "alpha": [
+            1,
+            0.85,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clashweave:judge_cage",
+      "emitters": [
+        {
+          "kind": "LINE",
+          "count": 18,
+          "size": [
+            1.4,
+            2.6
+          ],
+          "life": [
+            26,
+            40
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "scatter": 0.9,
+          "width": 0.035,
+          "spread": 180,
+          "alpha": [
+            1,
+            1,
+            0.8,
+            0
+          ]
+        },
+        {
+          "kind": "RING",
+          "count": 1,
+          "life": [
+            10,
+            10
+          ],
+          "size": [
+            1.4,
+            1.4
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "alpha": [
+            0.95,
+            0
+          ],
+          "scale": [
+            0.2,
+            1.0
+          ]
+        },
+        {
+          "kind": "DISC",
+          "count": 1,
+          "life": [
+            4,
+            4
+          ],
+          "size": [
+            0.8,
+            0.8
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "alpha": [
+            1,
+            0
+          ],
+          "scale": [
+            0.4,
+            1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clashweave:judge_lines",
+      "emitters": [
+        {
+          "kind": "LINE",
+          "count": 3,
+          "size": [
+            1.6,
+            3.0
+          ],
+          "life": [
+            14,
+            22
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "scatter": 0.9,
+          "width": 0.035,
+          "spread": 180,
+          "alpha": [
+            1,
+            1,
+            0.8,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clashweave:judge_cut",
+      "emitters": [
+        {
+          "kind": "DISC",
+          "count": 1,
+          "life": [
+            7,
+            7
+          ],
+          "size": [
+            2.6,
+            2.6
+          ],
+          "color": [
+            0.6,
+            0.85,
+            1.0
+          ],
+          "alpha": [
+            1,
+            0
+          ],
+          "scale": [
+            0.4,
+            1.0
+          ]
+        },
+        {
+          "kind": "RING",
+          "count": 1,
+          "life": [
+            11,
+            11
+          ],
+          "size": [
+            3.4,
+            3.4
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "alpha": [
+            0.95,
+            0
+          ],
+          "scale": [
+            0.2,
+            1.0
+          ]
+        },
+        {
+          "kind": "RING",
+          "count": 1,
+          "life": [
+            11,
+            11
+          ],
+          "size": [
+            3.0,
+            3.0
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "alpha": [
+            0.95,
+            0
+          ],
+          "scale": [
+            0.2,
+            1.0
+          ],
+          "facing": "GROUND"
+        },
+        {
+          "kind": "LINE",
+          "count": 30,
+          "size": [
+            2.8,
+            4.6
+          ],
+          "life": [
+            9,
+            15
+          ],
+          "color": [
+            0.2,
+            0.55,
+            1.0
+          ],
+          "scatter": 0.4,
+          "width": 0.05,
+          "spread": 180,
+          "alpha": [
+            1,
+            1,
+            0.8,
+            0
+          ]
+        },
+        {
+          "kind": "STREAK",
+          "count": 40,
+          "speed": [
+            0.3,
+            0.85
+          ],
+          "spread": 180,
+          "life": [
+            9,
+            17
+          ],
+          "size": [
+            0.1,
+            0.18
+          ],
+          "gravity": 0.0,
+          "drag": 0.9,
+          "color": [
+            0.55,
+            0.8,
+            1.0
+          ],
+          "alpha": [
+            1,
+            0.85,
+            0
+          ]
+        }
+      ]
+    },
+    {
       "id": "clashweave:blade_trail",
       "trail": {
         "life": 300,

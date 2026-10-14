@@ -269,6 +269,29 @@ public final class Vfx {
             float radius = p.size[i] * em.scaleCurve()
                 .at(f);
             double ox = p.x[i] - cx, oy = p.y[i] - cy, oz = p.z[i] - cz;
+            if (em.kind == EffectDef.Kind.LINE) {
+                // Centre bright, both ends clear; the width is across both the line and the view.
+                float dx = p.vx[i], dy = p.vy[i], dz = p.vz[i];
+                float wx = dy * lz - dz * ly, wy = dz * lx - dx * lz, wz = dx * ly - dy * lx;
+                float wl = (float) Math.sqrt(wx * wx + wy * wy + wz * wz);
+                if (wl < 1e-5f) continue;
+                float half = radius * .5f, w = em.width * .5f / wl;
+                wx *= w;
+                wy *= w;
+                wz *= w;
+                t.startDrawing(GL11.GL_QUAD_STRIP);
+                t.setColorRGBA_F(em.color[0], em.color[1], em.color[2], 0f);
+                t.addVertex(ox - dx * half, oy - dy * half, oz - dz * half);
+                t.addVertex(ox - dx * half, oy - dy * half, oz - dz * half);
+                t.setColorRGBA_F(1f, 1f, 1f, a);
+                t.addVertex(ox - wx, oy - wy, oz - wz);
+                t.addVertex(ox + wx, oy + wy, oz + wz);
+                t.setColorRGBA_F(em.color[0], em.color[1], em.color[2], 0f);
+                t.addVertex(ox + dx * half, oy + dy * half, oz + dz * half);
+                t.addVertex(ox + dx * half, oy + dy * half, oz + dz * half);
+                t.draw();
+                continue;
+            }
             // A disc is a ring with no hole: bright at the centre, clear at the rim.
             boolean disc = em.kind == EffectDef.Kind.DISC;
             float inner = disc ? 0 : radius * .86f;

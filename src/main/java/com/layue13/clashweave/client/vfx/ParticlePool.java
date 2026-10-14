@@ -68,9 +68,11 @@ public final class ParticlePool {
                 x[i] = px[i] = ax + dx * em.forward + ox;
                 y[i] = py[i] = ay + dy * em.forward + oy;
                 z[i] = pz[i] = az + dz * em.forward + oz;
-                vx[i] = sx * speed;
-                vy[i] = sy * speed;
-                vz[i] = sz * speed;
+                // A line does not move; its velocity slots hold the way it points.
+                boolean line = em.kind == EffectDef.Kind.LINE;
+                vx[i] = line ? sx : sx * speed;
+                vy[i] = line ? sy : sy * speed;
+                vz[i] = line ? sz : sz * speed;
                 size[i] = between(em.size, random);
                 age[i] = 0;
                 life[i] = Math.max(1, Math.round(between(em.life, random)));

@@ -37,13 +37,15 @@ public final class ContentPack {
     }
 
     /**
-     * A deliberate use of an ability: {@code strikes} cuts, {@code interval} ticks apart, at the nearest target ahead.
+     * A deliberate use of an ability: pressing the key plays {@code action}; {@code release} ticks into it the cut
+     * lands
+     * on everything the ability bound at the start. {@code posture} is the stance damage of the cut.
      */
     public static final class Active {
 
-        public double range = 6;
-        public int cooldown = 200, strikes = 3, interval = 4;
-        public float damage = 4, posture = 12;
+        public double range = 8;
+        public int cooldown = 300;
+        public float damage = 14, posture = 100;
     }
 
     public static final class Attach {

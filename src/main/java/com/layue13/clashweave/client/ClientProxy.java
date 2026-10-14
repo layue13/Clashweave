@@ -283,6 +283,7 @@ public final class ClientProxy extends CommonProxy {
         if (session == 0 || minecraft.thePlayer == null) return;
         long pressed = System.nanoTime();
         if (intent == Intent.DODGE) dodgeOctant = target < 0 ? 4 : target & 7;
+        else if (intent == Intent.SPECIAL) dodgeOctant = 4; // the judgement cut blinks backward
         int next = ++sequence;
         Visual observed = own();
         InputMessage request = new InputMessage(session, stamp(), next, intent, target);
@@ -404,9 +405,10 @@ public final class ClientProxy extends CommonProxy {
                 ActionCatalog.Definition definition = visual.definition;
                 double delta = Math.min(definition.speed, definition.distance - visual.moved);
                 if (delta > 0 && elapsed(visual, 0) < definition.duration()) {
-                    // A step goes where the player is pushing, in eighths of a turn clockwise from where they face.
+                    // A step goes where the player is pushing, in eighths of a turn clockwise from where they face;
+                    // yaw grows clockwise, so the offset is added.
                     double yaw = Math
-                        .toRadians(visual.state.yaw - (definition.protectUntil > 0 ? dodgeOctant * 45 : 0));
+                        .toRadians(visual.state.yaw + (definition.protectUntil > 0 ? dodgeOctant * 45 : 0));
                     minecraft.thePlayer.moveEntity(-Math.sin(yaw) * delta, 0, Math.cos(yaw) * delta);
                     visual.moved += delta;
                 }
