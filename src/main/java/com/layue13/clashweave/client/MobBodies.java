@@ -8,12 +8,14 @@ import java.util.Map;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
+import net.minecraft.client.model.ModelEnderman;
 import net.minecraft.client.model.ModelSkeleton;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.model.ModelZombieVillager;
 import net.minecraft.client.model.PositionTextureVertex;
 import net.minecraft.client.model.TexturedQuad;
 import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderEnderman;
 import net.minecraft.client.renderer.entity.RendererLivingEntity;
 import net.minecraftforge.client.event.RenderLivingEvent;
 
@@ -131,8 +133,64 @@ public final class MobBodies {
         return model instanceof ModelZombie || model instanceof ModelZombieVillager;
     }
 
+    /** RendererLivingEntity.mainModel by type: the ModelBase the renderer draws with. */
+    private static ModelBase mainModelOf(RendererLivingEntity renderer) {
+        try {
+            if (livingModelField == null) {
+                for (Field field : RendererLivingEntity.class.getDeclaredFields()) {
+                    if (field.getType() != ModelBase.class) continue;
+                    field.setAccessible(true);
+                    // mainModel is declared before renderPassModel, which is empty until a pass sets it.
+                    if (field.get(renderer) == null) continue;
+                    livingModelField = field;
+                    break;
+                }
+                if (livingModelField == null) return null;
+            }
+            return (ModelBase) livingModelField.get(renderer);
+        } catch (IllegalAccessException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    private static Field livingModelField;
+
+    /**
+     * The enderman: its renderer keeps the model for the eyes and the carried block, so only the main model is
+     * swapped; a model that is not the plain vanilla one (a mod's) stays.
+     */
+    private void enderman(RendererLivingEntity renderer) {
+        ModelBase current = mainModelOf(renderer);
+        if (current instanceof MobBiped || current == null || current.getClass() != ModelEnderman.class) return;
+        ModelEnderman donor = (ModelEnderman) current;
+        MobBiped body = byDonor.get(donor);
+        if (body == null) {
+            if (refused.containsKey(donor)) return;
+            try {
+                body = MobBiped.ofEnderman(donor);
+            } catch (RuntimeException e) {
+                body = null;
+            }
+            if (body == null) {
+                refused.put(donor, Boolean.TRUE);
+                return;
+            }
+            byDonor.put(donor, body);
+        }
+        body.engage();
+        try {
+            livingModelField.set(renderer, body);
+        } catch (IllegalAccessException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
     @SubscribeEvent
     public void pre(RenderLivingEvent.Pre event) {
+        if (event.renderer instanceof RenderEnderman) {
+            enderman(event.renderer);
+            return;
+        }
         if (!(event.renderer instanceof RenderBiped)) return;
         RenderBiped renderer = (RenderBiped) event.renderer;
         ModelBiped current = renderer.modelBipedMain;

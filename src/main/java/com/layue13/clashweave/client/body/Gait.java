@@ -27,7 +27,22 @@ public final class Gait {
     /** Upright and brisk: short twist, sharp knees, no droop. */
     public static final Gait SKELETON = new Gait();
 
+    /** Tall and unhurried: long legs swing little, knees fold slowly, thin arms trail loosely. */
+    public static final Gait ENDERMAN = new Gait();
+
     static {
+        ENDERMAN.twist = 6;
+        ENDERMAN.lean = 2;
+        ENDERMAN.idleLean = 0;
+        ENDERMAN.rock = 2;
+        ENDERMAN.bob = .3f;
+        ENDERMAN.legSwing = 22;
+        ENDERMAN.knee = 26;
+        ENDERMAN.armSwing = 16;
+        ENDERMAN.elbowRest = 5;
+        ENDERMAN.elbowSwing = 12;
+        ENDERMAN.busyElbow = 0;
+
         ZOMBIE.twist = 7;
         ZOMBIE.lean = 9;
         ZOMBIE.idleLean = 6;

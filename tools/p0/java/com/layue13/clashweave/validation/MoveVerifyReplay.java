@@ -156,7 +156,7 @@ public final class MoveVerifyReplay {
         if(local>400){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
-    private static final String[] SCENES=System.getProperty("cw.b2.scenes","zombie,skeleton,pigman,armored,bow,child,water,chickenjockey,spiderjockey,modded,zvillager,armoredfull,skelarmor").split(",");
+    private static final String[] SCENES=System.getProperty("cw.b2.scenes","zombie,skeleton,pigman,armored,bow,child,water,chickenjockey,spiderjockey,modded,zvillager,armoredfull,skelarmor,enderman,endercarry").split(",");
     private net.minecraft.entity.Entity mobMount;
     private net.minecraft.client.renderer.entity.Render savedRender;
 
@@ -168,6 +168,7 @@ public final class MoveVerifyReplay {
         net.minecraft.entity.EntityLiving e;
         if(scene.equals("skeleton")||scene.equals("bow")||scene.equals("spiderjockey")||scene.equals("skelarmor"))e=new net.minecraft.entity.monster.EntitySkeleton(w);
         else if(scene.equals("pigman"))e=new net.minecraft.entity.monster.EntityPigZombie(w);
+        else if(scene.equals("enderman")||scene.equals("endercarry"))e=new net.minecraft.entity.monster.EntityEnderman(w);
         else e=new net.minecraft.entity.monster.EntityZombie(w);
         e.setPosition(x,y,z);e.rotationYaw=e.prevRotationYaw=0;e.renderYawOffset=e.prevRenderYawOffset=0;e.rotationYawHead=e.prevRotationYawHead=0;
         if(scene.equals("armored")){e.setCurrentItemOrArmor(4,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_helmet));e.setCurrentItemOrArmor(3,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_chestplate));e.setCurrentItemOrArmor(1,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_boots));}
@@ -175,6 +176,7 @@ public final class MoveVerifyReplay {
             e.setCurrentItemOrArmor(4,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_helmet));e.setCurrentItemOrArmor(3,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_chestplate));
             e.setCurrentItemOrArmor(2,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_leggings));e.setCurrentItemOrArmor(1,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_boots));}
         if(scene.equals("zvillager")&&e instanceof net.minecraft.entity.monster.EntityZombie)((net.minecraft.entity.monster.EntityZombie)e).setVillager(true);
+        if(scene.equals("endercarry"))((net.minecraft.entity.monster.EntityEnderman)e).func_146081_a(net.minecraft.init.Blocks.dirt);
         if(scene.equals("bow"))e.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.bow));
         if(scene.equals("pigman"))e.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.golden_sword));
         if(scene.equals("child")&&e instanceof net.minecraft.entity.monster.EntityZombie)((net.minecraft.entity.monster.EntityZombie)e).setChild(true);
