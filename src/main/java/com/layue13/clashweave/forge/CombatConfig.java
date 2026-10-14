@@ -18,6 +18,8 @@ public final class CombatConfig {
     public boolean slamRequiresAir;
     public float blockRecoil, parryRecoil;
     public int slamGraceTicks;
+    public int gaugeMax, gaugeStreakCap, gaugeStreakTicks, gaugeBlockInterval, gaugeHurtInterval, modeTicks;
+    public float gaugeHit, gaugeStreak, gaugeBlock, gaugeParry, gaugeHurt;
     public int dodgeCooldown;
     public int postureMax, postureRecoveryDelay, postureRecoveryPerTick, postureResetPercent;
     public int breakTicksMonster, breakTicksPlayer;
@@ -494,6 +496,19 @@ public final class CombatConfig {
             "Posture damage per point of damage when the action declares none");
         dodgeCooldown = config
             .getInt("dodgeCooldownTicks", "combat", 24, 0, 400, "Ticks before the next step is allowed");
+        gaugeMax = config.getInt("max", "gauge", 100, 10, 1000, "Gauge needed to start the mode");
+        gaugeHit = config.getFloat("hit", "gauge", 6, 0, 100, "Gauge for a blow that lands (once per swing)");
+        gaugeStreak = config.getFloat("streakStep", "gauge", 1, 0, 20, "Extra gauge per blow in a streak");
+        gaugeStreakCap = config.getInt("streakCap", "gauge", 4, 0, 20, "Largest streak bonus, in steps");
+        gaugeStreakTicks = config.getInt("streakTicks", "gauge", 30, 1, 400, "Ticks between blows that keep a streak");
+        gaugeBlock = config.getFloat("block", "gauge", 4, 0, 100, "Gauge for a plain guarded blow");
+        gaugeParry = config.getFloat("parry", "gauge", 8, 0, 100, "Gauge for a precise guard");
+        gaugeHurt = config.getFloat("hurt", "gauge", 5, 0, 100, "Gauge for damage taken");
+        gaugeBlockInterval = config
+            .getInt("blockIntervalTicks", "gauge", 8, 0, 400, "Minimum ticks between guard credits");
+        gaugeHurtInterval = config
+            .getInt("hurtIntervalTicks", "gauge", 20, 0, 400, "Minimum ticks between damage credits");
+        modeTicks = config.getInt("modeTicks", "gauge", 300, 20, 6000, "Length of the mode");
         slamGraceTicks = config.getInt(
             "slamGraceTicks",
             "control",

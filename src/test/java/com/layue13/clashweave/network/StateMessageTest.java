@@ -72,6 +72,8 @@ public class StateMessageTest {
         owner.action = "light_2";
         owner.confirmed = true;
         owner.guard = true;
+        owner.gauge = 42;
+        owner.mode = 100;
         owner.budgetNano = 987654321;
         owner.budgetTick = 321;
         owner.budgetX = 1.25;
@@ -103,6 +105,10 @@ public class StateMessageTest {
             assertEquals(0, remote.budgetNano);
             assertTrue(remote.confirmed);
             assertTrue(remote.guard);
+            assertEquals("the observer sees the mode, not the gauge", 100, remote.mode);
+            assertEquals(0, remote.gauge);
+            assertEquals(42, local.gauge);
+            assertEquals(100, local.mode);
         } finally {
             remoteBuffer.release();
             ownerBuffer.release();

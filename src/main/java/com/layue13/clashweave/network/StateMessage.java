@@ -34,6 +34,8 @@ public final class StateMessage implements IMessage {
     public boolean confirmed;
     /** The player is holding the guard: observers draw the blade held across the body. */
     public boolean guard;
+    /** The owner's gauge in percent, and the ticks left of its mode (observers see the mode only). */
+    public int gauge, mode;
     public float yaw;
     public String action = "";
     public String result = "";
@@ -56,6 +58,7 @@ public final class StateMessage implements IMessage {
         blocks = source.blocks;
         confirmed = source.confirmed;
         guard = source.guard;
+        mode = source.mode;
         yaw = source.yaw;
         action = source.action;
         result = source.result;
@@ -89,6 +92,8 @@ public final class StateMessage implements IMessage {
         blocks = buffer.readBoolean();
         confirmed = buffer.readBoolean();
         guard = buffer.readBoolean();
+        gauge = buffer.readInt();
+        mode = buffer.readInt();
         yaw = buffer.readFloat();
         action = ByteBufUtils.readUTF8String(buffer);
         result = ByteBufUtils.readUTF8String(buffer);
@@ -124,6 +129,8 @@ public final class StateMessage implements IMessage {
             .writeBoolean(blocks)
             .writeBoolean(confirmed)
             .writeBoolean(guard)
+            .writeInt(gauge)
+            .writeInt(mode)
             .writeFloat(yaw);
         ByteBufUtils.writeUTF8String(buffer, action);
         ByteBufUtils.writeUTF8String(buffer, result);

@@ -74,6 +74,10 @@ public final class CombatServer {
         public boolean engaged;
         public long lastTrigger;
         public long lastDodge = Long.MIN_VALUE / 2;
+        public com.layue13.clashweave.core.Gauge gauge;
+        public long gaugeInstance = -1, lastGaugeHit = Long.MIN_VALUE / 2;
+        public int streak;
+        public boolean modeShown;
         public int dodgeOctant;
         public int revision;
         public long networkAfter;
@@ -215,6 +219,12 @@ public final class CombatServer {
             EntityPlayerMP joined = (EntityPlayerMP) player;
             CombatWeapons.Entry held = CombatWeapons.entry(joined.getHeldItem());
             PlayerState state = new PlayerState(joined, held != null ? held : CombatWeapons.fallback());
+            state.gauge = new com.layue13.clashweave.core.Gauge(
+                config.gaugeMax,
+                0,
+                config.gaugeBlockInterval,
+                config.gaugeBlockInterval,
+                config.gaugeHurtInterval);
             state.verified = verified;
             state.helloDeadline = verified ? Long.MAX_VALUE : tick + config.helloTimeoutTicks;
             presentation.rememberHealth(joined);
@@ -270,6 +280,7 @@ public final class CombatServer {
             state.guard.release(tick);
             state.contacts.clear();
             state.engaged = false;
+            if (state.gauge != null) state.gauge.reset();
         }
     }
 
@@ -412,6 +423,13 @@ public final class CombatServer {
         effects.tick(tick);
         posture.tick(tick);
         runDelayed();
+        for (PlayerState each : states.values()) {
+            boolean on = each.gauge != null && each.gauge.inMode(tick);
+            if (on != each.modeShown) {
+                each.modeShown = on;
+                snapshot(each, 0, on ? "MODE_ON" : "MODE_OFF", false);
+            }
+        }
         // The same lock registers arrivals and cuts off inputs for a commit. No world work on Netty.
         long cutoff;
         List<Inbound> arrived;
@@ -586,7 +604,17 @@ public final class CombatServer {
                 "LOCK_TARGET player=" + input.player
                     .getCommandSenderName() + " target=" + state.lock + " hint=" + message.target);
             snapshot(state, message.sequence, result, false);
-        } else if (intent == Intent.SPECIAL || intent == Intent.MODE) {
+        } else if (intent == Intent.MODE) {
+            String result;
+            if (state.scheduler.current() != null) result = "REJECT:MODE_BUSY";
+            else if (state.gauge.activate(tick, Integer.getInteger("cw.p2.modeTicks", config.modeTicks)))
+                result = "MODE";
+            else result = "REJECT:MODE_NOT_READY";
+            trace(
+                "MODE player=" + input.player
+                    .getCommandSenderName() + " result=" + result + " tick=" + tick + " gauge=" + state.gauge.value());
+            snapshot(state, message.sequence, result, false);
+        } else if (intent == Intent.SPECIAL) {
             snapshot(state, message.sequence, "REJECT:UNIMPLEMENTED:" + intent.name(), false);
         } else if (intent == Intent.DODGE && tick - state.lastDodge < config.dodgeCooldown) {
             snapshot(state, message.sequence, "REJECT:DODGE_COOLDOWN", false);
@@ -973,6 +1001,12 @@ public final class CombatServer {
         if (guard == 2) posture.damage(contact.target, config.posturePrecise, tick);
         else if (guard == 1) posture.damage(contact.target, stance * config.postureBlockedShare, tick);
         else if (hit) posture.damage(contact.target, stance, tick);
+        if (guard == 2) gain(defender, com.layue13.clashweave.core.Gauge.Source.PARRY, config.gaugeParry);
+        else if (guard == 1) gain(defender, com.layue13.clashweave.core.Gauge.Source.BLOCK, config.gaugeBlock);
+        else if (hit) {
+            gainHit(contact.attacker, contact.instance.id);
+            if (defender != null) gain(defender, com.layue13.clashweave.core.Gauge.Source.HURT, config.gaugeHurt);
+        }
         if (defender != null && hit) creditImpulse(defender);
         double launchCredit = effects.apply(
             contact.attacker.player,
@@ -1096,6 +1130,8 @@ public final class CombatServer {
         message.start = action == null ? tick : action.start;
         message.confirmed = action != null && action.confirmedHit;
         message.guard = state.guard.held();
+        message.gauge = state.gauge == null ? 0 : Math.round(state.gauge.value() * 100 / config.gaugeMax);
+        message.mode = state.gauge == null ? 0 : state.gauge.modeLeft(tick);
         message.result = result;
         if (result.equals("MOVE_READY")) {
             message.budgetNano = state.budgetNano;
@@ -1178,6 +1214,7 @@ public final class CombatServer {
         EntityLivingBase target;
         com.layue13.clashweave.core.HitEffect effect;
         long due;
+        float scale = 1;
         double x, y, z;
     }
 
@@ -1187,18 +1224,25 @@ public final class CombatServer {
     private void scheduleDelayed(EntityPlayerMP attacker, EntityLivingBase target,
         com.layue13.clashweave.core.HitEffect effect, long at) {
         if (Boolean.getBoolean("cw.sa.off")) return;
-        Delayed strike = new Delayed();
-        strike.attacker = attacker;
-        strike.target = target;
-        strike.effect = effect;
-        strike.due = at + effect.delay;
-        strike.x = target.posX;
-        strike.y = target.posY;
-        strike.z = target.posZ;
-        delayed.add(strike);
+        PlayerState owner = state(attacker);
+        boolean mode = owner != null && owner.gauge != null && owner.gauge.inMode(at);
+        // In the mode the strike comes twice as soon and again once more, a little weaker.
+        int first = mode ? Math.max(1, effect.delay / 2) : effect.delay;
+        for (int n = 0; n < (mode ? 2 : 1); n++) {
+            Delayed strike = new Delayed();
+            strike.attacker = attacker;
+            strike.target = target;
+            strike.effect = effect;
+            strike.due = at + first * (n + 1);
+            strike.scale = n == 0 ? 1f : .6f;
+            strike.x = target.posX;
+            strike.y = target.posY;
+            strike.z = target.posZ;
+            delayed.add(strike);
+        }
         trace(
             "DELAYED_SCHEDULE attacker=" + attacker
-                .getCommandSenderName() + " target=" + target.getEntityId() + " due=" + strike.due);
+                .getCommandSenderName() + " target=" + target.getEntityId() + " due=" + (at + first) + " mode=" + mode);
     }
 
     private void runDelayed() {
@@ -1226,10 +1270,11 @@ public final class CombatServer {
             int guard = defender == null ? 0
                 : defender.guard
                     .defend(tick, System.nanoTime(), config.perfectWindow, facing(target, attacker, config.guardArc));
-            float damage = strike.effect.damage * (float) owner.scheduler.weapon().damageMultiplier
+            float damage = strike.effect.damage * strike.scale
+                * (float) owner.scheduler.weapon().damageMultiplier
                 * (guard == 2 ? 0 : guard == 1 ? (float) config.blockDamage : 1);
             boolean hit = damage > 0 && target.attackEntityFrom(new CombatSource(attacker), damage);
-            float stance = strike.effect.posture * (float) owner.scheduler.weapon().poiseMultiplier;
+            float stance = strike.effect.posture * strike.scale * (float) owner.scheduler.weapon().poiseMultiplier;
             if (guard == 2) posture.damage(target, config.posturePrecise, tick);
             else if (guard == 1) posture.damage(target, stance * config.postureBlockedShare, tick);
             else if (hit) posture.damage(target, stance, tick);
@@ -1238,6 +1283,28 @@ public final class CombatServer {
                 "DELAYED_STRIKE target=" + target
                     .getEntityId() + " tick=" + tick + " guard=" + guard + " damage=" + damage + " hit=" + hit);
         }
+    }
+
+    private void gain(PlayerState state, com.layue13.clashweave.core.Gauge.Source source, float amount) {
+        if (state == null || state.gauge == null || !state.gauge.gain(source, amount, tick)) return;
+        trace(
+            "GAUGE player=" + state.player
+                .getCommandSenderName() + " source=" + source + " value=" + state.gauge.value() + " tick=" + tick);
+        snapshot(state, 0, "GAUGE", false);
+    }
+
+    /** A blow that landed: once per swing however many it hit, with a small bonus for blows in a streak. */
+    private void gainHit(PlayerState attacker, long instance) {
+        if (attacker.gaugeInstance == instance) return;
+        attacker.gaugeInstance = instance;
+        attacker.streak = tick - attacker.lastGaugeHit <= config.gaugeStreakTicks
+            ? Math.min(config.gaugeStreakCap, attacker.streak + 1)
+            : 0;
+        attacker.lastGaugeHit = tick;
+        gain(
+            attacker,
+            com.layue13.clashweave.core.Gauge.Source.HIT,
+            config.gaugeHit + attacker.streak * config.gaugeStreak);
     }
 
     /** Whether the player is inside the protected span of an action that declares one (a step). */
@@ -1287,6 +1354,7 @@ public final class CombatServer {
         state.pendingImpulse = true;
         state.scheduler.openCounter(tick, config.counterWindow);
         posture.damage(state.player, config.posturePrecise, tick);
+        gain(state, com.layue13.clashweave.core.Gauge.Source.PARRY, config.gaugeParry);
         if (event.source.getSourceOfDamage() == attacker) recoil(state.player, attacker, config.parryRecoil);
         presentation.nativeParry(attacker, state.player, tick);
         trace(
@@ -1332,6 +1400,9 @@ public final class CombatServer {
             state.player,
             event.ammount * config.postureScale * (guard == 1 ? config.postureBlockedShare : 1),
             tick);
+        if (guard == 1) gain(state, com.layue13.clashweave.core.Gauge.Source.BLOCK, config.gaugeBlock);
+        else if (guard == 0 && event.ammount > 0)
+            gain(state, com.layue13.clashweave.core.Gauge.Source.HURT, config.gaugeHurt);
         if (guard > 0) event.ammount *= guard == 2 ? 0 : config.blockDamage;
         if (guard > 0 && event.source.getSourceOfDamage() == attacker)
             recoil(state.player, attacker, guard == 2 ? config.parryRecoil : config.blockRecoil);
