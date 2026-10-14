@@ -14,6 +14,70 @@ public final class BodyRig {
     private float takeover;
     private long lastNanos;
 
+    /** The base pose, chased target by target every frame; see Channels. */
+    private final float[] smooth = new float[Channels.COUNT];
+    private final float[] target = new float[Channels.COUNT];
+    private boolean seeded;
+    private long chaseNanos;
+    /** Frame stamps: the main model steps the rig once, the armor models drawn after it reuse the result. */
+    private long stamp, steppedStamp;
+    private float touchTicks = 100, airTicks;
+    private long groundNanos;
+
+    /**
+     * The channels the next step chases toward: the caller fills them with vanilla's pose and then the layers' targets.
+     */
+    public float[] target() {
+        return target;
+    }
+
+    public float[] smoothed() {
+        return smooth;
+    }
+
+    public float ticksSinceTouchdown() {
+        return touchTicks;
+    }
+
+    public float ticksAirborne() {
+        return airTicks;
+    }
+
+    /** Marks a new frame for this entity; returns whether the base pose has to be stepped for it. */
+    public boolean beginFrame(long nanos) {
+        stamp = nanos;
+        return steppedStamp != stamp;
+    }
+
+    public boolean needsStep() {
+        return steppedStamp != stamp;
+    }
+
+    /** Counts the time on and off the ground in ticks. */
+    public void observeGround(boolean onGround, long nanos, long tickPeriod) {
+        double ticks = groundNanos == 0 ? 0 : (nanos - groundNanos) / (double) tickPeriod;
+        groundNanos = nanos;
+        if (onGround) {
+            touchTicks += (float) ticks;
+            airTicks = 0;
+        } else {
+            airTicks += (float) ticks;
+            touchTicks = 0;
+        }
+    }
+
+    /** Moves every channel toward its target by its own per-tick fraction of the time since the last step. */
+    public void chase(long nanos, long tickPeriod) {
+        double ticks = chaseNanos == 0 ? 0 : (nanos - chaseNanos) / (double) tickPeriod;
+        chaseNanos = nanos;
+        for (int i = 0; i < Channels.COUNT; i++) {
+            if (!seeded) smooth[i] = target[i];
+            else smooth[i] = Smoothing.toward(smooth[i], target[i], Smoothing.alpha(Channels.SMOOTHNESS[i], ticks));
+        }
+        seeded = true;
+        steppedStamp = stamp;
+    }
+
     public float takeover() {
         return takeover;
     }

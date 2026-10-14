@@ -55,6 +55,7 @@ public final class Validation {
                 if(System.getProperty("cw.p1.launcher")!=null)Class.forName("com.layue13.clashweave.validation.LauncherReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.artVerify"))Class.forName("com.layue13.clashweave.validation.ArtVerifyReplay").newInstance();
                 if(System.getProperty("cw.c2a.poseVerify")!=null)Class.forName("com.layue13.clashweave.validation.PoseVerifyReplay").newInstance();
+                if(System.getProperty("cw.b2.moveVerify")!=null)Class.forName("com.layue13.clashweave.validation.MoveVerifyReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.edgeBoundary"))Class.forName("com.layue13.clashweave.validation.EdgeBoundaryReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.cameraDiagnosis"))Class.forName("com.layue13.clashweave.validation.CameraPauseReplay").newInstance();
                 if(Boolean.getBoolean("cw.p0.lowLock"))Class.forName("com.layue13.clashweave.validation.LowLockReplay").newInstance();

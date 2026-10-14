@@ -26,6 +26,41 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
         modelArmor = armorLegs;
     }
 
+    /**
+     * Once per entity and frame: the body rig, and what the locomotion layer reads. The three models (skin and the two
+     * armor layers) share the result, so the chase is stepped by whichever of them is posed first.
+     */
+    private void body(net.minecraft.entity.player.EntityPlayer player, ClientProxy.Visual visual, float limb,
+        float amount, float age, float headYaw, float pitch) {
+        long now = System.nanoTime();
+        long period = ClientProxy.instance.tickPeriod();
+        com.layue13.clashweave.client.body.BodyRig rig = visual != null ? visual.rig
+            : BodyRigs.of(player.getEntityId(), now);
+        if (rig.beginFrame(now)) rig.observeGround(player.onGround, now, period);
+        com.layue13.clashweave.client.body.LocomotionInputs in = biped.inputs;
+        in.limbSwing = limb;
+        in.limbSwingAmount = amount;
+        in.age = age;
+        in.headYaw = headYaw;
+        in.headPitch = pitch;
+        in.onGround = player.onGround;
+        in.sprinting = player.isSprinting();
+        in.sneaking = player.isSneaking();
+        in.ticksSinceTouchdown = rig.ticksSinceTouchdown();
+        in.ticksAirborne = rig.ticksAirborne();
+        in.armsBusy = player.swingProgress > 0 || player.isUsingItem();
+        // Swimming, riding, climbing, sleeping and flying are not animated yet: vanilla's pose stands in for them.
+        biped.locomotion = !(player.isInWater() || player.isRiding()
+            || player.isPlayerSleeping()
+            || player.isOnLadder()
+            || player.capabilities.isFlying);
+        biped.rig = armorChest.rig = armorLegs.rig = rig;
+        biped.frameNanos = armorChest.frameNanos = armorLegs.frameNanos = now;
+        biped.tickPeriod = armorChest.tickPeriod = armorLegs.tickPeriod = period;
+        armorChest.locomotion = armorLegs.locomotion = biped.locomotion;
+        armorChest.inputs.limbSwing = armorLegs.inputs.limbSwing = limb;
+    }
+
     private static ClientProxy.Visual visualOf(EntityLivingBase player) {
         return ClientProxy.instance.visualOf(player.getEntityId());
     }
@@ -59,8 +94,10 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
             biped.rigidLegs = worn.getCurrentArmor(1) != null || worn.getCurrentArmor(0) != null;
             biped.pose = armorChest.pose = armorLegs.pose = driver.pose;
             biped.weight = armorChest.weight = armorLegs.weight = driver.weight;
+            body(worn, visualOf(player), limb, amount, age, headYaw, pitch);
         } else {
             biped.weight = armorChest.weight = armorLegs.weight = 0;
+            biped.rig = armorChest.rig = armorLegs.rig = null;
         }
         super.renderModel(player, limb, amount, age, headYaw, pitch, scale);
     }

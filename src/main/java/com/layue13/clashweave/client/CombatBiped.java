@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
+import com.layue13.clashweave.client.body.Channels;
 import com.layue13.clashweave.client.pose.LimbAngles;
 import com.layue13.clashweave.client.pose.LimbSolver;
 import com.layue13.clashweave.client.pose.Pose;
@@ -31,9 +32,16 @@ final class CombatBiped extends ModelBiped {
     float weight;
     /** Set by the renderer from the worn armor: that limb pair is drawn as one straight block. */
     boolean rigidArms, rigidLegs;
+    /** The entity's body rig and this frame's locomotion inputs; the renderer fills them before drawing. */
+    com.layue13.clashweave.client.body.BodyRig rig;
+    final com.layue13.clashweave.client.body.LocomotionInputs inputs = new com.layue13.clashweave.client.body.LocomotionInputs();
+    boolean locomotion;
+    long frameNanos, tickPeriod;
 
     private final boolean segmented;
     private ModelRenderer rightForearm, leftForearm, rightShin, leftShin;
+    /** Fills the wedge the two segments open on the outside of a bend: a cube on the hinge turned half the bend. */
+    private ModelRenderer rightElbow, leftElbow, rightKnee, leftKnee;
     private final LimbAngles solved = new LimbAngles();
     private final float[] angles = new float[3];
     private final float[] point = new float[3];
@@ -51,6 +59,10 @@ final class CombatBiped extends ModelBiped {
             rightShin = (ModelRenderer) bipedRightLeg.childModels.get(0);
             bipedLeftLeg = leg(true);
             leftShin = (ModelRenderer) bipedLeftLeg.childModels.get(0);
+            rightElbow = (ModelRenderer) bipedRightArm.childModels.get(1);
+            leftElbow = (ModelRenderer) bipedLeftArm.childModels.get(1);
+            rightKnee = (ModelRenderer) bipedRightLeg.childModels.get(1);
+            leftKnee = (ModelRenderer) bipedLeftLeg.childModels.get(1);
         }
     }
 
@@ -69,6 +81,7 @@ final class CombatBiped extends ModelBiped {
         // Skin colour on the faces that meet at the elbow, from the rows either side of the cut on the arm's front.
         cap(upper, true, 46, 25.5f);
         cap(lower, false, 46, 28.5f);
+        upper.addChild(joint(left, 40, 16 + ELBOW, left ? -1 : -3, ELBOW, 46, 25.5f));
         return upper;
     }
 
@@ -80,6 +93,29 @@ final class CombatBiped extends ModelBiped {
      * The quads are found by position, the lowest or highest face in Y, not by the order ModelBox happens to build them
      * in.
      */
+    /**
+     * A 4 px cube centred on the hinge, textured from the rows either side of it; slightly fat so it never z-fights.
+     */
+    private ModelRenderer joint(boolean mirror, int u, int v, int x, int hingeY, float capU, float capV) {
+        ModelRenderer cube = new ModelRenderer(this, u, v);
+        cube.mirror = mirror;
+        cube.addBox(x, -2, -2, 4, 4, 4, 0.02f);
+        cube.setRotationPoint(0, hingeY, 0);
+        cap(cube, true, capU, capV);
+        cap(cube, false, capU, capV);
+        return cube;
+    }
+
+    private void syncJoints() {
+        rightElbow.rotateAngleX = rightForearm.rotateAngleX * .5f;
+        leftElbow.rotateAngleX = leftForearm.rotateAngleX * .5f;
+        rightKnee.rotateAngleX = rightShin.rotateAngleX * .5f;
+        leftKnee.rotateAngleX = leftShin.rotateAngleX * .5f;
+        boolean show = !rigidArms;
+        rightElbow.showModel = leftElbow.showModel = show;
+        rightKnee.showModel = leftKnee.showModel = !rigidLegs;
+    }
+
     static void cap(ModelRenderer part, boolean bottom, float u, float v) {
         for (Object cube : part.cubeList) {
             net.minecraft.client.model.ModelBox box = (net.minecraft.client.model.ModelBox) cube;
@@ -99,7 +135,7 @@ final class CombatBiped extends ModelBiped {
             for (net.minecraft.client.model.TexturedQuad quad : quads) {
                 boolean onEdge = true;
                 for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions)
-                    if (Math.abs(vertex.vector3D.yCoord - edge) > 1e-4) onEdge = false;
+                    if (Math.abs(vertex.vector3D.yCoord - edge) > .05f) onEdge = false;
                 if (!onEdge) continue;
                 for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions) {
                     vertex.texturePositionX = u / 64f;
@@ -121,12 +157,18 @@ final class CombatBiped extends ModelBiped {
         upper.addChild(lower);
         cap(upper, true, 6, 24.5f);
         cap(lower, false, 6, 27.5f);
+        upper.addChild(joint(left, 0, 16 + KNEE - 4 + 2, -2, KNEE, 6, 25.5f));
         return upper;
     }
 
     @Override
     public void setRotationAngles(float limb, float amount, float age, float headYaw, float pitch, float scale,
         Entity entity) {
+        pose(limb, amount, age, headYaw, pitch, scale, entity);
+        if (segmented) syncJoints();
+    }
+
+    private void pose(float limb, float amount, float age, float headYaw, float pitch, float scale, Entity entity) {
         restore();
         super.setRotationAngles(limb, amount, age, headYaw, pitch, scale, entity);
         if (segmented) {
@@ -134,6 +176,14 @@ final class CombatBiped extends ModelBiped {
             leftForearm.rotateAngleX = 0;
             rightShin.rotateAngleX = 0;
             leftShin.rotateAngleX = 0;
+        }
+        if (rig != null) {
+            if (rig.needsStep()) {
+                readVanilla(rig.target());
+                if (locomotion) com.layue13.clashweave.client.body.Locomotion.compute(inputs, rig.target());
+                rig.chase(frameNanos, tickPeriod);
+            }
+            writeBase(rig.smoothed());
         }
         if (weight <= 0 || pose == null) return;
         float w = weight;
@@ -179,11 +229,74 @@ final class CombatBiped extends ModelBiped {
         bipedLeftLeg.rotateAngleZ = 0;
     }
 
+    private void readVanilla(float[] t) {
+        t[Channels.HEAD_X] = bipedHead.rotateAngleX;
+        t[Channels.HEAD_Y] = bipedHead.rotateAngleY;
+        t[Channels.BODY_X] = bipedBody.rotateAngleX;
+        t[Channels.BODY_Y] = bipedBody.rotateAngleY;
+        t[Channels.BODY_Z] = bipedBody.rotateAngleZ;
+        t[Channels.R_ARM_X] = bipedRightArm.rotateAngleX;
+        t[Channels.R_ARM_Y] = bipedRightArm.rotateAngleY;
+        t[Channels.R_ARM_Z] = bipedRightArm.rotateAngleZ;
+        t[Channels.L_ARM_X] = bipedLeftArm.rotateAngleX;
+        t[Channels.L_ARM_Y] = bipedLeftArm.rotateAngleY;
+        t[Channels.L_ARM_Z] = bipedLeftArm.rotateAngleZ;
+        t[Channels.R_LEG_X] = bipedRightLeg.rotateAngleX;
+        t[Channels.R_LEG_Y] = bipedRightLeg.rotateAngleY;
+        t[Channels.R_LEG_Z] = bipedRightLeg.rotateAngleZ;
+        t[Channels.L_LEG_X] = bipedLeftLeg.rotateAngleX;
+        t[Channels.L_LEG_Y] = bipedLeftLeg.rotateAngleY;
+        t[Channels.L_LEG_Z] = bipedLeftLeg.rotateAngleZ;
+        t[Channels.R_FORE] = t[Channels.L_FORE] = t[Channels.R_SHIN] = t[Channels.L_SHIN] = 0;
+        t[Channels.ROOT_Y] = 0;
+    }
+
+    /** The smoothed base pose: vanilla's, or the locomotion layer's where it took over, chased frame by frame. */
+    private void writeBase(float[] c) {
+        bipedHead.rotateAngleX = c[Channels.HEAD_X];
+        bipedHead.rotateAngleY = c[Channels.HEAD_Y];
+        bipedHeadwear.rotateAngleX = bipedHead.rotateAngleX;
+        bipedHeadwear.rotateAngleY = bipedHead.rotateAngleY;
+        bipedBody.rotateAngleX = c[Channels.BODY_X];
+        bipedBody.rotateAngleY = c[Channels.BODY_Y];
+        bipedBody.rotateAngleZ = c[Channels.BODY_Z];
+        bipedRightArm.rotateAngleX = c[Channels.R_ARM_X];
+        bipedRightArm.rotateAngleY = c[Channels.R_ARM_Y];
+        bipedRightArm.rotateAngleZ = c[Channels.R_ARM_Z];
+        bipedLeftArm.rotateAngleX = c[Channels.L_ARM_X];
+        bipedLeftArm.rotateAngleY = c[Channels.L_ARM_Y];
+        bipedLeftArm.rotateAngleZ = c[Channels.L_ARM_Z];
+        bipedRightLeg.rotateAngleX = c[Channels.R_LEG_X];
+        bipedRightLeg.rotateAngleY = c[Channels.R_LEG_Y];
+        bipedRightLeg.rotateAngleZ = c[Channels.R_LEG_Z];
+        bipedLeftLeg.rotateAngleX = c[Channels.L_LEG_X];
+        bipedLeftLeg.rotateAngleY = c[Channels.L_LEG_Y];
+        bipedLeftLeg.rotateAngleZ = c[Channels.L_LEG_Z];
+        if (segmented) {
+            // Elbows bend the forearm forward (-X), knees bend the shin back (+X); a worn piece keeps the limb
+            // straight.
+            if (!rigidArms) {
+                rightForearm.rotateAngleX = -c[Channels.R_FORE];
+                leftForearm.rotateAngleX = -c[Channels.L_FORE];
+            }
+            if (!rigidLegs) {
+                rightShin.rotateAngleX = c[Channels.R_SHIN];
+                leftShin.rotateAngleX = c[Channels.L_SHIN];
+            }
+        }
+        float bob = c[Channels.ROOT_Y];
+        bipedBody.rotationPointY += bob;
+        bipedHead.rotationPointY += bob;
+        bipedHeadwear.rotationPointY += bob;
+        bipedRightArm.rotationPointY += bob;
+        bipedLeftArm.rotationPointY += bob;
+    }
+
     private void arm(ModelRenderer upper, ModelRenderer forearm, boolean right, float[] rigidDirection, float w) {
         if (segmented && !rigidArms) {
             LimbSolver.solveArm(right, pose, solved);
             apply(upper, solved.upper, w);
-            forearm.rotateAngleX = solved.childAngleX * w;
+            forearm.rotateAngleX = mix(forearm.rotateAngleX, solved.childAngleX, w);
         } else {
             LimbSolver.solveLimb(rigidDirection[0], rigidDirection[1], rigidDirection[2], angles);
             apply(upper, angles, w);
@@ -194,7 +307,7 @@ final class CombatBiped extends ModelBiped {
         if (segmented && !rigidLegs) {
             LimbSolver.solveLeg(right, pose, solved);
             apply(upper, solved.upper, w);
-            shin.rotateAngleX = solved.childAngleX * w;
+            shin.rotateAngleX = mix(shin.rotateAngleX, solved.childAngleX, w);
         } else {
             LimbSolver.solveLimb(rigidDirection[0], rigidDirection[1], rigidDirection[2], angles);
             apply(upper, angles, w);

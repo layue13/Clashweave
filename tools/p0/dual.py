@@ -29,6 +29,7 @@ parser.add_argument('--souls', action='store_true')
 parser.add_argument('--souls-view', action='store_true')
 parser.add_argument('--edge-boundary', action='store_true')
 parser.add_argument('--art-verify', action='store_true')
+parser.add_argument('--move-verify', type=float, help='B2: photograph P0A standing, walking, sprinting and jumping from this camera yaw (90 = side)')
 parser.add_argument('--armor', help='C2b: equip P0A with leather|iron (optionally -chest, -legs, -boots for one piece)')
 parser.add_argument('--pose-verify', type=float, help='C2a: frame-by-frame third-person captures of every action from this camera yaw (degrees, 90 = side)')
 parser.add_argument('--movement', action='store_true')
@@ -62,6 +63,7 @@ if args.souls: args.composition=True
 if args.souls_view: args.view_test=True
 if args.edge_boundary: args.view_test=True; args.render_only=True
 if args.art_verify: args.render_only=True
+if args.move_verify is not None: args.render_only=True
 if not args.accept_eula:
     raise SystemExit('Explicit EULA acceptance required')
 folder = ROOT / 'build/p0/runs' / args.label
@@ -131,6 +133,7 @@ def spawn(role):
     if args.art_verify: command += ['-Dcw.p0.artVerify=true']
     if args.pose_verify is not None: command += ['-Dcw.c2a.poseVerify='+str(args.pose_verify)]
     if args.armor: command += ['-Dcw.c2b.armor='+args.armor]
+    if args.move_verify is not None: command += ['-Dcw.b2.moveVerify='+str(args.move_verify)]
     if args.sweep_test:
         command += ['-Dcw.p0.sweepTest=true']
     if args.fast_turn:
