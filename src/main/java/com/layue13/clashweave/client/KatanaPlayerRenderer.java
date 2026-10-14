@@ -56,6 +56,8 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
             && player.getItemInUse()
                 .getItemUseAction() == net.minecraft.item.EnumAction.bow;
         boolean climbing = player.isOnLadder() && !player.onGround;
+        in.carryRight = PoseDriver.carrying(player) && (visual == null || !visual.state.sheathed)
+            && com.layue13.clashweave.forge.CombatWeapons.armed(player.getHeldItem());
         in.climbPhase = rig.observeClimb(player.posY, climbing);
         in.mode = player.isPlayerSleeping() ? com.layue13.clashweave.client.body.LocomotionInputs.SLEEP
             : player.isRiding() ? com.layue13.clashweave.client.body.LocomotionInputs.RIDE

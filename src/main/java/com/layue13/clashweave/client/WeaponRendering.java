@@ -19,6 +19,9 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
  */
 public final class WeaponRendering {
 
+    /** Blade pitch about the hand when carried one-handed at the side, degrees. */
+    private static final double CARRY_PITCH = -10;
+
     private final Minecraft minecraft = Minecraft.getMinecraft();
     private final ModelBiped arm = new ModelBiped();
     private final float[] swordMatrix = new float[16];
@@ -64,7 +67,7 @@ public final class WeaponRendering {
 
     /** The blade in the hand: baked pose when the body is taken over, otherwise attached to the right arm. */
     private void blade(PresentationAssets.Render render, ModelBiped model, ClientProxy.Visual visual, boolean posed,
-        PoseDriver driver, float partial) {
+        PoseDriver driver, boolean carried, float partial) {
         if (posed) {
             // The blade follows the baked sword pose in body space, not the arm, so arm roll cannot turn it.
             GL11.glPushMatrix();
@@ -80,7 +83,8 @@ public final class WeaponRendering {
             GL11.glPushMatrix();
             model.bipedRightArm.postRender(1 / 16f);
             GL11.glTranslated(render.rightX, render.rightY, render.rightZ);
-            GL11.glRotated(-90, 1, 0, 0);
+            // Carried at the side the blade points down and a little forward along the leg; held out it points ahead.
+            GL11.glRotated(carried ? CARRY_PITCH : -90, 1, 0, 0);
             GL11.glRotated(swing(visual, partial), 0, 0, 1);
             GL11.glRotated(90, 0, 1, 0);
             GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
@@ -123,7 +127,14 @@ public final class WeaponRendering {
             sheath(render, drawn);
             GL11.glPopMatrix();
         }
-        if (drawn) blade(render, event.renderer.modelBipedMain, visual, posed, driver, event.partialRenderTick);
+        if (drawn) blade(
+            render,
+            event.renderer.modelBipedMain,
+            visual,
+            posed,
+            driver,
+            PoseDriver.carrying(event.entityPlayer),
+            event.partialRenderTick);
         GL11.glPopAttrib();
     }
 
@@ -202,7 +213,8 @@ public final class WeaponRendering {
         renderer.hands.bipedLeftArm.render(1 / 16f);
         minecraft.getTextureManager()
             .bindTexture(render.texture);
-        if (blade) blade(render, renderer.hands, visual, posed, driver, partial);
+        if (blade)
+            blade(render, renderer.hands, visual, posed, driver, PoseDriver.carrying(minecraft.thePlayer), partial);
         GL11.glPopMatrix();
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPopMatrix();

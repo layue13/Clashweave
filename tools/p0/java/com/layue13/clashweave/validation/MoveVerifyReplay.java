@@ -50,6 +50,7 @@ public final class MoveVerifyReplay {
     private EntityOtherPlayerMP mannequin(double x,double y,double z){
         EntityOtherPlayerMP m=new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Dummy"));
         m.setPosition(x,y,z);m.rotationYaw=m.prevRotationYaw=0;m.renderYawOffset=m.prevRenderYawOffset=0;m.rotationYawHead=m.prevRotationYawHead=0;
+        if(Boolean.getBoolean("cw.b6.armed"))m.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(com.layue13.clashweave.Clashweave.katana));
         mc.theWorld.spawnEntityInWorld(m);return m;
     }
 
@@ -74,7 +75,7 @@ public final class MoveVerifyReplay {
     private void stages(){
         double x=baseX+6.5,y=baseY,z=baseZ+.5;
         if(ticks==650){dummy=mannequin(x,y+1.2,z);}
-        if(ticks>650&&ticks<695){walkDummy(.1);flag(net.minecraft.entity.Entity.class,"inWater",true);}
+        if(ticks>650&&ticks<695){walkDummy(.1);flag(net.minecraft.entity.Entity.class,"inWater",true);dummy.prevLimbSwingAmount=dummy.limbSwingAmount;dummy.limbSwingAmount=.8f;dummy.limbSwing+=.5f;}
         if(ticks>=664&&ticks<=676&&(ticks-664)%4==0)photo("swimair-"+((ticks-664)/4));
         if(ticks==695)clearStage();
         if(ticks==700){mount=new net.minecraft.entity.passive.EntityHorse(mc.theWorld);mount.setPosition(x,y,z);mc.theWorld.spawnEntityInWorld(mount);dummy=mannequin(x,y+1.2,z);dummy.mountEntity(mount);}
@@ -171,7 +172,7 @@ public final class MoveVerifyReplay {
 
     /** First person in water, on a ladder and on a pig; the server moves the player between the three places. */
     private void fpStates(){
-        mc.renderViewEntity=mc.thePlayer;mc.gameSettings.thirdPersonView=0;mc.gameSettings.hideGUI=false;
+        mc.renderViewEntity=mc.thePlayer;mc.gameSettings.thirdPersonView=Boolean.getBoolean("cw.b6.third")?(angle>90?2:1):0;mc.gameSettings.hideGUI=false;
         if(ticks==100)mc.thePlayer.inventory.currentItem=0;
         if(ticks==105&&!Boolean.getBoolean("cw.b6.nodraw"))ClientProxy.instance.send(com.layue13.clashweave.core.Intent.LIGHT,-1);
         if(ticks%30==0)System.out.println("MOVE_FP2 tick="+ticks+" pos="+mc.thePlayer.posX+","+mc.thePlayer.posY+","+mc.thePlayer.posZ+" inWater="+mc.thePlayer.isInWater()+" riding="+mc.thePlayer.isRiding());
@@ -179,7 +180,8 @@ public final class MoveVerifyReplay {
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=ladder?180:0;
         mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=ticks>=200&&ticks<220?40:0;
         key(mc.gameSettings.keyBindForward,(ticks>=130&&ticks<200)||(ladder&&ticks>=230)||(ride&&ticks<380));
-        key(mc.gameSettings.keyBindJump,ticks>=130&&ticks<200);
+        key(mc.gameSettings.keyBindJump,false);
+        if(ticks%10==0&&ticks>=120&&ticks<=200)System.out.println("MOVE_FP2_SWIM tick="+ticks+" amount="+mc.thePlayer.limbSwingAmount+" y="+mc.thePlayer.posY+" inWater="+mc.thePlayer.isInWater());
         if(ticks>=140&&ticks<=190&&(ticks-140)%10==0)photo("fp2-swim-"+((ticks-140)/10));
         if(ticks>=205&&ticks<=215&&(ticks-205)%5==0)photo("fp2-swimdown-"+((ticks-205)/5));
         if(ticks>=240&&ticks<=300&&(ticks-240)%10==0)photo("fp2-climb-"+((ticks-240)/10));
