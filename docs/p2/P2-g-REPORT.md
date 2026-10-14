@@ -13,7 +13,7 @@ P2-f 记录的"每次居合总有一段 `hit=false`"原因不是位置,而是目
 | 运行 | 结果 |
 |---|---|
 | p2g-sp1(0 ms) | 3 次 `SPECIAL`,各 3 刀,共 9/9 命中;间隔 158 刻时 `REJECT:SPECIAL_COOLDOWN`。 |
-| p2g-sp100(100 ms) | 4 次 `SPECIAL` 被接受;命中 10(影缝与居合延迟斩合计)、未命中 0。 |
+| p2g-sp100(100 ms) | 3 次 `SPECIAL` 被接受、1 次 `REJECT:SPECIAL_COOLDOWN`;延迟斩 10 次(影缝 9 + 居合 1)全部命中,未命中 0。 |
 
 ## 4. 未验证 / 失败
 - 夹具第一次按键时武器仍为收刀状态,服务端仍接受(`armed` 只判断持有武器);是否要求出鞘未定。`SPECIAL_BUSY`、`SPECIAL_NO_TARGET`、`NO_SA` 路径无实机覆盖。
