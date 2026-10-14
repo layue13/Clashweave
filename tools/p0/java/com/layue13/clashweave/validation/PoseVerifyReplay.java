@@ -22,6 +22,8 @@ public final class PoseVerifyReplay {
     private static final double[] FRACTIONS={0.08,0.25,0.42,0.58,0.75,0.92};
     private final Minecraft mc=Minecraft.getMinecraft();
     private final float angle=Float.parseFloat(System.getProperty("cw.c2a.poseVerify"));
+    /** First-person captures: the observer keeps their own view. */
+    private final boolean first=Boolean.getBoolean("cw.c2a.first");
     private final Set<String> captured=new HashSet<>();
     private EntityOtherPlayerMP camera;
     private int ticks;
@@ -58,7 +60,7 @@ public final class PoseVerifyReplay {
             return;
         }
         if(!active){savedView=mc.gameSettings.thirdPersonView;active=true;}
-        camera(own.state.yaw);
+        if(first)mc.gameSettings.thirdPersonView=0;else camera(own.state.yaw);
         String action=own.state.action.isEmpty()?"":Ids.local(own.state.action);
         double total=own.definition==null?0:own.definition.duration();
         double elapsed=p.elapsed(own,0);
@@ -72,7 +74,7 @@ public final class PoseVerifyReplay {
 
     @SubscribeEvent public void frame(TickEvent.RenderTickEvent event){
         if(event.phase!=TickEvent.Phase.END||mc.thePlayer==null||shot==null)return;
-        ScreenShotHelper.saveScreenshot(new File("."),"pose-"+shot+".png",mc.displayWidth,mc.displayHeight,mc.getFramebuffer());
+        ScreenShotHelper.saveScreenshot(new File("."),(first?"pose-fp-":"pose-")+shot+".png",mc.displayWidth,mc.displayHeight,mc.getFramebuffer());
         ClientProxy.Visual v=ClientProxy.instance.own();
         System.out.println("POSE_CAPTURE name="+shot+" angle="+angle+" tick="+ticks+" action="+v.state.action+" elapsed="+shotElapsed
             +" total="+(v.definition==null?0:v.definition.duration())+" sheathed="+v.state.sheathed+" engaged="+v.state.engaged);
