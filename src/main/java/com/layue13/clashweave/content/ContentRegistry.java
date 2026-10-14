@@ -619,8 +619,18 @@ public final class ContentRegistry {
                 }
             } else if (dto instanceof ContentPack.Sa) {
                 ContentPack.Sa sa = (ContentPack.Sa) dto;
-                if (sa.attach.isEmpty())
-                    error(r.source, r.path + ".attach", "an ability attaches to at least one action");
+                if (sa.attach.isEmpty() && sa.active == null)
+                    error(r.source, r.path + ".attach", "an ability attaches to at least one action or is active");
+                if (sa.active != null) {
+                    ContentPack.Active a = sa.active;
+                    if (!(a.range >= 1 && a.range <= 16)) error(r.source, r.path + ".active.range", "1-16 blocks");
+                    if (a.cooldown < 20 || a.cooldown > 6000)
+                        error(r.source, r.path + ".active.cooldown", "20-6000 ticks");
+                    if (a.strikes < 1 || a.strikes > 8) error(r.source, r.path + ".active.strikes", "1-8");
+                    if (a.interval < 1 || a.interval > 40) error(r.source, r.path + ".active.interval", "1-40 ticks");
+                    if (!(a.damage >= 0 && a.damage <= 100)) error(r.source, r.path + ".active.damage", "0-100");
+                    if (!(a.posture >= 0 && a.posture <= 1000)) error(r.source, r.path + ".active.posture", "0-1000");
+                }
                 for (int i = 0; i < sa.attach.size(); i++) {
                     ContentPack.Attach attach = sa.attach.get(i);
                     if (attach.effects.isEmpty())

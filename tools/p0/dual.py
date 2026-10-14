@@ -32,6 +32,7 @@ parser.add_argument('--guard', action='store_true', help='P2: hold and release t
 parser.add_argument('--posture', action='store_true', help='P2-b: strike the still zombie until its posture breaks')
 parser.add_argument('--dodge', action='store_true', help='P2-d: steps in four directions against a wall and timed blows')
 parser.add_argument('--sa', action='store_true', help='P2-e: repeated iai on the still zombie; delayed strikes of the equipped ability (add --jvm-arg=-Dcw.sa.off=true for the control)')
+parser.add_argument('--special', action='store_true', help='P2-g: the key-triggered ability: busy, used, cooldown, used again')
 parser.add_argument('--mode', action='store_true', help='P2-f: fill the gauge, start the mode, iai inside and after it')
 parser.add_argument('--souls-view', action='store_true')
 parser.add_argument('--edge-boundary', action='store_true')
@@ -63,7 +64,7 @@ parser.add_argument('--client-content-pack', action='append', default=[], help='
 parser.add_argument('--server-cfg', action='append', default=[], help='category:key=value lines appended to the server combat.cfg (booleans/ints/floats)')
 args = parser.parse_args()
 if args.launcher: args.manual=True; args.render_only=True
-if args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode: args.manual=True
+if args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special: args.manual=True
 if args.wf1c: args.manual=True; args.render_only=True
 if args.follow_only: args.lock_support=True
 if args.first_only: args.composition=True
@@ -168,6 +169,7 @@ def spawn(role):
     if args.souls_view: command += ['-Dcw.p0.soulsView=true']
     if args.chase: command += ['-Dcw.p1b.chase=true']
     if args.guard: command += ['-Dcw.p2.guard=true']
+    if args.special: command += ['-Dcw.p2.special=true','-Dcw.p1b.chase=true']
     if args.mode: command += ['-Dcw.p2.mode=true','-Dcw.p1b.chase=true','-Dcw.p2.modeTicks=500']
     if args.sa: command += ['-Dcw.p2.sa=true','-Dcw.p1b.chase=true']
     if args.dodge: command += ['-Dcw.p2.dodge=true']
@@ -241,7 +243,7 @@ try:
             server.stdin.write(b'stop\n')
             server.stdin.flush()
             server.wait(timeout=20)
-            if args.manual or args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode: break
+            if args.manual or args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special: break
             raise RuntimeError('Client exited before scenario completed')
         time.sleep(.5)
     if server.poll() is None:

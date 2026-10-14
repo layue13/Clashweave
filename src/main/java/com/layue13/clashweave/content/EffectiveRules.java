@@ -85,6 +85,7 @@ public final class EffectiveRules {
     private final Map<String, String> wire;
     private final Map<String, WeaponDefinition> weapons;
     private final Map<WeaponDefinition, Map<String, List<HitEffect>>> attachments;
+    private final Map<WeaponDefinition, ContentPack.Active> actives;
     private final Map<String, ContentPack.Resource> resources;
     private final Map<String, ContentPack.Animation> animations;
 
@@ -96,6 +97,7 @@ public final class EffectiveRules {
         Map<String, String> wireIndex = new HashMap<>();
         Map<String, WeaponDefinition> weaponIndex = new HashMap<>();
         Map<WeaponDefinition, Map<String, List<HitEffect>>> attachmentIndex = new java.util.IdentityHashMap<>();
+        Map<WeaponDefinition, ContentPack.Active> activeIndex = new java.util.IdentityHashMap<>();
         Map<String, ContentPack.Resource> resourceIndex = new HashMap<>();
         Map<String, ContentPack.Animation> animationIndex = new HashMap<>();
         for (ContentPack pack : registry.packs()
@@ -146,12 +148,17 @@ public final class EffectiveRules {
                             .addAll(attach.effects);
                 }
                 if (!byAction.isEmpty()) attachmentIndex.put(built, byAction);
+                for (String saId : w.saSlots) {
+                    ContentPack.Sa sa = registry.sa(saId);
+                    if (sa.active != null && !activeIndex.containsKey(built)) activeIndex.put(built, sa.active);
+                }
             }
         }
         catalogs = Collections.unmodifiableMap(catalogIndex);
         wire = Collections.unmodifiableMap(wireIndex);
         weapons = Collections.unmodifiableMap(weaponIndex);
         attachments = attachmentIndex;
+        actives = activeIndex;
         resources = Collections.unmodifiableMap(resourceIndex);
         animations = Collections.unmodifiableMap(animationIndex);
         effectiveHash = hash();
@@ -237,6 +244,11 @@ public final class EffectiveRules {
         Map<String, List<HitEffect>> byAction = attachments.get(weapon);
         List<HitEffect> list = byAction == null ? null : byAction.get(actionId);
         return list == null ? Collections.<HitEffect>emptyList() : list;
+    }
+
+    /** The key-triggered form of this weapon's first equipped ability that has one, or null. */
+    public ContentPack.Active active(WeaponDefinition weapon) {
+        return actives.get(weapon);
     }
 
     public WeaponDefinition weapon(String weaponId) {
