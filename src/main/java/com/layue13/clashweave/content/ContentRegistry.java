@@ -562,6 +562,7 @@ public final class ContentRegistry {
                 range(r, "speed", a.speed, 0, Double.MAX_VALUE);
                 range(r, "lift", a.lift, 0, Double.MAX_VALUE);
                 range(r, "sweepElevation", a.sweepElevation, -90, 90);
+                range(r, "posture", a.posture, -1, 1000);
                 boolean launch = false, slam = false;
                 for (int i = 0; i < a.effects.size(); i++) {
                     HitEffect effect = a.effects.get(i);

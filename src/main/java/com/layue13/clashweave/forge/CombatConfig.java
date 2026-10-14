@@ -18,6 +18,9 @@ public final class CombatConfig {
     public boolean slamRequiresAir;
     public float blockRecoil, parryRecoil;
     public int slamGraceTicks;
+    public int postureMax, postureRecoveryDelay, postureRecoveryPerTick, postureResetPercent;
+    public int breakTicksMonster, breakTicksPlayer;
+    public float breakDamageBonus, postureBlockedShare, posturePrecise, postureScale;
     public double multiplierMinimum;
     public double multiplierMaximum;
     public int maxResistance;
@@ -463,6 +466,31 @@ public final class CombatConfig {
             0.2f,
             1,
             "Each further accepted launch in one chain lifts this share of the previous one");
+        postureMax = config.getInt("max", "posture", 100, 10, 1000, "Stance stability of a full-steady entity");
+        postureRecoveryDelay = config
+            .getInt("recoveryDelayTicks", "posture", 40, 0, 400, "Quiet ticks before it recovers");
+        postureRecoveryPerTick = config.getInt("recoveryPerTick", "posture", 2, 0, 50, "Stability regained per tick");
+        postureResetPercent = config
+            .getInt("resetPercent", "posture", 50, 1, 100, "Stability a finished break restores");
+        breakTicksMonster = config.getInt("breakTicksMonster", "posture", 16, 1, 200, "Broken duration of a monster");
+        breakTicksPlayer = config.getInt("breakTicksPlayer", "posture", 10, 1, 200, "Broken duration of a player");
+        breakDamageBonus = config
+            .getFloat("breakDamageBonus", "posture", 1.3f, 1, 3, "Damage multiplier on a broken target");
+        postureBlockedShare = config.getFloat(
+            "blockedShare",
+            "posture",
+            0.67f,
+            0,
+            2,
+            "Share of a blow's posture damage a plain guard still takes");
+        posturePrecise = config.getFloat("preciseDamage", "posture", 2, 0, 50, "Posture damage a precise guard takes");
+        postureScale = config.getFloat(
+            "perDamage",
+            "posture",
+            4,
+            0,
+            40,
+            "Posture damage per point of damage when the action declares none");
         slamGraceTicks = config.getInt(
             "slamGraceTicks",
             "control",

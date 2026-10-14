@@ -35,6 +35,8 @@ public final class ActionCatalog {
         public double speed;
         public double lift;
         public double sweepElevation;
+        /** Posture damage of this action's blow; negative derives it from the damage. */
+        public int posture = -1;
         public List<HitEffect> effects = new java.util.ArrayList<>();
         public List<Edge> edges;
 
@@ -79,6 +81,8 @@ public final class ActionCatalog {
         for (Definition definition : data.actions) {
             if (definition == null || definition.effects == null
                 || !Double.isFinite(definition.lift)
+                || definition.posture < -1
+                || definition.posture > 1000
                 || definition.lift < 0
                 || definition.lift > maximum
                 || !Double.isFinite(definition.sweepElevation)

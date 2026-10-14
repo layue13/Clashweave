@@ -128,6 +128,7 @@ public final class CombatServer {
     private final List<PendingHello> hellos = new ArrayList<>();
     private final CombatPresentation presentation = new CombatPresentation();
     private final HitEffects effects;
+    private final PostureTracker posture;
     private final ResistanceOwnership resistance;
     private final Map<UUID, PlayerState> states = new LinkedHashMap<>();
     private final List<Inbound> inbox = new ArrayList<>();
@@ -154,6 +155,7 @@ public final class CombatServer {
         this.config = config;
         this.rules = rules;
         effects = new HitEffects(config, presentation);
+        posture = new PostureTracker(config, presentation, effects);
         resistance = new ResistanceOwnership(config.maxResistance);
     }
 
@@ -257,6 +259,7 @@ public final class CombatServer {
         if (event.entityLiving.worldObj.isRemote) return;
         resistance.remove(event.entityLiving);
         effects.remove(event.entityLiving);
+        posture.remove(event.entityLiving);
         PlayerState state = event.entityLiving instanceof EntityPlayer ? state((EntityPlayer) event.entityLiving)
             : null;
         if (state != null) {
@@ -356,6 +359,7 @@ public final class CombatServer {
     private void remove(EntityPlayer player) {
         presentation.remove(player);
         effects.remove(player);
+        posture.remove(player);
         PlayerState state = states.remove(player.getUniqueID());
         if (state != null) state.scheduler.interrupt();
         resistance.remove(player);
@@ -371,6 +375,7 @@ public final class CombatServer {
     public void stop() {
         resistance.clear();
         effects.clear();
+        posture.clear();
         states.clear();
         pending.clear();
         synchronized (hellos) {
@@ -401,6 +406,7 @@ public final class CombatServer {
             state.launchY = state.player.posY;
         }
         effects.tick(tick);
+        posture.tick(tick);
         // The same lock registers arrivals and cuts off inputs for a commit. No world work on Netty.
         long cutoff;
         List<Inbound> arrived;
@@ -525,6 +531,15 @@ public final class CombatServer {
             return;
         }
         Intent intent = Intent.values()[message.kind];
+        if (posture.broken(state.player, tick) && (intent == Intent.LIGHT || intent == Intent.HEAVY
+            || intent == Intent.SHEATHE
+            || intent == Intent.GUARD_PRESS
+            || intent == Intent.DODGE
+            || intent == Intent.SPECIAL
+            || intent == Intent.MODE)) {
+            snapshot(state, message.sequence, "REJECT:BROKEN", false);
+            return;
+        }
         if (intent == Intent.CLEAR_BUFFER) {
             state.scheduler.clearBuffer();
             state.guard.release(tick);
@@ -930,6 +945,12 @@ public final class CombatServer {
         presentation
             .contact(contact.attacker.player, contact.target, contact.instance, tick, contact.frozen, hit, guard);
         if (guard == 2) defender.scheduler.openCounter(tick, config.counterWindow);
+        float stance = contact.instance.definition.posture >= 0 ? contact.instance.definition.posture
+            : contact.instance.definition.damage * config.postureScale;
+        stance *= (float) contact.attacker.scheduler.weapon().poiseMultiplier;
+        if (guard == 2) posture.damage(contact.target, config.posturePrecise, tick);
+        else if (guard == 1) posture.damage(contact.target, stance * config.postureBlockedShare, tick);
+        else if (hit) posture.damage(contact.target, stance, tick);
         if (defender != null && hit) creditImpulse(defender);
         double launchCredit = effects
             .apply(contact.attacker.player, contact.target, contact.instance, tick, contact.frozen, hit, guard);
@@ -1122,6 +1143,26 @@ public final class CombatServer {
      * the later hurt event could not prevent. The counter window opens and the semantic result is published here,
      * because a cancelled hurt event never reaches the presentation flush.
      */
+    /** A broken monster cannot strike: its blows are cancelled before they land. */
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public void brokenStrike(LivingAttackEvent event) {
+        if (event.entityLiving.worldObj.isRemote) return;
+        Entity striker = event.source.getEntity();
+        if (striker instanceof EntityLivingBase && !(striker instanceof EntityPlayer)
+            && posture.broken((EntityLivingBase) striker, tick)) {
+            event.setCanceled(true);
+            trace("BROKEN_STRIKE striker=" + striker.getEntityId() + " tick=" + tick);
+        }
+    }
+
+    /** A broken target takes more of every blow, before any guard reduces it. */
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public void breakBonus(LivingHurtEvent event) {
+        if (event.entityLiving.worldObj.isRemote || !posture.broken(event.entityLiving, tick)) return;
+        trace("BREAK_BONUS target=" + event.entityLiving.getEntityId() + " before=" + event.ammount + " tick=" + tick);
+        event.ammount *= config.breakDamageBonus;
+    }
+
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void attack(LivingAttackEvent event) {
         if (event.entityLiving.worldObj.isRemote || event.source instanceof CombatSource
@@ -1135,6 +1176,7 @@ public final class CombatServer {
         event.setCanceled(true);
         state.pendingImpulse = true;
         state.scheduler.openCounter(tick, config.counterWindow);
+        posture.damage(state.player, config.posturePrecise, tick);
         if (event.source.getSourceOfDamage() == attacker) recoil(state.player, attacker, config.parryRecoil);
         presentation.nativeParry(attacker, state.player, tick);
         trace(
@@ -1176,6 +1218,10 @@ public final class CombatServer {
                 + event.ammount
                 + " tick="
                 + tick);
+        if (event.ammount > 0 && guard < 2) posture.damage(
+            state.player,
+            event.ammount * config.postureScale * (guard == 1 ? config.postureBlockedShare : 1),
+            tick);
         if (guard > 0) event.ammount *= guard == 2 ? 0 : config.blockDamage;
         if (guard > 0 && event.source.getSourceOfDamage() == attacker)
             recoil(state.player, attacker, guard == 2 ? config.parryRecoil : config.blockRecoil);
