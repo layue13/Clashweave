@@ -17,14 +17,47 @@
         "katana:air_light",
         "katana:air_slam",
         "katana:counter",
-        "katana:step"
+        "katana:step",
+        "katana:finisher",
+        "katana:judgement",
+        "katana:judgement_draw"
       ],
       "entry": {
-        "sheathed": { "LIGHT": "katana:iai", "DODGE": "katana:step" },
-        "ready": { "LIGHT": "katana:light_1", "HEAVY": "katana:heavy", "SHEATHE": "katana:sheathe", "DODGE": "katana:step" },
-        "counter": { "LIGHT": "katana:counter" },
-        "entersReady": ["katana:iai", "katana:light_1", "katana:light_2", "katana:light_3", "katana:heavy", "katana:launcher", "katana:air_light", "katana:air_slam", "katana:counter"],
-        "entersSheathed": ["katana:sheathe"]
+        "sheathed": {
+          "LIGHT": "katana:iai",
+          "DODGE": "katana:step",
+          "SPECIAL": "katana:judgement_draw"
+        },
+        "ready": {
+          "LIGHT": "katana:light_1",
+          "HEAVY": "katana:heavy",
+          "SHEATHE": "katana:sheathe",
+          "DODGE": "katana:step",
+          "SPECIAL": "katana:judgement"
+        },
+        "counter": {
+          "LIGHT": "katana:counter"
+        },
+        "entersReady": [
+          "katana:iai",
+          "katana:light_1",
+          "katana:light_2",
+          "katana:light_3",
+          "katana:heavy",
+          "katana:launcher",
+          "katana:air_light",
+          "katana:air_slam",
+          "katana:counter",
+          "katana:finisher",
+          "katana:judgement",
+          "katana:judgement_draw"
+        ],
+        "entersSheathed": [
+          "katana:sheathe"
+        ],
+        "finisher": {
+          "HEAVY": "katana:finisher"
+        }
       }
     }
   ]

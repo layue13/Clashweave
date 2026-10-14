@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.layue13.clashweave.core.ActionCatalog;
 import com.layue13.clashweave.core.HitEffect;
+import com.layue13.clashweave.core.Intent;
 import com.layue13.clashweave.core.WeaponDefinition;
 
 public class SaTest {
@@ -21,7 +23,7 @@ public class SaTest {
     public void theEquippedAbilityAttachesItsStrikeToTheIaiAndNothingElse() throws Exception {
         EffectiveRules rules = rules();
         WeaponDefinition katana = rules.weapon("katana:katana");
-        assertEquals(java.util.Arrays.asList("katana:afterimage", "katana:shadowrend"), katana.saSlots);
+        assertEquals(java.util.Arrays.asList("katana:afterimage", "katana:judgement"), katana.saSlots);
         List<HitEffect> iai = rules.attached(katana, "katana:iai");
         assertEquals(1, iai.size());
         assertEquals(HitEffect.Type.DELAYED_SLASH, iai.get(0).type);
@@ -38,7 +40,20 @@ public class SaTest {
     public void theKatanaCarriesAnActiveFormAndAPlainWeaponDoesNot() throws Exception {
         EffectiveRules rules = rules();
         assertNotNull(rules.active(rules.weapon("katana:katana")));
-        assertEquals(3, rules.active(rules.weapon("katana:katana")).strikes);
+        ContentPack.Active active = rules.active(rules.weapon("katana:katana"));
+        assertEquals(14, active.range, 1e-9);
+        ActionCatalog catalog = rules.catalogs()
+            .get("katana:default");
+        assertEquals(
+            "V with the blade out sheathes first, then the draw lands the cut",
+            "katana:judgement",
+            catalog.entryTarget(false, Intent.SPECIAL));
+        assertEquals("katana:judgement_draw", catalog.entryTarget(true, Intent.SPECIAL));
+        assertEquals(44, catalog.require("katana:judgement").release);
+        assertEquals(16, catalog.require("katana:judgement_draw").release);
+        assertTrue("both forms end with the blade drawn", catalog.entersReady("katana:judgement"));
+        assertTrue(catalog.entersReady("katana:judgement_draw"));
+        assertFalse(catalog.entersSheathed("katana:judgement"));
         assertNull(rules.active(WeaponDefinition.katana()));
     }
 

@@ -97,6 +97,35 @@ final class CombatPresentation {
                 ""));
     }
 
+    private void judge(SemanticEvents.Kind kind, EntityLivingBase entity, long tick) {
+        events.emit(new SemanticEvents.Event(kind, entity.getEntityId(), entity.getEntityId(), 0, tick, tick, ""));
+    }
+
+    void judgeStart(EntityLivingBase caster, long tick) {
+        judge(SemanticEvents.Kind.JUDGE_START, caster, tick);
+    }
+
+    void judgeBind(EntityLivingBase target, long tick) {
+        judge(SemanticEvents.Kind.JUDGE_BIND, target, tick);
+    }
+
+    void judgeCut(EntityLivingBase target, long tick) {
+        judge(SemanticEvents.Kind.JUDGE_CUT, target, tick);
+    }
+
+    /** A finisher landed on the broken target. */
+    void finished(EntityLivingBase target, long tick) {
+        events.emit(
+            new SemanticEvents.Event(
+                SemanticEvents.Kind.FINISH,
+                target.getEntityId(),
+                target.getEntityId(),
+                0,
+                tick,
+                tick,
+                ""));
+    }
+
     /** The target's stance broke. */
     void broken(EntityLivingBase target, long tick) {
         events.emit(

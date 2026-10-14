@@ -55,6 +55,11 @@ public final class Posture {
         value = Math.min(max, value + recoveryPerTick);
     }
 
+    /** Ends a running break now: the next {@link #advance} restores the share of stability a finished break gives. */
+    public void endBreak(long tick) {
+        if (broken(tick)) brokenUntil = tick;
+    }
+
     /** At full stability and not broken: nothing to keep. */
     public boolean settled(long tick) {
         return value >= max && !broken(tick);

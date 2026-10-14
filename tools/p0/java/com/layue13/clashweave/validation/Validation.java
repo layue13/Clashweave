@@ -57,6 +57,7 @@ public final class Validation {
                 if(Boolean.getBoolean("cw.p3.vfx"))Class.forName("com.layue13.clashweave.validation.VfxReplay").newInstance();
                 if(Boolean.getBoolean("cw.p2.swarm"))Class.forName("com.layue13.clashweave.validation.SwarmReplay").newInstance();
                 if(Boolean.getBoolean("cw.p2.pvp"))Class.forName("com.layue13.clashweave.validation.PvpReplay").newInstance();
+                if(Boolean.getBoolean("cw.p2.finisher"))Class.forName("com.layue13.clashweave.validation.FinisherReplay").newInstance();
                 if(Boolean.getBoolean("cw.p2.special"))Class.forName("com.layue13.clashweave.validation.SpecialReplay").newInstance();
                 if(Boolean.getBoolean("cw.p2.mode"))Class.forName("com.layue13.clashweave.validation.ModeReplay").newInstance();
                 if(Boolean.getBoolean("cw.p2.sa"))Class.forName("com.layue13.clashweave.validation.SaReplay").newInstance();

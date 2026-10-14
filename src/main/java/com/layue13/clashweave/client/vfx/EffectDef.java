@@ -15,7 +15,9 @@ public final class EffectDef {
         /** A soft disc that blooms and fades. */
         DISC,
         /** A thin ring that spreads. */
-        RING
+        RING,
+        /** A still line of the given length in a random direction, bright in the middle and clear at the ends. */
+        LINE
     }
 
     public enum Facing {
@@ -46,6 +48,8 @@ public final class EffectDef {
         public float dirSign = 1;
         /** Each particle starts at a random point within this distance of the anchor. */
         public float scatter;
+        /** LINE only: how thick the line is, in blocks (its length is {@code size}). */
+        public float width = 0.03f;
 
         transient Curve alphaCurve, scaleCurve;
 
@@ -94,6 +98,7 @@ public final class EffectDef {
             if (e.facing == null || !(e.dirSign == 1 || e.dirSign == -1))
                 throw new IllegalArgumentException(where + ": facing and dirSign (1 or -1)");
             if (!(e.scatter >= 0 && e.scatter <= 4)) throw new IllegalArgumentException(where + ".scatter 0-4");
+            if (!(e.width >= 0.002f && e.width <= 1)) throw new IllegalArgumentException(where + ".width 0.002-1");
             if (e.count < 1 || e.count > 64) throw new IllegalArgumentException(where + ".count 1-64");
             range(e.speed, 0, 2, where + ".speed");
             range(e.life, 1, 200, where + ".life");

@@ -23,6 +23,7 @@ public final class CombatConfig {
     public int dodgeCooldown;
     public int postureMax, postureRecoveryDelay, postureRecoveryPerTick, postureResetPercent;
     public int breakTicksMonster, breakTicksPlayer;
+    public float finisherMultiplier, finisherPlayerCap, finisherRange, gaugeFinisher;
     public float breakDamageBonus, postureBlockedShare, posturePrecise, postureScale;
     public double multiplierMinimum;
     public double multiplierMaximum;
@@ -499,6 +500,23 @@ public final class CombatConfig {
             "Posture damage per point of damage when the action declares none");
         dodgeCooldown = config
             .getInt("dodgeCooldownTicks", "combat", 24, 0, 400, "Ticks before the next step is allowed");
+        finisherMultiplier = config.getFloat(
+            "multiplier",
+            "finisher",
+            3f,
+            1,
+            10,
+            "Damage multiplier of the finisher on a target that is still broken when it lands");
+        finisherPlayerCap = config.getFloat(
+            "playerCap",
+            "finisher",
+            10f,
+            1,
+            200,
+            "Most damage a finisher does to a player, before the break bonus");
+        finisherRange = config
+            .getFloat("range", "finisher", 3.2f, 1, 8, "How far a broken target may stand for heavy to mean finisher");
+        gaugeFinisher = config.getFloat("gauge", "finisher", 20f, 0, 100, "Gauge for a finisher that lands");
         gaugeMax = config.getInt("max", "gauge", 100, 10, 1000, "Gauge needed to start the mode");
         gaugeHit = config.getFloat("hit", "gauge", 6, 0, 100, "Gauge for a blow that lands (once per swing)");
         gaugeStreak = config.getFloat("streakStep", "gauge", 1, 0, 20, "Extra gauge per blow in a streak");

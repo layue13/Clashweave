@@ -79,7 +79,8 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
         // What the data binds to these events is played first; the vanilla particles below remain as the fallback.
         boolean fx = (event.kind == SemanticEvents.Kind.LAUNCH || event.kind == SemanticEvents.Kind.SLAM
             || event.kind == SemanticEvents.Kind.BREAK
-            || event.kind == SemanticEvents.Kind.DELAYED)
+            || event.kind == SemanticEvents.Kind.DELAYED
+            || event.kind == SemanticEvents.Kind.FINISH)
             && com.layue13.clashweave.client.vfx.Vfx.INSTANCE
                 .playEvent(event.kind.name(), minecraft.theWorld.getEntityByID(event.actor));
         if (event.kind == SemanticEvents.Kind.LAUNCH && !fx) {
@@ -103,6 +104,38 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
                         0);
                 }
                 minecraft.theWorld.playSound(entity.posX, entity.posY, entity.posZ, "random.bow", .4f, 1.9f, false);
+            }
+        }
+        if (event.kind == SemanticEvents.Kind.FINISH) {
+            net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
+            if (entity != null) {
+                if (!fx) for (int i = 0; i < 16; i++) minecraft.theWorld.spawnParticle(
+                    "crit",
+                    entity.posX,
+                    entity.posY + entity.height * .6,
+                    entity.posZ,
+                    (minecraft.theWorld.rand.nextDouble() - .5) * .6,
+                    (minecraft.theWorld.rand.nextDouble() - .2) * .5,
+                    (minecraft.theWorld.rand.nextDouble() - .5) * .6);
+                minecraft.theWorld
+                    .playSound(entity.posX, entity.posY, entity.posZ, "random.anvil_land", .6f, 1.2f, false);
+                minecraft.theWorld.playSound(entity.posX, entity.posY, entity.posZ, "random.explode", .3f, 1.7f, false);
+            }
+        }
+        if (event.kind == SemanticEvents.Kind.JUDGE_START || event.kind == SemanticEvents.Kind.JUDGE_BIND
+            || event.kind == SemanticEvents.Kind.JUDGE_CUT) {
+            net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
+            if (entity != null) {
+                com.layue13.clashweave.client.vfx.Vfx.INSTANCE.playEvent(event.kind.name(), entity);
+                if (event.kind == SemanticEvents.Kind.JUDGE_START) minecraft.theWorld
+                    .playSound(entity.posX, entity.posY, entity.posZ, "mob.endermen.portal", .6f, 1.7f, false);
+                else if (event.kind == SemanticEvents.Kind.JUDGE_BIND) minecraft.theWorld
+                    .playSound(entity.posX, entity.posY, entity.posZ, "portal.trigger", .25f, 1.9f, false);
+                else {
+                    minecraft.theWorld.playSound(entity.posX, entity.posY, entity.posZ, "dig.glass", 1f, .85f, false);
+                    minecraft.theWorld
+                        .playSound(entity.posX, entity.posY, entity.posZ, "random.anvil_land", .5f, 1.8f, false);
+                }
             }
         }
         if (event.kind == SemanticEvents.Kind.BREAK) {

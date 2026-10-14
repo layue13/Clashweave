@@ -35,6 +35,9 @@ parser.add_argument('--sa', action='store_true', help='P2-e: repeated iai on the
 parser.add_argument('--vfx', action='store_true', help='P3: blade trail photographed from a free third-person camera (-Dcw.p3.angle)')
 parser.add_argument('--swarm', action='store_true', help='P2 close-out: four hunting zombies against P0A (-Dcw.p2.swarmTicks)')
 parser.add_argument('--pvp', action='store_true', help='P2 close-out: P0A and P0B fight each other with mirrored scripts')
+parser.add_argument('--finisher', action='store_true', help='P2: heavy pressed when the zombie breaks becomes the finisher (-Dcw.p2.finishDelay)')
+parser.add_argument('--play', action='store_true', help='for a human: one client (P0A, with a katana), a walking zombie pack that is kept up, no scripted replay; runs until the window is closed')
+parser.add_argument('--port', type=int, default=25580, help='server port; change it to run beside another session (not with --rtt, whose proxy is fixed)')
 parser.add_argument('--special', action='store_true', help='P2-g: the key-triggered ability: busy, used, cooldown, used again')
 parser.add_argument('--mode', action='store_true', help='P2-f: fill the gauge, start the mode, iai inside and after it')
 parser.add_argument('--souls-view', action='store_true')
@@ -67,7 +70,7 @@ parser.add_argument('--client-content-pack', action='append', default=[], help='
 parser.add_argument('--server-cfg', action='append', default=[], help='category:key=value lines appended to the server combat.cfg (booleans/ints/floats)')
 args = parser.parse_args()
 if args.launcher: args.manual=True; args.render_only=True
-if args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special or args.vfx or args.swarm or args.pvp: args.manual=True
+if args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special or args.vfx or args.swarm or args.pvp or args.finisher or args.play: args.manual=True
 if args.wf1c: args.manual=True; args.render_only=True
 if args.follow_only: args.lock_support=True
 if args.first_only: args.composition=True
@@ -175,6 +178,8 @@ def spawn(role):
     if args.vfx: command += ['-Dcw.p3.vfx=true','-Dcw.p1b.chase=true']
     if args.swarm: command += ['-Dcw.p2.swarm=true']
     if args.pvp: command += ['-Dcw.p2.pvp=true']
+    if args.play: command += ['-Dcw.p2.play=true']
+    if args.finisher: command += ['-Dcw.p2.finisher=true','-Dcw.p1b.chase=true']
     if args.special: command += ['-Dcw.p2.special=true','-Dcw.p1b.chase=true']
     if args.mode: command += ['-Dcw.p2.mode=true','-Dcw.p1b.chase=true','-Dcw.p2.modeTicks=500']
     if args.sa: command += ['-Dcw.p2.sa=true','-Dcw.p1b.chase=true']
@@ -201,7 +206,7 @@ def spawn(role):
         (directory/'eula.txt').write_text('eula=true\n',encoding='utf-8')
         (directory/'server.properties').write_text('server-ip=127.0.0.1\nserver-port=25580\nonline-mode=false\nlevel-type=FLAT\ngenerate-structures=false\nspawn-protection=0\nview-distance=3\nmax-players=4\n',encoding='utf-8')
     else:
-        command += ['-Dcw.p0.port='+('25581' if args.rtt else '25580')]
+        command += ['-Dcw.p0.port='+('25581' if args.rtt else str(args.port))]
         command += ['-Djava.library.path='+str(ROOT/'run/natives/lwjgl2')]
         (directory/'options.txt').write_text('pauseOnLostFocus:false\nrenderDistance:3\nmaxFps:60\nmusic:0.0\nsound:1.0\nfancyGraphics:false\n',encoding='utf-8')
     entries=[]
@@ -242,14 +247,14 @@ try:
         if clients[0].poll() is not None: raise RuntimeError('First client startup failed')
         time.sleep(.2)
     else: raise RuntimeError('First client login timeout')
-    clients.append(spawn('P0B'))
-    deadline = time.perf_counter()+(600 if args.manual else 300 if args.lock_support or args.composition or args.camera_probe else 200 if args.edge_boundary else 160)
+    if not args.play: clients.append(spawn('P0B'))
+    deadline = time.perf_counter()+(4*3600 if args.play else 600 if args.manual else 300 if args.lock_support or args.composition or args.camera_probe else 200 if args.edge_boundary else 160)
     while server.poll() is None and time.perf_counter()<deadline:
         if any(client.poll() is not None for client in clients):
             server.stdin.write(b'stop\n')
             server.stdin.flush()
             server.wait(timeout=20)
-            if args.manual or args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special or args.vfx or args.swarm or args.pvp: break
+            if args.manual or args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special or args.vfx or args.swarm or args.pvp or args.finisher or args.play: break
             raise RuntimeError('Client exited before scenario completed')
         time.sleep(.5)
     if server.poll() is None:

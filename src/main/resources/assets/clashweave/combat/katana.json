@@ -315,6 +315,57 @@
           "until": 10
         }
       ]
+    },
+    {
+      "id": "finisher",
+      "startup": 5,
+      "active": 2,
+      "recovery": 16,
+      "damage": 6,
+      "posture": 0,
+      "reach": 2.8,
+      "arc": 90,
+      "distance": 0.4,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "SHEATHE",
+          "target": "sheathe",
+          "from": 17,
+          "until": 22,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "judgement",
+      "startup": 43,
+      "active": 2,
+      "recovery": 10,
+      "release": 44,
+      "damage": 0,
+      "reach": 0,
+      "arc": 0,
+      "distance": 4.5,
+      "speed": 1.1,
+      "protectFrom": 0,
+      "protectUntil": 6,
+      "edges": []
+    },
+    {
+      "id": "judgement_draw",
+      "startup": 15,
+      "active": 2,
+      "recovery": 10,
+      "release": 16,
+      "damage": 0,
+      "reach": 0,
+      "arc": 0,
+      "distance": 4.5,
+      "speed": 1.1,
+      "protectFrom": 0,
+      "protectUntil": 6,
+      "edges": []
     }
   ],
   "_p1_notes": {
