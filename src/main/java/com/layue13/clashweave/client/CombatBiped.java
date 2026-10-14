@@ -82,7 +82,7 @@ final class CombatBiped extends ModelBiped {
         cap(upper, true, 46, 25.5f);
         cap(lower, false, 46, 28.5f);
         shiftEnd(lower, ELBOW + 2);
-        upper.addChild(joint(left, 40, 16 + ELBOW, left ? -1 : -3, ELBOW, 46, 25.5f));
+        upper.addChild(joint(left, 40, 16 + 4 + ELBOW + 2, left ? -1 : -3, ELBOW, 46, 25.5f));
         return upper;
     }
 
@@ -95,16 +95,124 @@ final class CombatBiped extends ModelBiped {
      * in.
      */
     /**
-     * A 4 px cube centred on the hinge, textured from the rows either side of it; slightly fat so it never z-fights.
+     * The piece that fills the wedge a bend opens on its outside: an octagonal prism (inradius 2 px, the limb's own
+     * half-thickness) on the hinge, turned half the bend by {@link #syncJoints}. A cube would do the same but its
+     * corners stick out of the limb by almost a pixel at 90 degrees, which reads as a swollen joint. Textured from the
+     * rows either side of the cut ({@code cutRow}) of the limb's skin at {@code u0}.
      */
-    private ModelRenderer joint(boolean mirror, int u, int v, int x, int hingeY, float capU, float capV) {
-        ModelRenderer cube = new ModelRenderer(this, u, v);
-        cube.mirror = mirror;
-        cube.addBox(x, -2, -2, 4, 4, 4, 0.02f);
-        cube.setRotationPoint(0, hingeY, 0);
-        cap(cube, true, capU, capV);
-        cap(cube, false, capU, capV);
-        return cube;
+    private ModelRenderer joint(boolean mirror, int u0, int cutRow, int x, int hingeY, float capU, float capV) {
+        ModelRenderer part = new ModelRenderer(this, u0, 0);
+        part.addBox(x, -2, -2, 4, 4, 4, 0);
+        part.setRotationPoint(0, hingeY, 0);
+        net.minecraft.client.model.ModelBox box = (net.minecraft.client.model.ModelBox) part.cubeList.get(0);
+        java.lang.reflect.Field field = quadField();
+        net.minecraft.client.model.TexturedQuad[] reference = quadsOf(box);
+        // Which way ModelBox's vertex order faces: the sign of (v1-v0)x(v1-v2) against the outward direction.
+        float sign = 0;
+        for (net.minecraft.client.model.TexturedQuad quad : reference) {
+            boolean top = true;
+            for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions)
+                if (Math.abs(vertex.vector3D.yCoord - box.posY1) > .05f) top = false;
+            if (top) sign = Math.signum(-faceNormalY(quad));
+        }
+        java.util.List<net.minecraft.client.model.TexturedQuad> quads = new java.util.ArrayList<>();
+        final float r = 2.01f, a = r * 0.41421356f, x0 = x, x1 = x + 4;
+        float[][] ring = { { -r, -a }, { -r, a }, { -a, r }, { a, r }, { r, a }, { r, -a }, { a, -r }, { -a, -r } };
+        for (int i = 0; i < 8; i++) {
+            float[] p = ring[i], q = ring[(i + 1) % 8];
+            float mz = (p[1] + q[1]) / 2, my = (p[0] + q[0]) / 2;
+            boolean flat = Math.abs(my) > r - .01f;
+            float[][] pts = { { x0, p[0], p[1] }, { x1, p[0], p[1] }, { x1, q[0], q[1] }, { x0, q[0], q[1] } };
+            quads.add(skinQuad(pts, 0, my, mz, sign, mirror, u0, cutRow, flat ? capU : -1, capV));
+        }
+        // The two flat ends (the limb's sides): the octagon as a rectangle and two caps, each end.
+        float[][][] cuts = { { { -r, -a }, { r, -a }, { r, a }, { -r, a } },
+            { { -a, a }, { a, a }, { a, r }, { -a, r } }, { { -a, -r }, { a, -r }, { a, -a }, { -a, -a } } };
+        for (float[][] cut : cuts) {
+            for (int end = 0; end < 2; end++) {
+                float ex = end == 0 ? x0 : x1;
+                float[][] pts = new float[4][];
+                for (int k = 0; k < 4; k++) pts[k] = new float[] { ex, cut[k][0], cut[k][1] };
+                quads.add(skinQuad(pts, end == 0 ? -1 : 1, 0, 0, sign, mirror, u0, cutRow, -1, capV));
+            }
+        }
+        try {
+            field.set(box, quads.toArray(new net.minecraft.client.model.TexturedQuad[0]));
+        } catch (IllegalAccessException e) {
+            throw new IllegalStateException("cannot replace the faces of a model box", e);
+        }
+        return part;
+    }
+
+    /** y component of the normal ModelBox's quads carry, (v1-v0)x(v1-v2). */
+    private static float faceNormalY(net.minecraft.client.model.TexturedQuad quad) {
+        net.minecraft.util.Vec3 v0 = quad.vertexPositions[0].vector3D, v1 = quad.vertexPositions[1].vector3D,
+            v2 = quad.vertexPositions[2].vector3D;
+        double ax = v1.xCoord - v0.xCoord, az = v1.zCoord - v0.zCoord, bx = v1.xCoord - v2.xCoord,
+            bz = v1.zCoord - v2.zCoord;
+        return (float) (az * bx - ax * bz);
+    }
+
+    private static float[] normal(float[][] p) {
+        float ax = p[1][0] - p[0][0], ay = p[1][1] - p[0][1], az = p[1][2] - p[0][2];
+        float bx = p[1][0] - p[2][0], by = p[1][1] - p[2][1], bz = p[1][2] - p[2][2];
+        return new float[] { ay * bz - az * by, az * bx - ax * bz, ax * by - ay * bx };
+    }
+
+    /**
+     * One face of the joint prism. {@code side} is -1/+1 for an end face at the limb's -x/+x side; otherwise (my, mz)
+     * is the outward direction in the Y-Z plane. Texture: front/back faces from the limb's front/back columns, side
+     * ends from its side columns, the flat top and bottom (inside the limb) from the cap patch.
+     */
+    private static net.minecraft.client.model.TexturedQuad skinQuad(float[][] p, int side, float my, float mz,
+        float sign, boolean mirror, int u0, int cutRow, float capU, float capV) {
+        float ox = side, oy = side == 0 ? my : 0, oz = side == 0 ? mz : 0;
+        float[] n = normal(p);
+        if ((n[0] * ox + n[1] * oy + n[2] * oz) * sign < 0) {
+            float[] t = p[1];
+            p[1] = p[3];
+            p[3] = t;
+        }
+        net.minecraft.client.model.PositionTextureVertex[] vs = new net.minecraft.client.model.PositionTextureVertex[4];
+        for (int i = 0; i < 4; i++) {
+            float x = p[i][0], y = p[i][1], z = p[i][2], u, v = (cutRow + y) / 32f;
+            // fx 0..1 across the limb's width, flipped on the left limb whose skin is a mirror image.
+            float fx = (x - (side == 0 ? Math.min(p[0][0], p[1][0]) : x)) / 4f;
+            if (side == 0) {
+                float lo = Math.min(Math.min(p[0][0], p[1][0]), Math.min(p[2][0], p[3][0]));
+                fx = (x - lo) / 4f;
+            }
+            if (side != 0) {
+                boolean outer = (side < 0) != mirror;
+                u = outer ? u0 + (2 - z) : u0 + 8 + (z + 2);
+            } else if (capU >= 0 && Math.abs(my) > 1) {
+                u = capU + fx;
+                v = capV / 32f;
+            } else if (mz < 0) {
+                u = u0 + 4 + 4 * (mirror ? fx : 1 - fx);
+            } else {
+                u = u0 + 12 + 4 * (mirror ? 1 - fx : fx);
+            }
+            vs[i] = new net.minecraft.client.model.PositionTextureVertex(x, y, z, u / 64f, v);
+        }
+        return new net.minecraft.client.model.TexturedQuad(vs);
+    }
+
+    private static java.lang.reflect.Field quadField() {
+        for (java.lang.reflect.Field field : net.minecraft.client.model.ModelBox.class.getDeclaredFields())
+            if (field.getType() == net.minecraft.client.model.TexturedQuad[].class) {
+                field.setAccessible(true);
+                return field;
+            }
+        throw new IllegalStateException("ModelBox has no quad list");
+    }
+
+    private static net.minecraft.client.model.TexturedQuad[] quadsOf(net.minecraft.client.model.ModelBox box) {
+        try {
+            return (net.minecraft.client.model.TexturedQuad[]) quadField().get(box);
+        } catch (IllegalAccessException e) {
+            throw new IllegalStateException("cannot reach the faces of a model box", e);
+        }
     }
 
     private void syncJoints() {
@@ -177,7 +285,7 @@ final class CombatBiped extends ModelBiped {
         cap(upper, true, 6, 24.5f);
         cap(lower, false, 6, 27.5f);
         shiftEnd(lower, KNEE);
-        upper.addChild(joint(left, 0, 16 + KNEE - 4 + 2, -2, KNEE, 6, 25.5f));
+        upper.addChild(joint(left, 0, 16 + 4 + KNEE, -2, KNEE, 6, 25.5f));
         return upper;
     }
 
