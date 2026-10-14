@@ -109,10 +109,11 @@ public class ContentEntryTest {
         for (Intent input : Intent.values()) {
             String sheathed = catalog.entryTarget(true, input);
             String ready = catalog.entryTarget(false, input);
-            assertEquals(input == Intent.LIGHT ? "katana:iai" : null, sheathed);
+            assertEquals(input == Intent.LIGHT ? "katana:iai" : input == Intent.DODGE ? "katana:step" : null, sheathed);
             assertEquals(
                 input == Intent.LIGHT ? "katana:light_1"
-                    : input == Intent.HEAVY ? "katana:heavy" : input == Intent.SHEATHE ? "katana:sheathe" : null,
+                    : input == Intent.HEAVY ? "katana:heavy"
+                        : input == Intent.SHEATHE ? "katana:sheathe" : input == Intent.DODGE ? "katana:step" : null,
                 ready);
         }
         assertTrue(catalog.hasSheathedState());

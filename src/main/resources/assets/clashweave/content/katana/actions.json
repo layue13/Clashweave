@@ -198,6 +198,34 @@
       "_comment": "P1-a provisional: upward elevation in degrees; lift is attacker velocity declaration only; LAUNCH vy blocks/tick. P1-b provisional: the follow-ups below are limited by the target's shared control budget and by chainDecay."
     },
     {
+      "id": "katana:step",
+      "startup": 1,
+      "active": 0,
+      "recovery": 9,
+      "damage": 0,
+      "reach": 0,
+      "arc": 0,
+      "distance": 3.0,
+      "speed": 0.5,
+      "protectFrom": 1,
+      "protectUntil": 6,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "katana:light_1",
+          "from": 5,
+          "until": 10
+        },
+        {
+          "input": "HEAVY",
+          "target": "katana:heavy",
+          "from": 5,
+          "until": 10
+        }
+      ],
+      "_comment": "P2 provisional step: moves where the keys ask, protected for ticks 1 to 5 only, cancellable into an attack late in its recovery."
+    },
+    {
       "id": "katana:counter",
       "startup": 3,
       "active": 2,

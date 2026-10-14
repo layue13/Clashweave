@@ -563,6 +563,12 @@ public final class ContentRegistry {
                 range(r, "lift", a.lift, 0, Double.MAX_VALUE);
                 range(r, "sweepElevation", a.sweepElevation, -90, 90);
                 range(r, "posture", a.posture, -1, 1000);
+                range(r, "protectFrom", a.protectFrom, 0, Integer.MAX_VALUE);
+                range(r, "protectUntil", a.protectUntil, 0, Integer.MAX_VALUE);
+                if (a.protectUntil > 0 && a.protectFrom >= a.protectUntil)
+                    error(r.source, r.path + ".protectUntil", "must be after protectFrom");
+                if (a.protectUntil > a.duration())
+                    error(r.source, r.path + ".protectUntil", "past the end of the action");
                 boolean launch = false, slam = false;
                 for (int i = 0; i < a.effects.size(); i++) {
                     HitEffect effect = a.effects.get(i);

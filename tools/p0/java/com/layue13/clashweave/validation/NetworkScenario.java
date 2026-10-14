@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 import com.layue13.clashweave.Clashweave;
+import com.layue13.clashweave.core.Scheduler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -99,6 +100,57 @@ public final class NetworkScenario {
             }
     }
 
+    private boolean dodgeWall;
+    private long dodgeIdle;
+
+    /**
+     * P2-d: a wall two blocks behind P0A, a zombie that does not strike by itself 2.4 blocks in front, and blows timed
+     * against the step the player really takes: 2 ticks in (inside the protected span) and 8 ticks in (outside it).
+     * P0A is put back where it started once a step is over.
+     */
+    private void dodgeRig() {
+        EntityPlayerMP a = null;
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (p.getCommandSenderName().equals("P0A")) a = p;
+        }
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (a != null && p != a && p.getDistanceSqToEntity(a) < 400) p.playerNetServerHandler.setPlayerLocation(25, 64, 25, 0, 0);
+        }
+        if (bothTicks % 100 == 0) System.out.println("P2_DODGE_RIG tick=" + bothTicks + " a=" + (a != null) + " state=" + (a != null && Clashweave.server.state(a) != null) + " pos=" + (a == null ? "" : a.posX + "," + a.posZ));
+        if (a == null || Clashweave.server.state(a) == null) return;
+        WorldServer world = a.getServerForPlayer();
+        if (!dodgeWall) {
+            dodgeWall = true;
+            for (int x = -4; x <= 4; x++) for (int y = 64; y <= 66; y++) world.setBlock(x, y, -2, Blocks.stone);
+        }
+        a.setHealth(a.getMaxHealth());
+        EntityZombie zombie = null;
+        for (Object e : a.worldObj.loadedEntityList) if (e instanceof EntityZombie) { zombie = (EntityZombie) e; break; }
+        if (zombie == null) return;
+        zombie.setHealth(zombie.getMaxHealth());
+        zombie.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(0);
+        zombie.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
+        zombie.setAttackTarget(null);
+        zombie.setPosition(0, 64, 2.4);
+        zombie.motionX = zombie.motionZ = 0;
+        Scheduler.Instance step = Clashweave.server.state(a).scheduler.current();
+        if (step != null && step.definition.id.endsWith("step")) {
+            dodgeIdle = bothTicks;
+            long age = Clashweave.server.tick - step.start;
+            if (age == 2 || age == 8) {
+                a.hurtResistantTime = 0;
+                float before = a.getHealth();
+                boolean applied = a.attackEntityFrom(net.minecraft.util.DamageSource.causeMobDamage(zombie), 3f);
+                System.out.println("P2_DODGE_BLOW age=" + age + " applied=" + applied + " hp=" + before + "->" + a.getHealth());
+            }
+            if (age == 1 || age == 7) System.out.println("P2_DODGE_POS age=" + age + " x=" + a.posX + " z=" + a.posZ);
+        } else if (bothTicks - dodgeIdle > 50 && (Math.abs(a.posX) > .05 || Math.abs(a.posZ) > .05)) {
+            a.playerNetServerHandler.setPlayerLocation(0, 64, 0, 0, 0);
+        }
+    }
+
     private boolean guardHeld;
     private long guardSince = -1, guardReleased = -1;
 
@@ -185,6 +237,7 @@ public final class NetworkScenario {
         bothTicks++;
         if (Boolean.getBoolean("cw.p1b.chase")) chaseTarget();
         if (Boolean.getBoolean("cw.p2.guard")) guardRig();
+        if (Boolean.getBoolean("cw.p2.dodge")) dodgeRig();
         if (Boolean.getBoolean("cw.b6.fp2")) for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
             EntityPlayerMP p = (EntityPlayerMP) o;
             if (!p.getCommandSenderName().equals("P0A")) continue;

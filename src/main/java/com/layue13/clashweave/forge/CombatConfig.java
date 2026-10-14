@@ -18,6 +18,7 @@ public final class CombatConfig {
     public boolean slamRequiresAir;
     public float blockRecoil, parryRecoil;
     public int slamGraceTicks;
+    public int dodgeCooldown;
     public int postureMax, postureRecoveryDelay, postureRecoveryPerTick, postureResetPercent;
     public int breakTicksMonster, breakTicksPlayer;
     public float breakDamageBonus, postureBlockedShare, posturePrecise, postureScale;
@@ -491,6 +492,8 @@ public final class CombatConfig {
             0,
             40,
             "Posture damage per point of damage when the action declares none");
+        dodgeCooldown = config
+            .getInt("dodgeCooldownTicks", "combat", 24, 0, 400, "Ticks before the next step is allowed");
         slamGraceTicks = config.getInt(
             "slamGraceTicks",
             "control",

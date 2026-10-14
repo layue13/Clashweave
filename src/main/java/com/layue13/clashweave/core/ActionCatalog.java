@@ -37,6 +37,16 @@ public final class ActionCatalog {
         public double sweepElevation;
         /** Posture damage of this action's blow; negative derives it from the damage. */
         public int posture = -1;
+        /**
+         * A protected span inside the action, in ticks since it started: blows that arrive in it do not land. 0, 0 =
+         * none.
+         */
+        public int protectFrom, protectUntil;
+
+        public boolean protects(long age) {
+            return protectUntil > 0 && age >= protectFrom && age < protectUntil;
+        }
+
         public List<HitEffect> effects = new java.util.ArrayList<>();
         public List<Edge> edges;
 
@@ -82,6 +92,11 @@ public final class ActionCatalog {
             if (definition == null || definition.effects == null
                 || !Double.isFinite(definition.lift)
                 || definition.posture < -1
+                || definition.protectFrom < 0
+                || definition.protectUntil < 0
+                || definition.protectUntil > 0 && (definition.protectFrom >= definition.protectUntil
+                    || definition.protectUntil > definition.startup + definition.active + definition.recovery)
+                || definition.protectUntil == 0 && definition.protectFrom != 0
                 || definition.posture > 1000
                 || definition.lift < 0
                 || definition.lift > maximum
