@@ -28,6 +28,7 @@ parser.add_argument('--snapshot-coremod', action='store_true')
 parser.add_argument('--souls', action='store_true')
 parser.add_argument('--first-person', action='store_true', help='C2a-2: with --pose-verify, photograph from the player own eyes')
 parser.add_argument('--chase', action='store_true', help='P1-b: launcher then aerial follow-ups, repeated, against the still zombie')
+parser.add_argument('--guard', action='store_true', help='P2: hold and release the guard against an attacking zombie')
 parser.add_argument('--souls-view', action='store_true')
 parser.add_argument('--edge-boundary', action='store_true')
 parser.add_argument('--art-verify', action='store_true')
@@ -58,7 +59,7 @@ parser.add_argument('--client-content-pack', action='append', default=[], help='
 parser.add_argument('--server-cfg', action='append', default=[], help='category:key=value lines appended to the server combat.cfg (booleans/ints/floats)')
 args = parser.parse_args()
 if args.launcher: args.manual=True; args.render_only=True
-if args.chase: args.manual=True
+if args.chase or args.guard: args.manual=True
 if args.wf1c: args.manual=True; args.render_only=True
 if args.follow_only: args.lock_support=True
 if args.first_only: args.composition=True
@@ -162,6 +163,7 @@ def spawn(role):
         command += ['-Dcw.p0.lockSupport=true']
     if args.souls_view: command += ['-Dcw.p0.soulsView=true']
     if args.chase: command += ['-Dcw.p1b.chase=true']
+    if args.guard: command += ['-Dcw.p2.guard=true']
     if args.souls: command += ['-Dcw.p0.souls=true']
     if args.camera_suite: command += ['-Dcw.p0.cameraSuite='+args.camera_suite]
     if args.first_only: command += ['-Dcw.p0.firstOnly=true']
@@ -231,7 +233,7 @@ try:
             server.stdin.write(b'stop\n')
             server.stdin.flush()
             server.wait(timeout=20)
-            if args.manual or args.chase: break
+            if args.manual or args.chase or args.guard: break
             raise RuntimeError('Client exited before scenario completed')
         time.sleep(.5)
     if server.poll() is None:
@@ -258,5 +260,5 @@ finally:
                  performance=[line for line in lines if 'P0_PERF' in line])
     (folder/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
     print(json.dumps(summary,indent=2))
-if not args.manual and not args.chase and (summary['server_exit'] or not summary['complete'] or summary['client_class_loads']):
+if not args.manual and not args.chase and not args.guard and (summary['server_exit'] or not summary['complete'] or summary['client_class_loads']):
     raise SystemExit(1)

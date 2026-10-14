@@ -71,6 +71,7 @@ public class StateMessageTest {
         owner.definitions = "configuration";
         owner.action = "light_2";
         owner.confirmed = true;
+        owner.guard = true;
         owner.budgetNano = 987654321;
         owner.budgetTick = 321;
         owner.budgetX = 1.25;
@@ -101,6 +102,7 @@ public class StateMessageTest {
             assertEquals(owner.budgetZ, local.budgetZ, 0);
             assertEquals(0, remote.budgetNano);
             assertTrue(remote.confirmed);
+            assertTrue(remote.guard);
         } finally {
             remoteBuffer.release();
             ownerBuffer.release();

@@ -42,7 +42,9 @@ final class PoseDriver {
         double ticks = 0;
         Track track = null;
         if (visual.state.action.isEmpty()) {
-            if (!visual.state.sheathed) track = visual.stance;
+            if (!visual.state.sheathed)
+                track = ClientProxy.instance.guarding(visual) && visual.guardTrack != null ? visual.guardTrack
+                    : visual.stance;
         } else {
             track = visual.track;
             ticks = ClientProxy.instance.elapsed(visual, 0);

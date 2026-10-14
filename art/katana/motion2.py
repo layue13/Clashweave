@@ -132,6 +132,13 @@ def build_actions(actions):
     out["air_slam"] = cut(FALL, 1, phis(d["air_slam"]["arc"], 1, wind=-130),
                           [(0.14, 0.14, 1.70), (0.12, 0.22, 1.62), (-0.08, 0.46, 1.04), (-0.10, 0.48, 0.98),
                            (0.00, 0.40, 1.04)], (-10, -6, 12, 16, 4), 0.30, s, a, r, lean=(-12, -8, 24, 30, 10))
+    # guard: the blade held across the body, point up and to the left, to meet a cut (P2 provisional; a held pose, so
+    # two identical keyframes)
+    guard = frame((0.0, 0.0, -1.0), norm((-0.38, 0.50, 0.78)))
+    out["guard"] = [
+        kf(0.0, guard, (0.02, 0.34, 1.20), 6, FEET_R0, FEET_L0, ease=ease_io, lean=4.0),
+        kf(1.0, guard, (0.02, 0.34, 1.20), 6, FEET_R0, FEET_L0, ease=ease_io, lean=4.0),
+    ]
     # iai: rising draw cut (low left to high right) after saya-biki. The blade is in the saya until `drawn` flips.
     s, a, r = d["iai"]["startup"], d["iai"]["active"], d["iai"]["recovery"]
     total = s + a + r
@@ -330,8 +337,9 @@ def foot_in_reach(f, hip):
 def build(actions):
     kfs_all = build_actions(actions)
     out, report = {}, {}
+    held = {"guard": {"startup": 1, "active": 0, "recovery": 1, "arc": 90, "distance": 0, "reach": 0}}
     for aid, kfs in kfs_all.items():
-        d = actions[aid]
+        d = actions.get(aid) or held[aid]
         s, a, r = d["startup"], d["active"], d["recovery"]
         total = s + a + r
         times = [k["t"] for k in kfs]
