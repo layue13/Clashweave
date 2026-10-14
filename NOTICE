@@ -1,0 +1,11 @@
+Clashweave
+
+Third-party credits
+
+Mo' Bends (https://github.com/mobends/MoBends), MIT License.
+The ideas of chasing a per-part target with a frame-rate independent exponential
+filter, of procedural movement segments (walk, sprint, jump, sneak, ...) layered
+on a body skeleton, and of cutting a model's boxes at a joint with each face's
+texture recomputed from the face it was cut from are taken from Mo' Bends. The
+formulas and the code in this repository are written for this project's skeleton
+and conventions; no source from Mo' Bends is copied.
