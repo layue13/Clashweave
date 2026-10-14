@@ -84,6 +84,19 @@ final class CombatPresentation {
                 action.definition.id));
     }
 
+    /** The target's stance broke. */
+    void broken(EntityLivingBase target, long tick) {
+        events.emit(
+            new SemanticEvents.Event(
+                SemanticEvents.Kind.BREAK,
+                target.getEntityId(),
+                target.getEntityId(),
+                0,
+                tick,
+                tick,
+                ""));
+    }
+
     /** A slammed target has reached the ground. */
     void slam(EntityLivingBase target, long tick) {
         events.emit(

@@ -68,6 +68,20 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
                 .spawnParticle("crit", entity.posX, entity.posY + entity.height / 2, entity.posZ, 0, 0, 0);
         }
         if (event.kind == SemanticEvents.Kind.BLOCK || event.kind == SemanticEvents.Kind.PARRY) clash(event);
+        if (event.kind == SemanticEvents.Kind.BREAK) {
+            net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
+            if (entity != null) {
+                for (int i = 0; i < 12; i++) minecraft.theWorld.spawnParticle(
+                    "crit",
+                    entity.posX + (minecraft.theWorld.rand.nextDouble() - .5) * entity.width,
+                    entity.posY + entity.height * .8,
+                    entity.posZ + (minecraft.theWorld.rand.nextDouble() - .5) * entity.width,
+                    (minecraft.theWorld.rand.nextDouble() - .5) * .3,
+                    .2,
+                    (minecraft.theWorld.rand.nextDouble() - .5) * .3);
+                minecraft.theWorld.playSound(entity.posX, entity.posY, entity.posZ, "random.break", .5f, 1.2f, false);
+            }
+        }
         if (event.kind == SemanticEvents.Kind.SLAM) {
             net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
             if (entity != null) {
