@@ -53,10 +53,12 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
         in.climbPhase = rig.observeClimb(player.posY, climbing);
         in.mode = player.isRiding() ? com.layue13.clashweave.client.body.LocomotionInputs.RIDE
             : climbing ? com.layue13.clashweave.client.body.LocomotionInputs.CLIMB
-                : player.isInWater() ? com.layue13.clashweave.client.body.LocomotionInputs.SWIM
-                    : com.layue13.clashweave.client.body.LocomotionInputs.GROUND;
-        // Sleeping and flying are not animated yet: vanilla's pose stands in for them.
-        biped.locomotion = !(player.isPlayerSleeping() || player.capabilities.isFlying);
+                : player.capabilities.isFlying && !player.onGround
+                    ? com.layue13.clashweave.client.body.LocomotionInputs.FLY
+                    : player.isInWater() ? com.layue13.clashweave.client.body.LocomotionInputs.SWIM
+                        : com.layue13.clashweave.client.body.LocomotionInputs.GROUND;
+        // Sleeping is not animated yet: vanilla's pose stands in for them.
+        biped.locomotion = !player.isPlayerSleeping();
         biped.rig = armorChest.rig = armorLegs.rig = rig;
         biped.frameNanos = armorChest.frameNanos = armorLegs.frameNanos = now;
         biped.tickPeriod = armorChest.tickPeriod = armorLegs.tickPeriod = period;
