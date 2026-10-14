@@ -59,6 +59,24 @@
       "kind": "FINISH",
       "effect": "clashweave:finish_burst",
       "height": 0.6
+    },
+    {
+      "kind": "JUDGE_START",
+      "effect": "clashweave:judge_blink",
+      "height": 0.05
+    },
+    {
+      "kind": "JUDGE_BIND",
+      "effect": "clashweave:judge_cage",
+      "height": 0.5,
+      "follow": "clashweave:judge_lines",
+      "followInterval": 3,
+      "followDuration": 36
+    },
+    {
+      "kind": "JUDGE_CUT",
+      "effect": "clashweave:judge_cut",
+      "height": 0.5
     }
   ]
 }

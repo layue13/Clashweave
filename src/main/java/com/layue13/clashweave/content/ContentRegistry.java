@@ -582,6 +582,8 @@ public final class ContentRegistry {
                 range(r, "lift", a.lift, 0, Double.MAX_VALUE);
                 range(r, "sweepElevation", a.sweepElevation, -90, 90);
                 range(r, "posture", a.posture, -1, 1000);
+                range(r, "release", a.release, 0, Integer.MAX_VALUE);
+                if (a.release > a.duration()) error(r.source, r.path + ".release", "past the end of the action");
                 range(r, "protectFrom", a.protectFrom, 0, Integer.MAX_VALUE);
                 range(r, "protectUntil", a.protectUntil, 0, Integer.MAX_VALUE);
                 if (a.protectUntil > 0 && a.protectFrom >= a.protectUntil)
@@ -626,9 +628,7 @@ public final class ContentRegistry {
                     if (!(a.range >= 1 && a.range <= 16)) error(r.source, r.path + ".active.range", "1-16 blocks");
                     if (a.cooldown < 20 || a.cooldown > 6000)
                         error(r.source, r.path + ".active.cooldown", "20-6000 ticks");
-                    if (a.strikes < 1 || a.strikes > 8) error(r.source, r.path + ".active.strikes", "1-8");
-                    if (a.interval < 1 || a.interval > 40) error(r.source, r.path + ".active.interval", "1-40 ticks");
-                    if (!(a.damage >= 0 && a.damage <= 100)) error(r.source, r.path + ".active.damage", "0-100");
+                    if (!(a.damage >= 0 && a.damage <= 200)) error(r.source, r.path + ".active.damage", "0-200");
                     if (!(a.posture >= 0 && a.posture <= 1000)) error(r.source, r.path + ".active.posture", "0-1000");
                 }
                 for (int i = 0; i < sa.attach.size(); i++) {

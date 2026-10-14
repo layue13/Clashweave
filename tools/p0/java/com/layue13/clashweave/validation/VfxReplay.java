@@ -23,6 +23,7 @@ public final class VfxReplay {
     private int ticks,taken,idle,blow;
     private String shot;
     private boolean done;
+    private double fixX,fixY,fixZ;
     public VfxReplay(){FMLCommonHandler.instance().bus().register(this);}
 
     @SubscribeEvent public void tick(TickEvent.ClientTickEvent event){
@@ -41,6 +42,20 @@ public final class VfxReplay {
         camera.setPosition(mc.thePlayer.posX,mc.thePlayer.boundingBox.minY,mc.thePlayer.posZ);
         camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
         camera.rotationYaw=camera.prevRotationYaw=angle;camera.rotationPitch=camera.prevRotationPitch=10;
+        if(Boolean.getBoolean("cw.p3.judge")){
+            // The judgement cut from a camera that stays where it was: V once, a frame every other tick afterwards.
+            // With judgeOut the blade is drawn first (an iai), so the long form with the chiburi and noto plays.
+            boolean out=Boolean.getBoolean("cw.p3.judgeOut");
+            int local=ticks-110,at=out?40:0;
+            if(out&&local==-9){System.out.println("JUDGE_DRAW_FIRST");p.send(Intent.LIGHT,-1);}
+            if(local==at){System.out.println("JUDGE_SEND out="+out+" sheathed="+own.state.sheathed);p.send(Intent.SPECIAL,-1);}
+            if(local>=at&&local<=at+110&&local%2==0&&shot==null&&taken<shots)shot="vfx-judge-"+(out?"out":"in")+"-"+(taken++);
+            if(local>=at)camera.setPosition(fixX,fixY,fixZ);
+            else{fixX=mc.thePlayer.posX;fixY=mc.thePlayer.boundingBox.minY;fixZ=mc.thePlayer.posZ;}
+            camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
+            if(local>at+120){done=true;System.out.println("VFX_COMPLETE taken="+taken);mc.shutdown();}
+            return;
+        }
         String eventKind=System.getProperty("cw.p3.event");
         if(eventKind!=null){
             // A bound event played at a monster (or the wielder), one frame per tick, so the data and entity filter are judged alone.

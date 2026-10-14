@@ -18,18 +18,22 @@
         "katana:air_slam",
         "katana:counter",
         "katana:step",
-        "katana:finisher"
+        "katana:finisher",
+        "katana:judgement",
+        "katana:judgement_draw"
       ],
       "entry": {
         "sheathed": {
           "LIGHT": "katana:iai",
-          "DODGE": "katana:step"
+          "DODGE": "katana:step",
+          "SPECIAL": "katana:judgement_draw"
         },
         "ready": {
           "LIGHT": "katana:light_1",
           "HEAVY": "katana:heavy",
           "SHEATHE": "katana:sheathe",
-          "DODGE": "katana:step"
+          "DODGE": "katana:step",
+          "SPECIAL": "katana:judgement"
         },
         "counter": {
           "LIGHT": "katana:counter"
@@ -44,7 +48,9 @@
           "katana:air_light",
           "katana:air_slam",
           "katana:counter",
-          "katana:finisher"
+          "katana:finisher",
+          "katana:judgement",
+          "katana:judgement_draw"
         ],
         "entersSheathed": [
           "katana:sheathe"

@@ -122,6 +122,22 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
                 minecraft.theWorld.playSound(entity.posX, entity.posY, entity.posZ, "random.explode", .3f, 1.7f, false);
             }
         }
+        if (event.kind == SemanticEvents.Kind.JUDGE_START || event.kind == SemanticEvents.Kind.JUDGE_BIND
+            || event.kind == SemanticEvents.Kind.JUDGE_CUT) {
+            net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
+            if (entity != null) {
+                com.layue13.clashweave.client.vfx.Vfx.INSTANCE.playEvent(event.kind.name(), entity);
+                if (event.kind == SemanticEvents.Kind.JUDGE_START) minecraft.theWorld
+                    .playSound(entity.posX, entity.posY, entity.posZ, "mob.endermen.portal", .6f, 1.7f, false);
+                else if (event.kind == SemanticEvents.Kind.JUDGE_BIND) minecraft.theWorld
+                    .playSound(entity.posX, entity.posY, entity.posZ, "portal.trigger", .25f, 1.9f, false);
+                else {
+                    minecraft.theWorld.playSound(entity.posX, entity.posY, entity.posZ, "dig.glass", 1f, .85f, false);
+                    minecraft.theWorld
+                        .playSound(entity.posX, entity.posY, entity.posZ, "random.anvil_land", .5f, 1.8f, false);
+                }
+            }
+        }
         if (event.kind == SemanticEvents.Kind.BREAK) {
             net.minecraft.entity.Entity entity = minecraft.theWorld.getEntityByID(event.actor);
             if (entity != null) {

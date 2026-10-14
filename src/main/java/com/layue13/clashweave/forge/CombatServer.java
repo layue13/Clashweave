@@ -424,6 +424,7 @@ public final class CombatServer {
         effects.tick(tick);
         posture.tick(tick);
         runDelayed();
+        tickJudgements();
         for (PlayerState each : states.values()) {
             boolean on = each.gauge != null && each.gauge.inMode(tick);
             if (on != each.modeShown) {
@@ -555,15 +556,17 @@ public final class CombatServer {
             return;
         }
         Intent intent = Intent.values()[message.kind];
-        if (posture.broken(state.player, tick) && (intent == Intent.LIGHT || intent == Intent.HEAVY
-            || intent == Intent.SHEATHE
-            || intent == Intent.GUARD_PRESS
-            || intent == Intent.DODGE
-            || intent == Intent.SPECIAL
-            || intent == Intent.MODE)) {
+        if ((posture.broken(state.player, tick) || judgementBound(state.player))
+            && (intent == Intent.LIGHT || intent == Intent.HEAVY
+                || intent == Intent.SHEATHE
+                || intent == Intent.GUARD_PRESS
+                || intent == Intent.DODGE
+                || intent == Intent.SPECIAL
+                || intent == Intent.MODE)) {
             snapshot(state, message.sequence, "REJECT:BROKEN", false);
             return;
         }
+        String specialVerdict = intent == Intent.SPECIAL ? special(state) : null;
         if (intent == Intent.CLEAR_BUFFER) {
             state.scheduler.clearBuffer();
             state.guard.release(tick);
@@ -615,8 +618,8 @@ public final class CombatServer {
                 "MODE player=" + input.player
                     .getCommandSenderName() + " result=" + result + " tick=" + tick + " gauge=" + state.gauge.value());
             snapshot(state, message.sequence, result, false);
-        } else if (intent == Intent.SPECIAL) {
-            snapshot(state, message.sequence, special(state), false);
+        } else if (intent == Intent.SPECIAL && !"SPECIAL".equals(specialVerdict)) {
+            snapshot(state, message.sequence, specialVerdict, false);
         } else if (intent == Intent.DODGE && tick - state.lastDodge < config.dodgeCooldown) {
             snapshot(state, message.sequence, "REJECT:DODGE_COOLDOWN", false);
         } else if (state.guard.held() && intent != Intent.DODGE
@@ -624,6 +627,7 @@ public final class CombatServer {
                 snapshot(state, message.sequence, "REJECT:GUARD_HELD", false);
             } else {
                 if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
+                if (intent == Intent.SPECIAL) state.lastSpecial = tick;
                 if (intent == Intent.DODGE) {
                     state.guard.release(tick);
                     state.lastDodge = tick;
@@ -707,6 +711,7 @@ public final class CombatServer {
             trace(
                 "START player=" + player
                     .getCommandSenderName() + " id=" + action.id + " action=" + action.definition.id + " tick=" + tick);
+            if (action.definition.release > 0) startJudgement(state, action);
             FacingHistory.Result facing = state.requestFacing.remove(action.sequence);
             state.yaw = facing == null ? player.rotationYaw : facing.yaw;
             state.pitch = facing == null ? player.rotationPitch : facing.pitch;
@@ -1260,7 +1265,10 @@ public final class CombatServer {
                 .getCommandSenderName() + " target=" + target.getEntityId() + " due=" + (at + first) + " mode=" + mode);
     }
 
-    /** The key-triggered ability: cuts the nearest living target ahead several times in a row. Returns the verdict. */
+    /**
+     * The key-triggered ability. Returns "SPECIAL" when it may start (the generic action path then plays its action),
+     * otherwise the reason it may not.
+     */
     private String special(PlayerState state) {
         com.layue13.clashweave.content.ContentPack.Active active = rules.active(state.scheduler.weapon());
         String result;
@@ -1268,40 +1276,103 @@ public final class CombatServer {
         else if (!armed(state.player) || state.scheduler.current() != null || state.guard.held())
             result = "REJECT:SPECIAL_BUSY";
         else if (tick - state.lastSpecial < active.cooldown) result = "REJECT:SPECIAL_COOLDOWN";
-        else {
-            EntityPlayerMP p = state.player;
-            double yaw = Math.toRadians(p.rotationYaw);
-            double fx = -Math.sin(yaw), fz = Math.cos(yaw);
-            EntityLivingBase best = null;
-            double bestDistance = active.range * active.range;
-            for (Object each : p.worldObj
-                .getEntitiesWithinAABBExcludingEntity(p, p.boundingBox.expand(active.range, 2, active.range))) {
-                if (!(each instanceof EntityLivingBase) || ((EntityLivingBase) each).isDead
-                    || ((EntityLivingBase) each).getHealth() <= 0) continue;
-                EntityLivingBase candidate = (EntityLivingBase) each;
-                double dx = candidate.posX - p.posX, dz = candidate.posZ - p.posZ;
-                double distance = dx * dx + dz * dz;
-                // within a 90 degree cone ahead
-                if (distance < 1e-6 || distance >= bestDistance || (dx * fx + dz * fz) / Math.sqrt(distance) < .7)
-                    continue;
-                best = candidate;
-                bestDistance = distance;
-            }
-            if (best == null) result = "REJECT:SPECIAL_NO_TARGET";
-            else {
-                state.lastSpecial = tick;
-                com.layue13.clashweave.core.HitEffect strike = new com.layue13.clashweave.core.HitEffect();
-                strike.type = com.layue13.clashweave.core.HitEffect.Type.DELAYED_SLASH;
-                strike.delay = active.interval;
-                strike.damage = active.damage;
-                strike.posture = active.posture;
-                for (int n = 0; n < active.strikes; n++)
-                    scheduleDelayed(p, best, strike, tick + (long) n * active.interval);
-                result = "SPECIAL";
-            }
-        }
+        else if (judgementTargets(state, active).isEmpty()) result = "REJECT:SPECIAL_NO_TARGET";
+        else result = "SPECIAL";
         trace("SPECIAL player=" + state.player.getCommandSenderName() + " result=" + result + " tick=" + tick);
         return result;
+    }
+
+    /** Everything the judgement cut binds: hostile or player, alive, within range. */
+    private java.util.List<EntityLivingBase> judgementTargets(PlayerState state,
+        com.layue13.clashweave.content.ContentPack.Active active) {
+        EntityPlayerMP p = state.player;
+        java.util.List<EntityLivingBase> list = new java.util.ArrayList<>();
+        for (Object each : p.worldObj
+            .getEntitiesWithinAABBExcludingEntity(p, p.boundingBox.expand(active.range, 3, active.range))) {
+            if (!(each instanceof EntityLivingBase)) continue;
+            EntityLivingBase e = (EntityLivingBase) each;
+            if (e.isDead || e.getHealth() <= 0
+                || !(e instanceof net.minecraft.entity.monster.IMob || e instanceof EntityPlayer)
+                || !posture.applies(e)
+                || p.getDistanceToEntity(e) > active.range) continue;
+            list.add(e);
+            if (list.size() >= 12) break;
+        }
+        return list;
+    }
+
+    /** One cast of the judgement cut: who it holds, until when, and what the cut does. */
+    private static final class Judgement {
+
+        PlayerState owner;
+        long instance, release;
+        com.layue13.clashweave.content.ContentPack.Active active;
+        final java.util.List<EntityLivingBase> targets = new java.util.ArrayList<>();
+    }
+
+    private final java.util.List<Judgement> judgements = new java.util.ArrayList<>();
+
+    private void startJudgement(PlayerState state, Scheduler.Instance action) {
+        com.layue13.clashweave.content.ContentPack.Active active = rules.active(state.scheduler.weapon());
+        if (active == null) return;
+        Judgement j = new Judgement();
+        j.owner = state;
+        j.instance = action.id;
+        j.release = action.start + action.definition.release;
+        j.active = active;
+        j.targets.addAll(judgementTargets(state, active));
+        judgements.add(j);
+        presentation.judgeStart(state.player, tick);
+        for (EntityLivingBase target : j.targets) presentation.judgeBind(target, tick);
+        trace(
+            "JUDGE_START player=" + state.player
+                .getCommandSenderName() + " targets=" + j.targets.size() + " release=" + j.release + " tick=" + tick);
+    }
+
+    /** Whether the entity is held by a judgement cut that has not landed yet. */
+    private boolean judgementBound(EntityLivingBase entity) {
+        for (int i = 0; i < judgements.size(); i++) {
+            Judgement j = judgements.get(i);
+            if (tick >= j.release) continue;
+            for (int k = 0; k < j.targets.size(); k++) if (j.targets.get(k) == entity) return true;
+        }
+        return false;
+    }
+
+    private void tickJudgements() {
+        if (judgements.isEmpty()) return;
+        for (java.util.Iterator<Judgement> it = judgements.iterator(); it.hasNext();) {
+            Judgement j = it.next();
+            EntityPlayerMP owner = j.owner.player;
+            Scheduler.Instance running = j.owner.scheduler.current();
+            if (owner.isDead || owner.getHealth() <= 0 || running == null || running.id != j.instance) {
+                it.remove();
+                trace("JUDGE_CANCEL player=" + owner.getCommandSenderName() + " tick=" + tick);
+                continue;
+            }
+            for (EntityLivingBase target : j.targets) {
+                if (target.isDead || !(target instanceof net.minecraft.entity.EntityLiving)) continue;
+                // A held monster stands where it is: no walking, no path.
+                target.motionX = 0;
+                target.motionZ = 0;
+                ((net.minecraft.entity.EntityLiving) target).getNavigator()
+                    .clearPathEntity();
+            }
+            if (tick < j.release) continue;
+            it.remove();
+            for (EntityLivingBase target : j.targets) {
+                if (target.isDead || target.getHealth() <= 0) continue;
+                float damage = j.active.damage * (float) j.owner.scheduler.weapon().damageMultiplier;
+                if (target instanceof EntityPlayer) damage = Math.min(damage, config.finisherPlayerCap);
+                target.hurtResistantTime = 0;
+                boolean hit = damage > 0 && target.attackEntityFrom(new CombatSource(owner), damage);
+                posture.damage(target, j.active.posture, tick);
+                presentation.judgeCut(target, tick);
+                if (hit) gain(j.owner, com.layue13.clashweave.core.Gauge.Source.HIT, config.gaugeFinisher);
+                trace(
+                    "JUDGE_CUT target=" + target.getEntityId() + " damage=" + damage + " hit=" + hit + " tick=" + tick);
+            }
+        }
     }
 
     private void runDelayed() {
@@ -1399,7 +1470,7 @@ public final class CombatServer {
         if (event.entityLiving.worldObj.isRemote) return;
         Entity striker = event.source.getEntity();
         if (striker instanceof EntityLivingBase && !(striker instanceof EntityPlayer)
-            && posture.broken((EntityLivingBase) striker, tick)) {
+            && (posture.broken((EntityLivingBase) striker, tick) || judgementBound((EntityLivingBase) striker))) {
             event.setCanceled(true);
             trace("BROKEN_STRIKE striker=" + striker.getEntityId() + " tick=" + tick);
         }

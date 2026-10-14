@@ -20,7 +20,13 @@ public final class SemanticEvents {
         BREAK,
         DELAYED,
         /** A finisher landed on a broken target. */
-        FINISH
+        FINISH,
+        /** The judgement cut began: its caster blinks away. */
+        JUDGE_START,
+        /** The judgement cut bound this target. */
+        JUDGE_BIND,
+        /** The judgement cut landed on this target. */
+        JUDGE_CUT
     }
 
     public static final class Event {

@@ -196,6 +196,32 @@ def build_actions(actions):
         kf(float(total), noto_fr, c_noto, 8, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=lambda u: u,
            lean=6.0),  # "click": hold
     ]
+    # judgement (blade out): blink back, a slow chiburi and noto, then the draw of the iai that lands the cuts;
+    # judgement_draw (blade in): blink back, a beat, then the same draw (P2 provisional)
+    crouch = frame((0.0, 0.0, -1.0), norm((0.10, 0.30, 0.95)))  # blade low and back while the body is carried away
+    off = d["judgement"]["startup"] - d["iai"]["startup"]
+    out["judgement"] = [
+        kf(0.0, CHUDAN, C_READY, 0.0, FEET_R0, FEET_L0, ease=ease_io),
+        kf(2.0, crouch, (0.10, 0.10, 1.00), 10, FEET_R0, FEET_L0, ease=ease_out, pel=(0.0, -0.10, -0.10), lean=-10.0),
+        kf(6.0, crouch, (0.10, 0.12, 1.00), 8, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_io,
+           pel=(0.0, -0.08, -0.08), lean=-6.0),
+        kf(15.0, chiburi_up, (0.26, 0.22, 1.46), -10, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_out,
+           pel=(0.0, -0.03, -0.02), lean=-6.0),
+        kf(24.0, chiburi_dn, (0.30, 0.40, 1.06), -14, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_in,
+           pel=(0.0, 0.06, -0.08), lean=12.0),
+        kf(31.0, mid, (-0.06, 0.20, 1.02), 6, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_io, lean=4.0),
+        kf(float(off) - 3.0, noto_fr, c_noto, 8, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_out, lean=6.0),
+        kf(float(off), noto_fr, c_noto, 8, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=lambda u: u, drawn=False,
+           lean=6.0),
+    ] + [dict(k, t=k["t"] + off) for k in iai[1:]]
+    off2 = d["judgement_draw"]["startup"] - d["iai"]["startup"]
+    out["judgement_draw"] = [
+        dict(iai[0], t=0.0),
+        kf(4.0, sheathed, KOIGUCHI_GRIP, 6, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_out,
+           pel=(0.0, -0.10, -0.10), drawn=False, lean=-8.0),
+        kf(float(off2), sheathed, KOIGUCHI_GRIP, 4, FEET_R0, FEET_L0, handL=("free", KOIGUCHI), ease=ease_io,
+           pel=(0.0, -0.04, -0.04), drawn=False, lean=2.0),
+    ] + [dict(k, t=k["t"] + off2) for k in iai[1:]]
     return out
 
 

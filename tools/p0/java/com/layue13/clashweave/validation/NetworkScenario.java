@@ -21,6 +21,18 @@ public final class NetworkScenario {
     private int samples;
     private long prepared = -1;
 
+    /** A human who dies in the play session comes back on the arena with a katana, not under the floor with nothing. */
+    @SubscribeEvent
+    public void respawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (!Boolean.getBoolean("cw.p2.play")) return;
+        EntityPlayerMP player = (EntityPlayerMP) event.player;
+        player.inventory.setInventorySlotContents(0, new ItemStack(Clashweave.katana));
+        player.inventory.currentItem = 0;
+        player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200);
+        player.setHealth(200);
+        player.playerNetServerHandler.setPlayerLocation(0, 64, 0, 0, 0);
+    }
+
     @SubscribeEvent
     public void login(PlayerEvent.PlayerLoggedInEvent event) {
         if (!Boolean.getBoolean("cw.p0.network")) return;
@@ -148,6 +160,41 @@ public final class NetworkScenario {
             if (age == 1 || age == 7) System.out.println("P2_DODGE_POS age=" + age + " x=" + a.posX + " z=" + a.posZ);
         } else if (bothTicks - dodgeIdle > 50 && (Math.abs(a.posX) > .05 || Math.abs(a.posZ) > .05)) {
             a.playerNetServerHandler.setPlayerLocation(0, 64, 0, 0, 0);
+        }
+    }
+
+    /** For a human at the keyboard: keeps a few zombies walking at P0A, day or night, and keeps P0A fed. */
+    private void playRig() {
+        EntityPlayerMP a = null;
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (p.getCommandSenderName().equals("P0A")) a = p;
+        }
+        if (a == null || Clashweave.server.state(a) == null) return;
+        if (bothTicks % 100 == 0) a.getFoodStats().addStats(20, 1f);
+        a.getServerForPlayer().getGameRules().setOrCreateGameRule("keepInventory", "true");
+        if (a.posY < 62 && !a.capabilities.isFlying) a.playerNetServerHandler.setPlayerLocation(0, 64, 0, a.rotationYaw, 0);
+        WorldServer w = a.getServerForPlayer();
+        int alive = 0;
+        for (Object e : w.loadedEntityList) if (e instanceof EntityZombie && !((EntityZombie) e).isDead) {
+            alive++;
+            try { java.lang.reflect.Field fire = net.minecraft.entity.Entity.class.getDeclaredField("isImmuneToFire"); fire.setAccessible(true); fire.setBoolean(e, true); ((EntityZombie) e).extinguish(); } catch (Exception ex) { /* burns in daylight */ }
+        }
+        // The arena is a stone floor at y 63 over a flat world: a zombie that wanders off it falls and dies, so bring it back.
+        for (Object e : w.loadedEntityList) if (e instanceof EntityZombie && !((EntityZombie) e).isDead) {
+            EntityZombie z = (EntityZombie) e;
+            if (z.posY < 62.5 || Math.abs(z.posX) > 26 || Math.abs(z.posZ) > 46) {
+                double angle = w.rand.nextDouble() * Math.PI * 2;
+                z.setPosition(Math.max(-20, Math.min(20, a.posX)) + Math.cos(angle) * 6, 64, Math.max(-40, Math.min(40, a.posZ)) + Math.sin(angle) * 6);
+                z.motionX = z.motionY = z.motionZ = 0;
+                z.fallDistance = 0;
+            }
+        }
+        if (bothTicks % 60 == 0 && alive < 3) {
+            EntityZombie z = new EntityZombie(w);
+            double angle = w.rand.nextDouble() * Math.PI * 2;
+            z.setPosition(Math.max(-24, Math.min(24, a.posX + Math.cos(angle) * 8)), 64, Math.max(-44, Math.min(44, a.posZ + Math.sin(angle) * 8)));
+            w.spawnEntityInWorld(z);
         }
     }
 
@@ -305,6 +352,7 @@ public final class NetworkScenario {
     @SubscribeEvent
     public void tick(TickEvent.ServerTickEvent event) {
         if (!Boolean.getBoolean("cw.p0.network") || event.phase != TickEvent.Phase.END) return;
+        if (Boolean.getBoolean("cw.p2.play")) { bothTicks++; playRig(); return; }
         if (MinecraftServer.getServer().getCurrentPlayerCount() < 2) return;
         bothTicks++;
         if (Boolean.getBoolean("cw.p1b.chase")) chaseTarget();

@@ -43,6 +43,9 @@ public final class ActionCatalog {
          */
         public int protectFrom, protectUntil;
 
+        /** The tick of the action at which an ability bound when it started lands its cut; 0 = none. */
+        public int release;
+
         public boolean protects(long age) {
             return protectUntil > 0 && age >= protectFrom && age < protectUntil;
         }
