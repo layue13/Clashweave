@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
+import com.layue13.clashweave.client.body.Channels;
 import com.layue13.clashweave.client.pose.LimbAngles;
 import com.layue13.clashweave.client.pose.LimbSolver;
 import com.layue13.clashweave.client.pose.Pose;
@@ -31,6 +32,11 @@ final class CombatBiped extends ModelBiped {
     float weight;
     /** Set by the renderer from the worn armor: that limb pair is drawn as one straight block. */
     boolean rigidArms, rigidLegs;
+    /** The entity's body rig and this frame's locomotion inputs; the renderer fills them before drawing. */
+    com.layue13.clashweave.client.body.BodyRig rig;
+    final com.layue13.clashweave.client.body.LocomotionInputs inputs = new com.layue13.clashweave.client.body.LocomotionInputs();
+    boolean locomotion;
+    long frameNanos, tickPeriod;
 
     private final boolean segmented;
     private ModelRenderer rightForearm, leftForearm, rightShin, leftShin;
@@ -135,6 +141,14 @@ final class CombatBiped extends ModelBiped {
             rightShin.rotateAngleX = 0;
             leftShin.rotateAngleX = 0;
         }
+        if (rig != null) {
+            if (rig.needsStep()) {
+                readVanilla(rig.target());
+                if (locomotion) com.layue13.clashweave.client.body.Locomotion.compute(inputs, rig.target());
+                rig.chase(frameNanos, tickPeriod);
+            }
+            writeBase(rig.smoothed());
+        }
         if (weight <= 0 || pose == null) return;
         float w = weight;
         // The parts are independent: every pivot follows the pelvis, the shoulders also follow the torso twist.
@@ -179,11 +193,74 @@ final class CombatBiped extends ModelBiped {
         bipedLeftLeg.rotateAngleZ = 0;
     }
 
+    private void readVanilla(float[] t) {
+        t[Channels.HEAD_X] = bipedHead.rotateAngleX;
+        t[Channels.HEAD_Y] = bipedHead.rotateAngleY;
+        t[Channels.BODY_X] = bipedBody.rotateAngleX;
+        t[Channels.BODY_Y] = bipedBody.rotateAngleY;
+        t[Channels.BODY_Z] = bipedBody.rotateAngleZ;
+        t[Channels.R_ARM_X] = bipedRightArm.rotateAngleX;
+        t[Channels.R_ARM_Y] = bipedRightArm.rotateAngleY;
+        t[Channels.R_ARM_Z] = bipedRightArm.rotateAngleZ;
+        t[Channels.L_ARM_X] = bipedLeftArm.rotateAngleX;
+        t[Channels.L_ARM_Y] = bipedLeftArm.rotateAngleY;
+        t[Channels.L_ARM_Z] = bipedLeftArm.rotateAngleZ;
+        t[Channels.R_LEG_X] = bipedRightLeg.rotateAngleX;
+        t[Channels.R_LEG_Y] = bipedRightLeg.rotateAngleY;
+        t[Channels.R_LEG_Z] = bipedRightLeg.rotateAngleZ;
+        t[Channels.L_LEG_X] = bipedLeftLeg.rotateAngleX;
+        t[Channels.L_LEG_Y] = bipedLeftLeg.rotateAngleY;
+        t[Channels.L_LEG_Z] = bipedLeftLeg.rotateAngleZ;
+        t[Channels.R_FORE] = t[Channels.L_FORE] = t[Channels.R_SHIN] = t[Channels.L_SHIN] = 0;
+        t[Channels.ROOT_Y] = 0;
+    }
+
+    /** The smoothed base pose: vanilla's, or the locomotion layer's where it took over, chased frame by frame. */
+    private void writeBase(float[] c) {
+        bipedHead.rotateAngleX = c[Channels.HEAD_X];
+        bipedHead.rotateAngleY = c[Channels.HEAD_Y];
+        bipedHeadwear.rotateAngleX = bipedHead.rotateAngleX;
+        bipedHeadwear.rotateAngleY = bipedHead.rotateAngleY;
+        bipedBody.rotateAngleX = c[Channels.BODY_X];
+        bipedBody.rotateAngleY = c[Channels.BODY_Y];
+        bipedBody.rotateAngleZ = c[Channels.BODY_Z];
+        bipedRightArm.rotateAngleX = c[Channels.R_ARM_X];
+        bipedRightArm.rotateAngleY = c[Channels.R_ARM_Y];
+        bipedRightArm.rotateAngleZ = c[Channels.R_ARM_Z];
+        bipedLeftArm.rotateAngleX = c[Channels.L_ARM_X];
+        bipedLeftArm.rotateAngleY = c[Channels.L_ARM_Y];
+        bipedLeftArm.rotateAngleZ = c[Channels.L_ARM_Z];
+        bipedRightLeg.rotateAngleX = c[Channels.R_LEG_X];
+        bipedRightLeg.rotateAngleY = c[Channels.R_LEG_Y];
+        bipedRightLeg.rotateAngleZ = c[Channels.R_LEG_Z];
+        bipedLeftLeg.rotateAngleX = c[Channels.L_LEG_X];
+        bipedLeftLeg.rotateAngleY = c[Channels.L_LEG_Y];
+        bipedLeftLeg.rotateAngleZ = c[Channels.L_LEG_Z];
+        if (segmented) {
+            // Elbows bend the forearm forward (-X), knees bend the shin back (+X); a worn piece keeps the limb
+            // straight.
+            if (!rigidArms) {
+                rightForearm.rotateAngleX = -c[Channels.R_FORE];
+                leftForearm.rotateAngleX = -c[Channels.L_FORE];
+            }
+            if (!rigidLegs) {
+                rightShin.rotateAngleX = c[Channels.R_SHIN];
+                leftShin.rotateAngleX = c[Channels.L_SHIN];
+            }
+        }
+        float bob = c[Channels.ROOT_Y];
+        bipedBody.rotationPointY += bob;
+        bipedHead.rotationPointY += bob;
+        bipedHeadwear.rotationPointY += bob;
+        bipedRightArm.rotationPointY += bob;
+        bipedLeftArm.rotationPointY += bob;
+    }
+
     private void arm(ModelRenderer upper, ModelRenderer forearm, boolean right, float[] rigidDirection, float w) {
         if (segmented && !rigidArms) {
             LimbSolver.solveArm(right, pose, solved);
             apply(upper, solved.upper, w);
-            forearm.rotateAngleX = solved.childAngleX * w;
+            forearm.rotateAngleX = mix(forearm.rotateAngleX, solved.childAngleX, w);
         } else {
             LimbSolver.solveLimb(rigidDirection[0], rigidDirection[1], rigidDirection[2], angles);
             apply(upper, angles, w);
@@ -194,7 +271,7 @@ final class CombatBiped extends ModelBiped {
         if (segmented && !rigidLegs) {
             LimbSolver.solveLeg(right, pose, solved);
             apply(upper, solved.upper, w);
-            shin.rotateAngleX = solved.childAngleX * w;
+            shin.rotateAngleX = mix(shin.rotateAngleX, solved.childAngleX, w);
         } else {
             LimbSolver.solveLimb(rigidDirection[0], rigidDirection[1], rigidDirection[2], angles);
             apply(upper, angles, w);

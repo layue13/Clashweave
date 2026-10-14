@@ -46,4 +46,51 @@ public class BodyRigTest {
         rig.advance(true, 2 * TICK, TICK);
         assertEquals(before, rig.takeover(), 0);
     }
+
+    @Test
+    public void channelsSeedFromTheFirstTargetAndThenChaseIndependentOfTheFrameRate() {
+        BodyRig a = new BodyRig(), b = new BodyRig();
+        for (BodyRig rig : new BodyRig[] { a, b }) {
+            rig.beginFrame(1);
+            rig.target()[Channels.R_ARM_X] = 1;
+            rig.chase(TICK, TICK);
+            assertEquals(1, rig.smoothed()[Channels.R_ARM_X], 0);
+        }
+        // Target jumps to 0: one tick in one frame against four quarter-tick frames.
+        long now = TICK;
+        a.beginFrame(2);
+        a.target()[Channels.R_ARM_X] = 0;
+        a.chase(now += TICK, TICK);
+        long other = TICK;
+        for (int i = 0; i < 4; i++) {
+            b.beginFrame(10 + i);
+            b.target()[Channels.R_ARM_X] = 0;
+            b.chase(other += TICK / 4, TICK);
+        }
+        assertEquals(a.smoothed()[Channels.R_ARM_X], b.smoothed()[Channels.R_ARM_X], 1e-4f);
+        assertTrue(a.smoothed()[Channels.R_ARM_X] > 0 && a.smoothed()[Channels.R_ARM_X] < 1);
+    }
+
+    @Test
+    public void aSecondModelInTheSameFrameReusesTheStep() {
+        BodyRig rig = new BodyRig();
+        assertTrue(rig.beginFrame(5));
+        assertTrue(rig.needsStep());
+        rig.chase(TICK, TICK);
+        assertFalse(rig.needsStep());
+        assertTrue(rig.beginFrame(6));
+    }
+
+    @Test
+    public void groundTimersCountTicksOnAndOffTheGround() {
+        BodyRig rig = new BodyRig();
+        rig.observeGround(true, TICK, TICK);
+        rig.observeGround(false, 2 * TICK, TICK);
+        rig.observeGround(false, 4 * TICK, TICK);
+        assertEquals(3, rig.ticksAirborne(), 1e-4f);
+        assertEquals(0, rig.ticksSinceTouchdown(), 0);
+        rig.observeGround(true, 5 * TICK, TICK);
+        assertEquals(1, rig.ticksSinceTouchdown(), 1e-4f);
+        assertEquals(0, rig.ticksAirborne(), 0);
+    }
 }

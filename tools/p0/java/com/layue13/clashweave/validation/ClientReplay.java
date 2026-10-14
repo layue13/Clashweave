@@ -101,6 +101,7 @@ public final class ClientReplay {
         connected++;
         if(System.getProperty("cw.wf1c")!=null)return;
         if(Boolean.getBoolean("cw.p0.artVerify"))return;
+        if(System.getProperty("cw.b2.moveVerify")!=null)return;
         if(Boolean.getBoolean("cw.p0.edgeBoundary"))return;
         if(Boolean.getBoolean("cw.p0.lockSupport") || Boolean.getBoolean("cw.p0.composition"))return;
         for(ClientProxy.Visual other:proxy.visuals.values())if(observedAppearance.add(other.state.entity))System.out.println("P0_APPEARANCE entity="+other.state.entity+" skin="+other.state.appearance.skin+" effects="+other.state.appearance.effects+" animations="+other.state.appearance.animations+" style="+other.state.style);
