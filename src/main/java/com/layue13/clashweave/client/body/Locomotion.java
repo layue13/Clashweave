@@ -28,6 +28,7 @@ public final class Locomotion {
         if (in.mode == LocomotionInputs.SWIM) swim(in, t);
         else if (in.mode == LocomotionInputs.RIDE) ride(in, t);
         else if (in.mode == LocomotionInputs.CLIMB) climb(in, t);
+        else if (in.mode == LocomotionInputs.FLY) fly(in, t);
         else ground(in, t);
     }
 
@@ -83,6 +84,33 @@ public final class Locomotion {
             t[R_ARM_Z] = 6 * DEG;
             t[L_ARM_Z] = -6 * DEG;
             t[R_FORE] = t[L_FORE] = 30 * DEG;
+        }
+    }
+
+    /**
+     * Creative flight: hovering upright, the chest tips into the direction of travel, the legs trail and the arms
+     * float.
+     */
+    private static void fly(LocomotionInputs in, float[] t) {
+        float move = Math.min(1, in.limbSwingAmount * 4);
+        float breathing = (float) Math.sin(in.age * .067f), sway = (float) Math.sin(in.age * .11f);
+        torso(in, t, (4 + 24 * move + .8f * breathing) * DEG, sway * 2 * DEG, 0);
+        t[ROOT_Y] = (float) Math.sin(in.age * .13f) * .5f;
+        float flutter = (float) Math.sin(in.age * .2f);
+        t[R_LEG_X] = (8 + 22 * move + 3 * flutter) * DEG;
+        t[L_LEG_X] = (8 + 22 * move - 3 * flutter) * DEG;
+        t[R_LEG_Y] = t[L_LEG_Y] = 0;
+        t[R_LEG_Z] = 4 * DEG;
+        t[L_LEG_Z] = -4 * DEG;
+        t[R_SHIN] = (12 + 18 * move) * DEG;
+        t[L_SHIN] = (12 + 18 * move) * DEG;
+        if (!in.armsBusy) {
+            t[R_ARM_X] = (-12 - 18 * move + 4 * flutter) * DEG;
+            t[L_ARM_X] = (-12 - 18 * move - 4 * flutter) * DEG;
+            t[R_ARM_Y] = t[L_ARM_Y] = 0;
+            t[R_ARM_Z] = (16 + 5 * sway) * DEG;
+            t[L_ARM_Z] = -(16 - 5 * sway) * DEG;
+            t[R_FORE] = t[L_FORE] = (18 + 14 * move) * DEG;
         }
     }
 

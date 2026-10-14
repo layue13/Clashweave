@@ -25,6 +25,10 @@ public final class MoveVerifyReplay {
     private boolean done;
     private int baseX,baseY,baseZ;
     private EntityBoat boat;
+    private final java.util.List<EntityOtherPlayerMP> crowd=new java.util.ArrayList<EntityOtherPlayerMP>();
+    private final long[] frames=new long[4000];
+    private int frameCount;
+    private long lastFrame;
     private EntityOtherPlayerMP dummy;
 
     public MoveVerifyReplay(){FMLCommonHandler.instance().bus().register(this);}
@@ -41,6 +45,69 @@ public final class MoveVerifyReplay {
         mc.gameSettings.thirdPersonView=1;
     }
 
+    private EntityOtherPlayerMP mannequin(double x,double y,double z){
+        EntityOtherPlayerMP m=new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Dummy"));
+        m.setPosition(x,y,z);m.rotationYaw=m.prevRotationYaw=0;m.renderYawOffset=m.prevRenderYawOffset=0;m.rotationYawHead=m.prevRotationYawHead=0;
+        mc.theWorld.spawnEntityInWorld(m);return m;
+    }
+
+    private void walkDummy(double dz){
+        dummy.prevPosX=dummy.lastTickPosX=dummy.posX;dummy.prevPosY=dummy.lastTickPosY=dummy.posY;dummy.prevPosZ=dummy.lastTickPosZ=dummy.posZ;
+        dummy.setPosition(dummy.posX,dummy.posY,dummy.posZ+dz);
+    }
+
+    private net.minecraft.entity.Entity mount;
+
+    private void flag(Class<?> owner,String name,boolean value){
+        try{java.lang.reflect.Field f=owner.getDeclaredField(name);f.setAccessible(true);f.setBoolean(dummy,value);}
+        catch(Exception e){System.out.println("MOVE_FLAG_UNAVAILABLE "+name+" "+e);}
+    }
+
+    private void clearStage(){
+        if(mount!=null){mc.theWorld.removeEntity(mount);mount=null;}
+        if(dummy!=null){dummy.mountEntity(null);mc.theWorld.removeEntity(dummy);dummy=null;}
+    }
+
+    /** Staged scenes on a mannequin (client only): swimming with the legs in view, horse, minecart, flying, sleeping. */
+    private void stages(){
+        double x=baseX+6.5,y=baseY,z=baseZ+.5;
+        if(ticks==650){dummy=mannequin(x,y+1.2,z);}
+        if(ticks>650&&ticks<695){walkDummy(.1);flag(net.minecraft.entity.Entity.class,"inWater",true);}
+        if(ticks>=664&&ticks<=676&&(ticks-664)%4==0)photo("swimair-"+((ticks-664)/4));
+        if(ticks==695)clearStage();
+        if(ticks==700){mount=new net.minecraft.entity.passive.EntityHorse(mc.theWorld);mount.setPosition(x,y,z);mc.theWorld.spawnEntityInWorld(mount);dummy=mannequin(x,y+1.2,z);dummy.mountEntity(mount);}
+        if(ticks>=712&&ticks<=720&&(ticks-712)%4==0)photo("horse-"+((ticks-712)/4));
+        if(ticks==725)clearStage();
+        if(ticks==730){mount=new net.minecraft.entity.item.EntityMinecartEmpty(mc.theWorld,x,y+.5,z);mc.theWorld.spawnEntityInWorld(mount);dummy=mannequin(x,y+1.0,z);dummy.mountEntity(mount);}
+        if(ticks>=740&&ticks<=744&&(ticks-740)%4==0)photo("cart-"+((ticks-740)/4));
+        if(ticks==750)clearStage();
+        if(ticks==755){dummy=mannequin(x,y+2.0,z);dummy.capabilities.isFlying=true;}
+        if(ticks>755&&ticks<790){walkDummy(.15);dummy.capabilities.isFlying=true;}
+        if(ticks>=768&&ticks<=780&&(ticks-768)%4==0)photo("fly-"+((ticks-768)/4));
+        if(ticks==790)clearStage();
+        if(ticks==795){dummy=mannequin(x,y+.1,z);flag(net.minecraft.entity.player.EntityPlayer.class,"sleeping",true);}
+        if(ticks>=810&&ticks<=814&&(ticks-810)%4==0)photo("sleep-"+((ticks-810)/4));
+        if(ticks==830)clearStage();
+    }
+
+    /** Angle 900 or more: not photographs but frame times with 40 walking mannequins in view, for before/after comparison. */
+    private void crowd(){
+        mc.gameSettings.hideGUI=true;mc.gameSettings.limitFramerate=260;mc.gameSettings.enableVsync=false;
+        mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
+        if(ticks==110)for(int i=0;i<40;i++){
+            double x=mc.thePlayer.posX+(i%8-3.5)*1.6,z=mc.thePlayer.posZ+4+(i/8)*1.6;
+            EntityOtherPlayerMP m=new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Crowd"+i));
+            m.setPosition(x,mc.thePlayer.boundingBox.minY,z);mc.theWorld.spawnEntityInWorld(m);crowd.add(m);
+        }
+        if(ticks>110){int i=0;for(EntityOtherPlayerMP m:crowd){
+            double a=ticks*.07+i*.7;m.prevPosX=m.lastTickPosX=m.posX;m.prevPosZ=m.lastTickPosZ=m.posZ;
+            m.setPosition(m.posX+Math.cos(a)*.1,m.posY,m.posZ+Math.sin(a)*.1);m.rotationYaw=m.prevRotationYaw=(float)Math.toDegrees(a)-90;m.renderYawOffset=m.prevRenderYawOffset=m.rotationYaw;m.rotationYawHead=m.prevRotationYawHead=m.rotationYaw;i++;}}
+        if(ticks==500){
+            long[] sorted=java.util.Arrays.copyOf(frames,frameCount);java.util.Arrays.sort(sorted);long sum=0;for(long f:sorted)sum+=f;
+            System.out.println("MOVE_CROWD frames="+frameCount+" meanMs="+(sum/1e6/Math.max(1,frameCount))+" p50Ms="+sorted[frameCount/2]/1e6+" p95Ms="+sorted[(int)(frameCount*.95)]/1e6+" maxMs="+sorted[frameCount-1]/1e6);
+            done=true;System.out.println("MOVE_VERIFY_DONE");}
+    }
+
     private void photo(String name){if(shot==null)shot=name;}
 
     @SubscribeEvent public void tick(TickEvent.ClientTickEvent event){
@@ -48,6 +115,7 @@ public final class MoveVerifyReplay {
         mc.gameSettings.hideGUI=true;mc.gameSettings.limitFramerate=60;mc.gameSettings.pauseOnLostFocus=false;
         if(!mc.thePlayer.getCommandSenderName().equals("P0A"))return;
         if(++ticks<100)return;
+        if(angle>=900){crowd();return;}
         if(ticks==100)mc.thePlayer.inventory.currentItem=1;
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         camera();
@@ -80,10 +148,12 @@ public final class MoveVerifyReplay {
             mc.theWorld.removeEntity(dummy);dummy=null;}
         if(ticks==600){boat=new EntityBoat(mc.theWorld,mc.thePlayer.posX,mc.thePlayer.posY-.3,mc.thePlayer.posZ);mc.theWorld.spawnEntityInWorld(boat);mc.thePlayer.mountEntity(boat);}
         if(ticks>=610&&ticks<=622&&(ticks-610)%4==0)photo("ride-"+((ticks-610)/4));
-        if(ticks==640){done=true;System.out.println("MOVE_VERIFY_DONE");}
+        stages();
+        if(ticks==850){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
     @SubscribeEvent public void frame(TickEvent.RenderTickEvent event){
+        if(angle>=900&&event.phase==TickEvent.Phase.END&&ticks>160&&ticks<500&&frameCount<frames.length){long n=System.nanoTime();if(lastFrame!=0)frames[frameCount++]=n-lastFrame;lastFrame=n;return;}
         if(event.phase!=TickEvent.Phase.END||mc.thePlayer==null||shot==null)return;
         ScreenShotHelper.saveScreenshot(new File("."),"move-"+shot+".png",mc.displayWidth,mc.displayHeight,mc.getFramebuffer());
         System.out.println("MOVE_CAPTURE name="+shot+" tick="+ticks+" onGround="+mc.thePlayer.onGround+" sprint="+mc.thePlayer.isSprinting()

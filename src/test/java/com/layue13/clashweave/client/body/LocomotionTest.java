@@ -140,7 +140,8 @@ public class LocomotionTest {
 
     @Test
     public void ridingSitsWithThighsForwardAndEveryChannelFinite() {
-        for (int mode : new int[] { LocomotionInputs.SWIM, LocomotionInputs.RIDE, LocomotionInputs.CLIMB }) {
+        for (int mode : new int[] { LocomotionInputs.SWIM, LocomotionInputs.RIDE, LocomotionInputs.CLIMB,
+            LocomotionInputs.FLY }) {
             LocomotionInputs in = walking(3, .6f);
             in.mode = mode;
             in.climbPhase = 1.3f;
