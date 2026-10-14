@@ -143,6 +143,7 @@ public final class ClientProxy extends CommonProxy {
             .bus()
             .register(lockCamera);
         MinecraftForge.EVENT_BUS.register(new WeaponRendering());
+        com.layue13.clashweave.client.vfx.Vfx.register();
         // A switch for before/after measurements; monsters are taken over unless it is set.
         if (!Boolean.getBoolean("cw.mobBodies.off")) MinecraftForge.EVENT_BUS.register(new MobBodies());
         FMLCommonHandler.instance()

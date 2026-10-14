@@ -220,6 +220,7 @@ public final class NetworkScenario {
         EntityZombie zombie = null;
         for (Object e : a.worldObj.loadedEntityList) if (e instanceof EntityZombie) { zombie = (EntityZombie) e; break; }
         if (zombie == null) return;
+        try { java.lang.reflect.Field fire = net.minecraft.entity.Entity.class.getDeclaredField("isImmuneToFire"); fire.setAccessible(true); fire.setBoolean(zombie, true); zombie.extinguish(); } catch (Exception e) { /* daylight burning stays */ }
         if (Clashweave.server.state(a).scheduler.current() != null || !zombie.onGround) chaseBusy = bothTicks;
         if (bothTicks % 10 == 0) System.out.println("P1B_STATE tick=" + bothTicks + " zombie=" + zombie.getEntityId() + "@" + zombie.posX + "," + zombie.posY + "," + zombie.posZ + " hp=" + zombie.getHealth() + " player=" + a.posX + "," + a.posZ + " yaw=" + a.rotationYaw + " busy=" + (bothTicks - chaseBusy));
         if (bothTicks - chaseBusy < 40 || bothTicks % 5 != 0) return;

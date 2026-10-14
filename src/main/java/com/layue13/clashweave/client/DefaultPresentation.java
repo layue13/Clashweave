@@ -35,6 +35,20 @@ final class DefaultPresentation implements Consumer<SemanticEvents.Event> {
         }
         double x = guard.posX + dx * .6, y = guard.posY + guard.height * .65, z = guard.posZ + dz * .6;
         boolean precise = event.kind == SemanticEvents.Kind.PARRY;
+        com.layue13.clashweave.client.vfx.Vfx vfx = com.layue13.clashweave.client.vfx.Vfx.INSTANCE;
+        int effect = vfx.bound(event.kind.name());
+        if (effect >= 0) {
+            vfx.play(effect, x, y, z, (float) dx, .12f, (float) dz);
+            minecraft.theWorld.playSound(
+                x,
+                y,
+                z,
+                precise ? "random.anvil_land" : "random.anvil_use",
+                precise ? .5f : .3f,
+                precise ? 1.9f : 1.5f,
+                false);
+            return;
+        }
         int sparks = precise ? 16 : 7;
         java.util.Random random = minecraft.theWorld.rand;
         for (int i = 0; i < sparks; i++) {

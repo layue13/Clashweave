@@ -64,7 +64,7 @@ public final class WeaponRendering {
 
     /** The blade in the hand: baked pose when the body is taken over, otherwise attached to the right arm. */
     private void blade(PresentationAssets.Render render, ModelBiped model, ClientProxy.Visual visual, boolean posed,
-        PoseDriver driver, CarryStyle carried, float partial) {
+        PoseDriver driver, CarryStyle carried, float partial, net.minecraft.entity.Entity wielder) {
         if (posed) {
             // The blade follows the baked sword pose in body space, not the arm, so arm roll cannot turn it.
             GL11.glPushMatrix();
@@ -74,6 +74,7 @@ public final class WeaponRendering {
                 .flip();
             GL11.glMultMatrix(matrixBuffer);
             GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
+            trail(wielder);
             render.held.renderAll();
             GL11.glPopMatrix();
         } else {
@@ -86,9 +87,17 @@ public final class WeaponRendering {
             GL11.glRotated(90, 0, 1, 0);
             GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
             GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
+            trail(wielder);
             render.held.renderAll();
             GL11.glPopMatrix();
         }
+    }
+
+    /** Reports the blade being drawn to the trail layer; not for the first-person hand or a menu's player model. */
+    private void trail(net.minecraft.entity.Entity wielder) {
+        if (wielder == null || minecraft.currentScreen != null) return;
+        com.layue13.clashweave.client.vfx.Vfx.INSTANCE
+            .reportBlade(wielder.getEntityId(), wielder.posX, wielder.posY, wielder.posZ);
     }
 
     @SubscribeEvent
@@ -132,7 +141,8 @@ public final class WeaponRendering {
             driver,
             PoseDriver.carrying(event.entityPlayer) ? CarryStyle.of(resourceFor(event.entityPlayer.getHeldItem()))
                 : null,
-            event.partialRenderTick);
+            event.partialRenderTick,
+            event.entityPlayer);
         GL11.glPopAttrib();
     }
 
@@ -227,7 +237,8 @@ public final class WeaponRendering {
             driver,
             PoseDriver.carrying(minecraft.thePlayer) ? CarryStyle.of(resourceFor(minecraft.thePlayer.getHeldItem()))
                 : null,
-            partial);
+            partial,
+            null);
         GL11.glPopMatrix();
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPopMatrix();
