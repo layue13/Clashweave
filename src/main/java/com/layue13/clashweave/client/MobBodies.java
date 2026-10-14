@@ -34,6 +34,7 @@ public final class MobBodies {
     /** Keyed by the model a renderer draws with, not by the renderer: RenderZombie switches between two. */
     private final Map<ModelBiped, MobBiped> byDonor = new IdentityHashMap<>();
     private final Map<ModelBiped, Boolean> refused = new IdentityHashMap<>();
+    private final Map<MobBiped, MobVillagerShell> shells = new IdentityHashMap<>();
     private final Map<RenderBiped, CombatBiped[]> followers = new IdentityHashMap<>();
     private final Map<RenderBiped, Boolean> noFollowers = new IdentityHashMap<>();
 
@@ -62,7 +63,8 @@ public final class MobBodies {
                 if (field.getType() != ModelBiped.class || Modifier.isStatic(field.getModifiers())) continue;
                 field.setAccessible(true);
                 Object value = field.get(renderer);
-                if (value == body || value == body.donor || value == null) continue;
+                if (value == body || value == body.donor || value == null || value instanceof MobVillagerShell)
+                    continue;
                 if (value.getClass() != ModelBiped.class) {
                     armor.clear();
                     break;
@@ -124,16 +126,20 @@ public final class MobBodies {
     /**
      * RenderZombie puts its own model back as mainModel in shouldRenderPass, between the draw and the hurt flash, so
      * the flash would be drawn with the original, re-posed by vanilla and not matching the first pass (depth-equal).
-     * Its normal-zombie model lives in a ModelBiped field: pointing that at ours keeps ours in place. The villager
-     * model field is typed ModelZombieVillager and cannot hold it.
+     * Its normal-zombie model lives in a ModelBiped field and its villager model in a ModelZombieVillager one:
+     * pointing each at ours (the villager's through {@link MobVillagerShell}) keeps ours in place.
      */
-    private static void keepOnZombieRenderer(RenderBiped renderer, MobBiped body) {
+    private static void keepOnZombieRenderer(RenderBiped renderer, MobBiped body, ModelBiped installed) {
         if (!(renderer instanceof net.minecraft.client.renderer.entity.RenderZombie)) return;
         try {
             for (Field field : net.minecraft.client.renderer.entity.RenderZombie.class.getDeclaredFields()) {
-                if (field.getType() != ModelBiped.class || Modifier.isStatic(field.getModifiers())) continue;
+                if (Modifier.isStatic(field.getModifiers())) continue;
+                boolean plain = field.getType() == ModelBiped.class;
+                boolean villager = field.getType() == ModelZombieVillager.class;
+                if (!plain && !villager) continue;
                 field.setAccessible(true);
-                if (field.get(renderer) == body.donor) field.set(renderer, body);
+                if (field.get(renderer) == body.donor && field.getType()
+                    .isInstance(installed)) field.set(renderer, installed);
             }
         } catch (IllegalAccessException | RuntimeException e) {
             // Left as it is: the flash is then drawn with the original model.
@@ -215,7 +221,8 @@ public final class MobBodies {
         ModelBiped current = renderer.modelBipedMain;
         if (mainModel(renderer) != current) return;
         MobBiped body;
-        if (current instanceof MobBiped) body = (MobBiped) current;
+        if (current instanceof MobVillagerShell) body = ((MobVillagerShell) current).core;
+        else if (current instanceof MobBiped) body = (MobBiped) current;
         else {
             body = byDonor.get(current);
             if (body == null) {
@@ -250,8 +257,17 @@ public final class MobBodies {
             return;
         }
         body.engage();
-        mainModel(renderer, body);
-        keepOnZombieRenderer(renderer, body);
+        ModelBiped installed = body;
+        if (body.donor instanceof ModelZombieVillager) {
+            MobVillagerShell shell = shells.get(body);
+            if (shell == null) {
+                shell = new MobVillagerShell(body);
+                shells.put(body, shell);
+            }
+            installed = shell;
+        }
+        mainModel(renderer, installed);
+        keepOnZombieRenderer(renderer, body, installed);
         if (worn != null) {
             long now = System.nanoTime();
             com.layue13.clashweave.client.body.BodyRig rig = BodyRigs.of(event.entity.getEntityId(), now);
