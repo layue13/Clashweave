@@ -66,7 +66,47 @@ final class CombatBiped extends ModelBiped {
         lower.addBox(left ? -1 : -3, 0, -2, 4, 10 - ELBOW, 4, 0);
         lower.setRotationPoint(0, ELBOW, 0);
         upper.addChild(lower);
+        // Skin colour on the faces that meet at the elbow, from the rows either side of the cut on the arm's front.
+        cap(upper, true, 46, 25.5f);
+        cap(lower, false, 46, 28.5f);
         return upper;
+    }
+
+    /**
+     * The faces where the two segments meet are inside the box until the joint bends, then the outside of the bend
+     * shows
+     * them; their texture region is the wrong part of the skin (a dark wedge). Point them at a patch of the limb's own
+     * skin.
+     * The quads are found by position, the lowest or highest face in Y, not by the order ModelBox happens to build them
+     * in.
+     */
+    static void cap(ModelRenderer part, boolean bottom, float u, float v) {
+        for (Object cube : part.cubeList) {
+            net.minecraft.client.model.ModelBox box = (net.minecraft.client.model.ModelBox) cube;
+            net.minecraft.client.model.TexturedQuad[] quads = null;
+            for (java.lang.reflect.Field field : net.minecraft.client.model.ModelBox.class.getDeclaredFields()) {
+                if (field.getType() == net.minecraft.client.model.TexturedQuad[].class) {
+                    try {
+                        field.setAccessible(true);
+                        quads = (net.minecraft.client.model.TexturedQuad[]) field.get(box);
+                    } catch (IllegalAccessException e) {
+                        throw new IllegalStateException("cannot reach the faces of a model box", e);
+                    }
+                }
+            }
+            if (quads == null) throw new IllegalStateException("ModelBox has no quad list");
+            float edge = bottom ? box.posY2 : box.posY1;
+            for (net.minecraft.client.model.TexturedQuad quad : quads) {
+                boolean onEdge = true;
+                for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions)
+                    if (Math.abs(vertex.vector3D.yCoord - edge) > 1e-4) onEdge = false;
+                if (!onEdge) continue;
+                for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions) {
+                    vertex.texturePositionX = u / 64f;
+                    vertex.texturePositionY = v / 32f;
+                }
+            }
+        }
     }
 
     private ModelRenderer leg(boolean left) {
@@ -79,6 +119,8 @@ final class CombatBiped extends ModelBiped {
         lower.addBox(-2, 0, -2, 4, 12 - KNEE, 4, 0);
         lower.setRotationPoint(0, KNEE, 0);
         upper.addChild(lower);
+        cap(upper, true, 6, 24.5f);
+        cap(lower, false, 6, 27.5f);
         return upper;
     }
 

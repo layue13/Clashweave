@@ -47,4 +47,45 @@ public class CombatBipedTest {
             assertEquals(pair[0].rotateAngleZ, pair[1].rotateAngleZ, 0);
         }
     }
+
+    private static net.minecraft.client.model.TexturedQuad[] quads(ModelRenderer part) throws Exception {
+        net.minecraft.client.model.ModelBox box = (net.minecraft.client.model.ModelBox) part.cubeList.get(0);
+        for (java.lang.reflect.Field field : net.minecraft.client.model.ModelBox.class.getDeclaredFields()) {
+            if (field.getType() == net.minecraft.client.model.TexturedQuad[].class) {
+                field.setAccessible(true);
+                return (net.minecraft.client.model.TexturedQuad[]) field.get(box);
+            }
+        }
+        throw new AssertionError("no quad list");
+    }
+
+    /** The faces that meet at a joint show skin colour from the limb's own rows; every other face keeps its region. */
+    @Test
+    public void jointFacesSampleTheLimbSkinAndNoOtherFaceChanges() throws Exception {
+        CombatBiped biped = new CombatBiped(0);
+        ModelRenderer upper = biped.bipedRightArm;
+        ModelRenderer forearm = (ModelRenderer) upper.childModels.get(0);
+        int capped = 0, untouched = 0;
+        for (net.minecraft.client.model.TexturedQuad quad : quads(upper)) {
+            double maxY = Double.NEGATIVE_INFINITY, minY = Double.POSITIVE_INFINITY;
+            for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions) {
+                maxY = Math.max(maxY, vertex.vector3D.yCoord);
+                minY = Math.min(minY, vertex.vector3D.yCoord);
+            }
+            boolean joint = minY == maxY && maxY == ((net.minecraft.client.model.ModelBox) upper.cubeList.get(0)).posY2;
+            for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions) {
+                boolean patch = vertex.texturePositionX == 46 / 64f && vertex.texturePositionY == 25.5f / 32f;
+                assertEquals("quad at y=" + maxY, joint, patch);
+            }
+            if (joint) capped++;
+            else untouched++;
+        }
+        assertEquals(1, capped);
+        assertEquals(5, untouched);
+        int forearmCapped = 0;
+        for (net.minecraft.client.model.TexturedQuad quad : quads(forearm))
+            if (quad.vertexPositions[0].texturePositionX == 46 / 64f
+                && quad.vertexPositions[0].texturePositionY == 28.5f / 32f) forearmCapped++;
+        assertEquals(1, forearmCapped);
+    }
 }

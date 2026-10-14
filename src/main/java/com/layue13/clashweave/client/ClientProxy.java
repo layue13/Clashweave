@@ -59,8 +59,7 @@ public final class ClientProxy extends CommonProxy {
         /** Baked tracks resolved with the state: the playing action's and the engaged idle pose. */
         Track track, stance;
         /** Fade of the baked pose over the vanilla one, and the track it last played, kept for the fade out. */
-        float takeover;
-        long takeoverNanos;
+        com.layue13.clashweave.client.body.BodyRig rig = new com.layue13.clashweave.client.body.BodyRig();
         Track lastTrack;
         double lastTicks;
 
@@ -511,8 +510,7 @@ public final class ClientProxy extends CommonProxy {
         visual.track = visual.preset == null || message.action.isEmpty() ? null
             : visual.preset.track(message.action.substring(message.action.indexOf(':') + 1));
         if (previous != null) {
-            visual.takeover = previous.takeover;
-            visual.takeoverNanos = previous.takeoverNanos;
+            visual.rig = previous.rig;
             visual.lastTrack = previous.lastTrack;
             visual.lastTicks = previous.lastTicks;
         }
