@@ -1,0 +1,9 @@
+# 轨迹握距重算(10 px 手臂)
+
+状态:草稿。日期:2026-10-13。
+
+- 起因:C2b-1 起手臂改为两段各 5 px、总触及 10 px(0.586 个单位),而 `art/katana/motion2.py` 的握距窗口是 0.55 ± 0.09(上限 0.64),手可被要求放在够不到的地方:右臂 24/168 样本短缺,最大 0.058。
+- 改动:`GRIP_DIST, GRIP_TOL = 0.50, 0.08`(上限 0.58,在触及范围内);用 `python art/katana/motion2.py src/main/resources/assets/clashweave/combat/katana.json src/main/resources/assets/clashweave/tracks/katana.tracks.json` 重生成。重生成前先确认旧参数下输出与已提交文件逐字节一致(是)。
+- 结果(`HingedLimbTest` 的 `C2B_IK`):两只手臂 `unreachable=0`(之前右臂 24);腿仍是 38/36 个样本略够不到,最大短缺 0.015/0.099,是既有问题,未处理。
+- 副作用:可见触及(`visualReach`)比之前小约 0.05 个单位(轻击 1.78→1.72、1.87→1.82、1.70→1.66,重击 1.80→1.75,居合 2.04→2.02);居合含步进 3.22,仍不低于服务端 3.2;轻击/重击的 `reachDeficit` 本来就有(0.33–0.5),现在为 0.38–0.55。服务端判定不变。
+- 画面:`art-grip-90`(`--pose-verify 90`)六帧,双手仍握在刀柄上,没有手离柄。未逐帧对比改前。

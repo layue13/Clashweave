@@ -29,7 +29,7 @@ from motion import (add, cross, dot, ease_in, ease_io, ease_out, frame, lerp, mu
 
 SHOULDER_R = (0.293, 0.0, 1.289)
 SHOULDER_L = (-0.293, 0.0, 1.289)
-GRIP_DIST, GRIP_TOL = 0.55, 0.09
+GRIP_DIST, GRIP_TOL = 0.50, 0.08  # window top 0.58 stays inside the 10 px (0.586) arm reach
 HAND_R_Y, HAND_L_Y = 0.045, -0.125  # along the blade axis from the grip centre; right near the tsuba, left near the kashira
 HILT_LEN = 0.399
 FIST = 0.09
