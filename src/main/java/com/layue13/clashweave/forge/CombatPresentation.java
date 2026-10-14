@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -94,6 +95,11 @@ final class CombatPresentation {
                 tick,
                 tick,
                 ""));
+    }
+
+    /** A blow turned away by a precise guard: published at once, the hurt event it would have ridden on never comes. */
+    void nativeParry(Entity attacker, EntityPlayer guard, long tick) {
+        events.contact(attacker.getEntityId(), guard.getEntityId(), 0, tick, 0, "", false, 2);
     }
 
     void nativeGuard(LivingHurtEvent event, int guard, long tick) {

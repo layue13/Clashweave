@@ -143,7 +143,7 @@ public final class NetworkScenario {
             a.hurtResistantTime = 0;
             double before = zombie.getDistanceSqToEntity(a);
             boolean applied = a.attackEntityFrom(net.minecraft.util.DamageSource.causeMobDamage(zombie), 3f);
-            System.out.println("P2_BLOW tick=" + bothTicks + " kind=" + kind + " applied=" + applied + " zombieBefore=" + zombie.posX + "," + zombie.posZ + " motion=" + zombie.motionX + "," + zombie.motionZ + " distSqBefore=" + before + " me=" + a.posX + "," + a.posZ + " yaw=" + a.rotationYaw);
+            System.out.println("P2_BLOW tick=" + bothTicks + " kind=" + kind + " applied=" + applied + " zombieBefore=" + zombie.posX + "," + zombie.posZ + " motion=" + zombie.motionX + "," + zombie.motionZ + " distSqBefore=" + before + " me=" + a.posX + "," + a.posZ + " yaw=" + a.rotationYaw + " counterOpen=" + Clashweave.server.state(a).scheduler.counter(Clashweave.server.tick) + " hp=" + a.getHealth());
         }
     }
 
