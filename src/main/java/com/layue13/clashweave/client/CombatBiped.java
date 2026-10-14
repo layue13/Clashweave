@@ -412,12 +412,35 @@ final class CombatBiped extends ModelBiped {
                 leftShin.rotateAngleX = c[Channels.L_SHIN];
             }
         }
+        // The torso turns about the hips, not about the neck its box is hinged on: the neck, the shoulders and the
+        // head ride the same rotation, and the legs (independent parts) keep the hip where it is. Otherwise a lean
+        // swings the bottom of the torso away from the legs, a gap the size of 12 px times the sine of the lean.
+        bipedRightLeg.setRotationPoint(-1.9f, 12, 0);
+        bipedLeftLeg.setRotationPoint(1.9f, 12, 0);
+        aboutHips(bipedBody, 0, -12, c);
+        aboutHips(bipedHead, 0, -12, c);
+        aboutHips(bipedHeadwear, 0, -12, c);
+        aboutHips(bipedRightArm, -5, -10, c);
+        aboutHips(bipedLeftArm, 5, -10, c);
         float bob = c[Channels.ROOT_Y];
         bipedBody.rotationPointY += bob;
         bipedHead.rotationPointY += bob;
         bipedHeadwear.rotationPointY += bob;
         bipedRightArm.rotationPointY += bob;
         bipedLeftArm.rotationPointY += bob;
+    }
+
+    /**
+     * Puts the part's pivot where the point (x, y px from the hips, in the upright torso) goes under the torso turn.
+     */
+    private static void aboutHips(ModelRenderer part, float x, float y, float[] c) {
+        double ax = c[Channels.BODY_X], ay = c[Channels.BODY_Y], az = c[Channels.BODY_Z];
+        double z = 0, y1 = y * Math.cos(ax) - z * Math.sin(ax), z1 = y * Math.sin(ax) + z * Math.cos(ax);
+        double x2 = x * Math.cos(ay) + z1 * Math.sin(ay), z2 = -x * Math.sin(ay) + z1 * Math.cos(ay);
+        double x3 = x2 * Math.cos(az) - y1 * Math.sin(az), y3 = x2 * Math.sin(az) + y1 * Math.cos(az);
+        part.rotationPointX = (float) x3;
+        part.rotationPointY = (float) y3 + 12;
+        part.rotationPointZ = (float) z2;
     }
 
     private void arm(ModelRenderer upper, ModelRenderer forearm, boolean right, float[] rigidDirection, float w) {

@@ -12,7 +12,7 @@ import static com.layue13.clashweave.client.body.Channels.*;
  *
  * <p>
  * It only overwrites what it animates. The caller fills the targets with vanilla's pose first, so a state this class
- * does not know (sneaking, and for now swimming, riding, climbing, sleeping) keeps vanilla's pose.
+ * does not know (for now swimming, riding, climbing, sleeping) keeps vanilla's pose.
  */
 public final class Locomotion {
 
@@ -25,10 +25,10 @@ public final class Locomotion {
     }
 
     public static void compute(LocomotionInputs in, float[] t) {
-        if (in.sneaking) return;
         float amount = clamp(in.limbSwingAmount, 0, 1);
         float walk = Math.min(1, amount * 3);
         float run = in.sprinting ? Math.min(1, amount * 2) : 0;
+        float crouch = in.sneaking ? 1 : 0;
         float cycle = in.limbSwing * .6662f;
         float kneel = in.onGround ? Math.max(0, 1 - in.ticksSinceTouchdown / 5) : 0;
         float air = in.onGround ? 0 : Math.min(1, in.ticksAirborne / 5);
@@ -40,39 +40,49 @@ public final class Locomotion {
         // Torso: twists against the hips, rocks twice a stride, leans into a run, folds forward on landing.
         float bodyY = -swing * (14 + 5 * run) * DEG * walk;
         float bodyX = ((1.5f + .8f * breathing) * (1 - walk) + (3 + 5 * (float) Math.cos(2 * cycle)) * walk) * DEG
-            + (14 * run + 8 * air + 18 * kneel) * DEG;
+            + (12 * run + 8 * air + 18 * kneel + 28.6f * crouch) * DEG;
         t[BODY_X] = bodyX;
         t[BODY_Y] = bodyY;
         t[BODY_Z] = -clamp(in.headYaw * .1f, -10, 10) * DEG * walk;
         // The head cancels what the chest does, so the eyes keep looking where the player looks.
         t[HEAD_X] = in.headPitch * DEG - bodyX;
         t[HEAD_Y] = in.headYaw * DEG - bodyY;
-        t[ROOT_Y] = (float) Math.cos(2 * cycle) * (.6f + .4f * run) * walk * (1 - air)
+        t[ROOT_Y] = (float) Math.cos(2 * cycle) * (.6f + .7f * run) * walk * (1 - air)
             + 2.5f * (float) Math.sin(kneel * Math.PI);
 
         // Legs: antiphase swing; the knee bends only while its leg swings forward.
-        float legSwing = amount * 40 * (1 + .35f * run) * DEG;
+        float legSwing = amount * 40 * (1 + .35f * run) * (1 - .45f * crouch) * DEG;
         float forward = (35 + 40 * run) * walk * DEG;
         float rightSwing = (float) Math.sin(cycle), leftSwing = -rightSwing;
-        t[R_LEG_X] = swing * legSwing - 5 * walk * DEG;
-        t[L_LEG_X] = -swing * legSwing - 5 * walk * DEG;
+        // Crouched, the thighs come forward and the knees fold back so the feet stay under the hips.
+        float thigh = (5 * walk + 18 * crouch) * DEG;
+        t[R_LEG_X] = swing * legSwing - thigh;
+        t[L_LEG_X] = -swing * legSwing - thigh;
         t[R_LEG_Z] = 2 * DEG;
         t[L_LEG_Z] = -2 * DEG;
         t[R_LEG_Y] = t[L_LEG_Y] = 0;
-        t[R_SHIN] = Math.max(0, rightSwing) * forward;
-        t[L_SHIN] = Math.max(0, leftSwing) * forward;
+        // A run kicks the heel up soon after toe-off, while the leg is still behind: its bend peaks a little earlier in
+        // the cycle than a walk's, and the planted knee gives a little under the weight.
+        float kick = (float) Math.sin(cycle + .6f), kickL = -kick;
+        t[R_SHIN] = lerp(Math.max(0, rightSwing) * forward, Math.max(0, kick) * 95 * DEG + 12 * DEG * run, run);
+        t[L_SHIN] = lerp(Math.max(0, leftSwing) * forward, Math.max(0, kickL) * 95 * DEG + 12 * DEG * run, run);
+
+        t[R_SHIN] += 36 * crouch * DEG;
+        t[L_SHIN] += 36 * crouch * DEG;
+        t[ROOT_Y] += .6f * crouch;
 
         if (!in.armsBusy) {
-            float armSwing = amount * 28.6f * (1 + .5f * run) * DEG;
+            float armSwing = amount * 28.6f * (1 + 1.1f * run) * (1 - .5f * crouch) * DEG;
             float idle = breathing * 2.5f * DEG * (1 - walk);
-            t[R_ARM_X] = -swing * armSwing + idle;
-            t[L_ARM_X] = swing * armSwing - idle;
+            t[R_ARM_X] = -swing * armSwing + idle - 20 * crouch * DEG;
+            t[L_ARM_X] = swing * armSwing - idle - 20 * crouch * DEG;
             t[R_ARM_Y] = t[L_ARM_Y] = 0;
             t[R_ARM_Z] = (5 + 2 * sway * (1 - walk)) * DEG;
             t[L_ARM_Z] = -(5 + 2 * sway * (1 - walk)) * DEG;
-            float rest = 8 * DEG;
-            t[R_FORE] = rest + (10 * (.5f + .5f * swing) * walk + 62 * run) * DEG;
-            t[L_FORE] = rest + (10 * (.5f - .5f * swing) * walk + 62 * run) * DEG;
+            float rest = (8 + 22 * crouch) * DEG;
+            // Running pumps the arms: the elbow stays near a right angle and closes further as the hand comes forward.
+            t[R_FORE] = rest + (10 * (.5f + .5f * swing) * walk + (68 + 22 * swing) * run) * DEG;
+            t[L_FORE] = rest + (10 * (.5f - .5f * swing) * walk + (68 - 22 * swing) * run) * DEG;
         }
 
         if (!in.onGround || kneel > 0) {
