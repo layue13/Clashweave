@@ -88,6 +88,19 @@ public final class MoveVerifyReplay {
         if(ticks==795){dummy=mannequin(x,y+.1,z);flag(net.minecraft.entity.player.EntityPlayer.class,"sleeping",true);}
         if(ticks>=810&&ticks<=814&&(ticks-810)%4==0)photo("sleep-"+((ticks-810)/4));
         if(ticks==830)clearStage();
+        // Arms owned by something else while the legs walk: a punch, a drawn bow, a meal.
+        if(ticks==840){dummy=mannequin(x,y,z);}
+        if(ticks>840&&ticks<880){walkDummy(.09);if(ticks%9==0)dummy.swingItem();}
+        if(ticks>=855&&ticks<=867&&(ticks-855)%3==0)photo("punch-"+((ticks-855)/3));
+        if(ticks==880)clearStage();
+        if(ticks==885){dummy=mannequin(x,y,z);dummy.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.bow));dummy.setItemInUse(dummy.getHeldItem(),72000);}
+        if(ticks>885&&ticks<925)walkDummy(.09);
+        if(ticks>=900&&ticks<=908&&(ticks-900)%4==0)photo("bow-"+((ticks-900)/4));
+        if(ticks==925)clearStage();
+        if(ticks==930){dummy=mannequin(x,y,z);dummy.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.apple));dummy.setItemInUse(dummy.getHeldItem(),72000);}
+        if(ticks>930&&ticks<970)walkDummy(.09);
+        if(ticks>=945&&ticks<=953&&(ticks-945)%4==0)photo("eat-"+((ticks-945)/4));
+        if(ticks==970)clearStage();
     }
 
     /** Angle 900 or more: not photographs but frame times with 40 walking mannequins in view, for before/after comparison. */
@@ -149,7 +162,7 @@ public final class MoveVerifyReplay {
         if(ticks==600){boat=new EntityBoat(mc.theWorld,mc.thePlayer.posX,mc.thePlayer.posY-.3,mc.thePlayer.posZ);mc.theWorld.spawnEntityInWorld(boat);mc.thePlayer.mountEntity(boat);}
         if(ticks>=610&&ticks<=622&&(ticks-610)%4==0)photo("ride-"+((ticks-610)/4));
         stages();
-        if(ticks==850){done=true;System.out.println("MOVE_VERIFY_DONE");}
+        if(ticks==975){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
     @SubscribeEvent public void frame(TickEvent.RenderTickEvent event){
