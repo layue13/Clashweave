@@ -87,12 +87,11 @@ public final class MoveVerifyReplay {
         if(ticks>755&&ticks<790){walkDummy(.15);dummy.capabilities.isFlying=true;}
         if(ticks>=768&&ticks<=780&&(ticks-768)%4==0)photo("fly-"+((ticks-768)/4));
         if(ticks==790)clearStage();
-        if(ticks==795){dummy=mannequin(x,y+.1,z);flag(net.minecraft.entity.player.EntityPlayer.class,"sleeping",true);
+        if(ticks==795){dummy=mannequin(x,y+.1,z);
             // A real bed under it, so the body is laid down by the bed's own orientation.
             int bx=(int)Math.floor(dummy.posX),by=(int)Math.floor(y),bz=(int)Math.floor(dummy.posZ);
             mc.theWorld.setBlock(bx,by,bz,net.minecraft.init.Blocks.bed,0,2);mc.theWorld.setBlock(bx,by,bz+1,net.minecraft.init.Blocks.bed,8,2);
-            dummy.playerLocation=new net.minecraft.util.ChunkCoordinates(bx,by,bz);bed=new int[]{bx,by,bz};
-            dummy.setPosition(bx+.5,by+.5625,bz+1);}
+            dummy.sleepInBedAt(bx,by,bz+1);bed=new int[]{bx,by,bz};}
         if(ticks>=810&&ticks<=814&&(ticks-810)%4==0)photo("sleep-"+((ticks-810)/4));
         if(ticks==830){clearStage();if(bed!=null){mc.theWorld.setBlockToAir(bed[0],bed[1],bed[2]);mc.theWorld.setBlockToAir(bed[0],bed[1],bed[2]+1);bed=null;}}
         // Arms owned by something else while the legs walk: a punch, a drawn bow, a meal.
@@ -143,6 +142,52 @@ public final class MoveVerifyReplay {
         if(ticks==300){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
+    /** Real input in the player's own eyes: sheathed, drawing, ready stance, walking, sprinting, sneaking, jumping, looking up and down, then an empty hand. */
+    private void firstPerson(){
+        mc.renderViewEntity=mc.thePlayer;mc.gameSettings.thirdPersonView=0;mc.gameSettings.hideGUI=false;
+        mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;
+        boolean down=ticks>=340&&ticks<352,up=ticks>=360&&ticks<372;
+        mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=down?60:up?-60:0;
+        if(ticks==100)mc.thePlayer.inventory.currentItem=0;
+        if(ticks==160)ClientProxy.instance.send(com.layue13.clashweave.core.Intent.LIGHT,-1);
+        key(mc.gameSettings.keyBindForward,(ticks>=120&&ticks<150)||(ticks>=190&&ticks<310));
+        key(mc.gameSettings.keyBindSprint,ticks>=245&&ticks<275);
+        key(mc.gameSettings.keyBindSneak,ticks>=280&&ticks<310);
+        key(mc.gameSettings.keyBindJump,ticks>=315&&ticks<320);
+        if(ticks==380)mc.thePlayer.inventory.currentItem=1;
+        if(ticks>=110&&ticks<=112)photo("fp-sheathed-idle-"+(ticks-110));
+        if(ticks>=130&&ticks<=142&&(ticks-130)%6==0)photo("fp-sheathed-walk-"+((ticks-130)/6));
+        if(ticks>=163&&ticks<=181&&(ticks-163)%3==0)photo("fp-draw-"+((ticks-163)/3));
+        if(ticks>=186&&ticks<=188)photo("fp-stance-"+(ticks-186));
+        if(ticks>=200&&ticks<=236&&(ticks-200)%6==0)photo("fp-walk-"+((ticks-200)/6));
+        if(ticks>=250&&ticks<=272&&(ticks-250)%6==0)photo("fp-sprint-"+((ticks-250)/6));
+        if(ticks>=285&&ticks<=306&&(ticks-285)%6==0)photo("fp-sneak-"+((ticks-285)/6));
+        if(ticks>=316&&ticks<=334&&(ticks-316)%6==0)photo("fp-jump-"+((ticks-316)/6));
+        if(ticks==346||ticks==347)photo("fp-down-"+(ticks-346));
+        if(ticks==366||ticks==367)photo("fp-up-"+(ticks-366));
+        if(ticks>=398&&ticks<=400)photo("fp-empty-"+(ticks-398));
+        if(ticks==410){done=true;System.out.println("MOVE_VERIFY_DONE");}
+    }
+
+    /** Photographs the other real player (P0B, put to bed by the server) from five yaws around the bed. */
+    private void sleepReal(){
+        net.minecraft.entity.Entity other=null;
+        for(Object o:mc.theWorld.loadedEntityList)if(o instanceof EntityOtherPlayerMP&&((EntityOtherPlayerMP)o).getCommandSenderName().equals("P0B"))other=(net.minecraft.entity.Entity)o;
+        if(other==null)return;
+        if(camera==null){camera=new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Photo"));camera.setInvisible(true);}
+        mc.renderViewEntity=camera;
+        float[] yaws={0,45,90,135,180};
+        int phase=(ticks-110)/20;
+        if(phase>=0&&phase<5){
+            camera.setPosition(other.posX,other.boundingBox.minY,other.posZ);
+            camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
+            camera.rotationYaw=camera.prevRotationYaw=yaws[phase];camera.rotationPitch=camera.prevRotationPitch=20;
+            mc.gameSettings.thirdPersonView=1;
+            if((ticks-110)%20==10)photo("sleepreal-"+(int)yaws[phase]+"-sleeping"+((EntityOtherPlayerMP)other).isPlayerSleeping());
+        }
+        if(ticks>=215){done=true;System.out.println("MOVE_VERIFY_DONE");}
+    }
+
     /** Photographs whichever server-driven monster is nearest as they walk at P0A; the orbit camera follows it. */
     private void walkers(){
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
@@ -156,6 +201,7 @@ public final class MoveVerifyReplay {
             if(d>(System.getProperty("cw.b4.pick","").isEmpty()?16:2)&&d<bestD){bestD=d;best=l;}
         }
         mob=best;
+        if(ticks%40==0)for(Object o:mc.theWorld.loadedEntityList)if(o instanceof net.minecraft.entity.monster.EntityEnderman){net.minecraft.entity.monster.EntityEnderman en=(net.minecraft.entity.monster.EntityEnderman)o;System.out.println("MOVE_ENDERMAN tick="+ticks+" pos="+en.posX+","+en.posY+","+en.posZ+" distSq="+en.getDistanceSqToEntity(mc.thePlayer)+" dead="+en.isDead);}
         if(mob!=null)camera();
         int local=ticks-120;
         if(mob!=null&&local>=0&&local<=360&&local%12==0)photo("walker-"+(local/12)+"-"+mob.getClass().getSimpleName());
@@ -165,6 +211,7 @@ public final class MoveVerifyReplay {
     private static final String[] SCENES=System.getProperty("cw.b2.scenes","zombie,skeleton,pigman,armored,bow,child,water,chickenjockey,spiderjockey,modded,zvillager,armoredfull,skelarmor,enderman,endercarry").split(",");
     private int[] bed;
     private net.minecraft.entity.Entity mobMount;
+    private final java.util.List<net.minecraft.entity.Entity> packMates=new java.util.ArrayList<net.minecraft.entity.Entity>();
     private net.minecraft.client.renderer.entity.Render savedRender;
 
     /** A model a mod might ship: its own class extending the vanilla one, which must keep its own posing. */
@@ -174,15 +221,25 @@ public final class MoveVerifyReplay {
         net.minecraft.world.World w=mc.theWorld;
         net.minecraft.entity.EntityLiving e;
         if(scene.equals("skeleton")||scene.equals("bow")||scene.equals("spiderjockey")||scene.equals("skelarmor"))e=new net.minecraft.entity.monster.EntitySkeleton(w);
-        else if(scene.equals("pigman"))e=new net.minecraft.entity.monster.EntityPigZombie(w);
-        else if(scene.equals("enderman")||scene.equals("endercarry"))e=new net.minecraft.entity.monster.EntityEnderman(w);
+        else if(scene.equals("pigman")||scene.equals("pigaxe"))e=new net.minecraft.entity.monster.EntityPigZombie(w);
+        else if(scene.equals("enderman")||scene.equals("endercarry")||scene.equals("enderscream"))e=new net.minecraft.entity.monster.EntityEnderman(w);
         else e=new net.minecraft.entity.monster.EntityZombie(w);
         e.setPosition(x,y,z);e.rotationYaw=e.prevRotationYaw=0;e.renderYawOffset=e.prevRenderYawOffset=0;e.rotationYawHead=e.prevRotationYawHead=0;
         if(scene.equals("armored")){e.setCurrentItemOrArmor(4,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_helmet));e.setCurrentItemOrArmor(3,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_chestplate));e.setCurrentItemOrArmor(1,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_boots));}
         if(scene.equals("armoredfull")||scene.equals("skelarmor")){
             e.setCurrentItemOrArmor(4,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_helmet));e.setCurrentItemOrArmor(3,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_chestplate));
             e.setCurrentItemOrArmor(2,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_leggings));e.setCurrentItemOrArmor(1,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_boots));}
+        if(scene.equals("leather")||scene.equals("gold")||scene.equals("chain")){
+            net.minecraft.item.Item[] set=scene.equals("leather")?new net.minecraft.item.Item[]{net.minecraft.init.Items.leather_boots,net.minecraft.init.Items.leather_leggings,net.minecraft.init.Items.leather_chestplate,net.minecraft.init.Items.leather_helmet}
+                :scene.equals("gold")?new net.minecraft.item.Item[]{net.minecraft.init.Items.golden_boots,net.minecraft.init.Items.golden_leggings,net.minecraft.init.Items.golden_chestplate,net.minecraft.init.Items.golden_helmet}
+                :new net.minecraft.item.Item[]{net.minecraft.init.Items.chainmail_boots,net.minecraft.init.Items.chainmail_leggings,net.minecraft.init.Items.chainmail_chestplate,net.minecraft.init.Items.chainmail_helmet};
+            for(int slot=1;slot<=4;slot++)e.setCurrentItemOrArmor(slot,new net.minecraft.item.ItemStack(set[slot-1]));}
+        if(scene.equals("pigaxe"))e.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_axe));
+        if(scene.equals("hurt")){e.hurtTime=e.maxHurtTime=10;}
+        if(scene.equals("dying")){e.setHealth(0);}
+        if(scene.equals("pack"))for(int i=0;i<3;i++){net.minecraft.entity.monster.EntityZombie mate=new net.minecraft.entity.monster.EntityZombie(w);mate.setPosition(x+(i==0?.55:i==1?-.5:.1),y,z+(i==0?.3:i==1?-.4:.7));mc.theWorld.spawnEntityInWorld(mate);packMates.add(mate);}
         if(scene.equals("zvillager")&&e instanceof net.minecraft.entity.monster.EntityZombie)((net.minecraft.entity.monster.EntityZombie)e).setVillager(true);
+        if(scene.equals("enderscream"))e.getDataWatcher().updateObject(18,(byte)1);
         if(scene.equals("endercarry"))((net.minecraft.entity.monster.EntityEnderman)e).func_146081_a(net.minecraft.init.Blocks.dirt);
         if(scene.equals("bow"))e.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.bow));
         if(scene.equals("pigman"))e.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.golden_sword));
@@ -232,12 +289,15 @@ public final class MoveVerifyReplay {
             step(mob,mobMount==null?.13:0);
             if(mobMount!=null)step(mobMount,.13);
             if(scene.equals("water"))setFlag(mob,"inWater",true);
+            if(scene.equals("hurt"))mob.hurtTime=6;
+            if(scene.equals("dying")){mob.setHealth(0);mob.deathTime=12;}
         }
         camera();
         if(local>=30&&local<=66&&(local-30)%6==0)photo("mob-"+scene+"-"+((local-30)/6));
         if(local==75){
             if(mob!=null){mc.theWorld.removeEntity(mob);mob=null;}
             if(mobMount!=null){mc.theWorld.removeEntity(mobMount);mobMount=null;}
+            for(net.minecraft.entity.Entity mate:packMates)mc.theWorld.removeEntity(mate);packMates.clear();
             if(scene.equals("modded")&&savedRender!=null)net.minecraft.client.renderer.entity.RenderManager.instance.entityRenderMap.put(net.minecraft.entity.monster.EntityZombie.class,savedRender);
         }
     }
@@ -253,6 +313,8 @@ public final class MoveVerifyReplay {
         if(mode.equals("stance")){stanceWalk();return;}
         if(mode.equals("mobs")){mobs();return;}
         if(mode.equals("walkers")){walkers();return;}
+        if(mode.equals("firstperson")){firstPerson();return;}
+        if(mode.equals("sleepreal")){sleepReal();return;}
         if(ticks==100)mc.thePlayer.inventory.currentItem=1;
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         camera();
