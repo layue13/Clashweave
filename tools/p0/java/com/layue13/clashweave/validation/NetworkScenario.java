@@ -319,6 +319,9 @@ public final class NetworkScenario {
     private long chaseBusy;
 
     /** P1-b: puts the still zombie (full health) back in front of P0A whenever the chain is over and everything is quiet. */
+    private boolean judgeKilled;
+    private int judgeCastTick = -1;
+
     private void chaseTarget() {
         EntityPlayerMP a = null;
         for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList)
@@ -337,6 +340,14 @@ public final class NetworkScenario {
         EntityZombie zombie = null;
         for (Object e : a.worldObj.loadedEntityList) if (e instanceof EntityZombie) { zombie = (EntityZombie) e; break; }
         if (zombie == null) return;
+        if (Boolean.getBoolean("cw.p2.judgeKill") && !judgeKilled) {
+            // The caster dies 20 ticks into a judgement cut that holds the zombie: nothing may land and the zombie is released.
+            Scheduler.Instance cast = Clashweave.server.state(a).scheduler.current();
+            if (cast != null && cast.definition.id.endsWith(":judgement") && bothTicks > 0 && cast.definition.release > 20) {
+                if (judgeCastTick < 0) judgeCastTick = bothTicks;
+                if (bothTicks - judgeCastTick >= 20) { judgeKilled = true; a.attackEntityFrom(net.minecraft.util.DamageSource.outOfWorld, 1000f); System.out.println("JUDGE_KILL tick=" + bothTicks); }
+            }
+        }
         if (Boolean.getBoolean("cw.p1b.noAttack")) { zombie.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(0); zombie.setAttackTarget(null); zombie.tasks.taskEntries.clear(); zombie.targetTasks.taskEntries.clear(); }
         try { java.lang.reflect.Field fire = net.minecraft.entity.Entity.class.getDeclaredField("isImmuneToFire"); fire.setAccessible(true); fire.setBoolean(zombie, true); zombie.extinguish(); } catch (Exception e) { /* daylight burning stays */ }
         if (Clashweave.server.state(a).scheduler.current() != null || !zombie.onGround) chaseBusy = bothTicks;

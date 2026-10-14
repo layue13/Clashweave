@@ -29,8 +29,15 @@ public final class SpecialReplay {
         if(!action.isEmpty()){idle=0;return;}
         if(++idle<50)return;
         idle=0;
+        if(phase==0&&Boolean.getBoolean("cw.p2.judgeKill")){System.out.println("SPECIAL_LIGHT");p.send(Intent.LIGHT,-1);phase=2;return;}  // blade out first: the long cast is the one that can be cut short
         if(phase==0){System.out.println("SPECIAL_SEND n=0 sheathed="+own.state.sheathed);p.send(Intent.SPECIAL,-1);phase=1;return;}
         if(phase==1){System.out.println("SPECIAL_LIGHT");p.send(Intent.LIGHT,-1);phase=2;return;}
+        if(Boolean.getBoolean("cw.p2.judgeKill")){
+            // the server kills the caster mid-cast: one cast, then give the aftermath time to show in the trace
+            if(phase==2){System.out.println("SPECIAL_SEND kill-run");p.send(Intent.SPECIAL,-1);phase=9;wait=0;return;}
+            if(phase==9&&++wait>=4){done=true;System.out.println("SPECIAL_COMPLETE");mc.shutdown();}
+            return;
+        }
         if(phase==2){System.out.println("SPECIAL_SEND n=1");p.send(Intent.SPECIAL,-1);phase=3;wait=0;return;}
         if(phase==3){System.out.println("SPECIAL_SEND n=2 (cooldown)");p.send(Intent.SPECIAL,-1);phase=4;wait=0;return;}
         if(phase==4){
