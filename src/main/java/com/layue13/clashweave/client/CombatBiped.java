@@ -81,6 +81,7 @@ final class CombatBiped extends ModelBiped {
         // Skin colour on the faces that meet at the elbow, from the rows either side of the cut on the arm's front.
         cap(upper, true, 46, 25.5f);
         cap(lower, false, 46, 28.5f);
+        shiftEnd(lower, ELBOW + 2);
         upper.addChild(joint(left, 40, 16 + ELBOW, left ? -1 : -3, ELBOW, 46, 25.5f));
         return upper;
     }
@@ -117,6 +118,27 @@ final class CombatBiped extends ModelBiped {
     }
 
     static void cap(ModelRenderer part, boolean bottom, float u, float v) {
+        for (net.minecraft.client.model.TexturedQuad quad : edgeQuads(part, bottom))
+            for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions) {
+                vertex.texturePositionX = u / 64f;
+                vertex.texturePositionY = v / 32f;
+            }
+    }
+
+    /**
+     * The end face of a lower segment samples the skin as if the segment started at the limb's top: move it back by
+     * the height of the part above so the palm and the sole show their own pixels (Mo' Bends does the same with
+     * offsetTextureQuad(BOTTOM, 0, -cut)).
+     */
+    static void shiftEnd(ModelRenderer part, float rows) {
+        for (net.minecraft.client.model.TexturedQuad quad : edgeQuads(part, true))
+            for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions)
+                vertex.texturePositionY -= rows / 32f;
+    }
+
+    private static java.util.List<net.minecraft.client.model.TexturedQuad> edgeQuads(ModelRenderer part,
+        boolean bottom) {
+        java.util.List<net.minecraft.client.model.TexturedQuad> found = new java.util.ArrayList<>();
         for (Object cube : part.cubeList) {
             net.minecraft.client.model.ModelBox box = (net.minecraft.client.model.ModelBox) cube;
             net.minecraft.client.model.TexturedQuad[] quads = null;
@@ -136,13 +158,10 @@ final class CombatBiped extends ModelBiped {
                 boolean onEdge = true;
                 for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions)
                     if (Math.abs(vertex.vector3D.yCoord - edge) > .05f) onEdge = false;
-                if (!onEdge) continue;
-                for (net.minecraft.client.model.PositionTextureVertex vertex : quad.vertexPositions) {
-                    vertex.texturePositionX = u / 64f;
-                    vertex.texturePositionY = v / 32f;
-                }
+                if (onEdge) found.add(quad);
             }
         }
+        return found;
     }
 
     private ModelRenderer leg(boolean left) {
@@ -157,6 +176,7 @@ final class CombatBiped extends ModelBiped {
         upper.addChild(lower);
         cap(upper, true, 6, 24.5f);
         cap(lower, false, 6, 27.5f);
+        shiftEnd(lower, KNEE);
         upper.addChild(joint(left, 0, 16 + KNEE - 4 + 2, -2, KNEE, 6, 25.5f));
         return upper;
     }
