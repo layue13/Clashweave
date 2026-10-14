@@ -26,6 +26,7 @@ parser.add_argument('--camera-probe', action='store_true')
 parser.add_argument('--camera-suite', choices=['real','motion','sprint','compare','audit'])
 parser.add_argument('--snapshot-coremod', action='store_true')
 parser.add_argument('--souls', action='store_true')
+parser.add_argument('--first-person', action='store_true', help='C2a-2: with --pose-verify, photograph from the player own eyes')
 parser.add_argument('--souls-view', action='store_true')
 parser.add_argument('--edge-boundary', action='store_true')
 parser.add_argument('--art-verify', action='store_true')
@@ -133,7 +134,7 @@ def spawn(role):
         command += ['-Dcw.p0.viewTest=true']
     if args.edge_boundary: command += ['-Dcw.p0.edgeBoundary=true']
     if args.art_verify: command += ['-Dcw.p0.artVerify=true']
-    if args.pose_verify is not None: command += ['-Dcw.c2a.poseVerify='+str(args.pose_verify)]
+    if args.pose_verify is not None: command += ['-Dcw.c2a.poseVerify='+str(args.pose_verify)] + (['-Dcw.c2a.first=true'] if args.first_person else [])
     if args.armor: command += ['-Dcw.c2b.armor='+args.armor]
     command += list(args.jvm_arg)
     if args.move_verify is not None: command += ['-Dcw.b2.moveVerify='+str(args.move_verify),'-Dcw.b2.moveMode='+args.move_mode] + (['-Dcw.b4.walkers=true'] if args.move_mode == 'walkers' else [])

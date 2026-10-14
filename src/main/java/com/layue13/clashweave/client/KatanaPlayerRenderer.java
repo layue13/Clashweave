@@ -11,6 +11,8 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
     /** The two armor models RenderPlayer draws vanilla armor with: the plain ModelBiped's, but posed like the skin. */
     private final CombatBiped armorChest = new CombatBiped(1.0F);
     private final CombatBiped armorLegs = new CombatBiped(0.5F);
+    /** The observer's own arms, posed like the third-person body but drawn from the eye. */
+    final CombatBiped hands = new CombatBiped(0.0F);
     private float observedBody;
     private float renderedBody;
 
@@ -30,14 +32,14 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
      * Once per entity and frame: the body rig, and what the locomotion layer reads. The three models (skin and the two
      * armor layers) share the result, so the chase is stepped by whichever of them is posed first.
      */
-    private void body(net.minecraft.entity.player.EntityPlayer player, ClientProxy.Visual visual, float limb,
-        float amount, float age, float headYaw, float pitch) {
+    private void body(CombatBiped skin, net.minecraft.entity.player.EntityPlayer player, ClientProxy.Visual visual,
+        float limb, float amount, float age, float headYaw, float pitch) {
         long now = System.nanoTime();
         long period = ClientProxy.instance.tickPeriod();
         com.layue13.clashweave.client.body.BodyRig rig = visual != null ? visual.rig
             : BodyRigs.of(player.getEntityId(), now);
         if (rig.beginFrame(now)) rig.observeGround(player.onGround, now, period);
-        com.layue13.clashweave.client.body.LocomotionInputs in = biped.inputs;
+        com.layue13.clashweave.client.body.LocomotionInputs in = skin.inputs;
         in.limbSwing = limb;
         in.limbSwingAmount = amount;
         in.age = age;
@@ -62,12 +64,59 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
                     : player.isInWater() ? com.layue13.clashweave.client.body.LocomotionInputs.SWIM
                         : com.layue13.clashweave.client.body.LocomotionInputs.GROUND;
         // Sleeping is not animated yet: vanilla's pose stands in for them.
-        biped.locomotion = !player.isPlayerSleeping();
+        skin.locomotion = !player.isPlayerSleeping();
+        skin.rig = rig;
+        if (skin != biped) {
+            skin.frameNanos = now;
+            skin.tickPeriod = period;
+            return;
+        }
         biped.rig = armorChest.rig = armorLegs.rig = rig;
         biped.frameNanos = armorChest.frameNanos = armorLegs.frameNanos = now;
         biped.tickPeriod = armorChest.tickPeriod = armorLegs.tickPeriod = period;
-        armorChest.locomotion = armorLegs.locomotion = biped.locomotion;
+        armorChest.locomotion = armorLegs.locomotion = skin.locomotion;
         armorChest.inputs.limbSwing = armorLegs.inputs.limbSwing = limb;
+    }
+
+    /** Largest angle between where the camera looks and where the body faces that the arms follow, degrees. */
+    private static final float MAX_BODY_TURN = 45;
+
+    /**
+     * Poses {@link #hands} for the observer and leaves the modelview matrix where the model's origin is, ready for
+     * {@code hands.bipedRightArm.render}. The caller pushes and pops the matrix. The body stays world-fixed: the camera
+     * pitch and its turn away from the body's facing are applied, so the arms sit where the body has them.
+     */
+    void placeHands(net.minecraft.client.entity.EntityClientPlayerMP player, ClientProxy.Visual visual, float partial) {
+        PoseDriver driver = PoseDriver.INSTANCE;
+        driver.prepare(player, visual);
+        float amount = player.prevLimbSwingAmount + (player.limbSwingAmount - player.prevLimbSwingAmount) * partial;
+        float limb = player.limbSwing - player.limbSwingAmount * (1 - partial);
+        float age = player.ticksExisted + partial;
+        float pitch = player.prevRotationPitch + (player.rotationPitch - player.prevRotationPitch) * partial;
+        float yaw = player.prevRotationYaw + (player.rotationYaw - player.prevRotationYaw) * partial;
+        float body = visual != null && visual.state.instance != 0 ? visual.state.yaw
+            : player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * partial;
+        float turn = net.minecraft.util.MathHelper.wrapAngleTo180_float(yaw - body);
+        turn = Math.max(-MAX_BODY_TURN, Math.min(MAX_BODY_TURN, turn));
+        hands.pose = driver.pose;
+        hands.weight = driver.weight;
+        hands.stanceOnly = driver.stance;
+        hands.rigidArms = false;
+        hands.rigidLegs = false;
+        hands.onGround = player.getSwingProgress(partial);
+        hands.isSneak = player.isSneaking();
+        hands.isRiding = player.isRiding();
+        hands.isChild = false;
+        hands.heldItemRight = 1;
+        hands.aimedBow = false;
+        body(hands, player, visual, limb, amount, age, 0, pitch);
+        hands.setRotationAngles(limb, amount, age, 0, pitch, 1 / 16f, player);
+        org.lwjgl.opengl.GL11.glRotatef(pitch, 1, 0, 0);
+        org.lwjgl.opengl.GL11.glRotatef(turn, 0, 1, 0);
+        org.lwjgl.opengl.GL11.glTranslatef(0, -1.62f, 0);
+        org.lwjgl.opengl.GL11.glScalef(.9375f, .9375f, .9375f);
+        org.lwjgl.opengl.GL11.glScalef(-1, -1, 1);
+        org.lwjgl.opengl.GL11.glTranslatef(0, -1.5078125f, 0);
     }
 
     private static ClientProxy.Visual visualOf(EntityLivingBase player) {
@@ -104,7 +153,7 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
             biped.pose = armorChest.pose = armorLegs.pose = driver.pose;
             biped.weight = armorChest.weight = armorLegs.weight = driver.weight;
             biped.stanceOnly = armorChest.stanceOnly = armorLegs.stanceOnly = driver.stance;
-            body(worn, visualOf(player), limb, amount, age, headYaw, pitch);
+            body(biped, worn, visualOf(player), limb, amount, age, headYaw, pitch);
         } else {
             biped.weight = armorChest.weight = armorLegs.weight = 0;
             biped.rig = armorChest.rig = armorLegs.rig = null;

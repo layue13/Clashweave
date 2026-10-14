@@ -62,6 +62,34 @@ public final class WeaponRendering {
         (drawn ? render.stowedEmpty : render.stowed).renderAll();
     }
 
+    /** The blade in the hand: baked pose when the body is taken over, otherwise attached to the right arm. */
+    private void blade(PresentationAssets.Render render, ModelBiped model, ClientProxy.Visual visual, boolean posed,
+        PoseDriver driver, float partial) {
+        if (posed) {
+            // The blade follows the baked sword pose in body space, not the arm, so arm roll cannot turn it.
+            GL11.glPushMatrix();
+            com.layue13.clashweave.client.pose.LimbSolver.swordMatrix(driver.pose, swordMatrix);
+            matrixBuffer.clear();
+            matrixBuffer.put(swordMatrix)
+                .flip();
+            GL11.glMultMatrix(matrixBuffer);
+            GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
+            render.held.renderAll();
+            GL11.glPopMatrix();
+        } else {
+            GL11.glPushMatrix();
+            model.bipedRightArm.postRender(1 / 16f);
+            GL11.glTranslated(render.rightX, render.rightY, render.rightZ);
+            GL11.glRotated(-90, 1, 0, 0);
+            GL11.glRotated(swing(visual, partial), 0, 0, 1);
+            GL11.glRotated(90, 0, 1, 0);
+            GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
+            GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
+            render.held.renderAll();
+            GL11.glPopMatrix();
+        }
+    }
+
     @SubscribeEvent
     public void specialPre(RenderPlayerEvent.Specials.Pre event) {
         if (CombatWeapons.armed(event.entityPlayer.getHeldItem())) event.renderItem = false;
@@ -95,29 +123,7 @@ public final class WeaponRendering {
             sheath(render, drawn);
             GL11.glPopMatrix();
         }
-        if (drawn && posed) {
-            // The blade follows the baked sword pose in body space, not the arm, so arm roll cannot turn it.
-            GL11.glPushMatrix();
-            com.layue13.clashweave.client.pose.LimbSolver.swordMatrix(driver.pose, swordMatrix);
-            matrixBuffer.clear();
-            matrixBuffer.put(swordMatrix)
-                .flip();
-            GL11.glMultMatrix(matrixBuffer);
-            GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
-            render.held.renderAll();
-            GL11.glPopMatrix();
-        } else if (drawn) {
-            GL11.glPushMatrix();
-            event.renderer.modelBipedMain.bipedRightArm.postRender(1 / 16f);
-            GL11.glTranslated(render.rightX, render.rightY, render.rightZ);
-            GL11.glRotated(-90, 1, 0, 0);
-            GL11.glRotated(swing(visual, event.partialRenderTick), 0, 0, 1);
-            GL11.glRotated(90, 0, 1, 0);
-            GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
-            GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
-            render.held.renderAll();
-            GL11.glPopMatrix();
-        }
+        if (drawn) blade(render, event.renderer.modelBipedMain, visual, posed, driver, event.partialRenderTick);
         GL11.glPopAttrib();
     }
 
@@ -129,6 +135,12 @@ public final class WeaponRendering {
         ClientProxy.Visual visual = ClientProxy.instance.own();
         if (!drawn(visual, event.partialTicks)) return;
         PresentationAssets.Render render = render(visual, minecraft.thePlayer.getHeldItem());
+        net.minecraft.client.renderer.entity.Render renderer = net.minecraft.client.renderer.entity.RenderManager.instance
+            .getEntityRenderObject(minecraft.thePlayer);
+        if (renderer instanceof KatanaPlayerRenderer) {
+            bothArms((KatanaPlayerRenderer) renderer, visual, render, event.partialTicks);
+            return;
+        }
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1, 1, 1, 1);
@@ -157,6 +169,37 @@ public final class WeaponRendering {
             .bindTexture(render.texture);
         GL11.glTranslated(-render.gripX, -render.gripY, -render.gripZ);
         render.held.renderAll();
+        GL11.glPopMatrix();
+        GL11.glMatrixMode(GL11.GL_PROJECTION);
+        GL11.glPopMatrix();
+        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+        GL11.glPopAttrib();
+    }
+
+    /** First person: the observer's body arms, posed like the third-person body, with the blade as it is there. */
+    private void bothArms(KatanaPlayerRenderer renderer, ClientProxy.Visual visual, PresentationAssets.Render render,
+        float partial) {
+        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
+        GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
+        GL11.glColor4f(1, 1, 1, 1);
+        GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
+        GL11.glMatrixMode(GL11.GL_PROJECTION);
+        GL11.glPushMatrix();
+        GL11.glLoadIdentity();
+        org.lwjgl.util.glu.GLU.gluPerspective(70, (float) minecraft.displayWidth / minecraft.displayHeight, 0.05f, 128);
+        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+        GL11.glPushMatrix();
+        GL11.glLoadIdentity();
+        renderer.placeHands(minecraft.thePlayer, visual, partial);
+        PoseDriver driver = PoseDriver.INSTANCE;
+        boolean posed = driver.weight >= 0.5f;
+        minecraft.getTextureManager()
+            .bindTexture(minecraft.thePlayer.getLocationSkin());
+        renderer.hands.bipedRightArm.render(1 / 16f);
+        renderer.hands.bipedLeftArm.render(1 / 16f);
+        minecraft.getTextureManager()
+            .bindTexture(render.texture);
+        blade(render, renderer.hands, visual, posed, driver, partial);
         GL11.glPopMatrix();
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPopMatrix();
