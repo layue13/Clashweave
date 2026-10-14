@@ -40,14 +40,14 @@ public final class Locomotion {
         // Torso: twists against the hips, rocks twice a stride, leans into a run, folds forward on landing.
         float bodyY = -swing * (14 + 5 * run) * DEG * walk;
         float bodyX = ((1.5f + .8f * breathing) * (1 - walk) + (3 + 5 * (float) Math.cos(2 * cycle)) * walk) * DEG
-            + (14 * run + 8 * air + 18 * kneel) * DEG;
+            + (12 * run + 8 * air + 18 * kneel) * DEG;
         t[BODY_X] = bodyX;
         t[BODY_Y] = bodyY;
         t[BODY_Z] = -clamp(in.headYaw * .1f, -10, 10) * DEG * walk;
         // The head cancels what the chest does, so the eyes keep looking where the player looks.
         t[HEAD_X] = in.headPitch * DEG - bodyX;
         t[HEAD_Y] = in.headYaw * DEG - bodyY;
-        t[ROOT_Y] = (float) Math.cos(2 * cycle) * (.6f + .4f * run) * walk * (1 - air)
+        t[ROOT_Y] = (float) Math.cos(2 * cycle) * (.6f + .7f * run) * walk * (1 - air)
             + 2.5f * (float) Math.sin(kneel * Math.PI);
 
         // Legs: antiphase swing; the knee bends only while its leg swings forward.
@@ -59,11 +59,14 @@ public final class Locomotion {
         t[R_LEG_Z] = 2 * DEG;
         t[L_LEG_Z] = -2 * DEG;
         t[R_LEG_Y] = t[L_LEG_Y] = 0;
-        t[R_SHIN] = Math.max(0, rightSwing) * forward;
-        t[L_SHIN] = Math.max(0, leftSwing) * forward;
+        // A run kicks the heel up soon after toe-off, while the leg is still behind: its bend peaks a little earlier in
+        // the cycle than a walk's, and the planted knee gives a little under the weight.
+        float kick = (float) Math.sin(cycle + .6f), kickL = -kick;
+        t[R_SHIN] = lerp(Math.max(0, rightSwing) * forward, Math.max(0, kick) * 95 * DEG + 12 * DEG * run, run);
+        t[L_SHIN] = lerp(Math.max(0, leftSwing) * forward, Math.max(0, kickL) * 95 * DEG + 12 * DEG * run, run);
 
         if (!in.armsBusy) {
-            float armSwing = amount * 28.6f * (1 + .5f * run) * DEG;
+            float armSwing = amount * 28.6f * (1 + 1.1f * run) * DEG;
             float idle = breathing * 2.5f * DEG * (1 - walk);
             t[R_ARM_X] = -swing * armSwing + idle;
             t[L_ARM_X] = swing * armSwing - idle;
@@ -71,8 +74,9 @@ public final class Locomotion {
             t[R_ARM_Z] = (5 + 2 * sway * (1 - walk)) * DEG;
             t[L_ARM_Z] = -(5 + 2 * sway * (1 - walk)) * DEG;
             float rest = 8 * DEG;
-            t[R_FORE] = rest + (10 * (.5f + .5f * swing) * walk + 62 * run) * DEG;
-            t[L_FORE] = rest + (10 * (.5f - .5f * swing) * walk + 62 * run) * DEG;
+            // Running pumps the arms: the elbow stays near a right angle and closes further as the hand comes forward.
+            t[R_FORE] = rest + (10 * (.5f + .5f * swing) * walk + (68 + 22 * swing) * run) * DEG;
+            t[L_FORE] = rest + (10 * (.5f - .5f * swing) * walk + (68 - 22 * swing) * run) * DEG;
         }
 
         if (!in.onGround || kneel > 0) {
