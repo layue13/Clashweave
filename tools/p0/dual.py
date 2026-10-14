@@ -179,7 +179,7 @@ def spawn(role):
     if args.swarm: command += ['-Dcw.p2.swarm=true']
     if args.pvp: command += ['-Dcw.p2.pvp=true']
     if args.play: command += ['-Dcw.p2.play=true']
-    if args.finisher: command += ['-Dcw.p2.finisher=true','-Dcw.p1b.chase=true']
+    if args.finisher: command += ['-Dcw.p2.finisher=true','-Dcw.p1b.chase=true','-Dcw.p1b.noAttack=true']  # the zombie must not break the player first
     if args.special: command += ['-Dcw.p2.special=true','-Dcw.p1b.chase=true']
     if args.mode: command += ['-Dcw.p2.mode=true','-Dcw.p1b.chase=true','-Dcw.p2.modeTicks=500']
     if args.sa: command += ['-Dcw.p2.sa=true','-Dcw.p1b.chase=true']
