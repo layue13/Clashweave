@@ -80,6 +80,8 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
 
     /** Largest angle between where the camera looks and where the body faces that the arms follow, degrees. */
     private static final float MAX_BODY_TURN = 45;
+    /** How far the arms are raised into the frame of the first-person camera, blocks. */
+    private static final float FIRST_PERSON_LIFT = .22f;
 
     /**
      * Poses {@link #hands} for the observer and leaves the modelview matrix where the model's origin is, ready for
@@ -113,7 +115,8 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
         hands.setRotationAngles(limb, amount, age, 0, pitch, 1 / 16f, player);
         org.lwjgl.opengl.GL11.glRotatef(pitch, 1, 0, 0);
         org.lwjgl.opengl.GL11.glRotatef(turn, 0, 1, 0);
-        org.lwjgl.opengl.GL11.glTranslatef(0, -1.62f, 0);
+        // The eye is a little below where the body puts it so the arms and the blade rise into the frame.
+        org.lwjgl.opengl.GL11.glTranslatef(0, -(1.62f - FIRST_PERSON_LIFT), 0);
         org.lwjgl.opengl.GL11.glScalef(.9375f, .9375f, .9375f);
         org.lwjgl.opengl.GL11.glScalef(-1, -1, 1);
         org.lwjgl.opengl.GL11.glTranslatef(0, -1.5078125f, 0);

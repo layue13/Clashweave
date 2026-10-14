@@ -133,14 +133,17 @@ public final class WeaponRendering {
             || !CombatWeapons.armed(minecraft.thePlayer.getHeldItem())) return;
         event.setCanceled(true);
         ClientProxy.Visual visual = ClientProxy.instance.own();
-        if (!drawn(visual, event.partialTicks)) return;
+        // Like the vanilla hand, nothing is drawn with the interface hidden.
+        if (minecraft.gameSettings.hideGUI || minecraft.thePlayer.isPlayerSleeping()) return;
+        boolean drawn = drawn(visual, event.partialTicks);
         PresentationAssets.Render render = render(visual, minecraft.thePlayer.getHeldItem());
         net.minecraft.client.renderer.entity.Render renderer = net.minecraft.client.renderer.entity.RenderManager.instance
             .getEntityRenderObject(minecraft.thePlayer);
         if (renderer instanceof KatanaPlayerRenderer) {
-            bothArms((KatanaPlayerRenderer) renderer, visual, render, event.partialTicks);
+            bothArms((KatanaPlayerRenderer) renderer, visual, render, drawn, event.partialTicks);
             return;
         }
+        if (!drawn) return;
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1, 1, 1, 1);
@@ -178,7 +181,7 @@ public final class WeaponRendering {
 
     /** First person: the observer's body arms, posed like the third-person body, with the blade as it is there. */
     private void bothArms(KatanaPlayerRenderer renderer, ClientProxy.Visual visual, PresentationAssets.Render render,
-        float partial) {
+        boolean blade, float partial) {
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);
         GL11.glEnable(org.lwjgl.opengl.GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1, 1, 1, 1);
@@ -199,7 +202,7 @@ public final class WeaponRendering {
         renderer.hands.bipedLeftArm.render(1 / 16f);
         minecraft.getTextureManager()
             .bindTexture(render.texture);
-        blade(render, renderer.hands, visual, posed, driver, partial);
+        if (blade) blade(render, renderer.hands, visual, posed, driver, partial);
         GL11.glPopMatrix();
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPopMatrix();

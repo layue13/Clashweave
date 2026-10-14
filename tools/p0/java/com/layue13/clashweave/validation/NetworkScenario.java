@@ -53,6 +53,13 @@ public final class NetworkScenario {
             zombie.setHealth(Boolean.getBoolean("cw.p0.manual") ? 20 : 200);
             world.spawnEntityInWorld(zombie);
         }
+        if (!a && Boolean.getBoolean("cw.b6.sleep")) {
+            // A real bed, night, and the server puts P0B to sleep in it the way a player would.
+            world.setBlock(5, 64, -5, Blocks.bed, 0, 3);
+            world.setBlock(5, 64, -4, Blocks.bed, 8, 3);
+            world.setWorldTime(18000);
+            player.playerNetServerHandler.setPlayerLocation(5.5, 64, -5.5, 0, 0);
+        }
         if (a && Boolean.getBoolean("cw.b4.walkers")) {
             // Real server-driven monsters (their own AI and pathing) walking at the player; fire-proof so daylight leaves them be.
             net.minecraft.entity.EntityLiving[] walkers = { new EntityZombie(world), new net.minecraft.entity.monster.EntitySkeleton(world), new net.minecraft.entity.monster.EntityPigZombie(world), new net.minecraft.entity.monster.EntityEnderman(world) };
@@ -60,7 +67,7 @@ public final class NetworkScenario {
                 walkers[i].setPosition(-9 + 6 * i, 64, -16);
                 try { java.lang.reflect.Field fire = net.minecraft.entity.Entity.class.getDeclaredField("isImmuneToFire"); fire.setAccessible(true); fire.setBoolean(walkers[i], true); } catch (Exception e) { System.out.println("B4_FIRE_UNAVAILABLE " + e); }
                 walkers[i].setAttackTarget(player);
-                world.spawnEntityInWorld(walkers[i]);
+                System.out.println("B4_SPAWN " + walkers[i].getClass().getSimpleName() + " ok=" + world.spawnEntityInWorld(walkers[i]) + " pos=" + walkers[i].posX + "," + walkers[i].posY + "," + walkers[i].posZ);
             }
         }
         System.out.println("P0_NETWORK login=" + player.getCommandSenderName());
@@ -95,6 +102,17 @@ public final class NetworkScenario {
         if (!Boolean.getBoolean("cw.p0.network") || event.phase != TickEvent.Phase.END) return;
         if (MinecraftServer.getServer().getCurrentPlayerCount() < 2) return;
         bothTicks++;
+        if (Boolean.getBoolean("cw.b4.walkers") && bothTicks % 10 == 0) for (Object o : MinecraftServer.getServer().worldServers[0].loadedEntityList) if (o instanceof net.minecraft.entity.monster.EntityEnderman) {
+            net.minecraft.entity.monster.EntityEnderman en = (net.minecraft.entity.monster.EntityEnderman) o;
+            // Its own AI teleports it about (here it landed below the floor): bring it back and keep it after the player.
+            if (en.posY < 60 || en.getEntityToAttack() == null) { if (en.posY < 60) en.setPosition(9, 64, -16); for (Object q : MinecraftServer.getServer().getConfigurationManager().playerEntityList) if (((EntityPlayerMP) q).getCommandSenderName().equals("P0A")) en.setTarget((EntityPlayerMP) q); }
+            System.out.println("B4_ENDERMAN_SERVER tick=" + bothTicks + " pos=" + en.posX + "," + en.posY + "," + en.posZ + " dead=" + en.isDead + " target=" + en.getEntityToAttack());
+        }
+        if (Boolean.getBoolean("cw.b6.sleep") && (bothTicks == 40 || bothTicks == 60)) for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (p.getCommandSenderName().equals("P0B") && bothTicks == 40) p.playerNetServerHandler.setPlayerLocation(5.5, 64, -5.5, 0, 0);
+            else if (p.getCommandSenderName().equals("P0B")) System.out.println("B6_SLEEP result=" + p.sleepInBedAt(5, 64, -4) + " sleeping=" + p.isPlayerSleeping() + " pos=" + p.posX + "," + p.posY + "," + p.posZ);
+        }
         if(Boolean.getBoolean("cw.p0.correctionTest")) for(Object o:MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
             EntityPlayerMP p=(EntityPlayerMP)o;if(!p.getCommandSenderName().equals("P0A"))continue;
             if(bothTicks==100) {p.inventory.currentItem=1;p.playerNetServerHandler.setPlayerLocation(p.posX,p.posY,p.posZ,45,20);System.out.println("P0_CORRECTION unmarked yaw=45 pitch=20");}
