@@ -45,16 +45,18 @@ public final class MoveVerifyReplay {
         if(ticks==100)mc.thePlayer.inventory.currentItem=1;
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         camera();
-        // Timeline: 110-170 walk, 175-200 stand, 205-265 sprint, 275 jump, 300 stop.
-        key(mc.gameSettings.keyBindForward,(ticks>=110&&ticks<170)||(ticks>=205&&ticks<265));
+        // Timeline: 110-170 walk, 175-200 stand, 205-265 sprint, 275 jump, 300-370 sneak (walking from 310), 390 stop.
+        key(mc.gameSettings.keyBindForward,(ticks>=110&&ticks<170)||(ticks>=205&&ticks<265)||(ticks>=310&&ticks<370));
         key(mc.gameSettings.keyBindSprint,ticks>=205&&ticks<265);
+        key(mc.gameSettings.keyBindSneak,ticks>=300&&ticks<370);
         key(mc.gameSettings.keyBindJump,ticks>=275&&ticks<277);
         if(ticks==105)photo("idle-0");
         if(ticks==190)photo("idle-1");
         if(ticks>=125&&ticks<=149&&(ticks-125)%3==0)photo("walk-"+((ticks-125)/3));
         if(ticks>=220&&ticks<=240&&(ticks-220)%3==0)photo("sprint-"+((ticks-220)/3));
         if(ticks>=276&&ticks<=294&&(ticks-276)%2==0)photo("jump-"+((ticks-276)/2));
-        if(ticks==320){done=true;System.out.println("MOVE_VERIFY_DONE");}
+        if(ticks>=330&&ticks<=354&&(ticks-330)%3==0)photo("sneak-"+((ticks-330)/3));
+        if(ticks==390){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
     @SubscribeEvent public void frame(TickEvent.RenderTickEvent event){

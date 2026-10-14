@@ -116,16 +116,25 @@ public class LocomotionTest {
     }
 
     @Test
-    public void sneakingAndABusyArmAreLeftToVanilla() {
+    public void aBusyArmIsLeftToVanilla() {
         LocomotionInputs in = walking(2, .8f);
-        in.sneaking = true;
-        float[] t = compute(in);
-        for (float v : t) assertEquals(123f, v, 0);
-        in.sneaking = false;
         in.armsBusy = true;
-        t = compute(in);
+        float[] t = compute(in);
         assertEquals(123f, t[R_ARM_X], 0);
         assertEquals(123f, t[L_FORE], 0);
         assertNotEquals(123f, t[R_LEG_X], 0);
+    }
+
+    @Test
+    public void sneakingCrouchesWithBentKneesAndAForwardLean() {
+        LocomotionInputs in = walking(0, 0);
+        float[] stand = compute(in);
+        in.sneaking = true;
+        float[] t = compute(in);
+        assertTrue(t[BODY_X] > stand[BODY_X] + Math.toRadians(20));
+        assertTrue(t[R_SHIN] > Math.toRadians(30));
+        assertTrue(t[L_SHIN] > Math.toRadians(30));
+        assertTrue(t[R_LEG_X] < stand[R_LEG_X] - Math.toRadians(10));
+        assertEquals(in.headPitch * Math.PI / 180 - t[BODY_X], t[HEAD_X], 1e-5);
     }
 }
