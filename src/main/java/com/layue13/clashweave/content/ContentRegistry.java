@@ -442,7 +442,7 @@ public final class ContentRegistry {
             if (!style.has("entry") || !style.get("entry")
                 .isJsonObject()) return;
             JsonObject entry = style.getAsJsonObject("entry");
-            for (String state : Arrays.asList("sheathed", "ready")) {
+            for (String state : Arrays.asList("sheathed", "ready", "counter")) {
                 if (!entry.has(state) || !entry.get(state)
                     .isJsonObject()) continue;
                 JsonObject map = entry.getAsJsonObject(state);
@@ -681,8 +681,9 @@ public final class ContentRegistry {
         void entry(Record r, ContentPack.Style s, java.util.Set<String> members) {
             if (s.entry == null) return;
             if (s.entry.ready == null) return; // already reported as a missing field
-            for (String state : Arrays.asList("sheathed", "ready")) {
-                Map<Intent, String> map = state.equals("ready") ? s.entry.ready : s.entry.sheathed;
+            for (String state : Arrays.asList("sheathed", "ready", "counter")) {
+                Map<Intent, String> map = state.equals("ready") ? s.entry.ready
+                    : state.equals("counter") ? s.entry.counter : s.entry.sheathed;
                 if (map != null)
                     for (Map.Entry<Intent, String> e : map.entrySet()) if (!members.contains(e.getValue())) error(
                         r.source,

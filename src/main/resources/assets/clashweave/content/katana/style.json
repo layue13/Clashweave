@@ -15,12 +15,14 @@
         "katana:sheathe",
         "katana:launcher",
         "katana:air_light",
-        "katana:air_slam"
+        "katana:air_slam",
+        "katana:counter"
       ],
       "entry": {
         "sheathed": { "LIGHT": "katana:iai" },
         "ready": { "LIGHT": "katana:light_1", "HEAVY": "katana:heavy", "SHEATHE": "katana:sheathe" },
-        "entersReady": ["katana:iai", "katana:light_1", "katana:light_2", "katana:light_3", "katana:heavy", "katana:launcher", "katana:air_light", "katana:air_slam"],
+        "counter": { "LIGHT": "katana:counter" },
+        "entersReady": ["katana:iai", "katana:light_1", "katana:light_2", "katana:light_3", "katana:heavy", "katana:launcher", "katana:air_light", "katana:air_slam", "katana:counter"],
         "entersSheathed": ["katana:sheathe"]
       }
     }

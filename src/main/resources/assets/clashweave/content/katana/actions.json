@@ -198,6 +198,28 @@
       "_comment": "P1-a provisional: upward elevation in degrees; lift is attacker velocity declaration only; LAUNCH vy blocks/tick. P1-b provisional: the follow-ups below are limited by the target's shared control budget and by chainDecay."
     },
     {
+      "id": "katana:counter",
+      "startup": 3,
+      "active": 2,
+      "recovery": 8,
+      "damage": 4,
+      "posture": 30,
+      "reach": 2.5,
+      "arc": 100,
+      "distance": 0.3,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "katana:light_2",
+          "from": 5,
+          "until": 9,
+          "hit": true
+        }
+      ],
+      "_comment": "P2 provisional riposte: starts only inside the window after a precise guard; heavy posture damage."
+    },
+    {
       "id": "katana:air_light",
       "startup": 4,
       "active": 2,

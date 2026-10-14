@@ -122,6 +122,11 @@ def build_actions(actions):
     out["heavy"] = cut(FALL, 1, phis(d["heavy"]["arc"], 1, wind=-125),
                        [(0.14, 0.14, 1.64), (0.12, 0.24, 1.56), (-0.08, 0.44, 1.02), (-0.10, 0.46, 0.98),
                         (0.00, 0.40, 1.04)], (-10, -6, 12, 16, 4), 0.36, s, a, r, lean=(-10, -6, 22, 28, 10))
+    # counter: the riposte after a precise guard, a short quick cut from the guard across to the right (P2 provisional)
+    s, a, r = d["counter"]["startup"], d["counter"]["active"], d["counter"]["recovery"]
+    out["counter"] = cut(HORIZ, -1, phis(d["counter"]["arc"], -1, wind=70),
+                         [(-0.12, 0.30, 1.22), (-0.10, 0.38, 1.22), (0.14, 0.30, 1.20), (0.18, 0.28, 1.18),
+                          (0.04, 0.38, 1.12)], (16, 10, -16, -22, -6), 0.30, s, a, r)
     # air_light: a quick rising cut at an airborne target, the body leaning up into it (P1-b provisional)
     s, a, r = d["air_light"]["startup"], d["air_light"]["active"], d["air_light"]["recovery"]
     out["air_light"] = cut(RISE, 1, phis(d["air_light"]["arc"], 1, wind=-80),
