@@ -34,7 +34,7 @@ public final class SpecialReplay {
         if(phase==2){System.out.println("SPECIAL_SEND n=1");p.send(Intent.SPECIAL,-1);phase=3;wait=0;return;}
         if(phase==3){System.out.println("SPECIAL_SEND n=2 (cooldown)");p.send(Intent.SPECIAL,-1);phase=4;wait=0;return;}
         if(phase==4){
-            if(++wait<5)return;
+            if(++wait<8)return;  // 8 x 50 idle ticks passes the 300 tick cooldown
             System.out.println("SPECIAL_SEND n=3 (after cooldown)");p.send(Intent.SPECIAL,-1);phase=5;wait=0;return;
         }
         if(phase==5&&++wait>=2){done=true;System.out.println("SPECIAL_COMPLETE");mc.shutdown();}
