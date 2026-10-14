@@ -121,6 +121,25 @@ public final class MobBodies {
         }
     }
 
+    /**
+     * RenderZombie puts its own model back as mainModel in shouldRenderPass, between the draw and the hurt flash, so
+     * the flash would be drawn with the original, re-posed by vanilla and not matching the first pass (depth-equal).
+     * Its normal-zombie model lives in a ModelBiped field: pointing that at ours keeps ours in place. The villager
+     * model field is typed ModelZombieVillager and cannot hold it.
+     */
+    private static void keepOnZombieRenderer(RenderBiped renderer, MobBiped body) {
+        if (!(renderer instanceof net.minecraft.client.renderer.entity.RenderZombie)) return;
+        try {
+            for (Field field : net.minecraft.client.renderer.entity.RenderZombie.class.getDeclaredFields()) {
+                if (field.getType() != ModelBiped.class || Modifier.isStatic(field.getModifiers())) continue;
+                field.setAccessible(true);
+                if (field.get(renderer) == body.donor) field.set(renderer, body);
+            }
+        } catch (IllegalAccessException | RuntimeException e) {
+            // Left as it is: the flash is then drawn with the original model.
+        }
+    }
+
     /** The models this takes over: exactly these classes, never a subclass (a mod's own model keeps its own posing). */
     static boolean accepts(Class<?> type) {
         return type == ModelZombie.class || type == ModelSkeleton.class
@@ -232,6 +251,7 @@ public final class MobBodies {
         }
         body.engage();
         mainModel(renderer, body);
+        keepOnZombieRenderer(renderer, body);
         if (worn != null) {
             long now = System.nanoTime();
             com.layue13.clashweave.client.body.BodyRig rig = BodyRigs.of(event.entity.getEntityId(), now);
