@@ -7,6 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
@@ -15,6 +16,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.layue13.clashweave.core.ActionCatalog;
 import com.layue13.clashweave.core.AppearanceState;
+import com.layue13.clashweave.core.HitEffect;
 import com.layue13.clashweave.core.WeaponDefinition;
 
 /**
@@ -82,6 +84,7 @@ public final class EffectiveRules {
     private final Map<String, ActionCatalog> catalogs;
     private final Map<String, String> wire;
     private final Map<String, WeaponDefinition> weapons;
+    private final Map<WeaponDefinition, Map<String, List<HitEffect>>> attachments;
     private final Map<String, ContentPack.Resource> resources;
     private final Map<String, ContentPack.Animation> animations;
 
@@ -92,6 +95,7 @@ public final class EffectiveRules {
         Map<String, ActionCatalog> catalogIndex = new HashMap<>();
         Map<String, String> wireIndex = new HashMap<>();
         Map<String, WeaponDefinition> weaponIndex = new HashMap<>();
+        Map<WeaponDefinition, Map<String, List<HitEffect>>> attachmentIndex = new java.util.IdentityHashMap<>();
         Map<String, ContentPack.Resource> resourceIndex = new HashMap<>();
         Map<String, ContentPack.Animation> animationIndex = new HashMap<>();
         for (ContentPack pack : registry.packs()
@@ -124,22 +128,30 @@ public final class EffectiveRules {
             for (Map.Entry<String, ContentPack.Weapon> entry : pack.weapons()
                 .entrySet()) {
                 ContentPack.Weapon w = entry.getValue();
-                weaponIndex.put(
-                    entry.getKey(),
-                    new WeaponDefinition(
-                        w.style,
-                        w.style,
-                        w.damageMultiplier,
-                        w.poiseMultiplier,
-                        w.costMultiplier,
-                        w.saSlots,
-                        w.effectSlots,
-                        new AppearanceState(w.resource, DEFAULT_PRESENTATION_EFFECTS, w.animation)));
+                WeaponDefinition built = new WeaponDefinition(
+                    w.style,
+                    w.style,
+                    w.damageMultiplier,
+                    w.poiseMultiplier,
+                    w.costMultiplier,
+                    w.saSlots,
+                    w.effectSlots,
+                    new AppearanceState(w.resource, DEFAULT_PRESENTATION_EFFECTS, w.animation));
+                weaponIndex.put(entry.getKey(), built);
+                Map<String, List<HitEffect>> byAction = new HashMap<>();
+                for (String saId : w.saSlots) {
+                    ContentPack.Sa sa = registry.sa(saId);
+                    for (ContentPack.Attach attach : sa.attach)
+                        byAction.computeIfAbsent(attach.action, key -> new java.util.ArrayList<>())
+                            .addAll(attach.effects);
+                }
+                if (!byAction.isEmpty()) attachmentIndex.put(built, byAction);
             }
         }
         catalogs = Collections.unmodifiableMap(catalogIndex);
         wire = Collections.unmodifiableMap(wireIndex);
         weapons = Collections.unmodifiableMap(weaponIndex);
+        attachments = attachmentIndex;
         resources = Collections.unmodifiableMap(resourceIndex);
         animations = Collections.unmodifiableMap(animationIndex);
         effectiveHash = hash();
@@ -218,6 +230,13 @@ public final class EffectiveRules {
     /** The deterministic client payload for a style, built once. */
     public String wireJson(String styleId) {
         return wire.get(styleId);
+    }
+
+    /** The extra effects this weapon's equipped abilities attach to an action; shared, never changed, usually empty. */
+    public List<HitEffect> attached(WeaponDefinition weapon, String actionId) {
+        Map<String, List<HitEffect>> byAction = attachments.get(weapon);
+        List<HitEffect> list = byAction == null ? null : byAction.get(actionId);
+        return list == null ? Collections.<HitEffect>emptyList() : list;
     }
 
     public WeaponDefinition weapon(String weaponId) {

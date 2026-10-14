@@ -158,6 +158,7 @@ public final class CombatServer {
         this.rules = rules;
         effects = new HitEffects(config, presentation);
         posture = new PostureTracker(config, presentation, effects);
+        effects.sink(this::scheduleDelayed);
         resistance = new ResistanceOwnership(config.maxResistance);
     }
 
@@ -378,6 +379,7 @@ public final class CombatServer {
         resistance.clear();
         effects.clear();
         posture.clear();
+        delayed.clear();
         states.clear();
         pending.clear();
         synchronized (hellos) {
@@ -409,6 +411,7 @@ public final class CombatServer {
         }
         effects.tick(tick);
         posture.tick(tick);
+        runDelayed();
         // The same lock registers arrivals and cuts off inputs for a commit. No world work on Netty.
         long cutoff;
         List<Inbound> arrived;
@@ -971,8 +974,15 @@ public final class CombatServer {
         else if (guard == 1) posture.damage(contact.target, stance * config.postureBlockedShare, tick);
         else if (hit) posture.damage(contact.target, stance, tick);
         if (defender != null && hit) creditImpulse(defender);
-        double launchCredit = effects
-            .apply(contact.attacker.player, contact.target, contact.instance, tick, contact.frozen, hit, guard);
+        double launchCredit = effects.apply(
+            contact.attacker.player,
+            contact.target,
+            contact.instance,
+            tick,
+            contact.frozen,
+            hit,
+            guard,
+            rules.attached(contact.attacker.scheduler.weapon(), contact.instance.definition.id));
         if (defender != null && launchCredit > 0) {
             defender.launchCredit += launchCredit;
             defender.launchY = defender.player.posY;
@@ -1162,6 +1172,74 @@ public final class CombatServer {
      * the later hurt event could not prevent. The counter window opens and the semantic result is published here,
      * because a cancelled hurt event never reaches the presentation flush.
      */
+    private static final class Delayed {
+
+        EntityPlayerMP attacker;
+        EntityLivingBase target;
+        com.layue13.clashweave.core.HitEffect effect;
+        long due;
+        double x, y, z;
+    }
+
+    private final java.util.List<Delayed> delayed = new java.util.ArrayList<>();
+
+    /** An equipped ability asked for a second strike on this target: kept until it is due. */
+    private void scheduleDelayed(EntityPlayerMP attacker, EntityLivingBase target,
+        com.layue13.clashweave.core.HitEffect effect, long at) {
+        if (Boolean.getBoolean("cw.sa.off")) return;
+        Delayed strike = new Delayed();
+        strike.attacker = attacker;
+        strike.target = target;
+        strike.effect = effect;
+        strike.due = at + effect.delay;
+        strike.x = target.posX;
+        strike.y = target.posY;
+        strike.z = target.posZ;
+        delayed.add(strike);
+        trace(
+            "DELAYED_SCHEDULE attacker=" + attacker
+                .getCommandSenderName() + " target=" + target.getEntityId() + " due=" + strike.due);
+    }
+
+    private void runDelayed() {
+        if (delayed.isEmpty()) return;
+        for (java.util.Iterator<Delayed> it = delayed.iterator(); it.hasNext();) {
+            Delayed strike = it.next();
+            if (strike.due > tick) continue;
+            it.remove();
+            EntityPlayerMP attacker = strike.attacker;
+            EntityLivingBase target = strike.target;
+            PlayerState owner = state(attacker);
+            boolean valid = owner != null && !attacker.isDead
+                && attacker.getHealth() > 0
+                && armed(attacker)
+                && !target.isDead
+                && target.getHealth() > 0
+                && target.dimension == attacker.dimension
+                && target.getDistanceSq(strike.x, strike.y, strike.z) <= 16
+                && target.getDistanceSqToEntity(attacker) <= 36;
+            if (!valid) {
+                trace("DELAYED_DROPPED target=" + target.getEntityId() + " tick=" + tick);
+                continue;
+            }
+            PlayerState defender = target instanceof EntityPlayer ? state((EntityPlayer) target) : null;
+            int guard = defender == null ? 0
+                : defender.guard
+                    .defend(tick, System.nanoTime(), config.perfectWindow, facing(target, attacker, config.guardArc));
+            float damage = strike.effect.damage * (float) owner.scheduler.weapon().damageMultiplier
+                * (guard == 2 ? 0 : guard == 1 ? (float) config.blockDamage : 1);
+            boolean hit = damage > 0 && target.attackEntityFrom(new CombatSource(attacker), damage);
+            float stance = strike.effect.posture * (float) owner.scheduler.weapon().poiseMultiplier;
+            if (guard == 2) posture.damage(target, config.posturePrecise, tick);
+            else if (guard == 1) posture.damage(target, stance * config.postureBlockedShare, tick);
+            else if (hit) posture.damage(target, stance, tick);
+            presentation.delayed(target, tick);
+            trace(
+                "DELAYED_STRIKE target=" + target
+                    .getEntityId() + " tick=" + tick + " guard=" + guard + " damage=" + damage + " hit=" + hit);
+        }
+    }
+
     /** Whether the player is inside the protected span of an action that declares one (a step). */
     private boolean stepping(PlayerState state) {
         Scheduler.Instance current = state.scheduler.current();

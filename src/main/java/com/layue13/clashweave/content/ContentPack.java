@@ -9,6 +9,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.layue13.clashweave.core.ActionCatalog;
+import com.layue13.clashweave.core.HitEffect;
 
 /** Frozen pack data. Mutable core definitions and schema DTOs are returned as detached snapshots. */
 public final class ContentPack {
@@ -24,6 +25,19 @@ public final class ContentPack {
         public String id, style, resource, animation;
         public double damageMultiplier = 1, poiseMultiplier = 1, costMultiplier = 1;
         public List<String> saSlots = new ArrayList<>(), effectSlots = new ArrayList<>();
+    }
+
+    /** One piece of a weapon's special ability: extra effects attached to named actions of the base style. */
+    public static final class Sa {
+
+        public String id;
+        public List<Attach> attach = new ArrayList<>();
+    }
+
+    public static final class Attach {
+
+        public String action;
+        public List<HitEffect> effects = new ArrayList<>();
     }
 
     public static final class Style {
@@ -106,6 +120,10 @@ public final class ContentPack {
 
     public Map<String, Weapon> weapons() {
         return all("weapons", Weapon.class);
+    }
+
+    public Map<String, Sa> sas() {
+        return all("sas", Sa.class);
     }
 
     public Map<String, Style> styles() {

@@ -34,6 +34,18 @@ final class HitEffects {
     /** How long a slammed target is watched for its landing before the effect is dropped. */
     private static final int SLAM_WATCH_TICKS = 40;
 
+    /** Where a delayed strike is handed over; the combat server owns the queue and the settlement. */
+    interface DelayedSink {
+
+        void schedule(EntityPlayerMP attacker, EntityLivingBase target, HitEffect effect, long tick);
+    }
+
+    private DelayedSink sink = (attacker, target, effect, tick) -> {};
+
+    void sink(DelayedSink next) {
+        sink = next;
+    }
+
     private final Map<UUID, Target> targets = new HashMap<>();
     private final CombatConfig config;
     private final CombatPresentation presentation;
@@ -72,8 +84,8 @@ final class HitEffects {
     }
 
     double apply(EntityPlayerMP attacker, EntityLivingBase entity, Scheduler.Instance action, long tick, long frozen,
-        boolean hit, int guard) {
-        if (action.definition.effects.isEmpty()) return 0;
+        boolean hit, int guard, java.util.List<HitEffect> attached) {
+        if (action.definition.effects.isEmpty() && attached.isEmpty()) return 0;
         boolean alive = !entity.isDead && entity.getHealth() > 0;
         boolean exempt = exempt(entity);
         if (!HitEffect.allowed(hit, guard, alive, exempt)) {
@@ -81,7 +93,11 @@ final class HitEffects {
             return 0;
         }
         double[] credit = { 0 };
-        HitEffect.submit(action.definition.effects, hit, guard, alive, exempt, effect -> {
+        java.util.function.Consumer<HitEffect> run = effect -> {
+            if (effect.type == HitEffect.Type.DELAYED_SLASH) {
+                sink.schedule(attacker, entity, effect, tick);
+                return;
+            }
             if (effect.vy <= 0) return;
             Target target = target(entity);
             if (effect.type == HitEffect.Type.SLAM) {
@@ -142,7 +158,9 @@ final class HitEffects {
                     + entity.motionY
                     + " hp="
                     + entity.getHealth());
-        });
+        };
+        HitEffect.submit(action.definition.effects, hit, guard, alive, exempt, run);
+        if (!attached.isEmpty()) HitEffect.submit(attached, hit, guard, alive, exempt, run);
         return credit[0];
     }
 

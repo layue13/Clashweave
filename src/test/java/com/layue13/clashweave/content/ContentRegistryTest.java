@@ -31,7 +31,7 @@ public class ContentRegistryTest {
 
     private static final String ROOT = "/assets/clashweave/content/katana/";
     private static final String[] FILES = { "weapon.json", "style.json", "actions.json", "resources.json",
-        "animations.json" };
+        "animations.json", "sa.json" };
     private static final Gson GSON = new Gson();
 
     private static JsonObject read(String path) throws Exception {
@@ -545,6 +545,18 @@ public class ContentRegistryTest {
             JsonObject weapon = changed.getAsJsonArray("weapons")
                 .get(0)
                 .getAsJsonObject();
+            if (field.equals("saSlots")) {
+                String action = changed.getAsJsonArray("actions")
+                    .get(0)
+                    .getAsJsonObject()
+                    .get("id")
+                    .getAsString();
+                changed.add(
+                    "sas",
+                    new JsonParser().parse(
+                        "[{\"id\":\"test:reserved\",\"attach\":[{\"action\":\"" + action
+                            + "\",\"effects\":[{\"type\":\"LAUNCH\",\"vy\":0.2}]}]}]"));
+            }
             if (field.endsWith("Slots")) weapon.add(field, new JsonParser().parse("[\"test:reserved\"]"));
             else weapon.addProperty(field, 2);
             assertNotEquals(field, hash, spear(changed).manifest().gameplayHash);
