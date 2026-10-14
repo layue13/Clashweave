@@ -25,6 +25,92 @@ public final class Locomotion {
     }
 
     public static void compute(LocomotionInputs in, float[] t) {
+        if (in.mode == LocomotionInputs.SWIM) swim(in, t);
+        else if (in.mode == LocomotionInputs.RIDE) ride(in, t);
+        else if (in.mode == LocomotionInputs.CLIMB) climb(in, t);
+        else ground(in, t);
+    }
+
+    /** Torso pose with the head cancelling it so the eyes keep looking where the player looks. */
+    private static void torso(LocomotionInputs in, float[] t, float x, float y, float z) {
+        t[BODY_X] = x;
+        t[BODY_Y] = y;
+        t[BODY_Z] = z;
+        t[HEAD_X] = in.headPitch * DEG - x;
+        t[HEAD_Y] = in.headYaw * DEG - y;
+    }
+
+    /** Treading water: the legs flutter, the arms pull in alternation, the chest leans into the stroke. */
+    private static void swim(LocomotionInputs in, float[] t) {
+        float move = Math.min(1, in.limbSwingAmount * 3);
+        float p = in.age * (.14f + .3f * move);
+        float s = (float) Math.sin(p), c = (float) Math.cos(p);
+        torso(in, t, (10 + 22 * move) * DEG, -s * 6 * move * DEG, 0);
+        t[ROOT_Y] = (float) Math.sin(2 * p) * .5f;
+        float kick = (float) Math.sin(p * 2);
+        t[R_LEG_X] = kick * (18 + 14 * move) * DEG;
+        t[L_LEG_X] = -kick * (18 + 14 * move) * DEG;
+        t[R_LEG_Y] = t[L_LEG_Y] = 0;
+        t[R_LEG_Z] = 3 * DEG;
+        t[L_LEG_Z] = -3 * DEG;
+        t[R_SHIN] = (20 + Math.max(0, -kick) * 40) * DEG;
+        t[L_SHIN] = (20 + Math.max(0, kick) * 40) * DEG;
+        if (!in.armsBusy) {
+            t[R_ARM_X] = (-100 + 70 * s) * DEG;
+            t[L_ARM_X] = (-100 - 70 * s) * DEG;
+            t[R_ARM_Y] = t[L_ARM_Y] = 0;
+            t[R_ARM_Z] = (12 + 8 * c) * DEG;
+            t[L_ARM_Z] = -(12 - 8 * c) * DEG;
+            t[R_FORE] = (25 + 35 * Math.max(0, -s)) * DEG;
+            t[L_FORE] = (25 + 35 * Math.max(0, s)) * DEG;
+        }
+    }
+
+    /** Sitting: thighs forward, knees bent over the seat's edge, hands forward, back upright. */
+    private static void ride(LocomotionInputs in, float[] t) {
+        float breathing = (float) Math.sin(in.age * .067f);
+        torso(in, t, (3 + .8f * breathing) * DEG, 0, 0);
+        t[ROOT_Y] = 0;
+        t[R_LEG_X] = t[L_LEG_X] = -80 * DEG;
+        t[R_LEG_Y] = 12 * DEG;
+        t[L_LEG_Y] = -12 * DEG;
+        t[R_LEG_Z] = t[L_LEG_Z] = 0;
+        t[R_SHIN] = t[L_SHIN] = 50 * DEG;
+        if (!in.armsBusy) {
+            t[R_ARM_X] = t[L_ARM_X] = -35 * DEG;
+            t[R_ARM_Y] = -6 * DEG;
+            t[L_ARM_Y] = 6 * DEG;
+            t[R_ARM_Z] = 6 * DEG;
+            t[L_ARM_Z] = -6 * DEG;
+            t[R_FORE] = t[L_FORE] = 30 * DEG;
+        }
+    }
+
+    /** Ladder: hand over hand, one knee drawn up at a time. */
+    private static void climb(LocomotionInputs in, float[] t) {
+        float s = (float) Math.sin(in.climbPhase);
+        float up = .5f + .5f * s, down = .5f - .5f * s;
+        torso(in, t, 6 * DEG, 0, 0);
+        t[ROOT_Y] = 0;
+        t[R_LEG_X] = -(10 + 40 * up) * DEG;
+        t[L_LEG_X] = -(10 + 40 * down) * DEG;
+        t[R_LEG_Y] = t[L_LEG_Y] = 0;
+        t[R_LEG_Z] = 3 * DEG;
+        t[L_LEG_Z] = -3 * DEG;
+        t[R_SHIN] = (10 + 55 * up) * DEG;
+        t[L_SHIN] = (10 + 55 * down) * DEG;
+        if (!in.armsBusy) {
+            t[R_ARM_X] = -(95 + 50 * down) * DEG;
+            t[L_ARM_X] = -(95 + 50 * up) * DEG;
+            t[R_ARM_Y] = t[L_ARM_Y] = 0;
+            t[R_ARM_Z] = 10 * DEG;
+            t[L_ARM_Z] = -10 * DEG;
+            t[R_FORE] = (20 + 50 * up) * DEG;
+            t[L_FORE] = (20 + 50 * down) * DEG;
+        }
+    }
+
+    private static void ground(LocomotionInputs in, float[] t) {
         float amount = clamp(in.limbSwingAmount, 0, 1);
         float walk = Math.min(1, amount * 3);
         float run = in.sprinting ? Math.min(1, amount * 2) : 0;
@@ -77,8 +163,8 @@ public final class Locomotion {
             t[R_ARM_X] = -swing * armSwing + idle - 20 * crouch * DEG;
             t[L_ARM_X] = swing * armSwing - idle - 20 * crouch * DEG;
             t[R_ARM_Y] = t[L_ARM_Y] = 0;
-            t[R_ARM_Z] = (5 + 2 * sway * (1 - walk)) * DEG;
-            t[L_ARM_Z] = -(5 + 2 * sway * (1 - walk)) * DEG;
+            t[R_ARM_Z] = (3 + 2 * sway * (1 - walk)) * DEG;
+            t[L_ARM_Z] = -(3 + 2 * sway * (1 - walk)) * DEG;
             float rest = (8 + 22 * crouch) * DEG;
             // Running pumps the arms: the elbow stays near a right angle and closes further as the hand comes forward.
             t[R_FORE] = rest + (10 * (.5f + .5f * swing) * walk + (68 + 22 * swing) * run) * DEG;

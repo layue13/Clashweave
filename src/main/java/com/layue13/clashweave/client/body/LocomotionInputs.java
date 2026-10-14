@@ -10,6 +10,11 @@ public final class LocomotionInputs {
     /** Head look relative to the body, degrees. */
     public float headYaw, headPitch;
     public boolean onGround, sprinting, sneaking;
+    /** Which family of poses applies: {@link #GROUND}, {@link #SWIM}, {@link #RIDE} or {@link #CLIMB}. */
+    public int mode;
+    public static final int GROUND = 0, SWIM = 1, RIDE = 2, CLIMB = 3;
+    /** Radians of climbing cycle: advances with height gained or lost on a ladder. */
+    public float climbPhase;
     /** Ticks since the feet last touched the ground and since they last left it. */
     public float ticksSinceTouchdown, ticksAirborne;
     /** The arms belong to something else (a swing, a drawn bow, eating). */
