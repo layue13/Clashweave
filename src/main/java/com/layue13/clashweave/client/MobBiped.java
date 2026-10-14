@@ -25,6 +25,7 @@ final class MobBiped extends ModelBiped {
     private final LocomotionInputs inputs = new LocomotionInputs();
     private final boolean armsBelongToVanilla;
     private final Gait gait;
+    private net.minecraft.client.model.ModelEnderman ender;
     private boolean released;
     private static final float STRAIGHT = .06f;
     /** Set per frame from the worn armor: that pair of limbs stays one straight block so it and the armor agree. */
@@ -32,10 +33,36 @@ final class MobBiped extends ModelBiped {
 
     /** Returns null when the donor's limbs cannot be cut (not single boxes tall enough). */
     static MobBiped of(ModelBiped donor, boolean armsBelongToVanilla, Gait gait) {
-        float[] home = BipedChannels.homeOf(donor);
+        return of(
+            donor,
+            armsBelongToVanilla,
+            gait,
+            BipedChannels.homeOf(donor),
+            new float[] { .583f, .583f, .5f, .5f });
+    }
+
+    /**
+     * An enderman: the model poses its own pivots when it runs (legs 3 px higher than built), so the rest pivots are
+     * what one run leaves; the joints sit half way down 30 px limbs, and carrying or screaming raises the arms.
+     */
+    static MobBiped ofEnderman(net.minecraft.client.model.ModelEnderman donor) {
+        donor.isCarrying = false;
+        donor.isAttacking = false;
+        donor.setRotationAngles(0, 0, 0, 0, 0, 1 / 16f, null);
+        MobBiped made = of(
+            donor,
+            false,
+            Gait.ENDERMAN,
+            BipedChannels.homeOf(donor),
+            new float[] { .5f, .5f, .5f, .5f });
+        if (made != null) made.ender = donor;
+        return made;
+    }
+
+    private static MobBiped of(ModelBiped donor, boolean armsBelongToVanilla, Gait gait, float[] home,
+        float[] fractions) {
         ModelRenderer[] cut = new ModelRenderer[8];
         ModelRenderer[] parts = { donor.bipedRightArm, donor.bipedLeftArm, donor.bipedRightLeg, donor.bipedLeftLeg };
-        float[] fractions = { .583f, .583f, .5f, .5f };
         for (int i = 0; i < 4; i++) {
             LimbSlicer.Joint joint = LimbSlicer.slice(donor, parts[i], fractions[i]);
             if (joint == null) return null;
@@ -132,7 +159,7 @@ final class MobBiped extends ModelBiped {
             in.sneaking = false;
             in.ticksSinceTouchdown = rig.ticksSinceTouchdown();
             in.ticksAirborne = rig.ticksAirborne();
-            in.armsBusy = in.leftBusy = armsBelongToVanilla;
+            in.armsBusy = in.leftBusy = armsBelongToVanilla || ender != null && (ender.isCarrying || ender.isAttacking);
             // A held item rides the upper arm alone, so an elbow bend would leave it behind: no elbow when holding one.
             in.usingItem = entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getHeldItem() != null;
             in.gait = gait;

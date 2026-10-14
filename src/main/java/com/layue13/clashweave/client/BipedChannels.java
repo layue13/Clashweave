@@ -103,11 +103,13 @@ final class BipedChannels {
         // swings the bottom of the torso away from the legs, a gap the size of 12 px times the sine of the lean.
         m.bipedRightLeg.setRotationPoint(home[RLEG], home[RLEG + 1], home[RLEG + 2]);
         m.bipedLeftLeg.setRotationPoint(home[LLEG], home[LLEG + 1], home[LLEG + 2]);
-        aboutHips(m.bipedBody, home[BODY], home[BODY + 1] - 12, home[BODY + 2], c);
-        aboutHips(m.bipedHead, home[HEAD], home[HEAD + 1] - 12, home[HEAD + 2], c);
-        aboutHips(m.bipedHeadwear, home[HEAD], home[HEAD + 1] - 12, home[HEAD + 2], c);
-        aboutHips(m.bipedRightArm, home[RARM], home[RARM + 1] - 12, home[RARM + 2], c);
-        aboutHips(m.bipedLeftArm, home[LARM], home[LARM + 1] - 12, home[LARM + 2], c);
+        // The hips are where the legs hang from: 12 px on a player, elsewhere for a taller body.
+        float hip = home[RLEG + 1];
+        aboutHips(m.bipedBody, home[BODY], home[BODY + 1] - hip, home[BODY + 2], hip, c);
+        aboutHips(m.bipedHead, home[HEAD], home[HEAD + 1] - hip, home[HEAD + 2], hip, c);
+        aboutHips(m.bipedHeadwear, home[HEAD], home[HEAD + 1] - hip, home[HEAD + 2], hip, c);
+        aboutHips(m.bipedRightArm, home[RARM], home[RARM + 1] - hip, home[RARM + 2], hip, c);
+        aboutHips(m.bipedLeftArm, home[LARM], home[LARM + 1] - hip, home[LARM + 2], hip, c);
         float bob = c[Channels.ROOT_Y];
         m.bipedBody.rotationPointY += bob;
         m.bipedHead.rotationPointY += bob;
@@ -119,13 +121,13 @@ final class BipedChannels {
     /**
      * Puts the part's pivot where the point (x, y px from the hips, in the upright torso) goes under the torso turn.
      */
-    static void aboutHips(ModelRenderer part, float x, float y, float z, float[] c) {
+    static void aboutHips(ModelRenderer part, float x, float y, float z, float hip, float[] c) {
         double ax = c[Channels.BODY_X], ay = c[Channels.BODY_Y], az = c[Channels.BODY_Z];
         double y1 = y * Math.cos(ax) - z * Math.sin(ax), z1 = y * Math.sin(ax) + z * Math.cos(ax);
         double x2 = x * Math.cos(ay) + z1 * Math.sin(ay), z2 = -x * Math.sin(ay) + z1 * Math.cos(ay);
         double x3 = x2 * Math.cos(az) - y1 * Math.sin(az), y3 = x2 * Math.sin(az) + y1 * Math.cos(az);
         part.rotationPointX = (float) x3;
-        part.rotationPointY = (float) y3 + 12;
+        part.rotationPointY = (float) y3 + hip;
         part.rotationPointZ = (float) z2;
     }
 }
