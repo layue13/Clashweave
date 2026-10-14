@@ -25,11 +25,31 @@ public final class Locomotion {
     }
 
     public static void compute(LocomotionInputs in, float[] t) {
+        // What vanilla posed for an arm that a swing, a drawn bow or a meal owns, and its torso twist (a punch turns
+        // the
+        // chest): kept, the rest of the body still moves.
+        float rx = t[R_ARM_X], ry = t[R_ARM_Y], rz = t[R_ARM_Z], rf = t[R_FORE];
+        float lx = t[L_ARM_X], ly = t[L_ARM_Y], lz = t[L_ARM_Z], lf = t[L_FORE];
+        float twist = t[BODY_Y];
         if (in.mode == LocomotionInputs.SWIM) swim(in, t);
         else if (in.mode == LocomotionInputs.RIDE) ride(in, t);
         else if (in.mode == LocomotionInputs.CLIMB) climb(in, t);
         else if (in.mode == LocomotionInputs.FLY) fly(in, t);
         else ground(in, t);
+        t[BODY_Y] += twist;
+        t[HEAD_Y] -= twist;
+        if (in.armsBusy) {
+            t[R_ARM_X] = rx;
+            t[R_ARM_Y] = ry;
+            t[R_ARM_Z] = rz;
+            t[R_FORE] = rf;
+        }
+        if (in.leftBusy) {
+            t[L_ARM_X] = lx;
+            t[L_ARM_Y] = ly;
+            t[L_ARM_Z] = lz;
+            t[L_FORE] = lf;
+        }
     }
 
     /** Torso pose with the head cancelling it so the eyes keep looking where the player looks. */
@@ -56,7 +76,7 @@ public final class Locomotion {
         t[L_LEG_Z] = -3 * DEG;
         t[R_SHIN] = (20 + Math.max(0, -kick) * 40) * DEG;
         t[L_SHIN] = (20 + Math.max(0, kick) * 40) * DEG;
-        if (!in.armsBusy) {
+        {
             t[R_ARM_X] = (-100 + 70 * s) * DEG;
             t[L_ARM_X] = (-100 - 70 * s) * DEG;
             t[R_ARM_Y] = t[L_ARM_Y] = 0;
@@ -77,7 +97,7 @@ public final class Locomotion {
         t[L_LEG_Y] = -12 * DEG;
         t[R_LEG_Z] = t[L_LEG_Z] = 0;
         t[R_SHIN] = t[L_SHIN] = 50 * DEG;
-        if (!in.armsBusy) {
+        {
             t[R_ARM_X] = t[L_ARM_X] = -35 * DEG;
             t[R_ARM_Y] = -6 * DEG;
             t[L_ARM_Y] = 6 * DEG;
@@ -104,7 +124,7 @@ public final class Locomotion {
         t[L_LEG_Z] = -4 * DEG;
         t[R_SHIN] = (12 + 18 * move) * DEG;
         t[L_SHIN] = (12 + 18 * move) * DEG;
-        if (!in.armsBusy) {
+        {
             t[R_ARM_X] = (-12 - 18 * move + 4 * flutter) * DEG;
             t[L_ARM_X] = (-12 - 18 * move - 4 * flutter) * DEG;
             t[R_ARM_Y] = t[L_ARM_Y] = 0;
@@ -127,7 +147,7 @@ public final class Locomotion {
         t[L_LEG_Z] = -3 * DEG;
         t[R_SHIN] = (10 + 55 * up) * DEG;
         t[L_SHIN] = (10 + 55 * down) * DEG;
-        if (!in.armsBusy) {
+        {
             t[R_ARM_X] = -(95 + 50 * down) * DEG;
             t[L_ARM_X] = -(95 + 50 * up) * DEG;
             t[R_ARM_Y] = t[L_ARM_Y] = 0;
@@ -154,7 +174,7 @@ public final class Locomotion {
         // Torso: twists against the hips, rocks twice a stride, leans into a run, folds forward on landing.
         float bodyY = -swing * (14 + 5 * run) * DEG * walk;
         float bodyX = ((1.5f + .8f * breathing) * (1 - walk) + (3 + 5 * (float) Math.cos(2 * cycle)) * walk) * DEG
-            + (12 * run + 8 * air + 18 * kneel + 28.6f * crouch) * DEG;
+            + (12 * run + 8 * air + 18 * kneel + 22f * crouch) * DEG;
         t[BODY_X] = bodyX;
         t[BODY_Y] = bodyY;
         t[BODY_Z] = -clamp(in.headYaw * .1f, -10, 10) * DEG * walk;
@@ -185,7 +205,7 @@ public final class Locomotion {
         t[L_SHIN] += 36 * crouch * DEG;
         t[ROOT_Y] += .6f * crouch;
 
-        if (!in.armsBusy) {
+        {
             float armSwing = amount * 28.6f * (1 + 1.1f * run) * (1 - .5f * crouch) * DEG;
             float idle = breathing * 2.5f * DEG * (1 - walk);
             t[R_ARM_X] = -swing * armSwing + idle - 20 * crouch * DEG;
@@ -210,7 +230,7 @@ public final class Locomotion {
             t[L_LEG_X] -= 25 * DEG * k;
             t[R_SHIN] += 35 * DEG * k;
             t[L_SHIN] += 35 * DEG * k;
-            if (!in.armsBusy) {
+            {
                 t[R_ARM_X] = lerp(t[R_ARM_X], -25 * DEG, a);
                 t[L_ARM_X] = lerp(t[L_ARM_X], -25 * DEG, a);
                 t[R_ARM_Z] = lerp(t[R_ARM_Z], 40 * DEG, a);

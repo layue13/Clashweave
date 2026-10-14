@@ -19,6 +19,8 @@ public final class LocomotionInputs {
     public float climbPhase;
     /** Ticks since the feet last touched the ground and since they last left it. */
     public float ticksSinceTouchdown, ticksAirborne;
-    /** The arms belong to something else (a swing, a drawn bow, eating). */
+    /** The right arm belongs to something else (a swing, a drawn bow, eating). */
     public boolean armsBusy;
+    /** The left arm too (a drawn bow holds with both). */
+    public boolean leftBusy;
 }
