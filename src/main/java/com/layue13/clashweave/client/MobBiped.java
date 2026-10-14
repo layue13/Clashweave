@@ -26,6 +26,8 @@ final class MobBiped extends ModelBiped {
     private final boolean armsBelongToVanilla;
     private final Gait gait;
     private net.minecraft.client.model.ModelEnderman ender;
+    /** The nanosecond stamp of this draw of the entity, set by {@link #setLivingAnimations}. */
+    private long frame;
     private boolean released;
     private static final float STRAIGHT = .06f;
     /** Set per frame from the worn armor: that pair of limbs stays one straight block so it and the armor agree. */
@@ -134,6 +136,14 @@ final class MobBiped extends ModelBiped {
         heldItemRight = donor.heldItemRight;
         aimedBow = donor.aimedBow;
         isSneak = donor.isSneak;
+        // Once per draw of the entity, before any of its passes: the hurt flash and the enchant glint draw the model
+        // again with depth-equal, so every pass has to pose it identically, not step the rig once more.
+        frame = System.nanoTime();
+        BodyRig rig = BodyRigs.of(entity.getEntityId(), frame);
+        if (rig.beginFrame(frame)) rig.observeGround(
+            entity.onGround,
+            frame,
+            ClientProxy.instance == null ? 50_000_000L : ClientProxy.instance.tickPeriod());
     }
 
     @Override
@@ -143,10 +153,10 @@ final class MobBiped extends ModelBiped {
         toDonor();
         donor.setRotationAngles(limb, amount, age, headYaw, pitch, scale, entity);
         rightForearm.rotateAngleX = leftForearm.rotateAngleX = rightShin.rotateAngleX = leftShin.rotateAngleX = 0;
-        long now = System.nanoTime();
+        long now = frame != 0 ? frame : System.nanoTime();
         long period = ClientProxy.instance == null ? 50_000_000L : ClientProxy.instance.tickPeriod();
         BodyRig rig = BodyRigs.of(entity.getEntityId(), now);
-        if (rig.beginFrame(now)) rig.observeGround(entity.onGround, now, period);
+        if (frame == 0 && rig.beginFrame(now)) rig.observeGround(entity.onGround, now, period);
         if (rig.needsStep()) {
             LocomotionInputs in = inputs;
             in.limbSwing = limb;
