@@ -19,6 +19,8 @@ public final class Pose {
     public float torsoLean, torsoSide;
     public boolean handLFree;
     public boolean bladeDrawn;
+    /** Degrees of extra upper-body twist {@link #twistTo} has already applied to this sample. */
+    public float twistApplied;
 
     /** Copies all values without allocating; self-copy is supported. */
     public void copyFrom(Pose source) {
@@ -38,6 +40,37 @@ public final class Pose {
         torsoSide = source.torsoSide;
         handLFree = source.handLFree;
         bladeDrawn = source.bladeDrawn;
+        twistApplied = source.twistApplied;
+    }
+
+    /**
+     * Turns everything the torso carries (blade, hands, arm directions, torso yaw) about the vertical through the waist
+     * so that the total extra twist on this sample is {@code degrees}; the legs stay. Idempotent per sample: several
+     * models posed from one pose in a frame all ask for the same value.
+     */
+    public void twistTo(float degrees) {
+        float delta = degrees - twistApplied;
+        if (delta == 0) return;
+        twistApplied = degrees;
+        double r = Math.toRadians(delta), c = Math.cos(r), s = Math.sin(r);
+        turn(swordP, c, s);
+        turn(handR, c, s);
+        turn(handL, c, s);
+        turn(armR, c, s);
+        turn(armL, c, s);
+        double h = r / 2, sz = Math.sin(h), cz = Math.cos(h);
+        float qx = swordQ[0], qy = swordQ[1], qz = swordQ[2], qw = swordQ[3];
+        swordQ[0] = (float) (cz * qx - sz * qy);
+        swordQ[1] = (float) (cz * qy + sz * qx);
+        swordQ[2] = (float) (cz * qz + sz * qw);
+        swordQ[3] = (float) (cz * qw - sz * qz);
+        torsoYaw += delta;
+    }
+
+    private static void turn(float[] v, double c, double s) {
+        float x = v[0], y = v[1];
+        v[0] = (float) (x * c - y * s);
+        v[1] = (float) (x * s + y * c);
     }
 
     static void mix(float[] a, int ai, float[] b, int bi, float w, float[] out, int n, boolean unit) {

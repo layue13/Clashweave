@@ -35,7 +35,7 @@ final class PoseDriver {
         double ticks = 0;
         Track track = null;
         if (visual.state.action.isEmpty()) {
-            if (visual.state.engaged && !visual.state.sheathed) track = visual.stance;
+            if (!visual.state.sheathed) track = visual.stance;
         } else {
             track = visual.track;
             ticks = ClientProxy.instance.elapsed(visual, 0);
@@ -53,6 +53,7 @@ final class PoseDriver {
             visual.lastTrack = track;
             visual.lastTicks = ticks;
         }
+        pose.twistApplied = 0;
         bladeDrawn = visual.state.action.isEmpty() ? !visual.state.sheathed : pose.bladeDrawn;
         weight = takeover;
         stance = track != null && visual.state.action.isEmpty();

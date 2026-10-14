@@ -39,6 +39,8 @@ final class CombatBiped extends ModelBiped {
     boolean locomotion;
     long frameNanos, tickPeriod;
 
+    /** Share of the walk's torso twist the ready stance keeps. */
+    private static final float STANCE_TWIST = .5f;
     private final boolean segmented;
     private ModelRenderer rightForearm, leftForearm, rightShin, leftShin;
     /** Fills the wedge the two segments open on the outside of a bend: a cube on the hinge turned half the bend. */
@@ -329,6 +331,9 @@ final class CombatBiped extends ModelBiped {
                 rig.smoothed());
         }
         if (weight <= 0 || pose == null) return;
+        // Walking in the ready stance the chest answers each step with a small turn, blade and hands riding along.
+        if (stanceOnly && rig != null) pose.twistTo(
+            -(float) Math.toDegrees(rig.smoothed()[com.layue13.clashweave.client.body.Channels.BODY_Y]) * STANCE_TWIST);
         float w = weight;
         float wl = rig == null ? w : w * rig.legHold();
         // The parts are independent: every pivot follows the pelvis, the shoulders also follow the torso twist.
