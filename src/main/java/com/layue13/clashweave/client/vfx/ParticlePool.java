@@ -51,6 +51,7 @@ public final class ParticlePool {
         float wx = dy * uz - dz * uy, wy = dz * ux - dx * uz, wz = dx * uy - dy * ux;
         for (int e = 0; e < def.emitters.size(); e++) {
             EffectDef.Emitter em = def.emitters.get(e);
+            float sg = em.dirSign;
             float cosMax = (float) Math.cos(Math.toRadians(em.spread));
             for (int n = 0; n < em.count; n++) {
                 int i = slot();
@@ -58,12 +59,15 @@ public final class ParticlePool {
                 float sin = (float) Math.sqrt(Math.max(0, 1 - cos * cos));
                 float phi = random.nextFloat() * (float) (Math.PI * 2);
                 float cu = (float) Math.cos(phi) * sin, cw = (float) Math.sin(phi) * sin;
-                float sx = dx * cos + ux * cu + wx * cw, sy = dy * cos + uy * cu + wy * cw,
-                    sz = dz * cos + uz * cu + wz * cw;
+                float sx = sg * dx * cos + ux * cu + wx * cw, sy = sg * dy * cos + uy * cu + wy * cw,
+                    sz = sg * dz * cos + uz * cu + wz * cw;
                 float speed = em.kind == EffectDef.Kind.STREAK ? between(em.speed, random) : 0;
-                x[i] = px[i] = ax + dx * em.forward;
-                y[i] = py[i] = ay + dy * em.forward;
-                z[i] = pz[i] = az + dz * em.forward;
+                double ox = em.scatter == 0 ? 0 : (random.nextFloat() * 2 - 1) * em.scatter,
+                    oy = em.scatter == 0 ? 0 : (random.nextFloat() * 2 - 1) * em.scatter,
+                    oz = em.scatter == 0 ? 0 : (random.nextFloat() * 2 - 1) * em.scatter;
+                x[i] = px[i] = ax + dx * em.forward + ox;
+                y[i] = py[i] = ay + dy * em.forward + oy;
+                z[i] = pz[i] = az + dz * em.forward + oz;
                 vx[i] = sx * speed;
                 vy[i] = sy * speed;
                 vz[i] = sz * speed;
