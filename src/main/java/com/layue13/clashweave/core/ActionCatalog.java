@@ -144,6 +144,7 @@ public final class ActionCatalog {
             throw new IllegalArgumentException("entry");
         entry.ready = normalized(entry.ready);
         if (entry.sheathed != null) entry.sheathed = normalized(entry.sheathed);
+        if (entry.counter != null) entry.counter = normalized(entry.counter);
         entry.entersReady = normalized(entry.entersReady);
         entry.entersSheathed = normalized(entry.entersSheathed);
         if (data.entry != null && entry.sheathed != null
@@ -176,6 +177,11 @@ public final class ActionCatalog {
     public String entryTarget(boolean sheathed, Intent input) {
         Map<Intent, String> state = sheathed ? entry.sheathed : entry.ready;
         return state == null ? null : state.get(input);
+    }
+
+    /** What the input starts in the window after a precise guard, or null when it means its usual thing. */
+    public String counterTarget(Intent input) {
+        return entry.counter == null ? null : entry.counter.get(input);
     }
 
     public boolean entersReady(String id) {
@@ -243,6 +249,7 @@ public final class ActionCatalog {
         com.google.gson.JsonObject rules = new com.google.gson.JsonObject();
         if (entry.sheathed != null) rules.add("sheathed", intents(entry.sheathed));
         rules.add("ready", intents(entry.ready));
+        if (entry.counter != null && !entry.counter.isEmpty()) rules.add("counter", intents(entry.counter));
         rules.add("entersReady", sorted(entry.entersReady));
         rules.add("entersSheathed", sorted(entry.entersSheathed));
         data.add("entry", rules);

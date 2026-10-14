@@ -41,6 +41,8 @@ public final class GuardReplay {
         int local=ticks-170;
         boolean shift=local>=0&&(local%(hold+free))<hold;
         key(mc.gameSettings.keyBindSneak,shift);
+        int counterAt=Integer.getInteger("cw.p2.counterAt",-1);
+        if(counterAt>=0&&local>=0&&shift&&(local%(hold+free))==counterAt){System.out.println("GUARD_COUNTER_SEND local="+local);ClientProxy.instance.send(Intent.LIGHT,-1);}
         if(local>=0){
             if(camera==null){camera=new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Photo"));camera.setInvisible(true);}
             mc.renderViewEntity=camera;mc.gameSettings.thirdPersonView=1;

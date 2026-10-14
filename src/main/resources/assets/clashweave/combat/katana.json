@@ -267,6 +267,27 @@
       ],
       "edges": [],
       "posture": 22
+    },
+    {
+      "id": "counter",
+      "startup": 3,
+      "active": 2,
+      "recovery": 8,
+      "damage": 4,
+      "posture": 30,
+      "reach": 2.5,
+      "arc": 100,
+      "distance": 0.3,
+      "speed": 0.1,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "light_2",
+          "from": 5,
+          "until": 9,
+          "hit": true
+        }
+      ]
     }
   ],
   "_p1_notes": {

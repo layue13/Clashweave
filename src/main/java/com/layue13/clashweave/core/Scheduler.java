@@ -134,6 +134,8 @@ public final class Scheduler {
         request.origin = current == null ? 0 : current.id;
         if (current == null) {
             request.target = catalog.entryTarget(sheathed, input);
+            String counterTarget = counter(tick) ? catalog.counterTarget(input) : null;
+            if (counterTarget != null) request.target = counterTarget;
             if (input == Intent.LIGHT && counter(tick)) request.expires = Math.min(request.expires, counterUntil);
         } else {
             for (ActionCatalog.Edge edge : current.definition.edges) {

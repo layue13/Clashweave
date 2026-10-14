@@ -10,6 +10,8 @@ public final class EntryRules {
 
     public Map<Intent, String> sheathed;
     public Map<Intent, String> ready;
+    /** Inputs that mean something else right after a precise guard; omitted when there is no counter. */
+    public Map<Intent, String> counter;
     public Set<String> entersReady = new HashSet<>();
     public Set<String> entersSheathed = new HashSet<>();
 
