@@ -57,7 +57,7 @@ public final class ClientProxy extends CommonProxy {
         public ActionCatalog.Definition definition;
         boolean returnsToSheath;
         /** Baked tracks resolved with the state: the playing action's and the engaged idle pose. */
-        Track track, stance;
+        Track track, stance, guardTrack;
         /** Fade of the baked pose over the vanilla one, and the track it last played, kept for the fade out. */
         com.layue13.clashweave.client.body.BodyRig rig = new com.layue13.clashweave.client.body.BodyRig();
         Track lastTrack;
@@ -497,6 +497,11 @@ public final class ClientProxy extends CommonProxy {
     }
 
     /** Follows the message's IDs to prebuilt objects once, so a frame never looks anything up by string. */
+    /** Whether the entity is holding its guard: the server says so, and the observer's own press shows at once. */
+    public boolean guarding(Visual visual) {
+        return visual.state.guard || sentGuard && visual == own();
+    }
+
     private void resolve(Visual visual, Visual previous) {
         StateMessage message = visual.state;
         ActionCatalog catalog = catalogFor(message.style);
@@ -509,6 +514,7 @@ public final class ClientProxy extends CommonProxy {
             visual.preset = PresentationAssets.preset(message.appearance.animations);
         }
         visual.stance = visual.preset == null ? null : visual.preset.stance();
+        visual.guardTrack = visual.preset == null ? null : visual.preset.track("guard");
         visual.track = visual.preset == null || message.action.isEmpty() ? null
             : visual.preset.track(message.action.substring(message.action.indexOf(':') + 1));
         if (previous != null) {

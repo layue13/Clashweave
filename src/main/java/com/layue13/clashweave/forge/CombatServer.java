@@ -1044,6 +1044,7 @@ public final class CombatServer {
         message.instance = action == null ? 0 : action.id;
         message.start = action == null ? tick : action.start;
         message.confirmed = action != null && action.confirmedHit;
+        message.guard = state.guard.held();
         message.result = result;
         if (result.equals("MOVE_READY")) {
             message.budgetNano = state.budgetNano;
@@ -1103,6 +1104,18 @@ public final class CombatServer {
         if (armed(event.entityPlayer)) event.setCanceled(true);
     }
 
+    /** The blow meets the guard: whatever delivered it is pushed back from the guarding player. */
+    private static void recoil(EntityPlayerMP guard, Entity attacker, float strength) {
+        if (strength <= 0 || !(attacker instanceof EntityLivingBase) || attacker instanceof EntityPlayer) return;
+        double dx = attacker.posX - guard.posX, dz = attacker.posZ - guard.posZ;
+        double length = Math.sqrt(dx * dx + dz * dz);
+        if (length < 1e-4) return;
+        attacker.motionX = dx / length * strength;
+        attacker.motionZ = dz / length * strength;
+        attacker.motionY = Math.max(attacker.motionY, .12);
+        attacker.velocityChanged = true;
+    }
+
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void hurt(LivingHurtEvent event) {
         if (event.entityLiving.worldObj.isRemote || event.source instanceof CombatSource
@@ -1113,7 +1126,33 @@ public final class CombatServer {
         if (event.ammount > 0) state.pendingImpulse = true;
         int guard = state.guard
             .defend(tick, System.nanoTime(), config.perfectWindow, facing(state.player, attacker, config.guardArc));
+        trace(
+            "NATIVE_HURT player=" + state.player.getCommandSenderName()
+                + " attacker="
+                + attacker.getEntityId()
+                + " guard="
+                + guard
+                + " held="
+                + state.guard.held()
+                + " facing="
+                + facing(state.player, attacker, config.guardArc)
+                + " yaw="
+                + state.player.rotationYaw
+                + " at="
+                + attacker.posX
+                + ","
+                + attacker.posZ
+                + " me="
+                + state.player.posX
+                + ","
+                + state.player.posZ
+                + " damage="
+                + event.ammount
+                + " tick="
+                + tick);
         if (guard > 0) event.ammount *= guard == 2 ? 0 : config.blockDamage;
+        if (guard > 0 && event.source.getSourceOfDamage() == attacker)
+            recoil(state.player, attacker, guard == 2 ? config.parryRecoil : config.blockRecoil);
         presentation.nativeGuard(event, guard, tick);
     }
 }

@@ -16,6 +16,7 @@ public final class CombatConfig {
     public String[] launchExemptEntities;
     public float chainDecay;
     public boolean slamRequiresAir;
+    public float blockRecoil, parryRecoil;
     public int slamGraceTicks;
     public double multiplierMinimum;
     public double multiplierMaximum;
@@ -469,6 +470,20 @@ public final class CombatConfig {
             0,
             20,
             "A slam still counts a target that left the air this many ticks ago, so network delay cannot cost the finisher");
+        blockRecoil = config.getFloat(
+            "blockRecoil",
+            "combat",
+            0.25f,
+            0,
+            1.5f,
+            "Blocks per tick an attacker is pushed back from a held guard");
+        parryRecoil = config.getFloat(
+            "parryRecoil",
+            "combat",
+            0.7f,
+            0,
+            1.5f,
+            "Blocks per tick an attacker is pushed back from a precise guard");
         slamRequiresAir = config
             .getBoolean("slamRequiresAir", "control", true, "A slam only drives a target that is off the ground");
         launchCreditTicks = config.getInt(

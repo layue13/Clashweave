@@ -99,6 +99,54 @@ public final class NetworkScenario {
             }
     }
 
+    private boolean guardHeld;
+    private long guardSince = -1, guardReleased = -1;
+
+    /**
+     * P2: the zombie stands still in front of where P0A looks and does not strike by itself; the blows come from here,
+     * timed against the guard the player really holds: 3 ticks after a press (precise), 15 ticks after (plain), and
+     * 12 ticks after a release (no guard).
+     */
+    private void guardRig() {
+        EntityPlayerMP a = null;
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (p.getCommandSenderName().equals("P0A")) a = p;
+        }
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (a != null && p != a && p.getDistanceSqToEntity(a) < 400) p.playerNetServerHandler.setPlayerLocation(25, 64, 25, 0, 0);
+        }
+        if (a == null || Clashweave.server.state(a) == null) return;
+        a.setHealth(a.getMaxHealth());
+        a.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0);
+        EntityZombie zombie = null;
+        for (Object e : a.worldObj.loadedEntityList) if (e instanceof EntityZombie) { zombie = (EntityZombie) e; break; }
+        if (zombie == null) return;
+        zombie.setHealth(zombie.getMaxHealth());
+        zombie.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(0);
+        zombie.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
+        double yaw = Math.toRadians(a.rotationYaw);
+        zombie.setAttackTarget(null);
+        if (bothTicks % 5 == 0 || zombie.getDistanceSqToEntity(a) > 16) {
+            zombie.setPosition(a.posX - Math.sin(yaw) * 2.4, a.posY, a.posZ + Math.cos(yaw) * 2.4);
+            zombie.motionX = zombie.motionZ = 0;
+        }
+        boolean held = Clashweave.server.state(a).guard.held();
+        if (held && !guardHeld) guardSince = bothTicks;
+        if (!held && guardHeld) guardReleased = bothTicks;
+        guardHeld = held;
+        long sincePress = held ? bothTicks - guardSince : -1, sinceRelease = !held && guardReleased >= 0 ? bothTicks - guardReleased : -1;
+        String kind = held && sincePress == 3 ? "PRECISE" : held && sincePress == 15 ? "PLAIN" : sinceRelease == 12 ? "FREE" : null;
+        if (kind != null) {
+            zombie.hurtTime = 0;
+            a.hurtResistantTime = 0;
+            double before = zombie.getDistanceSqToEntity(a);
+            boolean applied = a.attackEntityFrom(net.minecraft.util.DamageSource.causeMobDamage(zombie), 3f);
+            System.out.println("P2_BLOW tick=" + bothTicks + " kind=" + kind + " applied=" + applied + " zombieBefore=" + zombie.posX + "," + zombie.posZ + " motion=" + zombie.motionX + "," + zombie.motionZ + " distSqBefore=" + before + " me=" + a.posX + "," + a.posZ + " yaw=" + a.rotationYaw);
+        }
+    }
+
     private long chaseBusy;
 
     /** P1-b: puts the still zombie (full health) back in front of P0A whenever the chain is over and everything is quiet. */
@@ -136,6 +184,7 @@ public final class NetworkScenario {
         if (MinecraftServer.getServer().getCurrentPlayerCount() < 2) return;
         bothTicks++;
         if (Boolean.getBoolean("cw.p1b.chase")) chaseTarget();
+        if (Boolean.getBoolean("cw.p2.guard")) guardRig();
         if (Boolean.getBoolean("cw.b6.fp2")) for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
             EntityPlayerMP p = (EntityPlayerMP) o;
             if (!p.getCommandSenderName().equals("P0A")) continue;
