@@ -169,6 +169,24 @@ public final class MoveVerifyReplay {
         if(ticks==410){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
+    /** First person in water, on a ladder and on a pig; the server moves the player between the three places. */
+    private void fpStates(){
+        mc.renderViewEntity=mc.thePlayer;mc.gameSettings.thirdPersonView=0;mc.gameSettings.hideGUI=false;
+        if(ticks==100)mc.thePlayer.inventory.currentItem=0;
+        if(ticks==105&&!Boolean.getBoolean("cw.b6.nodraw"))ClientProxy.instance.send(com.layue13.clashweave.core.Intent.LIGHT,-1);
+        if(ticks%30==0)System.out.println("MOVE_FP2 tick="+ticks+" pos="+mc.thePlayer.posX+","+mc.thePlayer.posY+","+mc.thePlayer.posZ+" inWater="+mc.thePlayer.isInWater()+" riding="+mc.thePlayer.isRiding());
+        boolean ladder=ticks>=225&&ticks<330,ride=ticks>=350;
+        mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=ladder?180:0;
+        mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=ticks>=200&&ticks<220?40:0;
+        key(mc.gameSettings.keyBindForward,(ticks>=130&&ticks<200)||(ladder&&ticks>=230)||(ride&&ticks<380));
+        key(mc.gameSettings.keyBindJump,ticks>=130&&ticks<200);
+        if(ticks>=140&&ticks<=190&&(ticks-140)%10==0)photo("fp2-swim-"+((ticks-140)/10));
+        if(ticks>=205&&ticks<=215&&(ticks-205)%5==0)photo("fp2-swimdown-"+((ticks-205)/5));
+        if(ticks>=240&&ticks<=300&&(ticks-240)%10==0)photo("fp2-climb-"+((ticks-240)/10));
+        if(ticks>=360&&ticks<=400&&(ticks-360)%10==0)photo("fp2-ride-"+((ticks-360)/10));
+        if(ticks==420){done=true;System.out.println("MOVE_VERIFY_DONE");}
+    }
+
     /** Photographs the other real player (P0B, put to bed by the server) from five yaws around the bed. */
     private void sleepReal(){
         net.minecraft.entity.Entity other=null;
@@ -314,6 +332,7 @@ public final class MoveVerifyReplay {
         if(mode.equals("mobs")){mobs();return;}
         if(mode.equals("walkers")){walkers();return;}
         if(mode.equals("firstperson")){firstPerson();return;}
+        if(mode.equals("fpstates")){fpStates();return;}
         if(mode.equals("sleepreal")){sleepReal();return;}
         if(ticks==100)mc.thePlayer.inventory.currentItem=1;
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;

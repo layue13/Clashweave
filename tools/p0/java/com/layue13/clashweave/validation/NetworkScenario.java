@@ -102,6 +102,25 @@ public final class NetworkScenario {
         if (!Boolean.getBoolean("cw.p0.network") || event.phase != TickEvent.Phase.END) return;
         if (MinecraftServer.getServer().getCurrentPlayerCount() < 2) return;
         bothTicks++;
+        if (Boolean.getBoolean("cw.b6.fp2")) for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (!p.getCommandSenderName().equals("P0A")) continue;
+            WorldServer w = p.getServerForPlayer();
+            if (bothTicks == 20) {
+                // A pool, a ladder against a wall, and a saddled pig: the states the first-person arms have to follow.
+                for (int x = 10; x <= 14; x++) for (int z = 10; z <= 40; z++) { w.setBlock(x, 60, z, Blocks.stone); for (int y = 61; y <= 63; y++) w.setBlock(x, y, z, Blocks.water); }
+                for (int y = 64; y <= 70; y++) { w.setBlock(20, y, 10, Blocks.stone); w.setBlock(20, y, 11, Blocks.ladder, 3, 3); }
+                net.minecraft.entity.passive.EntityPig pig = new net.minecraft.entity.passive.EntityPig(w);
+                pig.setPosition(26.5, 64, 10.5);
+                pig.setSaddled(true);
+                w.spawnEntityInWorld(pig);
+            }
+            if (bothTicks % 30 == 0) System.out.println("B6_FP2 tick=" + bothTicks + " pos=" + p.posX + "," + p.posY + "," + p.posZ + " inWater=" + p.isInWater() + " riding=" + p.isRiding() + " ladder=" + p.isOnLadder());
+            if (bothTicks == 90) p.playerNetServerHandler.setPlayerLocation(12.5, 66, 12.5, 0, 0);
+            if (bothTicks == 220) p.playerNetServerHandler.setPlayerLocation(20.5, 64, 11.5, 180, 0);
+            if (bothTicks == 330) p.playerNetServerHandler.setPlayerLocation(26.5, 64, 12.5, 0, 0);
+            if (bothTicks == 345) for (Object e : w.loadedEntityList) if (e instanceof net.minecraft.entity.passive.EntityPig) p.mountEntity((net.minecraft.entity.Entity) e);
+        }
         if (Boolean.getBoolean("cw.b4.walkers") && bothTicks % 10 == 0) for (Object o : MinecraftServer.getServer().worldServers[0].loadedEntityList) if (o instanceof net.minecraft.entity.monster.EntityEnderman) {
             net.minecraft.entity.monster.EntityEnderman en = (net.minecraft.entity.monster.EntityEnderman) o;
             // Its own AI teleports it about (here it landed below the floor): bring it back and keep it after the player.
