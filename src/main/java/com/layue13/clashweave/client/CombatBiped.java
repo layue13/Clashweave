@@ -32,6 +32,8 @@ final class CombatBiped extends ModelBiped {
     float weight;
     /** Set by the renderer from the worn armor: that limb pair is drawn as one straight block. */
     boolean rigidArms, rigidLegs;
+    /** Set by the renderer: the pose is the idle ready stance, not an action. */
+    boolean stanceOnly;
     /** The entity's body rig and this frame's locomotion inputs; the renderer fills them before drawing. */
     com.layue13.clashweave.client.body.BodyRig rig;
     final com.layue13.clashweave.client.body.LocomotionInputs inputs = new com.layue13.clashweave.client.body.LocomotionInputs();
@@ -309,12 +311,16 @@ final class CombatBiped extends ModelBiped {
             if (rig.needsStep()) {
                 readVanilla(rig.target());
                 if (locomotion) com.layue13.clashweave.client.body.Locomotion.compute(inputs, rig.target());
+                // Standing ready with the blade out, the legs walk while the chest and arms hold the stance; during an
+                // action the baked footwork owns them.
+                rig.legHoldTarget = stanceOnly ? 1 - Math.min(1, inputs.limbSwingAmount * 3) : 1;
                 rig.chase(frameNanos, tickPeriod);
             }
             writeBase(rig.smoothed());
         }
         if (weight <= 0 || pose == null) return;
         float w = weight;
+        float wl = rig == null ? w : w * rig.legHold();
         // The parts are independent: every pivot follows the pelvis, the shoulders also follow the torso twist.
         LimbSolver.shoulderPoint(true, pose, point);
         pivot(bipedRightArm, point, w);
@@ -323,11 +329,11 @@ final class CombatBiped extends ModelBiped {
         pivot(bipedLeftArm, point, w);
         arm(bipedLeftArm, leftForearm, false, pose.armL, w);
         LimbSolver.hipPoint(true, pose.pelvis, point);
-        pivot(bipedRightLeg, point, w);
-        leg(bipedRightLeg, rightShin, true, pose.legR, w);
+        pivot(bipedRightLeg, point, wl);
+        leg(bipedRightLeg, rightShin, true, pose.legR, wl);
         LimbSolver.hipPoint(false, pose.pelvis, point);
-        pivot(bipedLeftLeg, point, w);
-        leg(bipedLeftLeg, leftShin, false, pose.legL, w);
+        pivot(bipedLeftLeg, point, wl);
+        leg(bipedLeftLeg, leftShin, false, pose.legL, wl);
         // Body box, head and headwear hang from the neck, which the torso carries about the waist.
         LimbSolver.neckPoint(pose, point);
         pivot(bipedBody, point, w);

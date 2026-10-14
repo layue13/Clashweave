@@ -49,6 +49,7 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
         in.ticksSinceTouchdown = rig.ticksSinceTouchdown();
         in.ticksAirborne = rig.ticksAirborne();
         in.armsBusy = player.swingProgress > 0 || player.isUsingItem();
+        in.usingItem = player.isUsingItem();
         in.leftBusy = player.isUsingItem() && player.getItemInUse() != null
             && player.getItemInUse()
                 .getItemUseAction() == net.minecraft.item.EnumAction.bow;
@@ -102,6 +103,7 @@ public final class KatanaPlayerRenderer extends RenderPlayer {
             biped.rigidLegs = worn.getCurrentArmor(1) != null || worn.getCurrentArmor(0) != null;
             biped.pose = armorChest.pose = armorLegs.pose = driver.pose;
             biped.weight = armorChest.weight = armorLegs.weight = driver.weight;
+            biped.stanceOnly = armorChest.stanceOnly = armorLegs.stanceOnly = driver.stance;
             body(worn, visualOf(player), limb, amount, age, headYaw, pitch);
         } else {
             biped.weight = armorChest.weight = armorLegs.weight = 0;

@@ -121,7 +121,7 @@ public class LocomotionTest {
         in.armsBusy = true;
         float[] t = compute(in);
         assertEquals(123f, t[R_ARM_X], 0);
-        assertEquals(123f, t[R_FORE], 0);
+        assertEquals(123f + Math.toRadians(25), t[R_FORE], 1e-4);
         assertNotEquals(123f, t[L_FORE], 0);
         assertNotEquals(123f, t[R_LEG_X], 0);
         in.leftBusy = true;

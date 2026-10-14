@@ -77,9 +77,18 @@ public final class BodyRig {
     }
 
     /** Moves every channel toward its target by its own per-tick fraction of the time since the last step. */
+    /** How much of the legs the combat pose keeps (1) against the walk (0); eases toward {@link #legHoldTarget}. */
+    private float legHold = 1;
+    public float legHoldTarget = 1;
+
+    public float legHold() {
+        return legHold;
+    }
+
     public void chase(long nanos, long tickPeriod) {
         double ticks = chaseNanos == 0 ? 0 : (nanos - chaseNanos) / (double) tickPeriod;
         chaseNanos = nanos;
+        legHold = Smoothing.toward(legHold, legHoldTarget, Smoothing.alpha(.3f, ticks));
         for (int i = 0; i < Channels.COUNT; i++) {
             if (!seeded) smooth[i] = target[i];
             else smooth[i] = Smoothing.toward(smooth[i], target[i], Smoothing.alpha(Channels.SMOOTHNESS[i], ticks));
