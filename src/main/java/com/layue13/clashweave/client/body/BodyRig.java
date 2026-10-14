@@ -53,6 +53,16 @@ public final class BodyRig {
         return steppedStamp != stamp;
     }
 
+    private double lastY = Double.NaN;
+    private float climb;
+
+    /** Advances the climbing cycle by the height moved while on a ladder, about one cycle per 1.4 blocks. */
+    public float observeClimb(double y, boolean climbing) {
+        if (climbing && !Double.isNaN(lastY)) climb += (float) ((y - lastY) * 4.5);
+        lastY = y;
+        return climb;
+    }
+
     /** Counts the time on and off the ground in ticks. */
     public void observeGround(boolean onGround, long nanos, long tickPeriod) {
         double ticks = groundNanos == 0 ? 0 : (nanos - groundNanos) / (double) tickPeriod;

@@ -137,4 +137,32 @@ public class LocomotionTest {
         assertTrue(t[R_LEG_X] < stand[R_LEG_X] - Math.toRadians(10));
         assertEquals(in.headPitch * Math.PI / 180 - t[BODY_X], t[HEAD_X], 1e-5);
     }
+
+    @Test
+    public void ridingSitsWithThighsForwardAndEveryChannelFinite() {
+        for (int mode : new int[] { LocomotionInputs.SWIM, LocomotionInputs.RIDE, LocomotionInputs.CLIMB }) {
+            LocomotionInputs in = walking(3, .6f);
+            in.mode = mode;
+            in.climbPhase = 1.3f;
+            float[] t = compute(in);
+            for (float v : t) assertTrue(!Float.isNaN(v) && !Float.isInfinite(v));
+        }
+        LocomotionInputs in = walking(0, 0);
+        in.mode = LocomotionInputs.RIDE;
+        float[] t = compute(in);
+        assertTrue(t[R_LEG_X] < -Math.toRadians(60));
+        assertTrue(t[R_SHIN] > Math.toRadians(30));
+    }
+
+    @Test
+    public void climbingAlternatesTheLimbsWithThePhase() {
+        LocomotionInputs in = walking(0, 0);
+        in.mode = LocomotionInputs.CLIMB;
+        in.climbPhase = (float) (Math.PI / 2);
+        float[] a = compute(in);
+        in.climbPhase = (float) (-Math.PI / 2);
+        float[] b = compute(in);
+        assertTrue(a[R_SHIN] > b[R_SHIN] + Math.toRadians(30));
+        assertTrue(a[L_SHIN] < b[L_SHIN] - Math.toRadians(30));
+    }
 }
