@@ -26,6 +26,7 @@ final class MobBiped extends ModelBiped {
     private final boolean armsBelongToVanilla;
     private final Gait gait;
     private boolean released;
+    private static final float STRAIGHT = .06f;
     /** Set per frame from the worn armor: that pair of limbs stays one straight block so it and the armor agree. */
     boolean rigidArms, rigidLegs;
 
@@ -155,7 +156,11 @@ final class MobBiped extends ModelBiped {
         leftElbow.rotateAngleX = leftForearm.rotateAngleX * .5f;
         rightKnee.rotateAngleX = rightShin.rotateAngleX * .5f;
         leftKnee.rotateAngleX = leftShin.rotateAngleX * .5f;
-        rightElbow.showModel = leftElbow.showModel = !rigidArms;
-        rightKnee.showModel = leftKnee.showModel = !rigidLegs;
+        // The wedge a bend opens is a fraction of a pixel until the joint is well bent: straight, there is nothing to
+        // fill.
+        rightElbow.showModel = !rigidArms && Math.abs(rightForearm.rotateAngleX) > STRAIGHT;
+        leftElbow.showModel = !rigidArms && Math.abs(leftForearm.rotateAngleX) > STRAIGHT;
+        rightKnee.showModel = !rigidLegs && Math.abs(rightShin.rotateAngleX) > STRAIGHT;
+        leftKnee.showModel = !rigidLegs && Math.abs(leftShin.rotateAngleX) > STRAIGHT;
     }
 }
