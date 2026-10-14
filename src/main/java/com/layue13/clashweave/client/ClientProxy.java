@@ -132,6 +132,7 @@ public final class ClientProxy extends CommonProxy {
             .bus()
             .register(lockCamera);
         MinecraftForge.EVENT_BUS.register(new WeaponRendering());
+        MinecraftForge.EVENT_BUS.register(new MobBodies());
         FMLCommonHandler.instance()
             .bus()
             .register(this);

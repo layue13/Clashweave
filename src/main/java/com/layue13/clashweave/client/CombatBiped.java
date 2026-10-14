@@ -4,7 +4,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-import com.layue13.clashweave.client.body.Channels;
 import com.layue13.clashweave.client.pose.LimbAngles;
 import com.layue13.clashweave.client.pose.LimbSolver;
 import com.layue13.clashweave.client.pose.Pose;
@@ -309,14 +308,23 @@ final class CombatBiped extends ModelBiped {
         }
         if (rig != null) {
             if (rig.needsStep()) {
-                readVanilla(rig.target());
+                BipedChannels.readVanilla(this, rig.target());
                 if (locomotion) com.layue13.clashweave.client.body.Locomotion.compute(inputs, rig.target());
                 // Standing ready with the blade out, the legs walk while the chest and arms hold the stance; during an
                 // action the baked footwork owns them.
                 rig.legHoldTarget = stanceOnly ? 1 - Math.min(1, inputs.limbSwingAmount * 3) : 1;
                 rig.chase(frameNanos, tickPeriod);
             }
-            writeBase(rig.smoothed());
+            BipedChannels.writeBase(
+                this,
+                rightForearm,
+                leftForearm,
+                rightShin,
+                leftShin,
+                rigidArms,
+                rigidLegs,
+                BipedChannels.PLAYER_HOME,
+                rig.smoothed());
         }
         if (weight <= 0 || pose == null) return;
         float w = weight;
@@ -361,92 +369,6 @@ final class CombatBiped extends ModelBiped {
         bipedLeftLeg.setRotationPoint(1.9f, 12, 0);
         bipedRightLeg.rotateAngleZ = 0;
         bipedLeftLeg.rotateAngleZ = 0;
-    }
-
-    private void readVanilla(float[] t) {
-        t[Channels.HEAD_X] = bipedHead.rotateAngleX;
-        t[Channels.HEAD_Y] = bipedHead.rotateAngleY;
-        t[Channels.BODY_X] = bipedBody.rotateAngleX;
-        t[Channels.BODY_Y] = bipedBody.rotateAngleY;
-        t[Channels.BODY_Z] = bipedBody.rotateAngleZ;
-        t[Channels.R_ARM_X] = bipedRightArm.rotateAngleX;
-        t[Channels.R_ARM_Y] = bipedRightArm.rotateAngleY;
-        t[Channels.R_ARM_Z] = bipedRightArm.rotateAngleZ;
-        t[Channels.L_ARM_X] = bipedLeftArm.rotateAngleX;
-        t[Channels.L_ARM_Y] = bipedLeftArm.rotateAngleY;
-        t[Channels.L_ARM_Z] = bipedLeftArm.rotateAngleZ;
-        t[Channels.R_LEG_X] = bipedRightLeg.rotateAngleX;
-        t[Channels.R_LEG_Y] = bipedRightLeg.rotateAngleY;
-        t[Channels.R_LEG_Z] = bipedRightLeg.rotateAngleZ;
-        t[Channels.L_LEG_X] = bipedLeftLeg.rotateAngleX;
-        t[Channels.L_LEG_Y] = bipedLeftLeg.rotateAngleY;
-        t[Channels.L_LEG_Z] = bipedLeftLeg.rotateAngleZ;
-        t[Channels.R_FORE] = t[Channels.L_FORE] = t[Channels.R_SHIN] = t[Channels.L_SHIN] = 0;
-        t[Channels.ROOT_Y] = 0;
-    }
-
-    /** The smoothed base pose: vanilla's, or the locomotion layer's where it took over, chased frame by frame. */
-    private void writeBase(float[] c) {
-        bipedHead.rotateAngleX = c[Channels.HEAD_X];
-        bipedHead.rotateAngleY = c[Channels.HEAD_Y];
-        bipedHeadwear.rotateAngleX = bipedHead.rotateAngleX;
-        bipedHeadwear.rotateAngleY = bipedHead.rotateAngleY;
-        bipedBody.rotateAngleX = c[Channels.BODY_X];
-        bipedBody.rotateAngleY = c[Channels.BODY_Y];
-        bipedBody.rotateAngleZ = c[Channels.BODY_Z];
-        bipedRightArm.rotateAngleX = c[Channels.R_ARM_X];
-        bipedRightArm.rotateAngleY = c[Channels.R_ARM_Y];
-        bipedRightArm.rotateAngleZ = c[Channels.R_ARM_Z];
-        bipedLeftArm.rotateAngleX = c[Channels.L_ARM_X];
-        bipedLeftArm.rotateAngleY = c[Channels.L_ARM_Y];
-        bipedLeftArm.rotateAngleZ = c[Channels.L_ARM_Z];
-        bipedRightLeg.rotateAngleX = c[Channels.R_LEG_X];
-        bipedRightLeg.rotateAngleY = c[Channels.R_LEG_Y];
-        bipedRightLeg.rotateAngleZ = c[Channels.R_LEG_Z];
-        bipedLeftLeg.rotateAngleX = c[Channels.L_LEG_X];
-        bipedLeftLeg.rotateAngleY = c[Channels.L_LEG_Y];
-        bipedLeftLeg.rotateAngleZ = c[Channels.L_LEG_Z];
-        if (segmented) {
-            // Elbows bend the forearm forward (-X), knees bend the shin back (+X); a worn piece keeps the limb
-            // straight.
-            if (!rigidArms) {
-                rightForearm.rotateAngleX = -c[Channels.R_FORE];
-                leftForearm.rotateAngleX = -c[Channels.L_FORE];
-            }
-            if (!rigidLegs) {
-                rightShin.rotateAngleX = c[Channels.R_SHIN];
-                leftShin.rotateAngleX = c[Channels.L_SHIN];
-            }
-        }
-        // The torso turns about the hips, not about the neck its box is hinged on: the neck, the shoulders and the
-        // head ride the same rotation, and the legs (independent parts) keep the hip where it is. Otherwise a lean
-        // swings the bottom of the torso away from the legs, a gap the size of 12 px times the sine of the lean.
-        bipedRightLeg.setRotationPoint(-1.9f, 12, 0);
-        bipedLeftLeg.setRotationPoint(1.9f, 12, 0);
-        aboutHips(bipedBody, 0, -12, c);
-        aboutHips(bipedHead, 0, -12, c);
-        aboutHips(bipedHeadwear, 0, -12, c);
-        aboutHips(bipedRightArm, -5, -10, c);
-        aboutHips(bipedLeftArm, 5, -10, c);
-        float bob = c[Channels.ROOT_Y];
-        bipedBody.rotationPointY += bob;
-        bipedHead.rotationPointY += bob;
-        bipedHeadwear.rotationPointY += bob;
-        bipedRightArm.rotationPointY += bob;
-        bipedLeftArm.rotationPointY += bob;
-    }
-
-    /**
-     * Puts the part's pivot where the point (x, y px from the hips, in the upright torso) goes under the torso turn.
-     */
-    private static void aboutHips(ModelRenderer part, float x, float y, float[] c) {
-        double ax = c[Channels.BODY_X], ay = c[Channels.BODY_Y], az = c[Channels.BODY_Z];
-        double z = 0, y1 = y * Math.cos(ax) - z * Math.sin(ax), z1 = y * Math.sin(ax) + z * Math.cos(ax);
-        double x2 = x * Math.cos(ay) + z1 * Math.sin(ay), z2 = -x * Math.sin(ay) + z1 * Math.cos(ay);
-        double x3 = x2 * Math.cos(az) - y1 * Math.sin(az), y3 = x2 * Math.sin(az) + y1 * Math.cos(az);
-        part.rotationPointX = (float) x3;
-        part.rotationPointY = (float) y3 + 12;
-        part.rotationPointZ = (float) z2;
     }
 
     private void arm(ModelRenderer upper, ModelRenderer forearm, boolean right, float[] rigidDirection, float w) {

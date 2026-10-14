@@ -25,6 +25,7 @@ public final class MoveVerifyReplay {
     private boolean done;
     private int baseX,baseY,baseZ;
     private EntityBoat boat;
+    private net.minecraft.entity.EntityLiving mob;
     private final java.util.List<EntityOtherPlayerMP> crowd=new java.util.ArrayList<EntityOtherPlayerMP>();
     private final long[] frames=new long[4000];
     private int frameCount;
@@ -38,10 +39,10 @@ public final class MoveVerifyReplay {
     private void camera(){
         if(camera==null){camera=new EntityOtherPlayerMP(mc.theWorld,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"Photo"));camera.setInvisible(true);}
         mc.renderViewEntity=camera;
-        net.minecraft.entity.Entity focus=dummy!=null?dummy:mc.thePlayer;
+        net.minecraft.entity.Entity focus=mob!=null?mob:dummy!=null?dummy:mc.thePlayer;
         camera.setPosition(focus.posX,focus.boundingBox.minY,focus.posZ);
         camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
-        camera.rotationYaw=camera.prevRotationYaw=focus.rotationYaw+(angle>=800?angle-800:angle);camera.rotationPitch=camera.prevRotationPitch=0;
+        camera.rotationYaw=camera.prevRotationYaw=focus.rotationYaw+(angle>=700?angle%100:angle);camera.rotationPitch=camera.prevRotationPitch=0;
         mc.gameSettings.thirdPersonView=1;
     }
 
@@ -135,6 +136,26 @@ public final class MoveVerifyReplay {
         if(ticks==300){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
+    /** Angle 700 + yaw: a zombie, a skeleton and a zombie pigman, client-only, walk past the camera one after another. */
+    private void mobs(){
+        mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
+        double x=mc.thePlayer.posX+3,y=mc.thePlayer.boundingBox.minY,z=mc.thePlayer.posZ;
+        int local=(ticks-110)%80;String[] names={"zombie","skeleton","pigman","armored","bow"};int which=(ticks-110)/80;
+        if(ticks<110)return;
+        if(which>=5){done=true;System.out.println("MOVE_VERIFY_DONE");return;}
+        if(local==0){
+            mob=which==0||which==3?new net.minecraft.entity.monster.EntityZombie(mc.theWorld):which==1||which==4?new net.minecraft.entity.monster.EntitySkeleton(mc.theWorld):new net.minecraft.entity.monster.EntityPigZombie(mc.theWorld);
+            if(which==3){mob.setCurrentItemOrArmor(4,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_helmet));mob.setCurrentItemOrArmor(3,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_chestplate));mob.setCurrentItemOrArmor(1,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_boots));}
+            if(which==4)mob.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.bow));
+            mob.setPosition(x,y,z);mob.rotationYaw=mob.prevRotationYaw=0;mob.renderYawOffset=mob.prevRenderYawOffset=0;mob.rotationYawHead=mob.prevRotationYawHead=0;
+            mc.theWorld.spawnEntityInWorld(mob);}
+        if(mob!=null&&local>0){mob.prevPosX=mob.lastTickPosX=mob.posX;mob.prevPosY=mob.lastTickPosY=mob.posY;mob.prevPosZ=mob.lastTickPosZ=mob.posZ;
+            mob.setPosition(mob.posX,mob.posY,mob.posZ+.13);mob.onGround=true;mob.prevLimbSwingAmount=mob.limbSwingAmount;mob.limbSwingAmount=.7f;mob.limbSwing+=.55f;mob.rotationYaw=mob.prevRotationYaw=0;mob.renderYawOffset=mob.prevRenderYawOffset=0;mob.rotationYawHead=mob.prevRotationYawHead=0;}
+        camera();
+        if(local>=30&&local<=66&&(local-30)%6==0)photo("mob-"+names[which]+"-"+((local-30)/6));
+        if(local==75&&mob!=null){mc.theWorld.removeEntity(mob);mob=null;}
+    }
+
     private void photo(String name){if(shot==null)shot=name;}
 
     @SubscribeEvent public void tick(TickEvent.ClientTickEvent event){
@@ -144,6 +165,7 @@ public final class MoveVerifyReplay {
         if(++ticks<100)return;
         if(angle>=900){crowd();return;}
         if(angle>=800){stanceWalk();return;}
+        if(angle>=700){mobs();return;}
         if(ticks==100)mc.thePlayer.inventory.currentItem=1;
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=0;
         camera();
