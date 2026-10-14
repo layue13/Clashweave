@@ -469,7 +469,10 @@ public final class CombatConfig {
             0.2f,
             1,
             "Each further accepted launch in one chain lifts this share of the previous one");
-        postureMax = config.getInt("max", "posture", 100, 10, 1000, "Stance stability of a full-steady entity");
+        // A system property overrides the file so a live run can take posture out of a measurement.
+        postureMax = Integer.getInteger(
+            "cw.p2.postureMax",
+            config.getInt("max", "posture", 100, 10, 1000, "Stance stability of a full-steady entity"));
         postureRecoveryDelay = config
             .getInt("recoveryDelayTicks", "posture", 40, 0, 400, "Quiet ticks before it recovers");
         postureRecoveryPerTick = config.getInt("recoveryPerTick", "posture", 2, 0, 50, "Stability regained per tick");
