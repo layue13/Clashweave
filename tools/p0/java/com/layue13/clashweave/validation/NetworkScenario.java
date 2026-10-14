@@ -120,6 +120,7 @@ public final class NetworkScenario {
             if (bothTicks >= 90 && bothTicks <= 215 && (bothTicks == 90 || bothTicks % 5 == 0 && (!p.isInWater() || p.posZ > 38))) p.playerNetServerHandler.setPlayerLocation(12.5, 63.0, 11.5, 0, 0);
             if (bothTicks == 220) p.playerNetServerHandler.setPlayerLocation(20.5, 64, 11.5, 180, 0);
             if (bothTicks == 330) p.playerNetServerHandler.setPlayerLocation(26.5, 64, 12.5, 0, 0);
+            if (bothTicks == 430) { p.capabilities.allowFlying = true; p.capabilities.isFlying = true; p.sendPlayerAbilities(); p.playerNetServerHandler.setPlayerLocation(10.5, 70, 5.5, 0, 0); }
             if (bothTicks == 345) for (Object e : w.loadedEntityList) if (e instanceof net.minecraft.entity.passive.EntityPig) p.mountEntity((net.minecraft.entity.Entity) e);
         }
         if (Boolean.getBoolean("cw.b4.walkers") && bothTicks % 10 == 0) for (Object o : MinecraftServer.getServer().worldServers[0].loadedEntityList) if (o instanceof net.minecraft.entity.monster.EntityEnderman) {

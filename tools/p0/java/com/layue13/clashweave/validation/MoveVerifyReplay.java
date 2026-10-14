@@ -136,7 +136,13 @@ public final class MoveVerifyReplay {
         if(ticks==110)ClientProxy.instance.send(com.layue13.clashweave.core.Intent.LIGHT,-1);
         camera();
         // The server keeps a player engaged for 60 ticks after the last action: walk while it still is, then past it.
-        key(mc.gameSettings.keyBindForward,ticks>=128&&ticks<290);
+        key(mc.gameSettings.keyBindForward,ticks>=128&&ticks<340);
+        key(mc.gameSettings.keyBindSprint,ticks>=245&&ticks<275);
+        key(mc.gameSettings.keyBindSneak,ticks>=280&&ticks<310);
+        key(mc.gameSettings.keyBindJump,ticks>=315&&ticks<320);
+        if(ticks>=250&&ticks<=272&&(ticks-250)%6==0)photo("stancesprint-"+((ticks-250)/6));
+        if(ticks>=285&&ticks<=306&&(ticks-285)%6==0)photo("stancesneak-"+((ticks-285)/6));
+        if(ticks>=316&&ticks<=334&&(ticks-316)%6==0)photo("stancejump-"+((ticks-316)/6));
         if(ticks>=124&&ticks<=126)photo("stand-"+(ticks-124));
         if(ticks>=138&&ticks<=173&&(ticks-138)%5==0)photo("stancewalk-"+((ticks-138)/5));
         if(ticks>=215&&ticks<=239&&(ticks-215)%8==0)photo("drawnwalk-"+((ticks-215)/8));
@@ -146,6 +152,7 @@ public final class MoveVerifyReplay {
     /** Real input in the player's own eyes: sheathed, drawing, ready stance, walking, sprinting, sneaking, jumping, looking up and down, then an empty hand. */
     private void firstPerson(){
         mc.renderViewEntity=mc.thePlayer;mc.gameSettings.thirdPersonView=0;mc.gameSettings.hideGUI=false;
+        if(System.getProperty("cw.b6.fov")!=null)mc.gameSettings.fovSetting=Float.parseFloat(System.getProperty("cw.b6.fov"));
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=0;
         boolean down=ticks>=340&&ticks<352,up=ticks>=360&&ticks<372;
         mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=down?60:up?-60:0;
@@ -176,17 +183,18 @@ public final class MoveVerifyReplay {
         if(ticks==100)mc.thePlayer.inventory.currentItem=0;
         if(ticks==105&&!Boolean.getBoolean("cw.b6.nodraw"))ClientProxy.instance.send(com.layue13.clashweave.core.Intent.LIGHT,-1);
         if(ticks%30==0)System.out.println("MOVE_FP2 tick="+ticks+" pos="+mc.thePlayer.posX+","+mc.thePlayer.posY+","+mc.thePlayer.posZ+" inWater="+mc.thePlayer.isInWater()+" riding="+mc.thePlayer.isRiding());
-        boolean ladder=ticks>=225&&ticks<330,ride=ticks>=350;
+        boolean ladder=ticks>=225&&ticks<330,ride=ticks>=350&&ticks<415,fly=ticks>=440;
         mc.thePlayer.rotationYaw=mc.thePlayer.prevRotationYaw=ladder?180:0;
         mc.thePlayer.rotationPitch=mc.thePlayer.prevRotationPitch=ticks>=200&&ticks<220?40:0;
-        key(mc.gameSettings.keyBindForward,(ticks>=130&&ticks<200)||(ladder&&ticks>=230)||(ride&&ticks<380));
+        key(mc.gameSettings.keyBindForward,(ticks>=130&&ticks<200)||(ladder&&ticks>=230)||(ride&&ticks<380)||(fly&&ticks<470));
         key(mc.gameSettings.keyBindJump,ticks>=125&&ticks<200&&ticks%7<3);
         if(ticks%10==0&&ticks>=120&&ticks<=200)System.out.println("MOVE_FP2_SWIM tick="+ticks+" amount="+mc.thePlayer.limbSwingAmount+" y="+mc.thePlayer.posY+" inWater="+mc.thePlayer.isInWater());
         if(ticks>=140&&ticks<=190&&(ticks-140)%10==0)photo("fp2-swim-"+((ticks-140)/10));
         if(ticks>=205&&ticks<=215&&(ticks-205)%5==0)photo("fp2-swimdown-"+((ticks-205)/5));
         if(ticks>=240&&ticks<=300&&(ticks-240)%10==0)photo("fp2-climb-"+((ticks-240)/10));
         if(ticks>=360&&ticks<=400&&(ticks-360)%10==0)photo("fp2-ride-"+((ticks-360)/10));
-        if(ticks==420){done=true;System.out.println("MOVE_VERIFY_DONE");}
+        if(ticks>=445&&ticks<=475&&(ticks-445)%10==0)photo("fp2-fly-"+((ticks-445)/10));
+        if(ticks==490){done=true;System.out.println("MOVE_VERIFY_DONE");}
     }
 
     /** Photographs the other real player (P0B, put to bed by the server) from five yaws around the bed. */
@@ -240,7 +248,8 @@ public final class MoveVerifyReplay {
     private net.minecraft.entity.EntityLiving make(String scene,double x,double y,double z){
         net.minecraft.world.World w=mc.theWorld;
         net.minecraft.entity.EntityLiving e;
-        if(scene.equals("skeleton")||scene.equals("bow")||scene.equals("spiderjockey")||scene.equals("skelarmor"))e=new net.minecraft.entity.monster.EntitySkeleton(w);
+        if(scene.equals("skelhurt")||scene.equals("skeleton")||scene.equals("bow")||scene.equals("spiderjockey")||scene.equals("skelarmor"))e=new net.minecraft.entity.monster.EntitySkeleton(w);
+        else if(scene.equals("pighurt"))e=new net.minecraft.entity.monster.EntityPigZombie(w);
         else if(scene.equals("pigman")||scene.equals("pigaxe"))e=new net.minecraft.entity.monster.EntityPigZombie(w);
         else if(scene.equals("enderman")||scene.equals("endercarry")||scene.equals("enderscream"))e=new net.minecraft.entity.monster.EntityEnderman(w);
         else e=new net.minecraft.entity.monster.EntityZombie(w);
@@ -255,7 +264,9 @@ public final class MoveVerifyReplay {
                 :new net.minecraft.item.Item[]{net.minecraft.init.Items.chainmail_boots,net.minecraft.init.Items.chainmail_leggings,net.minecraft.init.Items.chainmail_chestplate,net.minecraft.init.Items.chainmail_helmet};
             for(int slot=1;slot<=4;slot++)e.setCurrentItemOrArmor(slot,new net.minecraft.item.ItemStack(set[slot-1]));}
         if(scene.equals("pigaxe"))e.setCurrentItemOrArmor(0,new net.minecraft.item.ItemStack(net.minecraft.init.Items.iron_axe));
-        if(scene.equals("hurt")){e.hurtTime=e.maxHurtTime=10;}
+        if(scene.endsWith("hurt")){e.hurtTime=e.maxHurtTime=10;}
+        if(scene.equals("villhurt")&&e instanceof net.minecraft.entity.monster.EntityZombie)((net.minecraft.entity.monster.EntityZombie)e).setVillager(true);
+        if(scene.equals("armhurt")){for(int slot=1;slot<=4;slot++)e.setCurrentItemOrArmor(slot,new net.minecraft.item.ItemStack(slot==1?net.minecraft.init.Items.iron_boots:slot==2?net.minecraft.init.Items.iron_leggings:slot==3?net.minecraft.init.Items.iron_chestplate:net.minecraft.init.Items.iron_helmet));}
         if(scene.equals("dying")){e.setHealth(0);}
         if(scene.equals("pack"))for(int i=0;i<3;i++){net.minecraft.entity.monster.EntityZombie mate=new net.minecraft.entity.monster.EntityZombie(w);mate.setPosition(x+(i==0?.55:i==1?-.5:.1),y,z+(i==0?.3:i==1?-.4:.7));mc.theWorld.spawnEntityInWorld(mate);packMates.add(mate);}
         if(scene.equals("zvillager")&&e instanceof net.minecraft.entity.monster.EntityZombie)((net.minecraft.entity.monster.EntityZombie)e).setVillager(true);
@@ -309,7 +320,7 @@ public final class MoveVerifyReplay {
             step(mob,mobMount==null?.13:0);
             if(mobMount!=null)step(mobMount,.13);
             if(scene.equals("water"))setFlag(mob,"inWater",true);
-            if(scene.equals("hurt"))mob.hurtTime=6;
+            if(scene.endsWith("hurt"))mob.hurtTime=6;
             if(scene.equals("dying")){mob.setHealth(0);mob.deathTime=12;}
         }
         camera();

@@ -160,7 +160,11 @@ public final class WeaponRendering {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPushMatrix();
         GL11.glLoadIdentity();
-        org.lwjgl.util.glu.GLU.gluPerspective(70, (float) minecraft.displayWidth / minecraft.displayHeight, 0.05f, 128);
+        org.lwjgl.util.glu.GLU.gluPerspective(
+            minecraft.gameSettings.fovSetting,
+            (float) minecraft.displayWidth / minecraft.displayHeight,
+            0.05f,
+            128);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
         GL11.glPushMatrix();
         GL11.glLoadIdentity();
@@ -198,7 +202,11 @@ public final class WeaponRendering {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPushMatrix();
         GL11.glLoadIdentity();
-        org.lwjgl.util.glu.GLU.gluPerspective(70, (float) minecraft.displayWidth / minecraft.displayHeight, 0.05f, 128);
+        org.lwjgl.util.glu.GLU.gluPerspective(
+            minecraft.gameSettings.fovSetting,
+            (float) minecraft.displayWidth / minecraft.displayHeight,
+            0.05f,
+            128);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
         GL11.glPushMatrix();
         GL11.glLoadIdentity();
