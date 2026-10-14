@@ -87,9 +87,14 @@ public final class MoveVerifyReplay {
         if(ticks>755&&ticks<790){walkDummy(.15);dummy.capabilities.isFlying=true;}
         if(ticks>=768&&ticks<=780&&(ticks-768)%4==0)photo("fly-"+((ticks-768)/4));
         if(ticks==790)clearStage();
-        if(ticks==795){dummy=mannequin(x,y+.1,z);flag(net.minecraft.entity.player.EntityPlayer.class,"sleeping",true);}
+        if(ticks==795){dummy=mannequin(x,y+.1,z);flag(net.minecraft.entity.player.EntityPlayer.class,"sleeping",true);
+            // A real bed under it, so the body is laid down by the bed's own orientation.
+            int bx=(int)Math.floor(dummy.posX),by=(int)Math.floor(y),bz=(int)Math.floor(dummy.posZ);
+            mc.theWorld.setBlock(bx,by,bz,net.minecraft.init.Blocks.bed,0,2);mc.theWorld.setBlock(bx,by,bz+1,net.minecraft.init.Blocks.bed,8,2);
+            dummy.playerLocation=new net.minecraft.util.ChunkCoordinates(bx,by,bz);bed=new int[]{bx,by,bz};
+            dummy.setPosition(bx+.5,by+.5625,bz+1);}
         if(ticks>=810&&ticks<=814&&(ticks-810)%4==0)photo("sleep-"+((ticks-810)/4));
-        if(ticks==830)clearStage();
+        if(ticks==830){clearStage();if(bed!=null){mc.theWorld.setBlockToAir(bed[0],bed[1],bed[2]);mc.theWorld.setBlockToAir(bed[0],bed[1],bed[2]+1);bed=null;}}
         // Arms owned by something else while the legs walk: a punch, a drawn bow, a meal.
         if(ticks==840){dummy=mannequin(x,y,z);}
         if(ticks>840&&ticks<880){walkDummy(.09);if(ticks%9==0)dummy.swingItem();}
@@ -144,10 +149,11 @@ public final class MoveVerifyReplay {
         if(ticks<120)return;
         net.minecraft.entity.EntityLiving best=null;double bestD=1e9;
         for(Object o:mc.theWorld.loadedEntityList){
-            if(!(o instanceof net.minecraft.entity.monster.EntityZombie||o instanceof net.minecraft.entity.monster.EntitySkeleton))continue;
+            if(!(o instanceof net.minecraft.entity.monster.EntityZombie||o instanceof net.minecraft.entity.monster.EntitySkeleton||o instanceof net.minecraft.entity.monster.EntityEnderman))continue;
+            if(!System.getProperty("cw.b4.pick","").isEmpty()&&!o.getClass().getSimpleName().equals(System.getProperty("cw.b4.pick")))continue;
             net.minecraft.entity.EntityLiving l=(net.minecraft.entity.EntityLiving)o;
             double d=l.getDistanceSqToEntity(mc.thePlayer);
-            if(d>16&&d<bestD){bestD=d;best=l;}
+            if(d>(System.getProperty("cw.b4.pick","").isEmpty()?16:2)&&d<bestD){bestD=d;best=l;}
         }
         mob=best;
         if(mob!=null)camera();
@@ -157,6 +163,7 @@ public final class MoveVerifyReplay {
     }
 
     private static final String[] SCENES=System.getProperty("cw.b2.scenes","zombie,skeleton,pigman,armored,bow,child,water,chickenjockey,spiderjockey,modded,zvillager,armoredfull,skelarmor,enderman,endercarry").split(",");
+    private int[] bed;
     private net.minecraft.entity.Entity mobMount;
     private net.minecraft.client.renderer.entity.Render savedRender;
 

@@ -55,9 +55,9 @@ public final class NetworkScenario {
         }
         if (a && Boolean.getBoolean("cw.b4.walkers")) {
             // Real server-driven monsters (their own AI and pathing) walking at the player; fire-proof so daylight leaves them be.
-            net.minecraft.entity.EntityLiving[] walkers = { new EntityZombie(world), new net.minecraft.entity.monster.EntitySkeleton(world), new net.minecraft.entity.monster.EntityPigZombie(world) };
+            net.minecraft.entity.EntityLiving[] walkers = { new EntityZombie(world), new net.minecraft.entity.monster.EntitySkeleton(world), new net.minecraft.entity.monster.EntityPigZombie(world), new net.minecraft.entity.monster.EntityEnderman(world) };
             for (int i = 0; i < walkers.length; i++) {
-                walkers[i].setPosition(-6 + 6 * i, 64, -16);
+                walkers[i].setPosition(-9 + 6 * i, 64, -16);
                 try { java.lang.reflect.Field fire = net.minecraft.entity.Entity.class.getDeclaredField("isImmuneToFire"); fire.setAccessible(true); fire.setBoolean(walkers[i], true); } catch (Exception e) { System.out.println("B4_FIRE_UNAVAILABLE " + e); }
                 walkers[i].setAttackTarget(player);
                 world.spawnEntityInWorld(walkers[i]);
