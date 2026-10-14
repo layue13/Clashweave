@@ -151,6 +151,76 @@ public final class NetworkScenario {
         }
     }
 
+    private int swarmSpawned, swarmRescues;
+
+    /**
+     * P2 close-out: four zombies with their real AI hunt P0A for the whole run; killed ones are replaced. P0A keeps its
+     * real health until it would die, then is topped up (counted), so the run measures the fight rather than ending it.
+     */
+    private void swarmRig() {
+        EntityPlayerMP a = null;
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (p.getCommandSenderName().equals("P0A")) a = p;
+        }
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (a != null && p != a && p.getDistanceSqToEntity(a) < 1600) p.playerNetServerHandler.setPlayerLocation(-28, 64, -48, 0, 0);
+        }
+        if (a == null || Clashweave.server.state(a) == null) return;
+        if (a.getHealth() < 40) {
+            a.setHealth(a.getMaxHealth());
+            swarmRescues++;
+            System.out.println("P2_SWARM_RESCUE tick=" + bothTicks + " n=" + swarmRescues);
+        }
+        WorldServer w = a.getServerForPlayer();
+        int alive = 0;
+        for (Object e : w.loadedEntityList) if (e instanceof EntityZombie && !((EntityZombie) e).isDead) {
+            EntityZombie z = (EntityZombie) e;
+            alive++;
+            z.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(.23);
+            try { java.lang.reflect.Field fire = net.minecraft.entity.Entity.class.getDeclaredField("isImmuneToFire"); fire.setAccessible(true); fire.setBoolean(z, true); z.extinguish(); } catch (Exception ex) { /* burns in daylight */ }
+            if (z.getAttackTarget() == null) z.setAttackTarget(a);
+        }
+        if (bothTicks % 20 == 0) while (alive < 4) {
+            EntityZombie z = new EntityZombie(w);
+            double angle = (swarmSpawned % 4) * Math.PI / 2 + Math.PI / 4;
+            z.setPosition(a.posX + Math.cos(angle) * 5, 64, a.posZ + Math.sin(angle) * 5);
+            z.setAttackTarget(a);
+            w.spawnEntityInWorld(z);
+            swarmSpawned++;
+            alive++;
+        }
+        if (bothTicks % 100 == 0) System.out.println("P2_SWARM tick=" + bothTicks + " hp=" + a.getHealth() + " zombies=" + alive + " spawned=" + swarmSpawned + " rescues=" + swarmRescues + " pos=" + a.posX + "," + a.posZ);
+    }
+
+    private long pvpHold;
+
+    /** P2 close-out: both players are the fighters; the zombie is removed, they are kept facing within reach, health topped up now and then. */
+    private void pvpRig() {
+        EntityPlayerMP a = null, b = null;
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP p = (EntityPlayerMP) o;
+            if (p.getCommandSenderName().equals("P0A")) a = p;
+            else if (p.getCommandSenderName().equals("P0B")) b = p;
+        }
+        if (a == null || b == null || Clashweave.server.state(a) == null || Clashweave.server.state(b) == null) return;
+        for (Object e : a.worldObj.loadedEntityList) if (e instanceof EntityZombie) ((EntityZombie) e).setDead();
+        if (bothTicks % 40 == 0 && (a.getHealth() < 60 || b.getHealth() < 60)) {
+            a.setHealth(a.getMaxHealth());
+            b.setHealth(b.getMaxHealth());
+            System.out.println("P2_PVP_TOPUP tick=" + bothTicks);
+        }
+        double distance = a.getDistanceToEntity(b);
+        boolean quiet = Clashweave.server.state(a).scheduler.current() == null && Clashweave.server.state(b).scheduler.current() == null;
+        if (bothTicks - pvpHold > 6 && (distance > 4 || distance < 1) && quiet) {
+            pvpHold = bothTicks;
+            a.playerNetServerHandler.setPlayerLocation(0, 64, 0, 0, 0);
+            b.playerNetServerHandler.setPlayerLocation(0, 64, 2.2, 180, 0);
+        }
+        if (bothTicks % 100 == 0) System.out.println("P2_PVP tick=" + bothTicks + " hpA=" + a.getHealth() + " hpB=" + b.getHealth() + " dist=" + distance);
+    }
+
     private boolean guardHeld;
     private long guardSince = -1, guardReleased = -1;
 
@@ -220,6 +290,7 @@ public final class NetworkScenario {
         EntityZombie zombie = null;
         for (Object e : a.worldObj.loadedEntityList) if (e instanceof EntityZombie) { zombie = (EntityZombie) e; break; }
         if (zombie == null) return;
+        if (Boolean.getBoolean("cw.p1b.noAttack")) { zombie.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(0); zombie.setAttackTarget(null); }
         try { java.lang.reflect.Field fire = net.minecraft.entity.Entity.class.getDeclaredField("isImmuneToFire"); fire.setAccessible(true); fire.setBoolean(zombie, true); zombie.extinguish(); } catch (Exception e) { /* daylight burning stays */ }
         if (Clashweave.server.state(a).scheduler.current() != null || !zombie.onGround) chaseBusy = bothTicks;
         if (bothTicks % 10 == 0) System.out.println("P1B_STATE tick=" + bothTicks + " zombie=" + zombie.getEntityId() + "@" + zombie.posX + "," + zombie.posY + "," + zombie.posZ + " hp=" + zombie.getHealth() + " player=" + a.posX + "," + a.posZ + " yaw=" + a.rotationYaw + " busy=" + (bothTicks - chaseBusy));
@@ -238,6 +309,8 @@ public final class NetworkScenario {
         bothTicks++;
         if (Boolean.getBoolean("cw.p1b.chase")) chaseTarget();
         if (Boolean.getBoolean("cw.p2.guard")) guardRig();
+        if (Boolean.getBoolean("cw.p2.swarm")) swarmRig();
+        if (Boolean.getBoolean("cw.p2.pvp")) pvpRig();
         if (Boolean.getBoolean("cw.p2.dodge")) dodgeRig();
         if (Boolean.getBoolean("cw.b6.fp2")) for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
             EntityPlayerMP p = (EntityPlayerMP) o;

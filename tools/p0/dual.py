@@ -33,6 +33,8 @@ parser.add_argument('--posture', action='store_true', help='P2-b: strike the sti
 parser.add_argument('--dodge', action='store_true', help='P2-d: steps in four directions against a wall and timed blows')
 parser.add_argument('--sa', action='store_true', help='P2-e: repeated iai on the still zombie; delayed strikes of the equipped ability (add --jvm-arg=-Dcw.sa.off=true for the control)')
 parser.add_argument('--vfx', action='store_true', help='P3: blade trail photographed from a free third-person camera (-Dcw.p3.angle)')
+parser.add_argument('--swarm', action='store_true', help='P2 close-out: four hunting zombies against P0A (-Dcw.p2.swarmTicks)')
+parser.add_argument('--pvp', action='store_true', help='P2 close-out: P0A and P0B fight each other with mirrored scripts')
 parser.add_argument('--special', action='store_true', help='P2-g: the key-triggered ability: busy, used, cooldown, used again')
 parser.add_argument('--mode', action='store_true', help='P2-f: fill the gauge, start the mode, iai inside and after it')
 parser.add_argument('--souls-view', action='store_true')
@@ -65,7 +67,7 @@ parser.add_argument('--client-content-pack', action='append', default=[], help='
 parser.add_argument('--server-cfg', action='append', default=[], help='category:key=value lines appended to the server combat.cfg (booleans/ints/floats)')
 args = parser.parse_args()
 if args.launcher: args.manual=True; args.render_only=True
-if args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special or args.vfx: args.manual=True
+if args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special or args.vfx or args.swarm or args.pvp: args.manual=True
 if args.wf1c: args.manual=True; args.render_only=True
 if args.follow_only: args.lock_support=True
 if args.first_only: args.composition=True
@@ -171,6 +173,8 @@ def spawn(role):
     if args.chase: command += ['-Dcw.p1b.chase=true']
     if args.guard: command += ['-Dcw.p2.guard=true']
     if args.vfx: command += ['-Dcw.p3.vfx=true','-Dcw.p1b.chase=true']
+    if args.swarm: command += ['-Dcw.p2.swarm=true']
+    if args.pvp: command += ['-Dcw.p2.pvp=true']
     if args.special: command += ['-Dcw.p2.special=true','-Dcw.p1b.chase=true']
     if args.mode: command += ['-Dcw.p2.mode=true','-Dcw.p1b.chase=true','-Dcw.p2.modeTicks=500']
     if args.sa: command += ['-Dcw.p2.sa=true','-Dcw.p1b.chase=true']
@@ -245,7 +249,7 @@ try:
             server.stdin.write(b'stop\n')
             server.stdin.flush()
             server.wait(timeout=20)
-            if args.manual or args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special or args.vfx: break
+            if args.manual or args.chase or args.guard or args.posture or args.dodge or args.sa or args.mode or args.special or args.vfx or args.swarm or args.pvp: break
             raise RuntimeError('Client exited before scenario completed')
         time.sleep(.5)
     if server.poll() is None:
