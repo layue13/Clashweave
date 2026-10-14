@@ -288,6 +288,33 @@
           "hit": true
         }
       ]
+    },
+    {
+      "id": "step",
+      "startup": 1,
+      "active": 0,
+      "recovery": 9,
+      "damage": 0,
+      "reach": 0,
+      "arc": 0,
+      "distance": 3.0,
+      "speed": 0.5,
+      "protectFrom": 1,
+      "protectUntil": 6,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "light_1",
+          "from": 5,
+          "until": 10
+        },
+        {
+          "input": "HEAVY",
+          "target": "heavy",
+          "from": 5,
+          "until": 10
+        }
+      ]
     }
   ],
   "_p1_notes": {

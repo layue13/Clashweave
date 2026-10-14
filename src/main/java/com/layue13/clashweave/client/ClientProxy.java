@@ -109,6 +109,17 @@ public final class ClientProxy extends CommonProxy {
     private int sequence;
     private boolean shift;
     private boolean sentGuard;
+    private int dodgeOctant = 4;
+
+    /** The direction the movement keys ask for, 0 forward and clockwise in 45 degree steps; back when none is held. */
+    private int octant() {
+        float forward = minecraft.thePlayer.movementInput.moveForward,
+            strafe = minecraft.thePlayer.movementInput.moveStrafe;
+        if (forward == 0 && strafe == 0) return 4;
+        double right = Math.toDegrees(Math.atan2(-strafe, forward));
+        return (int) Math.floorMod(Math.round(right / 45), 8);
+    }
+
     private boolean predictedEngagement;
     private int predictedSequence;
     private String predictedAction = "";
@@ -270,6 +281,7 @@ public final class ClientProxy extends CommonProxy {
     public void send(Intent intent, int target) {
         if (session == 0 || minecraft.thePlayer == null) return;
         long pressed = System.nanoTime();
+        if (intent == Intent.DODGE) dodgeOctant = target < 0 ? 4 : target & 7;
         int next = ++sequence;
         Visual observed = own();
         InputMessage request = new InputMessage(session, stamp(), next, intent, target);
@@ -368,7 +380,9 @@ public final class ClientProxy extends CommonProxy {
         shift = shiftNow;
         if (armed && !openGui) {
             while (sheathe.isPressed()) send(Intent.SHEATHE, -1);
-            while (dodge.isPressed()) send(Intent.DODGE, -1);
+            while (dodge.isPressed()) {
+                send(Intent.DODGE, octant());
+            }
             while (special.isPressed()) send(Intent.SPECIAL, -1);
             while (mode.isPressed()) send(Intent.MODE, -1);
             KeyBinding.setKeyBindState(minecraft.gameSettings.keyBindAttack.getKeyCode(), false);
@@ -383,7 +397,9 @@ public final class ClientProxy extends CommonProxy {
                 ActionCatalog.Definition definition = visual.definition;
                 double delta = Math.min(definition.speed, definition.distance - visual.moved);
                 if (delta > 0 && elapsed(visual, 0) < definition.duration()) {
-                    double yaw = Math.toRadians(visual.state.yaw);
+                    // A step goes where the player is pushing, in eighths of a turn clockwise from where they face.
+                    double yaw = Math
+                        .toRadians(visual.state.yaw - (definition.protectUntil > 0 ? dodgeOctant * 45 : 0));
                     minecraft.thePlayer.moveEntity(-Math.sin(yaw) * delta, 0, Math.cos(yaw) * delta);
                     visual.moved += delta;
                 }

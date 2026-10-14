@@ -73,6 +73,8 @@ public final class CombatServer {
         public final EntityPlayerMP player;
         public boolean engaged;
         public long lastTrigger;
+        public long lastDodge = Long.MIN_VALUE / 2;
+        public int dodgeOctant;
         public int revision;
         public long networkAfter;
         public int lock = -1;
@@ -581,56 +583,67 @@ public final class CombatServer {
                 "LOCK_TARGET player=" + input.player
                     .getCommandSenderName() + " target=" + state.lock + " hint=" + message.target);
             snapshot(state, message.sequence, result, false);
-        } else if (intent == Intent.DODGE || intent == Intent.SPECIAL || intent == Intent.MODE) {
+        } else if (intent == Intent.SPECIAL || intent == Intent.MODE) {
             snapshot(state, message.sequence, "REJECT:UNIMPLEMENTED:" + intent.name(), false);
-        } else if (state.guard.held() && !(intent == Intent.LIGHT && state.scheduler.counter(tick))) {
-            snapshot(state, message.sequence, "REJECT:GUARD_HELD", false);
-        } else {
-            if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
-            if (state.scheduler.current() == null) {
-                use(state, CombatWeapons.entry(input.player.getHeldItem()));
-                state.appearance.apply(true);
-            }
-            FacingHistory.Result facing = state.facingHistory.choose(
-                message.yaw,
-                message.pitch,
-                input.facingArrival,
-                input.player.rotationYaw,
-                input.player.rotationPitch,
-                input.player.posX,
-                input.player.posY,
-                input.player.posZ,
-                config.facingTolerance,
-                config.facingHistoryAge * 1_000_000L,
-                config.facingHistoryDrift);
-            state.requestFacing.put(message.sequence, facing);
-            trace(
-                "FACING player=" + input.player.getCommandSenderName()
-                    + " seq="
-                    + message.sequence
-                    + " requested="
-                    + message.yaw
-                    + " known="
-                    + input.player.rotationYaw
-                    + " chosen="
-                    + facing.yaw
-                    + " accepted="
-                    + facing.accepted
-                    + " reason="
-                    + facing.reason);
-            long receiptAge = input.receivedTick - effectiveStamp;
-            state.scheduler.request(
-                intent,
-                message.sequence,
-                tick,
-                message.origin,
-                receiptAge,
-                LatencyCompensation.limit(
+        } else if (intent == Intent.DODGE && tick - state.lastDodge < config.dodgeCooldown) {
+            snapshot(state, message.sequence, "REJECT:DODGE_COOLDOWN", false);
+        } else if (state.guard.held() && intent != Intent.DODGE
+            && !(intent == Intent.LIGHT && state.scheduler.counter(tick))) {
+                snapshot(state, message.sequence, "REJECT:GUARD_HELD", false);
+            } else {
+                if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
+                if (intent == Intent.DODGE) {
+                    state.guard.release(tick);
+                    state.lastDodge = tick;
+                    state.dodgeOctant = message.target;
+                    trace(
+                        "DODGE_REQUEST player=" + input.player
+                            .getCommandSenderName() + " octant=" + message.target + " tick=" + tick);
+                }
+                if (state.scheduler.current() == null) {
+                    use(state, CombatWeapons.entry(input.player.getHeldItem()));
+                    state.appearance.apply(true);
+                }
+                FacingHistory.Result facing = state.facingHistory.choose(
+                    message.yaw,
+                    message.pitch,
+                    input.facingArrival,
+                    input.player.rotationYaw,
+                    input.player.rotationPitch,
+                    input.player.posX,
+                    input.player.posY,
+                    input.player.posZ,
+                    config.facingTolerance,
+                    config.facingHistoryAge * 1_000_000L,
+                    config.facingHistoryDrift);
+                state.requestFacing.put(message.sequence, facing);
+                trace(
+                    "FACING player=" + input.player.getCommandSenderName()
+                        + " seq="
+                        + message.sequence
+                        + " requested="
+                        + message.yaw
+                        + " known="
+                        + input.player.rotationYaw
+                        + " chosen="
+                        + facing.yaw
+                        + " accepted="
+                        + facing.accepted
+                        + " reason="
+                        + facing.reason);
+                long receiptAge = input.receivedTick - effectiveStamp;
+                state.scheduler.request(
+                    intent,
+                    message.sequence,
+                    tick,
+                    message.origin,
                     receiptAge,
-                    config.inputEdgeCompensationTicks,
-                    serverPingMillis(input.player),
-                    config.inputEdgeCompensationJitterTicks));
-        }
+                    LatencyCompensation.limit(
+                        receiptAge,
+                        config.inputEdgeCompensationTicks,
+                        serverPingMillis(input.player),
+                        config.inputEdgeCompensationJitterTicks));
+            }
     }
 
     /** Isolated MCP field access; mapping must be verified in the Forge development environment. */
@@ -932,6 +945,12 @@ public final class CombatServer {
         if (contact.target.isDead || contact.target.getHealth() <= 0
             || contact.target.dimension != contact.attacker.player.dimension) return;
         PlayerState defender = contact.target instanceof EntityPlayer ? state((EntityPlayer) contact.target) : null;
+        if (defender != null && stepping(defender)) {
+            trace(
+                "DODGED player=" + defender.player
+                    .getCommandSenderName() + " attacker=" + contact.attacker.player.getEntityId() + " tick=" + tick);
+            return;
+        }
         int guard = defender == null ? 0
             : defender.guard.defend(contact.tick, cutoff, config.perfectWindow, contact.facing);
         float damage = contact.instance.definition.damage * (float) contact.attacker.scheduler.weapon().damageMultiplier
@@ -1143,6 +1162,12 @@ public final class CombatServer {
      * the later hurt event could not prevent. The counter window opens and the semantic result is published here,
      * because a cancelled hurt event never reaches the presentation flush.
      */
+    /** Whether the player is inside the protected span of an action that declares one (a step). */
+    private boolean stepping(PlayerState state) {
+        Scheduler.Instance current = state.scheduler.current();
+        return current != null && current.definition.protects(tick - current.start);
+    }
+
     /** A broken monster cannot strike: its blows are cancelled before they land. */
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void brokenStrike(LivingAttackEvent event) {
@@ -1170,6 +1195,13 @@ public final class CombatServer {
         PlayerState state = state((EntityPlayer) event.entityLiving);
         Entity attacker = event.source.getEntity();
         if (state == null || attacker == null || !armed(state.player) || event.ammount <= 0) return;
+        if (stepping(state)) {
+            event.setCanceled(true);
+            trace(
+                "DODGED player=" + state.player
+                    .getCommandSenderName() + " attacker=" + attacker.getEntityId() + " tick=" + tick);
+            return;
+        }
         int guard = state.guard
             .defend(tick, System.nanoTime(), config.perfectWindow, facing(state.player, attacker, config.guardArc));
         if (guard != 2) return;
