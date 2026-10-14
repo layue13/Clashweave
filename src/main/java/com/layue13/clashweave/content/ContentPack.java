@@ -32,6 +32,18 @@ public final class ContentPack {
 
         public String id;
         public List<Attach> attach = new ArrayList<>();
+        /** Optional key-triggered form: strikes the target in front a few times in a row. */
+        public Active active;
+    }
+
+    /**
+     * A deliberate use of an ability: {@code strikes} cuts, {@code interval} ticks apart, at the nearest target ahead.
+     */
+    public static final class Active {
+
+        public double range = 6;
+        public int cooldown = 200, strikes = 3, interval = 4;
+        public float damage = 4, posture = 12;
     }
 
     public static final class Attach {

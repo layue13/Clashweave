@@ -74,6 +74,7 @@ public final class CombatServer {
         public boolean engaged;
         public long lastTrigger;
         public long lastDodge = Long.MIN_VALUE / 2;
+        public long lastSpecial = Long.MIN_VALUE / 2;
         public com.layue13.clashweave.core.Gauge gauge;
         public long gaugeInstance = -1, lastGaugeHit = Long.MIN_VALUE / 2;
         public int streak;
@@ -615,7 +616,7 @@ public final class CombatServer {
                     .getCommandSenderName() + " result=" + result + " tick=" + tick + " gauge=" + state.gauge.value());
             snapshot(state, message.sequence, result, false);
         } else if (intent == Intent.SPECIAL) {
-            snapshot(state, message.sequence, "REJECT:UNIMPLEMENTED:" + intent.name(), false);
+            snapshot(state, message.sequence, special(state), false);
         } else if (intent == Intent.DODGE && tick - state.lastDodge < config.dodgeCooldown) {
             snapshot(state, message.sequence, "REJECT:DODGE_COOLDOWN", false);
         } else if (state.guard.held() && intent != Intent.DODGE
@@ -1245,6 +1246,50 @@ public final class CombatServer {
                 .getCommandSenderName() + " target=" + target.getEntityId() + " due=" + (at + first) + " mode=" + mode);
     }
 
+    /** The key-triggered ability: cuts the nearest living target ahead several times in a row. Returns the verdict. */
+    private String special(PlayerState state) {
+        com.layue13.clashweave.content.ContentPack.Active active = rules.active(state.scheduler.weapon());
+        String result;
+        if (active == null) result = "REJECT:NO_SA";
+        else if (!armed(state.player) || state.scheduler.current() != null || state.guard.held())
+            result = "REJECT:SPECIAL_BUSY";
+        else if (tick - state.lastSpecial < active.cooldown) result = "REJECT:SPECIAL_COOLDOWN";
+        else {
+            EntityPlayerMP p = state.player;
+            double yaw = Math.toRadians(p.rotationYaw);
+            double fx = -Math.sin(yaw), fz = Math.cos(yaw);
+            EntityLivingBase best = null;
+            double bestDistance = active.range * active.range;
+            for (Object each : p.worldObj
+                .getEntitiesWithinAABBExcludingEntity(p, p.boundingBox.expand(active.range, 2, active.range))) {
+                if (!(each instanceof EntityLivingBase) || ((EntityLivingBase) each).isDead
+                    || ((EntityLivingBase) each).getHealth() <= 0) continue;
+                EntityLivingBase candidate = (EntityLivingBase) each;
+                double dx = candidate.posX - p.posX, dz = candidate.posZ - p.posZ;
+                double distance = dx * dx + dz * dz;
+                // within a 90 degree cone ahead
+                if (distance < 1e-6 || distance >= bestDistance || (dx * fx + dz * fz) / Math.sqrt(distance) < .7)
+                    continue;
+                best = candidate;
+                bestDistance = distance;
+            }
+            if (best == null) result = "REJECT:SPECIAL_NO_TARGET";
+            else {
+                state.lastSpecial = tick;
+                com.layue13.clashweave.core.HitEffect strike = new com.layue13.clashweave.core.HitEffect();
+                strike.type = com.layue13.clashweave.core.HitEffect.Type.DELAYED_SLASH;
+                strike.delay = active.interval;
+                strike.damage = active.damage;
+                strike.posture = active.posture;
+                for (int n = 0; n < active.strikes; n++)
+                    scheduleDelayed(p, best, strike, tick + (long) n * active.interval);
+                result = "SPECIAL";
+            }
+        }
+        trace("SPECIAL player=" + state.player.getCommandSenderName() + " result=" + result + " tick=" + tick);
+        return result;
+    }
+
     private void runDelayed() {
         if (delayed.isEmpty()) return;
         for (java.util.Iterator<Delayed> it = delayed.iterator(); it.hasNext();) {
@@ -1273,6 +1318,8 @@ public final class CombatServer {
             float damage = strike.effect.damage * strike.scale
                 * (float) owner.scheduler.weapon().damageMultiplier
                 * (guard == 2 ? 0 : guard == 1 ? (float) config.blockDamage : 1);
+            // A scheduled strike is its own blow: the target's frames from the blow that scheduled it do not absorb it.
+            target.hurtResistantTime = 0;
             boolean hit = damage > 0 && target.attackEntityFrom(new CombatSource(attacker), damage);
             float stance = strike.effect.posture * strike.scale * (float) owner.scheduler.weapon().poiseMultiplier;
             if (guard == 2) posture.damage(target, config.posturePrecise, tick);

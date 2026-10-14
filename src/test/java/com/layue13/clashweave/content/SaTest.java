@@ -21,7 +21,7 @@ public class SaTest {
     public void theEquippedAbilityAttachesItsStrikeToTheIaiAndNothingElse() throws Exception {
         EffectiveRules rules = rules();
         WeaponDefinition katana = rules.weapon("katana:katana");
-        assertEquals(java.util.Arrays.asList("katana:afterimage"), katana.saSlots);
+        assertEquals(java.util.Arrays.asList("katana:afterimage", "katana:shadowrend"), katana.saSlots);
         List<HitEffect> iai = rules.attached(katana, "katana:iai");
         assertEquals(1, iai.size());
         assertEquals(HitEffect.Type.DELAYED_SLASH, iai.get(0).type);
@@ -32,6 +32,14 @@ public class SaTest {
         assertTrue(
             rules.attached(katana, "katana:heavy")
                 .isEmpty());
+    }
+
+    @Test
+    public void theKatanaCarriesAnActiveFormAndAPlainWeaponDoesNot() throws Exception {
+        EffectiveRules rules = rules();
+        assertNotNull(rules.active(rules.weapon("katana:katana")));
+        assertEquals(3, rules.active(rules.weapon("katana:katana")).strikes);
+        assertNull(rules.active(WeaponDefinition.katana()));
     }
 
     @Test

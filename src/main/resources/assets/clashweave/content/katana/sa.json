@@ -18,6 +18,19 @@
         }
       ],
       "_comment": "P2 provisional: after an iai connects, the same target is cut again 6 ticks later for 3 damage and 10 posture, if it is still alive and close."
+    },
+    {
+      "id": "katana:shadowrend",
+      "attach": [],
+      "active": {
+        "range": 6,
+        "cooldown": 200,
+        "strikes": 3,
+        "interval": 4,
+        "damage": 4,
+        "posture": 12
+      },
+      "_comment": "P2 provisional example of an active ability: V cuts the nearest target within 6 blocks ahead three times, 4 ticks apart, for 4 damage and 12 posture each; 10 s cooldown. In the mode every cut comes twice."
     }
   ]
 }
