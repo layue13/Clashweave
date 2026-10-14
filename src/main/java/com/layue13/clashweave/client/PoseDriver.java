@@ -26,6 +26,13 @@ final class PoseDriver {
 
     private PoseDriver() {}
 
+    /** Climbing a ladder or swimming: the blade is carried in one hand while the other arm works. */
+    static boolean carrying(EntityPlayer player) {
+        if (player.isRiding() || player.isPlayerSleeping()) return false;
+        return player.isOnLadder() && !player.onGround
+            || player.isInWater() && !(player.capabilities.isFlying && !player.onGround);
+    }
+
     /** Fills {@link #pose} and {@link #weight} for the player about to be drawn; leaves weight 0 when untouched. */
     void prepare(EntityPlayer player, ClientProxy.Visual visual) {
         entity = player.getEntityId();
@@ -40,7 +47,9 @@ final class PoseDriver {
             track = visual.track;
             ticks = ClientProxy.instance.elapsed(visual, 0);
         }
-        boolean wanted = track != null && !player.isPlayerSleeping() && CombatWeapons.armed(player.getHeldItem());
+        boolean wanted = track != null && !player.isPlayerSleeping()
+            && !carrying(player)
+            && CombatWeapons.armed(player.getHeldItem());
         // The body is taken over and handed back by chasing, at a rate that does not depend on the frame rate.
         float takeover = visual.rig.advance(wanted, System.nanoTime(), ClientProxy.instance.tickPeriod());
         if (takeover <= 0) return;

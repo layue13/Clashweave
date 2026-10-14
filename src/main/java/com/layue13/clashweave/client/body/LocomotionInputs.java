@@ -25,6 +25,8 @@ public final class LocomotionInputs {
     public boolean leftBusy;
     /** The busy arm is using an item (bow, food), not just swinging. */
     public boolean usingItem;
+    /** A drawn blade carried in the right hand while the left climbs or swims: that arm hangs relaxed. */
+    public boolean carryRight;
     /** The body's own walk character. */
     public Gait gait = Gait.PLAYER;
 }

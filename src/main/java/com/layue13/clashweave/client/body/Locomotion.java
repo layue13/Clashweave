@@ -37,6 +37,7 @@ public final class Locomotion {
         else if (in.mode == LocomotionInputs.FLY) fly(in, t);
         else if (in.mode == LocomotionInputs.SLEEP) sleep(in, t);
         else ground(in, t);
+        if (in.carryRight && in.mode == LocomotionInputs.CLIMB) carryArm(t);
         t[BODY_Y] += twist;
         t[HEAD_Y] -= twist;
         if (in.armsBusy) {
@@ -71,29 +72,58 @@ public final class Locomotion {
         t[HEAD_Y] = in.headYaw * DEG - y;
     }
 
-    /** Treading water: the legs flutter, the arms pull in alternation, the chest leans into the stroke. */
+    private static float mix(float a, float b, float w) {
+        return a + (b - a) * w;
+    }
+
+    /** One hand holds the blade at the side, hanging a little forward, the elbow slightly soft. */
+    private static void carryArm(float[] t) {
+        t[R_ARM_X] = -8 * DEG;
+        t[R_ARM_Y] = 0;
+        t[R_ARM_Z] = 7 * DEG;
+        t[R_FORE] = 10 * DEG;
+    }
+
+    /**
+     * In the water: treading upright when hardly moving, a crawl when swimming. Moving, the body lies forward in the
+     * water with the head lifted to look ahead, the arms pull in turn from overhead to the hip and recover bent, the
+     * legs trail and kick from the hip.
+     */
     private static void swim(LocomotionInputs in, float[] t) {
         float move = Math.min(1, in.limbSwingAmount * 3);
-        float p = in.age * (.14f + .3f * move);
+        float f = clamp((move - .25f) / .5f, 0, 1);
+        f = f * f * (3 - 2 * f);
+        float p = in.age * (.14f + .3f * move) * mix(1, .8f, f);
         float s = (float) Math.sin(p), c = (float) Math.cos(p);
-        torso(in, t, (10 + 22 * move) * DEG, -s * 6 * move * DEG, 0);
-        t[ROOT_Y] = (float) Math.sin(2 * p) * .5f;
+        float lean = mix(10 + 22 * move, 78, f);
+        torso(in, t, lean * DEG, -s * mix(6 * move, 9, f) * DEG, 0);
+        t[ROOT_Y] = (float) Math.sin(2 * p) * mix(.5f, .3f, f);
         float kick = (float) Math.sin(p * 2);
-        t[R_LEG_X] = kick * (18 + 14 * move) * DEG;
-        t[L_LEG_X] = -kick * (18 + 14 * move) * DEG;
+        float trail = lean * mix(0, .9f, f);
+        t[R_LEG_X] = (trail + kick * mix(18 + 14 * move, 12, f)) * DEG;
+        t[L_LEG_X] = (trail - kick * mix(18 + 14 * move, 12, f)) * DEG;
         t[R_LEG_Y] = t[L_LEG_Y] = 0;
         t[R_LEG_Z] = 3 * DEG;
         t[L_LEG_Z] = -3 * DEG;
         t[R_SHIN] = (20 + Math.max(0, -kick) * 40) * DEG;
         t[L_SHIN] = (20 + Math.max(0, kick) * 40) * DEG;
         {
-            t[R_ARM_X] = (-100 + 70 * s) * DEG;
-            t[L_ARM_X] = (-100 - 70 * s) * DEG;
+            // Treading: the old paddle. Crawling: from overhead (-180 degrees) down to the hip (-20), alternately.
+            // The arms are independent of the torso: angles are the model's own, so the crawl adds the lean to the
+            // angle the arm makes with the torso.
+            t[R_ARM_X] = mix((-100 + 70 * s) * DEG, (-100 + 80 * s + lean) * DEG, f);
+            t[L_ARM_X] = mix((-100 - 70 * s) * DEG, (-100 - 80 * s + lean) * DEG, f);
             t[R_ARM_Y] = t[L_ARM_Y] = 0;
-            t[R_ARM_Z] = (12 + 8 * c) * DEG;
-            t[L_ARM_Z] = -(12 - 8 * c) * DEG;
-            t[R_FORE] = (25 + 35 * Math.max(0, -s)) * DEG;
-            t[L_FORE] = (25 + 35 * Math.max(0, s)) * DEG;
+            t[R_ARM_Z] = mix((12 + 8 * c) * DEG, (6 + 4 * c) * DEG, f);
+            t[L_ARM_Z] = -mix((12 - 8 * c) * DEG, (6 - 4 * c) * DEG, f);
+            t[R_FORE] = mix((25 + 35 * Math.max(0, -s)) * DEG, (12 + 60 * Math.max(0, c)) * DEG, f);
+            t[L_FORE] = mix((25 + 35 * Math.max(0, s)) * DEG, (12 + 60 * Math.max(0, -c)) * DEG, f);
+            if (in.carryRight) {
+                // The right hand holds the blade: that arm trails along the body whether treading or crawling.
+                t[R_ARM_X] = (-8 + lean * f) * DEG;
+                t[R_ARM_Z] = 7 * DEG;
+                t[R_FORE] = 10 * DEG;
+            }
         }
     }
 
