@@ -32,6 +32,7 @@ SHOULDER_L = (-0.293, 0.0, 1.289)
 GRIP_DIST, GRIP_TOL = 0.50, 0.08  # window top 0.58 stays inside the 10 px (0.586) arm reach
 HAND_R_Y, HAND_L_Y = 0.045, -0.125  # along the blade axis from the grip centre; right near the tsuba, left near the kashira
 HILT_LEN = 0.399
+ONE_HAND_SLIDE = HAND_R_Y - (HAND_R_Y + HAND_L_Y) / 2  # the sword slides this far forward: the right hand from the tsuba to mid-hilt
 FIST = 0.09
 STEP = 0.5  # sample step in ticks
 S2 = math.sqrt(0.5)
@@ -75,23 +76,63 @@ def kf(t, fr, c, yaw=0.0, footR=None, footL=None, handL="grip", ease=ease_io, pe
                 pel=pel, drawn=drawn, lean=lean, side=-SIDE_PER_YAW * yaw if side is None else side)
 
 
-def cut(plane, esign, phi, c, yaw, step, s, a, r, rear_follow=0.6, lean=(-4, 3, 14, 18, 8)):
-    """Generic two-handed cut. phi/c/yaw/lean are (wind, start, end, over, hold) tuples."""
+def rotate(v, axis, deg):
+    """Rodrigues rotation of v about the unit axis."""
+    a = math.radians(deg)
+    k = cross(axis, v)
+    return add(add(mul(v, math.cos(a)), mul(k, math.sin(a))), mul(axis, dot(axis, v) * (1 - math.cos(a))))
+
+
+def cock(fr, c, deg):
+    """One-handed grip: a fist closes across the hilt, so the blade stands at an angle to the forearm, not along it. Turns the
+    frame about the right hand, away from the line shoulder -> hand, and returns the frame and the grip centre that keeps
+    that hand where it was."""
+    e, d, n = fr
+    hand = hands_for(fr, c, "grip", 0.0)[1]
+    v = sub(hand, SHOULDER_R)
+    # about the horizontal axis across the blade: the tip rises or falls in its own vertical plane, so the blade keeps its
+    # bearing and still crosses the server sweep; a blade that already stands upright is turned about its own side instead
+    axis = cross((0.0, 0.0, 1.0), d)
+    if dot(axis, axis) < 0.05:
+        axis = cross(d, v)
+    axis = norm(axis)
+    # the sign that opens the angle between the blade and the forearm
+    best = None
+    for sgn in (1.0, -1.0):
+        d2 = rotate(d, axis, sgn * deg)
+        ang = dot(norm(d2), norm(v))
+        if best is None or ang < best[0]:
+            best = (ang, sgn)
+    sgn = best[1]
+    fr2 = (rotate(e, axis, sgn * deg), rotate(d, axis, sgn * deg), rotate(n, axis, sgn * deg))
+    c2 = sub(hand, sub(hands_for(fr2, (0.0, 0.0, 0.0), "grip", 0.0)[1], (0.0, 0.0, 0.0)))
+    return fr2, c2
+
+
+def cut(plane, esign, phi, c, yaw, step, s, a, r, rear_follow=0.6, lean=(-4, 3, 14, 18, 8), free=None,
+        wrist=(10, 25, 40, 40, 25)):
+    """Generic cut, two-handed unless free is given. phi/c/yaw/lean are (wind, start, end, over, hold) tuples; free is the
+    left hand's resting point at each of those five keys (one-handed cut, the left arm trailing for balance)."""
     total = s + a + r
     tw = max(0.5, s - 1.0)
     fr = [slash(plane, p, esign) for p in phi]
+    if free is not None:  # one hand: it holds the middle of the hilt, not the spot next to the tsuba made for two
+        c = [add(ci, mul(f[1], ONE_HAND_SLIDE)) for ci, f in zip(c, fr)]
+        both = [cock(f, ci, w) for f, ci, w in zip(fr, c, wrist)]
+        fr, c = [b[0] for b in both], [b[1] for b in both]
     fR0, fL0 = FEET_R0, FEET_L0
     fR1 = (FEET_R0[0], FEET_R0[1] + step)
     fL1 = (FEET_L0[0], FEET_L0[1] + step * rear_follow)
     hold_t = min(total - 1.0, s + a + 3.5)
+    hl = ["grip"] * 5 if free is None else [("free", pt) for pt in free]
     coil, lunge, sink = (0.0, -0.06, -0.04), (0.0, step * 0.9, -0.12), (0.0, step * 0.8, -0.09)
     return [
         kf(0.0, CHUDAN, C_READY, 0.0, fR0, fL0, ease=ease_io),
-        kf(tw, fr[0], c[0], yaw[0] * 1.5, fR0, fL0, ease=ease_out, pel=coil, lean=lean[0]),  # anticipation
-        kf(float(s), fr[1], c[1], yaw[1], fR0, fL0, ease=ease_io, pel=coil, lean=lean[1]),
-        kf(float(s + a), fr[2], c[2], yaw[2], fR1, fL0, ease=lambda u: u, pel=lunge, lean=lean[2]),  # through contact
-        kf(float(s + a + 1), fr[3], c[3], yaw[3] * 1.3, fR1, fL1, ease=ease_out, pel=lunge, lean=lean[3]),  # overshoot
-        kf(hold_t, fr[4], c[4], yaw[4], fR1, fL1, ease=ease_out, pel=sink, lean=lean[4]),  # zanshin = combo link pose
+        kf(tw, fr[0], c[0], yaw[0] * 1.5, fR0, fL0, handL=hl[0], ease=ease_out, pel=coil, lean=lean[0]),  # anticipation
+        kf(float(s), fr[1], c[1], yaw[1], fR0, fL0, handL=hl[1], ease=ease_io, pel=coil, lean=lean[1]),
+        kf(float(s + a), fr[2], c[2], yaw[2], fR1, fL0, handL=hl[2], ease=lambda u: u, pel=lunge, lean=lean[2]),  # through contact
+        kf(float(s + a + 1), fr[3], c[3], yaw[3] * 1.3, fR1, fL1, handL=hl[3], ease=ease_out, pel=lunge, lean=lean[3]),  # overshoot
+        kf(hold_t, fr[4], c[4], yaw[4], fR1, fL1, handL=hl[4], ease=ease_out, pel=sink, lean=lean[4]),  # zanshin = combo link pose
         kf(float(total), CHUDAN, C_READY, 0.0, fR0, fL0, ease=ease_io),
     ]
 
@@ -103,21 +144,27 @@ def phis(arc, sgn, wind=None):
             end - sgn * 0.40 * arc)
 
 
+# left hand resting points (wind, start, contact, overshoot, hold) for the one-handed cuts: low at the left hip, thrown
+# back a little through the cut, never across the blade's path
+FREE_LOW = [(-0.34, 0.04, 0.98), (-0.34, 0.02, 0.98), (-0.38, -0.08, 0.96), (-0.40, -0.12, 0.96), (-0.32, 0.02, 0.98)]
+FREE_OUT = [(-0.36, 0.00, 1.02), (-0.36, -0.02, 1.02), (-0.42, -0.06, 1.06), (-0.44, -0.08, 1.08), (-0.34, 0.02, 1.00)]
+
+
 def build_actions(actions):
     out = {}
     d = actions
     s, a, r = d["light_1"]["startup"], d["light_1"]["active"], d["light_1"]["recovery"]
     out["light_1"] = cut(HORIZ, 1, phis(d["light_1"]["arc"], 1),
                          [(0.22, 0.20, 1.18), (0.14, 0.28, 1.20), (-0.10, 0.42, 1.20), (-0.14, 0.42, 1.18),
-                          (0.00, 0.40, 1.12)], (-22, -15, 18, 24, 6), 0.30, s, a, r)
+                          (0.00, 0.40, 1.12)], (-22, -15, 18, 24, 6), 0.30, s, a, r, free=FREE_LOW, wrist=(10, 30, 70, 60, 35))
     s, a, r = d["light_2"]["startup"], d["light_2"]["active"], d["light_2"]["recovery"]
     out["light_2"] = cut(HORIZ, -1, phis(d["light_2"]["arc"], -1),
                          [(-0.12, 0.30, 1.18), (-0.10, 0.40, 1.20), (0.14, 0.28, 1.20), (0.18, 0.26, 1.18),
-                          (0.04, 0.38, 1.12)], (16, 10, -16, -22, -6), 0.24, s, a, r)
+                          (0.04, 0.38, 1.12)], (16, 10, -16, -22, -6), 0.24, s, a, r, free=FREE_LOW)
     s, a, r = d["light_3"]["startup"], d["light_3"]["active"], d["light_3"]["recovery"]
     out["light_3"] = cut(RISE, 1, phis(d["light_3"]["arc"], 1, wind=-85),
                          [(-0.18, 0.32, 0.92), (-0.14, 0.36, 0.98), (0.14, 0.30, 1.40), (0.16, 0.26, 1.48),
-                          (0.06, 0.36, 1.30)], (14, 10, -10, -14, -4), 0.26, s, a, r, lean=(8, 6, -2, -5, 2))
+                          (0.06, 0.36, 1.30)], (14, 10, -10, -14, -4), 0.26, s, a, r, lean=(8, 6, -2, -5, 2), free=FREE_OUT)
     s, a, r = d["heavy"]["startup"], d["heavy"]["active"], d["heavy"]["recovery"]
     out["heavy"] = cut(FALL, 1, phis(d["heavy"]["arc"], 1, wind=-125),
                        [(0.14, 0.14, 1.64), (0.12, 0.24, 1.56), (-0.08, 0.44, 1.02), (-0.10, 0.46, 0.98),
@@ -126,12 +173,12 @@ def build_actions(actions):
     s, a, r = d["counter"]["startup"], d["counter"]["active"], d["counter"]["recovery"]
     out["counter"] = cut(HORIZ, -1, phis(d["counter"]["arc"], -1, wind=70),
                          [(-0.12, 0.30, 1.22), (-0.10, 0.38, 1.22), (0.14, 0.30, 1.20), (0.18, 0.28, 1.18),
-                          (0.04, 0.38, 1.12)], (16, 10, -16, -22, -6), 0.30, s, a, r)
+                          (0.04, 0.38, 1.12)], (16, 10, -16, -22, -6), 0.30, s, a, r, free=FREE_LOW)
     # air_light: a quick rising cut at an airborne target, the body leaning up into it (P1-b provisional)
     s, a, r = d["air_light"]["startup"], d["air_light"]["active"], d["air_light"]["recovery"]
     out["air_light"] = cut(RISE, 1, phis(d["air_light"]["arc"], 1, wind=-80),
                            [(-0.16, 0.30, 0.96), (-0.12, 0.36, 1.04), (0.14, 0.32, 1.46), (0.16, 0.28, 1.52),
-                            (0.06, 0.36, 1.32)], (12, 8, -10, -14, -4), 0.20, s, a, r, lean=(8, 6, -4, -7, 2))
+                            (0.06, 0.36, 1.32)], (12, 8, -10, -14, -4), 0.20, s, a, r, lean=(8, 6, -4, -7, 2), free=FREE_OUT)
     # air_slam: an overhead cut that carries the blade down through the target (P1-b provisional finisher)
     s, a, r = d["air_slam"]["startup"], d["air_slam"]["active"], d["air_slam"]["recovery"]
     out["air_slam"] = cut(FALL, 1, phis(d["air_slam"]["arc"], 1, wind=-130),
