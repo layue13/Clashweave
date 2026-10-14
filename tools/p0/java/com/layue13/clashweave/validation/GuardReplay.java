@@ -49,7 +49,7 @@ public final class GuardReplay {
             camera.setPosition(mc.thePlayer.posX,mc.thePlayer.boundingBox.minY,mc.thePlayer.posZ);
             camera.prevPosX=camera.lastTickPosX=camera.posX;camera.prevPosY=camera.lastTickPosY=camera.posY;camera.prevPosZ=camera.lastTickPosZ=camera.posZ;
             camera.rotationYaw=camera.prevRotationYaw=angle;camera.rotationPitch=camera.prevRotationPitch=8;
-            if(local%3==0&&shot==null)shot="guard-"+local;
+            if(local%Integer.getInteger("cw.p2.shotEvery",3)==0&&shot==null)shot="guard-"+local;
             if(local%10==0)System.out.println("GUARD_STATE local="+local+" shift="+shift+" guarding="+ClientProxy.instance.guarding(own)+" action="+own.state.action);
         }
         if(local>=end){done=true;System.out.println("GUARD_COMPLETE");mc.shutdown();}

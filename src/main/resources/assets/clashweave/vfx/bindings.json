@@ -1,0 +1,6 @@
+{
+  "events": [
+    { "kind": "BLOCK", "effect": "clashweave:guard_block" },
+    { "kind": "PARRY", "effect": "clashweave:guard_parry" }
+  ]
+}

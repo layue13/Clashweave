@@ -1,0 +1,23 @@
+{
+  "effects": [
+    {
+      "id": "clashweave:guard_block",
+      "emitters": [
+        { "kind": "STREAK", "count": 9, "speed": [0.16, 0.38], "spread": 38, "life": [6, 11], "size": [0.08, 0.12], "gravity": 0.03, "drag": 0.88, "color": [1.0, 0.62, 0.2], "alpha": [1, 0.8, 0] },
+        { "kind": "DISC", "count": 1, "life": [4, 4], "size": [0.4, 0.4], "color": [1.0, 0.7, 0.3], "alpha": [0.9, 0], "scale": [0.4, 1.0] }
+      ]
+    },
+    {
+      "id": "clashweave:guard_parry",
+      "emitters": [
+        { "kind": "STREAK", "count": 22, "speed": [0.2, 0.55], "spread": 55, "life": [7, 14], "size": [0.1, 0.16], "gravity": 0.03, "drag": 0.88, "color": [1.0, 0.85, 0.4], "alpha": [1, 0.85, 0] },
+        { "kind": "DISC", "count": 1, "life": [6, 6], "size": [1.0, 1.0], "color": [1.0, 0.9, 0.55], "alpha": [1, 0], "scale": [0.3, 1.0] },
+        { "kind": "RING", "count": 1, "life": [9, 9], "size": [1.3, 1.3], "color": [1.0, 0.8, 0.3], "alpha": [0.9, 0], "scale": [0.2, 1.0] }
+      ]
+    },
+    {
+      "id": "clashweave:blade_trail",
+      "trail": { "life": 300, "slow": 3, "fast": 9, "tip": [0.85, 0.95, 1.0], "base": [0.35, 0.6, 1.0], "tipAlpha": 1.0, "baseAlpha": 0.28, "baseY": 0.5, "tipY": 1.2 }
+    }
+  ]
+}
