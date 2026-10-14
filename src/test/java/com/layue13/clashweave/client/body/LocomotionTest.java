@@ -185,4 +185,16 @@ public class LocomotionTest {
         float[] again = compute(walking(2, .8f));
         assertArrayEquals(p, again, 0);
     }
+
+    @Test
+    public void sleepingIsLooseAndIgnoresTheWalk() {
+        LocomotionInputs in = walking(3, .9f);
+        in.mode = LocomotionInputs.SLEEP;
+        float[] t = compute(in);
+        for (int c = 0; c < COUNT; c++) if (c != BODY_Y && c != HEAD_Y) assertTrue("channel " + c, t[c] != 123f);
+        assertTrue(t[R_FORE] > 0 && t[L_FORE] > 0 && t[R_SHIN] >= 0 && t[L_SHIN] >= 0);
+        in.limbSwing = 7;
+        in.limbSwingAmount = .1f;
+        assertArrayEquals(t, compute(in), 0);
+    }
 }

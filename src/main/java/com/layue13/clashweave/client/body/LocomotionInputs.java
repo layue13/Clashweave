@@ -14,7 +14,7 @@ public final class LocomotionInputs {
      * Which family of poses applies: {@link #GROUND}, {@link #SWIM}, {@link #RIDE} or {@link #CLIMB} or {@link #FLY}.
      */
     public int mode;
-    public static final int GROUND = 0, SWIM = 1, RIDE = 2, CLIMB = 3, FLY = 4;
+    public static final int GROUND = 0, SWIM = 1, RIDE = 2, CLIMB = 3, FLY = 4, SLEEP = 5;
     /** Radians of climbing cycle: advances with height gained or lost on a ladder. */
     public float climbPhase;
     /** Ticks since the feet last touched the ground and since they last left it. */
