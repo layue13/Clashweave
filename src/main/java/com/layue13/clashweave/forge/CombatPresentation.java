@@ -84,6 +84,19 @@ final class CombatPresentation {
                 action.definition.id));
     }
 
+    /** A delayed strike has landed on the target. */
+    void delayed(EntityLivingBase target, long tick) {
+        events.emit(
+            new SemanticEvents.Event(
+                SemanticEvents.Kind.DELAYED,
+                target.getEntityId(),
+                target.getEntityId(),
+                0,
+                tick,
+                tick,
+                ""));
+    }
+
     /** The target's stance broke. */
     void broken(EntityLivingBase target, long tick) {
         events.emit(

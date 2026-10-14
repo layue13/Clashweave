@@ -24,7 +24,7 @@ public class ContentEntryTest {
 
     private static final String ROOT = "/assets/clashweave/content/katana/";
     private static final String[] FILES = { "weapon.json", "style.json", "actions.json", "resources.json",
-        "animations.json" };
+        "animations.json", "sa.json" };
 
     private static JsonObject read(String path) throws Exception {
         try (InputStream stream = ContentEntryTest.class.getResourceAsStream(path)) {

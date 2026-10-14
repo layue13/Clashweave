@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "namespace": "katana",
+  "sas": [
+    {
+      "id": "katana:afterimage",
+      "attach": [
+        {
+          "action": "katana:iai",
+          "effects": [
+            {
+              "type": "DELAYED_SLASH",
+              "delay": 6,
+              "damage": 3,
+              "posture": 10
+            }
+          ]
+        }
+      ],
+      "_comment": "P2 provisional: after an iai connects, the same target is cut again 6 ticks later for 3 damage and 10 posture, if it is still alive and close."
+    }
+  ]
+}

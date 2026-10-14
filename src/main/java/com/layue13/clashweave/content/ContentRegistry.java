@@ -28,9 +28,9 @@ public final class ContentRegistry {
 
     private static final Gson GSON = new Gson();
     private static final List<String> CATEGORIES = Arrays
-        .asList("weapons", "styles", "actions", "animations", "resources");
+        .asList("weapons", "styles", "actions", "animations", "resources", "sas");
     private static final Class<?>[] TYPES = { ContentPack.Weapon.class, ContentPack.Style.class,
-        ActionCatalog.Definition.class, ContentPack.Animation.class, ContentPack.Resource.class };
+        ActionCatalog.Definition.class, ContentPack.Animation.class, ContentPack.Resource.class, ContentPack.Sa.class };
     private final Map<String, Map<String, JsonObject>> entries;
     private final Map<String, ContentPack> packs;
     private final ContentManifest manifest;
@@ -82,7 +82,7 @@ public final class ContentRegistry {
                     }
                     game.add(entry.getKey(), rules);
                     visual.add(entry.getKey(), appearance);
-                } else if (category.equals("actions") || category.equals("styles")) {
+                } else if (category.equals("actions") || category.equals("styles") || category.equals("sas")) {
                     game.add(entry.getKey(), value);
                 } else visual.add(entry.getKey(), value);
             }
@@ -116,6 +116,10 @@ public final class ContentRegistry {
 
     public ContentPack.Weapon weapon(String id) {
         return get("weapons", id, ContentPack.Weapon.class);
+    }
+
+    public ContentPack.Sa sa(String id) {
+        return get("sas", id, ContentPack.Sa.class);
     }
 
     public ContentPack.Style style(String id) {
@@ -267,6 +271,20 @@ public final class ContentRegistry {
                             qualify(source.name, path + "." + field, value, field, namespace);
                         for (String field : Arrays.asList("saSlots", "effectSlots"))
                             qualifyArray(source.name, path, value, field, namespace);
+                    } else if (category.equals("sas")) {
+                        if (value.has("attach") && value.get("attach")
+                            .isJsonArray()) {
+                            int attachIndex = 0;
+                            for (JsonElement attach : value.getAsJsonArray("attach")) {
+                                if (attach.isJsonObject()) qualify(
+                                    source.name,
+                                    path + ".attach[" + attachIndex + "].action",
+                                    attach.getAsJsonObject(),
+                                    "action",
+                                    namespace);
+                                attachIndex++;
+                            }
+                        }
                     } else if (category.equals("styles")) {
                         qualifyArray(source.name, path, value, "actions", namespace);
                         qualifyEntry(source.name, path, value, namespace);
@@ -420,6 +438,7 @@ public final class ContentRegistry {
             if (category.equals("weapons")) return new String[] { "id", "style", "resource", "animation" };
             if (category.equals("styles")) return new String[] { "id", "actions", "entry" };
             if (category.equals("animations")) return new String[] { "id", "preset" };
+            if (category.equals("sas")) return new String[] { "id", "attach" };
             return new String[] { "id", "models", "texture", "grip", "handGrips", "mounts" };
         }
 
@@ -598,6 +617,23 @@ public final class ContentRegistry {
                             error(r.source, r.path + "." + path + ".input", "ambiguous overlapping input window");
                     }
                 }
+            } else if (dto instanceof ContentPack.Sa) {
+                ContentPack.Sa sa = (ContentPack.Sa) dto;
+                if (sa.attach.isEmpty())
+                    error(r.source, r.path + ".attach", "an ability attaches to at least one action");
+                for (int i = 0; i < sa.attach.size(); i++) {
+                    ContentPack.Attach attach = sa.attach.get(i);
+                    if (attach.effects.isEmpty())
+                        error(r.source, r.path + ".attach[" + i + "].effects", "at least one effect");
+                    for (int j = 0; j < attach.effects.size(); j++) {
+                        try {
+                            attach.effects.get(j)
+                                .validate(Double.MAX_VALUE);
+                        } catch (IllegalArgumentException e) {
+                            error(r.source, r.path + ".attach[" + i + "].effects[" + j + "]", e.getMessage());
+                        }
+                    }
+                }
             } else if (dto instanceof ContentPack.Weapon) {
                 ContentPack.Weapon w = (ContentPack.Weapon) dto;
                 range(r, "damageMultiplier", w.damageMultiplier, Double.MIN_VALUE, Double.MAX_VALUE);
@@ -717,6 +753,12 @@ public final class ContentRegistry {
                     reference(r, "style", "styles", w.style);
                     reference(r, "resource", "resources", w.resource);
                     reference(r, "animation", "animations", w.animation);
+                    for (int i = 0; i < w.saSlots.size(); i++)
+                        reference(r, "saSlots[" + i + "]", "sas", w.saSlots.get(i));
+                } else if (r.category.equals("sas")) {
+                    ContentPack.Sa sa = GSON.fromJson(r.value, ContentPack.Sa.class);
+                    for (int i = 0; i < sa.attach.size(); i++)
+                        reference(r, "attach[" + i + "].action", "actions", sa.attach.get(i).action);
                 } else if (r.category.equals("actions")) {
                     ActionCatalog.Definition a = GSON.fromJson(r.value, ActionCatalog.Definition.class);
                     if (a.edges != null) for (int i = 0; i < a.edges.size(); i++)

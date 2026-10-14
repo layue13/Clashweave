@@ -59,11 +59,11 @@ public class WiringTest {
     @Test
     public void loaderFindsEveryKatanaFileOnTheClassPathAndAddsConfigPacks() throws IOException {
         ContentLoader.Loaded base = ContentLoader.load(getClass().getClassLoader(), null);
-        assertEquals(5, base.files);
+        assertEquals(6, base.files);
         assertTrue(base.sources.contains("assets/clashweave/content/katana/actions.json"));
         assertNotNull(base.registry.weapon("katana:katana"));
         ContentLoader.Loaded both = loadWithGlaive();
-        assertEquals(6, both.files);
+        assertEquals(7, both.files);
         assertTrue(both.sources.contains("config/clashweave/content/wf1test/glaive.json"));
         assertNotNull(both.registry.weapon("wf1test:glaive"));
         // Same katana pack, so its own hash parts cannot change; the registry-wide hash does.
