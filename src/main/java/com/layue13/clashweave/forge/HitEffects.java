@@ -24,7 +24,15 @@ final class HitEffects {
         EntityLivingBase entity;
         int dimension;
         ControlBudget budget;
+        /** Accepted launches in the current chain, and whether a slam is on its way down. */
+        int chain;
+        long slamSince = -1;
+        /** The last tick the target was seen off the ground. */
+        long lastAir = Long.MIN_VALUE / 2;
     }
+
+    /** How long a slammed target is watched for its landing before the effect is dropped. */
+    private static final int SLAM_WATCH_TICKS = 40;
 
     private final Map<UUID, Target> targets = new HashMap<>();
     private final CombatConfig config;
@@ -74,15 +82,48 @@ final class HitEffects {
         }
         double[] credit = { 0 };
         HitEffect.submit(action.definition.effects, hit, guard, alive, exempt, effect -> {
-            if (effect.type != HitEffect.Type.LAUNCH || effect.vy <= 0) return;
+            if (effect.vy <= 0) return;
             Target target = target(entity);
+            if (effect.type == HitEffect.Type.SLAM) {
+                boolean airborne = !entity.onGround || !config.slamRequiresAir
+                    || tick - target.lastAir <= config.slamGraceTicks;
+                boolean falling = target.slamSince >= 0;
+                boolean accepted = airborne && !falling && target.budget.exhaust(tick, entity.onGround);
+                if (accepted) {
+                    entity.motionY = -effect.vy;
+                    entity.velocityChanged = true;
+                    if (entity instanceof EntityPlayerMP) ((EntityPlayerMP) entity).playerNetServerHandler
+                        .sendPacket(new S12PacketEntityVelocity(entity));
+                    target.slamSince = tick;
+                }
+                trace(
+                    "SLAM target=" + entity.getEntityId()
+                        + " accepted="
+                        + accepted
+                        + " airborne="
+                        + airborne
+                        + " tick="
+                        + tick
+                        + " chain="
+                        + target.chain
+                        + " protectionUntil="
+                        + target.budget.protectedUntil()
+                        + " vy="
+                        + entity.motionY
+                        + " hp="
+                        + entity.getHealth());
+                return;
+            }
+            if (effect.type != HitEffect.Type.LAUNCH) return;
             boolean accepted = target.budget.consume(tick, config.launchCost, entity.onGround);
+            double vy = HitEffect.decayed(effect.vy, target.chain, config.chainDecay);
             if (accepted) {
-                entity.motionY = Math.max(entity.motionY, effect.vy);
+                target.chain++;
+                entity.motionY = Math.max(entity.motionY, vy);
                 entity.velocityChanged = true;
                 if (entity instanceof EntityPlayerMP)
                     ((EntityPlayerMP) entity).playerNetServerHandler.sendPacket(new S12PacketEntityVelocity(entity));
-                credit[0] += effect.vy * config.impulseMultiplier;
+                credit[0] += vy * config.impulseMultiplier;
                 presentation.launch(attacker, entity, action, tick, frozen);
             }
             trace(
@@ -91,6 +132,8 @@ final class HitEffects {
                     + accepted
                     + " tick="
                     + tick
+                    + " chain="
+                    + target.chain
                     + " remaining="
                     + target.budget.remaining()
                     + " protectionUntil="
@@ -112,6 +155,12 @@ final class HitEffects {
                     || entity.dimension != target.dimension
                     || entity.worldObj.getEntityByID(entity.getEntityId()) != entity) return true;
                 target.budget.advance(tick, entity.onGround);
+                if (!entity.onGround) target.lastAir = tick;
+                if (target.budget.remaining() == config.controlCapacity) target.chain = 0;
+                if (target.slamSince >= 0 && (entity.onGround || tick - target.slamSince > SLAM_WATCH_TICKS)) {
+                    if (entity.onGround) presentation.slam(entity, tick);
+                    target.slamSince = -1;
+                }
                 return target.budget.remaining() == config.controlCapacity && target.budget.expired(tick);
             });
     }

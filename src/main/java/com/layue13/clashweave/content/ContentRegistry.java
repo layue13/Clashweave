@@ -562,14 +562,19 @@ public final class ContentRegistry {
                 range(r, "speed", a.speed, 0, Double.MAX_VALUE);
                 range(r, "lift", a.lift, 0, Double.MAX_VALUE);
                 range(r, "sweepElevation", a.sweepElevation, -90, 90);
-                boolean launch = false;
+                boolean launch = false, slam = false;
                 for (int i = 0; i < a.effects.size(); i++) {
                     HitEffect effect = a.effects.get(i);
                     if (effect.type == null)
                         error(r.source, r.path + ".effects[" + i + "].type", "missing effect type");
                     if (effect.type == HitEffect.Type.LAUNCH && launch)
                         error(r.source, r.path + ".effects[" + i + "].type", "duplicate LAUNCH");
+                    if (effect.type == HitEffect.Type.SLAM && slam)
+                        error(r.source, r.path + ".effects[" + i + "].type", "duplicate SLAM");
                     launch |= effect.type == HitEffect.Type.LAUNCH;
+                    slam |= effect.type == HitEffect.Type.SLAM;
+                    if (launch && slam)
+                        error(r.source, r.path + ".effects[" + i + "].type", "LAUNCH and SLAM in one action");
                     range(r, "effects[" + i + "].vy", effect.vy, 0, Double.MAX_VALUE);
                 }
                 if (a.edges == null) return;

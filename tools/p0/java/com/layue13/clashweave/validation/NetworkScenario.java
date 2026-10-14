@@ -48,9 +48,11 @@ public final class NetworkScenario {
             EntityZombie zombie = new EntityZombie(world);
             zombie.setPosition(Boolean.getBoolean("cw.p0.renderOnly") ? -6 : -1.15, 64, Boolean.getBoolean("cw.p0.engagement") ? 9 : 2);
             zombie.setAttackTarget(player);
-            zombie.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(Boolean.getBoolean("cw.p0.manual") ? 20 : 200);
-            zombie.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(Boolean.getBoolean("cw.p0.manual") ? .23 : 0);
-            zombie.setHealth(Boolean.getBoolean("cw.p0.manual") ? 20 : 200);
+            zombie.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((Boolean.getBoolean("cw.p0.manual") && !Boolean.getBoolean("cw.p1b.chase")) ? 20 : 200);
+            zombie.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue((Boolean.getBoolean("cw.p0.manual") && !Boolean.getBoolean("cw.p1b.chase")) ? .23 : 0);
+            zombie.setHealth((Boolean.getBoolean("cw.p0.manual") && !Boolean.getBoolean("cw.p1b.chase")) ? 20 : 200);
+            // P1-b: ordinary hits would shove the target out of reach before the chain starts; the lift is not knockback.
+            if (Boolean.getBoolean("cw.p1b.chase")) zombie.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0);
             world.spawnEntityInWorld(zombie);
         }
         if (!a && Boolean.getBoolean("cw.b6.sleep")) {
@@ -97,11 +99,43 @@ public final class NetworkScenario {
             }
     }
 
+    private long chaseBusy;
+
+    /** P1-b: puts the still zombie (full health) back in front of P0A whenever the chain is over and everything is quiet. */
+    private void chaseTarget() {
+        EntityPlayerMP a = null;
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList)
+            if (((EntityPlayerMP) o).getCommandSenderName().equals("P0A")) a = (EntityPlayerMP) o;
+        if (a == null || Clashweave.server.state(a) == null) return;
+        // The zombie would otherwise shove the attacker back out of the launcher's reach.
+        a.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0);
+        a.setHealth(a.getMaxHealth());
+        a.getFoodStats().addStats(20, 1f);
+        // The second player stands beside the first by default and would take the hits: keep it out of the way.
+        for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+            EntityPlayerMP other = (EntityPlayerMP) o;
+            if (!other.getCommandSenderName().equals("P0A") && other.getDistanceSqToEntity(a) < 400)
+                other.playerNetServerHandler.setPlayerLocation(25, 64, 25, 0, 0);
+        }
+        EntityZombie zombie = null;
+        for (Object e : a.worldObj.loadedEntityList) if (e instanceof EntityZombie) { zombie = (EntityZombie) e; break; }
+        if (zombie == null) return;
+        if (Clashweave.server.state(a).scheduler.current() != null || !zombie.onGround) chaseBusy = bothTicks;
+        if (bothTicks % 10 == 0) System.out.println("P1B_STATE tick=" + bothTicks + " zombie=" + zombie.getEntityId() + "@" + zombie.posX + "," + zombie.posY + "," + zombie.posZ + " hp=" + zombie.getHealth() + " player=" + a.posX + "," + a.posZ + " yaw=" + a.rotationYaw + " busy=" + (bothTicks - chaseBusy));
+        if (bothTicks - chaseBusy < 40 || bothTicks % 5 != 0) return;
+        zombie.setHealth(zombie.getMaxHealth());
+        zombie.setPosition(0, 64, 1.7);
+        zombie.motionX = zombie.motionY = zombie.motionZ = 0;
+        zombie.hurtTime = 0;
+        a.playerNetServerHandler.setPlayerLocation(0, 64, 0, 0, 0);
+    }
+
     @SubscribeEvent
     public void tick(TickEvent.ServerTickEvent event) {
         if (!Boolean.getBoolean("cw.p0.network") || event.phase != TickEvent.Phase.END) return;
         if (MinecraftServer.getServer().getCurrentPlayerCount() < 2) return;
         bothTicks++;
+        if (Boolean.getBoolean("cw.p1b.chase")) chaseTarget();
         if (Boolean.getBoolean("cw.b6.fp2")) for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
             EntityPlayerMP p = (EntityPlayerMP) o;
             if (!p.getCommandSenderName().equals("P0A")) continue;

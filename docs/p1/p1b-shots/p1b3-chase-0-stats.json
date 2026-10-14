@@ -1,0 +1,26 @@
+{
+ "cyclesWithLauncher": 19,
+ "complete": true,
+ "acceptedLaunchesPerCycle": {
+  "3": 19
+ },
+ "maxChain": 3,
+ "slamAccepted": 19,
+ "slamMissing": 0,
+ "rejectedLaunches": 0,
+ "firstLaunchVy": [
+  0.6
+ ],
+ "decayedVy": [
+  0.2531,
+  0.3375
+ ],
+ "actionCounts": {
+  "air_light": 38,
+  "air_slam": 19,
+  "iai": 1,
+  "launcher": 19,
+  "light_1": 19,
+  "light_2": 19
+ }
+}

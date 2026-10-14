@@ -176,8 +176,84 @@
           "vy": 0.6
         }
       ],
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "katana:air_light",
+          "from": 7,
+          "until": 15,
+          "hit": true,
+          "damageHit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "katana:air_slam",
+          "from": 7,
+          "until": 15,
+          "hit": true,
+          "damageHit": true
+        }
+      ],
+      "_comment": "P1-a provisional: upward elevation in degrees; lift is attacker velocity declaration only; LAUNCH vy blocks/tick. P1-b provisional: the follow-ups below are limited by the target's shared control budget and by chainDecay."
+    },
+    {
+      "id": "katana:air_light",
+      "startup": 4,
+      "active": 2,
+      "recovery": 9,
+      "damage": 3,
+      "reach": 2.3,
+      "arc": 100,
+      "distance": 0,
+      "speed": 0,
+      "lift": 0,
+      "sweepElevation": 35,
+      "effects": [
+        {
+          "type": "LAUNCH",
+          "vy": 0.45
+        }
+      ],
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "katana:air_light",
+          "from": 6,
+          "until": 11,
+          "hit": true,
+          "damageHit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "katana:air_slam",
+          "from": 6,
+          "until": 11,
+          "hit": true,
+          "damageHit": true
+        }
+      ],
+      "_comment": "P1-b provisional aerial follow-up: lifts the target again until its control points or lift run out; decays by chainDecay each time."
+    },
+    {
+      "id": "katana:air_slam",
+      "startup": 5,
+      "active": 2,
+      "recovery": 12,
+      "damage": 6,
+      "reach": 2.3,
+      "arc": 90,
+      "distance": 0,
+      "speed": 0,
+      "lift": 0,
+      "sweepElevation": 45,
+      "effects": [
+        {
+          "type": "SLAM",
+          "vy": 1.0
+        }
+      ],
       "edges": [],
-      "_comment": "P1-a provisional: upward elevation in degrees; lift is attacker velocity declaration only; LAUNCH vy blocks/tick. No posture or aerial chain."
+      "_comment": "P1-b provisional finisher: drives the airborne target down, spends all its remaining control points and starts the anti-launch protection."
     }
   ]
 }

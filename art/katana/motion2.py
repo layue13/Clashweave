@@ -122,6 +122,16 @@ def build_actions(actions):
     out["heavy"] = cut(FALL, 1, phis(d["heavy"]["arc"], 1, wind=-125),
                        [(0.14, 0.14, 1.64), (0.12, 0.24, 1.56), (-0.08, 0.44, 1.02), (-0.10, 0.46, 0.98),
                         (0.00, 0.40, 1.04)], (-10, -6, 12, 16, 4), 0.36, s, a, r, lean=(-10, -6, 22, 28, 10))
+    # air_light: a quick rising cut at an airborne target, the body leaning up into it (P1-b provisional)
+    s, a, r = d["air_light"]["startup"], d["air_light"]["active"], d["air_light"]["recovery"]
+    out["air_light"] = cut(RISE, 1, phis(d["air_light"]["arc"], 1, wind=-80),
+                           [(-0.16, 0.30, 0.96), (-0.12, 0.36, 1.04), (0.14, 0.32, 1.46), (0.16, 0.28, 1.52),
+                            (0.06, 0.36, 1.32)], (12, 8, -10, -14, -4), 0.20, s, a, r, lean=(8, 6, -4, -7, 2))
+    # air_slam: an overhead cut that carries the blade down through the target (P1-b provisional finisher)
+    s, a, r = d["air_slam"]["startup"], d["air_slam"]["active"], d["air_slam"]["recovery"]
+    out["air_slam"] = cut(FALL, 1, phis(d["air_slam"]["arc"], 1, wind=-130),
+                          [(0.14, 0.14, 1.70), (0.12, 0.22, 1.62), (-0.08, 0.46, 1.04), (-0.10, 0.48, 0.98),
+                           (0.00, 0.40, 1.04)], (-10, -6, 12, 16, 4), 0.30, s, a, r, lean=(-12, -8, 24, 30, 10))
     # iai: rising draw cut (low left to high right) after saya-biki. The blade is in the saya until `drawn` flips.
     s, a, r = d["iai"]["startup"], d["iai"]["active"], d["iai"]["recovery"]
     total = s + a + r
