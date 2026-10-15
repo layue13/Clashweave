@@ -581,6 +581,12 @@ public final class ContentRegistry {
                 range(r, "speed", a.speed, 0, Double.MAX_VALUE);
                 range(r, "lift", a.lift, 0, Double.MAX_VALUE);
                 range(r, "sweepElevation", a.sweepElevation, -90, 90);
+                if (!com.layue13.clashweave.core.HitShapes.known(a.shape))
+                    error(r.source, r.path + ".shape", "one of sector, thrust, burst");
+                range(r, "width", a.width, 0, 32);
+                range(r, "offset", a.offset, 0, 32);
+                if (com.layue13.clashweave.core.HitShapes.BURST.equals(a.shape) && a.width <= 0)
+                    error(r.source, r.path + ".width", "a burst needs a radius (width) above 0");
                 range(r, "posture", a.posture, -1, 1000);
                 range(r, "release", a.release, 0, Integer.MAX_VALUE);
                 if (a.release > a.duration()) error(r.source, r.path + ".release", "past the end of the action");

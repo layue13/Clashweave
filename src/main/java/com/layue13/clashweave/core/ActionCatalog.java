@@ -35,6 +35,13 @@ public final class ActionCatalog {
         public double speed;
         public double lift;
         public double sweepElevation;
+        /**
+         * What the blow reaches: {@code sector} (the default; {@code reach} and {@code arc}), {@code thrust} (a line of
+         * {@code width} that grows out to {@code reach}) or {@code burst} (a circle of radius {@code width}, its centre
+         * {@code offset} ahead of the attacker).
+         */
+        public String shape = HitShapes.SECTOR;
+        public double width, offset;
         /** Posture damage of this action's blow; negative derives it from the damage. */
         public int posture = -1;
         /**
@@ -127,6 +134,10 @@ public final class ActionCatalog {
                 || definition.recovery < 1
                 || definition.damage < 0
                 || definition.reach < 0
+                || !HitShapes.known(definition.shape)
+                || !(definition.width >= 0 && definition.width <= 32)
+                || !(definition.offset >= 0 && definition.offset <= 32)
+                || HitShapes.BURST.equals(definition.shape) && definition.width <= 0
                 || definition.arc < 0
                 || definition.arc > 360
                 || definition.distance < 0
