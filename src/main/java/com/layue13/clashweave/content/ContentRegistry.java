@@ -707,10 +707,23 @@ public final class ContentRegistry {
                 ContentPack.Mount mount = resource.mounts.get(i);
                 if (mount.slot == null || !mount.slot.matches("[a-z0-9_]+"))
                     error(r.source, r.path + ".mounts[" + i + "].slot", "expected lowercase mount slot");
+                else if (!com.layue13.clashweave.core.MountSlots.known(mount.slot)) error(
+                    r.source,
+                    r.path + ".mounts[" + i + "].slot",
+                    "unknown mount slot \"" + mount.slot + "\" (left_hip, right_hip, back)");
                 range(r, "mounts[" + i + "].x", mount.x, -Double.MAX_VALUE, Double.MAX_VALUE);
                 range(r, "mounts[" + i + "].y", mount.y, -Double.MAX_VALUE, Double.MAX_VALUE);
                 range(r, "mounts[" + i + "].z", mount.z, -Double.MAX_VALUE, Double.MAX_VALUE);
                 range(r, "mounts[" + i + "].angle", mount.angle, -Double.MAX_VALUE, Double.MAX_VALUE);
+            }
+            if (resource.stowedSlot != null) {
+                boolean found = false;
+                if (resource.mounts != null) for (ContentPack.Mount mount : resource.mounts)
+                    if (resource.stowedSlot.equals(mount.slot)) found = true;
+                if (!com.layue13.clashweave.core.MountSlots.known(resource.stowedSlot))
+                    error(r.source, r.path + ".stowedSlot", "unknown mount slot \"" + resource.stowedSlot + "\"");
+                else if (!found)
+                    error(r.source, r.path + ".stowedSlot", "no mount with that slot in this resource's mounts");
             }
         }
 

@@ -24,8 +24,6 @@ import com.layue13.clashweave.core.ActionCatalog;
  */
 final class PresentationAssets {
 
-    static final String MOUNT_SLOT = "left_hip";
-
     /** Hand space is Biped: block units, +Y down the arm. Immutable after load. */
     static final class Render {
 
@@ -37,6 +35,8 @@ final class PresentationAssets {
         /** Read from the data; the rigid adapter has no left-hand pose to apply it to yet. */
         final double leftX, leftY, leftZ;
         final boolean mounted;
+        /** The anchor the stowed model hangs on (a {@link com.layue13.clashweave.core.MountSlots} name). */
+        final String mountSlot;
         final double mountX, mountY, mountZ, mountAngle;
 
         Render(String id, IModelCustom held, IModelCustom stowed, IModelCustom stowedEmpty, ContentPack.Resource data,
@@ -55,8 +55,9 @@ final class PresentationAssets {
             leftX = data.handGrips.left.x;
             leftY = data.handGrips.left.y;
             leftZ = data.handGrips.left.z;
+            mountSlot = data.stowedSlot == null ? com.layue13.clashweave.core.MountSlots.DEFAULT : data.stowedSlot;
             ContentPack.Mount mount = null;
-            for (ContentPack.Mount candidate : data.mounts) if (MOUNT_SLOT.equals(candidate.slot)) {
+            for (ContentPack.Mount candidate : data.mounts) if (mountSlot.equals(candidate.slot)) {
                 mount = candidate;
                 break;
             }

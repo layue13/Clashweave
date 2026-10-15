@@ -79,6 +79,10 @@ public final class ContentPack {
         public Grip grip;
         public HandGrips handGrips;
         public List<Mount> mounts;
+        /**
+         * Which mount the stowed model hangs on; omitted means {@link com.layue13.clashweave.core.MountSlots#DEFAULT}.
+         */
+        public String stowedSlot;
     }
 
     public static final class Models {
