@@ -475,6 +475,54 @@ public class ContentRegistryTest {
     }
 
     @Test
+    public void mountSlotsAreKnownAndStowedSlotNamesOneOfTheResourcesMounts() throws Exception {
+        // the spear pack hangs its scabbard on the back: a known slot, and no stowedSlot means the default
+        JsonObject data = read("/content/spear.json");
+        JsonObject resource = data.getAsJsonArray("resources")
+            .get(0)
+            .getAsJsonObject();
+        assertEquals(
+            "back",
+            resource.getAsJsonArray("mounts")
+                .get(0)
+                .getAsJsonObject()
+                .get("slot")
+                .getAsString());
+        resource.addProperty("stowedSlot", "back");
+        assertNotNull(spear(data));
+
+        JsonObject unknownMount = read("/content/spear.json");
+        unknownMount.getAsJsonArray("resources")
+            .get(0)
+            .getAsJsonObject()
+            .getAsJsonArray("mounts")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("slot", "left_ankle");
+        assertTrue(
+            invalid(source("slot.json", unknownMount)).getMessage()
+                .contains("resources[0].mounts[0].slot: unknown mount slot"));
+
+        JsonObject unknownStowed = read("/content/spear.json");
+        unknownStowed.getAsJsonArray("resources")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("stowedSlot", "left_ankle");
+        assertTrue(
+            invalid(source("stowed.json", unknownStowed)).getMessage()
+                .contains("resources[0].stowedSlot: unknown mount slot"));
+
+        JsonObject absent = read("/content/spear.json");
+        absent.getAsJsonArray("resources")
+            .get(0)
+            .getAsJsonObject()
+            .addProperty("stowedSlot", "right_hip");
+        assertTrue(
+            invalid(source("absent.json", absent)).getMessage()
+                .contains("resources[0].stowedSlot: no mount with that slot"));
+    }
+
+    @Test
     public void malformedJsonDoesNotPreventOtherSourceValidation() throws Exception {
         JsonObject data = read("/content/spear.json");
         data.getAsJsonArray("weapons")

@@ -111,6 +111,26 @@ public final class WeaponRendering {
         if (CombatWeapons.armed(event.entityPlayer.getHeldItem())) event.renderItem = false;
     }
 
+    /**
+     * Moves to the anchor of the resource's mount slot and then by the data's offset. The hips follow Biped's crouch
+     * translation but not torso lean or walking leg rotation; the back rides the torso (lean, turn, side bend).
+     */
+    private void placeMount(PresentationAssets.Render render, ModelBiped biped) {
+        String slot = render.mountSlot;
+        if (com.layue13.clashweave.core.MountSlots.BACK.equals(slot)) {
+            biped.bipedBody.postRender(1 / 16f);
+            GL11.glTranslated(render.mountX, render.mountY, render.mountZ);
+            return;
+        }
+        net.minecraft.client.model.ModelRenderer leg = com.layue13.clashweave.core.MountSlots.RIGHT_HIP.equals(slot)
+            ? biped.bipedRightLeg
+            : biped.bipedLeftLeg;
+        GL11.glTranslated(
+            render.mountX,
+            render.mountY + (leg.rotationPointY - 12) / 16.0,
+            render.mountZ + leg.rotationPointZ / 16.0);
+    }
+
     @SubscribeEvent
     public void specialPost(RenderPlayerEvent.Specials.Post event) {
         if (!CombatWeapons.armed(event.entityPlayer.getHeldItem())) return;
@@ -128,12 +148,7 @@ public final class WeaponRendering {
             .bindTexture(render.texture);
         if (render.mounted) {
             GL11.glPushMatrix();
-            // The pelvis follows Biped's crouch translation, but not torso lean or walking leg rotation.
-            ModelBiped biped = event.renderer.modelBipedMain;
-            GL11.glTranslated(
-                render.mountX,
-                render.mountY + (biped.bipedLeftLeg.rotationPointY - 12) / 16.0,
-                render.mountZ + biped.bipedLeftLeg.rotationPointZ / 16.0);
+            placeMount(render, event.renderer.modelBipedMain);
             GL11.glRotated(render.mountAngle, 1, 0, 0);
             GL11.glScaled(1 / .9375, 1 / .9375, 1 / .9375);
             sheath(render, drawn);
@@ -258,7 +273,8 @@ public final class WeaponRendering {
             || !CombatWeapons.armed(minecraft.thePlayer.getHeldItem())) return;
         ClientProxy.Visual visual = ClientProxy.instance.own();
         PresentationAssets.Render render = render(visual, minecraft.thePlayer.getHeldItem());
-        if (!render.mounted) return;
+        // Only the hips are in view from the player's own eyes; a scabbard on the back is not drawn here.
+        if (!render.mounted || com.layue13.clashweave.core.MountSlots.BACK.equals(render.mountSlot)) return;
         net.minecraft.client.entity.EntityClientPlayerMP player = minecraft.thePlayer;
         double partial = event.partialTicks;
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT | GL11.GL_LIGHTING_BIT);

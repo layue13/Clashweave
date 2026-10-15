@@ -1,0 +1,153 @@
+{
+  "_comment": "P2 mount test pack: the WF-1c glaive with its scabbard hung on the back (slot back, stowedSlot back); nothing else changed",
+  "schemaVersion": 1,
+  "namespace": "wf1test",
+  "weapons": [
+    {
+      "id": "wf1test:glaive",
+      "style": "wf1test:reach",
+      "resource": "wf1test:glaive",
+      "animation": "wf1test:arc",
+      "damageMultiplier": 1.25,
+      "saSlots": [],
+      "effectSlots": []
+    }
+  ],
+  "styles": [
+    {
+      "id": "wf1test:reach",
+      "bufferTicks": 5,
+      "actions": [
+        "wf1test:thrust",
+        "wf1test:thrust_b",
+        "wf1test:sweep"
+      ],
+      "entry": {
+        "ready": {
+          "LIGHT": "wf1test:thrust",
+          "HEAVY": "wf1test:sweep"
+        },
+        "entersReady": [
+          "wf1test:thrust",
+          "wf1test:thrust_b",
+          "wf1test:sweep"
+        ],
+        "entersSheathed": []
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "wf1test:thrust",
+      "startup": 4,
+      "active": 2,
+      "recovery": 8,
+      "damage": 4,
+      "reach": 3.6,
+      "arc": 40,
+      "distance": 0.5,
+      "speed": 0.15,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "wf1test:thrust_b",
+          "from": 6,
+          "until": 11,
+          "hit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "wf1test:sweep",
+          "from": 6,
+          "until": 11,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "wf1test:thrust_b",
+      "startup": 3,
+      "active": 2,
+      "recovery": 8,
+      "damage": 4,
+      "reach": 3.6,
+      "arc": 40,
+      "distance": 0.5,
+      "speed": 0.15,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "wf1test:thrust",
+          "from": 5,
+          "until": 10,
+          "hit": true
+        },
+        {
+          "input": "HEAVY",
+          "target": "wf1test:sweep",
+          "from": 5,
+          "until": 10,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "wf1test:sweep",
+      "startup": 6,
+      "active": 3,
+      "recovery": 12,
+      "damage": 7,
+      "reach": 3.2,
+      "arc": 160,
+      "distance": 0.4,
+      "speed": 0.1,
+      "edges": []
+    }
+  ],
+  "animations": [
+    {
+      "id": "wf1test:arc",
+      "preset": "rigid_arc"
+    }
+  ],
+  "resources": [
+    {
+      "id": "wf1test:glaive",
+      "models": {
+        "held": "clashweave:models/katana.obj",
+        "stowed": "clashweave:models/sheath.obj",
+        "stowed_empty": "clashweave:models/sheath_empty.obj"
+      },
+      "texture": "clashweave:textures/models/katana.png",
+      "grip": {
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "handGrips": {
+        "right": {
+          "x": -0.0625,
+          "y": 0.5,
+          "z": 0
+        },
+        "left": {
+          "x": 0.0625,
+          "y": 0.5,
+          "z": 0
+        }
+      },
+      "mounts": [
+        {
+          "slot": "back",
+          "x": 0.0,
+          "y": 0.3,
+          "z": 0.22,
+          "angle": 100
+        }
+      ],
+      "stowedSlot": "back"
+    }
+  ]
+}
