@@ -14,6 +14,9 @@ import cpw.mods.fml.common.gameevent.TickEvent;
  */
 public final class ModeReplay {
     private final Minecraft mc=Minecraft.getMinecraft();
+    private static final boolean BLINK=Boolean.getBoolean("cw.p2.blink");
+    private double bx,bz;
+    private int bn,bt;
     private int ticks,phase,idle,iai;
     private long sentFor=-1;
     private boolean done,early;
@@ -30,6 +33,8 @@ public final class ModeReplay {
         String action=own.state.action.isEmpty()?"":own.state.action.substring(own.state.action.indexOf(':')+1);
         long instance=own.state.instance;
         if(ticks%40==0)System.out.println("MODE_STATE tick="+ticks+" phase="+phase+" gauge="+own.state.gauge+" mode="+own.state.mode+" action="+action+" sheathed="+own.state.sheathed);
+        if(BLINK&&phase==0&&ticks==145){bx=mc.thePlayer.posX;bz=mc.thePlayer.posZ;System.out.println("BLINK_SEND outside n=0 mode="+own.state.mode);p.send(Intent.DODGE,4);bt=ticks;}
+        if(BLINK&&bt>0&&ticks==bt+14)System.out.println("BLINK_MOVED n="+bn+" action="+action+" dist="+Math.hypot(mc.thePlayer.posX-bx,mc.thePlayer.posZ-bz)+" mode="+own.state.mode);
         if(phase==0){
             // 1: the key on an empty gauge
             if(!early&&ticks>=130){early=true;System.out.println("MODE_SEND_EARLY");p.send(Intent.MODE,-1);}
@@ -49,6 +54,16 @@ public final class ModeReplay {
             if(++idle>=50){System.out.println("MODE_SEND gauge="+own.state.gauge);p.send(Intent.MODE,-1);phase=3;idle=0;}
             return;
         }
+        if(phase==3&&BLINK&&own.state.mode>0&&bn<3){
+            // 3b: a step inside the mode (a blink), again at once (the blink cooldown), and once more after it
+            if(!action.isEmpty())return;
+            if(bn==0||bn==2&&ticks-bt>=80||bn==1&&ticks-bt>=20){
+                if(bn!=1){bx=mc.thePlayer.posX;bz=mc.thePlayer.posZ;}
+                bn++;bt=ticks;System.out.println("BLINK_SEND inside n="+bn+" mode="+own.state.mode);p.send(Intent.DODGE,4);
+            }
+            return;
+        }
+        if(phase==3&&BLINK&&bn>=3&&ticks-bt<40)return;
         if(phase==3){
             // 4: iai twice inside the mode, once after it
             if(!action.isEmpty()){idle=0;return;}

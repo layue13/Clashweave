@@ -164,6 +164,7 @@ public final class ActionCatalog {
         if (entry.sheathed != null) entry.sheathed = normalized(entry.sheathed);
         if (entry.counter != null) entry.counter = normalized(entry.counter);
         if (entry.finisher != null) entry.finisher = normalized(entry.finisher);
+        if (entry.mode != null) entry.mode = normalized(entry.mode);
         entry.entersReady = normalized(entry.entersReady);
         entry.entersSheathed = normalized(entry.entersSheathed);
         if (data.entry != null && entry.sheathed != null
@@ -206,6 +207,11 @@ public final class ActionCatalog {
     /** What the input starts while a broken target is in reach, or null when it means its usual thing. */
     public String finisherTarget(Intent input) {
         return entry.finisher == null ? null : entry.finisher.get(input);
+    }
+
+    /** What the input starts while the player is in the mode, or null when it means its usual thing. */
+    public String modeTarget(Intent input) {
+        return entry.mode == null ? null : entry.mode.get(input);
     }
 
     public boolean entersReady(String id) {
@@ -275,6 +281,7 @@ public final class ActionCatalog {
         rules.add("ready", intents(entry.ready));
         if (entry.counter != null && !entry.counter.isEmpty()) rules.add("counter", intents(entry.counter));
         if (entry.finisher != null && !entry.finisher.isEmpty()) rules.add("finisher", intents(entry.finisher));
+        if (entry.mode != null && !entry.mode.isEmpty()) rules.add("mode", intents(entry.mode));
         rules.add("entersReady", sorted(entry.entersReady));
         rules.add("entersSheathed", sorted(entry.entersSheathed));
         data.add("entry", rules);
