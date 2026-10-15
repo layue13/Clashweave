@@ -92,7 +92,14 @@ public final class Vfx {
      * tell the blade's own motion from its carrier's.
      */
     public void reportBlade(int entity, double x, double y, double z) {
-        if (ENABLED) trails.capture(entity, x, y, z);
+        if (ENABLED) trails.capture(entity, x, y, z, false);
+    }
+
+    /**
+     * The blade of the player's own first-person hand: it is a hand's length from the eye, so its ribbon is kept slim.
+     */
+    public void reportOwnBlade(int entity, double x, double y, double z) {
+        if (ENABLED) trails.capture(entity, x, y, z, true);
     }
 
     private static final int FOLLOWERS = 32;
