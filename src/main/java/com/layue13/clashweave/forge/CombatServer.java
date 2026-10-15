@@ -931,15 +931,19 @@ public final class CombatServer {
         if (elapsed < definition.startup || elapsed >= definition.startup + definition.active) return;
         double previous = -definition.arc / 2 + definition.arc * (elapsed - definition.startup) / definition.active;
         double next = -definition.arc / 2 + definition.arc * (elapsed - definition.startup + 1) / definition.active;
-        for (Object object : state.player.worldObj.getEntitiesWithinAABB(
-            EntityLivingBase.class,
-            state.player.boundingBox.expand(definition.reach, 1, definition.reach))) {
+        double progressFrom = (elapsed - definition.startup) / (double) definition.active;
+        double progressTo = (elapsed - definition.startup + 1) / (double) definition.active;
+        double span = Math.max(definition.reach, definition.offset + definition.width);
+        for (Object object : state.player.worldObj
+            .getEntitiesWithinAABB(EntityLivingBase.class, state.player.boundingBox.expand(span, 1, span))) {
             EntityLivingBase target = (EntityLivingBase) object;
             if (target == state.player || target.isDead || protectedTarget(state.player, target)) continue;
             boolean intersected = SweepGeometry.intersects(
                 state.player,
                 target,
-                definition.reach,
+                definition,
+                progressFrom,
+                progressTo,
                 previous,
                 next,
                 state.yaw,
@@ -970,6 +974,12 @@ public final class CombatServer {
                     + action.id
                     + " hitTick="
                     + tick
+                    + " shape="
+                    + definition.shape
+                    + " reach="
+                    + definition.reach
+                    + " at="
+                    + state.player.posZ
                     + " frozen="
                     + contact.frozen);
         }
