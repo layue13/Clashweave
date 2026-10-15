@@ -99,8 +99,11 @@ public final class WeaponRendering {
      */
     private void trail(net.minecraft.entity.Entity wielder) {
         if (wielder == null || minecraft.currentScreen != null) return;
-        com.layue13.clashweave.client.vfx.Vfx.INSTANCE
-            .reportBlade(wielder.getEntityId(), wielder.posX, wielder.posY, wielder.posZ);
+        com.layue13.clashweave.client.vfx.Vfx vfx = com.layue13.clashweave.client.vfx.Vfx.INSTANCE;
+        // the first-person hand is drawn with the player as wielder and the third-person view off
+        if (wielder == minecraft.thePlayer && minecraft.gameSettings.thirdPersonView == 0)
+            vfx.reportOwnBlade(wielder.getEntityId(), wielder.posX, wielder.posY, wielder.posZ);
+        else vfx.reportBlade(wielder.getEntityId(), wielder.posX, wielder.posY, wielder.posZ);
     }
 
     @SubscribeEvent

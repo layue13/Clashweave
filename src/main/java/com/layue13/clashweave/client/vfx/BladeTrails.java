@@ -21,12 +21,19 @@ final class BladeTrails {
     private static final double BREAK = 4;
     /** Where the bright edge band ends, as a share of the way from the tip to the inner end. */
     private static final double EDGE = .3;
+    /**
+     * The first-person ribbon: how much of the blade it spans from the tip, its life and its strength against the world
+     * one.
+     */
+    private static final double OWN_SPAN = .3, OWN_LIFE = .5, OWN_ALPHA = .45;
+    /** Closer to the eye than this, an own-hand ribbon is not drawn. */
+    private static final double OWN_NEAR = .7;
 
     private static final class Slot {
 
         int entity = -1;
         long touched;
-        boolean pending;
+        boolean pending, own;
         float ex0, ey0, ez0, ex1, ey1, ez1; // eye-space base and tip of this frame
         double ox, oy, oz; // wielder position now
         final double[] bx = new double[SAMPLES], by = new double[SAMPLES], bz = new double[SAMPLES];
@@ -69,7 +76,7 @@ final class BladeTrails {
     }
 
     /** Called while the blade is drawn with its model-view matrix current; {@code x,y,z} is the wielder. */
-    void capture(int entity, double x, double y, double z) {
+    void capture(int entity, double x, double y, double z, boolean own) {
         if (def == null || entity < 0) return;
         buffer.clear();
         GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, buffer);
@@ -86,6 +93,7 @@ final class BladeTrails {
         s.oy = y;
         s.oz = z;
         s.pending = true;
+        s.own = own;
         s.touched = now();
     }
 
@@ -139,7 +147,7 @@ final class BladeTrails {
     void draw(double camX, double camY, double camZ) {
         if (def == null) return;
         long t = now();
-        double life = def.life, slow = def.slow, fastSpeed = def.fast;
+        double slow = def.slow, fastSpeed = def.fast;
         Tessellator tess = Tessellator.instance;
         tess.startDrawing(GL11.GL_QUADS);
         for (int i = 0; i < SLOTS; i++) {
@@ -148,6 +156,7 @@ final class BladeTrails {
             for (int n = 0; n < s.size - 1; n++) {
                 int b = ((s.head - n) % SAMPLES + SAMPLES) % SAMPLES; // newer
                 int a = ((s.head - n - 1) % SAMPLES + SAMPLES) % SAMPLES; // older
+                double life = s.own ? OWN_LIFE * def.life : def.life;
                 double age = t - s.time[b];
                 if (age >= life) break;
                 double dt = Math.max(1, s.time[b] - s.time[a]) / 1000.0;
@@ -159,13 +168,20 @@ final class BladeTrails {
                 double fast = Math.min(1, Math.max(0, (speed - slow) / (fastSpeed - slow)));
                 if (fast <= 0) continue;
                 double fadeNew = 1 - age / life, fadeOld = Math.max(0, 1 - (t - s.time[a]) / life);
-                float alpha = (float) (fast * fadeNew * fadeNew), older = (float) (fast * fadeOld * fadeOld);
+                double strength = s.own ? OWN_ALPHA : 1;
+                float alpha = (float) (strength * fast * fadeNew * fadeNew),
+                    older = (float) (strength * fast * fadeOld * fadeOld);
+                double span = s.own ? OWN_SPAN : 1;
+                if (s.own) {
+                    double nx = s.tx[b] - camX, ny = s.ty[b] - camY, nz = s.tz[b] - camZ;
+                    if (nx * nx + ny * ny + nz * nz < OWN_NEAR * OWN_NEAR) continue;
+                }
                 // The edge is hot and bright, fading through a band to a faint haze at the inner end.
                 float mb = (float) EDGE;
-                double bxm = s.tx[b] + (s.bx[b] - s.tx[b]) * mb, bym = s.ty[b] + (s.by[b] - s.ty[b]) * mb,
-                    bzm = s.tz[b] + (s.bz[b] - s.tz[b]) * mb;
-                double axm = s.tx[a] + (s.bx[a] - s.tx[a]) * mb, aym = s.ty[a] + (s.by[a] - s.ty[a]) * mb,
-                    azm = s.tz[a] + (s.bz[a] - s.tz[a]) * mb;
+                double bxm = s.tx[b] + (s.bx[b] - s.tx[b]) * span * mb, bym = s.ty[b] + (s.by[b] - s.ty[b]) * span * mb,
+                    bzm = s.tz[b] + (s.bz[b] - s.tz[b]) * span * mb;
+                double axm = s.tx[a] + (s.bx[a] - s.tx[a]) * span * mb, aym = s.ty[a] + (s.by[a] - s.ty[a]) * span * mb,
+                    azm = s.tz[a] + (s.bz[a] - s.tz[a]) * span * mb;
                 float mid = .45f;
                 tess.setColorRGBA_F(1f, 1f, 1f, older * def.tipAlpha);
                 tess.addVertex(s.tx[a] - camX, s.ty[a] - camY, s.tz[a] - camZ);
@@ -180,9 +196,15 @@ final class BladeTrails {
                 tess.setColorRGBA_F(def.tip[0], def.tip[1], def.tip[2], alpha * def.tipAlpha * mid);
                 tess.addVertex(bxm - camX, bym - camY, bzm - camZ);
                 tess.setColorRGBA_F(def.base[0], def.base[1], def.base[2], alpha * def.baseAlpha);
-                tess.addVertex(s.bx[b] - camX, s.by[b] - camY, s.bz[b] - camZ);
+                tess.addVertex(
+                    s.tx[b] + (s.bx[b] - s.tx[b]) * span - camX,
+                    s.ty[b] + (s.by[b] - s.ty[b]) * span - camY,
+                    s.tz[b] + (s.bz[b] - s.tz[b]) * span - camZ);
                 tess.setColorRGBA_F(def.base[0], def.base[1], def.base[2], older * def.baseAlpha);
-                tess.addVertex(s.bx[a] - camX, s.by[a] - camY, s.bz[a] - camZ);
+                tess.addVertex(
+                    s.tx[a] + (s.bx[a] - s.tx[a]) * span - camX,
+                    s.ty[a] + (s.by[a] - s.ty[a]) * span - camY,
+                    s.tz[a] + (s.bz[a] - s.tz[a]) * span - camZ);
             }
         }
         tess.draw();
