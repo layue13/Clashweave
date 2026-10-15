@@ -20,7 +20,8 @@
         "katana:step",
         "katana:finisher",
         "katana:judgement",
-        "katana:judgement_draw"
+        "katana:judgement_draw",
+        "katana:blink"
       ],
       "entry": {
         "sheathed": {
@@ -57,6 +58,9 @@
         ],
         "finisher": {
           "HEAVY": "katana:finisher"
+        },
+        "mode": {
+          "DODGE": "katana:blink"
         }
       }
     }

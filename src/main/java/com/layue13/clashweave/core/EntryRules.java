@@ -14,6 +14,10 @@ public final class EntryRules {
     public Map<Intent, String> counter;
     /** Inputs that mean something else while a broken target stands in reach; omitted when there is no finisher. */
     public Map<Intent, String> finisher;
+    /**
+     * Inputs that mean something else while the player is in the mode (a step becomes a blink); omitted when none do.
+     */
+    public Map<Intent, String> mode;
     public Set<String> entersReady = new HashSet<>();
     public Set<String> entersSheathed = new HashSet<>();
 

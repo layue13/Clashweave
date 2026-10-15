@@ -360,6 +360,34 @@
       "protectUntil": 6,
       "edges": [],
       "_comment": "P2 provisional judgement cut with the blade in: blink back, a beat, then the draw lands every cut (release 16)."
+    },
+    {
+      "id": "katana:blink",
+      "startup": 1,
+      "active": 0,
+      "recovery": 11,
+      "damage": 0,
+      "reach": 0,
+      "arc": 0,
+      "distance": 6.0,
+      "speed": 1.0,
+      "protectFrom": 1,
+      "protectUntil": 8,
+      "edges": [
+        {
+          "input": "LIGHT",
+          "target": "katana:light_1",
+          "from": 7,
+          "until": 12
+        },
+        {
+          "input": "HEAVY",
+          "target": "katana:heavy",
+          "from": 7,
+          "until": 12
+        }
+      ],
+      "_comment": "P2 provisional blink: in the mode a step becomes a longer, quicker, safer move (6 blocks, protected to tick 8) with a longer cooldown (combat.blinkCooldownTicks) and recovery."
     }
   ]
 }

@@ -81,6 +81,7 @@ public final class Scheduler {
     private boolean sheathed = true;
     private long counterUntil;
     private long finisherUntil;
+    private boolean inMode;
 
     public void openCounter(long tick, int window) {
         if (current == null) counterUntil = tick + window;
@@ -100,6 +101,13 @@ public final class Scheduler {
 
     public boolean finisher(long tick) {
         return tick < finisherUntil;
+    }
+
+    /**
+     * The server says whether the player is in the mode: its inputs then mean the mode's own actions where declared.
+     */
+    public void setMode(boolean on) {
+        inMode = on;
     }
 
     public Scheduler(ActionCatalog catalog) {
@@ -155,6 +163,8 @@ public final class Scheduler {
                 request.expires = Math.min(request.expires, finisherUntil);
             }
             if (input == Intent.LIGHT && counter(tick)) request.expires = Math.min(request.expires, counterUntil);
+            String modeTarget = inMode ? catalog.modeTarget(input) : null;
+            if (modeTarget != null) request.target = modeTarget;
         } else {
             for (ActionCatalog.Edge edge : current.definition.edges) {
                 if (edge.input == input && tick - request.compensation - current.start < edge.until) {
@@ -163,6 +173,8 @@ public final class Scheduler {
                     // The heavy of a running combo means the finisher too while a broken target is in reach.
                     String finisherTarget = finisher(tick) ? catalog.finisherTarget(input) : null;
                     if (finisherTarget != null) request.target = finisherTarget;
+                    String modeTarget = inMode ? catalog.modeTarget(input) : null;
+                    if (modeTarget != null) request.target = modeTarget;
                     break;
                 }
             }

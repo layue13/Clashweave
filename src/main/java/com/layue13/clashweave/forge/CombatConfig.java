@@ -21,6 +21,7 @@ public final class CombatConfig {
     public int gaugeMax, gaugeStreakCap, gaugeStreakTicks, gaugeBlockInterval, gaugeHurtInterval, modeTicks;
     public float gaugeHit, gaugeStreak, gaugeBlock, gaugeParry, gaugeHurt;
     public int dodgeCooldown;
+    public int blinkCooldown;
     public int postureMax, postureRecoveryDelay, postureRecoveryPerTick, postureResetPercent;
     public int breakTicksMonster, breakTicksPlayer;
     public float finisherMultiplier, finisherPlayerCap, finisherRange, gaugeFinisher;
@@ -500,6 +501,13 @@ public final class CombatConfig {
             "Posture damage per point of damage when the action declares none");
         dodgeCooldown = config
             .getInt("dodgeCooldownTicks", "combat", 24, 0, 400, "Ticks before the next step is allowed");
+        blinkCooldown = config.getInt(
+            "blinkCooldownTicks",
+            "combat",
+            60,
+            0,
+            600,
+            "Ticks before the next blink (a step in the mode) is allowed");
         finisherMultiplier = config.getFloat(
             "multiplier",
             "finisher",

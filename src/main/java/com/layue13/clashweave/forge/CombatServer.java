@@ -620,67 +620,69 @@ public final class CombatServer {
             snapshot(state, message.sequence, result, false);
         } else if (intent == Intent.SPECIAL && !"SPECIAL".equals(specialVerdict)) {
             snapshot(state, message.sequence, specialVerdict, false);
-        } else if (intent == Intent.DODGE && tick - state.lastDodge < config.dodgeCooldown) {
-            snapshot(state, message.sequence, "REJECT:DODGE_COOLDOWN", false);
-        } else if (state.guard.held() && intent != Intent.DODGE
-            && !(intent == Intent.LIGHT && state.scheduler.counter(tick))) {
-                snapshot(state, message.sequence, "REJECT:GUARD_HELD", false);
-            } else {
-                if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
-                if (intent == Intent.SPECIAL) state.lastSpecial = tick;
-                if (intent == Intent.DODGE) {
-                    state.guard.release(tick);
-                    state.lastDodge = tick;
-                    state.dodgeOctant = message.target;
+        } else if (intent == Intent.DODGE
+            && tick - state.lastDodge < (inMode(state) ? config.blinkCooldown : config.dodgeCooldown)) {
+                snapshot(state, message.sequence, "REJECT:DODGE_COOLDOWN", false);
+            } else if (state.guard.held() && intent != Intent.DODGE
+                && !(intent == Intent.LIGHT && state.scheduler.counter(tick))) {
+                    snapshot(state, message.sequence, "REJECT:GUARD_HELD", false);
+                } else {
+                    if (intent == Intent.LIGHT && state.scheduler.counter(tick)) state.guard.release(tick);
+                    if (intent == Intent.SPECIAL) state.lastSpecial = tick;
+                    if (intent == Intent.DODGE) {
+                        state.guard.release(tick);
+                        state.lastDodge = tick;
+                        state.dodgeOctant = message.target;
+                        trace(
+                            "DODGE_REQUEST player=" + input.player
+                                .getCommandSenderName() + " octant=" + message.target + " tick=" + tick);
+                    }
+                    if (intent == Intent.HEAVY && brokenInReach(state)) state.scheduler.openFinisher(tick, 2);
+                    if (state.scheduler.current() == null) {
+                        use(state, CombatWeapons.entry(input.player.getHeldItem()));
+                        state.appearance.apply(true);
+                    }
+                    FacingHistory.Result facing = state.facingHistory.choose(
+                        message.yaw,
+                        message.pitch,
+                        input.facingArrival,
+                        input.player.rotationYaw,
+                        input.player.rotationPitch,
+                        input.player.posX,
+                        input.player.posY,
+                        input.player.posZ,
+                        config.facingTolerance,
+                        config.facingHistoryAge * 1_000_000L,
+                        config.facingHistoryDrift);
+                    state.requestFacing.put(message.sequence, facing);
                     trace(
-                        "DODGE_REQUEST player=" + input.player
-                            .getCommandSenderName() + " octant=" + message.target + " tick=" + tick);
-                }
-                if (intent == Intent.HEAVY && brokenInReach(state)) state.scheduler.openFinisher(tick, 2);
-                if (state.scheduler.current() == null) {
-                    use(state, CombatWeapons.entry(input.player.getHeldItem()));
-                    state.appearance.apply(true);
-                }
-                FacingHistory.Result facing = state.facingHistory.choose(
-                    message.yaw,
-                    message.pitch,
-                    input.facingArrival,
-                    input.player.rotationYaw,
-                    input.player.rotationPitch,
-                    input.player.posX,
-                    input.player.posY,
-                    input.player.posZ,
-                    config.facingTolerance,
-                    config.facingHistoryAge * 1_000_000L,
-                    config.facingHistoryDrift);
-                state.requestFacing.put(message.sequence, facing);
-                trace(
-                    "FACING player=" + input.player.getCommandSenderName()
-                        + " seq="
-                        + message.sequence
-                        + " requested="
-                        + message.yaw
-                        + " known="
-                        + input.player.rotationYaw
-                        + " chosen="
-                        + facing.yaw
-                        + " accepted="
-                        + facing.accepted
-                        + " reason="
-                        + facing.reason);
-                long receiptAge = input.receivedTick - effectiveStamp;
-                state.scheduler.request(
-                    intent,
-                    message.sequence,
-                    tick,
-                    message.origin,
-                    receiptAge,
-                    LatencyCompensation.limit(
+                        "FACING player=" + input.player.getCommandSenderName()
+                            + " seq="
+                            + message.sequence
+                            + " requested="
+                            + message.yaw
+                            + " known="
+                            + input.player.rotationYaw
+                            + " chosen="
+                            + facing.yaw
+                            + " accepted="
+                            + facing.accepted
+                            + " reason="
+                            + facing.reason);
+                    long receiptAge = input.receivedTick - effectiveStamp;
+                    state.scheduler.setMode(inMode(state));
+                    state.scheduler.request(
+                        intent,
+                        message.sequence,
+                        tick,
+                        message.origin,
                         receiptAge,
-                        config.inputEdgeCompensationTicks,
-                        serverPingMillis(input.player),
-                        config.inputEdgeCompensationJitterTicks));
-            }
+                        LatencyCompensation.limit(
+                            receiptAge,
+                            config.inputEdgeCompensationTicks,
+                            serverPingMillis(input.player),
+                            config.inputEdgeCompensationJitterTicks));
+                }
     }
 
     /** Isolated MCP field access; mapping must be verified in the Forge development environment. */
@@ -1419,6 +1421,10 @@ public final class CombatServer {
                 "DELAYED_STRIKE target=" + target
                     .getEntityId() + " tick=" + tick + " guard=" + guard + " damage=" + damage + " hit=" + hit);
         }
+    }
+
+    private boolean inMode(PlayerState state) {
+        return state.gauge != null && state.gauge.inMode(tick);
     }
 
     /** Whether a broken living thing stands in front of the player within the finisher range. */
