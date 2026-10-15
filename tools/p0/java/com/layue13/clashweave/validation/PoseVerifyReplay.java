@@ -50,7 +50,7 @@ public final class PoseVerifyReplay {
     @SubscribeEvent public void tick(TickEvent.ClientTickEvent event){
         if(event.phase!=TickEvent.Phase.END||mc.thePlayer==null||done||ClientProxy.instance.visuals.size()<2)return;
         ClientProxy p=ClientProxy.instance;ClientProxy.Visual own=p.own();if(own==null)return;
-        mc.gameSettings.hideGUI=true;mc.gameSettings.limitFramerate=60;mc.gameSettings.pauseOnLostFocus=false;
+        mc.gameSettings.hideGUI=!first;mc.gameSettings.limitFramerate=60;mc.gameSettings.pauseOnLostFocus=false;
         if(!mc.thePlayer.getCommandSenderName().equals("P0A"))return;
         if(++ticks<100)return;
         // The scenario only sends input while the souls camera is active, so the orbit camera exists only while an action

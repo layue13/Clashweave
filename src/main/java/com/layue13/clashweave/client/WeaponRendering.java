@@ -93,7 +93,10 @@ public final class WeaponRendering {
         }
     }
 
-    /** Reports the blade being drawn to the trail layer; not for the first-person hand or a menu's player model. */
+    /**
+     * Reports the blade being drawn to the trail layer (the first-person hand included; eye space is the same); not for
+     * a menu's player model.
+     */
     private void trail(net.minecraft.entity.Entity wielder) {
         if (wielder == null || minecraft.currentScreen != null) return;
         com.layue13.clashweave.client.vfx.Vfx.INSTANCE
@@ -238,7 +241,7 @@ public final class WeaponRendering {
             PoseDriver.carrying(minecraft.thePlayer) ? CarryStyle.of(resourceFor(minecraft.thePlayer.getHeldItem()))
                 : null,
             partial,
-            null);
+            minecraft.thePlayer);
         GL11.glPopMatrix();
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPopMatrix();
